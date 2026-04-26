@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import asyncio
 import uuid
 from typing import Optional
 
@@ -18,7 +17,7 @@ APP_NAME = "soap_agent_3"
 USER_ID = "batch_user"
 
 
-async def verify_claims_async(payload: ClaimVerificationInput) -> ClaimVerificationResult:
+def verify_claims(payload: ClaimVerificationInput) -> ClaimVerificationResult:
     load_env()
     session_service = InMemorySessionService()
     runner = Runner(
@@ -32,7 +31,7 @@ async def verify_claims_async(payload: ClaimVerificationInput) -> ClaimVerificat
     user_content = types.Content(role="user", parts=[types.Part(text=text)])
 
     final_text: Optional[str] = None
-    async for event in runner.run_async(
+    for event in runner.run(
         user_id=USER_ID,
         session_id=session_id,
         new_message=user_content,
@@ -54,10 +53,6 @@ async def verify_claims_async(payload: ClaimVerificationInput) -> ClaimVerificat
         cleaned = cleaned.removesuffix("```").strip()
 
     return ClaimVerificationResult.model_validate_json(cleaned)
-
-
-def verify_claims(payload: ClaimVerificationInput) -> ClaimVerificationResult:
-    return asyncio.run(verify_claims_async(payload))
 
 
 def benchmark_from_row(row: dict) -> dict:
