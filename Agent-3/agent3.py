@@ -1,5 +1,5 @@
 """
-Batch claim verification over Agent-2 v2_results-style JSON.
+Sequential claim verification over Agent-2 v2_results-style JSON.
 
 Run from Agent-3 with uv:
 
@@ -13,13 +13,12 @@ Optional: AGENT3_GEMINI_MODEL (default gemini-2.5-flash).
 from __future__ import annotations
 
 import argparse
-import asyncio
 import json
 import sys
 from pathlib import Path
 
 from env_setup import load_env, require_api_key
-from runner import benchmark_from_row, verify_claims_async
+from runner import benchmark_from_row, verify_claims
 from schemas import BenchmarkScores, ClaimVerificationInput
 
 
@@ -49,12 +48,6 @@ def _parse_args() -> argparse.Namespace:
     )
     p.add_argument("--limit", type=int, default=None, help="Max new rows to process.")
     p.add_argument(
-        "--workers",
-        type=int,
-        default=4,
-        help="Max concurrent claim-verification requests (default: 4).",
-    )
-    p.add_argument(
         "--ids",
         type=str,
         default=None,
@@ -63,31 +56,30 @@ def _parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
-async def _process_one(row: dict, sem: asyncio.Semaphore) -> dict:
-    async with sem:
-        rid = row.get("id")
-        payload = ClaimVerificationInput(
-            transcript=row["transcript"],
-            generated_soap=row["generated"],
-            benchmark=BenchmarkScores.model_validate(benchmark_from_row(row)),
-        )
-        try:
-            out = await verify_claims_async(payload)
-            return {
-                **row,
-                "claim_verification": out.model_dump(),
-                "claim_verification_error": None,
-            }
-        except Exception as e:
-            print(f"  Error id={rid}: {e}", file=sys.stderr)
-            return {
-                **row,
-                "claim_verification": None,
-                "claim_verification_error": str(e),
-            }
+def _process_one(row: dict) -> dict:
+    rid = row.get("id")
+    payload = ClaimVerificationInput(
+        transcript=row["transcript"],
+        generated_soap=row["generated"],
+        benchmark=BenchmarkScores.model_validate(benchmark_from_row(row)),
+    )
+    try:
+        out = verify_claims(payload)
+        return {
+            **row,
+            "claim_verification": out.model_dump(),
+            "claim_verification_error": None,
+        }
+    except Exception as e:
+        print(f"  Error id={rid}: {e}", file=sys.stderr)
+        return {
+            **row,
+            "claim_verification": None,
+            "claim_verification_error": str(e),
+        }
 
 
-async def _run_batch(args: argparse.Namespace) -> None:
+def _run(args: argparse.Namespace) -> None:
     load_env()
     require_api_key()
 
@@ -130,15 +122,11 @@ async def _run_batch(args: argparse.Namespace) -> None:
         print("No pending rows to process.")
         return
 
-    workers = max(1, int(args.workers))
-    sem = asyncio.Semaphore(workers)
+    print(f"Processing {len(rows_to_process)} rows sequentially ...")
 
-    print(f"Processing {len(rows_to_process)} rows with workers={workers} ...")
-
-    tasks = [asyncio.create_task(_process_one(row, sem)) for row in rows_to_process]
     processed = 0
-    for fut in asyncio.as_completed(tasks):
-        row_out = await fut
+    for row in rows_to_process:
+        row_out = _process_one(row)
         rid = row_out.get("id")
         print(f"Done id={rid}")
 
@@ -162,7 +150,7 @@ async def _run_batch(args: argparse.Namespace) -> None:
 
 def main() -> None:
     args = _parse_args()
-    asyncio.run(_run_batch(args))
+    _run(args)
 
 
 if __name__ == "__main__":

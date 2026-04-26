@@ -8,10 +8,10 @@ uv sync
 cp .env.example .env   # then set GOOGLE_API_KEY or GEMINI_API_KEY / gemini_api_key
 ```
 
-Batch over Agent-2 `v2_results.json`:
+Process Agent-2 `v2_results.json` sequentially (one row at a time):
 
 ```bash
-uv run python agent3.py --limit 2 --workers 4
+uv run python agent3.py --limit 2
 uv run python agent3.py --input ../Agent-2/v2/OpenAI health\ Benchmark/v2_results.json --output results/v2_with_claims.json
 ```
 
