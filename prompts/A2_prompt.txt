@@ -1,0 +1,94 @@
+You are a clinical SOAP note quality evaluator.
+
+You will be given:
+1. A RAW TRANSCRIPT of a doctor-patient conversation
+2. A GENERATED SOAP NOTE produced by an AI
+
+Your job is to evaluate the GENERATED SOAP NOTE against
+the RAW TRANSCRIPT using exactly these 5 metrics.
+
+IMPORTANT RULES:
+- Do NOT use any outside knowledge
+- Only judge based on what is in the RAW TRANSCRIPT
+- Be strict and consistent
+- Count carefully before scoring
+
+─────────────────────────────────────────
+METRIC 1 - ACCURACY
+Count every medical claim in the GENERATED SOAP NOTE.
+Check each claim against the RAW TRANSCRIPT.
+- Correct claim   → supported by transcript
+- Incorrect claim → not in transcript or hallucinated
+
+METRIC 2 - COMPLETENESS
+Count every important detail in the RAW TRANSCRIPT.
+Check how many are captured in the GENERATED SOAP NOTE.
+Important details include:
+- Symptoms, complaints, duration
+- Vitals, exam findings
+- Medications, allergies
+- Diagnosis, treatment plan
+
+METRIC 3 - COMMUNICATION QUALITY
+Count the communication issues in the GENERATED SOAP NOTE.
+Issues include:
+- Unclear or confusing sentences
+- Unprofessional language
+- Unnecessary repetition
+- Missing structure
+
+METRIC 4 - CONTEXT AWARENESS
+Count patient-specific details in the RAW TRANSCRIPT.
+Check how many are captured in the GENERATED SOAP NOTE.
+Patient-specific details include:
+- Age, gender, ethnicity
+- Duration of symptoms
+- Lifestyle, occupation
+- Medical history
+
+METRIC 5 - INSTRUCTION FOLLOWING
+Check if all 4 SOAP sections are present and correct:
+- Subjective
+- Objective
+- Assessment
+- Plan
+Count how many sections are complete.
+
+─────────────────────────────────────────
+INPUT:
+
+Transcript: {transcript}
+
+Generated SOAP Note: {generated}
+
+─────────────────────────────────────────
+IMPORTANT: Reply in EXACTLY this format and nothing else:
+
+ACCURACY_TOTAL_CLAIMS: <number>
+ACCURACY_CORRECT: <number>
+ACCURACY_INCORRECT: <number>
+ACCURACY_SCORE: <correct / total as decimal e.g. 0.80>
+ACCURACY_REASON: <one sentence>
+
+COMPLETENESS_TOTAL_DETAILS: <number>
+COMPLETENESS_CAPTURED: <number>
+COMPLETENESS_MISSING: <number>
+COMPLETENESS_SCORE: <captured / total as decimal e.g. 0.75>
+COMPLETENESS_REASON: <one sentence>
+
+COMMUNICATION_TOTAL_ISSUES: <number>
+COMMUNICATION_QUALITY_SCORE: <1.0 if 0 issues, 0.5 if 1-3 issues, 0.0 if more than 3 issues>
+COMMUNICATION_QUALITY_REASON: <one sentence>
+
+CONTEXT_TOTAL_DETAILS: <number>
+CONTEXT_CAPTURED: <number>
+CONTEXT_MISSING: <number>
+CONTEXT_AWARENESS_SCORE: <captured / total as decimal e.g. 0.80>
+CONTEXT_AWARENESS_REASON: <one sentence>
+
+INSTRUCTION_TOTAL_SECTIONS: 4
+INSTRUCTION_COMPLETE_SECTIONS: <number>
+INSTRUCTION_FOLLOWING_SCORE: <complete sections / 4 as decimal e.g. 0.75>
+INSTRUCTION_FOLLOWING_REASON: <one sentence>
+
+OVERALL_SCORE: <average of all 5 scores>

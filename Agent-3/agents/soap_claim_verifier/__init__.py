@@ -1,1 +1,0 @@
-"""ADK web agent package."""
