@@ -6,7 +6,7 @@ def main():
     stream =pipeline.run()
 
     for data in stream:
-        json.dump(data, open("data/claim_verification.json", "w"), indent=4)
+        json.dump(data, open("Output/claim_verification.json", "w"), indent=4)
 
 if __name__ == "__main__":
     main()
