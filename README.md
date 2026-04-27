@@ -44,7 +44,14 @@ Optional: `Agent_3` model override — `AGENT3_GEMINI_MODEL` (default `gemini-2.
 
 ### Data and prompts
 
-The main pipeline expects:
+**Prepare the source data in `preprocessing.ipynb` first.** That notebook loads the upstream dataset, applies cleaning steps, and writes the pipeline inputs under `data/`, including:
+
+- `data/clean_medsynth_final.json`
+- `data/clean_medsynth_final.csv` (convenience export)
+
+Run the cells from the repository root with a kernel that has the notebook dependencies (for example the same environment as `uv sync` plus `ipykernel` / `jupyter` if you use a notebook). Until those files exist, `main.py` and `pipeline/` cannot read a full dataset from `data/`.
+
+The main pipeline then expects:
 
 | Path | Purpose |
 |------|---------|
@@ -52,7 +59,7 @@ The main pipeline expects:
 | `prompts/A1_prompt.txt` | Template for SOAP generation (`{transcript}` placeholder) |
 | `prompts/A2_prompt.txt` | Template for evaluation (`{transcript}`, `{generated}`) |
 
-Sample prompt files are already under `prompts/`. Place or symlink your MedSynth (or compatible) JSON at `data/clean_medsynth_final.json`.
+Sample prompt files are already under `prompts/`. If you are not re-running the notebook, place or symlink a compatible MedSynth JSON at `data/clean_medsynth_final.json` instead.
 
 ## Run the full pipeline (entry point)
 
@@ -102,6 +109,7 @@ uv run adk web agents
 
 ## Project layout (high level)
 
+- **`preprocessing.ipynb`** — Load and clean MedSynth-style data; writes `data/clean_medsynth_final.json` (and CSV).
 - **`main.py`** — Orchestrates `Pipeline` over `data/`.
 - **`pipeline/`** — `Pipeline` class and `AgentInterface` (Agents 1 → 2 → 3).
 - **`Agent_1/`** — SOAP generation (`V1/generate.py`, Ollama).
