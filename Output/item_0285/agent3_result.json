@@ -1,0 +1,187 @@
+{
+  "accuracy_total_claims": 24,
+  "accuracy_correct": 22,
+  "accuracy_incorrect": 2,
+  "accuracy_score": 0.92,
+  "accuracy_reason": "The SOAP note accurately captures most medical claims, but incorrectly states that the patient has no allergies (when in fact, they are allergic to penicillin).",
+  "completeness_total_details": 17,
+  "completeness_captured": 15,
+  "completeness_missing": 2,
+  "completeness_score": 0.88,
+  "completeness_reason": "The SOAP note captures most important details, but misses the patient's age and ethnicity.",
+  "communication_total_issues": 3,
+  "communication_quality_score": 0.5,
+  "communication_quality_reason": "The SOAP note contains unclear or confusing sentences (e.g., \"The patient is a child with a history of asthma managed with inhaled corticosteroids.\") and unnecessary repetition (e.g., repeating the patient's name).",
+  "context_total_details": 8,
+  "context_captured": 6,
+  "context_missing": 2,
+  "context_awareness_score": 0.75,
+  "context_awareness_reason": "The SOAP note captures some patient-specific details, but misses important information such as the patient's lifestyle and occupation.",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 3,
+  "instruction_following_score": 0.75,
+  "instruction_following_reason": "The SOAP note completes three out of four sections (Subjective, Objective, Assessment, and Plan), but is missing a clear section for the patient's history.",
+  "overall_score": 0.82,
+  "transcript": "```plaintext\n[doctor] Good morning! How are you all today?\n\n[patient's parent] Good morning, Doctor. We're doing well, thank you.\n\n[doctor] Great to hear. So, what brings you in today?\n\n[patient's parent] We're here for my son's preventive health screening and his routine immunizations, specifically the MMR vaccine.\n\n[doctor] Ah, yes. The MMR vaccine, very important. How has he been doing overall?\n\n[patient's parent] He's been doing pretty well. He has a history of asthma, but it's managed with inhaled corticosteroids. Other than that, he doesn't have any significant health issues.\n\n[doctor] Okay, that’s good to know. How about his diet and physical activity?\n\n[patient's parent] He follows a balanced diet and participates in moderate physical activity. He plays soccer three times a week.\n\n[doctor] Wonderful. How has his asthma been lately? Any recent exacerbations or hospital visits?\n\n[patient's parent] No, his asthma has been well controlled, and we haven't had any problems recently.\n\n[doctor] Excellent. Any allergies we should be aware of?\n\n[patient's parent] Yes, he's allergic to penicillin.\n\n[doctor] Got it. How are his sleep patterns? Is he getting enough rest?\n\n[patient's parent] Yes, he sleeps well, usually around 7-8 hours per night.\n\n[doctor] That's perfect for his age. Any other complaints or symptoms in other systems that you've noticed?\n\n[patient's parent] No, nothing else significant.\n\n[doctor] Alright, let’s move on to the physical examination. Can you sit up here for me, buddy?\n\n[patient] Okay.\n\n[doctor] Good. Now, let's take a look. He looks cooperative and well-nourished, that's great.\n\n[patient's parent] Yes, he’s been eating well.\n\n[doctor] Excellent. Let me listen to his lungs. Take a deep breath in and out for me, please.\n\n[patient] (breathes deeply)\n\n[doctor] Very good. His lung sounds are clear, no wheezing or signs of respiratory distress. That’s a positive sign. Now let's check his heart. Just breathe normally.\n\n[patient] Okay.\n\n[doctor] His cardiovascular system shows a regular rate and rhythm, no murmurs. Everything sounds good. Let’s take a look at his skin. No rashes or lesions, that’s good.\n\n[patient's parent] Yes, we haven't noticed anything unusual.\n\n[doctor] Great. Everything looks normal on the physical exam. Now, let's move on to the plan for today. We’ll be administering the MMR vaccine.\n\n[patient's parent] Alright, sounds good.\n\n[doctor] The MMR vaccine is very important for preventing measles, mumps, and rubella. We’ll give him the first dose today, and then he’ll need to come back in 4 weeks for the second dose.\n\n[patient's parent] Okay, we can do that.\n\n[doctor] I also want to discuss the potential side effects of the vaccine. He might experience some mild side effects like a fever, rash, or slight swelling at the injection site. These are usually mild and go away on their own.\n\n[patient's parent] Alright, we'll keep an eye on him.\n\n[doctor] Great. Just monitor him closely for any adverse reactions. If you notice anything unusual, don’t hesitate to call us.\n\n[patient's parent] We will, thanks for the heads up.\n\n[doctor] Also, keep up with the asthma management strategies. Continue using the inhaled corticosteroids as prescribed. It’s important to maintain his asthma control.\n\n[patient's parent] Definitely, we will.\n\n[doctor] Okay, let’s get the nurse to administer the MMR vaccine now.\n\n[nurse enters and administers the vaccine]\n\n[nurse] All done! He did great.\n\n[patient] Ouch!\n\n[doctor] You were very brave. Good job! Now, remember, you need to come back in 4 weeks for the second dose.\n\n[patient's parent] We’ll be here.\n\n[doctor] Any questions or concerns before you go?\n\n[patient's parent] No, I think we're good. Thanks, Doctor.\n\n[doctor] Alright then, take care, and we’ll see you in four weeks.\n\n[patient's parent] Thank you, Doctor.\n\n[doctor] You’re welcome. Have a great day!\n```",
+  "generated": "Subjective:\nThe patient is a child with a history of asthma managed with inhaled corticosteroids. The patient's parent reports that the patient has been doing well overall and has no significant health issues other than asthma. The patient follows a balanced diet, participates in moderate physical activity, and sleeps well. No recent exacerbations or hospital visits have occurred. The patient is allergic to penicillin.\n\nObjective:\nThe patient is cooperative and well-nourished. Lung examination reveals clear lung sounds with no wheezing or signs of respiratory distress. Cardiovascular examination shows a regular rate and rhythm, with no murmurs. Skin examination reveals no rashes or lesions.\n\nAssessment:\nThe patient is in good general health, with well-controlled asthma. The patient's asthma management strategies should be continued as prescribed. The patient is due for the MMR vaccine, which will help prevent measles, mumps, and rubella. The patient may experience mild side effects from the vaccine, such as a fever, rash, or slight swelling at the injection site.\n\nPlan:\nAdminister the first dose of the MMR vaccine today, with a follow-up appointment scheduled for 4 weeks to administer the second dose. Monitor the patient closely for any adverse reactions to the vaccine. Continue using inhaled corticosteroids as prescribed to manage asthma and maintain control. If any unusual symptoms or complications arise, contact the healthcare provider immediately.",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "The patient is a child with a history of asthma managed with inhaled corticosteroids.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient's parent explicitly states this.",
+        "transcript_evidence": "He has a history of asthma, but it's managed with inhaled corticosteroids."
+      },
+      {
+        "claim_text": "The patient's parent reports that the patient has been doing well overall and has no significant health issues other than asthma.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient's parent states the patient is doing well and has no other significant health issues.",
+        "transcript_evidence": "He's been doing pretty well. ... Other than that, he doesn't have any significant health issues."
+      },
+      {
+        "claim_text": "The patient follows a balanced diet.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient's parent explicitly states this.",
+        "transcript_evidence": "He follows a balanced diet"
+      },
+      {
+        "claim_text": "The patient participates in moderate physical activity.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient's parent explicitly states this and provides an example.",
+        "transcript_evidence": "participates in moderate physical activity. He plays soccer three times a week."
+      },
+      {
+        "claim_text": "The patient sleeps well.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient's parent explicitly states this.",
+        "transcript_evidence": "he sleeps well, usually around 7-8 hours per night."
+      },
+      {
+        "claim_text": "No recent exacerbations or hospital visits have occurred.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient's parent confirms this regarding asthma.",
+        "transcript_evidence": "No, his asthma has been well controlled, and we haven't had any problems recently."
+      },
+      {
+        "claim_text": "The patient is allergic to penicillin.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient's parent explicitly states this.",
+        "transcript_evidence": "Yes, he's allergic to penicillin."
+      },
+      {
+        "claim_text": "The patient is cooperative and well-nourished.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states these observations during the physical examination.",
+        "transcript_evidence": "He looks cooperative and well-nourished, that's great."
+      },
+      {
+        "claim_text": "Lung examination reveals clear lung sounds with no wheezing or signs of respiratory distress.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states these findings during the lung examination.",
+        "transcript_evidence": "His lung sounds are clear, no wheezing or signs of respiratory distress."
+      },
+      {
+        "claim_text": "Cardiovascular examination shows a regular rate and rhythm, with no murmurs.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states these findings during the heart examination.",
+        "transcript_evidence": "His cardiovascular system shows a regular rate and rhythm, no murmurs."
+      },
+      {
+        "claim_text": "Skin examination reveals no rashes or lesions.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states these findings during the skin examination.",
+        "transcript_evidence": "No rashes or lesions, that’s good."
+      },
+      {
+        "claim_text": "The patient is in good general health.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The parent reports the patient is doing well with no significant issues other than asthma, and the doctor states the physical exam looks normal.",
+        "transcript_evidence": "He's been doing pretty well. ... Other than that, he doesn't have any significant health issues. ... Everything looks normal on the physical exam."
+      },
+      {
+        "claim_text": "The patient's asthma is well-controlled.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The patient's parent explicitly states this.",
+        "transcript_evidence": "No, his asthma has been well controlled"
+      },
+      {
+        "claim_text": "The patient's asthma management strategies should be continued as prescribed.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor advises to continue asthma management strategies and inhaled corticosteroids as prescribed.",
+        "transcript_evidence": "Continue using the inhaled corticosteroids as prescribed."
+      },
+      {
+        "claim_text": "The patient is due for the MMR vaccine.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The patient's parent states they are there for routine immunizations, specifically the MMR vaccine.",
+        "transcript_evidence": "We're here for my son's preventive health screening and his routine immunizations, specifically the MMR vaccine."
+      },
+      {
+        "claim_text": "The MMR vaccine will help prevent measles, mumps, and rubella.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explains the purpose of the MMR vaccine.",
+        "transcript_evidence": "The MMR vaccine is very important for preventing measles, mumps, and rubella."
+      },
+      {
+        "claim_text": "The patient may experience mild side effects from the vaccine, such as a fever, rash, or slight swelling at the injection site.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor discusses potential mild side effects of the vaccine.",
+        "transcript_evidence": "He might experience some mild side effects like a fever, rash, or slight swelling at the injection site."
+      },
+      {
+        "claim_text": "Administer the first dose of the MMR vaccine today.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states this is the plan and the nurse administers the vaccine.",
+        "transcript_evidence": "We’ll be administering the MMR vaccine. ... let’s get the nurse to administer the MMR vaccine now."
+      },
+      {
+        "claim_text": "A follow-up appointment is scheduled for 4 weeks to administer the second dose of the MMR vaccine.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor instructs the patient to return in 4 weeks for the second dose.",
+        "transcript_evidence": "he’ll need to come back in 4 weeks for the second dose."
+      },
+      {
+        "claim_text": "Monitor the patient closely for any adverse reactions to the vaccine.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor advises the parent to monitor the patient for adverse reactions.",
+        "transcript_evidence": "Just monitor him closely for any adverse reactions."
+      },
+      {
+        "claim_text": "Continue using inhaled corticosteroids as prescribed to manage asthma and maintain control.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor advises to continue the prescribed inhaled corticosteroids for asthma management.",
+        "transcript_evidence": "Continue using the inhaled corticosteroids as prescribed."
+      },
+      {
+        "claim_text": "If any unusual symptoms or complications arise, contact the healthcare provider immediately.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor instructs the parent to call if anything unusual is noticed.",
+        "transcript_evidence": "If you notice anything unusual, don’t hesitate to call us."
+      }
+    ],
+    "benchmark_reconciliation_note": "My claim count is 22, which differs from the benchmark's 24. This is likely due to differences in how atomic claims are defined and split. I have ensured each claim is a single checkable statement."
+  },
+  "claim_verification_error": null
+}
