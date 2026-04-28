@@ -65,12 +65,13 @@ def _parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
-def _process_one(row: dict) -> dict:
+def _process_one(row: dict, medical_knowledge_terms: str) -> dict:
     rid = row.get("id")
     payload = ClaimVerificationInput(
         transcript=row["transcript"],
         generated_soap=row["generated"],
         benchmark=BenchmarkScores.model_validate(benchmark_from_row(row)),
+        medical_knowledge_terms=medical_knowledge_terms,
     )
     try:
         out = verify_claims(payload)

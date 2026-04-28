@@ -42,6 +42,7 @@ class ClaimVerificationInput(BaseModel):
     benchmark: BenchmarkScores = Field(
         description="Prior automated benchmark scores; advisory only."
     )
+    medical_knowledge_terms: str = Field(description="List of MKG terms.")
 
 
 SoapSection = Literal["Subjective", "Objective", "Assessment", "Plan", "Other"]

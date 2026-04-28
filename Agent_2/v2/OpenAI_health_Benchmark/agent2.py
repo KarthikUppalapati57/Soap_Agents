@@ -23,7 +23,10 @@ def evaluate_soap(prompt_template, transcript, generated):
     )
     response = ollama.chat(
         model="llama3.2",
-        messages=[{"role": "user", "content": prompt}]
+        messages=[{"role": "user", "content": prompt}],
+        options={
+            "temperature": 0.0
+        }
     )
     return response["message"]["content"].strip()
 

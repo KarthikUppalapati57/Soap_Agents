@@ -17,9 +17,10 @@ You receive one JSON object (matching the input schema) with:
 1) transcript — raw doctor-patient conversation (sole source of truth for support)
 2) generated_soap — the SOAP note to audit
 3) benchmark — numeric/text scores from an automated evaluator (ADVISORY ONLY)
+4) medical_knowledge_terms — list of MKG terms
 
 Hard rules:
-- Use ONLY the transcript, generated_soap, and benchmark fields. No outside medical knowledge or web search.
+- Use ONLY the transcript, generated_soap, medical_knowledge_terms, and benchmark fields. No outside medical knowledge or web search.
 - For each support decision, the transcript is authoritative. If benchmark scores or raw_output disagree with the transcript, follow the transcript.
 - Extract claims from generated_soap only (not from the transcript as separate claims).
 
