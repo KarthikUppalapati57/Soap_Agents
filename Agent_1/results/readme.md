@@ -1,4 +1,4 @@
-# 📊 Results – Agent-1
+#  Results – Agent-1
 
 ##  Overview
 
@@ -18,7 +18,7 @@ This is not just output storage — it is a **fully structured evaluation datase
 
 ---
 
-## 📂 Files
+##  Files
 
 ### `v1_results.json`
 
@@ -32,7 +32,7 @@ This is not just output storage — it is a **fully structured evaluation datase
 
 ---
 
-## 🧾 Data Structure
+##  Data Structure
 
 Each record follows this schema:
 
@@ -46,7 +46,7 @@ Each record follows this schema:
 
 ---
 
-## 🔍 What Each Field Means
+##  What Each Field Means
 
 ### `id`
 
@@ -78,7 +78,7 @@ Each record follows this schema:
 ---
 
 
-## 🔄 Workflow
+##  Workflow
 
 1. Input transcript → fed into Agent-1
 2. Agent-1 generates SOAP note (`generated`)
@@ -87,7 +87,7 @@ Each record follows this schema:
 
 ---
 
-## 📈 Why This Folder is Critical
+##  Why This Folder is Critical
 
 This folder is basically your **evaluation backbone**:
 
