@@ -1,6 +1,6 @@
-# ⚙️ v1 – SOAP Generation Pipeline (Agent-1)
+#  v1 – SOAP Generation Pipeline (Agent-1)
 
-## 📌 Overview
+##  Overview
 
 The `v1/` folder contains the **first version of the SOAP note generation pipeline** for Agent-1.
 
@@ -13,7 +13,7 @@ It defines how:
 
 ---
 
-## 🧠 Architecture (High-Level Flow)
+##  Architecture (High-Level Flow)
 
 ```
 Transcript → Prompt Template → LLM (Mistral via Ollama) → SOAP Output → JSON Results
@@ -21,13 +21,13 @@ Transcript → Prompt Template → LLM (Mistral via Ollama) → SOAP Output → 
 
 ---
 
-## 📂 Files in This Folder
+##  Files in This Folder
 
 ### 1. `generate.py`
 
 Core generation logic for SOAP notes.
 
-👉 Responsibilities:
+ Responsibilities:
 
 * Load prompt template
 * Inject transcript into prompt
@@ -35,18 +35,18 @@ Core generation logic for SOAP notes.
 * Call LLM (via Ollama)
 * Return generated SOAP note
 
-📌 Key function:
+ Key function:
 
 ```python
 generate_soap_v1(transcript, prompt_path="v1/prompt.txt", prompt_optimizations=None)
 ```
 
-📌 Uses:
+ Uses:
 
 * Model: `mistral` (can switch to `llama3`)
 * Temperature: `0.0` (deterministic output)
 
-📌 Insight:
+ Insight:
 
 * Prompt is dynamically constructed using placeholders:
 
@@ -59,7 +59,7 @@ generate_soap_v1(transcript, prompt_path="v1/prompt.txt", prompt_optimizations=N
 
 Execution script to generate SOAP notes for multiple samples.
 
-👉 Responsibilities:
+ Responsibilities:
 
 * Load dataset
 * Loop through samples
@@ -67,13 +67,13 @@ Execution script to generate SOAP notes for multiple samples.
 * Collect outputs
 * Save results to JSON
 
-📌 Key function:
+ Key function:
 
 ```python
 run_v1(num_samples=50)
 ```
 
-📌 Output:
+ Output:
 
 * Saves results as:
 
@@ -81,13 +81,13 @@ run_v1(num_samples=50)
 v1_results.json
 ```
 
-📌 Data source:
+ Data source:
 
 ```
 data/clean_medsynth_final.json
 ```
 
-📌 Output structure:
+ Output structure:
 
 ```json
 {
@@ -112,7 +112,7 @@ data/clean_medsynth_final.json
   * Assessment
   * Plan
 
-⚠️ Note:
+ Note:
 
 * This file is required for execution
 * Uses placeholders:
@@ -122,7 +122,7 @@ data/clean_medsynth_final.json
 
 ---
 
-## 🔄 Execution Workflow
+##  Execution Workflow
 
 ### Step 1: Load Dataset
 
@@ -155,7 +155,7 @@ v1_results.json
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ### Run full pipeline:
 
@@ -171,7 +171,7 @@ run_v1(num_samples=100)
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 | Parameter   | Value                     | Purpose              |
 | ----------- | ------------------------- | -------------------- |
@@ -182,7 +182,7 @@ run_v1(num_samples=100)
 
 ---
 
-## 💡 Design Decisions
+##  Design Decisions
 
 ### Deterministic Outputs
 
@@ -204,7 +204,7 @@ run_v1(num_samples=100)
 
 ---
 
-## ⚠️ Limitations (v1)
+##  Limitations (v1)
 
 * No evaluation inside pipeline (handled separately)
 * No error recovery beyond simple try/except
@@ -214,7 +214,7 @@ run_v1(num_samples=100)
 
 ---
 
-## 🧠 Key Insight
+##  Key Insight
 
 `v1` is your **baseline generation engine**.
 
