@@ -1,6 +1,6 @@
-# 🧠 Agent-1: SOAP Note Generator
+#  Agent-1: SOAP Note Generator
 
-## 📌 Overview
+##  Overview
 
 Agent-1 is the core clinical reasoning module in this project. It takes raw patient input (symptoms, history, and context) and converts it into structured **SOAP notes**:
 
@@ -13,7 +13,7 @@ This enables consistent medical documentation and supports downstream evaluation
 
 ---
 
-## 🚀 Key Responsibilities
+##  Key Responsibilities
 
 * Transform unstructured patient input into structured SOAP format
 * Maintain logical clinical reasoning
@@ -22,7 +22,7 @@ This enables consistent medical documentation and supports downstream evaluation
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 User Input → Prompt Engineering → LLM → SOAP Formatter → JSON Output
@@ -36,7 +36,7 @@ User Input → Prompt Engineering → LLM → SOAP Formatter → JSON Output
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 Agent-1/
@@ -49,7 +49,7 @@ Agent-1/
 
 ---
 
-## ⚙️ Setup & Installation
+##  Setup & Installation
 
 ### 1. Clone the Repository
 
@@ -73,7 +73,7 @@ Used llama 3.2 vision model
 
 ---
 
-## ▶️ Usage
+##  Usage
 
 Run the agent:
 
@@ -83,7 +83,7 @@ python main.py
 
 ---
 
-## 🧾 Example
+##  Example
 
 ### Input
 
@@ -106,7 +106,7 @@ python main.py
 
 ---
 
-## 🧪 Output Storage
+##  Output Storage
 
 Results are stored in:
 
@@ -116,7 +116,7 @@ Results are stored in:
 
 ---
 
-## 🧠 Design Decisions
+##  Design Decisions
 
 * Uses LLM-based reasoning instead of rule-based logic
 * Outputs structured JSON for easy evaluation
