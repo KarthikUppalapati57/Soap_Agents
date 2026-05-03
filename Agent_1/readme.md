@@ -42,9 +42,9 @@ User Input → Prompt Engineering → LLM → SOAP Formatter → JSON Output
 Agent-1/
 │── main.py              # Entry point
 │── prompts/             # Prompt templates
+│── V1          # This flder have all the agent codes
 │── utils/               # Helper functions
 │── results/             # Generated outputs
-│── config.py            # Configuration settings
 ```
 
 ---
@@ -67,7 +67,8 @@ pip install -r requirements.txt
 ### 3. Set API Key
 
 ```bash
-export OPENAI_API_KEY=your_api_key_here
+we used the Ollama models
+Used llama 3.2 vision model
 ```
 
 ---
@@ -120,26 +121,3 @@ Results are stored in:
 * Uses LLM-based reasoning instead of rule-based logic
 * Outputs structured JSON for easy evaluation
 * Focuses on prompt engineering for flexibility
-
----
-
-## ⚠️ Limitations
-
-* Not intended for real clinical use
-* Dependent on prompt quality and model output
-* No built-in fact verification
-
----
-
-## 🔗 Integration
-
-* Feeds into evaluation agents for scoring and validation
-* Supports multi-agent healthcare pipeline
-
----
-
-## 📌 Future Improvements
-
-* Add knowledge grounding (RAG)
-* Improve factual accuracy
-* Enhance medical validation layers
