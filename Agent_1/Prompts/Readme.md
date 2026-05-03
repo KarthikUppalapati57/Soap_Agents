@@ -1,6 +1,6 @@
-# 🧾 Prompts Module – Agent-1
+# Prompts Module – Agent-1
 
-## 📌 Overview
+##  Overview
 
 The `prompts/` folder contains all prompt templates used by Agent-1 to guide the LLM in generating structured SOAP notes.
 
@@ -8,7 +8,7 @@ This layer is basically the **control center for model behavior** — it defines
 
 ---
 
-## 🎯 Purpose
+##  Purpose
 
 * Standardize how the LLM interprets patient input
 * Enforce SOAP format consistency (Subjective, Objective, Assessment, Plan)
@@ -17,7 +17,7 @@ This layer is basically the **control center for model behavior** — it defines
 
 ---
 
-## 🧠 Prompt Design Strategy
+##  Prompt Design Strategy
 
 The prompts are engineered to simulate clinician-style reasoning:
 
@@ -28,7 +28,7 @@ The prompts are engineered to simulate clinician-style reasoning:
 
 ---
 
-## 📂 Folder Structure
+##  Folder Structure
 
 ```id="rx7qhv"
 prompts/
@@ -40,7 +40,7 @@ prompts/
 
 ---
 
-## 🧩 How It Works
+##  How It Works
 
 1. User input is received (symptoms, complaints, etc.)
 2. The prompt template is loaded from this folder
@@ -50,7 +50,7 @@ prompts/
 
 ---
 
-## ⚙️ Integration
+##  Integration
 
 This module is used directly by:
 
@@ -60,7 +60,7 @@ This module is used directly by:
 
 ---
 
-## 🧪 Why Prompts Matter
+##  Why Prompts Matter
 
 Prompt quality directly impacts:
 
