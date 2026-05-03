@@ -122,6 +122,6 @@ This is not just a results folder — it’s a **training + evaluation bridge**.
 
 It connects:
 
-> raw clinical conversation → AI-generated SOAP → ground truth → measurable performance
+> raw clinical conversation → AI-generated SOAP → measurable performance
 
 ---
