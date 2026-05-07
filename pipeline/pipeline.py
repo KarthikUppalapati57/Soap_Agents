@@ -3,11 +3,13 @@ import json
 import os
 
 class Pipeline:
-    def __init__(self, data_path: str, prompt_folder: str, output_dir: str = "Output"):
+    def __init__(self, data_path: str, prompt_folder: str, output_dir: str = "Output", limit: int = 5):
         self.data_path = data_path
         self.prompt_folder = prompt_folder
         self.output_dir = output_dir
         self.agent_interface = AgentInterface(prompt_folder=self.prompt_folder)
+        self.limit = limit
+        self.count = 0
 
     def _save_item_output(
         self,
@@ -45,6 +47,9 @@ class Pipeline:
         os.makedirs(self.output_dir, exist_ok=True)
 
         for index, item in enumerate(data):
+            if self.count >= self.limit:
+                break
+            self.count += 1
             iteration = 0
             prompt_optimizations_list = []
             while True:

@@ -15,9 +15,26 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
+try:
+    import matplotlib.pyplot as plt
+except ModuleNotFoundError as e:
+    raise SystemExit(
+        "Missing matplotlib. Run `uv sync` from the repo root to install dependencies."
+    ) from e
+
+try:
+    import numpy as np
+except ModuleNotFoundError as e:
+    raise SystemExit(
+        "Missing numpy. Run `uv sync` from the repo root to install dependencies."
+    ) from e
+
+try:
+    import pandas as pd
+except ModuleNotFoundError as e:
+    raise SystemExit(
+        "Missing pandas. Run `uv sync` from the repo root to install dependencies."
+    ) from e
 
 import plot_style
 
@@ -355,15 +372,28 @@ def main() -> int:
 
     print(f"Loaded {len(df)} items from {output_dir}")
 
-    chart_overall_histogram(df, out_dir / "viz_overall_score_hist.png")
-    chart_boxplot_dimensions(df, out_dir / "viz_benchmark_boxplot.png")
-    chart_scatter_overall_vs_unsupported(df, out_dir / "viz_overall_vs_unsupported.png")
-    chart_iterations(df, out_dir / "viz_pipeline_iterations.png")
+    # Organize into agent-specific subfolders for easier browsing.
+    agent2_dir = out_dir / "agent2"
+    agent3_dir = out_dir / "agent3"
+    pipeline_dir = out_dir / "pipeline"
+    cross_dir = out_dir / "cross"
+
+    # Agent 2: evaluation score distributions
+    chart_overall_histogram(df, agent2_dir / "viz_overall_score_hist.png")
+    chart_boxplot_dimensions(df, agent2_dir / "viz_benchmark_boxplot.png")
+    chart_mean_benchmark_bars(df, agent2_dir / "viz_mean_benchmark_bars.png")
+
+    # Pipeline: optimization loop / retries
+    chart_iterations(df, pipeline_dir / "viz_pipeline_iterations.png")
+
+    # Cross-agent: how Agent 2 score correlates with Agent 3 grounding
+    chart_scatter_overall_vs_unsupported(df, cross_dir / "viz_overall_vs_unsupported.png")
+    chart_correlation_heatmap(df, cross_dir / "viz_correlation_heatmap.png")
+
+    # Agent 3: claim verification aggregates
     sup, uns, labels = aggregate_support_by_section(output_dir)
-    chart_stacked_support_by_section(sup, uns, labels, out_dir / "viz_claims_stacked_by_section.png")
-    chart_correlation_heatmap(df, out_dir / "viz_correlation_heatmap.png")
-    chart_mean_benchmark_bars(df, out_dir / "viz_mean_benchmark_bars.png")
-    chart_unsupported_per_item_top(df, out_dir / "viz_top_unsupported_items.png", top_n=args.top_n)
+    chart_stacked_support_by_section(sup, uns, labels, agent3_dir / "viz_claims_stacked_by_section.png")
+    chart_unsupported_per_item_top(df, agent3_dir / "viz_top_unsupported_items.png", top_n=args.top_n)
 
     # Optional CSV for notebooks
     csv_path = out_dir / "summary_per_item.csv"

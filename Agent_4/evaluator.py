@@ -12,6 +12,16 @@ client = genai.Client(api_key=os.getenv("gemini_api_key"))
 
 model = "gemini-3-pro-preview"
 
+def _max_tokens() -> int | None:
+    v = (os.getenv("MAX_TOKENS") or "").strip()
+    if not v:
+        return None
+    try:
+        n = int(v)
+    except ValueError:
+        return None
+    return n if n > 0 else None
+
 
 def build_evaluator_prompt(generated_soap: str, ground_truth: str) -> str:
     """Build the evaluator system/user prompt from the generated SOAP and ground-truth SOAP only."""
@@ -150,7 +160,8 @@ def evaluate_soap(generated_soap: str, ground_truth: str) -> dict:
         contents=prompt,
         config=types.GenerateContentConfig(
                     temperature=0.0,
-                    response_mime_type="application/json"
+                    response_mime_type="application/json",
+                    max_output_tokens=_max_tokens(),
                 )
     )
     return json.loads(response.text.strip().removeprefix("```json").removesuffix("```"))

@@ -10,6 +10,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+
 class AgentInterface:
     def __init__(self, prompt_folder="prompts"):
         self.agent_1 = generate_soap_v1
@@ -24,6 +26,16 @@ class AgentInterface:
             self.mkg_client = PrimeKGExplorer()
         except Exception:
             self.mkg_client = None
+
+    def _max_tokens(self) -> int | None:
+        v = (os.getenv("MAX_TOKENS") or "2048").strip()
+        if not v:
+            return None
+        try:
+            n = int(v)
+        except ValueError:
+            return None
+        return n if n > 0 else None
 
     def _primekg_context(self, generated_soap: str, parsed_output: dict, *, max_rows: int = 40) -> str:
         if not self.mkg_client:
@@ -102,8 +114,8 @@ class AgentInterface:
         parsed_output["generated"] = generated
         return parsed_output
 
-    def run_agent_3(self, parsed_output: dict, mkg_terms: str) -> str:
-        return self.agent_3(parsed_output, medical_knowledge_terms=mkg_terms)
+    def run_agent_3(self, parsed_output: dict, mkg_terms: str, client: Client) -> str:
+        return self.agent_3(parsed_output, medical_knowledge_terms=mkg_terms, client=client)
 
     def run(self, transcript: str, prompt_optimizations_list: list) -> str:
         print("Running Agent 1")
@@ -112,8 +124,8 @@ class AgentInterface:
         parsed_output = self.run_agent_2(transcript, generated_soap)
         print("Running Agent 3")
         kg_context_text = self._primekg_context(generated_soap, parsed_output)
-
-        claim_verification = self.run_agent_3(parsed_output, kg_context_text)
+        print(f"KG Context Text: {kg_context_text.strip()[:100]}", file=sys.stderr)
+        claim_verification = self.run_agent_3(parsed_output, kg_context_text, client=self.client)
 
         return claim_verification
 
@@ -126,7 +138,8 @@ class AgentInterface:
             contents=prompt,
             config=types.GenerateContentConfig(
                 response_mime_type="text/plain",
-                temperature=0.0
+                temperature=0.0,
+                max_output_tokens=self._max_tokens(),
             )
         )
         return response.text

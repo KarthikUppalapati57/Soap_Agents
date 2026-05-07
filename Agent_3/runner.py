@@ -2,57 +2,87 @@
 
 from __future__ import annotations
 
-import uuid
-from typing import Optional
+import os
+import sys
+from pathlib import Path
 
-from google.adk.runners import Runner
-from google.adk.sessions import InMemorySessionService
-from google.genai import types
+from dotenv import dotenv_values
+from google.genai import Client, types
 
-from .claim_agent import root_agent
+from .claim_agent import build_prompt, model_name
 from .env_setup import load_env
 from .schemas import BenchmarkScores, ClaimVerificationInput, ClaimVerificationResult
 
-APP_NAME = "soap_agent_3"
-USER_ID = "batch_user"
 
 
-def verify_claims(payload: ClaimVerificationInput) -> ClaimVerificationResult:
-    load_env()
-    session_service = InMemorySessionService()
-    runner = Runner(
-        agent=root_agent,
-        app_name=APP_NAME,
-        session_service=session_service,
-        auto_create_session=True,
-    )
-    session_id = f"inv-{uuid.uuid4().hex}"
-    text = payload.model_dump_json()
-    user_content = types.Content(role="user", parts=[types.Part(text=text)])
 
-    final_text: Optional[str] = None
-    for event in runner.run(
-        user_id=USER_ID,
-        session_id=session_id,
-        new_message=user_content,
-    ):
-        if (
-            event.is_final_response()
-            and event.content
-            and event.content.parts
-            and event.content.parts[0].text
-        ):
-            final_text = event.content.parts[0].text
+def _max_tokens() -> int | None:
+    """Resolve MAX_TOKENS from project .env files first, then os.environ.
 
-    if not final_text:
-        raise RuntimeError("Agent returned no final text response.")
+    `load_dotenv(override=False)` does not override variables already set in the
+    shell, so a stale exported MAX_TOKENS can silently ignore .env (e.g. 2048 in
+    the shell vs 4096 in .env). Reading the file directly avoids that.
+    """
+    here = Path(__file__).resolve().parent
+    for env_path in (here.parent / ".env", here / ".env"):
+        if not env_path.is_file():
+            continue
+        raw = dotenv_values(env_path).get("MAX_TOKENS")
+        if raw is None or str(raw).strip() == "":
+            continue
+        try:
+            n = int(str(raw).strip().strip('"').strip("'"))
+        except ValueError:
+            continue
+        if n > 0:
+            return n
 
-    cleaned = final_text.strip()
+    v = (os.getenv("MAX_TOKENS") or "").strip()
+    if not v:
+        return None
+    try:
+        n = int(v)
+    except ValueError:
+        return None
+    return n if n > 0 else None
+
+
+def _clean_json_text(text: str) -> str:
+    cleaned = (text or "").strip()
     if cleaned.startswith("```"):
         cleaned = cleaned.removeprefix("```json").removeprefix("```")
         cleaned = cleaned.removesuffix("```").strip()
+    return cleaned
 
-    return ClaimVerificationResult.model_validate_json(cleaned)
+
+def verify_claims(payload: ClaimVerificationInput, client: Client) -> ClaimVerificationResult:
+    load_env()
+    prompt = build_prompt(payload)
+
+    max_out = _max_tokens()
+    resp = client.models.generate_content(
+        model=model_name(),
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            temperature=0.0,
+            max_output_tokens=max_out,
+        ),
+    )
+
+    final_text = (resp.text or "").strip()
+    cleaned = _clean_json_text(final_text)
+
+    try:
+        return ClaimVerificationResult.model_validate_json(cleaned)
+    except Exception:
+        # Always save the output so it can be inspected when validation fails.
+        try:
+            with open("final_text.txt", "w", encoding="utf-8") as f:
+                f.write(final_text)
+        except Exception:
+            pass
+        raise
 
 
 def benchmark_from_row(row: dict) -> dict:

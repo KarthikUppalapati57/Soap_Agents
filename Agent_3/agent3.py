@@ -10,6 +10,7 @@ Or from ``Agent_3/``: ``uv run python agent3.py`` (script bootstrap sets package
 
 Environment: see .env.example (GOOGLE_API_KEY or GEMINI_API_KEY / gemini_api_key).
 Optional: AGENT3_GEMINI_MODEL (default gemini-2.5-flash).
+Optional: MAX_TOKENS (max output tokens).
 """
 
 from __future__ import annotations
@@ -18,6 +19,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from google.genai import Client
 
 # Allow ``python agent3.py`` from this directory while using package-relative imports.
 if __name__ == "__main__" and __package__ is None:
@@ -65,23 +67,27 @@ def _parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
-def _process_one(row: dict, medical_knowledge_terms: str) -> dict:
+def _process_one(row: dict, medical_knowledge_terms: str, client: Client) -> dict:
     rid = row.get("id")
+
     payload = ClaimVerificationInput(
         transcript=row["transcript"],
         generated_soap=row["generated"],
         benchmark=BenchmarkScores.model_validate(benchmark_from_row(row)),
         medical_knowledge_terms=medical_knowledge_terms,
     )
+
     try:
-        out = verify_claims(payload)
+
+        out = verify_claims(payload, client)
+
         return {
             **row,
             "claim_verification": out.model_dump(),
             "claim_verification_error": None,
         }
     except Exception as e:
-        print(f"  Error id={rid}: {e}", file=sys.stderr)
+
         return {
             **row,
             "claim_verification": None,
@@ -92,6 +98,7 @@ def _process_one(row: dict, medical_knowledge_terms: str) -> dict:
 def _run(args: argparse.Namespace) -> None:
     load_env()
     require_api_key()
+    client = Client()
 
     input_path: Path = args.input
     output_path: Path = args.output
@@ -136,7 +143,7 @@ def _run(args: argparse.Namespace) -> None:
 
     processed = 0
     for row in rows_to_process:
-        row_out = _process_one(row)
+        row_out = _process_one(row=row, client=client)
         rid = row_out.get("id")
         print(f"Done id={rid}")
 

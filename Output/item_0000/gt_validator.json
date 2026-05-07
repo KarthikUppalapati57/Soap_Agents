@@ -1,0 +1,595 @@
+{
+  "item": "item_0000",
+  "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output/item_0000",
+  "ground_truth_soap": "Subjective:\n\n   Chief Complaint (CC):\n   - Pain in the left knee, moderate to severe, lasting for 3 weeks.\n\n   History of Present Illness (HPI):\n   - The patient, a 52-year-old Caucasian male named John Smith, presents with complaints of moderate to severe pain in the left knee that has persisted for the past three weeks. The pain is associated with occasional swelling and stiffness, particularly pronounced in the mornings. The symptoms are exacerbated by physical activity and have a significant impact on daily activities, including walking, climbing stairs, and prolonged standing.\n\n   Review of Systems (ROS):\n   - Musculoskeletal: Positive for knee pain, swelling, and stiffness.\n   - General: Negative for fever or weight loss.\n   - Cardiovascular: Negative for chest pain or palpitations.\n   - Constitutional: Sleep disruption due to knee pain; otherwise stable.\n\nObjective:\n\n   Vital Signs:\n   - Blood Pressure: 128/82 mmHg\n   - Heart Rate: 72 bpm\n   - Respiratory Rate: 16 breaths per minute\n   - Temperature: 98.6°F\n\n   Physical Examination:\n   - Inspection: Swelling around the left knee; no visible deformity.\n   - Palpation: Tenderness over the medial and lateral joint lines.\n   - Range of Motion: Reduced flexion and extension due to pain.\n   - Stability Tests: Negative Lachman's and McMurray's tests; slight discomfort with varus and valgus stress tests.\n\nAssessment:\n   - Pain in the left knee (ICD-10 code M25.562).\n   - Possible exacerbation of pre-existing mild osteoarthritis.\n\nPlan:\n   - Treatment:\n     - Initiate physical therapy focusing on strength and flexibility exercises for the left knee.\n     - Advise the patient on lifestyle modifications to reduce knee strain.\n     - Prescribe over-the-counter NSAIDs as needed for pain management.\n\n   - Follow-up Recommendations:\n     - Schedule a follow-up appointment in 4 weeks to assess the response to the treatment plan.\n\n   - Referrals:\n     - Order X-ray of the left knee to rule out structural abnormalities.\n     - Consider MRI if the X-ray is inconclusive to evaluate any potential soft tissue damage.",
+  "generated_soap": "Subjective:\nPatient reports moderate to severe left knee pain for 3 weeks, aggravated by physical activities (walking, climbing stairs, standing). Associated with occasional swelling and morning stiffness. Denies fever, weight loss, chest pain, or palpitations. Pain disrupts sleep. Pain is mostly around the knee joint, especially on the sides. Past medical history includes well-managed hypertension. Takes medication for hypertension. Denies prior diagnosis of osteoarthritis.\n\nObjective:\nVitals: BP 128/82 mmHg, HR 72 bpm, RR 16 bpm, Temp 98.6°F.\nLeft knee inspection reveals swelling, no visible deformity. Palpation elicits tenderness around the knee joint, particularly on the sides. Range of motion (flexion and extension) is reduced due to pain. Lachman's test negative. McMurray's test negative. Slight discomfort noted with varus and valgus stress tests.\n\nAssessment:\nPossible exacerbation of mild osteoarthritis of the left knee. Patient denies previous diagnosis.\n\nPlan:\n1.  Order X-ray of left knee; consider MRI if X-ray is inconclusive.\n2.  Initiate physical therapy for strengthening and flexibility exercises.\n3.  Recommend lifestyle modifications: avoid aggravating activities, consider cane or knee brace for support.\n4.  Prescribe over-the-counter NSAIDs as needed for pain and inflammation.\n5.  Schedule follow-up appointment in 4 weeks to assess response to treatment.\n6.  Provide referral for left knee X-ray.",
+  "entities_gt": {
+    "all_entities": [
+      "pain in the left knee",
+      "pain",
+      "swelling",
+      "stiffness",
+      "cardiovascular",
+      "chest pain",
+      "palpitations",
+      "sleep disruption",
+      "vital signs",
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature",
+      "swelling around the left knee",
+      "tenderness over the medial and lateral joint lines",
+      "range of motion",
+      "stability tests",
+      "lachman's and mcmurray's tests",
+      "slight discomfort",
+      "varus and valgus stress tests",
+      "treatment",
+      "physical therapy",
+      "over-the-counter nsaids",
+      "x-ray",
+      "mri"
+    ],
+    "symptoms": [
+      "pain in the left knee",
+      "pain",
+      "swelling",
+      "stiffness",
+      "chest pain",
+      "palpitations",
+      "sleep disruption",
+      "heart rate",
+      "respiratory rate",
+      "swelling around the left knee",
+      "palpation",
+      "tenderness over the medial and lateral joint lines",
+      "range of motion"
+    ],
+    "medications": [
+      "over-the-counter nsaids"
+    ],
+    "labs": [
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature",
+      "lachman's and mcmurray's tests",
+      "varus and valgus stress tests",
+      "x-ray",
+      "mri"
+    ]
+  },
+  "entities_generated": {
+    "all_entities": [
+      "left knee",
+      "pain",
+      "swelling",
+      "fever",
+      "palpitations",
+      "knee joint",
+      "hypertension",
+      "osteoarthritis",
+      "bp 128/82 mmhg",
+      "hr",
+      "palpation",
+      "lachman's test",
+      "mcmurray's test",
+      "slight discomfort",
+      "varus and valgus stress tests",
+      "x-ray",
+      "mri",
+      "physical therapy",
+      "strengthening and flexibility exercises",
+      "over-the-counter nsaids",
+      "response to treatment"
+    ],
+    "symptoms": [
+      "pain",
+      "swelling",
+      "morning stiffness",
+      "fever",
+      "weight loss",
+      "chest pain",
+      "palpitations",
+      "palpation",
+      "tenderness",
+      "slight discomfort"
+    ],
+    "medications": [
+      "over-the-counter nsaids"
+    ],
+    "labs": [
+      "bp",
+      "hr",
+      "rr",
+      "temp 98.6°f",
+      "lachman's test",
+      "mcmurray's test",
+      "varus and valgus stress tests",
+      "mri",
+      "x-ray"
+    ]
+  },
+  "clinical_recall_all": {
+    "gt_count": 25,
+    "gen_count": 21,
+    "overlap_count": 9,
+    "recall": 0.36,
+    "gt_only": [
+      "blood pressure",
+      "cardiovascular",
+      "chest pain",
+      "heart rate",
+      "lachman's and mcmurray's tests",
+      "pain in the left knee",
+      "range of motion",
+      "respiratory rate",
+      "sleep disruption",
+      "stability tests",
+      "stiffness",
+      "swelling around the left knee",
+      "temperature",
+      "tenderness over the medial and lateral joint lines",
+      "treatment",
+      "vital signs"
+    ],
+    "gen_only": [
+      "bp 128/82 mmhg",
+      "fever",
+      "hr",
+      "hypertension",
+      "knee joint",
+      "lachman's test",
+      "left knee",
+      "mcmurray's test",
+      "osteoarthritis",
+      "palpation",
+      "response to treatment",
+      "strengthening and flexibility exercises"
+    ],
+    "overlap": [
+      "mri",
+      "over-the-counter nsaids",
+      "pain",
+      "palpitations",
+      "physical therapy",
+      "slight discomfort",
+      "swelling",
+      "varus and valgus stress tests",
+      "x-ray"
+    ]
+  },
+  "clinical_recall_symptoms": {
+    "gt_count": 13,
+    "gen_count": 10,
+    "overlap_count": 5,
+    "recall": 0.38461538461538464,
+    "gt_only": [
+      "heart rate",
+      "pain in the left knee",
+      "range of motion",
+      "respiratory rate",
+      "sleep disruption",
+      "stiffness",
+      "swelling around the left knee",
+      "tenderness over the medial and lateral joint lines"
+    ],
+    "gen_only": [
+      "fever",
+      "morning stiffness",
+      "slight discomfort",
+      "tenderness",
+      "weight loss"
+    ],
+    "overlap": [
+      "chest pain",
+      "pain",
+      "palpation",
+      "palpitations",
+      "swelling"
+    ]
+  },
+  "clinical_recall_medications": {
+    "gt_count": 1,
+    "gen_count": 1,
+    "overlap_count": 1,
+    "recall": 1.0,
+    "gt_only": [],
+    "gen_only": [],
+    "overlap": [
+      "over-the-counter nsaids"
+    ]
+  },
+  "clinical_recall_labs": {
+    "gt_count": 8,
+    "gen_count": 9,
+    "overlap_count": 3,
+    "recall": 0.375,
+    "gt_only": [
+      "blood pressure",
+      "heart rate",
+      "lachman's and mcmurray's tests",
+      "respiratory rate",
+      "temperature"
+    ],
+    "gen_only": [
+      "bp",
+      "hr",
+      "lachman's test",
+      "mcmurray's test",
+      "rr",
+      "temp 98.6°f"
+    ],
+    "overlap": [
+      "mri",
+      "varus and valgus stress tests",
+      "x-ray"
+    ]
+  },
+  "structural_alignment": {
+    "overall_token_f1": 0.6918927770157475,
+    "overall_rouge_l_f1": 0.5347974079612619,
+    "by_section": [
+      {
+        "section": "Subjective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.5106382978723405,
+        "rouge_l_f1": 0.2903225806451613
+      },
+      {
+        "section": "Objective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.7304347826086957,
+        "rouge_l_f1": 0.5999999999999999
+      },
+      {
+        "section": "Assessment",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.5517241379310345,
+        "rouge_l_f1": 0.33333333333333337
+      },
+      {
+        "section": "Plan",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.6666666666666667,
+        "rouge_l_f1": 0.4503311258278146
+      },
+      {
+        "section": "Other",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 1.0,
+        "rouge_l_f1": 1.0
+      }
+    ],
+    "assessment_alignment_score": 0.5517241379310345,
+    "plan_alignment_score": 0.6666666666666667
+  },
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is clinically aligned and captures most essential information. There are multiple minor omissions across sections, primarily concerning specific details, formal ROS structure, and general goals in the plan. However, there are no unsupported additions or hallucinations, and the note effectively integrates additional, supported information from the transcript.",
+    "omissions": [
+      "HPI: 'significant impact on daily activities'",
+      "ROS: Formal 'Musculoskeletal: Positive for knee pain, swelling, and stiffness.' entry",
+      "ROS: 'Constitutional: ...otherwise stable.'",
+      "Objective Palpation: 'Tenderness over the medial and lateral joint lines' (Generated states 'around the knee joint, particularly on the sides')",
+      "Objective Vitals: Respiratory Rate specified as 'breaths per minute' (Generated states '16 bpm')",
+      "Assessment: 'Pain in the left knee' (as a separate diagnosis/problem)",
+      "Assessment: 'pre-existing' (regarding mild osteoarthritis, though Generated's correction based on patient denial is justified by transcript)",
+      "Plan Lifestyle modifications: general goal 'to reduce knee strain'",
+      "Plan NSAIDs: general goal 'for pain management'",
+      "Plan X-ray purpose: 'to rule out structural abnormalities'",
+      "Plan MRI purpose: 'to evaluate any potential soft tissue damage'"
+    ],
+    "additions": [
+      "Subjective: 'Pain is mostly around the knee joint, especially on the sides.'",
+      "Subjective: 'Past medical history includes well-managed hypertension.'",
+      "Subjective: 'Takes medication for hypertension.'",
+      "Subjective: 'Denies prior diagnosis of osteoarthritis.'",
+      "Assessment: 'Patient denies previous diagnosis.' (of osteoarthritis)",
+      "Plan Lifestyle modifications: specific examples 'avoid aggravating activities, consider cane or knee brace for support.'",
+      "Plan NSAIDs: 'and inflammation' (as a purpose)",
+      "Plan: 'Provide referral for left knee X-ray.'"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section omits the 'significant impact on daily activities' from the HPI and the formal 'Musculoskeletal' and 'Constitutional: ...otherwise stable' entries from the ROS. However, the core symptoms and patient denials are well-captured, and all additions were supported by the transcript.",
+        "omissions": [
+          "HPI: 'significant impact on daily activities'",
+          "ROS: Formal 'Musculoskeletal: Positive for knee pain, swelling, and stiffness.' entry",
+          "ROS: 'Constitutional: ...otherwise stable.'"
+        ],
+        "additions": [
+          "'Pain is mostly around the knee joint, especially on the sides.'",
+          "'Past medical history includes well-managed hypertension.'",
+          "'Takes medication for hypertension.'",
+          "'Denies prior diagnosis of osteoarthritis.'"
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section has only minor omissions regarding the specificity of palpation ('medial and lateral joint lines' vs. 'around the knee joint, particularly on the sides') and the full wording for respiratory rate ('breaths per minute' vs. 'bpm'). These do not significantly impact clinical utility.",
+        "omissions": [
+          "Palpation: 'Tenderness over the medial and lateral joint lines' (Generated states 'around the knee joint, particularly on the sides')",
+          "Vitals: Respiratory Rate specified as 'breaths per minute' (Generated states '16 bpm')"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "B",
+        "summary": "The Assessment section omits 'Pain in the left knee' as a separate diagnosis. The omission of 'pre-existing' for osteoarthritis is justified by the patient's denial in the transcript and does not lower the grade. The addition of 'Patient denies previous diagnosis' is supported.",
+        "omissions": [
+          "'Pain in the left knee' (as a separate diagnosis/problem)",
+          "'pre-existing' (regarding mild osteoarthritis, though Generated's correction based on patient denial is justified by transcript)"
+        ],
+        "additions": [
+          "'Patient denies previous diagnosis.' (of osteoarthritis)"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section omits several general goals for lifestyle modifications ('to reduce knee strain'), NSAIDs ('for pain management'), X-ray ('to rule out structural abnormalities'), and MRI ('to evaluate any potential soft tissue damage'). However, the specific actions are present, and the model added supported, more detailed purposes for some items.",
+        "omissions": [
+          "Lifestyle modifications: general goal 'to reduce knee strain'",
+          "NSAIDs: general goal 'for pain management'",
+          "X-ray purpose: 'to rule out structural abnormalities'",
+          "MRI purpose: 'to evaluate any potential soft tissue damage'"
+        ],
+        "additions": [
+          "Lifestyle modifications: specific examples 'avoid aggravating activities, consider cane or knee brace for support.'",
+          "NSAIDs: 'and inflammation' (as a purpose)",
+          "'Provide referral for left knee X-ray.'"
+        ]
+      },
+      {
+        "section": "Other",
+        "grade": "A",
+        "summary": "No grading issues were identified in this section.",
+        "omissions": [],
+        "additions": []
+      }
+    ],
+    "rubric_notes": "The model correctly identified and included details from the transcript that were not explicitly in the GroundTruthSOAP, such as the patient's denial of prior osteoarthritis diagnosis and details about hypertension. The model also provided more specific details for lifestyle modifications and NSAID purpose, which were justified by the transcript. The model omitted some of the general purposes/goals stated in the GT Plan section. The model's 'bpm' for respiratory rate is less specific than 'breaths per minute'. The model's palpation description is less specific than GT's 'medial and lateral joint lines'.",
+    "addition_evidence": [
+      {
+        "addition_text": "Subjective: 'Pain is mostly around the knee joint, especially on the sides.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Patient]: The pain is mostly around the knee joint, especially on the sides.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Pain is mostly around the knee joint, especially on the sides."
+      },
+      {
+        "addition_text": "Subjective: 'Past medical history includes well-managed hypertension.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Patient]: Well, I have hypertension, but it’s well-managed. No other major issues. ... Yes, I take medication for my hypertension, but nothing else regularly.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Past medical history includes well-managed hypertension and takes medication for it."
+      },
+      {
+        "addition_text": "Subjective: 'Takes medication for hypertension.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Patient]: Well, I have hypertension, but it’s well-managed. No other major issues. ... Yes, I take medication for my hypertension, but nothing else regularly.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Past medical history includes well-managed hypertension and takes medication for it."
+      },
+      {
+        "addition_text": "Subjective: 'Denies prior diagnosis of osteoarthritis.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before?\n\n[Patient]: No, I haven’t.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Denies prior diagnosis of osteoarthritis."
+      },
+      {
+        "addition_text": "Assessment: 'Patient denies previous diagnosis.' (of osteoarthritis)",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before?\n\n[Patient]: No, I haven’t.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Patient denies previous diagnosis of osteoarthritis."
+      },
+      {
+        "addition_text": "Plan Lifestyle modifications: specific examples 'avoid aggravating activities, consider cane or knee brace for support.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: I’d also suggest some lifestyle modifications to reduce the strain on your knee. Try to avoid activities that exacerbate the pain, and consider using a cane or a knee brace for support if necessary.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Recommend lifestyle modifications: avoid aggravating activities, and consider using a cane or knee brace for support."
+      },
+      {
+        "addition_text": "Plan NSAIDs: 'and inflammation' (as a purpose)",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: For pain management, you can take over-the-counter NSAIDs as needed. They should help with the pain and any inflammation.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Prescribe over-the-counter NSAIDs as needed for pain and inflammation."
+      },
+      {
+        "addition_text": "Plan: 'Provide referral for left knee X-ray.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: I’m going to order an X-ray of your left knee to rule out any structural abnormalities. If the X-ray doesn’t give us a clear picture, we might need to consider an MRI. ... I’ll write you a referral for the X-ray of your left knee, and we’ll consider an MRI if the X-ray is inconclusive.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Order X-ray of left knee and provide referral for it; consider MRI if X-ray is inconclusive."
+      },
+      {
+        "addition_text": "'Pain is mostly around the knee joint, especially on the sides.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Patient]: The pain is mostly around the knee joint, especially on the sides.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Pain is mostly around the knee joint, especially on the sides."
+      },
+      {
+        "addition_text": "'Past medical history includes well-managed hypertension.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Patient]: Well, I have hypertension, but it’s well-managed. No other major issues. ... Yes, I take medication for my hypertension, but nothing else regularly.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Past medical history includes well-managed hypertension and takes medication for it."
+      },
+      {
+        "addition_text": "'Takes medication for hypertension.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Patient]: Well, I have hypertension, but it’s well-managed. No other major issues. ... Yes, I take medication for my hypertension, but nothing else regularly.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Past medical history includes well-managed hypertension and takes medication for it."
+      },
+      {
+        "addition_text": "'Denies prior diagnosis of osteoarthritis.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before?\n\n[Patient]: No, I haven’t.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Denies prior diagnosis of osteoarthritis."
+      },
+      {
+        "addition_text": "'Patient denies previous diagnosis.' (of osteoarthritis)",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before?\n\n[Patient]: No, I haven’t.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Patient denies previous diagnosis of osteoarthritis."
+      },
+      {
+        "addition_text": "Lifestyle modifications: specific examples 'avoid aggravating activities, consider cane or knee brace for support.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: I’d also suggest some lifestyle modifications to reduce the strain on your knee. Try to avoid activities that exacerbate the pain, and consider using a cane or a knee brace for support if necessary.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Recommend lifestyle modifications: avoid aggravating activities, and consider using a cane or knee brace for support."
+      },
+      {
+        "addition_text": "NSAIDs: 'and inflammation' (as a purpose)",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: For pain management, you can take over-the-counter NSAIDs as needed. They should help with the pain and any inflammation.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Prescribe over-the-counter NSAIDs as needed for pain and inflammation."
+      },
+      {
+        "addition_text": "'Provide referral for left knee X-ray.'",
+        "supported_by_transcript": "supported",
+        "transcript_evidence": "[Doctor]: I’m going to order an X-ray of your left knee to rule out any structural abnormalities. If the X-ray doesn’t give us a clear picture, we might need to consider an MRI. ... I’ll write you a referral for the X-ray of your left knee, and we’ll consider an MRI if the X-ray is inconclusive.",
+        "evidence_source": "agent3_claims",
+        "matched_claim_text": "Order X-ray of left knee and provide referral for it; consider MRI if X-ray is inconclusive."
+      }
+    ]
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Subjective: 'Pain is mostly around the knee joint, especially on the sides.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: The pain is mostly around the knee joint, especially on the sides.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pain is mostly around the knee joint, especially on the sides."
+    },
+    {
+      "addition_text": "Subjective: 'Past medical history includes well-managed hypertension.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Well, I have hypertension, but it’s well-managed. No other major issues. ... Yes, I take medication for my hypertension, but nothing else regularly.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Past medical history includes well-managed hypertension and takes medication for it."
+    },
+    {
+      "addition_text": "Subjective: 'Takes medication for hypertension.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Well, I have hypertension, but it’s well-managed. No other major issues. ... Yes, I take medication for my hypertension, but nothing else regularly.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Past medical history includes well-managed hypertension and takes medication for it."
+    },
+    {
+      "addition_text": "Subjective: 'Denies prior diagnosis of osteoarthritis.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before?\n\n[Patient]: No, I haven’t.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Denies prior diagnosis of osteoarthritis."
+    },
+    {
+      "addition_text": "Assessment: 'Patient denies previous diagnosis.' (of osteoarthritis)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before?\n\n[Patient]: No, I haven’t.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient denies previous diagnosis of osteoarthritis."
+    },
+    {
+      "addition_text": "Plan Lifestyle modifications: specific examples 'avoid aggravating activities, consider cane or knee brace for support.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’d also suggest some lifestyle modifications to reduce the strain on your knee. Try to avoid activities that exacerbate the pain, and consider using a cane or a knee brace for support if necessary.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recommend lifestyle modifications: avoid aggravating activities, and consider using a cane or knee brace for support."
+    },
+    {
+      "addition_text": "Plan NSAIDs: 'and inflammation' (as a purpose)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: For pain management, you can take over-the-counter NSAIDs as needed. They should help with the pain and any inflammation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prescribe over-the-counter NSAIDs as needed for pain and inflammation."
+    },
+    {
+      "addition_text": "Plan: 'Provide referral for left knee X-ray.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’m going to order an X-ray of your left knee to rule out any structural abnormalities. If the X-ray doesn’t give us a clear picture, we might need to consider an MRI. ... I’ll write you a referral for the X-ray of your left knee, and we’ll consider an MRI if the X-ray is inconclusive.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Order X-ray of left knee and provide referral for it; consider MRI if X-ray is inconclusive."
+    },
+    {
+      "addition_text": "'Pain is mostly around the knee joint, especially on the sides.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: The pain is mostly around the knee joint, especially on the sides.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pain is mostly around the knee joint, especially on the sides."
+    },
+    {
+      "addition_text": "'Past medical history includes well-managed hypertension.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Well, I have hypertension, but it’s well-managed. No other major issues. ... Yes, I take medication for my hypertension, but nothing else regularly.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Past medical history includes well-managed hypertension and takes medication for it."
+    },
+    {
+      "addition_text": "'Takes medication for hypertension.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Well, I have hypertension, but it’s well-managed. No other major issues. ... Yes, I take medication for my hypertension, but nothing else regularly.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Past medical history includes well-managed hypertension and takes medication for it."
+    },
+    {
+      "addition_text": "'Denies prior diagnosis of osteoarthritis.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before?\n\n[Patient]: No, I haven’t.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Denies prior diagnosis of osteoarthritis."
+    },
+    {
+      "addition_text": "'Patient denies previous diagnosis.' (of osteoarthritis)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before?\n\n[Patient]: No, I haven’t.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient denies previous diagnosis of osteoarthritis."
+    },
+    {
+      "addition_text": "Lifestyle modifications: specific examples 'avoid aggravating activities, consider cane or knee brace for support.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’d also suggest some lifestyle modifications to reduce the strain on your knee. Try to avoid activities that exacerbate the pain, and consider using a cane or a knee brace for support if necessary.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recommend lifestyle modifications: avoid aggravating activities, and consider using a cane or knee brace for support."
+    },
+    {
+      "addition_text": "NSAIDs: 'and inflammation' (as a purpose)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: For pain management, you can take over-the-counter NSAIDs as needed. They should help with the pain and any inflammation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prescribe over-the-counter NSAIDs as needed for pain and inflammation."
+    },
+    {
+      "addition_text": "'Provide referral for left knee X-ray.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’m going to order an X-ray of your left knee to rule out any structural abnormalities. If the X-ray doesn’t give us a clear picture, we might need to consider an MRI. ... I’ll write you a referral for the X-ray of your left knee, and we’ll consider an MRI if the X-ray is inconclusive.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Order X-ray of left knee and provide referral for it; consider MRI if X-ray is inconclusive."
+    }
+  ]
+}

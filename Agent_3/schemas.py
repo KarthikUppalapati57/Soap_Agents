@@ -54,11 +54,19 @@ class Claim(BaseModel):
     soap_section: SoapSection
     support_status: SupportStatus
     rationale: str = Field(
-        description="Why this is supported or unsupported, grounded in the transcript."
+        description="Why this is supported or unsupported, grounded in the transcript and/or medical_knowledge_terms.",
     )
     transcript_evidence: Optional[str] = Field(
         default=None,
-        description="Short quote or tight paraphrase from the transcript when supported; null if unsupported.",
+        description="Short quote or tight paraphrase from the transcript when the transcript supports the claim; null otherwise.",
+    )
+    medical_knowledge_evidence: Optional[str] = Field(
+        default=None,
+        description="Short quote or tight paraphrase from medical_knowledge_terms when the MKG supports the claim; null otherwise.",
+    )
+    medical_knowledge_rationale: Optional[str] = Field(
+        default=None,
+        description="How medical_knowledge_terms supports or fails to support the claim; null if MKG is not part of the basis.",
     )
 
 
@@ -66,5 +74,5 @@ class ClaimVerificationResult(BaseModel):
     claims: list[Claim] = Field(description="All extracted claims from the SOAP note.")
     benchmark_reconciliation_note: Optional[str] = Field(
         default=None,
-        description="Optional note if claim counts diverge from benchmark; transcript always wins.",
+        description="Optional note if claim counts diverge from benchmark; do not adjust claims to match benchmark.",
     )
