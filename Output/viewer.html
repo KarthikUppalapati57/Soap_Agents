@@ -353,6 +353,51 @@
     .status-unsupported { color: var(--red); }
     .status-unknown { color: var(--yellow); }
 
+    .link-like {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--blue);
+      cursor: pointer;
+      font: inherit;
+      text-decoration: underline;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .data-table th,
+    .data-table td {
+      text-align: left;
+      vertical-align: top;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .data-table th {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .data-table a:hover {
+      text-decoration: underline;
+    }
+
     .empty {
       color: var(--muted);
       font-style: italic;
@@ -360,6 +405,34 @@
 
     .hidden {
       display: none !important;
+    }
+
+    .sidebar-section + .sidebar-section {
+      margin-top: 16px;
+    }
+
+    .sidebar-heading {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .global-views {
+      display: grid;
+      gap: 6px;
+    }
+
+    .global-view {
+      width: 100%;
+      text-align: left;
+    }
+
+    .global-view.active {
+      background: #eff6ff;
+      border-color: var(--blue);
+      color: var(--blue);
     }
 
     @media (max-width: 920px) {
@@ -393,26 +466,37 @@
           <input id="folderInput" class="file-input" type="file" webkitdirectory directory multiple>
         </div>
 
-        <div class="controls">
-          <input id="searchBox" type="search" placeholder="Search item, summary, notes, entities...">
-          <select id="gradeFilter">
-            <option value="">All grades</option>
-            <option value="A">Grade A</option>
-            <option value="B">Grade B</option>
-            <option value="C">Grade C</option>
-            <option value="D">Grade D</option>
-            <option value="F">Grade F</option>
-            <option value="missing">Missing judge grade</option>
-          </select>
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Global views</div>
+          <div class="global-views">
+            <button class="global-view" data-global="hallucinations">All Hallucinations</button>
+            <button class="global-view" data-global="omissions">All Omissions</button>
+          </div>
         </div>
 
-        <div id="itemCount" class="muted small"></div>
-        <div id="itemList" class="item-list"></div>
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Items</div>
+          <div class="controls">
+            <input id="searchBox" type="search" placeholder="Search item, summary, notes, entities...">
+            <select id="gradeFilter">
+              <option value="">All grades</option>
+              <option value="A">Grade A</option>
+              <option value="B">Grade B</option>
+              <option value="C">Grade C</option>
+              <option value="D">Grade D</option>
+              <option value="F">Grade F</option>
+              <option value="missing">Missing judge grade</option>
+            </select>
+          </div>
+
+          <div id="itemCount" class="muted small"></div>
+          <div id="itemList" class="item-list"></div>
+        </div>
       </div>
     </aside>
 
     <main>
-      <div class="topbar">
+      <div id="topbar" class="topbar">
         <div>
           <h2 id="title">No item selected</h2>
           <div id="subtitle" class="muted"></div>
@@ -431,7 +515,6 @@
         <button data-tab="entities">Entities</button>
         <button data-tab="judge">Judge</button>
         <button data-tab="claims">Claims</button>
-        <button data-tab="hallucinations">All Hallucinations</button>
         <button data-tab="raw">Raw JSON</button>
       </nav>
 
@@ -449,6 +532,7 @@
       activeTab: "overview",
       search: "",
       grade: "",
+      globalView: null,
     };
 
     const els = {
@@ -459,6 +543,7 @@
       gradeFilter: document.getElementById("gradeFilter"),
       itemCount: document.getElementById("itemCount"),
       itemList: document.getElementById("itemList"),
+      topbar: document.getElementById("topbar"),
       title: document.getElementById("title"),
       subtitle: document.getElementById("subtitle"),
       topGrade: document.getElementById("topGrade"),
@@ -638,6 +723,12 @@
 
     function selectItem(itemId) {
       state.selectedItem = state.items.find((item) => item.id === itemId) || state.items[0] || null;
+      state.globalView = null;
+      render();
+    }
+
+    function selectGlobalView(view) {
+      state.globalView = state.globalView === view ? null : view;
       render();
     }
 
@@ -645,7 +736,7 @@
       const items = filteredItems();
       els.itemCount.textContent = `${items.length} of ${state.items.length} items`;
       els.itemList.innerHTML = items.map((item) => `
-        <button class="item-row ${state.selectedItem?.id === item.id ? "active" : ""}" data-item="${esc(item.id)}">
+        <button class="item-row ${!state.globalView && state.selectedItem?.id === item.id ? "active" : ""}" data-item="${esc(item.id)}">
           <span>
             <strong>${esc(item.id)}</strong>
             <span class="item-sub">
@@ -660,6 +751,10 @@
 
       els.itemList.querySelectorAll("[data-item]").forEach((button) => {
         button.addEventListener("click", () => selectItem(button.dataset.item));
+      });
+
+      document.querySelectorAll(".global-view").forEach((button) => {
+        button.classList.toggle("active", state.globalView === button.dataset.global);
       });
     }
 
@@ -905,135 +1000,94 @@
       `;
     }
 
-    function collectHallucinations(items) {
+    function collectJudgeRows(items, key) {
       const rows = [];
       for (const item of items) {
         const judge = item.gt_validator?.expert_judge || {};
         const file = `${item.id}/gt_validator.json`;
         const seen = new Set();
-
-        const push = (entry) => {
-          const key = `${entry.section}::${entry.text}::${entry.kind}`;
-          if (seen.has(key)) return;
-          seen.add(key);
-          rows.push({ ...entry, itemId: item.id, file, grade: item.grade });
-        };
-
-        for (const text of judge.hallucinations_or_unjustified_inferences || []) {
-          push({ section: "Overall", text, kind: "hallucination", evidence: null });
-        }
-
-        for (const section of judge.section_grades || []) {
-          const overall = new Set(judge.hallucinations_or_unjustified_inferences || []);
-          for (const text of section.hallucinations_or_unjustified_inferences || []) {
-            push({ section: section.section || "Section", text, kind: "hallucination", evidence: null });
-          }
-          for (const text of section.additions || []) {
-            if (overall.has(text)) {
-              push({ section: section.section || "Section", text, kind: "hallucination", evidence: null });
-            }
-          }
-        }
-
-        for (const entry of item.gt_validator?.addition_evidence || []) {
-          if (entry.supported_by_transcript === "unsupported") {
-            push({
-              section: "Addition evidence",
-              text: entry.addition_text || "(unspecified addition)",
-              kind: "unsupported_addition",
-              evidence: entry,
-            });
-          }
+        for (const text of judge[key] || []) {
+          if (seen.has(text)) continue;
+          seen.add(text);
+          rows.push({ itemId: item.id, file, grade: item.grade, text });
         }
       }
       return rows;
     }
 
-    function renderHallucinations() {
-      const rows = collectHallucinations(state.items);
+    function renderJudgeTable({ heading, columnLabel, key, emptyMessage }) {
+      const rows = collectJudgeRows(state.items, key);
       const search = state.search.toLowerCase();
       const filtered = rows.filter((row) => {
         if (!search) return true;
-        return (
-          row.itemId.toLowerCase().includes(search)
-          || row.text.toLowerCase().includes(search)
-          || (row.section || "").toLowerCase().includes(search)
-        );
-      });
+        return row.itemId.toLowerCase().includes(search) || row.text.toLowerCase().includes(search);
+      }).sort((a, b) => a.itemId.localeCompare(b.itemId));
 
-      const counts = filtered.reduce((acc, row) => {
-        acc[row.kind] = (acc[row.kind] || 0) + 1;
-        return acc;
-      }, {});
+      const uniqueItems = new Set(filtered.map((row) => row.itemId)).size;
 
-      const byItem = filtered.reduce((map, row) => {
-        if (!map.has(row.itemId)) map.set(row.itemId, []);
-        map.get(row.itemId).push(row);
-        return map;
-      }, new Map());
+      const tableRows = filtered.map((row) => `
+        <tr>
+          <td><button class="link-like" data-jump="${esc(row.itemId)}">${esc(row.itemId)}</button></td>
+          <td><a href="${esc(row.file)}" target="_blank" rel="noopener">${esc(row.file)}</a></td>
+          <td>${esc(row.text)}</td>
+        </tr>
+      `).join("");
 
-      const groups = Array.from(byItem.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+      const body = filtered.length
+        ? `
+          <section class="panel">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>File</th>
+                  <th>${esc(columnLabel)}</th>
+                </tr>
+              </thead>
+              <tbody>${tableRows}</tbody>
+            </table>
+          </section>
+        `
+        : `<section class="panel"><div class="empty">${esc(emptyMessage)}</div></section>`;
 
-      const groupBlocks = groups.map(([itemId, entries]) => {
-        const grade = entries[0]?.grade;
-        const list = entries.map((row) => {
-          const kindLabel = row.kind === "hallucination"
-            ? `<span class="pill status-unsupported">hallucination</span>`
-            : `<span class="pill status-unsupported">unsupported addition</span>`;
-          const evidence = row.evidence
-            ? `<div class="muted small" style="margin-top: 6px;">
-                Source: ${esc(row.evidence.evidence_source || "n/a")}
-                ${row.evidence.transcript_evidence ? ` | Transcript: ${esc(row.evidence.transcript_evidence)}` : ""}
-              </div>`
-            : "";
-          return `
-            <li style="margin-top: 8px;">
-              ${kindLabel}
-              <span class="pill">${esc(row.section || "Section")}</span>
-              <div style="margin-top: 4px;">${esc(row.text)}</div>
-              ${evidence}
-            </li>
-          `;
-        }).join("");
-
-        return `
-          <details open>
-            <summary>
-              <button class="link-like" data-jump="${esc(itemId)}" style="background: none; border: none; padding: 0; color: var(--blue); cursor: pointer; font: inherit;">${esc(itemId)}</button>
-              ${gradePill(grade)}
-              <span class="muted small">${entries.length} flagged</span>
-              <span class="muted small">| <a href="${esc(itemId)}/gt_validator.json" target="_blank" rel="noopener">${esc(itemId)}/gt_validator.json</a></span>
-            </summary>
-            <ul style="list-style: none; padding-left: 0;">${list}</ul>
-          </details>
-        `;
-      }).join("");
-
-      const summary = `
+      return `
         <section class="panel">
-          <h2>Hallucinations Across All Items</h2>
+          <h2>${esc(heading)}</h2>
           <div class="muted small">
-            Showing ${filtered.length} entries from ${groups.length} items
-            (${counts.hallucination || 0} judge hallucinations, ${counts.unsupported_addition || 0} unsupported additions).
-            Use the sidebar search box to filter by item, text, or section.
+            ${filtered.length} entries from ${uniqueItems} items (overall section only).
+            Use the sidebar search box to filter by item or text.
           </div>
         </section>
+        ${body}
       `;
+    }
 
-      const body = groups.length
-        ? groupBlocks
-        : `<section class="panel"><div class="empty">No hallucinations or unsupported additions found.</div></section>`;
+    function renderHallucinations() {
+      return renderJudgeTable({
+        heading: "Hallucinations Across All Items",
+        columnLabel: "Hallucination",
+        key: "hallucinations_or_unjustified_inferences",
+        emptyMessage: "No hallucinations found in the overall section.",
+      });
+    }
 
-      return summary + body;
+    function renderOmissions() {
+      return renderJudgeTable({
+        heading: "Omissions Across All Items",
+        columnLabel: "Omission",
+        key: "omissions",
+        emptyMessage: "No omissions found in the overall section.",
+      });
     }
 
     function renderContent() {
-      if (state.activeTab === "hallucinations") {
+      if (state.globalView) {
         if (!state.items.length) {
           els.content.innerHTML = `<section class="panel"><p>No item data loaded yet.</p></section>`;
           return;
         }
-        els.content.innerHTML = renderHallucinations();
+        const renderer = state.globalView === "hallucinations" ? renderHallucinations : renderOmissions;
+        els.content.innerHTML = renderer();
         els.content.querySelectorAll("[data-jump]").forEach((button) => {
           button.addEventListener("click", () => {
             selectItem(button.dataset.jump);
@@ -1041,7 +1095,6 @@
             els.tabs.querySelectorAll("button").forEach((tab) => {
               tab.classList.toggle("active", tab.dataset.tab === "judge");
             });
-            renderContent();
           });
         });
         return;
@@ -1068,9 +1121,21 @@
     }
 
     function render() {
-      const item = state.selectedItem;
       renderList();
 
+      if (state.globalView) {
+        els.topbar.classList.add("hidden");
+        els.summaryCards.classList.add("hidden");
+        els.tabs.classList.add("hidden");
+        renderContent();
+        return;
+      }
+
+      els.topbar.classList.remove("hidden");
+      els.summaryCards.classList.remove("hidden");
+      els.tabs.classList.remove("hidden");
+
+      const item = state.selectedItem;
       if (!item) {
         els.title.textContent = "No item selected";
         els.subtitle.textContent = "";
@@ -1101,7 +1166,7 @@
     els.searchBox.addEventListener("input", (event) => {
       state.search = event.target.value;
       renderList();
-      if (state.activeTab === "hallucinations") renderContent();
+      if (state.globalView) renderContent();
     });
 
     els.gradeFilter.addEventListener("change", (event) => {
@@ -1115,6 +1180,10 @@
       state.activeTab = button.dataset.tab;
       els.tabs.querySelectorAll("button").forEach((tab) => tab.classList.toggle("active", tab === button));
       renderContent();
+    });
+
+    document.querySelectorAll(".global-view").forEach((button) => {
+      button.addEventListener("click", () => selectGlobalView(button.dataset.global));
     });
 
     els.folderInput.addEventListener("change", async (event) => {
