@@ -118,3 +118,6 @@ It connects:
 > raw clinical conversation → AI-generated SOAP → measurable performance
 
 ---
+
+## Drive link to Access teh uploaded SOAP notes.
+https://drive.google.com/drive/folders/1jPyOatCLjB3Gfh5BZ-Pld6A06sqEgxC8?usp=sharing
