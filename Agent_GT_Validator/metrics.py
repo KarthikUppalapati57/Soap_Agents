@@ -90,7 +90,7 @@ def structural_alignment(
     gen_sections: Mapping[SoapSection, str],
 ) -> StructuralAlignmentScore:
     by: list[SectionAlignment] = []
-    sec_order: tuple[SoapSection, ...] = ("Subjective", "Objective", "Assessment", "Plan", "Other")
+    sec_order: tuple[SoapSection, ...] = ("Subjective", "Objective", "Assessment", "Plan")
     for sec in sec_order:
         gt = (gt_sections.get(sec) or "").strip()
         gen = (gen_sections.get(sec) or "").strip()

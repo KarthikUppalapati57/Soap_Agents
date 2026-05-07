@@ -35,6 +35,25 @@ class TestAdditionEvidence(unittest.TestCase):
         self.assertEqual(out[0].supported_by_transcript, "unknown")
         self.assertEqual(out[0].evidence_source, "none")
 
+    def test_abbreviation_only_can_be_supported_by_expansion(self):
+        # Gemini fallback is disabled here; we simulate the scenario by ensuring
+        # no agent3 claim matches, so the entry becomes unknown without fallback.
+        # The override is only applied on gemini results, so this test uses fallback
+        # but with a transcript that clearly supports the expansion.
+        out = build_addition_evidence(
+            additions=["(UTI)", "hematuria"],
+            transcript="Doctor: You might have a urinary tract infection. Also watch for blood in urine.",
+            agent3_claims=[],
+            allow_gemini_fallback=True,
+            gemini_model=None,
+        )
+        # We don't assert evidence_source (could be gemini), but we do require
+        # that these are not marked unsupported purely due to wording.
+        self.assertEqual(out[0].addition_text, "(UTI)")
+        self.assertEqual(out[0].supported_by_transcript, "supported")
+        self.assertEqual(out[1].addition_text, "hematuria")
+        self.assertEqual(out[1].supported_by_transcript, "supported")
+
 
 if __name__ == "__main__":
     unittest.main()

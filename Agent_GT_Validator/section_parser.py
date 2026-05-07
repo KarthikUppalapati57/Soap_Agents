@@ -10,7 +10,6 @@ _SECTION_ORDER: tuple[SoapSection, ...] = (
     "Objective",
     "Assessment",
     "Plan",
-    "Other",
 )
 
 
@@ -49,7 +48,8 @@ def parse_soap_sections(text: str) -> dict[SoapSection, str]:
         inline_re = re.compile(r"(?im)^(?P<h>(subjective|objective|assessment|plan))\s*:\s*")
         matches = list(inline_re.finditer(raw))
         if not matches:
-            return {**{s: "" for s in _SECTION_ORDER}, "Other": raw.strip()}
+            # No headings detected; treat as unstructured and return empty sections.
+            return {s: "" for s in _SECTION_ORDER}
 
     spans: list[tuple[SoapSection, int, int]] = []
     for i, m in enumerate(matches):
@@ -72,21 +72,6 @@ def parse_soap_sections(text: str) -> dict[SoapSection, str]:
         for j in range(max(0, start), min(len(raw), end)):
             covered[j] = True
 
-    # Any leftover text goes to Other.
-    other_parts: list[str] = []
-    cur: list[str] = []
-    for ch, is_covered in zip(raw, covered, strict=False):
-        if is_covered:
-            if cur:
-                other_parts.append("".join(cur))
-                cur = []
-        else:
-            cur.append(ch)
-    if cur:
-        other_parts.append("".join(cur))
-
-    other_text = "\n".join(p.strip() for p in other_parts if p.strip()).strip()
-    out["Other"] = other_text
     return out
 
 

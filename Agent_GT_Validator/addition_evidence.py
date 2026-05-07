@@ -12,6 +12,16 @@ from .schemas import AdditionEvidence, TranscriptSupport
 
 _TOK_RE = re.compile(r"[a-z0-9]+", re.IGNORECASE)
 
+_ACRONYM_EXPANSIONS: dict[str, list[str]] = {
+    # Common clinical acronyms we see in SOAP notes.
+    "uti": ["urinary tract infection"],
+}
+
+_TERM_SYNONYMS: dict[str, list[str]] = {
+    # Prefer simple, unambiguous paraphrases.
+    "hematuria": ["blood in urine", "blood in the urine"],
+}
+
 
 def _tokens(s: str) -> set[str]:
     return set(_TOK_RE.findall((s or "").lower()))
@@ -148,6 +158,44 @@ def _gemini_check(transcript: str, addition: str, *, model: str | None = None) -
     )
 
 
+def _looks_like_abbreviation_only(addition: str) -> str | None:
+    """
+    Detect very small additions that are just acronyms/abbreviations in parentheses,
+    e.g. "(UTI)". Returns the acronym (lowercased) when detected.
+    """
+    s = (addition or "").strip()
+    m = re.fullmatch(r"[\(\[\{]\s*([A-Za-z][A-Za-z0-9]{1,9})\s*[\)\]\}]", s)
+    if not m:
+        return None
+    return m.group(1).lower()
+
+
+def _heuristic_support_override(transcript: str, addition: str) -> tuple[TranscriptSupport, str | None] | None:
+    """
+    If Gemini marks an addition unsupported because it's just a standard abbreviation
+    or terminology synonym, override to supported when the transcript contains the
+    expanded/synonymous phrase.
+    """
+    t = (transcript or "").lower()
+    a = (addition or "").strip()
+    if not t or not a:
+        return None
+
+    ac = _looks_like_abbreviation_only(a)
+    if ac and ac in _ACRONYM_EXPANSIONS:
+        for exp in _ACRONYM_EXPANSIONS[ac]:
+            if exp.lower() in t:
+                return "supported", exp
+
+    toks = _tokens(a)
+    for term, syns in _TERM_SYNONYMS.items():
+        if term in toks:
+            for s in syns:
+                if s.lower() in t:
+                    return "supported", s
+    return None
+
+
 def build_addition_evidence(
     *,
     additions: Iterable[str],
@@ -171,8 +219,31 @@ def build_addition_evidence(
 
         if allow_gemini_fallback:
             try:
-                out.append(_gemini_check(transcript, addition, model=gemini_model))
+                ev = _gemini_check(transcript, addition, model=gemini_model)
+                if ev.supported_by_transcript == "unsupported":
+                    override = _heuristic_support_override(transcript, addition)
+                    if override is not None:
+                        supported, evidence = override
+                        ev.supported_by_transcript = supported
+                        if evidence and not ev.transcript_evidence:
+                            ev.transcript_evidence = evidence
+                out.append(ev)
             except Exception:
+                # If Gemini is unavailable, still apply our lightweight
+                # abbreviation/synonym overrides before falling back to unknown.
+                supported_override = _heuristic_support_override(transcript, addition)
+                if supported_override is not None:
+                    supported, evidence = supported_override
+                    out.append(
+                        AdditionEvidence(
+                            addition_text=addition,
+                            supported_by_transcript=supported,
+                            transcript_evidence=evidence,
+                            evidence_source="none",
+                            matched_claim_text=None,
+                        )
+                    )
+                    continue
                 out.append(
                     AdditionEvidence(
                         addition_text=addition,

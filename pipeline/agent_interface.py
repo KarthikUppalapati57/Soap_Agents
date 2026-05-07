@@ -1,4 +1,4 @@
-from Agent_1.V1.generate import generate_soap_v1
+from Agent_1.V1.generate_test import generate_soap_v1
 from Agent_2.v2.OpenAI_health_Benchmark.agent2 import evaluate_soap, parse_output
 from Agent_3.MKG import PrimeKGExplorer, extract_medical_terms
 from Agent_3.agent3 import _process_one

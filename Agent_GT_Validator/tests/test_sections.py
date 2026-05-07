@@ -20,7 +20,10 @@ class TestSectionParser(unittest.TestCase):
     def test_no_headings(self):
         text = "freeform\nnote"
         sec = parse_soap_sections(text)
-        self.assertEqual(sec["Other"], "freeform\nnote")
+        self.assertEqual(sec["Subjective"], "")
+        self.assertEqual(sec["Objective"], "")
+        self.assertEqual(sec["Assessment"], "")
+        self.assertEqual(sec["Plan"], "")
 
     def test_inline_heading(self):
         text = "Subjective: A\nObjective: B\n"

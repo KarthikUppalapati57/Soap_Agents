@@ -4,7 +4,7 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
 
-SoapSection = Literal["Subjective", "Objective", "Assessment", "Plan", "Other"]
+SoapSection = Literal["Subjective", "Objective", "Assessment", "Plan"]
 
 
 class ExtractedEntities(BaseModel):
@@ -66,7 +66,6 @@ class ExpertJudgeDiscrepancies(BaseModel):
     model: str
     omissions: list[str] = Field(default_factory=list)
     additions: list[str] = Field(default_factory=list)
-    hallucinations_or_unjustified_inferences: list[str] = Field(default_factory=list)
     section_discrepancies: list[JudgeSectionDiscrepancy] = Field(default_factory=list)
     rubric_notes: Optional[str] = None
 
@@ -96,7 +95,6 @@ class ExpertJudgeReport(BaseModel):
     hallucinations_or_unjustified_inferences: list[str] = Field(default_factory=list)
     section_grades: list[JudgeSectionGrade] = Field(default_factory=list)
     rubric_notes: Optional[str] = None
-    addition_evidence: list["AdditionEvidence"] = Field(default_factory=list)
 
 
 TranscriptSupport = Literal["supported", "unsupported", "unknown"]

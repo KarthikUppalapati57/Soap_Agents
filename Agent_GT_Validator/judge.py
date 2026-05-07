@@ -36,49 +36,56 @@ def _max_tokens() -> int | None:
 _RUBRIC_COMPARE = """Rubric (list omissions/additions only — do NOT assign letter grades):
 
 Primary objective:
-- Compare Generated SOAP vs GroundTruth SOAP and identify:
-  - omissions: clinically important items present in GroundTruth but missing/less specific in Generated
-  - additions: items in Generated not present in GroundTruth (including over-specific claims)
+- Compare Generated SOAP vs GroundTruth SOAP and identify differences:
+  - omissions: items present in GroundTruthSOAP that are entirely missing from GeneratedSOAP.
+  - additions: items present in GeneratedSOAP that are not present in GroundTruthSOAP.
 
-Important rule about GT-fabricated fields:
-- You will also receive the Transcript (source conversation).
-- Some GroundTruthSOAP fields may be fabricated/templated and not present in the Transcript.
-- Do NOT include these as omissions:
-  - patient name
-  - patient age or DOB
-  - sex/gender
-  - race/ethnicity
-  - ICD-10 codes (or other billing/coding identifiers)
+Hard rules:
+- Omission means ENTIRELY MISSING. If a concept is present in GeneratedSOAP but worded differently, DO NOT call it an omission.
+- If GeneratedSOAP adds qualifiers/details not present in GroundTruthSOAP, those are additions (possibly over-specific), not omissions.
+- Only compare GroundTruthSOAP vs GeneratedSOAP in this step. Ignore Transcript for deciding omissions/additions.
+- Do NOT list additions that are purely formatting/notation changes, including common abbreviations or acronyms
+  that preserve the same meaning (e.g. "urinary tract infection" vs "(UTI)", "blood in urine" vs "hematuria",
+  or frequency abbreviations like BID/PRN when the underlying instruction is the same).
 
 Be concrete: each omission/addition should be a short bullet-like string that can be checked against the texts.
-If something is partially present, prefer listing it as an omission with what detail is missing.
+Avoid “missing exact phrasing” type omissions; focus on missing content.
 
-Include one section_discrepancies entry for each of: Subjective, Objective, Assessment, Plan, Other (use empty lists when nothing to report).
+Include one section_discrepancies entry for each of: Subjective, Objective, Assessment, Plan (use empty lists when nothing to report).
 """
 
 
-_RUBRIC_GRADE = """Rubric (grading ONLY from omissions, unsupported/unknown additions, and hallucinations):
+_RUBRIC_GRADE = """Rubric (grading ONLY from omissions and unsupported/unknown additions):
 
 You receive:
 1) The same GroundTruthSOAP, GeneratedSOAP, and Transcript as before (for context when writing summaries).
-2) discrepancy_lists: omissions, additions, per-section omissions/additions, and hallucinations_or_unjustified_inferences from a prior review step.
+2) discrepancy_lists: omissions, additions, and per-section omissions/additions from a prior review step.
 3) addition_evidence: for many additions, transcript support status from an automated check (supported | unsupported | unknown).
 
 Grading inputs (ONLY these may lower a grade):
 - All omissions in discrepancy_lists (GT-fabricated items were already excluded in the prior step).
 - Additions whose addition_evidence.supported_by_transcript is **unsupported** or **unknown**.
-- Entries in hallucinations_or_unjustified_inferences (treat as severe alignment/safety issues).
+
+Severity note:
+- Treat unsupported additions as high-severity alignment issues by default, especially in Assessment/Plan.
+- Even a small number of unsupported additions can justify dropping below B if they introduce misleading clinical content.
 
 **Supported additions:** additions with supported_by_transcript == **supported** must NOT reduce any section or overall grade. They may appear in the text for transparency but are clinically grounded in the Transcript.
 
 If an addition has no entry in addition_evidence, treat it as **unknown** for grading (conservative).
 
+How to weigh issues:
+- Focus on clinical materiality and usefulness.
+- A small number of minor omissions or minor unsupported/unknown additions should not automatically drop the grade.
+- Prefer “benefit of the doubt” when deciding severity unless the issue clearly changes meaning, safety, or clinical usefulness.
+- If the note is broadly clinically usable and the issues are limited in scope, avoid over-penalizing.
+
 Letter scale (based ONLY on the grading inputs above):
-- Grade A: essentially all clinically important GT content captured; negligible unsupported/unknown additions; hallucination list empty or trivial.
-- Grade B: minor issues among the grading inputs, but overall clinically aligned.
-- Grade C: multiple grading-input issues; some sections weaker but still usable.
-- Grade D: major grading-input issues that reduce clinical usefulness.
-- Grade F: unsafe/unreliable; pervasive unjustified content or missing critical GT content.
+- Grade A: captures all major clinically important GT content; any omissions are minor; unsupported/unknown additions are absent or minor.
+- Grade B: mostly clinically aligned and clearly usable; may have several minor issues and/or up to 1–2 moderate issues.
+- Grade C: noticeable gaps or multiple moderate issues that make the note meaningfully incomplete; still usable with caution and review.
+- Grade D: major issues that materially reduce clinical usefulness or introduce misleading content.
+- Grade F: unsafe/unreliable; severe unjustified content or missing critical GT content.
 
 Be concrete in summaries: reference omissions and unsupported/unknown additions, not supported extras.
 """
@@ -90,28 +97,36 @@ def _prompt_discrepancies(ground_truth: str, generated: str, transcript: str) ->
 You will be given:
 1) GroundTruthSOAP: the reference note
 2) GeneratedSOAP: the model-generated note to evaluate against the reference
-3) Transcript: the source conversation (used ONLY to decide whether certain GT fields are fabricated)
+3) Transcript: the source conversation (provided for later steps; ignore it for omissions/additions here)
 
 Task:
 - Compare GeneratedSOAP to GroundTruthSOAP.
 - Identify omissions and additions (global and per SOAP section).
-- Identify hallucinations_or_unjustified_inferences (Generated claims not justified by GroundTruthSOAP or Transcript).
 - Do NOT assign letter grades in this step.
 
+Important rule about GT-fabricated fields:
+- You will also receive the Transcript (source conversation).
+- Some GroundTruthSOAP fields may be fabricated/templated and not present in the Transcript.
+- Do NOT include these as omissions:
+  - patient name
+  - patient age or DOB
+  - sex/gender
+  - race/ethnicity
+  - ICD-10 codes (or other billing/coding identifiers)
+
 Important constraints:
-- Do NOT use outside medical knowledge. Only compare the two texts (and Transcript only for the GT-fabricated omission rule).
+- Use only the two SOAP texts for omissions/additions. (Transcript is irrelevant in this step.)
 - Return ONLY valid JSON matching the required schema.
-- For omissions: apply the GT-fabricated-fields rule from the rubric using the Transcript.
+- Do not create “omissions” based on phrasing differences—only entirely missing items.
 
 Required JSON schema:
 {{
   "model": "<string model name>",
   "omissions": ["<string>", ...],
   "additions": ["<string>", ...],
-  "hallucinations_or_unjustified_inferences": ["<string>", ...],
   "section_discrepancies": [
     {{
-      "section": "Subjective|Objective|Assessment|Plan|Other",
+      "section": "Subjective|Objective|Assessment|Plan",
       "omissions": ["<string>", ...],
       "additions": ["<string>", ...]
     }}
@@ -161,7 +176,7 @@ addition_evidence (JSON):
 Task:
 - Assign overall_grade and overall_summary.
 - Assign per-section grade and summary for each section in section_discrepancies (same section names).
-- Apply the rubric using ONLY omissions, unsupported/unknown additions, and hallucinations as defined above.
+- Apply the rubric using ONLY omissions and unsupported/unknown additions as defined above.
 
 Important constraints:
 - Do NOT use outside medical knowledge.
@@ -174,7 +189,7 @@ Required JSON schema:
   "overall_summary": "<short paragraph>",
   "section_grades": [
     {{
-      "section": "Subjective|Objective|Assessment|Plan|Other",
+      "section": "Subjective|Objective|Assessment|Plan",
       "grade": "A|B|C|D|F",
       "summary": "<short paragraph>"
     }}
@@ -204,7 +219,6 @@ def _unique_additions_in_order(disc: ExpertJudgeDiscrepancies) -> list[str]:
 def _merge_expert_report(
     disc: ExpertJudgeDiscrepancies,
     grading: ExpertJudgeGradingResult,
-    addition_evidence: list[AdditionEvidence],
     *,
     model_fallback: str,
 ) -> ExpertJudgeReport:
@@ -237,10 +251,9 @@ def _merge_expert_report(
         overall_summary=grading.overall_summary,
         omissions=disc.omissions,
         additions=disc.additions,
-        hallucinations_or_unjustified_inferences=disc.hallucinations_or_unjustified_inferences,
+        hallucinations_or_unjustified_inferences=[],
         section_grades=section_grades,
         rubric_notes=merged_notes,
-        addition_evidence=addition_evidence,
     )
 
 
@@ -323,12 +336,12 @@ def judge_against_ground_truth(
     evidence_model: str | None = None,
     agent3_claims: list[dict[str, Any]] | None = None,
     allow_evidence_gemini_fallback: bool = True,
-) -> ExpertJudgeReport:
+) -> tuple[ExpertJudgeReport, list[AdditionEvidence]]:
     """
     Two-phase expert judge:
-    1) List omissions/additions (and hallucinations) vs GT.
+    1) List omissions/additions vs GT.
     2) Classify transcript support for deduped additions, then assign grades using only
-       omissions + unsupported/unknown additions + hallucinations.
+       omissions + unsupported/unknown additions.
     """
     m = model or _default_model()
     disc = judge_list_discrepancies(
@@ -371,7 +384,12 @@ def judge_against_ground_truth(
         model=m,
         temperature=temperature,
     )
-    return _merge_expert_report(disc, grading, addition_evidence, model_fallback=m)
+    report = _merge_expert_report(disc, grading, model_fallback=m)
+    # Hallucinations are defined purely as transcript-unsupported additions.
+    report.hallucinations_or_unjustified_inferences = [
+        a.addition_text for a in addition_evidence if a.supported_by_transcript == "unsupported"
+    ]
+    return report, addition_evidence
 
 
 # Backwards compatibility for tests: single-discrepancies prompt shape.

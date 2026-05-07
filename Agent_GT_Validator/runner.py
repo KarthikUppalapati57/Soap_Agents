@@ -178,7 +178,7 @@ def run_one_item(
     addition_evidence = []
     if not skip_llm:
         try:
-            judge = judge_against_ground_truth(
+            judge, addition_evidence = judge_against_ground_truth(
                 ground_truth_soap=gt,
                 generated_soap=gen,
                 transcript=transcript,
@@ -187,8 +187,6 @@ def run_one_item(
                 agent3_claims=agent3_claims if isinstance(agent3_claims, list) else [],
                 allow_evidence_gemini_fallback=True,
             )
-            if judge:
-                addition_evidence = judge.addition_evidence or []
         except Exception as e:
             judge = None
             judge_err = str(e)
