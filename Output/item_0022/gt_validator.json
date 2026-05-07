@@ -200,8 +200,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5787572936060142,
-    "overall_rouge_l_f1": 0.4682202459143272,
+    "overall_token_f1": 0.47344661700751783,
+    "overall_rouge_l_f1": 0.335275307392909,
     "by_section": [
       {
         "section": "Subjective",
@@ -230,127 +230,142 @@
         "gen_present": true,
         "token_f1": 0.6371681415929203,
         "rouge_l_f1": 0.3548387096774194
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.09090909090909091,
     "plan_alignment_score": 0.6371681415929203
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The document presents multiple omissions, particularly in the Plan section, including the quantity of prescribed medication, specific physical therapy instructions, and a significant paragraph detailing patient context and motivation. There is also one unsupported addition of a section heading. While no hallucinations were found, these issues reduce the overall completeness and clinical utility.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "A",
+    "overall_summary": "The generated note is highly accurate and clinically usable, capturing all major clinically important Ground Truth content. The few omissions are minor, primarily consisting of administrative details, specific phrasing for patient education, and the detailed reasons for pending lab tests, none of which materially impact the clinical utility or safety of the note. Crucially, there are no unsupported or unknown additions.",
     "omissions": [
-      "Subjective: HPI: 'follow-up visit'",
-      "Subjective: HPI: 'severe' pain",
-      "Subjective: ROS: Musculoskeletal: 'severe' sharp pain",
-      "Objective: Physical Examination: Inspection: 'Visible discomfort in the left leg'",
-      "Plan: Medications: 'orally' for Gabapentin",
-      "Plan: Medications: 'Quantity: 42 capsules' for Gabapentin",
-      "Plan: Physical Therapy: 'home exercises'",
-      "Plan: Physical Therapy: 'to alleviate symptoms'",
-      "Plan: Lifestyle Modifications: 'Encourage regular physical activity'",
-      "Plan: Patient Education: 'importance of pain management'",
-      "Plan: Patient Education: 'for optimal recovery'",
-      "Plan: Overall paragraph about patient cooperation, motivation, financial limitations, and health programs"
+      "follow-up visit (in HPI)",
+      "Reason for X-ray: to evaluate bone structure",
+      "Reason for CBC: to rule out any underlying infection",
+      "Medications: Quantity: 42 capsules",
+      "Lifestyle Modifications: Encourage regular physical activity",
+      "Additional Recommendations: Educate the patient on the importance of pain management",
+      "Overall paragraph regarding patient cooperation, motivation, financial limitations, and health programs"
     ],
     "additions": [
-      "Plan: Section heading 'Contingency'"
+      "Pain described as 'worsening' (in HPI)",
+      "Denial of 'chills, tingling, numbness, or unexpected weight loss' (in HPI)",
+      "Range of Motion described as 'painful' (in Objective Physical Exam)",
+      "Vital Signs interpretation: 'All within normal limits'",
+      "Assessment includes etiology and presenting symptoms: 'likely due to sciatic nerve irritation or compression, presenting with left leg pain and weakness'",
+      "Medications: 'for nerve pain' (reason for Gabapentin)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has minor omissions, including the descriptor 'severe' for pain in both the HPI and ROS, and the mention of a 'follow-up visit' in the HPI. These are minor but impact the completeness of the clinical picture.",
+        "grade": "A",
+        "summary": "The Subjective section is excellent, accurately capturing the patient's chief complaint and history of present illness. The single omission of 'follow-up visit' is minor and does not detract from the clinical picture. All additions are well-supported by the transcript.",
         "omissions": [
-          "HPI: 'follow-up visit'",
-          "HPI: 'severe' pain",
-          "ROS: Musculoskeletal: 'severe' sharp pain"
+          "follow-up visit (in HPI)"
         ],
-        "additions": []
+        "additions": [
+          "Pain described as 'worsening' (in HPI)",
+          "Denial of 'chills, tingling, numbness, or unexpected weight loss' (in HPI)"
+        ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has one minor omission regarding the physical examination finding of 'Visible discomfort in the left leg' during inspection.",
+        "grade": "A",
+        "summary": "The Objective section is comprehensive, detailing physical examination findings and vital signs. The omissions of the specific reasons for the X-ray and CBC are minor, as the pending tests themselves are correctly identified. All additions are supported by the transcript.",
         "omissions": [
-          "Physical Examination: Inspection: 'Visible discomfort in the left leg'"
+          "Reason for X-ray: to evaluate bone structure",
+          "Reason for CBC: to rule out any underlying infection"
         ],
-        "additions": []
+        "additions": [
+          "Range of Motion described as 'painful' (in Physical Exam)",
+          "Vital Signs interpretation: 'All within normal limits'"
+        ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately captures all GroundTruth content with no omissions, unsupported additions, or hallucinations.",
+        "summary": "The Assessment section is perfectly aligned with the Ground Truth, accurately stating the diagnosis and providing additional context that is fully supported by the transcript. There are no omissions or unsupported additions.",
         "omissions": [],
-        "additions": []
-      },
-      {
-        "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section contains multiple omissions, including the quantity of Gabapentin, specific details for physical therapy ('home exercises', 'to alleviate symptoms'), and important patient education points ('importance of pain management', 'for optimal recovery'). A significant omission is the entire 'Overall' paragraph detailing patient cooperation, motivation, financial limitations, and health programs. Additionally, there is one unsupported addition of a 'Contingency' section heading.",
-        "omissions": [
-          "Medications: 'orally' for Gabapentin",
-          "Medications: 'Quantity: 42 capsules' for Gabapentin",
-          "Physical Therapy: 'home exercises'",
-          "Physical Therapy: 'to alleviate symptoms'",
-          "Lifestyle Modifications: 'Encourage regular physical activity'",
-          "Patient Education: 'importance of pain management'",
-          "Patient Education: 'for optimal recovery'",
-          "Overall paragraph about patient cooperation, motivation, financial limitations, and health programs"
-        ],
         "additions": [
-          "Section heading 'Contingency'"
+          "Etiology and presenting symptoms: 'likely due to sciatic nerve irritation or compression, presenting with left leg pain and weakness'"
         ]
       },
       {
-        "section": "Other",
+        "section": "Plan",
         "grade": "A",
-        "summary": "There are no discrepancies identified for this section.",
-        "omissions": [],
-        "additions": []
+        "summary": "The Plan section is strong, outlining appropriate medications, referrals, and lifestyle modifications. While there are several minor omissions related to medication quantity, specific phrasing for lifestyle advice, a specific patient education point, and an overall contextual paragraph, these do not diminish the core clinical usefulness of the treatment plan. All additions are supported by the transcript.",
+        "omissions": [
+          "Medications: Quantity: 42 capsules",
+          "Lifestyle Modifications: Encourage regular physical activity",
+          "Additional Recommendations: Educate the patient on the importance of pain management",
+          "Overall paragraph regarding patient cooperation, motivation, financial limitations, and health programs"
+        ],
+        "additions": [
+          "Medications: 'for nerve pain' (reason for Gabapentin)"
+        ]
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Plan: Section heading 'Contingency'",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Section heading 'Contingency'",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Plan: Section heading 'Contingency'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "Pain described as 'worsening' (in HPI)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's been getting worse.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Section heading 'Contingency'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "addition_text": "Denial of 'chills, tingling, numbness, or unexpected weight loss' (in HPI)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Any recent trauma or accidents that you can recall? [Patient]: No, nothing like that. [Doctor]: Any other symptoms like fever or chills? [Patient]: No, just poor sleep because of the pain. [Doctor]: For your neurological system, do you have any tingling or numbness? [Patient]: No tingling or numbness, just the pain and weakness. [Doctor]: Any issues with your general health, like fever or unexpected weight loss? [Patient]: No, just poor sleep.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Denies recent trauma or accidents, fever, chills, tingling, numbness, or unexpected weight loss."
+    },
+    {
+      "addition_text": "Range of Motion described as 'painful' (in Objective Physical Exam)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Could you try to bend forward for me? [Patient]: (Attempts to bend) It's very limited and painful. [Doctor]: Okay, how about leaning backward? [Patient]: Same thing, it’s quite limited and hurts.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Range of Motion: Limited and painful with bending forward and backward."
+    },
+    {
+      "addition_text": "Vital Signs interpretation: 'All within normal limits'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Blood pressure is 120/80 mmHg, heart rate is 76 bpm, respiratory rate is 16 breaths/min, and temperature is 98.6°F. Everything looks normal there.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Vital Signs: BP 120/80 mmHg, HR 76 bpm, RR 16 breaths/min, Temp 98.6°F. All within normal limits."
+    },
+    {
+      "addition_text": "Assessment includes etiology and presenting symptoms: 'likely due to sciatic nerve irritation or compression, presenting with left leg pain and weakness'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, it looks like you have sciatica. This is when the sciatic nerve gets irritated or compressed, causing pain and weakness down your leg.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Sciatica, likely due to sciatic nerve irritation or compression, presenting with left leg pain and weakness."
+    },
+    {
+      "addition_text": "Medications: 'for nerve pain' (reason for Gabapentin)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: For treatment, I’m going to prescribe Gabapentin 300 mg, one capsule three times a day for 14 days. That should help with the nerve pain.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Medication: Prescribe Gabapentin 300 mg, one capsule three times a day for 14 days, for nerve pain."
+    },
+    {
+      "addition_text": "Range of Motion described as 'painful' (in Physical Exam)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Could you try to bend forward for me? [Patient]: (Attempts to bend) It's very limited and painful. [Doctor]: Okay, how about leaning backward? [Patient]: Same thing, it’s quite limited and hurts.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Range of Motion: Limited and painful with bending forward and backward."
+    },
+    {
+      "addition_text": "Etiology and presenting symptoms: 'likely due to sciatic nerve irritation or compression, presenting with left leg pain and weakness'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, it looks like you have sciatica. This is when the sciatic nerve gets irritated or compressed, causing pain and weakness down your leg.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Sciatica, likely due to sciatic nerve irritation or compression, presenting with left leg pain and weakness."
     }
   ]
 }

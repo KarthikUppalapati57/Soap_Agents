@@ -317,8 +317,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7166423037275962,
-    "overall_rouge_l_f1": 0.6244876585643675,
+    "overall_token_f1": 0.6458028796594952,
+    "overall_rouge_l_f1": 0.5306095732054593,
     "by_section": [
       {
         "section": "Subjective",
@@ -347,19 +347,135 @@
         "gen_present": true,
         "token_f1": 0.7411764705882353,
         "rouge_l_f1": 0.5327868852459015
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.360655737704918,
     "plan_alignment_score": 0.7411764705882353
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Other'; got ['Subjective', 'Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "A",
+    "overall_summary": "The generated note is highly accurate and clinically useful, capturing all major GroundTruth content. All additions are well-supported by the transcript, meaning no unsupported or unknown additions are present. The few omissions are minor and do not impact the clinical utility or safety of the documentation, resulting in an excellent overall grade.",
+    "omissions": [
+      "Patient's occupation: \"university professor\"",
+      "Patient attributes fatigue to \"potential anemia\"",
+      "\"Reports feeling well aside from fatigue\" (from General ROS)",
+      "Specific genitourinary denials: \"No dysuria, urgency, or frequency\"",
+      "\"Generally well-appearing\" (from General Objective)",
+      "\"unspecified\" for iron deficiency anemia diagnosis"
+    ],
+    "additions": [
+      "\"increased exhaustion with daily activities\" (compared to \"can perform daily tasks with some difficulty\")",
+      "Detailed description of symptoms supporting suspected iron deficiency anemia in Assessment (fatigue, pallor, brittle hair, occasional headaches, pale conjunctiva)",
+      "Statement about rheumatoid arthritis stability in Assessment (\"Rheumatoid arthritis is stable with mild joint pain, managed on current medication regimen\")",
+      "Explicit instruction to continue current methotrexate and folic acid in Plan"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "A",
+        "summary": "The Subjective section is comprehensive and accurate. While there are a few minor omissions (patient's occupation, patient's attribution of fatigue, specific ROS denials), these do not detract from the clinical completeness or usefulness of the section. All additions are supported by the transcript.",
+        "omissions": [
+          "Patient's occupation: \"university professor\"",
+          "Patient attributes fatigue to \"potential anemia\"",
+          "\"Reports feeling well aside from fatigue\" (from General ROS)",
+          "Specific genitourinary denials: \"No dysuria, urgency, or frequency\""
+        ],
+        "additions": [
+          "\"increased exhaustion with daily activities\""
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is complete and accurate, including all vital signs and physical exam findings. The single omission of 'Generally well-appearing' is minor and does not affect the clinical picture.",
+        "omissions": [
+          "\"Generally well-appearing\" (from General observation)"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section accurately identifies the primary diagnosis and differential. The omission of 'unspecified' for iron deficiency anemia is a minor detail that does not impact the clinical diagnosis or plan. All additions in this section are supported by the transcript.",
+        "omissions": [
+          "\"unspecified\" for iron deficiency anemia"
+        ],
+        "additions": [
+          "Detailed description of symptoms supporting suspected iron deficiency anemia (fatigue, pallor, brittle hair, occasional headaches, pale conjunctiva)",
+          "Statement about \"Rheumatoid arthritis is stable with mild joint pain, managed on current medication regimen\""
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "A",
+        "summary": "The Plan section is complete and accurate, detailing diagnostics, medications, lifestyle modifications, and follow-up recommendations. There are no omissions or unsupported/unknown additions in this section.",
+        "omissions": [],
+        "additions": [
+          "Explicit instruction to \"Continue current methotrexate 15 mg weekly and folic acid 1 mg daily\""
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "\"increased exhaustion with daily activities\" (compared to \"can perform daily tasks with some difficulty\")",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, but it’s getting harder. I feel exhausted more easily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient notes increased exhaustion with daily activities."
+    },
+    {
+      "addition_text": "Detailed description of symptoms supporting suspected iron deficiency anemia in Assessment (fatigue, pallor, brittle hair, occasional headaches, pale conjunctiva)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms, I suspect you might have iron deficiency anemia. ... [Doctor]: Pale conjunctiva can be a sign of anemia, which matches your symptoms of fatigue and pale skin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Suspected iron deficiency anemia, presenting with symptoms of fatigue, pallor, brittle hair, and occasional headaches, supported by physical exam finding of pale conjunctiva."
+    },
+    {
+      "addition_text": "Statement about rheumatoid arthritis stability in Assessment (\"Rheumatoid arthritis is stable with mild joint pain, managed on current medication regimen\")",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I have mild joint pain, but I manage it with methotrexate for my rheumatoid arthritis. ... [Doctor]: Based on your medical history, I see you were diagnosed with rheumatoid arthritis 10 years ago and you're currently managing it with methotrexate 15 mg weekly and folic acid 1 mg daily. Is that correct? [Patient]: Yes, that’s right.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Rheumatoid arthritis is stable with mild joint pain, managed on current medication regimen."
+    },
+    {
+      "addition_text": "Explicit instruction to continue current methotrexate and folic acid in Plan",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: ...you're currently managing it with methotrexate 15 mg weekly and folic acid 1 mg daily. Is that correct? [Patient]: Yes, that’s right.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Current medications are methotrexate 15 mg weekly and folic acid 1 mg daily."
+    },
+    {
+      "addition_text": "\"increased exhaustion with daily activities\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, but it’s getting harder. I feel exhausted more easily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient notes increased exhaustion with daily activities."
+    },
+    {
+      "addition_text": "Detailed description of symptoms supporting suspected iron deficiency anemia (fatigue, pallor, brittle hair, occasional headaches, pale conjunctiva)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms, I suspect you might have iron deficiency anemia. ... [Doctor]: Pale conjunctiva can be a sign of anemia, which matches your symptoms of fatigue and pale skin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Suspected iron deficiency anemia, presenting with symptoms of fatigue, pallor, brittle hair, and occasional headaches, supported by physical exam finding of pale conjunctiva."
+    },
+    {
+      "addition_text": "Statement about \"Rheumatoid arthritis is stable with mild joint pain, managed on current medication regimen\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I have mild joint pain, but I manage it with methotrexate for my rheumatoid arthritis. ... [Doctor]: Based on your medical history, I see you were diagnosed with rheumatoid arthritis 10 years ago and you're currently managing it with methotrexate 15 mg weekly and folic acid 1 mg daily. Is that correct? [Patient]: Yes, that’s right.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Rheumatoid arthritis is stable with mild joint pain, managed on current medication regimen."
+    },
+    {
+      "addition_text": "Explicit instruction to \"Continue current methotrexate 15 mg weekly and folic acid 1 mg daily\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: ...you're currently managing it with methotrexate 15 mg weekly and folic acid 1 mg daily. Is that correct? [Patient]: Yes, that’s right.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Current medications are methotrexate 15 mg weekly and folic acid 1 mg daily."
+    }
+  ]
 }

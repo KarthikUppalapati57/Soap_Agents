@@ -243,8 +243,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5941230381438547,
-    "overall_rouge_l_f1": 0.5158546013874629,
+    "overall_token_f1": 0.49265379767981826,
+    "overall_rouge_l_f1": 0.39481825173432855,
     "by_section": [
       {
         "section": "Subjective",
@@ -273,13 +273,6 @@
         "gen_present": true,
         "token_f1": 0.5443037974683544,
         "rouge_l_f1": 0.4234234234234234
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.15,
@@ -287,169 +280,129 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated SOAP note exhibits major grading issues, including a critical hallucination in the Assessment section regarding the diagnosis of 'likely acute cystitis' when the GroundTruth specified 'site not specified'. Additionally, the entire 'Patient Agreements' section was omitted, along with other important details such as the medication quantity and the full purpose of the urine culture. These issues significantly reduce the clinical usefulness of the note.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note accurately captures the Subjective and Objective findings. However, the Assessment section includes an unsupported specific diagnosis of 'likely acute cystitis' which was not present in the Ground Truth or transcript. The Plan section has several omissions, including the quantity of medication, detailed reasons for investigations and patient education, and the entire 'Patient Agreements' section, which collectively make the note meaningfully incomplete and reduce its clinical usefulness.",
     "omissions": [
-      "Quantity of Ciprofloxacin (14 tablets)",
-      "Purpose of urine culture and sensitivity test (to confirm bacterial etiology and antibiotic resistance pattern)",
-      "Explicit statement of 'Differential Diagnosis: None' in Assessment",
-      "Patient Agreements section (patient understanding and agreement with the recommended medical treatment plan, including follow-up and urine culture test, and importance of adhering to medication regimen)"
+      "Diagnosis: site not specified",
+      "Differential Diagnosis: None",
+      "Ciprofloxacin quantity: 14 tablets",
+      "Reason for urine culture: to confirm bacterial etiology and antibiotic resistance pattern",
+      "Reason for fluid intake: to assist with flushing the urinary system",
+      "Reason for regular follow-ups: due to recurrent UTIs",
+      "Recommendation for moderate exercise",
+      "Patient Agreements section",
+      "Patient understands and agrees with the recommended medical treatment plan",
+      "Patient reminded of importance of adhering to prescribed medication regimen and returning for follow-up"
     ],
     "additions": [
-      "Diagnosis of 'likely acute cystitis' (GroundTruth states 'site not specified')",
-      "Justification for UTI diagnosis in Assessment (listing symptoms and test results)",
-      "Instruction to contact clinic for worsening symptoms or concerns before follow-up"
+      "Dysuria severity rated 7-8/10",
+      "Patient has a history of recurrent UTIs and chronic hypertension (in Subjective section)",
+      "Diagnosis: likely acute cystitis",
+      "Justification for diagnosis: given symptoms of dysuria, frequency, hematuria, suprapubic tenderness, and positive urine dipstick",
+      "Patient has a history of recurrent UTIs and chronic hypertension (in Assessment section)",
+      "Ciprofloxacin route: PO",
+      "Advise to contact clinic for worsening symptoms or concerns before follow-up"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Diagnosis of 'likely acute cystitis' in Assessment, as GroundTruth states 'site not specified' and the Transcript does not provide this specific detail."
+      "Diagnosis: likely acute cystitis"
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section accurately captured all ground truth information and did not include any unsupported or unknown additions.",
+        "summary": "The Subjective section is complete and accurate, with no omissions or unsupported additions. All additions are supported by the transcript.",
         "omissions": [],
         "additions": [
-          "Patient has a history of recurrent UTIs and chronic hypertension (information moved from GroundTruth Plan section)"
+          "Dysuria severity rated 7-8/10",
+          "Patient has a history of recurrent UTIs and chronic hypertension"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captured all ground truth information and did not include any unsupported or unknown additions.",
+        "summary": "The Objective section is complete and accurate, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section omitted the explicit statement of 'Differential Diagnosis: None'. More critically, it included the unsupported diagnosis of 'likely acute cystitis', which was also identified as a hallucination, as the GroundTruth specified 'site not specified' and the Transcript did not provide this specific detail.",
+        "grade": "C",
+        "summary": "The Assessment section omits the 'site not specified' detail for the diagnosis and the 'Differential Diagnosis: None.' More significantly, it includes an unsupported addition of 'likely acute cystitis' as a specific diagnosis, which was not explicitly stated in the Ground Truth or transcript.",
         "omissions": [
+          "Diagnosis: site not specified",
           "Differential Diagnosis: None"
         ],
         "additions": [
-          "likely acute cystitis (GroundTruth states 'site not specified')",
-          "Justification for UTI diagnosis: 'given symptoms of dysuria, frequency, hematuria, suprapubic tenderness, and positive urine dipstick'",
-          "Patient has a history of recurrent UTIs and chronic hypertension (information moved from GroundTruth Plan section)"
+          "Diagnosis: likely acute cystitis",
+          "Justification for diagnosis: given symptoms of dysuria, frequency, hematuria, suprapubic tenderness, and positive urine dipstick",
+          "Patient has a history of recurrent UTIs and chronic hypertension"
         ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section omitted the quantity of Ciprofloxacin (14 tablets) and the specific purpose of the urine culture and sensitivity test (to confirm bacterial etiology and antibiotic resistance pattern). Most significantly, the entire 'Patient Agreements' section, detailing patient understanding and agreement with the plan, was omitted.",
+        "grade": "C",
+        "summary": "The Plan section has several omissions, including the specific quantity of Ciprofloxacin, the detailed reasons for the urine culture and fluid intake, and the recommendation for moderate exercise. Crucially, the entire 'Patient Agreements' section, which documents patient understanding and agreement with the plan, is missing.",
         "omissions": [
-          "Quantity of Ciprofloxacin (14 tablets)",
-          "Purpose of urine culture and sensitivity test (to confirm bacterial etiology and antibiotic resistance pattern)",
-          "Patient Agreements section"
+          "Ciprofloxacin quantity: 14 tablets",
+          "Reason for urine culture: to confirm bacterial etiology and antibiotic resistance pattern",
+          "Reason for fluid intake: to assist with flushing the urinary system",
+          "Reason for regular follow-ups: due to recurrent UTIs",
+          "Recommendation for moderate exercise",
+          "Patient Agreements section",
+          "Patient understands and agrees with the recommended medical treatment plan",
+          "Patient reminded of importance of adhering to prescribed medication regimen and returning for follow-up"
         ],
         "additions": [
+          "Ciprofloxacin route: PO",
           "Advise to contact clinic for worsening symptoms or concerns before follow-up"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "This section had no omissions or unsupported additions.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Diagnosis of 'likely acute cystitis' (GroundTruth states 'site not specified')",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Justification for UTI diagnosis in Assessment (listing symptoms and test results)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Based on your symptoms and physical exam, it seems like you might have a urinary tract infection. I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Instruction to contact clinic for worsening symptoms or concerns before follow-up",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] If you experience any worsening symptoms or have any concerns before then, don't hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient Education: Advise to contact clinic for worsening symptoms or concerns before follow-up."
-      },
-      {
-        "addition_text": "Patient has a history of recurrent UTIs and chronic hypertension (information moved from GroundTruth Plan section)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has a history of recurrent UTIs and chronic hypertension."
-      },
-      {
-        "addition_text": "likely acute cystitis (GroundTruth states 'site not specified')",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Justification for UTI diagnosis: 'given symptoms of dysuria, frequency, hematuria, suprapubic tenderness, and positive urine dipstick'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might have a urinary tract infection. ... It indicates that you likely have an infection in your urinary tract.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Urinary Tract Infection (UTI), likely acute cystitis, given symptoms of dysuria, frequency, hematuria, suprapubic tenderness, and positive urine dipstick."
-      },
-      {
-        "addition_text": "Advise to contact clinic for worsening symptoms or concerns before follow-up",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] If you experience any worsening symptoms or have any concerns before then, don't hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient Education: Advise to contact clinic for worsening symptoms or concerns before follow-up."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Diagnosis of 'likely acute cystitis' (GroundTruth states 'site not specified')",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Justification for UTI diagnosis in Assessment (listing symptoms and test results)",
+      "addition_text": "Dysuria severity rated 7-8/10",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and physical exam, it seems like you might have a urinary tract infection. I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Instruction to contact clinic for worsening symptoms or concerns before follow-up",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] If you experience any worsening symptoms or have any concerns before then, don't hesitate to contact us.",
+      "transcript_evidence": "[patient] I'm experiencing some pretty bad pain when I urinate. ... It's been happening for the past three days. ... I’d say it’s around a 7 or 8.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient Education: Advise to contact clinic for worsening symptoms or concerns before follow-up."
+      "matched_claim_text": "Patient reports dysuria, rated 7-8/10, for the past three days."
     },
     {
-      "addition_text": "Patient has a history of recurrent UTIs and chronic hypertension (information moved from GroundTruth Plan section)",
+      "addition_text": "Patient has a history of recurrent UTIs and chronic hypertension (in Subjective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient has a history of recurrent UTIs and chronic hypertension."
     },
     {
-      "addition_text": "likely acute cystitis (GroundTruth states 'site not specified')",
+      "addition_text": "Diagnosis: likely acute cystitis",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Justification for UTI diagnosis: 'given symptoms of dysuria, frequency, hematuria, suprapubic tenderness, and positive urine dipstick'",
+      "addition_text": "Justification for diagnosis: given symptoms of dysuria, frequency, hematuria, suprapubic tenderness, and positive urine dipstick",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might have a urinary tract infection. ... It indicates that you likely have an infection in your urinary tract.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Urinary Tract Infection (UTI), likely acute cystitis, given symptoms of dysuria, frequency, hematuria, suprapubic tenderness, and positive urine dipstick."
+    },
+    {
+      "addition_text": "Patient has a history of recurrent UTIs and chronic hypertension (in Assessment section)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has a history of recurrent UTIs and chronic hypertension."
+    },
+    {
+      "addition_text": "Ciprofloxacin route: PO",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "You'll take 500 mg tablets, twice daily for 7 days.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
       "addition_text": "Advise to contact clinic for worsening symptoms or concerns before follow-up",
@@ -457,6 +410,13 @@
       "transcript_evidence": "[doctor] If you experience any worsening symptoms or have any concerns before then, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient Education: Advise to contact clinic for worsening symptoms or concerns before follow-up."
+    },
+    {
+      "addition_text": "Patient has a history of recurrent UTIs and chronic hypertension",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has a history of recurrent UTIs and chronic hypertension."
     }
   ]
 }

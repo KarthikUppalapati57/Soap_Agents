@@ -193,8 +193,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6311379230088907,
-    "overall_rouge_l_f1": 0.48931245955322,
+    "overall_token_f1": 0.5389224037611134,
+    "overall_rouge_l_f1": 0.36164057444152503,
     "by_section": [
       {
         "section": "Subjective",
@@ -223,356 +223,210 @@
         "gen_present": true,
         "token_f1": 0.6266666666666667,
         "rouge_l_f1": 0.32160804020100503
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.3636363636363636,
     "plan_alignment_score": 0.6266666666666667
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note received a 'C' grade due to multiple omissions across the Subjective, Objective, Assessment, and Plan sections. While there were several additions, all were supported by the transcript and therefore did not negatively impact the grade. There were no unsupported/unknown additions or hallucinations.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It demonstrates strong performance in the Subjective, Objective, and Plan sections with only minor omissions and no unsupported additions. However, the omission of the specific diagnosis code (R68.89) in the Assessment section represents a moderate gap in completeness, preventing an overall 'A' grade. All additions in the note are well-supported by the transcript.",
     "omissions": [
-      "Subjective: Patient presenting to the Emergency Department",
-      "Subjective: Moderate severity of symptoms",
-      "Subjective: Symptoms are continuous",
-      "Objective: HEENT finding of no conjunctival hemorrhage",
-      "Objective: Neurological finding of no focal deficits",
-      "Assessment: Specific diagnosis of 'Other general symptoms and signs'",
-      "Plan: Ibuprofen route of administration (oral)"
+      "Subjective: symptoms are continuous",
+      "Subjective: reduced energy for household tasks",
+      "Objective: no conjunctival hemorrhage",
+      "Objective: No focal deficits",
+      "Assessment: Diagnosis: Other general symptoms and signs"
     ],
     "additions": [
-      "Objective: Skin rash described as 'non-tender to palpation'",
-      "Objective: Skin finding 'No other concerning features observed'",
-      "Objective: Abdomen described as 'Soft'",
-      "Assessment: Summary statement 'Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment'",
-      "Plan: Dermatologist referral 'for detailed evaluation' (GT says 'for suspect skin lesions')",
-      "Plan: Skin biopsy 'to be performed by dermatologist'",
-      "Plan: Ibuprofen dosage specified as '1 tablet'",
-      "Plan: Follow-up 'as soon as possible'",
-      "Plan: Return to ED 'immediately' if symptoms worsen"
+      "Subjective: concentration at home (in the context of impacting daily activities and concentration at home and work)",
+      "Subjective: No other symptoms reported.",
+      "Objective: Skin: non-tender to palpation",
+      "Objective: Skin: No other concerning features observed",
+      "Objective: Abdomen: Soft",
+      "Assessment: Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment.",
+      "Plan: skin biopsy to be performed by dermatologist",
+      "Plan: Follow-up with Dr. Morris as soon as possible",
+      "Plan: Return to Emergency Department immediately if symptoms worsen"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits three pieces of information: the patient presenting to the Emergency Department, the moderate severity of symptoms, and that the symptoms are continuous.",
+        "grade": "A",
+        "summary": "The Subjective section is excellent. It accurately captures the patient's chief complaint and history of present illness. The only minor omissions are 'symptoms are continuous' and 'reduced energy for household tasks'. All additions are supported by the transcript.",
         "omissions": [
-          "Patient presenting to the Emergency Department",
-          "Moderate severity of symptoms",
-          "Symptoms are continuous"
+          "symptoms are continuous",
+          "reduced energy for household tasks"
         ],
-        "additions": []
+        "additions": [
+          "concentration at home (in the context of impacting daily activities and concentration at home and work)",
+          "No other symptoms reported."
+        ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has minor omissions, specifically lacking the HEENT finding of no conjunctival hemorrhage and the neurological finding of no focal deficits.",
+        "grade": "A",
+        "summary": "The Objective section is very strong, providing a comprehensive physical exam. Minor omissions include 'no conjunctival hemorrhage' and 'No focal deficits'. All additions, such as 'Skin: non-tender to palpation' and 'Abdomen: Soft', are supported by the transcript.",
         "omissions": [
-          "HEENT finding of no conjunctival hemorrhage",
-          "Neurological finding of no focal deficits"
+          "no conjunctival hemorrhage",
+          "No focal deficits"
         ],
         "additions": [
-          "Skin rash described as 'non-tender to palpation'",
-          "Skin finding 'No other concerning features observed'",
-          "Abdomen described as 'Soft'"
+          "Skin: non-tender to palpation",
+          "Skin: No other concerning features observed",
+          "Abdomen: Soft"
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits the specific diagnosis code R68.89 (Other general symptoms and signs).",
+        "summary": "The Assessment section is mostly accurate but has one moderate omission: the specific diagnosis code 'R68.89 (Other general symptoms and signs)'. While the clinical summary and differential diagnoses are present and supported, the absence of the formal diagnosis code is a notable gap in completeness. The addition in this section is supported.",
         "omissions": [
-          "Specific diagnosis of 'Other general symptoms and signs'"
+          "Diagnosis: Other general symptoms and signs"
         ],
         "additions": [
-          "Summary statement 'Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment'"
+          "Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment."
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has a minor omission regarding the route of administration for Ibuprofen (oral).",
-        "omissions": [
-          "Ibuprofen route of administration (oral)"
-        ],
-        "additions": [
-          "Dermatologist referral 'for detailed evaluation' (GT says 'for suspect skin lesions')",
-          "Skin biopsy 'to be performed by dermatologist'",
-          "Ibuprofen dosage specified as '1 tablet'",
-          "Follow-up 'as soon as possible'",
-          "Return to ED 'immediately' if symptoms worsen"
-        ]
-      },
-      {
-        "section": "Other",
         "grade": "A",
-        "summary": "No grading issues were identified in this section.",
+        "summary": "The Plan section is outstanding, capturing all necessary treatment, follow-up, referral, and lifestyle recommendations from the Ground Truth. There are no omissions or unsupported additions in this section; all generated content is fully supported by the transcript.",
         "omissions": [],
-        "additions": []
+        "additions": [
+          "skin biopsy to be performed by dermatologist",
+          "Follow-up with Dr. Morris as soon as possible",
+          "Return to Emergency Department immediately if symptoms worsen"
+        ]
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Objective: Skin rash described as 'non-tender to palpation'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Let me take a closer look at the rash on your forearms and neck. Hmm, it looks erythematous and pruritic. Does it hurt when I touch it?\n\n[Patient]: No, it’s just itchy, not really painful.\n\n[Doctor]: The rash is erythematous and pruritic, but I don’t see any other concerning features.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Skin: Erythematous and pruritic rash noted on forearms and neck, non-tender to palpation. No other concerning features observed."
-      },
-      {
-        "addition_text": "Objective: Skin finding 'No other concerning features observed'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Let me take a closer look at the rash on your forearms and neck. Hmm, it looks erythematous and pruritic. Does it hurt when I touch it?\n\n[Patient]: No, it’s just itchy, not really painful.\n\n[Doctor]: The rash is erythematous and pruritic, but I don’t see any other concerning features.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Skin: Erythematous and pruritic rash noted on forearms and neck, non-tender to palpation. No other concerning features observed."
-      },
-      {
-        "addition_text": "Objective: Abdomen described as 'Soft'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Your abdomen feels normal, no organomegaly which is good. Any tenderness when I press here?\n\n[Patient]: No, that doesn’t hurt.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Abdomen: Soft, non-tender, no organomegaly."
-      },
-      {
-        "addition_text": "Assessment: Summary statement 'Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I've been feeling really tired and I have this rash... It’s on my forearms and neck. It's really itchy and red... It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.\n[Doctor]: Hmm, it looks erythematous and pruritic.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment."
-      },
-      {
-        "addition_text": "Plan: Dermatologist referral 'for detailed evaluation' (GT says 'for suspect skin lesions')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Yes, I’ll refer you to Dr. Samuel Morris. He’s very experienced and should be able to help you.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Referral to Dr. Samuel Morris (dermatologist) for detailed evaluation."
-      },
-      {
-        "addition_text": "Plan: Skin biopsy 'to be performed by dermatologist'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I’ll also recommend a skin biopsy if any of the lesions look suspicious.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Recommend skin biopsy if lesions appear suspicious (to be performed by dermatologist)."
-      },
-      {
-        "addition_text": "Plan: Ibuprofen dosage specified as '1 tablet'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "You can take one tablet every 4-6 hours as needed for pain",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Plan: Follow-up 'as soon as possible'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I’d recommend scheduling an appointment with him as soon as possible, definitely within the next two weeks if your symptoms don’t improve.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up with Dr. Morris as soon as possible, definitely within the next two weeks if symptoms do not improve."
-      },
-      {
-        "addition_text": "Plan: Return to ED 'immediately' if symptoms worsen",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: If your symptoms worsen, come back to the Emergency Department immediately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Return to Emergency Department immediately if symptoms worsen."
-      },
-      {
-        "addition_text": "Skin rash described as 'non-tender to palpation'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Let me take a closer look at the rash on your forearms and neck. Hmm, it looks erythematous and pruritic. Does it hurt when I touch it?\n\n[Patient]: No, it’s just itchy, not really painful.\n\n[Doctor]: The rash is erythematous and pruritic, but I don’t see any other concerning features.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Skin: Erythematous and pruritic rash noted on forearms and neck, non-tender to palpation. No other concerning features observed."
-      },
-      {
-        "addition_text": "Skin finding 'No other concerning features observed'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Let me take a closer look at the rash on your forearms and neck. Hmm, it looks erythematous and pruritic. Does it hurt when I touch it?\n\n[Patient]: No, it’s just itchy, not really painful.\n\n[Doctor]: The rash is erythematous and pruritic, but I don’t see any other concerning features.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Skin: Erythematous and pruritic rash noted on forearms and neck, non-tender to palpation. No other concerning features observed."
-      },
-      {
-        "addition_text": "Abdomen described as 'Soft'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Your abdomen feels normal, no organomegaly which is good. Any tenderness when I press here?\n\n[Patient]: No, that doesn’t hurt.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Abdomen: Soft, non-tender, no organomegaly."
-      },
-      {
-        "addition_text": "Summary statement 'Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I've been feeling really tired and I have this rash... It’s on my forearms and neck. It's really itchy and red... It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.\n[Doctor]: Hmm, it looks erythematous and pruritic.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment."
-      },
-      {
-        "addition_text": "Dermatologist referral 'for detailed evaluation' (GT says 'for suspect skin lesions')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Yes, I’ll refer you to Dr. Samuel Morris. He’s very experienced and should be able to help you.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Referral to Dr. Samuel Morris (dermatologist) for detailed evaluation."
-      },
-      {
-        "addition_text": "Skin biopsy 'to be performed by dermatologist'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I’ll also recommend a skin biopsy if any of the lesions look suspicious.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Recommend skin biopsy if lesions appear suspicious (to be performed by dermatologist)."
-      },
-      {
-        "addition_text": "Ibuprofen dosage specified as '1 tablet'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "You can take one tablet every 4-6 hours as needed for pain, but don’t exceed 6 tablets a day.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Follow-up 'as soon as possible'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I’d recommend scheduling an appointment with him as soon as possible, definitely within the next two weeks if your symptoms don’t improve.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up with Dr. Morris as soon as possible, definitely within the next two weeks if symptoms do not improve."
-      },
-      {
-        "addition_text": "Return to ED 'immediately' if symptoms worsen",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: If your symptoms worsen, come back to the Emergency Department immediately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Return to Emergency Department immediately if symptoms worsen."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: Skin rash described as 'non-tender to palpation'",
+      "addition_text": "Subjective: concentration at home (in the context of impacting daily activities and concentration at home and work)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, it's pretty bad. It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The rash causes significant discomfort, impacting daily activities and concentration at home and work."
+    },
+    {
+      "addition_text": "Subjective: No other symptoms reported.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Alright, so mainly fatigue and the rash. Have you had any other symptoms that you’ve noticed?\n\n[Patient]: No, just those two things really.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No other symptoms reported."
+    },
+    {
+      "addition_text": "Objective: Skin: non-tender to palpation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let me take a closer look at the rash on your forearms and neck. Hmm, it looks erythematous and pruritic. Does it hurt when I touch it?\n\n[Patient]: No, it’s just itchy, not really painful.\n\n[Doctor]: The rash is erythematous and pruritic, but I don’t see any other concerning features.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Skin: Erythematous and pruritic rash noted on forearms and neck, non-tender to palpation. No other concerning features observed."
     },
     {
-      "addition_text": "Objective: Skin finding 'No other concerning features observed'",
+      "addition_text": "Objective: Skin: No other concerning features observed",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let me take a closer look at the rash on your forearms and neck. Hmm, it looks erythematous and pruritic. Does it hurt when I touch it?\n\n[Patient]: No, it’s just itchy, not really painful.\n\n[Doctor]: The rash is erythematous and pruritic, but I don’t see any other concerning features.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Skin: Erythematous and pruritic rash noted on forearms and neck, non-tender to palpation. No other concerning features observed."
     },
     {
-      "addition_text": "Objective: Abdomen described as 'Soft'",
+      "addition_text": "Objective: Abdomen: Soft",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your abdomen feels normal, no organomegaly which is good. Any tenderness when I press here?\n\n[Patient]: No, that doesn’t hurt.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Abdomen: Soft, non-tender, no organomegaly."
     },
     {
-      "addition_text": "Assessment: Summary statement 'Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment'",
+      "addition_text": "Assessment: Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I've been feeling really tired and I have this rash... It’s on my forearms and neck. It's really itchy and red... It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.\n[Doctor]: Hmm, it looks erythematous and pruritic.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment."
     },
     {
-      "addition_text": "Plan: Dermatologist referral 'for detailed evaluation' (GT says 'for suspect skin lesions')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Yes, I’ll refer you to Dr. Samuel Morris. He’s very experienced and should be able to help you.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to Dr. Samuel Morris (dermatologist) for detailed evaluation."
-    },
-    {
-      "addition_text": "Plan: Skin biopsy 'to be performed by dermatologist'",
+      "addition_text": "Plan: skin biopsy to be performed by dermatologist",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ll also recommend a skin biopsy if any of the lesions look suspicious.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Recommend skin biopsy if lesions appear suspicious (to be performed by dermatologist)."
     },
     {
-      "addition_text": "Plan: Ibuprofen dosage specified as '1 tablet'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "You can take one tablet every 4-6 hours as needed for pain",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: Follow-up 'as soon as possible'",
+      "addition_text": "Plan: Follow-up with Dr. Morris as soon as possible",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d recommend scheduling an appointment with him as soon as possible, definitely within the next two weeks if your symptoms don’t improve.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Follow-up with Dr. Morris as soon as possible, definitely within the next two weeks if symptoms do not improve."
     },
     {
-      "addition_text": "Plan: Return to ED 'immediately' if symptoms worsen",
+      "addition_text": "Plan: Return to Emergency Department immediately if symptoms worsen",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms worsen, come back to the Emergency Department immediately.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Return to Emergency Department immediately if symptoms worsen."
     },
     {
-      "addition_text": "Skin rash described as 'non-tender to palpation'",
+      "addition_text": "concentration at home (in the context of impacting daily activities and concentration at home and work)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, it's pretty bad. It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The rash causes significant discomfort, impacting daily activities and concentration at home and work."
+    },
+    {
+      "addition_text": "No other symptoms reported.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Alright, so mainly fatigue and the rash. Have you had any other symptoms that you’ve noticed?\n\n[Patient]: No, just those two things really.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No other symptoms reported."
+    },
+    {
+      "addition_text": "Skin: non-tender to palpation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let me take a closer look at the rash on your forearms and neck. Hmm, it looks erythematous and pruritic. Does it hurt when I touch it?\n\n[Patient]: No, it’s just itchy, not really painful.\n\n[Doctor]: The rash is erythematous and pruritic, but I don’t see any other concerning features.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Skin: Erythematous and pruritic rash noted on forearms and neck, non-tender to palpation. No other concerning features observed."
     },
     {
-      "addition_text": "Skin finding 'No other concerning features observed'",
+      "addition_text": "Skin: No other concerning features observed",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let me take a closer look at the rash on your forearms and neck. Hmm, it looks erythematous and pruritic. Does it hurt when I touch it?\n\n[Patient]: No, it’s just itchy, not really painful.\n\n[Doctor]: The rash is erythematous and pruritic, but I don’t see any other concerning features.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Skin: Erythematous and pruritic rash noted on forearms and neck, non-tender to palpation. No other concerning features observed."
     },
     {
-      "addition_text": "Abdomen described as 'Soft'",
+      "addition_text": "Abdomen: Soft",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your abdomen feels normal, no organomegaly which is good. Any tenderness when I press here?\n\n[Patient]: No, that doesn’t hurt.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Abdomen: Soft, non-tender, no organomegaly."
     },
     {
-      "addition_text": "Summary statement 'Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment'",
+      "addition_text": "Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I've been feeling really tired and I have this rash... It’s on my forearms and neck. It's really itchy and red... It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.\n[Doctor]: Hmm, it looks erythematous and pruritic.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient presents with fatigue and an erythematous, pruritic rash on forearms and neck, causing functional impairment."
     },
     {
-      "addition_text": "Dermatologist referral 'for detailed evaluation' (GT says 'for suspect skin lesions')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Yes, I’ll refer you to Dr. Samuel Morris. He’s very experienced and should be able to help you.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to Dr. Samuel Morris (dermatologist) for detailed evaluation."
-    },
-    {
-      "addition_text": "Skin biopsy 'to be performed by dermatologist'",
+      "addition_text": "skin biopsy to be performed by dermatologist",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ll also recommend a skin biopsy if any of the lesions look suspicious.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Recommend skin biopsy if lesions appear suspicious (to be performed by dermatologist)."
     },
     {
-      "addition_text": "Ibuprofen dosage specified as '1 tablet'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "You can take one tablet every 4-6 hours as needed for pain, but don’t exceed 6 tablets a day.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Follow-up 'as soon as possible'",
+      "addition_text": "Follow-up with Dr. Morris as soon as possible",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d recommend scheduling an appointment with him as soon as possible, definitely within the next two weeks if your symptoms don’t improve.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Follow-up with Dr. Morris as soon as possible, definitely within the next two weeks if symptoms do not improve."
     },
     {
-      "addition_text": "Return to ED 'immediately' if symptoms worsen",
+      "addition_text": "Return to Emergency Department immediately if symptoms worsen",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms worsen, come back to the Emergency Department immediately.",
       "evidence_source": "agent3_claims",

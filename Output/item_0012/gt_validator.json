@@ -260,8 +260,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6447410216053798,
-    "overall_rouge_l_f1": 0.5178019880320683,
+    "overall_token_f1": 0.5559262770067248,
+    "overall_rouge_l_f1": 0.3972524850400853,
     "by_section": [
       {
         "section": "Subjective",
@@ -290,305 +290,244 @@
         "gen_present": true,
         "token_f1": 0.6556016597510373,
         "rouge_l_f1": 0.3824451410658308
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.37500000000000006,
     "plan_alignment_score": 0.6556016597510373
   },
   "expert_judge": {
-    "model": "ClinicalDocumentationReviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note received a C grade due to multiple omissions across the Subjective, Objective, Assessment, and Plan sections. While there were no unsupported or unknown additions, and no hallucinations, the missing specific diagnosis, details from the Review of Systems, a key objective finding, specific patient education points, and the entire 'Notes' section reduce the overall completeness and clinical utility.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the patient's chief complaint, history, objective findings, and the majority of the assessment and plan. It has several minor omissions, such as some negative ROS/PE findings and the formal diagnosis code. There are also moderate omissions, including specific patient education details about the link between stress and GI symptoms, and the entire \"Notes\" section regarding patient understanding and motivation. However, all additions are supported by the transcript and do not detract from the note's quality.",
     "omissions": [
-      "Specificity of \"occasional nausea\" in ROS General",
-      "Negative review of systems for neurological and genitourinary symptoms",
-      "Objective finding: \"No abnormalities noted in cardiovascular, respiratory, or musculoskeletal examinations.\"",
-      "Diagnosis: \"Other General Symptoms and Signs\"",
-      "Assessment statement: \"Further evaluation by gastroenterology is warranted.\"",
-      "Reason for imaging: \"to evaluate persistent abdominal discomfort\" for the abdominal ultrasound",
-      "Specific patient education detail: \"Discussed the importance of staying hydrated, maintaining a regular meal schedule, and incorporating relaxation techniques to manage stress.\"",
-      "Specific patient education detail: \"Reviewed the potential link between stress and gastrointestinal symptoms, emphasizing the importance of managing work-related stress.\"",
-      "Entire 'Notes' section from Plan, including patient's understanding and motivation."
+      "Negative neurological and genitourinary symptoms in ROS",
+      "Mild lower abdominal tenderness in ROS",
+      "No abnormalities noted in cardiovascular, respiratory, or musculoskeletal examinations",
+      "Formal diagnosis of \"Other General Symptoms and Signs\"",
+      "Statement that further evaluation by gastroenterology is warranted",
+      "Specific patient education detail about the potential link between stress and GI symptoms and managing work-related stress",
+      "Entire \"Notes\" section regarding patient understanding and motivation"
     ],
     "additions": [
-      "Patient's history of Irritable Bowel Syndrome (IBS) and family history of Crohn's disease included in Subjective section (present in GT Assessment)",
-      "Vital signs described as \"all within normal ranges\"",
-      "Abdominal ultrasound ordered included in Objective section (present in GT Plan)",
-      "Summary of subjective findings in Assessment: \"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance.\"",
-      "Summary of objective finding in Assessment: \"Mild dehydration noted on examination.\"",
-      "Explanation of initial findings in Assessment: \"Initial findings suggest discomfort and mild inflammation without significant blockages or masses.\"",
-      "Awaiting results of CBC and Electrolyte panel included in Plan section (present in GT Objective)"
+      "History of Irritable Bowel Syndrome (IBS) in Subjective narrative",
+      "Family history of Crohn’s disease in Subjective narrative",
+      "Vital signs noted as \"all within normal ranges\"",
+      "Abdominal ultrasound ordered (listed under Objective Diagnostics)",
+      "Summary of symptoms: \"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance\" in Assessment",
+      "Finding: \"Mild dehydration noted on examination\" in Assessment",
+      "Interpretation: \"Initial findings suggest discomfort and mild inflammation without significant blockages or masses\" in Assessment",
+      "Explicitly listing \"Maintain a regular meal schedule and incorporate relaxation techniques\" under Plan Lifestyle Modifications",
+      "Awaiting results of CBC and Electrolyte panel (listed under Plan Diagnostics)",
+      "Instruction to \"seek urgent care if necessary\" (in Plan Patient Education)",
+      "Summary statement \"Emphasized importance of hydration, regular meals, and stress management\" (in Plan Patient Education)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is missing specific details from the Review of Systems, including the specificity of \"occasional nausea\" and negative findings for neurological and genitourinary symptoms. All additions were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Subjective section is excellent, capturing all major clinically important Ground Truth content. The omission of 'Negative neurological and genitourinary symptoms in ROS' is minor, and the omission of 'Mild lower abdominal tenderness in ROS' is not clinically material as this finding is correctly captured in the Objective section. All additions are supported by the transcript.",
         "omissions": [
-          "Specificity of \"occasional nausea\" in ROS General",
-          "Negative review of systems for neurological and genitourinary symptoms"
+          "Negative neurological and genitourinary symptoms in ROS",
+          "Mild lower abdominal tenderness in ROS"
         ],
         "additions": [
-          "Patient's history of Irritable Bowel Syndrome (IBS) and family history of Crohn's disease"
+          "History of Irritable Bowel Syndrome (IBS)",
+          "Family history of Crohn’s disease"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section omitted the finding of \"No abnormalities noted in cardiovascular, respiratory, or musculoskeletal examinations.\" All additions were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Objective section is strong, accurately presenting vital signs, physical examination findings, and diagnostic information. The omission of 'No abnormalities noted in cardiovascular, respiratory, or musculoskeletal examinations' is minor and does not significantly impact clinical usefulness. All additions are supported by the transcript.",
         "omissions": [
-          "\"No abnormalities noted in cardiovascular, respiratory, or musculoskeletal examinations.\""
+          "No abnormalities noted in cardiovascular, respiratory, or musculoskeletal examinations"
         ],
         "additions": [
-          "\"all within normal ranges\" for Vital Signs",
-          "\"Abdominal ultrasound ordered.\""
+          "Vital signs noted as \"all within normal ranges\"",
+          "Abdominal ultrasound ordered"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section omitted the specific diagnosis \"Other General Symptoms and Signs\" and the statement that \"Further evaluation by gastroenterology is warranted.\" All additions were supported by the transcript.",
+        "grade": "B",
+        "summary": "The Assessment section is mostly clinically aligned and usable. The omission of the formal diagnosis code 'Other General Symptoms and Signs' is minor, as the clinical reasoning is well-articulated. The omission of the explicit statement that 'further evaluation by gastroenterology is warranted' is a moderate issue within this section, although the referral action is correctly captured in the Plan. All additions are supported by the transcript.",
         "omissions": [
-          "Diagnosis: \"Other General Symptoms and Signs\"",
-          "\"Further evaluation by gastroenterology is warranted.\""
+          "Formal diagnosis of \"Other General Symptoms and Signs\"",
+          "Statement that further evaluation by gastroenterology is warranted"
         ],
         "additions": [
-          "\"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance.\"",
-          "\"Mild dehydration noted on examination.\"",
-          "\"Initial findings suggest discomfort and mild inflammation without significant blockages or masses.\""
+          "Summary of symptoms: \"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance\"",
+          "Finding: \"Mild dehydration noted on examination\"",
+          "Interpretation: \"Initial findings suggest discomfort and mild inflammation without significant blockages or masses\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section had several omissions, including the specific reason for the abdominal ultrasound, two detailed patient education points, and the entire 'Notes' section regarding patient understanding and motivation. All additions were supported by the transcript.",
+        "grade": "B",
+        "summary": "The Plan section is mostly clinically aligned and usable, capturing the core treatment, follow-up, referral, and lifestyle recommendations. However, it has two moderate omissions: the specific patient education detail about the potential link between stress and GI symptoms and managing work-related stress, and the entire 'Notes' section regarding patient understanding and motivation. These omissions reduce the completeness and contextual richness of the plan. All additions are supported by the transcript.",
         "omissions": [
-          "Reason for imaging: \"to evaluate persistent abdominal discomfort\"",
-          "Specific patient education detail: \"Discussed the importance of staying hydrated, maintaining a regular meal schedule, and incorporating relaxation techniques to manage stress.\"",
-          "Specific patient education detail: \"Reviewed the potential link between stress and gastrointestinal symptoms, emphasizing the importance of managing work-related stress.\"",
-          "Entire 'Notes' section from Plan, including patient's understanding and motivation."
+          "Specific patient education detail about the potential link between stress and GI symptoms and managing work-related stress",
+          "Entire \"Notes\" section regarding patient understanding and motivation"
         ],
         "additions": [
-          "\"Diagnostics: Await results of CBC and Electrolyte panel.\""
+          "Explicitly listing \"Maintain a regular meal schedule and incorporate relaxation techniques\" under Lifestyle Modifications",
+          "Awaiting results of CBC and Electrolyte panel (listed under Diagnostics)",
+          "Instruction to \"seek urgent care if necessary\" (in Patient Education)",
+          "Summary statement \"Emphasized importance of hydration, regular meals, and stress management\" (in Patient Education)"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section had no omissions or additions.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Patient's history of Irritable Bowel Syndrome (IBS) and family history of Crohn's disease included in Subjective section (present in GT Assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has a history of Irritable Bowel Syndrome (IBS) and a family history of Crohn’s disease."
-      },
-      {
-        "addition_text": "Vital signs described as \"all within normal ranges\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Your blood pressure is 118/76 mmHg, your pulse is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. All of these are within normal ranges.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Vital Signs: BP 118/76 mmHg, P 72 bpm, RR 16 breaths/min, T 98.4°F, all within normal ranges."
-      },
-      {
-        "addition_text": "Abdominal ultrasound ordered included in Objective section (present in GT Plan)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Abdominal ultrasound ordered."
-      },
-      {
-        "addition_text": "Summary of subjective findings in Assessment: \"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I've been having this persistent abdominal discomfort for about a week now... I've been feeling really tired. I also have mild nausea, and it's been hard to sleep because of the cramping.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Assessment includes persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance."
-      },
-      {
-        "addition_text": "Summary of objective finding in Assessment: \"Mild dehydration noted on examination.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Mild dehydration noted on examination."
-      },
-      {
-        "addition_text": "Explanation of initial findings in Assessment: \"Initial findings suggest discomfort and mild inflammation without significant blockages or masses.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: It means there is some discomfort and mild inflammation, but no significant blockages or masses.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Initial findings suggest discomfort and mild inflammation without significant blockages or masses."
-      },
-      {
-        "addition_text": "Awaiting results of CBC and Electrolyte panel included in Plan section (present in GT Objective)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’re still waiting on the results of your Complete Blood Count and Electrolyte panel... I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: Await results of CBC and Electrolyte panel, and abdominal ultrasound ordered."
-      },
-      {
-        "addition_text": "Patient's history of Irritable Bowel Syndrome (IBS) and family history of Crohn's disease",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has a history of Irritable Bowel Syndrome (IBS) and a family history of Crohn’s disease."
-      },
-      {
-        "addition_text": "\"all within normal ranges\" for Vital Signs",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Your blood pressure is 118/76 mmHg, your pulse is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. All of these are within normal ranges.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Vital Signs: BP 118/76 mmHg, P 72 bpm, RR 16 breaths/min, T 98.4°F, all within normal ranges."
-      },
-      {
-        "addition_text": "\"Abdominal ultrasound ordered.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Abdominal ultrasound ordered."
-      },
-      {
-        "addition_text": "\"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I've been having this persistent abdominal discomfort for about a week now... I've been feeling really tired. I also have mild nausea, and it's been hard to sleep because of the cramping.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Assessment includes persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance."
-      },
-      {
-        "addition_text": "\"Mild dehydration noted on examination.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Mild dehydration noted on examination."
-      },
-      {
-        "addition_text": "\"Initial findings suggest discomfort and mild inflammation without significant blockages or masses.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: It means there is some discomfort and mild inflammation, but no significant blockages or masses.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Initial findings suggest discomfort and mild inflammation without significant blockages or masses."
-      },
-      {
-        "addition_text": "\"Diagnostics: Await results of CBC and Electrolyte panel.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’re still waiting on the results of your Complete Blood Count and Electrolyte panel... I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: Await results of CBC and Electrolyte panel, and abdominal ultrasound ordered."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Patient's history of Irritable Bowel Syndrome (IBS) and family history of Crohn's disease included in Subjective section (present in GT Assessment)",
+      "addition_text": "History of Irritable Bowel Syndrome (IBS) in Subjective narrative",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient has a history of Irritable Bowel Syndrome (IBS) and a family history of Crohn’s disease."
     },
     {
-      "addition_text": "Vital signs described as \"all within normal ranges\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Your blood pressure is 118/76 mmHg, your pulse is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. All of these are within normal ranges.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital Signs: BP 118/76 mmHg, P 72 bpm, RR 16 breaths/min, T 98.4°F, all within normal ranges."
-    },
-    {
-      "addition_text": "Abdominal ultrasound ordered included in Objective section (present in GT Plan)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Abdominal ultrasound ordered."
-    },
-    {
-      "addition_text": "Summary of subjective findings in Assessment: \"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I've been having this persistent abdominal discomfort for about a week now... I've been feeling really tired. I also have mild nausea, and it's been hard to sleep because of the cramping.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment includes persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance."
-    },
-    {
-      "addition_text": "Summary of objective finding in Assessment: \"Mild dehydration noted on examination.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild dehydration noted on examination."
-    },
-    {
-      "addition_text": "Explanation of initial findings in Assessment: \"Initial findings suggest discomfort and mild inflammation without significant blockages or masses.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: It means there is some discomfort and mild inflammation, but no significant blockages or masses.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initial findings suggest discomfort and mild inflammation without significant blockages or masses."
-    },
-    {
-      "addition_text": "Awaiting results of CBC and Electrolyte panel included in Plan section (present in GT Objective)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re still waiting on the results of your Complete Blood Count and Electrolyte panel... I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnostics: Await results of CBC and Electrolyte panel, and abdominal ultrasound ordered."
-    },
-    {
-      "addition_text": "Patient's history of Irritable Bowel Syndrome (IBS) and family history of Crohn's disease",
+      "addition_text": "Family history of Crohn’s disease in Subjective narrative",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient has a history of Irritable Bowel Syndrome (IBS) and a family history of Crohn’s disease."
     },
     {
-      "addition_text": "\"all within normal ranges\" for Vital Signs",
+      "addition_text": "Vital signs noted as \"all within normal ranges\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 118/76 mmHg, your pulse is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. All of these are within normal ranges.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Vital Signs: BP 118/76 mmHg, P 72 bpm, RR 16 breaths/min, T 98.4°F, all within normal ranges."
     },
     {
-      "addition_text": "\"Abdominal ultrasound ordered.\"",
+      "addition_text": "Abdominal ultrasound ordered (listed under Objective Diagnostics)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Abdominal ultrasound ordered."
     },
     {
-      "addition_text": "\"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance.\"",
+      "addition_text": "Summary of symptoms: \"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance\" in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I've been having this persistent abdominal discomfort for about a week now... I've been feeling really tired. I also have mild nausea, and it's been hard to sleep because of the cramping.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Assessment includes persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance."
     },
     {
-      "addition_text": "\"Mild dehydration noted on examination.\"",
+      "addition_text": "Finding: \"Mild dehydration noted on examination\" in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Mild dehydration noted on examination."
     },
     {
-      "addition_text": "\"Initial findings suggest discomfort and mild inflammation without significant blockages or masses.\"",
+      "addition_text": "Interpretation: \"Initial findings suggest discomfort and mild inflammation without significant blockages or masses\" in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It means there is some discomfort and mild inflammation, but no significant blockages or masses.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Initial findings suggest discomfort and mild inflammation without significant blockages or masses."
     },
     {
-      "addition_text": "\"Diagnostics: Await results of CBC and Electrolyte panel.\"",
+      "addition_text": "Explicitly listing \"Maintain a regular meal schedule and incorporate relaxation techniques\" under Plan Lifestyle Modifications",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It’s important to stay hydrated, maintain a regular meal schedule, and incorporate relaxation techniques to manage your stress.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Maintain a regular meal schedule and incorporate relaxation techniques."
+    },
+    {
+      "addition_text": "Awaiting results of CBC and Electrolyte panel (listed under Plan Diagnostics)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re still waiting on the results of your Complete Blood Count and Electrolyte panel... I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnostics: Await results of CBC and Electrolyte panel, and abdominal ultrasound ordered."
+    },
+    {
+      "addition_text": "Instruction to \"seek urgent care if necessary\" (in Plan Patient Education)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Recognize any warning signs such as severe pain, vomiting, or signs of dehydration, and seek urgent care if necessary.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient Education: Advised to recognize warning signs such as severe pain, vomiting, or signs of dehydration and to seek urgent care if necessary."
+    },
+    {
+      "addition_text": "Summary statement \"Emphasized importance of hydration, regular meals, and stress management\" (in Plan Patient Education)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It’s important to stay hydrated, maintain a regular meal schedule, and incorporate relaxation techniques to manage your stress.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Emphasized importance of hydration, regular meals, and stress management."
+    },
+    {
+      "addition_text": "History of Irritable Bowel Syndrome (IBS)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has a history of Irritable Bowel Syndrome (IBS) and a family history of Crohn’s disease."
+    },
+    {
+      "addition_text": "Family history of Crohn’s disease",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has a history of Irritable Bowel Syndrome (IBS) and a family history of Crohn’s disease."
+    },
+    {
+      "addition_text": "Abdominal ultrasound ordered",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Abdominal ultrasound ordered."
+    },
+    {
+      "addition_text": "Summary of symptoms: \"Persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I've been having this persistent abdominal discomfort for about a week now... I've been feeling really tired. I also have mild nausea, and it's been hard to sleep because of the cramping.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Assessment includes persistent abdominal discomfort with associated fatigue, mild nausea, and sleep disturbance."
+    },
+    {
+      "addition_text": "Finding: \"Mild dehydration noted on examination\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Mild dehydration noted on examination."
+    },
+    {
+      "addition_text": "Interpretation: \"Initial findings suggest discomfort and mild inflammation without significant blockages or masses\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It means there is some discomfort and mild inflammation, but no significant blockages or masses.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Initial findings suggest discomfort and mild inflammation without significant blockages or masses."
+    },
+    {
+      "addition_text": "Explicitly listing \"Maintain a regular meal schedule and incorporate relaxation techniques\" under Lifestyle Modifications",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It’s important to stay hydrated, maintain a regular meal schedule, and incorporate relaxation techniques to manage your stress.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Maintain a regular meal schedule and incorporate relaxation techniques."
+    },
+    {
+      "addition_text": "Awaiting results of CBC and Electrolyte panel (listed under Diagnostics)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’re still waiting on the results of your Complete Blood Count and Electrolyte panel... I’ll also order an abdominal ultrasound to further evaluate your discomfort.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnostics: Await results of CBC and Electrolyte panel, and abdominal ultrasound ordered."
+    },
+    {
+      "addition_text": "Instruction to \"seek urgent care if necessary\" (in Patient Education)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Recognize any warning signs such as severe pain, vomiting, or signs of dehydration, and seek urgent care if necessary.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient Education: Advised to recognize warning signs such as severe pain, vomiting, or signs of dehydration and to seek urgent care if necessary."
+    },
+    {
+      "addition_text": "Summary statement \"Emphasized importance of hydration, regular meals, and stress management\" (in Patient Education)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It’s important to stay hydrated, maintain a regular meal schedule, and incorporate relaxation techniques to manage your stress.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Emphasized importance of hydration, regular meals, and stress management."
     }
   ]
 }

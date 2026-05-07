@@ -152,8 +152,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5884920634920634,
-    "overall_rouge_l_f1": 0.4560895474285914,
+    "overall_token_f1": 0.4856150793650793,
+    "overall_rouge_l_f1": 0.32011193428573925,
     "by_section": [
       {
         "section": "Subjective",
@@ -182,262 +182,153 @@
         "gen_present": true,
         "token_f1": 0.6785714285714285,
         "rouge_l_f1": 0.48920863309352514
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.37499999999999994,
     "plan_alignment_score": 0.6785714285714285
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "A",
-    "overall_summary": "The generated SOAP note is excellent, capturing all clinically important GroundTruth content. All additions made by the model are fully supported by the transcript, and there are no omissions or hallucinations. The documentation is highly accurate and reliable.",
-    "omissions": [],
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. The Subjective, Objective, and Assessment sections are comprehensive and accurate, with all additions being supported by the transcript. The Plan section contains two minor omissions regarding the specific purposes for the weight management referral and the lipid profile order, but the core actions are present and the note remains clinically useful.",
+    "omissions": [
+      "Purpose of referral to Weight Management Program: for assistance in weight loss",
+      "Reason for ordering complete lipid profile: to evaluate the patient's cardiovascular health"
+    ],
     "additions": [
-      "In Objective: \"Lipid profile results pending.\"",
-      "In Assessment: \"Hypertension\" as a diagnosis/problem.",
-      "In Assessment: \"Sedentary lifestyle and unhealthy diet\" as a distinct problem.",
-      "In Assessment: \"Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile).\"",
-      "In Plan: Specific lifestyle modification advice to \"incorporate more vegetables and fruits into diet.\"",
-      "In Plan: Specific lifestyle modification advice to \"gradually increase physical activity as knee allows.\""
+      "Lipid profile results pending (in Objective section)",
+      "Hypertension (as an Assessment diagnosis)",
+      "Sedentary lifestyle and unhealthy diet (as an Assessment diagnosis)",
+      "Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile) (as an Assessment diagnosis)",
+      "Encouraged to incorporate more vegetables and fruits into diet (in Plan section)",
+      "Advised to gradually increase physical activity as knee allows (in Plan section)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section is perfectly aligned with the GroundTruth, containing no omissions or unsupported/unknown additions.",
+        "summary": "The Subjective section is complete and accurate, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is accurate. The addition of \"Lipid profile results pending\" is fully supported by the transcript and does not reduce the grade. There are no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is complete and accurate. The addition of 'Lipid profile results pending' is supported by the transcript and does not lower the grade.",
         "omissions": [],
         "additions": [
-          "\"Lipid profile results pending.\""
+          "Lipid profile results pending"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is comprehensive and accurate. All additional details, including the more detailed description of knee pain, hypertension, sedentary lifestyle/unhealthy diet, and cardiovascular risk factors, are well-supported by the transcript. There are no omissions or unsupported/unknown additions.",
+        "summary": "The Assessment section is complete and accurate, with no omissions. All additions, including 'Hypertension', 'Sedentary lifestyle and unhealthy diet', and 'Risk factors for cardiovascular disease', are supported by the transcript.",
         "omissions": [],
         "additions": [
-          "More detailed description of left knee pain: \"moderate, intermittent, with associated locking and swelling.\"",
-          "\"Hypertension\" as a diagnosis/problem.",
-          "\"Sedentary lifestyle and unhealthy diet\" as a distinct problem.",
-          "\"Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile).\""
+          "Hypertension",
+          "Sedentary lifestyle and unhealthy diet",
+          "Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile)"
         ]
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is complete and accurate. The specific lifestyle modification advice regarding diet and physical activity is directly supported by the transcript. There are no omissions or unsupported/unknown additions.",
-        "omissions": [],
+        "grade": "B",
+        "summary": "The Plan section has two minor omissions: the specific purpose for the weight management referral ('for assistance in weight loss') and the reason for ordering the complete lipid profile ('to evaluate the patient's cardiovascular health'). While these are minor, they represent missing details about the rationale behind the plan items. All additions in this section are supported by the transcript.",
+        "omissions": [
+          "Purpose of referral to Weight Management Program: for assistance in weight loss",
+          "Reason for ordering complete lipid profile: to evaluate the patient's cardiovascular health"
+        ],
         "additions": [
-          "Specific lifestyle modification advice: \"Encouraged to incorporate more vegetables and fruits into diet.\"",
-          "Specific lifestyle modification advice: \"Advised to gradually increase physical activity as knee allows.\""
+          "Encouraged to incorporate more vegetables and fruits into diet",
+          "Advised to gradually increase physical activity as knee allows"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section has no discrepancies, indicating perfect alignment.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "In Objective: \"Lipid profile results pending.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We are waiting for your lipid profile results to come back. Have you had that done yet? Yes, I had it done last week.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Lipid profile results pending."
-      },
-      {
-        "addition_text": "In Assessment: \"Hypertension\" as a diagnosis/problem.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I have obesity and hypertension.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "In Assessment: \"Sedentary lifestyle and unhealthy diet\" as a distinct problem.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "My lifestyle has become pretty sedentary because of the knee pain. ... Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Sedentary lifestyle and unhealthy diet."
-      },
-      {
-        "addition_text": "In Assessment: \"Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile).\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "my father has heart disease. ... I eat a lot of saturated fats and sugars, not many vegetables or fruits. ... My lifestyle has become pretty sedentary. ... We are waiting for your lipid profile results to come back.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile)."
-      },
-      {
-        "addition_text": "In Plan: Specific lifestyle modification advice to \"incorporate more vegetables and fruits into diet.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Try to incorporate more vegetables and fruits into your diet",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Encouraged to incorporate more vegetables and fruits into diet."
-      },
-      {
-        "addition_text": "In Plan: Specific lifestyle modification advice to \"gradually increase physical activity as knee allows.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "aim to gradually increase your physical activity as your knee allows.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Advised to gradually increase physical activity as knee allows."
-      },
-      {
-        "addition_text": "\"Lipid profile results pending.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We are waiting for your lipid profile results to come back. Have you had that done yet? Yes, I had it done last week.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Lipid profile results pending."
-      },
-      {
-        "addition_text": "More detailed description of left knee pain: \"moderate, intermittent, with associated locking and swelling.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "pain in my left knee. ... It's moderate, I'd say. ... It’s intermittent. ... occasionally my knee locks up, and it’s moderately swollen.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Left knee pain, moderate, intermittent, with associated locking and swelling."
-      },
-      {
-        "addition_text": "\"Hypertension\" as a diagnosis/problem.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I have obesity and hypertension.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "\"Sedentary lifestyle and unhealthy diet\" as a distinct problem.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "My lifestyle has become pretty sedentary because of the knee pain. ... Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Sedentary lifestyle and unhealthy diet."
-      },
-      {
-        "addition_text": "\"Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile).\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "my father has heart disease. ... I eat a lot of saturated fats and sugars, not many vegetables or fruits. ... My lifestyle has become pretty sedentary. ... We are waiting for your lipid profile results to come back.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile)."
-      },
-      {
-        "addition_text": "Specific lifestyle modification advice: \"Encouraged to incorporate more vegetables and fruits into diet.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Try to incorporate more vegetables and fruits into your diet",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Encouraged to incorporate more vegetables and fruits into diet."
-      },
-      {
-        "addition_text": "Specific lifestyle modification advice: \"Advised to gradually increase physical activity as knee allows.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "aim to gradually increase your physical activity as your knee allows.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Advised to gradually increase physical activity as knee allows."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "In Objective: \"Lipid profile results pending.\"",
+      "addition_text": "Lipid profile results pending (in Objective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We are waiting for your lipid profile results to come back. Have you had that done yet? Yes, I had it done last week.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Lipid profile results pending."
     },
     {
-      "addition_text": "In Assessment: \"Hypertension\" as a diagnosis/problem.",
+      "addition_text": "Hypertension (as an Assessment diagnosis)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I have obesity and hypertension.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "In Assessment: \"Sedentary lifestyle and unhealthy diet\" as a distinct problem.",
+      "addition_text": "Sedentary lifestyle and unhealthy diet (as an Assessment diagnosis)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "My lifestyle has become pretty sedentary because of the knee pain. ... Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Sedentary lifestyle and unhealthy diet."
     },
     {
-      "addition_text": "In Assessment: \"Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile).\"",
+      "addition_text": "Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile) (as an Assessment diagnosis)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "my father has heart disease. ... I eat a lot of saturated fats and sugars, not many vegetables or fruits. ... My lifestyle has become pretty sedentary. ... We are waiting for your lipid profile results to come back.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile)."
     },
     {
-      "addition_text": "In Plan: Specific lifestyle modification advice to \"incorporate more vegetables and fruits into diet.\"",
+      "addition_text": "Encouraged to incorporate more vegetables and fruits into diet (in Plan section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Try to incorporate more vegetables and fruits into your diet",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Encouraged to incorporate more vegetables and fruits into diet."
     },
     {
-      "addition_text": "In Plan: Specific lifestyle modification advice to \"gradually increase physical activity as knee allows.\"",
+      "addition_text": "Advised to gradually increase physical activity as knee allows (in Plan section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "aim to gradually increase your physical activity as your knee allows.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Advised to gradually increase physical activity as knee allows."
     },
     {
-      "addition_text": "\"Lipid profile results pending.\"",
+      "addition_text": "Lipid profile results pending",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We are waiting for your lipid profile results to come back. Have you had that done yet? Yes, I had it done last week.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Lipid profile results pending."
     },
     {
-      "addition_text": "More detailed description of left knee pain: \"moderate, intermittent, with associated locking and swelling.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "pain in my left knee. ... It's moderate, I'd say. ... It’s intermittent. ... occasionally my knee locks up, and it’s moderately swollen.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Left knee pain, moderate, intermittent, with associated locking and swelling."
-    },
-    {
-      "addition_text": "\"Hypertension\" as a diagnosis/problem.",
+      "addition_text": "Hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I have obesity and hypertension.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Past Medical History includes obesity and hypertension."
     },
     {
-      "addition_text": "\"Sedentary lifestyle and unhealthy diet\" as a distinct problem.",
+      "addition_text": "Sedentary lifestyle and unhealthy diet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "My lifestyle has become pretty sedentary because of the knee pain. ... Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Sedentary lifestyle and unhealthy diet."
     },
     {
-      "addition_text": "\"Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile).\"",
+      "addition_text": "Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "my father has heart disease. ... I eat a lot of saturated fats and sugars, not many vegetables or fruits. ... My lifestyle has become pretty sedentary. ... We are waiting for your lipid profile results to come back.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Risk factors for cardiovascular disease (family history, diet, sedentary lifestyle, pending lipid profile)."
     },
     {
-      "addition_text": "Specific lifestyle modification advice: \"Encouraged to incorporate more vegetables and fruits into diet.\"",
+      "addition_text": "Encouraged to incorporate more vegetables and fruits into diet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Try to incorporate more vegetables and fruits into your diet",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Encouraged to incorporate more vegetables and fruits into diet."
     },
     {
-      "addition_text": "Specific lifestyle modification advice: \"Advised to gradually increase physical activity as knee allows.\"",
+      "addition_text": "Advised to gradually increase physical activity as knee allows",
       "supported_by_transcript": "supported",
       "transcript_evidence": "aim to gradually increase your physical activity as your knee allows.",
       "evidence_source": "agent3_claims",

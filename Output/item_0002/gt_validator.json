@@ -204,8 +204,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6674736455136736,
-    "overall_rouge_l_f1": 0.5296231558560978,
+    "overall_token_f1": 0.5843420568920921,
+    "overall_rouge_l_f1": 0.4120289448201222,
     "by_section": [
       {
         "section": "Subjective",
@@ -234,209 +234,105 @@
         "gen_present": true,
         "token_f1": 0.7112970711297071,
         "rouge_l_f1": 0.3594202898550724
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.4,
     "plan_alignment_score": 0.7112970711297071
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The documentation contains several omissions, particularly in the Subjective Review of Systems and Plan sections. A significant concern is the hallucination in the Assessment section, where the patient's hypertension was labeled as 'uncontrolled' without explicit support from the transcript or ground truth, which is considered a severe alignment issue.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "A",
+    "overall_summary": "The generated note is highly accurate and clinically usable, capturing all major clinically important content from the Ground Truth. While there are several minor omissions, primarily in the Review of Systems (e.g., specific denials for GI/Respiratory, explicit mention of decreased ROM in ROS, and neurological ROS details), and minor details in the Objective and Plan sections (e.g., explicit mention of pain on movement, oral route for medication, and patient agreement statement), these do not detract from the note's overall clinical utility. Crucially, all identified additions are supported by the transcript and therefore do not negatively impact the grade.",
     "omissions": [
-      "Subjective: Review of Systems: Gastrointestinal: No abnormalities reported.",
-      "Subjective: Review of Systems: Respiratory: No abnormalities reported.",
-      "Subjective: Review of Systems: Neurological: No symptoms reported other than occasional numbness in the right leg (Generated only mentions numbness).",
-      "Subjective: Review of Systems: Musculoskeletal: decreased range of motion (explicitly listed in GT ROS).",
-      "Plan: Medical Treatment: 'oral' route for Tramadol.",
-      "Plan: Additional Notes: Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications."
+      "Patient reported decreased range of motion (in Subjective/ROS)",
+      "Neurological ROS: No symptoms reported other than occasional numbness in the right leg",
+      "Gastrointestinal ROS: No abnormalities reported",
+      "Respiratory ROS: No abnormalities reported",
+      "Pain elicited on movement (in Objective physical exam)",
+      "Oral route for Tramadol prescription",
+      "Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications"
     ],
     "additions": [
-      "Assessment: 'severe, with associated numbness' added to the right hip pain diagnosis.",
-      "Assessment: Uncontrolled hypertension (BP 140/85 mmHg).",
-      "Assessment: Chronic back pain (no new assessment).",
-      "Objective: Neurological: 'none present during exam' for sensation."
+      "Description of right hip pain as 'severe, with associated numbness' in Assessment",
+      "Assessment of 'Uncontrolled hypertension (BP 140/85 mmHg)'",
+      "Assessment of 'Chronic back pain (no new assessment)'"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Assessment: Labeling hypertension as 'Uncontrolled hypertension (BP 140/85 mmHg)' without explicit mention or strong implication in GroundTruthSOAP or Transcript."
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section omits several details from the Review of Systems, including the absence of gastrointestinal and respiratory abnormalities, specific neurological details beyond occasional numbness, and explicit mention of decreased range of motion in the musculoskeletal system.",
+        "summary": "The Subjective section has several minor omissions in the Review of Systems, including the patient's reported decreased range of motion, and specific denials for neurological, gastrointestinal, and respiratory symptoms. Despite these minor gaps, the core HPI and relevant past medical history are well-captured.",
         "omissions": [
-          "Review of Systems: Gastrointestinal: No abnormalities reported.",
-          "Review of Systems: Respiratory: No abnormalities reported.",
-          "Review of Systems: Neurological: No symptoms reported other than occasional numbness in the right leg (Generated only mentions numbness).",
-          "Review of Systems: Musculoskeletal: decreased range of motion (explicitly listed in GT ROS)."
+          "Patient reported decreased range of motion (in ROS)",
+          "Neurological ROS: No symptoms reported other than occasional numbness in the right leg",
+          "Gastrointestinal ROS: No abnormalities reported",
+          "Respiratory ROS: No abnormalities reported"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section accurately captures all ground truth content and contains no grading issues.",
-        "omissions": [],
-        "additions": [
-          "Neurological: 'none present during exam' regarding numbness."
-        ]
+        "summary": "The Objective section is nearly complete, with only one minor omission regarding the explicit mention of 'pain elicited on movement' during the musculoskeletal exam. All other critical objective findings are accurately documented.",
+        "omissions": [
+          "Pain elicited on movement (under Musculoskeletal exam)"
+        ],
+        "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section includes a hallucination by labeling the patient's hypertension as 'uncontrolled' based solely on the blood pressure reading, which is an unjustified inference and a severe alignment issue.",
-        "omissions": [
-          "Primary Diagnosis: 'Pain in the right hip' (GT's exact phrasing, Generated adds 'severe, with associated numbness')."
-        ],
+        "grade": "A",
+        "summary": "The Assessment section is excellent, with no omissions. All additions, such as the description of hip pain, assessment of hypertension, and chronic back pain, are fully supported by the transcript and thus do not negatively impact the grade, making this section comprehensive and accurate.",
+        "omissions": [],
         "additions": [
-          "'severe, with associated numbness' added to the right hip pain diagnosis.",
-          "Uncontrolled hypertension (BP 140/85 mmHg).",
-          "Chronic back pain (no new assessment)."
+          "Description of right hip pain as 'severe, with associated numbness'",
+          "Assessment of 'Uncontrolled hypertension (BP 140/85 mmHg)'",
+          "Assessment of 'Chronic back pain (no new assessment)'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section omits the 'oral' route for Tramadol and the important note about the patient's agreement with the treatment plan and understanding of adherence to prescribed medications and lifestyle modifications.",
-        "omissions": [
-          "Medical Treatment: 'oral' route for Tramadol.",
-          "Additional Notes: Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications."
-        ],
-        "additions": []
-      },
-      {
-        "section": "Other",
         "grade": "A",
-        "summary": "This section contains no grading issues.",
-        "omissions": [],
+        "summary": "The Plan section is well-structured and comprehensive. It has two minor omissions: the explicit 'oral' route for Tramadol and the concluding statement about patient agreement and understanding of the treatment plan. These are minor details that do not detract from the clinical utility of the plan.",
+        "omissions": [
+          "Oral route for Tramadol prescription",
+          "Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications"
+        ],
         "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Assessment: 'severe, with associated numbness' added to the right hip pain diagnosis.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and examination, it seems like the primary issue is the pain in your right hip.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Right hip pain, severe, with associated numbness."
-      },
-      {
-        "addition_text": "Assessment: Uncontrolled hypertension (BP 140/85 mmHg).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] I also have hypertension. I'm taking Losartan 50 mg daily for that.\n\n[doctor] Your blood pressure is 140/85 mmHg",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Uncontrolled hypertension (BP 140/85 mmHg)."
-      },
-      {
-        "addition_text": "Assessment: Chronic back pain (no new assessment).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Sure, I've had chronic back pain for a while",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Chronic back pain (no new assessment)."
-      },
-      {
-        "addition_text": "Objective: Neurological: 'none present during exam' for sensation.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] No numbness right now, but it happens sometimes.\n\n[doctor] Good to know. Your sensation is intact except for the occasional numbness.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Right Hip Exam: Sensation intact, with patient reporting occasional numbness but none present during exam."
-      },
-      {
-        "addition_text": "Neurological: 'none present during exam' regarding numbness.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] No numbness right now, but it happens sometimes.\n\n[doctor] Good to know. Your sensation is intact except for the occasional numbness.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Right Hip Exam: Sensation intact, with patient reporting occasional numbness but none present during exam."
-      },
-      {
-        "addition_text": "'severe, with associated numbness' added to the right hip pain diagnosis.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and examination, it seems like the primary issue is the pain in your right hip.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Right hip pain, severe, with associated numbness."
-      },
-      {
-        "addition_text": "Uncontrolled hypertension (BP 140/85 mmHg).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] I also have hypertension. I'm taking Losartan 50 mg daily for that.\n\n[doctor] Your blood pressure is 140/85 mmHg",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Uncontrolled hypertension (BP 140/85 mmHg)."
-      },
-      {
-        "addition_text": "Chronic back pain (no new assessment).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Sure, I've had chronic back pain for a while",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Chronic back pain (no new assessment)."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: 'severe, with associated numbness' added to the right hip pain diagnosis.",
+      "addition_text": "Description of right hip pain as 'severe, with associated numbness' in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and examination, it seems like the primary issue is the pain in your right hip.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Right hip pain, severe, with associated numbness."
     },
     {
-      "addition_text": "Assessment: Uncontrolled hypertension (BP 140/85 mmHg).",
+      "addition_text": "Assessment of 'Uncontrolled hypertension (BP 140/85 mmHg)'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I also have hypertension. I'm taking Losartan 50 mg daily for that.\n\n[doctor] Your blood pressure is 140/85 mmHg",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Uncontrolled hypertension (BP 140/85 mmHg)."
     },
     {
-      "addition_text": "Assessment: Chronic back pain (no new assessment).",
+      "addition_text": "Assessment of 'Chronic back pain (no new assessment)'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Sure, I've had chronic back pain for a while",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Chronic back pain (no new assessment)."
     },
     {
-      "addition_text": "Objective: Neurological: 'none present during exam' for sensation.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] No numbness right now, but it happens sometimes.\n\n[doctor] Good to know. Your sensation is intact except for the occasional numbness.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Right Hip Exam: Sensation intact, with patient reporting occasional numbness but none present during exam."
-    },
-    {
-      "addition_text": "Neurological: 'none present during exam' regarding numbness.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] No numbness right now, but it happens sometimes.\n\n[doctor] Good to know. Your sensation is intact except for the occasional numbness.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Right Hip Exam: Sensation intact, with patient reporting occasional numbness but none present during exam."
-    },
-    {
-      "addition_text": "'severe, with associated numbness' added to the right hip pain diagnosis.",
+      "addition_text": "Description of right hip pain as 'severe, with associated numbness'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and examination, it seems like the primary issue is the pain in your right hip.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Right hip pain, severe, with associated numbness."
-    },
-    {
-      "addition_text": "Uncontrolled hypertension (BP 140/85 mmHg).",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I also have hypertension. I'm taking Losartan 50 mg daily for that.\n\n[doctor] Your blood pressure is 140/85 mmHg",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Uncontrolled hypertension (BP 140/85 mmHg)."
-    },
-    {
-      "addition_text": "Chronic back pain (no new assessment).",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Sure, I've had chronic back pain for a while",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic back pain (no new assessment)."
     }
   ]
 }

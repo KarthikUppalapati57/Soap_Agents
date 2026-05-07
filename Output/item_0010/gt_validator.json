@@ -269,8 +269,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.005633802816901409,
-    "overall_rouge_l_f1": 0.003305785123966942,
+    "overall_token_f1": 0.0,
+    "overall_rouge_l_f1": 0.0,
     "by_section": [
       {
         "section": "Subjective",
@@ -299,13 +299,6 @@
         "gen_present": true,
         "token_f1": 0.0,
         "rouge_l_f1": 0.0
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 0.028169014084507043,
-        "rouge_l_f1": 0.01652892561983471
       }
     ],
     "assessment_alignment_score": 0.0,
@@ -313,304 +306,116 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has multiple omissions, including key demographic details (patient's age and race/ethnicity) and social context from the HPI, the general appearance from the Objective section, and the differential diagnosis from the Assessment. Additionally, the Plan section includes unsupported structural additions (section headers) and omits the patient's agreement with the plan. While no hallucinations were present and many additions were supported by the transcript, these issues collectively reduce the overall completeness and clinical utility of the note.",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, HPI, ROS, vital signs, and physical examination findings. The Plan section is comprehensive and aligns well with the Ground Truth. However, there are several minor omissions across the Subjective, Objective, and Plan sections, such as the patient's recreational drug use denial, general appearance, and agreement with the plan. The most notable issue is the omission of the explicit differential diagnosis in the Assessment section, which represents a moderate gap in the clinical reasoning presented compared to the Ground Truth. All additions made by the model were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Patient's age (45-year-old) in HPI",
-      "Patient's race/ethnicity (Hispanic) in HPI",
-      "Patient's minimal recreational activities due to symptoms in HPI",
-      "General appearance: 'Appears tired, no acute distress'",
-      "Assessment: Differential diagnosis including dehydration, electrolyte imbalance, or possible endocrine/metabolic disorder",
-      "Plan: Patient understands and agrees with the plan",
-      "Plan: Patient was reminded to follow up sooner if symptoms worsen (partially present, but GT specifies 'or sooner if symptoms worsen')",
-      "Signature block (Dr. [Your Name], MD, General Physician, Private Practice)"
+      "Signature block (Dr. [Your Name], MD General Physician Private Practice)"
     ],
-    "additions": [
-      "Subjective: 'male patient' (redundant with Mr. Cortez)",
-      "Subjective: 'daily tiredness' (redundant with 'daily' and 'fatigue')",
-      "Subjective: 'Past medical history includes prediabetes and hypertension, for which he reports following treatment but notes no improvement' (repetition of HPI detail)",
-      "Objective: 'Laboratory Data: Awaiting results of biochemistry panel (glucose, electrolytes, renal and liver function tests)' (This is a plan item in GT, not objective)",
-      "Assessment: Problem list format (1. Fatigue and Dizziness, 2. Prediabetes, 3. Hypertension, 4. Poor Sleep Hygiene, 5. Suboptimal Diet and Sedentary Lifestyle, 6. Nicotine Use, 7. Anxiety/Frustration)",
-      "Assessment: 'Fatigue and Dizziness: New onset, 3-week duration, associated with occasional nausea, impacting daily function. Etiology pending further investigation.' (More detailed than GT's assessment of fatigue/dizziness)",
-      "Assessment: 'Prediabetes: Patient reports no improvement despite current treatment regimen.' (Specific problem statement not in GT assessment)",
-      "Assessment: 'Hypertension: BP 140/88 mmHg, patient reports no improvement despite current treatment regimen.' (Specific problem statement not in GT assessment)",
-      "Assessment: 'Poor Sleep Hygiene.' (Specific problem statement not in GT assessment)",
-      "Assessment: 'Suboptimal Diet and Sedentary Lifestyle.' (Specific problem statement not in GT assessment)",
-      "Assessment: 'Nicotine Use.' (Specific problem statement not in GT assessment)",
-      "Assessment: 'Anxiety/Frustration: Related to current symptoms.' (Specific problem statement not in GT assessment)",
-      "Plan: Section headers (Diagnostics, Management, Follow-up)",
-      "Plan: 'Advised to return sooner if symptoms worsen' (repetition of follow-up instruction)"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The section omits important demographic information (patient's age and race/ethnicity) and a detail about the patient's minimal recreational activities from the History of Present Illness.",
+        "grade": "A",
+        "summary": "The Subjective section is well-captured, including the chief complaint, HPI, and ROS. Minor omissions include the denial of recreational drug use, minimal recreational activities due to symptoms, the patient being described as 'cooperative', and the 'moderate' qualifier for fatigue in the ROS General, but these do not significantly impact the clinical utility of the section.",
         "omissions": [
-          "Patient's age (45-year-old) in HPI",
-          "Patient's race/ethnicity (Hispanic) in HPI",
-          "Patient's minimal recreational activities due to symptoms in HPI"
+          "Denial of recreational drug use",
+          "Minimal recreational activities due to symptoms",
+          "Patient described as \"cooperative\"",
+          "\"Moderate\" qualifier for fatigue in ROS General"
         ],
-        "additions": [
-          "Subjective: 'male patient' (redundant with Mr. Cortez)",
-          "Subjective: 'daily tiredness' (redundant with 'daily' and 'fatigue')",
-          "Subjective: 'Past medical history includes prediabetes and hypertension, for which he reports following treatment but notes no improvement' (repetition of HPI detail)"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The section omits the general appearance ('Appears tired, no acute distress') from the physical examination findings.",
+        "grade": "A",
+        "summary": "The Objective section is largely accurate, including vital signs and physical examination findings. The only omission is the 'General Appearance' section. The addition of 'Laboratory Data' is supported by the transcript and does not lower the grade.",
         "omissions": [
-          "General appearance: 'Appears tired, no acute distress'"
+          "General Appearance section (\"Appears tired, no acute distress\")"
         ],
         "additions": [
-          "Objective: 'Laboratory Data: Awaiting results of biochemistry panel (glucose, electrolytes, renal and liver function tests)' (This is a plan item in GT, not objective)"
+          "\"Laboratory Data: Awaiting results of biochemistry panel (glucose, electrolytes, renal and liver function tests)\" included in Objective section"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The section omits the differential diagnosis, which included dehydration, electrolyte imbalance, or possible endocrine/metabolic disorder, a key part of the clinical reasoning in the Ground Truth.",
+        "grade": "B",
+        "summary": "The Assessment section presents a problem-list style assessment, which is clinically relevant and supported by the transcript for each point. However, it omits the explicit differential diagnosis (dehydration, electrolyte imbalance, or possible endocrine/metabolic disorder) mentioned in the Ground Truth, which is a moderate gap in the initial diagnostic thought process. A minor omission is the 'moderate' qualifier for fatigue. All additions were supported by the transcript and did not reduce the grade.",
         "omissions": [
-          "Assessment: Differential diagnosis including dehydration, electrolyte imbalance, or possible endocrine/metabolic disorder"
+          "\"Moderate\" qualifier for fatigue",
+          "Explicit statement of differential diagnosis (dehydration, electrolyte imbalance, or possible endocrine/metabolic disorder)"
         ],
         "additions": [
-          "Assessment: Problem list format (1. Fatigue and Dizziness, 2. Prediabetes, 3. Hypertension, 4. Poor Sleep Hygiene, 5. Suboptimal Diet and Sedentary Lifestyle, 6. Nicotine Use, 7. Anxiety/Frustration)",
-          "Assessment: 'Fatigue and Dizziness: New onset, 3-week duration, associated with occasional nausea, impacting daily function. Etiology pending further investigation.' (More detailed than GT's assessment of fatigue/dizziness)",
-          "Assessment: 'Prediabetes: Patient reports no improvement despite current treatment regimen.' (Specific problem statement not in GT assessment)",
-          "Assessment: 'Hypertension: BP 140/88 mmHg, patient reports no improvement despite current treatment regimen.' (Specific problem statement not in GT assessment)",
-          "Assessment: 'Poor Sleep Hygiene.' (Specific problem statement not in GT assessment)",
-          "Assessment: 'Suboptimal Diet and Sedentary Lifestyle.' (Specific problem statement not in GT assessment)",
-          "Assessment: 'Nicotine Use.' (Specific problem statement not in GT assessment)",
-          "Assessment: 'Anxiety/Frustration: Related to current symptoms.' (Specific problem statement not in GT assessment)"
+          "Listing \"Prediabetes: Patient reports no improvement despite current treatment regimen\" as a separate assessment point",
+          "Listing \"Hypertension: BP 140/88 mmHg, patient reports no improvement despite current treatment regimen\" as a separate assessment point",
+          "Listing \"Poor Sleep Hygiene\" as a separate assessment point",
+          "Listing \"Suboptimal Diet and Sedentary Lifestyle\" as a separate assessment point",
+          "Listing \"Nicotine Use\" as a separate assessment point",
+          "Listing \"Anxiety/Frustration: Related to current symptoms\" as a separate assessment point"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The section omits the statement that the 'Patient understands and agrees with the plan' and includes unsupported section headers ('Diagnostics,' 'Management,' 'Follow-up').",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive and aligns very well with the Ground Truth, covering diagnostics, management, and follow-up. The only omission is the statement 'Patient understands and agrees with the plan,' which is a minor detail and does not detract from the clinical actions outlined.",
         "omissions": [
-          "Plan: Patient understands and agrees with the plan",
-          "Plan: Patient was reminded to follow up sooner if symptoms worsen (partially present, but GT specifies 'or sooner if symptoms worsen')"
-        ],
-        "additions": [
-          "Plan: Section headers (Diagnostics, Management, Follow-up)",
-          "Plan: 'Advised to return sooner if symptoms worsen' (repetition of follow-up instruction)"
-        ]
-      },
-      {
-        "section": "Other",
-        "grade": "B",
-        "summary": "The note omits the signature block.",
-        "omissions": [
-          "Signature block (Dr. [Your Name], MD, General Physician, Private Practice)"
+          "\"Patient understands and agrees with the plan.\""
         ],
         "additions": []
       }
     ],
-    "rubric_notes": "The model transformed the Assessment section into a problem list format, which is an addition in structure and detail compared to the narrative GT assessment. The 'Laboratory Data' in the Objective section of the generated note is an addition there, as it was part of the Plan in the GroundTruth.",
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: 'male patient' (redundant with Mr. Cortez)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Hi Mr. Cortez, how are you doing today?",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective: 'daily tiredness' (redundant with 'daily' and 'fatigue')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Every day, I feel tired, dizzy, and sometimes I get nauseous.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective: 'Past medical history includes prediabetes and hypertension, for which he reports following treatment but notes no improvement' (repetition of HPI detail)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] You have prediabetes and hypertension, correct? [patient] Yes, that's right. I've been following my treatment regimen, but I don't feel any improvement.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Past medical history includes prediabetes and hypertension, for which he reports following treatment but notes no improvement."
-      },
-      {
-        "addition_text": "Objective: 'Laboratory Data: Awaiting results of biochemistry panel (glucose, electrolytes, renal and liver function tests)' (This is a plan item in GT, not objective)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] We are still awaiting the results of your biochemistry panel, including glucose, electrolytes, and renal and liver function tests.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Laboratory Data: Awaiting results of biochemistry panel (glucose, electrolytes, renal and liver function tests)."
-      },
-      {
-        "addition_text": "Assessment: Problem list format (1. Fatigue and Dizziness, 2. Prediabetes, 3. Hypertension, 4. Poor Sleep Hygiene, 5. Suboptimal Diet and Sedentary Lifestyle, 6. Nicotine Use, 7. Anxiety/Frustration)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I've been feeling really tired and dizzy for the past few weeks.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Assessment: 'Fatigue and Dizziness: New onset, 3-week duration, associated with occasional nausea, impacting daily function. Etiology pending further investigation.' (More detailed than GT's assessment of fatigue/dizziness)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] I've been feeling really tired and dizzy for the past few weeks... It's been about three weeks now. Every day, I feel tired, dizzy, and sometimes I get nauseous. It's really affecting my work and daily tasks.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Fatigue and Dizziness: New onset, 3-week duration, associated with occasional nausea, impacting daily function. Etiology pending further investigation."
-      },
-      {
-        "addition_text": "Assessment: 'Prediabetes: Patient reports no improvement despite current treatment regimen.' (Specific problem statement not in GT assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] You have prediabetes and hypertension, correct? [patient] Yes, that's right. I've been following my treatment regimen, but I don't feel any improvement.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Prediabetes: Patient reports no improvement despite current treatment regimen."
-      },
-      {
-        "addition_text": "Assessment: 'Hypertension: BP 140/88 mmHg, patient reports no improvement despite current treatment regimen.' (Specific problem statement not in GT assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] You have prediabetes and hypertension, correct? [patient] Yes, that's right. I've been following my treatment regimen, but I don't feel any improvement. [doctor] Your blood pressure is 140/88 mmHg",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypertension: BP 140/88 mmHg, patient reports no improvement despite current treatment regimen."
-      },
-      {
-        "addition_text": "Assessment: 'Poor Sleep Hygiene.' (Specific problem statement not in GT assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] I probably get around 6 hours of sleep a night, but it's often disturbed.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Poor Sleep Hygiene."
-      },
-      {
-        "addition_text": "Assessment: 'Suboptimal Diet and Sedentary Lifestyle.' (Specific problem statement not in GT assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] My diet isn't great, to be honest. I eat a lot of processed foods and not many fruits or vegetables. [patient] No, not really. I know I should, but I just haven't been able to get into a routine.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Suboptimal Diet and Sedentary Lifestyle."
-      },
-      {
-        "addition_text": "Assessment: 'Nicotine Use.' (Specific problem statement not in GT assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] I smoke about 5 cigarettes a day",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Nicotine Use."
-      },
-      {
-        "addition_text": "Assessment: 'Anxiety/Frustration: Related to current symptoms.' (Specific problem statement not in GT assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] I'm really frustrated and anxious because of all this. It's been hard to deal with.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Anxiety/Frustration: Related to current symptoms."
-      },
-      {
-        "addition_text": "Plan: Section headers (Diagnostics, Management, Follow-up)",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Plan: 'Advised to return sooner if symptoms worsen' (repetition of follow-up instruction)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] We will need to schedule a follow-up visit in one week to review your lab results and reassess your symptoms. [doctor] Remember to follow up in one week or sooner if your symptoms worsen.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up: Schedule follow-up visit in one week to review lab results and reassess symptoms, with advice to return sooner if symptoms worsen."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'male patient' (redundant with Mr. Cortez)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Hi Mr. Cortez, how are you doing today?",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Subjective: 'daily tiredness' (redundant with 'daily' and 'fatigue')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Every day, I feel tired, dizzy, and sometimes I get nauseous.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Subjective: 'Past medical history includes prediabetes and hypertension, for which he reports following treatment but notes no improvement' (repetition of HPI detail)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] You have prediabetes and hypertension, correct? [patient] Yes, that's right. I've been following my treatment regimen, but I don't feel any improvement.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Past medical history includes prediabetes and hypertension, for which he reports following treatment but notes no improvement."
-    },
-    {
-      "addition_text": "Objective: 'Laboratory Data: Awaiting results of biochemistry panel (glucose, electrolytes, renal and liver function tests)' (This is a plan item in GT, not objective)",
+      "addition_text": "\"Laboratory Data: Awaiting results of biochemistry panel (glucose, electrolytes, renal and liver function tests)\" included in Objective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are still awaiting the results of your biochemistry panel, including glucose, electrolytes, and renal and liver function tests.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Laboratory Data: Awaiting results of biochemistry panel (glucose, electrolytes, renal and liver function tests)."
     },
     {
-      "addition_text": "Assessment: Problem list format (1. Fatigue and Dizziness, 2. Prediabetes, 3. Hypertension, 4. Poor Sleep Hygiene, 5. Suboptimal Diet and Sedentary Lifestyle, 6. Nicotine Use, 7. Anxiety/Frustration)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I've been feeling really tired and dizzy for the past few weeks.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: 'Fatigue and Dizziness: New onset, 3-week duration, associated with occasional nausea, impacting daily function. Etiology pending further investigation.' (More detailed than GT's assessment of fatigue/dizziness)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I've been feeling really tired and dizzy for the past few weeks... It's been about three weeks now. Every day, I feel tired, dizzy, and sometimes I get nauseous. It's really affecting my work and daily tasks.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fatigue and Dizziness: New onset, 3-week duration, associated with occasional nausea, impacting daily function. Etiology pending further investigation."
-    },
-    {
-      "addition_text": "Assessment: 'Prediabetes: Patient reports no improvement despite current treatment regimen.' (Specific problem statement not in GT assessment)",
+      "addition_text": "Listing \"Prediabetes: Patient reports no improvement despite current treatment regimen\" as a separate assessment point",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You have prediabetes and hypertension, correct? [patient] Yes, that's right. I've been following my treatment regimen, but I don't feel any improvement.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Prediabetes: Patient reports no improvement despite current treatment regimen."
     },
     {
-      "addition_text": "Assessment: 'Hypertension: BP 140/88 mmHg, patient reports no improvement despite current treatment regimen.' (Specific problem statement not in GT assessment)",
+      "addition_text": "Listing \"Hypertension: BP 140/88 mmHg, patient reports no improvement despite current treatment regimen\" as a separate assessment point",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You have prediabetes and hypertension, correct? [patient] Yes, that's right. I've been following my treatment regimen, but I don't feel any improvement. [doctor] Your blood pressure is 140/88 mmHg",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Hypertension: BP 140/88 mmHg, patient reports no improvement despite current treatment regimen."
     },
     {
-      "addition_text": "Assessment: 'Poor Sleep Hygiene.' (Specific problem statement not in GT assessment)",
+      "addition_text": "Listing \"Poor Sleep Hygiene\" as a separate assessment point",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I probably get around 6 hours of sleep a night, but it's often disturbed.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Poor Sleep Hygiene."
     },
     {
-      "addition_text": "Assessment: 'Suboptimal Diet and Sedentary Lifestyle.' (Specific problem statement not in GT assessment)",
+      "addition_text": "Listing \"Suboptimal Diet and Sedentary Lifestyle\" as a separate assessment point",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] My diet isn't great, to be honest. I eat a lot of processed foods and not many fruits or vegetables. [patient] No, not really. I know I should, but I just haven't been able to get into a routine.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Suboptimal Diet and Sedentary Lifestyle."
     },
     {
-      "addition_text": "Assessment: 'Nicotine Use.' (Specific problem statement not in GT assessment)",
+      "addition_text": "Listing \"Nicotine Use\" as a separate assessment point",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I smoke about 5 cigarettes a day",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Nicotine Use."
     },
     {
-      "addition_text": "Assessment: 'Anxiety/Frustration: Related to current symptoms.' (Specific problem statement not in GT assessment)",
+      "addition_text": "Listing \"Anxiety/Frustration: Related to current symptoms\" as a separate assessment point",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I'm really frustrated and anxious because of all this. It's been hard to deal with.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Anxiety/Frustration: Related to current symptoms."
-    },
-    {
-      "addition_text": "Plan: Section headers (Diagnostics, Management, Follow-up)",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: 'Advised to return sooner if symptoms worsen' (repetition of follow-up instruction)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] We will need to schedule a follow-up visit in one week to review your lab results and reassess your symptoms. [doctor] Remember to follow up in one week or sooner if your symptoms worsen.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up: Schedule follow-up visit in one week to review lab results and reassess symptoms, with advice to return sooner if symptoms worsen."
     }
   ]
 }

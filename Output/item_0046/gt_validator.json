@@ -303,8 +303,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.635126257950803,
-    "overall_rouge_l_f1": 0.5622539201733182,
+    "overall_token_f1": 0.5439078224385038,
+    "overall_rouge_l_f1": 0.45281740021664774,
     "by_section": [
       {
         "section": "Subjective",
@@ -333,178 +333,105 @@
         "gen_present": true,
         "token_f1": 0.7155963302752293,
         "rouge_l_f1": 0.5307443365695793
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.17142857142857143,
     "plan_alignment_score": 0.7155963302752293
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is clinically aligned and free of hallucinations. Minor issues include several omissions of specific clinical details and interpretations in the Objective section, a minor omission in the Plan regarding medication duration, and an unsupported heading change in the Objective section. Despite these, the note remains clinically usable.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "A",
+    "overall_summary": "The generated SOAP note is highly accurate and clinically aligned. All major clinically important Ground Truth content is captured, and the note is clearly usable and reliable. The few omissions are minor details, such as patient hobbies, the reason for rarely exercising, specific physical exam findings (pale conjunctiva, absence of crackles/wheezes), and interpretations of vital signs/labs. Crucially, all additions are supported by the transcript and do not negatively impact the grade.",
     "omissions": [
-      "Patient's hobbies (reading and watching movies)",
-      "Interpretation of vital signs (hypotensive, tachycardia)",
-      "Specific physical exam finding of \"pale conjunctiva\"",
-      "Interpretation of lab results (hemoglobin \"low\", hematocrit \"low\")",
-      "Duration of ferrous sulfate prescription (\"for 1 month\")",
-      "Concluding remarks about patient's cooperativeness and understanding of the plan"
+      "Patient's reason for rarely exercising (due to a busy schedule)",
+      "Patient's hobbies (enjoys reading and watching movies in her spare time)",
+      "Specific physical exam finding: Pale conjunctiva",
+      "Specific physical exam finding: No wheezing or crackles (in respiratory exam)",
+      "Interpretation of vital signs: (hypotensive) for Blood Pressure",
+      "Interpretation of vital signs: (tachycardia) for Heart Rate",
+      "Interpretation of lab results: (low) for Hemoglobin",
+      "Interpretation of lab results: (low) for Hematocrit",
+      "Purpose of awaiting iron studies: to assess for iron deficiency",
+      "Patient's understanding and agreement to the plan (The patient was cooperative and eager to follow the medical recommendations. She understood the need for follow-up and agreed to the referral and prescribed treatment.)"
     ],
     "additions": [
-      "In Assessment: detailed reasoning for the diagnosis, linking symptoms and objective findings, and mentioning iron deficiency as a potential contributing factor",
-      "In Plan: \"Patient Education\" as a sub-heading"
+      "Example for shortness of breath with exertion: e.g., walking up stairs",
+      "Detailed assessment statement including symptoms and objective findings (presenting with severe fatigue, dizziness, and exertional dyspnea. Objective findings of hypotension, tachycardia, pallor, and low hemoglobin/hematocrit are consistent with anemia.)",
+      "Potential contributing factor in assessment: Iron deficiency is a potential contributing factor, pending iron studies."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "This section is well-captured, with only a minor omission of the patient's hobbies.",
+        "summary": "The Subjective section is excellent, capturing all major clinically important content. The only omissions are minor details regarding the patient's reason for rarely exercising and her hobbies, which do not impact clinical usefulness. All additions are supported by the transcript.",
         "omissions": [
-          "Patient's hobbies (reading and watching movies)"
+          "Patient's reason for rarely exercising (due to a busy schedule)",
+          "Patient's hobbies (enjoys reading and watching movies in her spare time)"
+        ],
+        "additions": [
+          "Example for shortness of breath with exertion: e.g., walking up stairs"
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is strong, accurately presenting all vital signs, physical examination findings, and laboratory results. While there are several minor omissions, such as 'pale conjunctiva,' 'no wheezing or crackles,' and the interpretive notes for vitals and labs (e.g., 'hypotensive,' 'low'), the core clinical data is present and correct. There are no unsupported or unknown additions.",
+        "omissions": [
+          "Specific physical exam finding: Pale conjunctiva",
+          "Specific physical exam finding: No wheezing or crackles (in respiratory exam)",
+          "Interpretation of vital signs: (hypotensive) for Blood Pressure",
+          "Interpretation of vital signs: (tachycardia) for Heart Rate",
+          "Interpretation of lab results: (low) for Hemoglobin",
+          "Interpretation of lab results: (low) for Hematocrit",
+          "Purpose of awaiting iron studies: to assess for iron deficiency"
         ],
         "additions": []
       },
       {
-        "section": "Objective",
-        "grade": "B",
-        "summary": "This section has several minor omissions, including the interpretation of vital signs (hypotensive, tachycardia), the specific physical exam finding of \"pale conjunctiva,\" and the interpretation of lab results (hemoglobin \"low,\" hematocrit \"low\"). Additionally, it includes an unsupported addition of \"Pulmonary\" as a heading instead of \"Respiratory.\"",
-        "omissions": [
-          "Interpretation of vital signs (hypotensive, tachycardia)",
-          "Specific physical exam finding of \"pale conjunctiva\"",
-          "Interpretation of lab results (hemoglobin \"low\", hematocrit \"low\")"
-        ],
-        "additions": [
-          "\"Pulmonary\" as a heading for respiratory exam findings (GT uses \"Respiratory\")"
-        ]
-      },
-      {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is excellent, with no omissions or unsupported/unknown additions. All additions were supported by the transcript.",
+        "summary": "The Assessment section is perfect, with no omissions or unsupported/unknown additions. The generated content, including the detailed assessment statement and the mention of iron deficiency as a potential contributing factor, is fully supported by the transcript.",
         "omissions": [],
         "additions": [
-          "Detailed reasoning for the diagnosis, linking symptoms and objective findings",
-          "Mention of iron deficiency as a potential contributing factor, pending iron studies"
+          "Detailed assessment statement including symptoms and objective findings (presenting with severe fatigue, dizziness, and exertional dyspnea. Objective findings of hypotension, tachycardia, pallor, and low hemoglobin/hematocrit are consistent with anemia.)",
+          "Potential contributing factor in assessment: Iron deficiency is a potential contributing factor, pending iron studies."
         ]
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The section is largely complete, with only a minor omission regarding the specific duration of the ferrous sulfate prescription (\"for 1 month\").",
+        "summary": "The Plan section is comprehensive and accurate. The only omission is the detail about the patient's cooperation and agreement to the plan, which is a minor administrative detail and does not affect the clinical utility of the plan itself. There are no unsupported or unknown additions.",
         "omissions": [
-          "The specific duration of ferrous sulfate prescription (\"for 1 month\")"
-        ],
-        "additions": [
-          "\"Patient Education\" as a sub-heading"
-        ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The section has a minor omission of the concluding remarks about the patient's cooperativeness and understanding of the plan.",
-        "omissions": [
-          "The concluding remarks about patient's cooperativeness and understanding of the plan"
+          "Patient's understanding and agreement to the plan (The patient was cooperative and eager to follow the medical recommendations. She understood the need for follow-up and agreed to the referral and prescribed treatment.)"
         ],
         "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "In Assessment: detailed reasoning for the diagnosis, linking symptoms and objective findings, and mentioning iron deficiency as a potential contributing factor",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’re still waiting on your iron studies to assess for iron deficiency.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Iron deficiency is a potential contributing factor, pending iron studies."
-      },
-      {
-        "addition_text": "In Plan: \"Patient Education\" as a sub-heading",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I’ll provide you with a list of iron-rich foods like lean meats, beans, iron-fortified cereals, and leafy green vegetables. I recommend increasing your dietary iron intake. Also, please moderate your sugar intake and try to incorporate light exercise into your routine as tolerated. If you experience any symptoms of gastrointestinal distress, report them promptly. And if your symptoms significantly worsen, like if you have severe dizziness, fainting, or chest pain, go to the emergency room immediately.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "\"Pulmonary\" as a heading for respiratory exam findings (GT uses \"Respiratory\")",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Detailed reasoning for the diagnosis, linking symptoms and objective findings",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I reviewed your lab results. Your hemoglobin is 8 g/dL, and your hematocrit is 24%, both of which are low. ... It indicates that you have anemia, most likely acute posthemorrhagic anemia. This could explain your fatigue and dizziness.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Mention of iron deficiency as a potential contributing factor, pending iron studies",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’re still waiting on your iron studies to assess for iron deficiency.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Iron deficiency is a potential contributing factor, pending iron studies."
-      },
-      {
-        "addition_text": "\"Patient Education\" as a sub-heading",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "It’s important to take the iron supplements with vitamin C or orange juice to enhance absorption.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "In Assessment: detailed reasoning for the diagnosis, linking symptoms and objective findings, and mentioning iron deficiency as a potential contributing factor",
+      "addition_text": "Example for shortness of breath with exertion: e.g., walking up stairs",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I also get shortness of breath when I exert myself, like walking up stairs.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Experiences shortness of breath with exertion (e.g., walking up stairs)."
+    },
+    {
+      "addition_text": "Detailed assessment statement including symptoms and objective findings (presenting with severe fatigue, dizziness, and exertional dyspnea. Objective findings of hypotension, tachycardia, pallor, and low hemoglobin/hematocrit are consistent with anemia.)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Your blood pressure is 95/60 mmHg, which is on the lower side, and your heart rate is 110 bpm, which is elevated. ... You look a bit pale and fatigued. ... Your hemoglobin is 8 g/dL, and your hematocrit is 24%, both of which are low. ... It indicates that you have anemia...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Objective findings of hypotension, tachycardia, pallor, and low hemoglobin/hematocrit are consistent with anemia."
+    },
+    {
+      "addition_text": "Potential contributing factor in assessment: Iron deficiency is a potential contributing factor, pending iron studies.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re still waiting on your iron studies to assess for iron deficiency.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Iron deficiency is a potential contributing factor, pending iron studies."
-    },
-    {
-      "addition_text": "In Plan: \"Patient Education\" as a sub-heading",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I’ll provide you with a list of iron-rich foods like lean meats, beans, iron-fortified cereals, and leafy green vegetables. I recommend increasing your dietary iron intake. Also, please moderate your sugar intake and try to incorporate light exercise into your routine as tolerated. If you experience any symptoms of gastrointestinal distress, report them promptly. And if your symptoms significantly worsen, like if you have severe dizziness, fainting, or chest pain, go to the emergency room immediately.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"Pulmonary\" as a heading for respiratory exam findings (GT uses \"Respiratory\")",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Detailed reasoning for the diagnosis, linking symptoms and objective findings",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I reviewed your lab results. Your hemoglobin is 8 g/dL, and your hematocrit is 24%, both of which are low. ... It indicates that you have anemia, most likely acute posthemorrhagic anemia. This could explain your fatigue and dizziness.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Mention of iron deficiency as a potential contributing factor, pending iron studies",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re still waiting on your iron studies to assess for iron deficiency.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Iron deficiency is a potential contributing factor, pending iron studies."
-    },
-    {
-      "addition_text": "\"Patient Education\" as a sub-heading",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It’s important to take the iron supplements with vitamin C or orange juice to enhance absorption.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
     }
   ]
 }

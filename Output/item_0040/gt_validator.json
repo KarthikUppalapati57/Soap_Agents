@@ -237,8 +237,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6625851002803304,
-    "overall_rouge_l_f1": 0.5497630476915576,
+    "overall_token_f1": 0.5782313753504129,
+    "overall_rouge_l_f1": 0.43720380961444694,
     "by_section": [
       {
         "section": "Subjective",
@@ -267,19 +267,125 @@
         "gen_present": true,
         "token_f1": 0.6601941747572815,
         "rouge_l_f1": 0.4593639575971732
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.4347826086956521,
     "plan_alignment_score": 0.6601941747572815
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Other'; got ['Subjective', 'Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the majority of the Ground Truth content. The primary issues are several moderate omissions in the Assessment section, specifically the lack of medication and dosage details for the patient's chronic conditions (hypertension, type 2 diabetes, and hypothyroidism). There are also minor descriptive omissions in the Objective and Plan sections. All additions made by the model are well-supported by the transcript and do not negatively impact the grade.",
+    "omissions": [
+      "Patient appears cooperative and engaged in conversation (from General Examination)",
+      "Hypertension medication and dosage (Lisinopril 10 mg daily) in Assessment",
+      "Type 2 Diabetes Mellitus medication and dosage (Metformin 500 mg twice daily) in Assessment",
+      "Hypothyroidism medication and dosage (Levothyroxine 50 mcg daily) in Assessment",
+      "Discussion of the importance of lifestyle changes, including diet and exercise, in managing weight and improving overall health"
+    ],
+    "additions": [
+      "Specific denials in Subjective: 'Denies wheezing, coughing, weakness, or numbness in limbs'",
+      "Impact on work performance and requiring frequent breaks in Subjective",
+      "Past medical history and current medications listed in Subjective",
+      "Specific pending labs (HbA1c, lipid panel) in Objective"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "A",
+        "summary": "The Subjective section is comprehensive and accurate, with no omissions. All additions, such as specific denials, impact on work performance, and past medical history with current medications, are well-supported by the transcript.",
+        "omissions": [],
+        "additions": [
+          "Specific denials: 'Denies wheezing, coughing, weakness, or numbness in limbs'",
+          "Impact on work performance and requiring frequent breaks",
+          "Past medical history and current medications listed in Subjective"
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is largely accurate, with only a minor descriptive omission regarding the patient's general appearance ('Patient appears cooperative and engaged in conversation'). All additions, including specific pending labs, are supported by the transcript.",
+        "omissions": [
+          "Patient appears cooperative and engaged in conversation (from General Examination)"
+        ],
+        "additions": [
+          "Specific pending labs: HbA1c, lipid panel, comprehensive metabolic panel (CMP)"
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "B",
+        "summary": "The Assessment section correctly identifies the primary and secondary assessments but omits important details regarding the specific medications and dosages for hypertension, type 2 diabetes, and hypothyroidism, which were present in the Ground Truth. These are considered moderate omissions.",
+        "omissions": [
+          "Hypertension medication and dosage (Lisinopril 10 mg daily)",
+          "Type 2 Diabetes Mellitus medication and dosage (Metformin 500 mg twice daily)",
+          "Hypothyroidism medication and dosage (Levothyroxine 50 mcg daily)"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Plan",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive, with only a minor omission regarding a specific patient education discussion point about the importance of lifestyle changes in managing weight and improving overall health.",
+        "omissions": [
+          "Discussion of the importance of lifestyle changes, including diet and exercise, in managing weight and improving overall health"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Specific denials in Subjective: 'Denies wheezing, coughing, weakness, or numbness in limbs'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Have you noticed any other symptoms, such as wheezing or coughing?\n[Patient]: No, just shortness of breath when I do anything slightly strenuous. ... [Doctor]: Have you experienced any weakness or numbness in your limbs?\n[Patient]: No, nothing like that.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient denies wheezing, coughing, weakness, or numbness in limbs."
+    },
+    {
+      "addition_text": "Impact on work performance and requiring frequent breaks in Subjective",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: It's been really hard. I have to take frequent breaks and sometimes I just can't keep up.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Symptoms significantly impact work performance, requiring frequent breaks."
+    },
+    {
+      "addition_text": "Past medical history and current medications listed in Subjective",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You mentioned you have hypertension, type 2 diabetes, and hypothyroidism. Is that correct?\n[Patient]: Yes, that's right.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Past medical history includes hypertension, type 2 diabetes, and hypothyroidism."
+    },
+    {
+      "addition_text": "Specific pending labs (HbA1c, lipid panel) in Objective",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We are currently awaiting the results of your HbA1c and lipid panel, and we have also ordered a comprehensive metabolic panel (CMP).",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Labs pending include HbA1c, lipid panel, and comprehensive metabolic panel (CMP)."
+    },
+    {
+      "addition_text": "Specific denials: 'Denies wheezing, coughing, weakness, or numbness in limbs'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Have you noticed any other symptoms, such as wheezing or coughing?\n[Patient]: No, just shortness of breath when I do anything slightly strenuous. ... [Doctor]: Have you experienced any weakness or numbness in your limbs?\n[Patient]: No, nothing like that.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient denies wheezing, coughing, weakness, or numbness in limbs."
+    },
+    {
+      "addition_text": "Impact on work performance and requiring frequent breaks",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: It's been really hard. I have to take frequent breaks and sometimes I just can't keep up.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Symptoms significantly impact work performance, requiring frequent breaks."
+    },
+    {
+      "addition_text": "Specific pending labs: HbA1c, lipid panel, comprehensive metabolic panel (CMP)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We are currently awaiting the results of your HbA1c and lipid panel, and we have also ordered a comprehensive metabolic panel (CMP).",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Labs pending include HbA1c, lipid panel, and comprehensive metabolic panel (CMP)."
+    }
+  ]
 }

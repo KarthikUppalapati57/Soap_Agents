@@ -228,8 +228,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7050183822372781,
-    "overall_rouge_l_f1": 0.5880412351579986,
+    "overall_token_f1": 0.6312729777965976,
+    "overall_rouge_l_f1": 0.4850515439474982,
     "by_section": [
       {
         "section": "Subjective",
@@ -258,13 +258,6 @@
         "gen_present": true,
         "token_f1": 0.6695278969957082,
         "rouge_l_f1": 0.35057471264367823
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.4411764705882353,
@@ -272,321 +265,133 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note exhibits multiple grading-input issues, primarily due to several omissions across sections, particularly in the Plan. Key missing elements include important patient education details, socio-economic considerations influencing management, and patient agreement. There is also one unsupported formatting addition. While the core clinical information is present, these omissions reduce the completeness and contextual richness of the documentation, making some sections weaker but still usable.",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. All additions are supported by the transcript and therefore do not impact the grade. However, there are several moderate omissions, particularly in the Assessment and Plan sections. In Assessment, the introductory sentence to the medical reasoning and the explicit mention of awaiting chest X-ray results within the reasoning are missing. In Plan, education on the potential causes of symptoms and the important socio-economic considerations regarding the patient's living situation and its influence on management are omitted. Minor omissions include \"no hemoptysis\" in Subjective, \"joint\" in Objective, and \"for asthma\" and patient agreement in Plan. Despite these omissions, the core clinical information is present and accurate.",
     "omissions": [
-      "Subjective: 'no hemoptysis' in ROS",
-      "Objective: 'joint' in musculoskeletal exam (GroundTruth: 'No joint swelling or tenderness', Generated: 'No swelling or tenderness')",
-      "Assessment: 'The patient presents with a constellation of symptoms including a persistent dry cough and mild shortness of breath.'",
-      "Assessment: 'Awaiting chest X-ray results to rule out any underlying respiratory condition.' (Generated is less specific)",
-      "Plan: 'for asthma' after albuterol inhaler",
-      "Plan: 'Educated on the potential causes of his symptoms'",
-      "Plan: 'The patient's lower socio-economic status and living in a neighborhood with moderate pollution may influence the management and follow-up of his condition.'",
-      "Plan: 'The patient understands and agrees with the recommended medical treatment plan.'"
+      "Patient understanding and agreement with the recommended medical treatment plan",
+      "Statement that lower socio-economic status and neighborhood pollution may influence the management and follow-up of the condition",
+      "Education on the potential causes of symptoms",
+      "Introductory sentence to Assessment medical reasoning: 'The patient presents with a constellation of symptoms including a persistent dry cough and mild shortness of breath'",
+      "Statement in Assessment that chest X-ray results are awaited to rule out any underlying respiratory condition"
     ],
     "additions": [
-      "Subjective: 'Patient confirms having an albuterol inhaler, implying a history of asthma.' (placement in Subjective section)",
-      "Objective: Cardiac: 'S1/S2 normal'",
-      "Assessment: 'Specific diagnosis pending further evaluation.' (exact phrasing)",
-      "Plan: Diagnostics: 'expected in 1-2 days'",
-      "Plan: Medications: '1 tablet PO q6h PRN' for ibuprofen (more specific detail)",
-      "Plan: Numbered list and bolded categories for plan items (e.g., Diagnostics, Medications, Supportive Care)",
-      "Plan: 'Monitoring: Monitor symptoms closely.'",
-      "Plan: 'Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever).'"
+      "Patient confirms having an albuterol inhaler, implying a history of asthma (in Subjective section)",
+      "S1/S2 normal (in Objective Cardiac exam)",
+      "Specific diagnosis pending further evaluation (in Assessment section)",
+      "Ibuprofen dosage specifies '1 tablet PO'",
+      "Chest X-ray results expected in 1-2 days"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Objective: Cardiac: 'S1/S2 normal' (not present in GroundTruth or Transcript)"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section is strong, with only one minor omission regarding 'no hemoptysis' in the Review of Systems. All additions were supported by the transcript and did not lower the grade.",
+        "summary": "The Subjective section is well-captured with only one minor omission: 'no hemoptysis' from the Review of Systems. The addition regarding the albuterol inhaler is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "'no hemoptysis' in ROS"
+          "No hemoptysis (from Review of Systems Respiratory)"
         ],
         "additions": [
-          "'Patient confirms having an albuterol inhaler, implying a history of asthma.' (placement in Subjective section)"
+          "Patient confirms having an albuterol inhaler, implying a history of asthma"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured, with only a minor omission of the word 'joint' in the musculoskeletal exam description. The addition of 'S1/S2 normal' was supported by the transcript and did not lower the grade.",
+        "summary": "The Objective section is excellent, with only a very minor omission of the word 'joint' from the musculoskeletal exam. The addition 'S1/S2 normal' is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "'joint' in musculoskeletal exam (GroundTruth: 'No joint swelling or tenderness', Generated: 'No swelling or tenderness')"
+          "The word 'joint' in 'No joint swelling or tenderness' (Musculoskeletal exam)"
         ],
         "additions": [
-          "Cardiac: 'S1/S2 normal'"
+          "S1/S2 normal (in Cardiac exam)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section has two omissions: a descriptive sentence about the patient's symptom constellation and a slightly less specific phrasing regarding awaiting chest X-ray results. However, the core differential diagnoses are present, and all additions were supported by the transcript.",
+        "summary": "The Assessment section has two moderate omissions. The introductory sentence to the medical reasoning, 'The patient presents with a constellation of symptoms including a persistent dry cough and mild shortness of breath,' is missing. More significantly, the statement that chest X-ray results are awaited to rule out any underlying respiratory condition is omitted from the medical reasoning. The addition 'Specific diagnosis pending further evaluation' is supported by the transcript.",
         "omissions": [
-          "'The patient presents with a constellation of symptoms including a persistent dry cough and mild shortness of breath.'",
-          "'Awaiting chest X-ray results to rule out any underlying respiratory condition.' (Generated is less specific)"
+          "Introductory sentence to medical reasoning: 'The patient presents with a constellation of symptoms including a persistent dry cough and mild shortness of breath'",
+          "Statement that chest X-ray results are awaited to rule out any underlying respiratory condition (from medical reasoning)"
         ],
         "additions": [
-          "'Specific diagnosis pending further evaluation.' (exact phrasing)"
+          "Specific diagnosis pending further evaluation"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple issues, including four omissions. These omissions include important patient education details ('Educated on the potential causes of his symptoms'), the influence of socio-economic status, and the patient's agreement with the plan. Additionally, there is one unsupported addition related to formatting (numbered list and bolded categories), which lowers the grade. These issues reduce the clinical completeness of the plan.",
+        "grade": "B",
+        "summary": "The Plan section contains several omissions. Education on the potential causes of the patient's symptoms is missing, and the important socio-economic consideration regarding the patient's living situation and its influence on management is omitted. Minor omissions include the phrase 'for asthma' after the albuterol inhaler instruction and the statement that the patient understands and agrees with the treatment plan. All additions in this section are supported by the transcript.",
         "omissions": [
-          "'for asthma' after albuterol inhaler",
-          "'Educated on the potential causes of his symptoms'",
-          "'The patient's lower socio-economic status and living in a neighborhood with moderate pollution may influence the management and follow-up of his condition.'",
-          "'The patient understands and agrees with the recommended medical treatment plan.'"
+          "The phrase 'for asthma' after 'Continue use of albuterol inhaler as needed'",
+          "Education on the potential causes of his symptoms",
+          "Statement that the patient understands and agrees with the recommended medical treatment plan",
+          "Statement that the patient's lower socio-economic status and living in a neighborhood with moderate pollution may influence the management and follow-up of his condition"
         ],
         "additions": [
-          "Diagnostics: 'expected in 1-2 days'",
-          "Medications: '1 tablet PO q6h PRN' for ibuprofen",
-          "Numbered list and bolded categories for plan items",
-          "'Monitoring: Monitor symptoms closely.'",
-          "'Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever).'"
+          "Ibuprofen dosage specifies '1 tablet PO'",
+          "Chest X-ray results expected in 1-2 days"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section had no omissions, unsupported/unknown additions, or hallucinations.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": "The entry 'Objective: Cardiac: 'S1/S2 normal'' was listed in 'hallucinations_or_unjustified_inferences' but also had 'supported_by_transcript: supported' in 'addition_evidence'. Per rubric instructions, supported additions must not reduce the grade, so this item was treated as a supported addition and did not lower the grade.",
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: 'Patient confirms having an albuterol inhaler, implying a history of asthma.' (placement in Subjective section)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Do you have an albuterol inhaler for your asthma? [patient] Yes, I do.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient confirms having an albuterol inhaler, implying a history of asthma."
-      },
-      {
-        "addition_text": "Objective: Cardiac: 'S1/S2 normal'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Your heart sounds normal with a regular rate and rhythm, and no murmurs.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Cardiac: S1/S2 normal, regular rate and rhythm, no murmurs."
-      },
-      {
-        "addition_text": "Assessment: 'Specific diagnosis pending further evaluation.' (exact phrasing)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and our examination, we're considering a few possibilities. It could be a viral upper respiratory infection, an asthma exacerbation, or early signs of a lower respiratory tract infection. We're going to order a chest X-ray to rule out any underlying respiratory condition.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Specific diagnosis pending further evaluation."
-      },
-      {
-        "addition_text": "Plan: Diagnostics: 'expected in 1-2 days'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] It should take a day or two. We'll contact you as soon as we have them.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Await results (expected in 1-2 days)."
-      },
-      {
-        "addition_text": "Plan: Medications: '1 tablet PO q6h PRN' for ibuprofen (more specific detail)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I'm going to prescribe you some ibuprofen, 400 mg, to be taken every 6 hours as needed for pain relief. You'll get 20 tablets.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Medications: Ibuprofen 400 mg, 1 tablet PO q6h PRN for pain relief (20 tablets)."
-      },
-      {
-        "addition_text": "Plan: Numbered list and bolded categories for plan items (e.g., Diagnostics, Medications, Supportive Care)",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Plan: 'Monitoring: Monitor symptoms closely.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I want you to monitor your symptoms closely.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Monitoring: Monitor symptoms closely."
-      },
-      {
-        "addition_text": "Plan: 'Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever).'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] If you experience any worsening or new symptoms like chest pain or high fever, contact us immediately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever)."
-      },
-      {
-        "addition_text": "'Patient confirms having an albuterol inhaler, implying a history of asthma.' (placement in Subjective section)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Do you have an albuterol inhaler for your asthma? [patient] Yes, I do.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient confirms having an albuterol inhaler, implying a history of asthma."
-      },
-      {
-        "addition_text": "Cardiac: 'S1/S2 normal'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Your heart sounds normal with a regular rate and rhythm, and no murmurs.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Cardiac: S1/S2 normal, regular rate and rhythm, no murmurs."
-      },
-      {
-        "addition_text": "'Specific diagnosis pending further evaluation.' (exact phrasing)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and our examination, we're considering a few possibilities. It could be a viral upper respiratory infection, an asthma exacerbation, or early signs of a lower respiratory tract infection. We're going to order a chest X-ray to rule out any underlying respiratory condition.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Specific diagnosis pending further evaluation."
-      },
-      {
-        "addition_text": "Diagnostics: 'expected in 1-2 days'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] It should take a day or two. We'll contact you as soon as we have them.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Await results (expected in 1-2 days)."
-      },
-      {
-        "addition_text": "Medications: '1 tablet PO q6h PRN' for ibuprofen",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I'm going to prescribe you some ibuprofen, 400 mg, to be taken every 6 hours as needed for pain relief. You'll get 20 tablets.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Medications: Ibuprofen 400 mg, 1 tablet PO q6h PRN for pain relief (20 tablets)."
-      },
-      {
-        "addition_text": "Numbered list and bolded categories for plan items",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "'Monitoring: Monitor symptoms closely.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I want you to monitor your symptoms closely.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Monitoring: Monitor symptoms closely."
-      },
-      {
-        "addition_text": "'Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever).'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] If you experience any worsening or new symptoms like chest pain or high fever, contact us immediately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever)."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'Patient confirms having an albuterol inhaler, implying a history of asthma.' (placement in Subjective section)",
+      "addition_text": "Patient confirms having an albuterol inhaler, implying a history of asthma (in Subjective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Do you have an albuterol inhaler for your asthma? [patient] Yes, I do.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient confirms having an albuterol inhaler, implying a history of asthma."
     },
     {
-      "addition_text": "Objective: Cardiac: 'S1/S2 normal'",
+      "addition_text": "S1/S2 normal (in Objective Cardiac exam)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your heart sounds normal with a regular rate and rhythm, and no murmurs.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Cardiac: S1/S2 normal, regular rate and rhythm, no murmurs."
     },
     {
-      "addition_text": "Assessment: 'Specific diagnosis pending further evaluation.' (exact phrasing)",
+      "addition_text": "Specific diagnosis pending further evaluation (in Assessment section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and our examination, we're considering a few possibilities. It could be a viral upper respiratory infection, an asthma exacerbation, or early signs of a lower respiratory tract infection. We're going to order a chest X-ray to rule out any underlying respiratory condition.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Specific diagnosis pending further evaluation."
     },
     {
-      "addition_text": "Plan: Diagnostics: 'expected in 1-2 days'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] It should take a day or two. We'll contact you as soon as we have them.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Await results (expected in 1-2 days)."
-    },
-    {
-      "addition_text": "Plan: Medications: '1 tablet PO q6h PRN' for ibuprofen (more specific detail)",
+      "addition_text": "Ibuprofen dosage specifies '1 tablet PO'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'm going to prescribe you some ibuprofen, 400 mg, to be taken every 6 hours as needed for pain relief. You'll get 20 tablets.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Medications: Ibuprofen 400 mg, 1 tablet PO q6h PRN for pain relief (20 tablets)."
     },
     {
-      "addition_text": "Plan: Numbered list and bolded categories for plan items (e.g., Diagnostics, Medications, Supportive Care)",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: 'Monitoring: Monitor symptoms closely.'",
+      "addition_text": "Chest X-ray results expected in 1-2 days",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I want you to monitor your symptoms closely.",
+      "transcript_evidence": "[doctor] It should take a day or two. We'll contact you as soon as we have them.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitoring: Monitor symptoms closely."
+      "matched_claim_text": "Await results (expected in 1-2 days)."
     },
     {
-      "addition_text": "Plan: 'Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever).'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] If you experience any worsening or new symptoms like chest pain or high fever, contact us immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever)."
-    },
-    {
-      "addition_text": "'Patient confirms having an albuterol inhaler, implying a history of asthma.' (placement in Subjective section)",
+      "addition_text": "Patient confirms having an albuterol inhaler, implying a history of asthma",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Do you have an albuterol inhaler for your asthma? [patient] Yes, I do.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient confirms having an albuterol inhaler, implying a history of asthma."
     },
     {
-      "addition_text": "Cardiac: 'S1/S2 normal'",
+      "addition_text": "S1/S2 normal (in Cardiac exam)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your heart sounds normal with a regular rate and rhythm, and no murmurs.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Cardiac: S1/S2 normal, regular rate and rhythm, no murmurs."
     },
     {
-      "addition_text": "'Specific diagnosis pending further evaluation.' (exact phrasing)",
+      "addition_text": "Specific diagnosis pending further evaluation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and our examination, we're considering a few possibilities. It could be a viral upper respiratory infection, an asthma exacerbation, or early signs of a lower respiratory tract infection. We're going to order a chest X-ray to rule out any underlying respiratory condition.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Specific diagnosis pending further evaluation."
-    },
-    {
-      "addition_text": "Diagnostics: 'expected in 1-2 days'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] It should take a day or two. We'll contact you as soon as we have them.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Await results (expected in 1-2 days)."
-    },
-    {
-      "addition_text": "Medications: '1 tablet PO q6h PRN' for ibuprofen",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I'm going to prescribe you some ibuprofen, 400 mg, to be taken every 6 hours as needed for pain relief. You'll get 20 tablets.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Medications: Ibuprofen 400 mg, 1 tablet PO q6h PRN for pain relief (20 tablets)."
-    },
-    {
-      "addition_text": "Numbered list and bolded categories for plan items",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'Monitoring: Monitor symptoms closely.'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I want you to monitor your symptoms closely.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitoring: Monitor symptoms closely."
-    },
-    {
-      "addition_text": "'Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever).'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] If you experience any worsening or new symptoms like chest pain or high fever, contact us immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Return Precautions: Contact clinic immediately for worsening or new symptoms (e.g., chest pain, high fever)."
     }
   ]
 }

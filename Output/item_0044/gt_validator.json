@@ -288,8 +288,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.006015037593984962,
-    "overall_rouge_l_f1": 0.003547671840354767,
+    "overall_token_f1": 0.0,
+    "overall_rouge_l_f1": 0.0,
     "by_section": [
       {
         "section": "Subjective",
@@ -318,13 +318,6 @@
         "gen_present": true,
         "token_f1": 0.0,
         "rouge_l_f1": 0.0
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 0.03007518796992481,
-        "rouge_l_f1": 0.017738359201773836
       }
     ],
     "assessment_alignment_score": 0.0,
@@ -332,249 +325,202 @@
   },
   "expert_judge": {
     "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is clinically aligned, with minor omissions including the Chief Complaint, a descriptor in General Appearance, specific diagnostic text for obesity, and the patient agreement statement. All additions were supported by the transcript and did not negatively impact the grade. There were no hallucinations.",
+    "overall_grade": "A",
+    "overall_summary": "The generated SOAP note is excellent, demonstrating strong clinical alignment with the GroundTruth and Transcript. All additions are well-supported by the transcript, ensuring no unsupported or misleading information is introduced. The few omissions are minor and do not detract from the note's clinical usefulness or completeness, allowing for a comprehensive and accurate patient record.",
     "omissions": [
-      "Chief Complaint: \"Initial consultation for obesity management.\"",
-      "General Appearance: \"well-nourished\"",
-      "\"unspecified\" for Obesity diagnosis",
-      "The descriptive text for Obesity in GT: \"reports progressive weight gain impacting his daily activities and overall health.\"",
-      "\"Patient Agreement: The patient understands and agrees with the recommended medical treatment plan.\""
+      "Chief Complaint: Initial consultation for obesity management.",
+      "Objective: Physical Examination: 'well-nourished' from General Appearance.",
+      "Assessment: Description for Obesity: 'reports progressive weight gain impacting his daily activities and overall health.'",
+      "Plan: 'Patient Agreement: The patient understands and agrees with the recommended medical treatment plan.'"
     ],
     "additions": [
-      "Subjective: \"with no identified specific trigger\"",
-      "Assessment: Fatigue, associated with unrested sleep, listed as a separate assessment item",
-      "Assessment: Bilateral knee pain, listed as a separate assessment item",
-      "Assessment: Reduced stamina and endurance, listed as a separate assessment item",
-      "Plan: \"Patient advised to contact clinic if concerns arise prior to follow-up.\""
+      "Subjective: HPI detail 'no identified specific trigger.'",
+      "Subjective: 'bilateral' qualifier for knee pain.",
+      "Subjective: Inclusion of past medical history (hypertension, hyperlipidemia, medications) in the Subjective section.",
+      "Objective: Inclusion of 'Labs' section (Lipid panel pending, other labs ordered).",
+      "Assessment: Expanded description for Obesity, detailing contributions to mobility difficulty, shortness of breath, fatigue, and bilateral knee pain.",
+      "Assessment: New problem listed: 'Fatigue, associated with unrested sleep.'",
+      "Assessment: New problem listed: 'Bilateral knee pain.'",
+      "Assessment: New problem listed: 'Reduced stamina and endurance.'",
+      "Plan: Additional instruction: 'Patient advised to contact clinic if concerns arise prior to follow-up.'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has one minor omission: the Chief Complaint 'Initial consultation for obesity management.' All additions were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Subjective section is highly accurate. The only omission is the explicit Chief Complaint statement, but the core information is captured within the HPI. All additions, such as the lack of a specific trigger for weight gain, the 'bilateral' qualifier for knee pain, and the inclusion of past medical history, are fully supported by the transcript and enhance the clinical detail without introducing unsupported content.",
         "omissions": [
-          "Chief Complaint: \"Initial consultation for obesity management.\""
+          "Chief Complaint: Initial consultation for obesity management."
         ],
         "additions": [
-          "\"with no identified specific trigger\"",
-          "Inclusion of Past Medical History (hypertension, controlled on Lisinopril 20 mg daily, and hyperlipidemia, managed with Atorvastatin 10 mg daily) in the Subjective section (information present in GroundTruth Assessment)"
+          "HPI detail 'no identified specific trigger.'",
+          "'bilateral' qualifier for knee pain.",
+          "Inclusion of past medical history (hypertension, hyperlipidemia, medications) in the Subjective section."
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has one minor omission: the descriptor 'well-nourished' from the General Appearance. All additions were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Objective section is well-aligned. The omission of 'well-nourished' from the General Appearance is a minor detail that does not impact the clinical utility. The inclusion of the 'Labs' section, detailing pending and ordered tests, is fully supported by the transcript and provides valuable information without any unsupported additions.",
         "omissions": [
-          "General Appearance: \"well-nourished\""
+          "Physical Examination: 'well-nourished' from General Appearance."
         ],
         "additions": [
-          "Inclusion of Laboratory and Diagnostic Tests (Lipid panel pending. Fasting blood glucose, liver function tests, and complete blood count ordered.) in the Objective section (information present in GroundTruth Plan)"
+          "Inclusion of 'Labs' section (Lipid panel pending, other labs ordered)."
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section has two minor omissions: the term 'unspecified' for the Obesity diagnosis and the descriptive text 'reports progressive weight gain impacting his daily activities and overall health.' All additions were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Assessment section is outstanding. The omission of a specific phrase from the obesity description is negligible, as the generated note provides an expanded and more detailed description of how obesity contributes to the patient's symptoms, which is fully supported by the transcript. Furthermore, the new problem listings for 'Fatigue, associated with unrested sleep,' 'Bilateral knee pain,' and 'Reduced stamina and endurance' are all directly supported by the transcript, enhancing the clinical picture without any unsupported content.",
         "omissions": [
-          "\"unspecified\" for Obesity diagnosis",
-          "The descriptive text for Obesity in GroundTruth: \"reports progressive weight gain impacting his daily activities and overall health.\""
+          "Description for Obesity: 'reports progressive weight gain impacting his daily activities and overall health.'"
         ],
         "additions": [
-          "Fatigue, associated with unrested sleep, listed as a separate assessment item",
-          "Bilateral knee pain, listed as a separate assessment item",
-          "Reduced stamina and endurance, listed as a separate assessment item"
+          "Expanded description for Obesity, detailing contributions to mobility difficulty, shortness of breath, fatigue, and bilateral knee pain.",
+          "New problem listed: 'Fatigue, associated with unrested sleep.'",
+          "New problem listed: 'Bilateral knee pain.'",
+          "New problem listed: 'Reduced stamina and endurance.'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has one minor omission: the 'Patient Agreement' statement. All additions were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive and accurate. The omission of the 'Patient Agreement' statement is minor, as patient understanding and agreement are implied by the dialogue and the follow-up instructions. The additional instruction for the patient to contact the clinic if concerns arise prior to follow-up is directly supported by the transcript, adding a useful and clinically appropriate detail without any unsupported information.",
         "omissions": [
-          "\"Patient Agreement: The patient understands and agrees with the recommended medical treatment plan.\""
+          "'Patient Agreement: The patient understands and agrees with the recommended medical treatment plan.'"
         ],
         "additions": [
-          "\"Patient advised to contact clinic if concerns arise prior to follow-up.\""
+          "Additional instruction: 'Patient advised to contact clinic if concerns arise prior to follow-up.'"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "There were no omissions or unsupported/unknown additions in this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: \"with no identified specific trigger\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: Over the past 5 years, I've been gaining weight progressively, and it’s gotten worse in the last 2 years. ... Not really, it just kind of happened gradually.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient presents with progressive weight gain over 5 years, worsening in the last 2 years, with no identified specific trigger."
-      },
-      {
-        "addition_text": "Assessment: Fatigue, associated with unrested sleep, listed as a separate assessment item",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: Even though I sleep for about 6 hours a night, I still feel unrested.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Fatigue, associated with unrested sleep."
-      },
-      {
-        "addition_text": "Assessment: Bilateral knee pain, listed as a separate assessment item",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
-      },
-      {
-        "addition_text": "Assessment: Reduced stamina and endurance, listed as a separate assessment item",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
-      },
-      {
-        "addition_text": "Plan: \"Patient advised to contact clinic if concerns arise prior to follow-up.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We will have monthly follow-up appointments to monitor your weight and overall health. ... We’ll see you back in one month to reassess your weight, blood pressure, and review the laboratory results. If anything comes up before then, don’t hesitate to reach out.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Monthly follow-up in 1 month to reassess weight, blood pressure, and review laboratory results. Patient advised to contact clinic if concerns arise prior to follow-up."
-      },
-      {
-        "addition_text": "\"with no identified specific trigger\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: Over the past 5 years, I've been gaining weight progressively, and it’s gotten worse in the last 2 years. ... Not really, it just kind of happened gradually.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient presents with progressive weight gain over 5 years, worsening in the last 2 years, with no identified specific trigger."
-      },
-      {
-        "addition_text": "Inclusion of Past Medical History (hypertension, controlled on Lisinopril 20 mg daily, and hyperlipidemia, managed with Atorvastatin 10 mg daily) in the Subjective section (information present in GroundTruth Assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: You also have hypertension, which is well-controlled on Lisinopril 20 mg daily... [Patient]: Yes, that’s correct.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Past medical history includes hypertension, controlled on Lisinopril 20 mg daily."
-      },
-      {
-        "addition_text": "Inclusion of Laboratory and Diagnostic Tests (Lipid panel pending. Fasting blood glucose, liver function tests, and complete blood count ordered.) in the Objective section (information present in GroundTruth Plan)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We have your lipid panel pending... I will also order some blood work, including a lipid panel, fasting blood glucose, liver function tests, and a complete blood count.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Labs: Lipid panel pending; fasting blood glucose, liver function tests, and complete blood count ordered."
-      },
-      {
-        "addition_text": "Fatigue, associated with unrested sleep, listed as a separate assessment item",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: Even though I sleep for about 6 hours a night, I still feel unrested.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Fatigue, associated with unrested sleep."
-      },
-      {
-        "addition_text": "Bilateral knee pain, listed as a separate assessment item",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
-      },
-      {
-        "addition_text": "Reduced stamina and endurance, listed as a separate assessment item",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
-      },
-      {
-        "addition_text": "\"Patient advised to contact clinic if concerns arise prior to follow-up.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We will have monthly follow-up appointments to monitor your weight and overall health. ... We’ll see you back in one month to reassess your weight, blood pressure, and review the laboratory results. If anything comes up before then, don’t hesitate to reach out.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Monthly follow-up in 1 month to reassess weight, blood pressure, and review laboratory results. Patient advised to contact clinic if concerns arise prior to follow-up."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: \"with no identified specific trigger\"",
+      "addition_text": "Subjective: HPI detail 'no identified specific trigger.'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Over the past 5 years, I've been gaining weight progressively, and it’s gotten worse in the last 2 years. ... Not really, it just kind of happened gradually.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient presents with progressive weight gain over 5 years, worsening in the last 2 years, with no identified specific trigger."
+      "transcript_evidence": "Not really, it just kind of happened gradually.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "Assessment: Fatigue, associated with unrested sleep, listed as a separate assessment item",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Even though I sleep for about 6 hours a night, I still feel unrested.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fatigue, associated with unrested sleep."
-    },
-    {
-      "addition_text": "Assessment: Bilateral knee pain, listed as a separate assessment item",
+      "addition_text": "Subjective: 'bilateral' qualifier for knee pain.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
     },
     {
-      "addition_text": "Assessment: Reduced stamina and endurance, listed as a separate assessment item",
+      "addition_text": "Subjective: Inclusion of past medical history (hypertension, hyperlipidemia, medications) in the Subjective section.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
+      "transcript_evidence": "[Doctor]: You also have hypertension, which is well-controlled on Lisinopril 20 mg daily, and hyperlipidemia managed with Atorvastatin 10 mg daily. [Patient]: Yes, that’s correct.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "Plan: \"Patient advised to contact clinic if concerns arise prior to follow-up.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We will have monthly follow-up appointments to monitor your weight and overall health. ... We’ll see you back in one month to reassess your weight, blood pressure, and review the laboratory results. If anything comes up before then, don’t hesitate to reach out.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monthly follow-up in 1 month to reassess weight, blood pressure, and review laboratory results. Patient advised to contact clinic if concerns arise prior to follow-up."
-    },
-    {
-      "addition_text": "\"with no identified specific trigger\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Over the past 5 years, I've been gaining weight progressively, and it’s gotten worse in the last 2 years. ... Not really, it just kind of happened gradually.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient presents with progressive weight gain over 5 years, worsening in the last 2 years, with no identified specific trigger."
-    },
-    {
-      "addition_text": "Inclusion of Past Medical History (hypertension, controlled on Lisinopril 20 mg daily, and hyperlipidemia, managed with Atorvastatin 10 mg daily) in the Subjective section (information present in GroundTruth Assessment)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You also have hypertension, which is well-controlled on Lisinopril 20 mg daily... [Patient]: Yes, that’s correct.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Past medical history includes hypertension, controlled on Lisinopril 20 mg daily."
-    },
-    {
-      "addition_text": "Inclusion of Laboratory and Diagnostic Tests (Lipid panel pending. Fasting blood glucose, liver function tests, and complete blood count ordered.) in the Objective section (information present in GroundTruth Plan)",
+      "addition_text": "Objective: Inclusion of 'Labs' section (Lipid panel pending, other labs ordered).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We have your lipid panel pending... I will also order some blood work, including a lipid panel, fasting blood glucose, liver function tests, and a complete blood count.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Labs: Lipid panel pending; fasting blood glucose, liver function tests, and complete blood count ordered."
     },
     {
-      "addition_text": "Fatigue, associated with unrested sleep, listed as a separate assessment item",
+      "addition_text": "Assessment: Expanded description for Obesity, detailing contributions to mobility difficulty, shortness of breath, fatigue, and bilateral knee pain.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your BMI of 32.5 kg/m² and your history, it looks like you are dealing with obesity. This has been impacting your daily activities and overall health. ... [Patient]: Well, I have moderate difficulty moving around. I get short of breath with moderate exertion, and I feel really fatigued. My knees hurt...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnosis of Obesity (BMI 32.5 kg/m²), contributing to moderate difficulty with mobility, shortness of breath with moderate exertion, fatigue, and bilateral knee pain."
+    },
+    {
+      "addition_text": "Assessment: New problem listed: 'Fatigue, associated with unrested sleep.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Even though I sleep for about 6 hours a night, I still feel unrested.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Fatigue, associated with unrested sleep."
     },
     {
-      "addition_text": "Bilateral knee pain, listed as a separate assessment item",
+      "addition_text": "Assessment: New problem listed: 'Bilateral knee pain.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
     },
     {
-      "addition_text": "Reduced stamina and endurance, listed as a separate assessment item",
+      "addition_text": "Assessment: New problem listed: 'Reduced stamina and endurance.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
     },
     {
-      "addition_text": "\"Patient advised to contact clinic if concerns arise prior to follow-up.\"",
+      "addition_text": "Plan: Additional instruction: 'Patient advised to contact clinic if concerns arise prior to follow-up.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We will have monthly follow-up appointments to monitor your weight and overall health. ... We’ll see you back in one month to reassess your weight, blood pressure, and review the laboratory results. If anything comes up before then, don’t hesitate to reach out.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Monthly follow-up in 1 month to reassess weight, blood pressure, and review laboratory results. Patient advised to contact clinic if concerns arise prior to follow-up."
+    },
+    {
+      "addition_text": "HPI detail 'no identified specific trigger.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Not really, it just kind of happened gradually.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "'bilateral' qualifier for knee pain.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
+    },
+    {
+      "addition_text": "Inclusion of past medical history (hypertension, hyperlipidemia, medications) in the Subjective section.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You also have hypertension, which is well-controlled on Lisinopril 20 mg daily, and hyperlipidemia managed with Atorvastatin 10 mg daily. [Patient]: Yes, that’s correct.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Inclusion of 'Labs' section (Lipid panel pending, other labs ordered).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We have your lipid panel pending... I will also order some blood work, including a lipid panel, fasting blood glucose, liver function tests, and a complete blood count.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Labs: Lipid panel pending; fasting blood glucose, liver function tests, and complete blood count ordered."
+    },
+    {
+      "addition_text": "Expanded description for Obesity, detailing contributions to mobility difficulty, shortness of breath, fatigue, and bilateral knee pain.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your BMI of 32.5 kg/m² and your history, it looks like you are dealing with obesity. This has been impacting your daily activities and overall health. ... [Patient]: Well, I have moderate difficulty moving around. I get short of breath with moderate exertion, and I feel really fatigued. My knees hurt...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnosis of Obesity (BMI 32.5 kg/m²), contributing to moderate difficulty with mobility, shortness of breath with moderate exertion, fatigue, and bilateral knee pain."
+    },
+    {
+      "addition_text": "New problem listed: 'Fatigue, associated with unrested sleep.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Even though I sleep for about 6 hours a night, I still feel unrested.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Fatigue, associated with unrested sleep."
+    },
+    {
+      "addition_text": "New problem listed: 'Bilateral knee pain.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
+    },
+    {
+      "addition_text": "New problem listed: 'Reduced stamina and endurance.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: My knees hurt... [Doctor]: ...and there's reduced stamina and endurance.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Bilateral knee pain and reduced stamina and endurance."
+    },
+    {
+      "addition_text": "Additional instruction: 'Patient advised to contact clinic if concerns arise prior to follow-up.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We will have monthly follow-up appointments to monitor your weight and overall health. ... We’ll see you back in one month to reassess your weight, blood pressure, and review the laboratory results. If anything comes up before then, don’t hesitate to reach out.",
       "evidence_source": "agent3_claims",

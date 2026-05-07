@@ -220,8 +220,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.632054871392771,
-    "overall_rouge_l_f1": 0.5602549739616061,
+    "overall_token_f1": 0.5400685892409637,
+    "overall_rouge_l_f1": 0.4503187174520075,
     "by_section": [
       {
         "section": "Subjective",
@@ -250,230 +250,172 @@
         "gen_present": true,
         "token_f1": 0.6986301369863014,
         "rouge_l_f1": 0.6704545454545455
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.37499999999999994,
     "plan_alignment_score": 0.6986301369863014
   },
   "expert_judge": {
-    "model": "clinical_reviewer_model",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note captures the majority of the clinically important information. However, it has multiple omissions, including the patient's full name in key sections, the structured Review of Systems format, specific diagnostic codes like \"Encounter for general adult medical examination with abnormal findings,\" and the explicit listing of hyperlipidemia as a diagnosis in the Assessment. Additionally, the \"Patient Agreements\" statement is missing from the Plan. All additions were supported by the transcript and did not reduce the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaints, history, physical examination findings, and a comprehensive plan. All additions are supported by the transcript. However, the note omits several structural headers and the explicit Chief Complaint content. More significantly, it omits listing hyperlipidemia as a separate diagnosis and the \"Patient Agreements\" section, which are moderate issues that slightly reduce the completeness of the documentation.",
     "omissions": [
-      "Patient's full name \"Mr. Michael Hunt\" (missing in Subjective and Assessment sections)",
-      "\"presents for a routine check-up\" (from HPI)",
-      "\"mild impact on his daily activities\" (from HPI)",
-      "Structured Review of Systems (ROS) format",
-      "Denial for Endocrine system complaints",
-      "Denial for Hematologic system complaints",
-      "\"Physical Examination\" heading in Objective",
-      "\"Vital Signs\" heading in Objective",
-      "Explicit \"Diagnosis\" heading in Assessment",
-      "Diagnosis of \"Encounter for general adult medical examination with abnormal findings\"",
-      "\"new diagnosis\" for hypertension",
-      "Hyperlipidemia explicitly listed as a diagnosis in Assessment",
-      "The specific phrasing \"presents with elevated blood pressure and associated symptoms such as headaches and dizziness\" in Assessment",
-      "\"oral route\" for Lisinopril",
-      "\"oral\" for Atorvastatin",
-      "\"possible\" for cardiopulmonary abnormalities in Chest X-ray indication",
-      "\"Patient Agreements: The patient understands and agrees with the recommended medical treatment plan.\""
+      "Chief Complaint (CC) section header and content",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Physical Examination section header",
+      "Vital Signs section header",
+      "Heart section header",
+      "Lungs section header",
+      "Diagnosis section header",
+      "Patient Agreements section and content",
+      "Patient's presentation for a routine check-up (from HPI)",
+      "Mild impact of symptoms on daily activities (from HPI)",
+      "ROS Endocrine: No complaints",
+      "ROS Hematologic: No complaints",
+      "Hyperlipidemia listed as a separate diagnosis",
+      "\"oral route\" for Lisinopril administration",
+      "\"1 tablet\" specified for Atorvastatin daily"
     ],
     "additions": [
-      "More specific detail for dizziness: \"comes and goes, feeling off balance\" in Subjective",
-      "\"Patient has a history of pre-hypertension and hyperlipidemia\" in Objective (moved from GT Subjective HPI)",
-      "\"Mild systolic murmur noted\" in Assessment (an objective finding)",
-      "\"in-depth\" for evaluation of hypertension by cardiologist in Plan"
+      "More detailed description of dizziness (\"comes and goes, feeling off balance\")",
+      "Inclusion of patient's history of pre-hypertension and hyperlipidemia within the Objective section",
+      "Detailed justification for the hypertension diagnosis in the Assessment section",
+      "Mention of \"Mild systolic murmur\" in the Assessment section",
+      "\"in-depth\" qualifier for the evaluation of hypertension by the cardiologist"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section omits the patient's full name, the explicit Chief Complaint statement, details about the mild impact on daily activities, and the structured Review of Systems format, instead presenting ROS content narratively. It also omits specific denials for Endocrine and Hematologic systems, and the patient's medical history from the HPI.",
+        "summary": "The Subjective section captures the core patient complaints and history of present illness well. All additions are supported by the transcript. However, it omits several structural headers (CC, HPI, ROS), the explicit Chief Complaint content, the patient's known medical history from the HPI (though present in Objective), the reason for visit (routine check-up), and minor ROS 'no complaints' items. These are a mix of minor and moderate omissions.",
         "omissions": [
-          "Chief Complaint explicitly stated as \"Elevated blood pressure and associated symptoms.\"",
-          "Patient's name \"Mr. Michael Hunt\"",
-          "\"presents for a routine check-up\"",
-          "\"mild impact on his daily activities\"",
-          "Structured Review of Systems (ROS) format",
-          "Denial for Endocrine system complaints",
-          "Denial for Hematologic system complaints",
-          "Medical history of pre-hypertension and hyperlipidemia (as part of HPI, it's moved to Objective in Generated)"
+          "Chief Complaint (CC) section header and content",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Patient's known medical history of pre-hypertension and hyperlipidemia (from HPI)",
+          "Patient presents for a routine check-up (from HPI)",
+          "Mild impact of symptoms on daily activities (from HPI)",
+          "ROS Cardiovascular: \"Reports elevated blood pressure readings; occasional headaches and dizziness\"",
+          "ROS Neurological: \"Occasional headaches and dizziness\"",
+          "ROS Endocrine: No complaints",
+          "ROS Hematologic: No complaints"
         ],
         "additions": [
-          "More specific detail for dizziness: \"comes and goes, feeling off balance\""
+          "Description of dizziness as \"comes and goes, feeling off balance\""
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is largely complete, with only minor formatting omissions such as the \"Physical Examination\" and \"Vital Signs\" headings. All clinical content is accurately captured.",
+        "summary": "The Objective section is excellent, accurately capturing all vital signs and physical examination findings. All additions are supported by the transcript. The only omissions are structural headers (Physical Examination, Vital Signs, Heart, Lungs), which do not impact the clinical content or usefulness of the section.",
         "omissions": [
-          "\"Physical Examination\" heading",
-          "\"Vital Signs\" heading"
+          "Physical Examination section header",
+          "Vital Signs section header",
+          "Heart section header",
+          "Lungs section header"
         ],
         "additions": [
-          "\"Patient has a history of pre-hypertension and hyperlipidemia\" (moved from GT Subjective HPI)"
+          "Inclusion of patient's history of pre-hypertension and hyperlipidemia"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "This section omits the patient's full name, the explicit \"Diagnosis\" heading, and the specific diagnosis of \"Encounter for general adult medical examination with abnormal findings.\" It also does not explicitly list hyperlipidemia as a separate diagnosis, though it is mentioned in the narrative, and omits the \"new diagnosis\" qualifier for hypertension.",
+        "grade": "B",
+        "summary": "The Assessment section provides a good narrative assessment and correctly identifies the new hypertension diagnosis with supported justification. All additions are supported by the transcript. However, it omits explicitly listing hyperlipidemia as a separate diagnosis, which is a moderate omission as it is a known condition and part of the Ground Truth's diagnostic list.",
         "omissions": [
-          "Patient's name \"Mr. Michael Hunt\"",
-          "Explicit \"Diagnosis\" heading",
-          "Diagnosis of \"Encounter for general adult medical examination with abnormal findings\"",
-          "\"new diagnosis\" for hypertension",
-          "Hyperlipidemia explicitly listed as a diagnosis",
-          "The specific phrasing \"presents with elevated blood pressure and associated symptoms such as headaches and dizziness\""
+          "Diagnosis section header",
+          "Hyperlipidemia listed as a separate diagnosis"
         ],
         "additions": [
-          "\"Mild systolic murmur noted\""
+          "Detailed justification for the hypertension diagnosis (\"supported by elevated blood pressure reading (150/95 mmHg), patient-reported symptoms of headaches, dizziness, and fatigue, and history of pre-hypertension and hyperlipidemia\")",
+          "Mention of \"Mild systolic murmur noted\""
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section omits minor details such as the \"oral route\" for medications and the \"possible\" qualifier for cardiopulmonary abnormalities in the Chest X-ray indication. The most significant omission is the \"Patient Agreements\" statement.",
+        "summary": "The Plan section accurately captures all major treatment recommendations, including medications, lifestyle changes, referrals, and diagnostics. All additions are supported by the transcript. It omits minor details like the \"oral route\" for Lisinopril and \"1 tablet\" for Atorvastatin. A more significant omission is the \"Patient Agreements\" section, which is a moderate issue as it confirms patient understanding and agreement with the plan.",
         "omissions": [
-          "\"oral route\" for Lisinopril",
-          "\"oral\" for Atorvastatin",
-          "\"possible\" for cardiopulmonary abnormalities in Chest X-ray indication",
-          "\"Patient Agreements: The patient understands and agrees with the recommended medical treatment plan.\""
+          "\"oral route\" for Lisinopril administration",
+          "\"1 tablet\" specified for Atorvastatin daily",
+          "Patient Agreements section and content"
         ],
         "additions": [
-          "\"in-depth\" for evaluation of hypertension by cardiologist"
+          "\"in-depth\" qualifier for the evaluation of hypertension"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "There are no omissions or unsupported/unknown additions in this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "More specific detail for dizziness: \"comes and goes, feeling off balance\" in Subjective",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I've also been getting occasional headaches and dizziness, 2-3 times a week. ... The dizziness comes and goes, and it just makes me feel a bit off balance.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "and dizziness (comes and goes, feeling off balance, 2-3 times/week)."
-      },
-      {
-        "addition_text": "\"Patient has a history of pre-hypertension and hyperlipidemia\" in Objective (moved from GT Subjective HPI)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Given your history of pre-hypertension and hyperlipidemia",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has a history of pre-hypertension and hyperlipidemia."
-      },
-      {
-        "addition_text": "\"Mild systolic murmur noted\" in Assessment (an objective finding)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm also hearing a mild systolic murmur",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Cardiac exam reveals a mild systolic murmur;"
-      },
-      {
-        "addition_text": "\"in-depth\" for evaluation of hypertension by cardiologist in Plan",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Referral to Dr. Sarah Johnson (cardiologist) for in-depth evaluation of hypertension."
-      },
-      {
-        "addition_text": "More specific detail for dizziness: \"comes and goes, feeling off balance\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I've also been getting occasional headaches and dizziness, 2-3 times a week. ... The dizziness comes and goes, and it just makes me feel a bit off balance.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "and dizziness (comes and goes, feeling off balance, 2-3 times/week)."
-      },
-      {
-        "addition_text": "\"Patient has a history of pre-hypertension and hyperlipidemia\" (moved from GT Subjective HPI)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Given your history of pre-hypertension and hyperlipidemia",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has a history of pre-hypertension and hyperlipidemia."
-      },
-      {
-        "addition_text": "\"Mild systolic murmur noted\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm also hearing a mild systolic murmur",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Cardiac exam reveals a mild systolic murmur;"
-      },
-      {
-        "addition_text": "\"in-depth\" for evaluation of hypertension by cardiologist",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Referral to Dr. Sarah Johnson (cardiologist) for in-depth evaluation of hypertension."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "More specific detail for dizziness: \"comes and goes, feeling off balance\" in Subjective",
+      "addition_text": "More detailed description of dizziness (\"comes and goes, feeling off balance\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've also been getting occasional headaches and dizziness, 2-3 times a week. ... The dizziness comes and goes, and it just makes me feel a bit off balance.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "and dizziness (comes and goes, feeling off balance, 2-3 times/week)."
     },
     {
-      "addition_text": "\"Patient has a history of pre-hypertension and hyperlipidemia\" in Objective (moved from GT Subjective HPI)",
+      "addition_text": "Inclusion of patient's history of pre-hypertension and hyperlipidemia within the Objective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Given your history of pre-hypertension and hyperlipidemia",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient has a history of pre-hypertension and hyperlipidemia."
     },
     {
-      "addition_text": "\"Mild systolic murmur noted\" in Assessment (an objective finding)",
+      "addition_text": "Detailed justification for the hypertension diagnosis in the Assessment section",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is 150/95 mmHg, and your pulse is 78 bpm. ... It's higher than we'd like it to be. Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Mention of \"Mild systolic murmur\" in the Assessment section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm also hearing a mild systolic murmur",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Cardiac exam reveals a mild systolic murmur;"
     },
     {
-      "addition_text": "\"in-depth\" for evaluation of hypertension by cardiologist in Plan",
+      "addition_text": "\"in-depth\" qualifier for the evaluation of hypertension by the cardiologist",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Referral to Dr. Sarah Johnson (cardiologist) for in-depth evaluation of hypertension."
     },
     {
-      "addition_text": "More specific detail for dizziness: \"comes and goes, feeling off balance\"",
+      "addition_text": "Description of dizziness as \"comes and goes, feeling off balance\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've also been getting occasional headaches and dizziness, 2-3 times a week. ... The dizziness comes and goes, and it just makes me feel a bit off balance.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "and dizziness (comes and goes, feeling off balance, 2-3 times/week)."
     },
     {
-      "addition_text": "\"Patient has a history of pre-hypertension and hyperlipidemia\" (moved from GT Subjective HPI)",
+      "addition_text": "Inclusion of patient's history of pre-hypertension and hyperlipidemia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Given your history of pre-hypertension and hyperlipidemia",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient has a history of pre-hypertension and hyperlipidemia."
     },
     {
-      "addition_text": "\"Mild systolic murmur noted\"",
+      "addition_text": "Detailed justification for the hypertension diagnosis (\"supported by elevated blood pressure reading (150/95 mmHg), patient-reported symptoms of headaches, dizziness, and fatigue, and history of pre-hypertension and hyperlipidemia\")",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Given your history of pre-hypertension and hyperlipidemia",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has a history of pre-hypertension and hyperlipidemia."
+    },
+    {
+      "addition_text": "Mention of \"Mild systolic murmur noted\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm also hearing a mild systolic murmur",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Cardiac exam reveals a mild systolic murmur;"
     },
     {
-      "addition_text": "\"in-depth\" for evaluation of hypertension by cardiologist",
+      "addition_text": "\"in-depth\" qualifier for the evaluation of hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
       "evidence_source": "agent3_claims",

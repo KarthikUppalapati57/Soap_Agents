@@ -249,8 +249,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.8038765254845657,
-    "overall_rouge_l_f1": 0.7028184567189163,
+    "overall_token_f1": 0.7548456568557071,
+    "overall_rouge_l_f1": 0.6285230708986453,
     "by_section": [
       {
         "section": "Subjective",
@@ -279,272 +279,181 @@
         "gen_present": true,
         "token_f1": 0.7000000000000001,
         "rouge_l_f1": 0.5256797583081572
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.7857142857142856,
     "plan_alignment_score": 0.7000000000000001
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The overall document receives a 'D' grade due to multiple grading-input issues, primarily concentrated in the Plan section. There are several omissions, particularly regarding specific details for patient education, follow-up, and patient agreement. A critical hallucination incorrectly states the immunology panel as 'Bi-monthly,' which is a significant safety concern. Additionally, two section headings in the Plan are unsupported by the transcript. The Subjective and Assessment sections each contain a minor omission.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned but contains several moderate omissions, primarily within the Plan section, concerning specific patient education details, addressing access barriers, and patient agreement. Additionally, there is one unsupported structural addition (a section heading) in the Plan. While the core clinical content is present, these issues make the note meaningfully incomplete and necessitate careful review.",
     "omissions": [
-      "Explicit Chief Complaint statement in Subjective.",
-      "The 'Morbid' qualifier for severe obesity in Assessment.",
-      "Specificity for follow-up: 'weight loss progress'.",
-      "Specificity for patient education: 'including diet and exercise' for lifestyle changes.",
-      "Specificity for patient education: 'in managing obesity and associated comorbidities'.",
-      "Specificity for patient education: 'periodic monitoring' and 'to closely track progress' for follow-up.",
-      "Patient education: 'Answered questions regarding medication use and potential side effects.'",
-      "Patient agreement: 'Patient understands and agrees with the outlined treatment plan and follow-up strategy.'"
+      "\"daily\" qualifier for fatigue in HPI",
+      "\"tenderness\" qualifier for lower back pain in ROS",
+      "\"mild\" qualifier for lower extremity swelling in ROS",
+      "\"Morbid\" qualifier for obesity in Assessment",
+      "\"weight loss\" in follow-up monitoring purpose",
+      "\"treatment plan\" in follow-up adjustments",
+      "\"including diet and exercise\" in patient education on lifestyle changes",
+      "\"in managing obesity and associated comorbidities\" in patient education",
+      "\"Explained the need for periodic monitoring and follow-up to closely track progress.\" (Patient Education)",
+      "\"Answered questions regarding medication use and potential side effects.\" (Patient Education)",
+      "\"Address any potential barriers to accessing specialty care due to patient's rural location.\" (from Additional Considerations)",
+      "\"Patient understands and agrees with the outlined treatment plan and follow-up strategy.\""
     ],
     "additions": [
-      "Subjective: Patient expresses concern about accessing specialty care due to living in a rural area.",
-      "Objective: 'Labs: Cortisol, insulin levels, and thyroid function tests pending.'",
-      "Assessment: 'suspected' qualifier for Polycystic Ovary Syndrome (PCOS).",
-      "Assessment: 'suspected' qualifier for Hypothyroidism.",
-      "Plan: 'Diagnostics' as a separate section heading.",
-      "Plan: 'Social Support' as a separate section heading."
+      "Patient expresses concern about accessing specialty care due to rural location (in Subjective section)",
+      "\"Labs: Cortisol, insulin levels, and thyroid function tests pending.\" (in Objective section)",
+      "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS) in Assessment",
+      "\"suspected\" qualifier for Hypothyroidism in Assessment",
+      "\"Diagnostics\" section heading in Plan",
+      "\"Social Support\" section heading in Plan"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Plan: Specifying the immunology panel as 'Bi-monthly' (GroundTruth states 'Bi-monthly follow-ups' but does not specify the frequency of the immunology panel itself)."
+      "\"Diagnostics\" section heading in Plan",
+      "\"Diagnostics\" section heading"
     ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is missing the explicit Chief Complaint statement, which is a minor omission.",
+        "grade": "A",
+        "summary": "The Subjective section is well-aligned, with only minor omissions of qualifiers for fatigue, lower back pain, and lower extremity swelling. The addition is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Explicit Chief Complaint statement."
+          "\"daily\" qualifier for fatigue in HPI",
+          "\"tenderness\" qualifier for lower back pain in ROS",
+          "\"mild\" qualifier for lower extremity swelling in ROS"
         ],
         "additions": [
-          "Patient expresses concern about accessing specialty care due to living in a rural area."
+          "Patient expresses concern about accessing specialty care due to rural location"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures all GroundTruth content with no omissions, unsupported/unknown additions, or hallucinations.",
+        "summary": "The Objective section is complete, with no omissions or unsupported/unknown additions. All content is accurately reflected from the Ground Truth and supported by the transcript.",
         "omissions": [],
         "additions": [
-          "'Labs: Cortisol, insulin levels, and thyroid function tests pending.'"
+          "\"Labs: Cortisol, insulin levels, and thyroid function tests pending.\""
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits the 'Morbid' qualifier for severe obesity, which is a minor issue.",
+        "grade": "A",
+        "summary": "The Assessment section is highly accurate, with only a minor omission of the 'Morbid' qualifier for obesity, which is still correctly identified as 'Severe.' All additions are supported by the transcript.",
         "omissions": [
-          "The 'Morbid' qualifier for severe obesity."
+          "\"Morbid\" qualifier for obesity"
         ],
         "additions": [
-          "'suspected' qualifier for Polycystic Ovary Syndrome (PCOS).",
-          "'suspected' qualifier for Hypothyroidism."
+          "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS)",
+          "\"suspected\" qualifier for Hypothyroidism"
         ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has multiple grading-input issues. It omits specific details for follow-up, comprehensive patient education points, and patient agreement. It also includes two unsupported section headings ('Diagnostics' and 'Social Support') and a critical hallucination regarding the bi-monthly frequency of the immunology panel, which was not specified in the GroundTruth.",
+        "grade": "C",
+        "summary": "The Plan section has multiple moderate omissions, including specific patient education points, the need to address access barriers, and patient understanding/agreement. It also includes one unsupported structural addition, the 'Diagnostics' section heading. While the content under this heading is present in the Ground Truth, the heading itself is an unsupported deviation. These issues collectively reduce the clinical completeness and usefulness of the section.",
         "omissions": [
-          "Specificity for follow-up: 'weight loss progress'.",
-          "Specificity for patient education: 'including diet and exercise' for lifestyle changes.",
-          "Specificity for patient education: 'in managing obesity and associated comorbidities'.",
-          "Specificity for patient education: 'periodic monitoring' and 'to closely track progress' for follow-up.",
-          "Patient education: 'Answered questions regarding medication use and potential side effects.'",
-          "Patient agreement: 'Patient understands and agrees with the outlined treatment plan and follow-up strategy.'"
+          "\"weight loss\" in follow-up monitoring purpose",
+          "\"treatment plan\" in follow-up adjustments",
+          "\"including diet and exercise\" in patient education on lifestyle changes",
+          "\"in managing obesity and associated comorbidities\" in patient education",
+          "\"Explained the need for periodic monitoring and follow-up to closely track progress.\" (Patient Education)",
+          "\"Answered questions regarding medication use and potential side effects.\" (Patient Education)",
+          "\"Address any potential barriers to accessing specialty care due to patient's rural location.\" (from Additional Considerations)",
+          "\"Patient understands and agrees with the outlined treatment plan and follow-up strategy.\""
         ],
         "additions": [
-          "'Diagnostics' as a separate section heading.",
-          "'Social Support' as a separate section heading."
+          "\"Diagnostics\" section heading",
+          "\"Social Support\" section heading"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section has no grading-input issues.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: Patient expresses concern about accessing specialty care due to living in a rural area.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I just worry about accessing specialty care because I live in a rural area.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Expresses concern about accessing specialty care due to living in a rural area."
-      },
-      {
-        "addition_text": "Objective: 'Labs: Cortisol, insulin levels, and thyroid function tests pending.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We’ll need to wait for the results of your cortisol, insulin levels, and thyroid function tests.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Labs: Cortisol, insulin levels, and thyroid function tests pending."
-      },
-      {
-        "addition_text": "Assessment: 'suspected' qualifier for Polycystic Ovary Syndrome (PCOS).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "polycystic ovary syndrome (PCOS)",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Polycystic Ovary Syndrome (PCOS), suspected."
-      },
-      {
-        "addition_text": "Assessment: 'suspected' qualifier for Hypothyroidism.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "and hypothyroidism.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypothyroidism, suspected."
-      },
-      {
-        "addition_text": "Plan: 'Diagnostics' as a separate section heading.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Plan: 'Social Support' as a separate section heading.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We’ll explore local resources and support systems that might help you maintain these lifestyle modifications.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Patient expresses concern about accessing specialty care due to living in a rural area.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I just worry about accessing specialty care because I live in a rural area.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Expresses concern about accessing specialty care due to living in a rural area."
-      },
-      {
-        "addition_text": "'Labs: Cortisol, insulin levels, and thyroid function tests pending.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We’ll need to wait for the results of your cortisol, insulin levels, and thyroid function tests.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Labs: Cortisol, insulin levels, and thyroid function tests pending."
-      },
-      {
-        "addition_text": "'suspected' qualifier for Polycystic Ovary Syndrome (PCOS).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "polycystic ovary syndrome (PCOS)",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Polycystic Ovary Syndrome (PCOS), suspected."
-      },
-      {
-        "addition_text": "'suspected' qualifier for Hypothyroidism.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "and hypothyroidism.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypothyroidism, suspected."
-      },
-      {
-        "addition_text": "'Diagnostics' as a separate section heading.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "'Social Support' as a separate section heading.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Patient expresses concern about accessing specialty care due to living in a rural area.",
+      "addition_text": "Patient expresses concern about accessing specialty care due to rural location (in Subjective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I just worry about accessing specialty care because I live in a rural area.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Expresses concern about accessing specialty care due to living in a rural area."
     },
     {
-      "addition_text": "Objective: 'Labs: Cortisol, insulin levels, and thyroid function tests pending.'",
+      "addition_text": "\"Labs: Cortisol, insulin levels, and thyroid function tests pending.\" (in Objective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll need to wait for the results of your cortisol, insulin levels, and thyroid function tests.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Labs: Cortisol, insulin levels, and thyroid function tests pending."
     },
     {
-      "addition_text": "Assessment: 'suspected' qualifier for Polycystic Ovary Syndrome (PCOS).",
+      "addition_text": "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS) in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "polycystic ovary syndrome (PCOS)",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Polycystic Ovary Syndrome (PCOS), suspected."
     },
     {
-      "addition_text": "Assessment: 'suspected' qualifier for Hypothyroidism.",
+      "addition_text": "\"suspected\" qualifier for Hypothyroidism in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "and hypothyroidism.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Hypothyroidism, suspected."
     },
     {
-      "addition_text": "Plan: 'Diagnostics' as a separate section heading.",
+      "addition_text": "\"Diagnostics\" section heading in Plan",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Plan: 'Social Support' as a separate section heading.",
+      "addition_text": "\"Social Support\" section heading in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll explore local resources and support systems that might help you maintain these lifestyle modifications.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Patient expresses concern about accessing specialty care due to living in a rural area.",
+      "addition_text": "Patient expresses concern about accessing specialty care due to rural location",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I just worry about accessing specialty care because I live in a rural area.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Expresses concern about accessing specialty care due to living in a rural area."
     },
     {
-      "addition_text": "'Labs: Cortisol, insulin levels, and thyroid function tests pending.'",
+      "addition_text": "\"Labs: Cortisol, insulin levels, and thyroid function tests pending.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll need to wait for the results of your cortisol, insulin levels, and thyroid function tests.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Labs: Cortisol, insulin levels, and thyroid function tests pending."
     },
     {
-      "addition_text": "'suspected' qualifier for Polycystic Ovary Syndrome (PCOS).",
+      "addition_text": "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "polycystic ovary syndrome (PCOS)",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Polycystic Ovary Syndrome (PCOS), suspected."
     },
     {
-      "addition_text": "'suspected' qualifier for Hypothyroidism.",
+      "addition_text": "\"suspected\" qualifier for Hypothyroidism",
       "supported_by_transcript": "supported",
       "transcript_evidence": "and hypothyroidism.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Hypothyroidism, suspected."
     },
     {
-      "addition_text": "'Diagnostics' as a separate section heading.",
+      "addition_text": "\"Diagnostics\" section heading",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "'Social Support' as a separate section heading.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "\"Social Support\" section heading",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We’ll explore local resources and support systems that might help you maintain these lifestyle modifications.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     }

@@ -238,8 +238,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5874571521668296,
-    "overall_rouge_l_f1": 0.47701101642070254,
+    "overall_token_f1": 0.484321440208537,
+    "overall_rouge_l_f1": 0.3462637705258782,
     "by_section": [
       {
         "section": "Subjective",
@@ -268,162 +268,131 @@
         "gen_present": true,
         "token_f1": 0.7070707070707072,
         "rouge_l_f1": 0.5
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.19354838709677416,
     "plan_alignment_score": 0.7070707070707072
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The document has significant issues, primarily in the Assessment section, which contains multiple unjustified inferences and hallucinations, including mischaracterizing clinical findings as contributing factors to the diagnosis. There are also several omissions of clinically important details across Subjective, Objective, and Plan sections, such as the patient's history of Type 2 Diabetes Mellitus and specific differential diagnoses. These issues render the document unreliable and potentially unsafe.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, present illness, objective findings, and the majority of the assessment and plan. The primary issues are several minor omissions and one moderate omission (Type 2 Diabetes Mellitus) in the Subjective section. Crucially, all additions made by the model are supported by the transcript and therefore do not negatively impact the grade.",
     "omissions": [
-      "History of Type 2 Diabetes Mellitus (from GT HPI)",
-      "Smoking history duration 'for 40 years'",
-      "Neurological ROS detail 'no focal deficits'",
-      "Neurological ROS detail 'dizziness affecting mobility'",
-      "Description of Hemoglobin as 'severely low'",
-      "Differential diagnosis: 'Other potential sources of occult blood loss (secondary consideration)'",
-      "Differential diagnosis: 'Chronic disease-related anemia'",
-      "Specific instruction to 'Return to the urgent care center' for reassessment"
+      "Patient's known history of Type 2 Diabetes Mellitus",
+      "Smoking history duration: 'for 40 years'",
+      "Review of Systems statement 'Other systems reviewed and are negative.'",
+      "Differential diagnoses: 'Other potential sources of occult blood loss'",
+      "Differential diagnoses: 'Chronic disease-related anemia'",
+      "The specific 'INSTRUCTIONS' section header"
     ],
     "additions": [
-      "Symptoms described as having 'sudden onset and no improvement'",
-      "Denial of 'weakness, or numbness'",
-      "Meta-commentary: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.' (appears in Subjective and Assessment sections)",
-      "Diagnosis described as 'severe' (acute posthemorrhagic anemia)",
-      "Structured list of 'Contributing factors' in Assessment"
+      "Statement: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.' (appears twice)",
+      "HPI detail: 'sudden onset and no improvement'",
+      "Denial of 'weakness, or numbness' in Subjective",
+      "Qualifier 'severe' to acute posthemorrhagic anemia in Assessment",
+      "List of 'Contributing factors include hypertension, tachycardia, mild tachypnea, poor nutritional intake, sedentary lifestyle, smoking, occasional alcohol use, and sleep disturbance' in Assessment",
+      "Objective section entry: 'Diagnostics: Gastrointestinal endoscopy scheduled for tomorrow.'"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Diagnosis described as 'severe' (acute posthemorrhagic anemia) is an inference not explicitly stated in GroundTruthSOAP or Transcript.",
-      "'hypertension' listed as a contributing factor in Assessment is an unjustified inference as it is not mentioned in the Transcript as a past medical history, and its presence in GroundTruthSOAP's HPI is fabricated.",
-      "'tachycardia' and 'mild tachypnea' listed as contributing factors to anemia in Assessment are unjustified inferences, as these are signs/symptoms of anemia, not contributing factors/causes."
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The section omits important details from the GroundTruth, including the patient's history of Type 2 Diabetes Mellitus, the duration of his smoking history 'for 40 years', and specific neurological review of systems details like 'no focal deficits' and 'dizziness affecting mobility'.",
+        "grade": "B",
+        "summary": "This section receives a B due to the omission of the patient's known history of Type 2 Diabetes Mellitus, which is a moderate clinical detail. Additionally, minor omissions include the duration of smoking history ('for 40 years'), the standard 'Other systems reviewed and are negative' statement, and the specific neurological detail 'No focal deficits, but persistent dizziness affecting mobility.' All additions in this section were supported by the transcript.",
         "omissions": [
-          "History of Type 2 Diabetes Mellitus (from GT HPI)",
-          "Smoking history duration 'for 40 years'",
-          "Neurological ROS detail 'no focal deficits'",
-          "Neurological ROS detail 'dizziness affecting mobility'"
+          "Patient's known history of Type 2 Diabetes Mellitus",
+          "Smoking history duration: 'for 40 years'",
+          "Review of Systems statement 'Other systems reviewed and are negative.'",
+          "Neurological ROS detail: 'No focal deficits, but persistent dizziness affecting mobility.'"
         ],
         "additions": [
-          "Symptoms described as having 'sudden onset and no improvement'",
+          "HPI detail: 'sudden onset and no improvement'",
           "Denial of 'weakness, or numbness'",
-          "Meta-commentary: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.'"
+          "Statement: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.'"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The section omits the important clinical descriptor of hemoglobin as 'severely low', which was present in the GroundTruth.",
-        "omissions": [
-          "Description of Hemoglobin as 'severely low'"
-        ],
-        "additions": []
+        "grade": "A",
+        "summary": "This section is excellent, with no omissions or unsupported/unknown additions. All vital signs, physical examination findings, and laboratory results are accurately captured. All additions in this section were supported by the transcript.",
+        "omissions": [],
+        "additions": [
+          "Entry: 'Diagnostics: Gastrointestinal endoscopy scheduled for tomorrow.'"
+        ]
       },
       {
         "section": "Assessment",
-        "grade": "F",
-        "summary": "This section is significantly flawed. It omits two differential diagnoses from the GroundTruth. It includes an unsupported addition of a 'Structured list of 'Contributing factors'.' Furthermore, it contains multiple unjustified inferences and hallucinations, such as describing the anemia diagnosis as 'severe,' listing 'hypertension' as a contributing factor without transcript support, and incorrectly identifying 'tachycardia' and 'mild tachypnea' as contributing factors to anemia rather than symptoms.",
+        "grade": "B",
+        "summary": "This section receives a B due to minor omissions in the differential diagnoses, specifically 'Other potential sources of occult blood loss' and 'Chronic disease-related anemia.' The primary diagnosis is correctly identified and qualified. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Differential diagnosis: 'Other potential sources of occult blood loss (secondary consideration)'",
-          "Differential diagnosis: 'Chronic disease-related anemia'"
+          "Differential diagnoses: 'Other potential sources of occult blood loss'",
+          "Differential diagnoses: 'Chronic disease-related anemia'"
         ],
         "additions": [
-          "Diagnosis described as 'severe' (acute posthemorrhagic anemia)",
-          "Structured list of 'Contributing factors'",
-          "Meta-commentary: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.'"
+          "Qualifier 'severe' to acute posthemorrhagic anemia",
+          "List of 'Contributing factors include hypertension, tachycardia, mild tachypnea, poor nutritional intake, sedentary lifestyle, smoking, occasional alcohol use, and sleep disturbance.'",
+          "Statement: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.'"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The section omits a specific instruction from the GroundTruth regarding the patient needing to 'Return to the urgent care center' for reassessment.",
+        "summary": "This section receives a B due to several minor omissions. These include the specific 'INSTRUCTIONS' section header, the patient education detail about 'adhering to the prescribed treatment plan despite financial constraints' (though adherence is mentioned), and the specific instruction to 'Return to the urgent care center for reassessment in one week' (though follow-up in one week is mentioned). The core treatment plan, medications, referrals, and lifestyle modifications are well-captured. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Specific instruction to 'Return to the urgent care center' for reassessment"
+          "The specific 'INSTRUCTIONS' section header",
+          "Patient education detail: 'adhering to the prescribed treatment plan despite financial constraints'",
+          "Instruction: 'Return to the urgent care center for reassessment in one week.'"
         ],
-        "additions": []
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "This section accurately captures all GroundTruth content with no omissions or unsupported/unknown additions.",
-        "omissions": [],
-        "additions": []
+        "additions": [
+          "Plan item: 'Proceed with scheduled gastrointestinal endoscopy tomorrow to identify bleeding source.'"
+        ]
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Symptoms described as having 'sudden onset and no improvement'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "It just hit me all of a sudden and hasn’t gotten any better.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Denial of 'weakness, or numbness'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Just the dizziness, but nothing like weakness or numbness.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Meta-commentary: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.' (appears in Subjective and Assessment sections)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": null,
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation."
-      },
-      {
-        "addition_text": "Diagnosis described as 'severe' (acute posthemorrhagic anemia)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Your Complete Blood Count shows a hemoglobin level of 6.5 g/dL, which is severely low. We suspect acute posthemorrhagic anemia, likely due to gastrointestinal bleeding.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Acute posthemorrhagic anemia, severe, likely secondary to gastrointestinal bleeding."
-      },
-      {
-        "addition_text": "Structured list of 'Contributing factors' in Assessment",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Meta-commentary: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": null,
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation."
-      },
-      {
-        "addition_text": "Structured list of 'Contributing factors'",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Symptoms described as having 'sudden onset and no improvement'",
+      "addition_text": "Statement: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.' (appears twice)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "It just hit me all of a sudden and hasn’t gotten any better.",
+      "transcript_evidence": null,
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation."
+    },
+    {
+      "addition_text": "HPI detail: 'sudden onset and no improvement'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "About a week ago. It just hit me all of a sudden and hasn’t gotten any better.",
       "evidence_source": "gemini",
       "matched_claim_text": null
+    },
+    {
+      "addition_text": "Denial of 'weakness, or numbness' in Subjective",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Just the dizziness, but nothing like weakness or numbness.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Qualifier 'severe' to acute posthemorrhagic anemia in Assessment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Your Complete Blood Count shows a hemoglobin level of 6.5 g/dL, which is severely low. We suspect acute posthemorrhagic anemia, likely due to gastrointestinal bleeding.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Acute posthemorrhagic anemia, severe, likely secondary to gastrointestinal bleeding."
+    },
+    {
+      "addition_text": "List of 'Contributing factors include hypertension, tachycardia, mild tachypnea, poor nutritional intake, sedentary lifestyle, smoking, occasional alcohol use, and sleep disturbance' in Assessment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Your blood pressure is 150/90 mmHg, heart rate is 110 bpm, respiratory rate is 20 breaths/min... On examination... you’re tachycardic. Your breath sounds are normal despite the mild tachypnea. [patient] My diet isn't great. I eat a lot of carbs and not much fiber. I don’t exercise much either. ... I smoke about a pack a day and I drink beer occasionally, around three times a week. ... I can barely sleep due to these symptoms, maybe around 6 hours a night if I'm lucky.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Contributing factors include hypertension, tachycardia, mild tachypnea, poor nutritional intake, sedentary lifestyle, smoking, occasional alcohol use, and sleep disturbance."
+    },
+    {
+      "addition_text": "Objective section entry: 'Diagnostics: Gastrointestinal endoscopy scheduled for tomorrow.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We have scheduled a gastrointestinal endoscopy for tomorrow to identify the source of bleeding.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnostics: Gastrointestinal endoscopy scheduled for tomorrow."
     },
     {
       "addition_text": "Denial of 'weakness, or numbness'",
@@ -433,39 +402,39 @@
       "matched_claim_text": null
     },
     {
-      "addition_text": "Meta-commentary: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.' (appears in Subjective and Assessment sections)",
+      "addition_text": "Statement: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation."
     },
     {
-      "addition_text": "Diagnosis described as 'severe' (acute posthemorrhagic anemia)",
+      "addition_text": "Entry: 'Diagnostics: Gastrointestinal endoscopy scheduled for tomorrow.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We have scheduled a gastrointestinal endoscopy for tomorrow to identify the source of bleeding.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnostics: Gastrointestinal endoscopy scheduled for tomorrow."
+    },
+    {
+      "addition_text": "Qualifier 'severe' to acute posthemorrhagic anemia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your Complete Blood Count shows a hemoglobin level of 6.5 g/dL, which is severely low. We suspect acute posthemorrhagic anemia, likely due to gastrointestinal bleeding.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Acute posthemorrhagic anemia, severe, likely secondary to gastrointestinal bleeding."
     },
     {
-      "addition_text": "Structured list of 'Contributing factors' in Assessment",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Meta-commentary: 'Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation.'",
+      "addition_text": "List of 'Contributing factors include hypertension, tachycardia, mild tachypnea, poor nutritional intake, sedentary lifestyle, smoking, occasional alcohol use, and sleep disturbance.'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": null,
+      "transcript_evidence": "[doctor] Your blood pressure is 150/90 mmHg, heart rate is 110 bpm, respiratory rate is 20 breaths/min... On examination... you’re tachycardic. Your breath sounds are normal despite the mild tachypnea. [patient] My diet isn't great. I eat a lot of carbs and not much fiber. I don’t exercise much either. ... I smoke about a pack a day and I drink beer occasionally, around three times a week. ... I can barely sleep due to these symptoms, maybe around 6 hours a night if I'm lucky.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Past medical history, past surgical history, family history, current medications, and allergies are not explicitly stated in the conversation."
+      "matched_claim_text": "Contributing factors include hypertension, tachycardia, mild tachypnea, poor nutritional intake, sedentary lifestyle, smoking, occasional alcohol use, and sleep disturbance."
     },
     {
-      "addition_text": "Structured list of 'Contributing factors'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "addition_text": "Plan item: 'Proceed with scheduled gastrointestinal endoscopy tomorrow to identify bleeding source.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We have scheduled a gastrointestinal endoscopy for tomorrow to identify the source of bleeding. ... Remember, you have the endoscopy scheduled for tomorrow...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Proceed with scheduled gastrointestinal endoscopy tomorrow to identify bleeding source."
     }
   ]
 }

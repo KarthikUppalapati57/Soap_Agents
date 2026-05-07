@@ -166,8 +166,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7320498720587596,
-    "overall_rouge_l_f1": 0.665528146742568,
+    "overall_token_f1": 0.6650623400734496,
+    "overall_rouge_l_f1": 0.58191018342821,
     "by_section": [
       {
         "section": "Subjective",
@@ -196,13 +196,6 @@
         "gen_present": true,
         "token_f1": 0.7032967032967032,
         "rouge_l_f1": 0.6050420168067226
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.6511627906976744,
@@ -211,88 +204,84 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is largely accurate and clinically aligned. Minor issues were identified in the Plan section, including the omission of the 'oral' route for Ibuprofen, the 'after 4 weeks' timeframe for referral, and the 'Patient Understanding' statement. Content regarding pending investigations was relocated from the Ground Truth Plan to the Generated Objective section. No unsupported additions or hallucinations were present.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. The Subjective, Objective, and Assessment sections are comprehensive and accurate, with all additions being supported by the transcript. However, the Plan section has two omissions: the 'oral route' for Ibuprofen and the 'Patient Understanding' statement, which slightly reduces the completeness of the note regarding medication details and patient engagement.",
     "omissions": [
+      "oral route for Ibuprofen",
       "Patient Understanding: The patient understands and agrees with the recommended medical treatment plan."
     ],
     "additions": [
-      "Specification of 'in bilateral lower extremities' for motor and sensory functions."
+      "\"in bilateral lower extremities\" for motor and sensory functions",
+      "\"palpation\" in \"Lumbar spine palpation reveals paraspinal muscle spasm\"",
+      "\"1 tablet\" for Ibuprofen dosage"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "This section accurately captured all ground truth content without any omissions, unsupported additions, or hallucinations.",
+        "summary": "The Subjective section is comprehensive and accurately reflects the Ground Truth, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section accurately captured all ground truth content. The additions, including the specification of 'in bilateral lower extremities' for motor and sensory functions and the inclusion of 'Diagnostics' for the pending X-ray, were supported by the transcript and do not lower the grade.",
+        "summary": "The Objective section is complete and accurate. While there were additions, all were supported by the transcript and did not introduce unsupported information. The movement of the 'Pending Investigations' content from GroundTruth's Plan section to the Generated's Objective section is a structural change but the content itself is supported.",
         "omissions": [],
         "additions": [
-          "Specification of 'in bilateral lower extremities' for motor and sensory functions.",
-          "Inclusion of 'Diagnostics: Lumbar spine X-ray pending to rule out structural abnormalities or degenerative changes' (relocated from GT Plan section)."
+          "\"in bilateral lower extremities\" for motor and sensory functions",
+          "\"palpation\" in \"Lumbar spine palpation reveals paraspinal muscle spasm\"",
+          "\"Diagnostics: Lumbar spine X-ray pending to rule out structural abnormalities or degenerative changes\" (content moved from GroundTruth's Plan section)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section accurately captured all ground truth content without any omissions, unsupported additions, or hallucinations.",
+        "summary": "The Assessment section is fully aligned with the Ground Truth, containing no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section had several minor omissions, including the 'oral' route for Ibuprofen, the 'after 4 weeks' timeframe for referral, and the 'Patient Understanding' statement. The 'Pending Investigations' content was omitted from this section but was appropriately relocated to the Objective section.",
+        "summary": "The Plan section has two omissions: the 'oral route' for Ibuprofen and the 'Patient Understanding' statement. While the content is largely present, these omissions make the section slightly less complete regarding medication instructions and patient engagement.",
         "omissions": [
-          "Pending Investigations: Awaiting lumbar spine X-ray to rule out structural abnormalities or degenerative changes (content moved to Objective/Diagnostics in GeneratedSOAP).",
-          "Specification of 'oral' route for Ibuprofen.",
-          "Specification of 'after 4 weeks' for referral if no improvement.",
+          "\"Pending Investigations: Awaiting lumbar spine X-ray to rule out structural abnormalities or degenerative changes\" (content moved to Generated's Objective section)",
+          "oral route for Ibuprofen",
           "Patient Understanding: The patient understands and agrees with the recommended medical treatment plan."
         ],
-        "additions": []
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "No grading issues were identified in this section.",
-        "omissions": [],
-        "additions": []
+        "additions": [
+          "\"1 tablet\" for Ibuprofen dosage"
+        ]
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Specification of 'in bilateral lower extremities' for motor and sensory functions.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Motor and sensory functions are intact.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Motor and sensory functions are intact."
-      },
-      {
-        "addition_text": "Inclusion of 'Diagnostics: Lumbar spine X-ray pending to rule out structural abnormalities or degenerative changes' (relocated from GT Plan section).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Now, we're waiting for a lumbar spine X-ray to rule out any structural abnormalities or degenerative changes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Lumbar spine X-ray is pending to rule out structural abnormalities or degenerative changes."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Specification of 'in bilateral lower extremities' for motor and sensory functions.",
+      "addition_text": "\"in bilateral lower extremities\" for motor and sensory functions",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Motor and sensory functions are intact.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Motor and sensory functions are intact."
     },
     {
-      "addition_text": "Inclusion of 'Diagnostics: Lumbar spine X-ray pending to rule out structural abnormalities or degenerative changes' (relocated from GT Plan section).",
+      "addition_text": "\"palpation\" in \"Lumbar spine palpation reveals paraspinal muscle spasm\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I can feel some paraspinal muscle spasm in your lumbar region.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Lumbar spine palpation reveals paraspinal muscle spasm."
+    },
+    {
+      "addition_text": "\"1 tablet\" for Ibuprofen dosage",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] For pain management, I'll prescribe you Ibuprofen 600 mg. You can take one tablet every six hours as needed for pain, up to 30 tablets.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prescribe Ibuprofen 600 mg, 1 tablet every 6 hours as needed for pain (up to 30 tablets)."
+    },
+    {
+      "addition_text": "\"Diagnostics: Lumbar spine X-ray pending to rule out structural abnormalities or degenerative changes\" (content moved from GroundTruth's Plan section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Now, we're waiting for a lumbar spine X-ray to rule out any structural abnormalities or degenerative changes.",
       "evidence_source": "agent3_claims",

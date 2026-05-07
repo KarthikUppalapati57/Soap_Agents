@@ -239,8 +239,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6937888932089429,
-    "overall_rouge_l_f1": 0.5867096399911401,
+    "overall_token_f1": 0.6172361165111786,
+    "overall_rouge_l_f1": 0.4833870499889251,
     "by_section": [
       {
         "section": "Subjective",
@@ -269,19 +269,151 @@
         "gen_present": true,
         "token_f1": 0.6737967914438502,
         "rouge_l_f1": 0.45914396887159536
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.5352112676056338,
     "plan_alignment_score": 0.6737967914438502
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Other'; got ['Subjective', 'Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The note contains major issues that materially reduce its clinical usefulness and introduce misleading content. Specifically, the unsupported inclusion of 'nocturia' as a reported symptom in the Subjective section and, more critically, as a supporting diagnostic factor in the Assessment section, is a high-severity alignment issue. Additionally, the note omits the key symptom of lower abdominal pain from both the Subjective and Assessment sections, and entirely misses the differential diagnoses, making the note incomplete and potentially misleading in its clinical reasoning.",
+    "omissions": [
+      "\"moderate\" qualifier for urinary symptoms",
+      "lower abdominal pain (as a reported symptom in Subjective)",
+      "patient's symptoms are present throughout the day and night",
+      "General Appearance: Patient appears well-nourished and in no acute distress",
+      "Genitourinary Examination: Deferred",
+      "\"Site Not Specified\" as part of the UTI diagnosis",
+      "lower abdominal pain (as a symptom supporting diagnosis in Assessment)",
+      "Differential Diagnosis (Acute cystitis, pyelonephritis, interstitial cystitis)",
+      "Ciprofloxacin administration route \"orally\"",
+      "Ciprofloxacin total quantity \"(total of 14 tablets)\"",
+      "advice to \"maintain good hydration\"",
+      "Patient Agreements section (including patient understanding, agreement, questions answered, and confidence in adherence)"
+    ],
+    "additions": [
+      "explicit mention of \"nocturia\" in Subjective",
+      "explicit mention of \"history of recurrent urinary tract infections\" in Subjective",
+      "explicit mention of \"nocturia\" as a supporting symptom in Assessment",
+      "explicit mention of \"suprapubic tenderness\" as a supporting finding in Assessment"
+    ],
+    "hallucinations_or_unjustified_inferences": [
+      "explicit mention of \"nocturia\" in Subjective",
+      "explicit mention of \"nocturia\" as a supporting symptom in Assessment",
+      "explicit mention of \"nocturia\" as a supporting symptom"
+    ],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "C",
+        "summary": "This section has several issues, including the omission of 'lower abdominal pain' as a reported symptom and minor details like the 'moderate' qualifier for urinary symptoms and the persistence of symptoms throughout the day and night. A high-severity unsupported addition of 'nocturia' is present, which, while related to sleep disturbance, is not explicitly stated as a clinical term in the transcript.",
+        "omissions": [
+          "\"moderate\" qualifier for urinary symptoms",
+          "lower abdominal pain (as a reported symptom)",
+          "patient's symptoms are present throughout the day and night"
+        ],
+        "additions": [
+          "explicit mention of \"nocturia\"",
+          "explicit mention of \"history of recurrent urinary tract infections\""
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "This section is well-aligned with the GroundTruth, with only minor omissions regarding the patient's general appearance and the deferred genitourinary examination. No unsupported or unknown additions are present.",
+        "omissions": [
+          "General Appearance: Patient appears well-nourished and in no acute distress",
+          "Genitourinary Examination: Deferred"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "D",
+        "summary": "This section has significant issues. It includes a high-severity unsupported addition of 'nocturia' as a supporting symptom, which introduces potentially misleading diagnostic reasoning. Furthermore, it omits the important supporting symptom of 'lower abdominal pain' and the entire 'Differential Diagnosis' section, which are crucial for comprehensive clinical assessment.",
+        "omissions": [
+          "\"Site Not Specified\" as part of the UTI diagnosis",
+          "lower abdominal pain (as a symptom supporting diagnosis)",
+          "Differential Diagnosis (Acute cystitis, pyelonephritis, interstitial cystitis)"
+        ],
+        "additions": [
+          "explicit mention of \"nocturia\" as a supporting symptom",
+          "explicit mention of \"suprapubic tenderness\" as a supporting finding"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The core treatment plan is present and accurate. However, the section omits minor details about the Ciprofloxacin prescription (administration route, total quantity) and the advice to 'maintain good hydration.' More significantly, the entire 'Patient Agreements' section, which documents patient understanding and adherence, is missing.",
+        "omissions": [
+          "Ciprofloxacin administration route \"orally\"",
+          "Ciprofloxacin total quantity \"(total of 14 tablets)\"",
+          "advice to \"maintain good hydration\"",
+          "Patient Agreements section (patient understanding, agreement, questions answered, confidence in adherence)"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "explicit mention of \"nocturia\" in Subjective",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "explicit mention of \"history of recurrent urinary tract infections\" in Subjective",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I see from your records that you have Type 2 Diabetes and you're taking Metformin. Is that correct? [patient] Yes, I take Metformin 500 mg twice a day. ... [doctor] Have you had UTIs before? [patient] Yes, I've had them a few times in the past.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has a history of Type 2 Diabetes, currently taking Metformin 500 mg BID, and reports a history of recurrent urinary tract infections."
+    },
+    {
+      "addition_text": "explicit mention of \"nocturia\" as a supporting symptom in Assessment",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "explicit mention of \"suprapubic tenderness\" as a supporting finding in Assessment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "When I palpate, there's mild tenderness in the suprapubic region but no rebound tenderness or masses.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "explicit mention of \"nocturia\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Yes, it's been really hard to sleep because I keep waking up to go to the bathroom.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "explicit mention of \"history of recurrent urinary tract infections\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I see from your records that you have Type 2 Diabetes and you're taking Metformin. Is that correct? [patient] Yes, I take Metformin 500 mg twice a day. ... [doctor] Have you had UTIs before? [patient] Yes, I've had them a few times in the past.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has a history of Type 2 Diabetes, currently taking Metformin 500 mg BID, and reports a history of recurrent urinary tract infections."
+    },
+    {
+      "addition_text": "explicit mention of \"nocturia\" as a supporting symptom",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "explicit mention of \"suprapubic tenderness\" as a supporting finding",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "When I palpate, there's mild tenderness in the suprapubic region but no rebound tenderness or masses.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    }
+  ]
 }

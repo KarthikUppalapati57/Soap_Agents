@@ -267,8 +267,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.713227660079234,
-    "overall_rouge_l_f1": 0.5470299642912592,
+    "overall_token_f1": 0.6415345750990424,
+    "overall_rouge_l_f1": 0.4337874553640739,
     "by_section": [
       {
         "section": "Subjective",
@@ -297,313 +297,146 @@
         "gen_present": true,
         "token_f1": 0.6909090909090909,
         "rouge_l_f1": 0.39310344827586213
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.4528301886792453,
     "plan_alignment_score": 0.6909090909090909
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note has multiple omissions across all sections, particularly in the Objective and Assessment sections. While there are no unsupported additions or hallucinations, the missing clinically important details, such as the Chief Complaint, specific HPI context, and detailed assessment findings, prevent a higher grade. The document is still usable but lacks some important clinical granularity.",
+    "overall_summary": "The generated note is clinically usable but has several moderate omissions that reduce its completeness and clinical context. Key omissions include the Chief Complaint, the patient's chronic kidney disease status in the HPI, and important descriptors for hypertension ('newly diagnosed') and chronic kidney disease ('stable, slight elevation in creatinine') in the Assessment. Additionally, a crucial detail regarding patient education for limited health literacy was omitted from the Plan. While all additions were supported by the transcript, these omissions create noticeable gaps, requiring careful review.",
     "omissions": [
-      "Subjective: Chief Complaint: 'Follow-up visit for hypertension management and general adult medical examination.'",
-      "Subjective: HPI: Patient mentioning 'chronic kidney disease (stage 2) but denies significant changes in his condition.'",
-      "Subjective: ROS: 'bilateral' for ankle swelling",
-      "Objective: Physical Exam - HEENT: Specific details like 'Normocephalic, atraumatic, PERRLA, no nasal or oral abnormalities' (Generated has 'HEENT normal')",
-      "Objective: Physical Exam - Neck: 'no thyromegaly' (Generated has 'no thyroid issues')",
-      "Objective: Physical Exam - Respiratory: Specific details like 'no wheezes, rales, or rhonchi' (Generated has 'Lungs clear to auscultation bilaterally')",
-      "Objective: Physical Exam - Abdomen: 'No hepatosplenomegaly' (Generated has 'no organomegaly')",
-      "Objective: Physical Exam - Neurological: 'no focal neurological deficits' (Generated has 'no focal deficits')",
-      "Assessment: Hypertension: 'Newly diagnosed.'",
-      "Assessment: Chronic kidney disease (stage 2) details: 'Stable, slight elevation in creatinine.'",
-      "Assessment: Bilateral lower extremity edema as a separate diagnosis with etiology: 'Likely secondary to hypertension and reduced renal function.'",
-      "Plan: Medication dosage specificity: '1 tablet daily' for losartan.",
-      "Plan: Education detail: 'using simple and clear terms due to limited health literacy.'"
+      "Chief Complaint section",
+      "Mention of chronic kidney disease (stage 2) in History of Present Illness",
+      "Denial of significant changes in chronic kidney disease condition in History of Present Illness",
+      "Structured Review of Systems format",
+      "Hypertension described as 'Newly diagnosed' in Assessment",
+      "Chronic kidney disease (stage 2) described as 'Stable, slight elevation in creatinine' in Assessment",
+      "Bilateral lower extremity edema as a distinct assessment",
+      "Losartan dosage detail '1 tablet daily' in Plan",
+      "Purpose of losartan 'to manage hypertension' in Plan",
+      "Monitoring kidney function explicitly 'with an abdominal ultrasound (results pending)' in Plan",
+      "Education detail 'using simple and clear terms due to limited health literacy' in Plan",
+      "Explicit instruction about patient following up with 'me' (the provider) for BP re-evaluation",
+      "Explicit instruction about patient following up with 'Dr. Emily Turner' for renal assessment"
     ],
     "additions": [
-      "Subjective: Patient reports 'increasing in frequency' for ankle swelling.",
-      "Subjective: Patient reports 'current tobacco use.'",
-      "Objective: 'Imaging: Abdominal ultrasound results pending' listed in Objective section.",
-      "Assessment: Hypertension explicitly linked to symptoms: 'likely contributing to headaches, dizziness, and lower extremity edema.'",
-      "Assessment: 'Obesity' as a diagnosis.",
-      "Assessment: 'Tobacco use' as a diagnosis.",
-      "Plan: Explicit instruction to 'Discuss abdominal ultrasound results when available.'"
+      "Patient reports current tobacco use in Subjective section",
+      "Abdominal ultrasound results pending listed in Objective section",
+      "Hypertension assessment includes 'likely contributing to headaches, dizziness, and lower extremity edema'",
+      "Obesity as an assessment",
+      "Tobacco use as an assessment"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits the Chief Complaint ('Follow-up visit for hypertension management and general adult medical examination') and the patient's mention of stable chronic kidney disease in the HPI. A minor detail about ankle swelling being 'bilateral' was also missed.",
+        "grade": "B",
+        "summary": "The Subjective section is mostly aligned but omits the dedicated Chief Complaint and the mention of chronic kidney disease (stage 2) in the History of Present Illness. The structured Review of Systems format is also missing, though most symptoms are captured narratively. These are moderate structural and content omissions, but the core subjective complaints are present.",
         "omissions": [
-          "Chief Complaint: 'Follow-up visit for hypertension management and general adult medical examination.'",
-          "HPI: Patient mentioning 'chronic kidney disease (stage 2) but denies significant changes in his condition.'",
-          "ROS: 'bilateral' for ankle swelling"
+          "Chief Complaint: 'Follow-up visit for hypertension management and general adult medical examination'",
+          "Mention of chronic kidney disease (stage 2) in HPI",
+          "Denial of significant changes in CKD condition in HPI",
+          "Structured Review of Systems format",
+          "Cardiovascular symptoms (headaches, dizziness, ankle swelling) listed under a dedicated Cardiovascular system review",
+          "Neurological symptoms (headaches, dizziness) listed under a dedicated Neurological system review"
         ],
         "additions": [
-          "Patient reports 'increasing in frequency' for ankle swelling.",
-          "Patient reports 'current tobacco use.'"
+          "Reports current tobacco use"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has several minor omissions in the physical exam details, such as specific HEENT findings ('Normocephalic, atraumatic, PERRLA, no nasal or oral abnormalities'), neck findings ('no thyromegaly'), respiratory findings ('no wheezes, rales, or rhonchi'), abdominal findings ('No hepatosplenomegaly'), and neurological findings ('no focal neurological deficits'). These were often replaced by more general but clinically acceptable summaries (e.g., 'HEENT normal').",
-        "omissions": [
-          "Physical Exam - HEENT: Specific details like 'Normocephalic, atraumatic, PERRLA, no nasal or oral abnormalities' (Generated has 'HEENT normal')",
-          "Physical Exam - Neck: 'no thyromegaly' (Generated has 'no thyroid issues')",
-          "Physical Exam - Respiratory: Specific details like 'no wheezes, rales, or rhonchi' (Generated has 'Lungs clear to auscultation bilaterally')",
-          "Physical Exam - Abdomen: 'No hepatosplenomegaly' (Generated has 'no organomegaly')",
-          "Physical Exam - Neurological: 'no focal neurological deficits' (Generated has 'no focal deficits')"
-        ],
+        "grade": "A",
+        "summary": "The Objective section is excellent with no omissions. All clinically relevant Ground Truth content is accurately captured.",
+        "omissions": [],
         "additions": [
-          "'Imaging: Abdominal ultrasound results pending' listed in Objective section."
+          "Imaging: 'Abdominal ultrasound results pending' listed in Objective section"
         ]
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section omits important clinical context for hypertension ('Newly diagnosed') and chronic kidney disease ('Stable, slight elevation in creatinine'). It also fails to include bilateral lower extremity edema as a separate diagnosis with its likely etiology ('Likely secondary to hypertension and reduced renal function').",
+        "summary": "The Assessment section has noticeable gaps due to moderate omissions. It fails to describe hypertension as 'Newly diagnosed' and chronic kidney disease (stage 2) as 'Stable, slight elevation in creatinine,' removing important clinical context. The bilateral lower extremity edema is also not listed as a distinct assessment. These omissions make the assessment meaningfully incomplete.",
         "omissions": [
-          "Hypertension: 'Newly diagnosed.'",
-          "Chronic kidney disease (stage 2) details: 'Stable, slight elevation in creatinine.'",
-          "Bilateral lower extremity edema as a separate diagnosis with etiology: 'Likely secondary to hypertension and reduced renal function.'"
+          "Hypertension described as 'Newly diagnosed'",
+          "Chronic kidney disease (stage 2) described as 'Stable, slight elevation in creatinine'",
+          "Bilateral lower extremity edema as a distinct assessment"
         ],
         "additions": [
-          "Hypertension explicitly linked to symptoms: 'likely contributing to headaches, dizziness, and lower extremity edema.'",
-          "'Obesity' as a diagnosis.",
-          "'Tobacco use' as a diagnosis."
+          "Hypertension assessment includes 'likely contributing to headaches, dizziness, and lower extremity edema'",
+          "Obesity as an assessment",
+          "Tobacco use as an assessment"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section omits the specific medication dosage frequency ('1 tablet daily') for losartan and the crucial detail about tailoring education 'using simple and clear terms due to limited health literacy.'",
+        "summary": "The Plan section is mostly complete but contains several minor and one moderate omission. The specific dosage detail ('1 tablet daily') for losartan and its explicit purpose ('to manage hypertension') are missing. More importantly, the crucial detail about educating the patient 'using simple and clear terms due to limited health literacy' is omitted. Minor explicit instructions regarding patient follow-up with the provider and specialist are also absent.",
         "omissions": [
-          "Medication dosage specificity: '1 tablet daily' for losartan.",
-          "Education detail: 'using simple and clear terms due to limited health literacy.'"
+          "Losartan dosage detail: '1 tablet daily'",
+          "Purpose of losartan: 'to manage hypertension'",
+          "Monitoring kidney function explicitly 'with an abdominal ultrasound (results pending)'",
+          "Education detail: 'using simple and clear terms due to limited health literacy'",
+          "Explicit instruction about patient following up with 'me' (the provider) for BP re-evaluation",
+          "Explicit instruction about patient following up with 'Dr. Emily Turner' for renal assessment"
         ],
-        "additions": [
-          "Explicit instruction to 'Discuss abdominal ultrasound results when available.'"
-        ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section is perfectly aligned with the Ground Truth, with no omissions or additions.",
-        "omissions": [],
         "additions": []
       }
     ],
-    "rubric_notes": "The GroundTruthSOAP states 'Hypertension (ICD-10: I10): Newly diagnosed, poorly controlled.' The transcript indicates the patient is switching from lisinopril to losartan, which suggests the hypertension is not newly diagnosed. However, per rubric instructions, the transcript is used ONLY for the GT-fabricated-fields rule, and 'Newly diagnosed' is not a fabricated field. Therefore, GeneratedSOAP's omission of 'Newly diagnosed' is listed as an omission.",
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: Patient reports 'increasing in frequency' for ankle swelling.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Have you noticed any swelling in your ankles? [patient] Yes, my ankles do swell up occasionally. It's been happening more often lately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Reports occasional ankle swelling, increasing in frequency."
-      },
-      {
-        "addition_text": "Subjective: Patient reports 'current tobacco use.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Yes, I am [smoking].",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Tobacco use."
-      },
-      {
-        "addition_text": "Objective: 'Imaging: Abdominal ultrasound results pending' listed in Objective section.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] We're still waiting on the results of your abdominal ultrasound to further evaluate your kidney function.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Imaging: Abdominal ultrasound results pending."
-      },
-      {
-        "addition_text": "Assessment: Hypertension explicitly linked to symptoms: 'likely contributing to headaches, dizziness, and lower extremity edema.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and exam findings, it seems your hypertension is not well controlled.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypertension, uncontrolled, likely contributing to headaches, dizziness, and lower extremity edema."
-      },
-      {
-        "addition_text": "Assessment: 'Obesity' as a diagnosis.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Your BMI is 31 kg/m².",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Assessment: 'Tobacco use' as a diagnosis.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Yes, I am [smoking].",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Tobacco use."
-      },
-      {
-        "addition_text": "Plan: Explicit instruction to 'Discuss abdominal ultrasound results when available.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Please continue monitoring your kidney function, and we'll discuss the ultrasound results once they are available.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Monitoring: Continue monitoring kidney function. Discuss abdominal ultrasound results when available."
-      },
-      {
-        "addition_text": "Patient reports 'increasing in frequency' for ankle swelling.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Have you noticed any swelling in your ankles? [patient] Yes, my ankles do swell up occasionally. It's been happening more often lately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Reports occasional ankle swelling, increasing in frequency."
-      },
-      {
-        "addition_text": "Patient reports 'current tobacco use.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Yes, I am [smoking].",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Tobacco use."
-      },
-      {
-        "addition_text": "'Imaging: Abdominal ultrasound results pending' listed in Objective section.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] We're still waiting on the results of your abdominal ultrasound to further evaluate your kidney function.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Imaging: Abdominal ultrasound results pending."
-      },
-      {
-        "addition_text": "Hypertension explicitly linked to symptoms: 'likely contributing to headaches, dizziness, and lower extremity edema.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and exam findings, it seems your hypertension is not well controlled.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypertension, uncontrolled, likely contributing to headaches, dizziness, and lower extremity edema."
-      },
-      {
-        "addition_text": "'Obesity' as a diagnosis.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Your BMI is 31 kg/m².",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Obesity."
-      },
-      {
-        "addition_text": "'Tobacco use' as a diagnosis.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Yes, I am [smoking].",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Tobacco use."
-      },
-      {
-        "addition_text": "Explicit instruction to 'Discuss abdominal ultrasound results when available.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Please continue monitoring your kidney function, and we'll discuss the ultrasound results once they are available.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Monitoring: Continue monitoring kidney function. Discuss abdominal ultrasound results when available."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Patient reports 'increasing in frequency' for ankle swelling.",
+      "addition_text": "Patient reports current tobacco use in Subjective section",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Have you noticed any swelling in your ankles? [patient] Yes, my ankles do swell up occasionally. It's been happening more often lately.",
+      "transcript_evidence": "[doctor] I'd also like to discuss smoking cessation strategies with you. Are you currently smoking? [patient] Yes, I am.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports occasional ankle swelling, increasing in frequency."
+      "matched_claim_text": "Reports current tobacco use."
     },
     {
-      "addition_text": "Subjective: Patient reports 'current tobacco use.'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Yes, I am [smoking].",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tobacco use."
-    },
-    {
-      "addition_text": "Objective: 'Imaging: Abdominal ultrasound results pending' listed in Objective section.",
+      "addition_text": "Abdominal ultrasound results pending listed in Objective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We're still waiting on the results of your abdominal ultrasound to further evaluate your kidney function.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Imaging: Abdominal ultrasound results pending."
     },
     {
-      "addition_text": "Assessment: Hypertension explicitly linked to symptoms: 'likely contributing to headaches, dizziness, and lower extremity edema.'",
+      "addition_text": "Hypertension assessment includes 'likely contributing to headaches, dizziness, and lower extremity edema'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and exam findings, it seems your hypertension is not well controlled.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Hypertension, uncontrolled, likely contributing to headaches, dizziness, and lower extremity edema."
     },
     {
-      "addition_text": "Assessment: 'Obesity' as a diagnosis.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your BMI is 31 kg/m².",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: 'Tobacco use' as a diagnosis.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Yes, I am [smoking].",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tobacco use."
-    },
-    {
-      "addition_text": "Plan: Explicit instruction to 'Discuss abdominal ultrasound results when available.'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Please continue monitoring your kidney function, and we'll discuss the ultrasound results once they are available.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitoring: Continue monitoring kidney function. Discuss abdominal ultrasound results when available."
-    },
-    {
-      "addition_text": "Patient reports 'increasing in frequency' for ankle swelling.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Have you noticed any swelling in your ankles? [patient] Yes, my ankles do swell up occasionally. It's been happening more often lately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports occasional ankle swelling, increasing in frequency."
-    },
-    {
-      "addition_text": "Patient reports 'current tobacco use.'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Yes, I am [smoking].",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tobacco use."
-    },
-    {
-      "addition_text": "'Imaging: Abdominal ultrasound results pending' listed in Objective section.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] We're still waiting on the results of your abdominal ultrasound to further evaluate your kidney function.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Imaging: Abdominal ultrasound results pending."
-    },
-    {
-      "addition_text": "Hypertension explicitly linked to symptoms: 'likely contributing to headaches, dizziness, and lower extremity edema.'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and exam findings, it seems your hypertension is not well controlled.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension, uncontrolled, likely contributing to headaches, dizziness, and lower extremity edema."
-    },
-    {
-      "addition_text": "'Obesity' as a diagnosis.",
+      "addition_text": "Obesity as an assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your BMI is 31 kg/m².",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Obesity."
     },
     {
-      "addition_text": "'Tobacco use' as a diagnosis.",
+      "addition_text": "Tobacco use as an assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I am [smoking].",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Tobacco use."
     },
     {
-      "addition_text": "Explicit instruction to 'Discuss abdominal ultrasound results when available.'",
+      "addition_text": "Reports current tobacco use",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Please continue monitoring your kidney function, and we'll discuss the ultrasound results once they are available.",
+      "transcript_evidence": "[doctor] I'd also like to discuss smoking cessation strategies with you. Are you currently smoking? [patient] Yes, I am.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitoring: Continue monitoring kidney function. Discuss abdominal ultrasound results when available."
+      "matched_claim_text": "Reports current tobacco use."
+    },
+    {
+      "addition_text": "Imaging: 'Abdominal ultrasound results pending' listed in Objective section",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We're still waiting on the results of your abdominal ultrasound to further evaluate your kidney function.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Imaging: Abdominal ultrasound results pending."
     }
   ]
 }

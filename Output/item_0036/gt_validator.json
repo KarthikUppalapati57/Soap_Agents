@@ -240,8 +240,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.0050793650793650785,
-    "overall_rouge_l_f1": 0.0030303030303030303,
+    "overall_token_f1": 0.0,
+    "overall_rouge_l_f1": 0.0,
     "by_section": [
       {
         "section": "Subjective",
@@ -270,163 +270,91 @@
         "gen_present": true,
         "token_f1": 0.0,
         "rouge_l_f1": 0.0
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 0.025396825396825393,
-        "rouge_l_f1": 0.015151515151515152
       }
     ],
     "assessment_alignment_score": 0.0,
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical_documentation_reviewer_v1",
     "overall_grade": "C",
-    "overall_summary": "The generated note has multiple omissions, particularly in the Subjective and Plan sections. Key missing information includes the Chief Complaint, specific details regarding iron studies, monitoring of lung function for COPD, and important socio-economic considerations. While there are no unsupported additions or hallucinations, the number and clinical relevance of the omissions reduce the overall quality and completeness of the documentation.",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has several noticeable gaps. Key omissions include the Chief Complaint, specific details for iron studies, and important socio-economic considerations in the Plan. While the core clinical management is present, these omissions make the note meaningfully incomplete in certain areas, warranting a 'C' grade. There are no unsupported or unknown additions that would negatively impact the grade.",
     "omissions": [
-      "Chief Complaint: Follow-up for anemia treatment and COPD management.",
-      "Specific reason for follow-up regarding recent diagnosis of iron deficiency anemia and ongoing management of COPD in HPI.",
-      "Description of fatigue as 'mild' in Subjective and Assessment.",
-      "Description of shortness of breath as 'significant' in Subjective (ROS and Exercise).",
-      "Description of dizziness as 'occasional' in Assessment.",
-      "Description of shortness of breath as 'persistent' in Assessment.",
-      "Abdominal exam finding 'soft'.",
-      "Specific components of iron studies (Serum Iron, Total Iron Binding Capacity (TIBC), Ferritin levels).",
-      "Monitoring of 'lung function' for COPD.",
-      "Acknowledgement of limited healthcare options due to the patient's geographical location and insurance constraints.",
-      "Instruction to contact the clinic with any questions or concerns.",
-      "Provider details (Dr. [Your Name], Family Medicine Physician, Community Health Center)."
+      "Chief Complaint: Follow-up for anemia treatment and COPD management",
+      "HPI context: recent diagnosis of iron deficiency anemia and ongoing management of her chronic obstructive pulmonary disease (COPD)",
+      "Objective Physical Exam: Abdominal finding 'Soft'",
+      "Plan blood work details: Serum Iron, Total Iron Binding Capacity (TIBC), Ferritin levels",
+      "Plan Follow-up Recommendations: Regular monitoring of lung function (for COPD)",
+      "Plan Patient Education: encouraged patient to report any concerns regarding iron supplement side effects",
+      "Plan Geographical and Socio-economic Considerations: Acknowledged limited healthcare options due to the patient's geographical location and insurance constraints",
+      "Plan Instructions: Contact the clinic with any questions or concerns"
     ],
     "additions": [
-      "Statement 'Patient is a female' in Subjective.",
-      "Specific education point: 'Educate on the importance of quitting smoking for lung health.'",
-      "Specific side effects of iron supplements: 'constipation, stomach upset.'"
+      "Plan for Iron Deficiency Anemia: Specific potential side effects of iron supplements (constipation, stomach upset)",
+      "Plan for COPD: Specific education point 'Educate on the importance of quitting smoking for lung health'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits the Chief Complaint and the specific reason for follow-up in the HPI. It also misses minor descriptors for fatigue ('mild') and shortness of breath ('significant'). These are minor issues, but the core content is clinically aligned.",
+        "summary": "The Subjective section omits the explicit Chief Complaint for the follow-up and the HPI context regarding the patient's established diagnoses of anemia and COPD. While the symptoms are well-captured, these omissions reduce the clarity of the visit's purpose and background.",
         "omissions": [
-          "Chief Complaint: Follow-up for anemia treatment and COPD management.",
-          "Specific reason for follow-up regarding recent diagnosis of iron deficiency anemia and ongoing management of COPD in HPI.",
-          "Description of fatigue as 'mild'.",
-          "Description of shortness of breath as 'significant' (in ROS and Exercise)."
+          "Chief Complaint: Follow-up for anemia treatment and COPD management",
+          "HPI context: recent diagnosis of iron deficiency anemia and ongoing management of her chronic obstructive pulmonary disease (COPD)"
         ],
-        "additions": [
-          "Statement 'Patient is a female'."
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is nearly complete, with only a minor omission of the 'soft' descriptor for the abdominal exam. This is a negligible issue.",
+        "summary": "The Objective section is highly aligned with the Ground Truth. The only omission is the specific descriptor 'Soft' for the abdominal exam, which is adequately covered by 'Normal, no tenderness or organ enlargement' in the generated note, making it a very minor, clinically insignificant difference.",
         "omissions": [
-          "Abdominal exam finding 'soft'."
+          "Physical Examination: Abdominal finding 'Soft'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits minor descriptors for symptoms such as 'mild' fatigue, 'occasional' dizziness, and 'persistent' shortness of breath. These are minor issues, but the primary diagnoses and their associated symptoms are correctly captured.",
-        "omissions": [
-          "Description of fatigue as 'mild'.",
-          "Description of dizziness as 'occasional'.",
-          "Description of shortness of breath as 'persistent'."
-        ],
+        "grade": "A",
+        "summary": "The Assessment section perfectly aligns with the Ground Truth, capturing all diagnoses and their associated symptoms without any omissions or unsupported additions.",
+        "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several notable omissions, including specific components of iron studies (Serum Iron, TIBC, Ferritin levels), monitoring of lung function for COPD, acknowledgement of limited healthcare options, and the instruction to contact the clinic with questions. These multiple omissions reduce the completeness of the plan.",
+        "grade": "B",
+        "summary": "The Plan section has several omissions, including specific details for the ordered blood work (Serum Iron, TIBC, Ferritin levels), the recommendation for regular monitoring of lung function, and the crucial acknowledgement of geographical and socio-economic constraints. Minor omissions include the explicit instruction to 'report any concerns' regarding iron supplement side effects and to 'contact the clinic with any questions or concerns'. The additions in this section were supported by the transcript and therefore did not negatively impact the grade.",
         "omissions": [
-          "Specific components of iron studies (Serum Iron, Total Iron Binding Capacity (TIBC), Ferritin levels).",
-          "Monitoring of 'lung function' for COPD.",
-          "Acknowledgement of limited healthcare options due to the patient's geographical location and insurance constraints.",
-          "Instruction to contact the clinic with any questions or concerns."
+          "Blood work details: Serum Iron, Total Iron Binding Capacity (TIBC), Ferritin levels",
+          "Follow-up Recommendations: Regular monitoring of lung function (for COPD)",
+          "Patient Education: encouraged patient to report any concerns regarding iron supplement side effects",
+          "Geographical and Socio-economic Considerations: Acknowledged limited healthcare options due to the patient's geographical location and insurance constraints",
+          "Instructions: Contact the clinic with any questions or concerns"
         ],
         "additions": [
-          "Specific education point: 'Educate on the importance of quitting smoking for lung health.'",
-          "Specific side effects of iron supplements: 'constipation, stomach upset.'"
+          "Plan for Iron Deficiency Anemia: Specific potential side effects of iron supplements (constipation, stomach upset)",
+          "Plan for COPD: Specific education point 'Educate on the importance of quitting smoking for lung health'"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section's only omission is the provider's details, which is an administrative detail and does not impact clinical content. This is a negligible issue.",
-        "omissions": [
-          "Provider details (Dr. [Your Name], Family Medicine Physician, Community Health Center)."
-        ],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Statement 'Patient is a female' in Subjective.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Hi Ms. Adams, how are you feeling today?",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Specific education point: 'Educate on the importance of quitting smoking for lung health.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] It's crucial that you consider quitting smoking. I'll provide resources for local smoking cessation programs. ... It's very important for your lung health.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Advise smoking cessation, provide resources for local programs, and educate on its importance for lung health."
-      },
-      {
-        "addition_text": "Specific side effects of iron supplements: 'constipation, stomach upset.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] In the meantime, try to increase your intake of iron-rich foods and cut down on processed foods. ... I'll also provide education on the importance of medication adherence and lifestyle changes. Be aware of potential side effects from the iron supplements, such as constipation or stomach upset, and report any concerns.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Educate on increasing intake of iron-rich foods, reducing processed foods, medication adherence, and potential side effects (constipation, stomach upset)."
-      },
-      {
-        "addition_text": "Statement 'Patient is a female'.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Hi Ms. Adams, how are you feeling today?",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Statement 'Patient is a female' in Subjective.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Hi Ms. Adams, how are you feeling today?",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Specific education point: 'Educate on the importance of quitting smoking for lung health.'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] It's crucial that you consider quitting smoking. I'll provide resources for local smoking cessation programs. ... It's very important for your lung health.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise smoking cessation, provide resources for local programs, and educate on its importance for lung health."
-    },
-    {
-      "addition_text": "Specific side effects of iron supplements: 'constipation, stomach upset.'",
+      "addition_text": "Plan for Iron Deficiency Anemia: Specific potential side effects of iron supplements (constipation, stomach upset)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] In the meantime, try to increase your intake of iron-rich foods and cut down on processed foods. ... I'll also provide education on the importance of medication adherence and lifestyle changes. Be aware of potential side effects from the iron supplements, such as constipation or stomach upset, and report any concerns.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Educate on increasing intake of iron-rich foods, reducing processed foods, medication adherence, and potential side effects (constipation, stomach upset)."
     },
     {
-      "addition_text": "Statement 'Patient is a female'.",
+      "addition_text": "Plan for COPD: Specific education point 'Educate on the importance of quitting smoking for lung health'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Hi Ms. Adams, how are you feeling today?",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] It's crucial that you consider quitting smoking. I'll provide resources for local smoking cessation programs. ... It's very important for your lung health.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Advise smoking cessation, provide resources for local programs, and educate on its importance for lung health."
     }
   ]
 }

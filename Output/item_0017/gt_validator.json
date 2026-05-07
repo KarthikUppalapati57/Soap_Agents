@@ -220,8 +220,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6654693854172633,
-    "overall_rouge_l_f1": 0.5732485908291551,
+    "overall_token_f1": 0.5818367317715791,
+    "overall_rouge_l_f1": 0.46656073853644386,
     "by_section": [
       {
         "section": "Subjective",
@@ -250,334 +250,198 @@
         "gen_present": true,
         "token_f1": 0.7764705882352942,
         "rouge_l_f1": 0.49557522123893816
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.24999999999999997,
     "plan_alignment_score": 0.7764705882352942
   },
   "expert_judge": {
-    "model": "clinical_reviewer_model",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is clinically aligned, with no unsupported additions or hallucinations. However, there are multiple minor omissions, including specific details in the HPI and ROS, the patient's general appearance, the 'unspecified' detail for the diagnosis, and the rationale for ordered tests. The absence of a dedicated Chief Complaint heading and the Patient Agreements section also contribute to the omissions.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the majority of the Ground Truth content. The primary issues are a moderate omission regarding the specific severity of nausea and vomiting in the Subjective section, along with several minor omissions across other sections, such as the patient's general appearance in Objective, a qualifier in Assessment, and specific reasons for orders and a patient agreement statement in the Plan. All additions in the note are supported by the transcript and do not negatively impact the grade.",
     "omissions": [
-      "Chief Complaint explicitly stated as a separate heading",
-      "Severity of nausea and vomiting described as 'moderate to severe'",
-      "Impact on work described as 'significantly impacting'",
-      "Patient reports trying to maintain a 'balanced diet'",
-      "Patient's past habit of exercising 'regularly'",
-      "Dizziness described as 'occasional'",
-      "General appearance: 'The patient appears moderately distressed due to nausea'",
-      "Assessment diagnosis detail: 'unspecified'",
-      "Reason for CBC: 'to check for any infections or anemia'",
-      "Reason for Abdominal Ultrasound: 'to evaluate any potential gastrointestinal issues'",
-      "Patient Agreements section: 'The patient understands and agrees with the recommended medical treatment plan'"
+      "Severity of nausea/vomiting (moderate to severe)",
+      "Patient reports a balanced diet (in HPI)",
+      "General physical exam finding: Patient appears moderately distressed due to nausea.",
+      "Assessment qualifier: \"unspecified\" for nausea with vomiting.",
+      "Reason for CBC: \"to check for any infections or anemia\"",
+      "Reason for Abdominal Ultrasound: \"to evaluate any potential gastrointestinal issues\"",
+      "Patient Agreements section: \"The patient understands and agrees with the recommended medical treatment plan.\""
     ],
     "additions": [
-      "Subjective: 'upper' abdominal pain",
-      "Subjective: 'non-restful' sleep",
-      "Subjective: denial of 'other neurological symptoms' (instead of 'focal deficits')",
-      "Subjective: denial of 'leg swelling' (instead of 'edema')",
-      "Objective: Abdominal exam detail 'to palpation'",
-      "Objective: Cardiac exam detail 'Heart sounds normal'",
-      "Assessment: 'persistent for one week, with associated abdominal pain, dizziness, and fatigue'",
-      "Assessment: 'Further investigation is needed to determine etiology'"
+      "\"upper\" abdominal pain (in HPI)",
+      "\"non-restful\" sleep (in HPI)",
+      "\"other neurological symptoms\" (in ROS denials)",
+      "\"to palpation\" (in Abdominal exam)",
+      "\"Heart sounds normal\" (in Cardiovascular exam)",
+      "Assessment detail: \"persistent for one week\"",
+      "Assessment detail: \"with associated abdominal pain, dizziness, and fatigue\"",
+      "Assessment statement: \"Further investigation is needed to determine etiology.\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section has several minor omissions, including the explicit Chief Complaint heading, the severity of nausea and vomiting ('moderate to severe'), the significant impact on work, the patient's balanced diet, regular exercise habit, and occasional dizziness. All additions in this section were supported by the transcript.",
+        "summary": "This section has a moderate omission by not specifying the 'moderate to severe' nature of the nausea and vomiting. It also omits the patient's initial report of maintaining a balanced diet despite difficulty eating. All additions in this section are supported by the transcript.",
         "omissions": [
-          "Chief Complaint explicitly stated as a separate heading",
-          "Severity of nausea and vomiting described as 'moderate to severe'",
-          "Impact on work described as 'significantly impacting'",
-          "Patient reports trying to maintain a 'balanced diet'",
-          "Patient's past habit of exercising 'regularly'",
-          "Dizziness described as 'occasional'"
+          "Severity of nausea/vomiting (moderate to severe)",
+          "Patient reports a balanced diet"
         ],
         "additions": [
-          "'upper' abdominal pain",
-          "'non-restful' sleep",
-          "denial of 'other neurological symptoms' (instead of 'focal deficits')",
-          "denial of 'leg swelling' (instead of 'edema')"
+          "\"upper\" abdominal pain",
+          "\"non-restful\" sleep",
+          "\"other neurological symptoms\""
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-captured with only one minor omission regarding the patient's general appearance ('moderately distressed due to nausea'). All additions in this section were supported by the transcript.",
+        "summary": "This section is well-aligned with the Ground Truth, with only one minor omission regarding the patient's general appearance ('appears moderately distressed due to nausea'). All additions are supported by the transcript.",
         "omissions": [
-          "General appearance: 'The patient appears moderately distressed due to nausea'"
+          "General physical exam finding: The patient appears moderately distressed due to nausea."
         ],
         "additions": [
-          "Abdominal exam detail 'to palpation'",
-          "Cardiac exam detail 'Heart sounds normal'"
+          "\"to palpation\" in abdominal exam",
+          "\"Heart sounds normal\" in cardiovascular exam"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section has one minor omission regarding the 'unspecified' detail of the nausea with vomiting diagnosis. All additions in this section were supported by the transcript.",
+        "summary": "This section is strong, with only a minor omission of the 'unspecified' qualifier for nausea with vomiting. The generated note includes additional, transcript-supported details that enhance the clinical picture. All additions are supported by the transcript.",
         "omissions": [
-          "Diagnosis detail: 'unspecified'"
+          "Qualifier \"unspecified\" for nausea with vomiting"
         ],
         "additions": [
-          "'persistent for one week, with associated abdominal pain, dizziness, and fatigue'",
-          "'Further investigation is needed to determine etiology'"
+          "Qualifier \"persistent for one week\" for nausea with vomiting",
+          "Associated symptoms: abdominal pain, dizziness, and fatigue",
+          "Statement: \"Further investigation is needed to determine etiology.\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section has several omissions, specifically the reasons for ordering the CBC ('to check for any infections or anemia') and the Abdominal Ultrasound ('to evaluate any potential gastrointestinal issues'), as well as the entire Patient Agreements section. There were no unsupported additions.",
-        "omissions": [
-          "Reason for CBC: 'to check for any infections or anemia'",
-          "Reason for Abdominal Ultrasound: 'to evaluate any potential gastrointestinal issues'",
-          "Patient Agreements section: 'The patient understands and agrees with the recommended medical treatment plan'"
-        ],
-        "additions": []
-      },
-      {
-        "section": "Other",
         "grade": "A",
-        "summary": "No omissions, unsupported additions, or hallucinations were identified in this section.",
-        "omissions": [],
+        "summary": "This section accurately captures all major plan elements. It has minor omissions regarding the specific reasons for the CBC ('to check for any infections or anemia') and abdominal ultrasound ('to evaluate any potential gastrointestinal issues'), as well as the standard patient agreement statement. No additions were identified in this section.",
+        "omissions": [
+          "Reason for CBC: \"to check for any infections or anemia\"",
+          "Reason for Abdominal Ultrasound: \"to evaluate any potential gastrointestinal issues\"",
+          "Patient Agreements section: \"The patient understands and agrees with the recommended medical treatment plan.\""
+        ],
         "additions": []
       }
     ],
-    "rubric_notes": "Omissions for patient age, sex/gender, and race/ethnicity (e.g., '35-year-old Hispanic female') were not included as per the GT-fabricated-fields rule, as these details were not present in the Transcript.",
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: 'upper' abdominal pain",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot. ... It's mostly in the upper part, around here.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Associated symptoms include upper abdominal pain, dizziness, and fatigue."
-      },
-      {
-        "addition_text": "Subjective: 'non-restful' sleep",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I get around 6 to 7 hours of sleep, but it's not very restful.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective: denial of 'other neurological symptoms' (instead of 'focal deficits')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Any headaches, vision changes, or other neurological symptoms?\n[patient] No, none of that.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective: denial of 'leg swelling' (instead of 'edema')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Any chest pain, palpitations, or swelling in your legs? [patient] No, my heart feels fine.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Objective: Abdominal exam detail 'to palpation'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Alright, I'm going to press gently on your abdomen. Let me know if it hurts. ... I feel some mild tenderness in your epigastric region, but no rebound tenderness.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Objective: Cardiac exam detail 'Heart sounds normal'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Your heart sounds normal with a regular rate and rhythm, and there are no murmurs.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Cardiovascular exam shows normal heart sounds with regular rate and rhythm and no murmurs."
-      },
-      {
-        "addition_text": "Assessment: 'persistent for one week, with associated abdominal pain, dizziness, and fatigue'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and my examination, I think you have nausea with vomiting... [patient] It's been about a week now. ... [patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Assessment is nausea with vomiting, persistent for one week, with associated abdominal pain, dizziness, and fatigue."
-      },
-      {
-        "addition_text": "Assessment: 'Further investigation is needed to determine etiology'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] ...but we need to investigate further.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Further investigation is needed to determine etiology."
-      },
-      {
-        "addition_text": "'upper' abdominal pain",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot. ... It's mostly in the upper part, around here.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Associated symptoms include upper abdominal pain, dizziness, and fatigue."
-      },
-      {
-        "addition_text": "'non-restful' sleep",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I get around 6 to 7 hours of sleep, but it's not very restful.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "denial of 'other neurological symptoms' (instead of 'focal deficits')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Good, everything looks normal. No focal deficits.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Neurological exam is normal with no focal deficits."
-      },
-      {
-        "addition_text": "denial of 'leg swelling' (instead of 'edema')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Any chest pain, palpitations, or swelling in your legs?\n[patient] No, my heart feels fine.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Abdominal exam detail 'to palpation'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I feel some mild tenderness in your epigastric region, but no rebound tenderness.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Cardiac exam detail 'Heart sounds normal'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Your heart sounds normal with a regular rate and rhythm, and there are no murmurs.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Cardiovascular exam shows normal heart sounds with regular rate and rhythm and no murmurs."
-      },
-      {
-        "addition_text": "'persistent for one week, with associated abdominal pain, dizziness, and fatigue'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and my examination, I think you have nausea with vomiting... [patient] It's been about a week now. ... [patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Assessment is nausea with vomiting, persistent for one week, with associated abdominal pain, dizziness, and fatigue."
-      },
-      {
-        "addition_text": "'Further investigation is needed to determine etiology'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] ...but we need to investigate further.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Further investigation is needed to determine etiology."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'upper' abdominal pain",
+      "addition_text": "\"upper\" abdominal pain (in HPI)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot. ... It's mostly in the upper part, around here.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Associated symptoms include upper abdominal pain, dizziness, and fatigue."
     },
     {
-      "addition_text": "Subjective: 'non-restful' sleep",
+      "addition_text": "\"non-restful\" sleep (in HPI)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I get around 6 to 7 hours of sleep, but it's not very restful.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Subjective: denial of 'other neurological symptoms' (instead of 'focal deficits')",
+      "addition_text": "\"other neurological symptoms\" (in ROS denials)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Any headaches, vision changes, or other neurological symptoms?\n[patient] No, none of that.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Subjective: denial of 'leg swelling' (instead of 'edema')",
+      "addition_text": "\"to palpation\" (in Abdominal exam)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Any chest pain, palpitations, or swelling in your legs? [patient] No, my heart feels fine.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] I feel some mild tenderness in your epigastric region, but no rebound tenderness.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Abdomen exam shows mild tenderness to palpation in the epigastric region and no rebound tenderness."
     },
     {
-      "addition_text": "Objective: Abdominal exam detail 'to palpation'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Alright, I'm going to press gently on your abdomen. Let me know if it hurts. ... I feel some mild tenderness in your epigastric region, but no rebound tenderness.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: Cardiac exam detail 'Heart sounds normal'",
+      "addition_text": "\"Heart sounds normal\" (in Cardiovascular exam)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your heart sounds normal with a regular rate and rhythm, and there are no murmurs.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Cardiovascular exam shows normal heart sounds with regular rate and rhythm and no murmurs."
     },
     {
-      "addition_text": "Assessment: 'persistent for one week, with associated abdominal pain, dizziness, and fatigue'",
+      "addition_text": "Assessment detail: \"persistent for one week\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and my examination, I think you have nausea with vomiting... [patient] It's been about a week now. ... [patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Assessment is nausea with vomiting, persistent for one week, with associated abdominal pain, dizziness, and fatigue."
     },
     {
-      "addition_text": "Assessment: 'Further investigation is needed to determine etiology'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] ...but we need to investigate further.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further investigation is needed to determine etiology."
-    },
-    {
-      "addition_text": "'upper' abdominal pain",
+      "addition_text": "Assessment detail: \"with associated abdominal pain, dizziness, and fatigue\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot. ... It's mostly in the upper part, around here.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Associated symptoms include upper abdominal pain, dizziness, and fatigue."
     },
     {
-      "addition_text": "'non-restful' sleep",
+      "addition_text": "Assessment statement: \"Further investigation is needed to determine etiology.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] ...but we need to investigate further.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Further investigation is needed to determine etiology."
+    },
+    {
+      "addition_text": "\"upper\" abdominal pain",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot. ... It's mostly in the upper part, around here.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Associated symptoms include upper abdominal pain, dizziness, and fatigue."
+    },
+    {
+      "addition_text": "\"non-restful\" sleep",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I get around 6 to 7 hours of sleep, but it's not very restful.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "denial of 'other neurological symptoms' (instead of 'focal deficits')",
+      "addition_text": "\"other neurological symptoms\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Good, everything looks normal. No focal deficits.",
+      "transcript_evidence": "other neurological symptoms",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"to palpation\" in abdominal exam",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I feel some mild tenderness in your epigastric region, but no rebound tenderness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Neurological exam is normal with no focal deficits."
+      "matched_claim_text": "Abdomen exam shows mild tenderness to palpation in the epigastric region and no rebound tenderness."
     },
     {
-      "addition_text": "denial of 'leg swelling' (instead of 'edema')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Any chest pain, palpitations, or swelling in your legs?\n[patient] No, my heart feels fine.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Abdominal exam detail 'to palpation'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I feel some mild tenderness in your epigastric region, but no rebound tenderness.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Cardiac exam detail 'Heart sounds normal'",
+      "addition_text": "\"Heart sounds normal\" in cardiovascular exam",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your heart sounds normal with a regular rate and rhythm, and there are no murmurs.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Cardiovascular exam shows normal heart sounds with regular rate and rhythm and no murmurs."
     },
     {
-      "addition_text": "'persistent for one week, with associated abdominal pain, dizziness, and fatigue'",
+      "addition_text": "Qualifier \"persistent for one week\" for nausea with vomiting",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and my examination, I think you have nausea with vomiting... [patient] It's been about a week now. ... [patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Assessment is nausea with vomiting, persistent for one week, with associated abdominal pain, dizziness, and fatigue."
     },
     {
-      "addition_text": "'Further investigation is needed to determine etiology'",
+      "addition_text": "Associated symptoms: abdominal pain, dizziness, and fatigue",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I do have some abdominal pain, and I feel dizzy and tired a lot. ... It's mostly in the upper part, around here.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Associated symptoms include upper abdominal pain, dizziness, and fatigue."
+    },
+    {
+      "addition_text": "Statement: \"Further investigation is needed to determine etiology.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] ...but we need to investigate further.",
       "evidence_source": "agent3_claims",

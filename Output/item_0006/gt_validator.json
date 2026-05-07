@@ -292,8 +292,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5185654994376943,
-    "overall_rouge_l_f1": 0.3699680637037662,
+    "overall_token_f1": 0.48154020763045113,
+    "overall_rouge_l_f1": 0.2957934129630411,
     "by_section": [
       {
         "section": "Subjective",
@@ -322,393 +322,245 @@
         "gen_present": true,
         "token_f1": 0.5922330097087379,
         "rouge_l_f1": 0.32558139534883723
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 0.6666666666666666,
-        "rouge_l_f1": 0.6666666666666666
       }
     ],
     "assessment_alignment_score": 0.2564102564102564,
     "plan_alignment_score": 0.5922330097087379
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note is clinically aligned and captures the primary diagnosis, treatment plan, and key subjective and objective findings. However, it has multiple omissions, particularly in the Objective and Plan sections. These include details about the patient's general appearance, specific negative findings from the cardiovascular and respiratory exams, and several important patient education and agreement details, such as information on recognizing worsening infection symptoms and the patient's explicit agreement with the treatment plan. No unsupported additions or hallucinations were identified.",
+    "model": "clinical_documentation_reviewer_agent",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the core clinical picture, diagnosis, and treatment plan. All additions are supported by the transcript and do not negatively impact the grade. However, the note has several omissions, including moderate details such as the patient's severely limited daily activities and general appearance of distress, along with several minor omissions in patient education and concluding statements. These omissions, while not critical to safety, prevent a higher grade.",
     "omissions": [
-      "Objective: General appearance: Patient appears uncomfortable and in distress due to pain",
-      "Objective: Cardiovascular exam detail: no murmurs",
-      "Objective: Respiratory exam detail: no wheezes, rales, or rhonchi",
-      "Assessment: Primary diagnosis detail: site not specified for Urinary Tract Infection",
-      "Assessment: Secondary considerations detail: further evaluation needed based on lab results (for pyelonephritis)",
-      "Plan: Referral detail: if complications arise (Generated has 'worsen')",
-      "Plan: Dietary changes detail: discussed the impact of an unbalanced diet on overall health",
-      "Plan: Patient education detail: provided information on recognizing symptoms of worsening infection",
-      "Plan: Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up recommendations"
+      "Patient describes the pain as constant",
+      "Symptoms have severely limited his daily activities",
+      "Patient appears uncomfortable and in distress due to pain (General appearance)",
+      "Further evaluation needed based on lab results (in Assessment's secondary considerations)",
+      "Discussion about the impact of an unbalanced diet on overall health (under dietary changes)",
+      "Explicit statement of providing information on recognizing symptoms of worsening infection",
+      "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up recommendations"
     ],
     "additions": [
-      "Subjective: Reports penicillin allergy (moved from Plan in GroundTruth)",
-      "Subjective: Reports smoking and daily alcohol consumption (moved from Plan in GroundTruth)",
-      "Assessment: Summary of HPI symptoms: Acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria",
-      "Assessment: Attribution of elevated blood pressure to pain and stress",
-      "Assessment: Statement: Elevated temperature consistent with fever",
-      "Assessment: Mention of comorbidities: Patient has comorbidities of hypertension and Type 2 Diabetes",
-      "Assessment: Mention of social factors: Social factors include smoking and daily alcohol use",
-      "Assessment: Mention of penicillin allergy: Penicillin allergy noted",
-      "Plan: Diagnostics section: Await results of UA, CBC, BMP (repetition from Objective/Assessment)",
-      "Plan: Referral detail: if symptoms worsen (instead of 'complications arise')"
+      "Penicillin allergy (in Subjective section)",
+      "Smoking and daily alcohol consumption (in Subjective section)",
+      "Summary of symptoms (acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria) in Assessment",
+      "CVA tenderness as a reason for likely pyelonephritis (in Assessment)",
+      "Elevated blood pressure attributed to pain and stress (in Assessment)",
+      "Elevated temperature consistent with fever (in Assessment)",
+      "Comorbidities of hypertension and Type 2 Diabetes (in Assessment)",
+      "Social factors (smoking and daily alcohol use) in Assessment",
+      "Penicillin allergy (in Assessment)",
+      "Awaiting results of UA, CBC, BMP (in Plan section)",
+      "Referral to urologist if symptoms persist or worsen (GT has 'complications arise')",
+      "Anuria as a worsening symptom (GT has 'if unable to urinate')"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section accurately captures all required GroundTruth content and introduces relevant information from the transcript (penicillin allergy, smoking, alcohol consumption) which are supported by evidence.",
-        "omissions": [],
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete, but it omits the patient's description of the pain as constant and the significant detail that symptoms have severely limited daily activities, which is important for understanding the severity of the illness. All additions in this section were supported by the transcript.",
+        "omissions": [
+          "Patient describes the pain as constant",
+          "Symptoms have severely limited his daily activities"
+        ],
         "additions": [
-          "Reports penicillin allergy",
-          "Reports smoking and daily alcohol consumption"
+          "Penicillin allergy",
+          "Smoking and daily alcohol consumption"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section omits the patient's general appearance of discomfort and specific negative findings from the cardiovascular (no murmurs) and respiratory (no wheezes, rales, or rhonchi) exams. These are minor but clinically relevant details.",
+        "grade": "A",
+        "summary": "The Objective section is strong, with only a minor omission regarding the patient's general appearance of discomfort and distress. No unsupported or unknown additions were present.",
         "omissions": [
-          "General appearance: Patient appears uncomfortable and in distress due to pain",
-          "Cardiovascular exam detail: no murmurs",
-          "Respiratory exam detail: no wheezes, rales, or rhonchi"
+          "Patient appears uncomfortable and in distress due to pain (General appearance)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits the detail that the UTI site is 'not specified' and the need for 'further evaluation based on lab results' for pyelonephritis. All additions in this section are supported by the transcript.",
+        "grade": "A",
+        "summary": "The Assessment section is comprehensive and accurate, with only a minor omission of the explicit statement that further evaluation is needed based on lab results, which is implicitly covered by the pending labs in the plan. All additions in this section were supported by the transcript and enhanced the assessment.",
         "omissions": [
-          "Primary diagnosis detail: site not specified for Urinary Tract Infection",
-          "Secondary considerations detail: further evaluation needed based on lab results (for pyelonephritis)"
+          "Further evaluation needed based on lab results"
         ],
         "additions": [
-          "Summary of HPI symptoms: Acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria",
-          "Attribution of elevated blood pressure to pain and stress",
-          "Statement: Elevated temperature consistent with fever",
-          "Mention of comorbidities: Patient has comorbidities of hypertension and Type 2 Diabetes",
-          "Mention of social factors: Social factors include smoking and daily alcohol use",
-          "Mention of penicillin allergy: Penicillin allergy noted"
+          "Summary of symptoms (acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria)",
+          "CVA tenderness as a reason for likely pyelonephritis",
+          "Elevated blood pressure attributed to pain and stress",
+          "Elevated temperature consistent with fever",
+          "Comorbidities of hypertension and Type 2 Diabetes",
+          "Social factors (smoking and daily alcohol use)",
+          "Penicillin allergy"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits several details from patient education and agreements, including discussion on the impact of an unbalanced diet, information on recognizing symptoms of worsening infection, and the patient's explicit agreement with the plan. It also omits 'complications arise' from the referral criteria, though it replaces it with the supported 'symptoms worsen'.",
+        "grade": "B",
+        "summary": "The Plan section effectively outlines treatment, follow-up, and lifestyle advice. However, it omits a specific discussion point about the impact of an unbalanced diet and the explicit statement about providing information on recognizing worsening infection symptoms, as well as the patient's agreement to the plan. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Referral detail: if complications arise",
-          "Dietary changes detail: discussed the impact of an unbalanced diet on overall health",
-          "Patient education detail: provided information on recognizing symptoms of worsening infection",
+          "Discussion about the impact of an unbalanced diet on overall health (under dietary changes)",
+          "Explicit statement of providing information on recognizing symptoms of worsening infection",
           "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up recommendations"
         ],
         "additions": [
-          "Diagnostics section: Await results of UA, CBC, BMP",
-          "Referral detail: if symptoms worsen"
+          "Awaiting results of UA, CBC, BMP",
+          "Referral to urologist if symptoms persist or worsen (GT has 'complications arise')",
+          "Anuria as a worsening symptom (GT has 'if unable to urinate')"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "No discrepancies were found in this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: Reports penicillin allergy (moved from Plan in GroundTruth)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We choose this because you mentioned you're allergic to penicillin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports a penicillin allergy."
-      },
-      {
-        "addition_text": "Subjective: Reports smoking and daily alcohol consumption (moved from Plan in GroundTruth)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports smoking and daily alcohol consumption."
-      },
-      {
-        "addition_text": "Assessment: Summary of HPI symptoms: Acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "For the past five days, I've had terrible pain when I pee. It's constant and I feel like I have to go every 30 minutes. Yes, I've had a fever and chills. My lower back hurts a lot, and I've seen blood in my urine.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports 5 days of severe dysuria, urinary frequency (every 30 minutes), fever, chills, lower back pain, and hematuria."
-      },
-      {
-        "addition_text": "Assessment: Attribution of elevated blood pressure to pain and stress",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
-      },
-      {
-        "addition_text": "Assessment: Statement: Elevated temperature consistent with fever",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
-      },
-      {
-        "addition_text": "Assessment: Mention of comorbidities: Patient has comorbidities of hypertension and Type 2 Diabetes",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
-      },
-      {
-        "addition_text": "Assessment: Mention of social factors: Social factors include smoking and daily alcohol use",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Social factors include smoking and daily alcohol use."
-      },
-      {
-        "addition_text": "Assessment: Mention of penicillin allergy: Penicillin allergy noted",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
-      },
-      {
-        "addition_text": "Plan: Diagnostics section: Await results of UA, CBC, BMP (repetition from Objective/Assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I've ordered a urinalysis, complete blood count, and basic metabolic panel. We're waiting for the results.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: Await results of UA, CBC, BMP."
-      },
-      {
-        "addition_text": "Plan: Referral detail: if symptoms worsen (instead of 'complications arise')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Reports penicillin allergy",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We choose this because you mentioned you're allergic to penicillin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports a penicillin allergy."
-      },
-      {
-        "addition_text": "Reports smoking and daily alcohol consumption",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports smoking and daily alcohol consumption."
-      },
-      {
-        "addition_text": "Summary of HPI symptoms: Acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "For the past five days, I've had terrible pain when I pee. It's constant and I feel like I have to go every 30 minutes. Yes, I've had a fever and chills. My lower back hurts a lot, and I've seen blood in my urine.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports 5 days of severe dysuria, urinary frequency (every 30 minutes), fever, chills, lower back pain, and hematuria."
-      },
-      {
-        "addition_text": "Attribution of elevated blood pressure to pain and stress",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
-      },
-      {
-        "addition_text": "Statement: Elevated temperature consistent with fever",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
-      },
-      {
-        "addition_text": "Mention of comorbidities: Patient has comorbidities of hypertension and Type 2 Diabetes",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
-      },
-      {
-        "addition_text": "Mention of social factors: Social factors include smoking and daily alcohol use",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Social factors include smoking and daily alcohol use."
-      },
-      {
-        "addition_text": "Mention of penicillin allergy: Penicillin allergy noted",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
-      },
-      {
-        "addition_text": "Diagnostics section: Await results of UA, CBC, BMP",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I've ordered a urinalysis, complete blood count, and basic metabolic panel. We're waiting for the results.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: Await results of UA, CBC, BMP."
-      },
-      {
-        "addition_text": "Referral detail: if symptoms worsen",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Reports penicillin allergy (moved from Plan in GroundTruth)",
+      "addition_text": "Penicillin allergy (in Subjective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We choose this because you mentioned you're allergic to penicillin.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient reports a penicillin allergy."
     },
     {
-      "addition_text": "Subjective: Reports smoking and daily alcohol consumption (moved from Plan in GroundTruth)",
+      "addition_text": "Smoking and daily alcohol consumption (in Subjective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient reports smoking and daily alcohol consumption."
     },
     {
-      "addition_text": "Assessment: Summary of HPI symptoms: Acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria",
+      "addition_text": "Summary of symptoms (acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria) in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "For the past five days, I've had terrible pain when I pee. It's constant and I feel like I have to go every 30 minutes. Yes, I've had a fever and chills. My lower back hurts a lot, and I've seen blood in my urine.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient reports 5 days of severe dysuria, urinary frequency (every 30 minutes), fever, chills, lower back pain, and hematuria."
     },
     {
-      "addition_text": "Assessment: Attribution of elevated blood pressure to pain and stress",
+      "addition_text": "CVA tenderness as a reason for likely pyelonephritis (in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It suggests you might have a urinary tract infection, possibly involving your kidneys given your back pain and fever.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient's symptoms are concerning for a urinary tract infection, likely pyelonephritis given systemic symptoms and CVA tenderness."
+    },
+    {
+      "addition_text": "Elevated blood pressure attributed to pain and stress (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
     },
     {
-      "addition_text": "Assessment: Statement: Elevated temperature consistent with fever",
+      "addition_text": "Elevated temperature consistent with fever (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
     },
     {
-      "addition_text": "Assessment: Mention of comorbidities: Patient has comorbidities of hypertension and Type 2 Diabetes",
+      "addition_text": "Comorbidities of hypertension and Type 2 Diabetes (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
     },
     {
-      "addition_text": "Assessment: Mention of social factors: Social factors include smoking and daily alcohol use",
+      "addition_text": "Social factors (smoking and daily alcohol use) in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Social factors include smoking and daily alcohol use."
     },
     {
-      "addition_text": "Assessment: Mention of penicillin allergy: Penicillin allergy noted",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
-    },
-    {
-      "addition_text": "Plan: Diagnostics section: Await results of UA, CBC, BMP (repetition from Objective/Assessment)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I've ordered a urinalysis, complete blood count, and basic metabolic panel. We're waiting for the results.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnostics: Await results of UA, CBC, BMP."
-    },
-    {
-      "addition_text": "Plan: Referral detail: if symptoms worsen (instead of 'complications arise')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Reports penicillin allergy",
+      "addition_text": "Penicillin allergy (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We choose this because you mentioned you're allergic to penicillin.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient reports a penicillin allergy."
     },
     {
-      "addition_text": "Reports smoking and daily alcohol consumption",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports smoking and daily alcohol consumption."
-    },
-    {
-      "addition_text": "Summary of HPI symptoms: Acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "For the past five days, I've had terrible pain when I pee. It's constant and I feel like I have to go every 30 minutes. Yes, I've had a fever and chills. My lower back hurts a lot, and I've seen blood in my urine.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports 5 days of severe dysuria, urinary frequency (every 30 minutes), fever, chills, lower back pain, and hematuria."
-    },
-    {
-      "addition_text": "Attribution of elevated blood pressure to pain and stress",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
-    },
-    {
-      "addition_text": "Statement: Elevated temperature consistent with fever",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
-    },
-    {
-      "addition_text": "Mention of comorbidities: Patient has comorbidities of hypertension and Type 2 Diabetes",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
-    },
-    {
-      "addition_text": "Mention of social factors: Social factors include smoking and daily alcohol use",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Social factors include smoking and daily alcohol use."
-    },
-    {
-      "addition_text": "Mention of penicillin allergy: Penicillin allergy noted",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
-    },
-    {
-      "addition_text": "Diagnostics section: Await results of UA, CBC, BMP",
+      "addition_text": "Awaiting results of UA, CBC, BMP (in Plan section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've ordered a urinalysis, complete blood count, and basic metabolic panel. We're waiting for the results.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnostics: Await results of UA, CBC, BMP."
     },
     {
-      "addition_text": "Referral detail: if symptoms worsen",
+      "addition_text": "Referral to urologist if symptoms persist or worsen (GT has 'complications arise')",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
+      "transcript_evidence": "I'll schedule a follow-up appointment for you in one week at the community health service center. If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Follow-up: Schedule follow-up in 1 week at community health service center, with referral to urologist (Dr. John Smith) if symptoms persist or worsen."
+    },
+    {
+      "addition_text": "Anuria as a worsening symptom (GT has 'if unable to urinate')",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If your symptoms worsen, like increased fever, severe pain, or if you can't urinate, come back to the emergency department immediately.",
       "evidence_source": "gemini",
       "matched_claim_text": null
+    },
+    {
+      "addition_text": "Penicillin allergy",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We choose this because you mentioned you're allergic to penicillin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports a penicillin allergy."
+    },
+    {
+      "addition_text": "Smoking and daily alcohol consumption",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports smoking and daily alcohol consumption."
+    },
+    {
+      "addition_text": "Summary of symptoms (acute onset of severe dysuria, urinary frequency, fever, chills, lower back pain, and hematuria)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "For the past five days, I've had terrible pain when I pee. It's constant and I feel like I have to go every 30 minutes. Yes, I've had a fever and chills. My lower back hurts a lot, and I've seen blood in my urine.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports 5 days of severe dysuria, urinary frequency (every 30 minutes), fever, chills, lower back pain, and hematuria."
+    },
+    {
+      "addition_text": "CVA tenderness as a reason for likely pyelonephritis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It suggests you might have a urinary tract infection, possibly involving your kidneys given your back pain and fever.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient's symptoms are concerning for a urinary tract infection, likely pyelonephritis given systemic symptoms and CVA tenderness."
+    },
+    {
+      "addition_text": "Elevated blood pressure attributed to pain and stress",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
+    },
+    {
+      "addition_text": "Elevated temperature consistent with fever",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is a bit high, likely due to the pain and stress. Your temperature is elevated, indicating a fever.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Elevated blood pressure is attributed to pain and stress, and elevated temperature is consistent with fever."
+    },
+    {
+      "addition_text": "Comorbidities of hypertension and Type 2 Diabetes",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Given your history of hypertension and Type 2 diabetes... We choose this because you mentioned you're allergic to penicillin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has comorbidities of hypertension and Type 2 Diabetes, and a penicillin allergy is noted."
+    },
+    {
+      "addition_text": "Social factors (smoking and daily alcohol use)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Do you smoke?\n\n[Patient]: Yes, I do. ... [Doctor]: Do you drink?\n\n[Patient]: Yes, most days.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Social factors include smoking and daily alcohol use."
+    },
+    {
+      "addition_text": "Awaiting results of UA, CBC, BMP",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I've ordered a urinalysis, complete blood count, and basic metabolic panel. We're waiting for the results.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnostics: Await results of UA, CBC, BMP."
     }
   ]
 }

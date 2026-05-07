@@ -245,8 +245,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7234108015852353,
-    "overall_rouge_l_f1": 0.5806145056881763,
+    "overall_token_f1": 0.6542635019815441,
+    "overall_rouge_l_f1": 0.4757681321102204,
     "by_section": [
       {
         "section": "Subjective",
@@ -275,19 +275,103 @@
         "gen_present": true,
         "token_f1": 0.6227544910179641,
         "rouge_l_f1": 0.35744680851063837
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.52,
     "plan_alignment_score": 0.6227544910179641
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Other'; got ['Subjective', 'Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "ClinicalDocumentationReviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the majority of the Ground Truth content. There are several minor omissions, such as specific social history details, a differential diagnosis, and specific details regarding medication instructions and the purpose of conservative management. A moderate omission is the lack of a \"Patient Understanding and Compliance\" section. Additionally, the note includes one moderate unsupported addition in the Plan section, \"RICE therapy,\" which is a clinical term not explicitly supported by the transcript, although its individual components are. Despite these issues, the note remains clinically useful.",
+    "omissions": [
+      "Patient's social history detail: 'Retired, previously active with daily walks'",
+      "Differential diagnosis: 'Synovitis'",
+      "Specific examples of ligament damage: 'MCL or ACL injury'",
+      "Total tablet count for Ibuprofen: '(total 30 tablets)'",
+      "Purpose of ice application: 'to reduce swelling'",
+      "Purpose of knee elevation: 'to help reduce swelling'",
+      "Reporting 'lack of improvement' for medication",
+      "Patient Understanding and Compliance section (Mr. Doe verbalized understanding, agreed to comply, questions answered to satisfaction)"
+    ],
+    "additions": [
+      "Assessment includes 'associated swelling, tenderness, limited range of motion, and antalgic gait' as part of the primary diagnosis description",
+      "Purpose of Ibuprofen: 'for pain and inflammation'",
+      "Patient education includes 'RICE therapy'"
+    ],
+    "hallucinations_or_unjustified_inferences": [
+      "Patient education includes 'RICE therapy'"
+    ],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "A",
+        "summary": "The Subjective section is excellent, capturing all major clinically important Ground Truth content. The only omission is a minor detail about the patient's past activity level ('Retired, previously active with daily walks'), which does not impact the clinical usefulness of the section.",
+        "omissions": [
+          "Patient's social history detail: 'Retired, previously active with daily walks'"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is perfect, with no omissions or unsupported/unknown additions. It accurately reflects all Ground Truth content.",
+        "omissions": [],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is strong, capturing the primary diagnosis and key differential diagnoses. Minor omissions include 'Synovitis' from the differential diagnosis list and specific examples of ligament damage ('MCL or ACL injury'). The addition of 'associated swelling, tenderness, limited range of motion, and antalgic gait' is supported by the transcript and enhances clarity without affecting the grade.",
+        "omissions": [
+          "Differential diagnosis: 'Synovitis'",
+          "Specific examples of ligament damage: 'MCL or ACL injury'"
+        ],
+        "additions": [
+          "Assessment includes 'associated swelling, tenderness, limited range of motion, and antalgic gait' as part of the primary diagnosis description"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section has several minor omissions, including the total tablet count for Ibuprofen, and the specific purposes of ice application and knee elevation. A moderate omission is the entire 'Patient Understanding and Compliance' section, which is important for documenting patient engagement. Additionally, the note includes a moderate unsupported addition: the term 'RICE therapy' in patient education, which is not explicitly supported by the transcript, although its individual components (Rest, Ice, Elevate) are. The addition regarding the purpose of Ibuprofen ('for pain and inflammation') is supported by the transcript and does not affect the grade. The combination of these issues warrants a B grade.",
+        "omissions": [
+          "Total tablet count for Ibuprofen: '(total 30 tablets)'",
+          "Purpose of ice application: 'to reduce swelling'",
+          "Purpose of knee elevation: 'to help reduce swelling'",
+          "Reporting 'lack of improvement' for medication",
+          "Patient Understanding and Compliance section (Mr. Doe verbalized understanding, agreed to comply, questions answered to satisfaction)"
+        ],
+        "additions": [
+          "Purpose of Ibuprofen: 'for pain and inflammation'",
+          "Patient education includes 'RICE therapy'"
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Assessment includes 'associated swelling, tenderness, limited range of motion, and antalgic gait' as part of the primary diagnosis description",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: my knee pain is really troubling me. There’s also some swelling... [Doctor]: I see some swelling and slight redness in your left knee. [Doctor]: I notice that the tenderness is over the medial joint line. [Patient]: It’s limited because of the pain, especially when I try to flex and extend it fully. [Doctor]: You also have an antalgic gait...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Left knee pain with associated swelling, tenderness, limited range of motion, and antalgic gait."
+    },
+    {
+      "addition_text": "Purpose of Ibuprofen: 'for pain and inflammation'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’m going to prescribe you some NSAIDs. Take Ibuprofen 400 mg, orally, three times daily for the next 10 days. That should help with the pain and inflammation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Medication: Prescribe Ibuprofen 400 mg orally three times daily for 10 days for pain and inflammation."
+    },
+    {
+      "addition_text": "Patient education includes 'RICE therapy'",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    }
+  ]
 }

@@ -237,8 +237,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6403150362846799,
-    "overall_rouge_l_f1": 0.483865710528681,
+    "overall_token_f1": 0.5503937953558499,
+    "overall_rouge_l_f1": 0.3548321381608512,
     "by_section": [
       {
         "section": "Subjective",
@@ -267,13 +267,6 @@
         "gen_present": true,
         "token_f1": 0.7533632286995516,
         "rouge_l_f1": 0.4364820846905538
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.3773584905660377,
@@ -281,411 +274,227 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The generated SOAP note is unreliable due to pervasive omissions of clinically important details, particularly the entire physical examination in the Objective section. A critical unjustified inference stating that physical exam findings were not documented further compromises the reliability and safety of the document. While other sections have minor to moderate issues, the Objective section's severe flaws lead to an overall unsafe grade.",
+    "overall_grade": "C",
+    "overall_summary": "The note demonstrates strong performance in the Assessment section (Grade A) and good performance in the Subjective and Plan sections (Grade B), with only minor omissions in these areas. However, the Objective section receives a Grade D due to the significant omission of all physical examination findings, which are a critical component of a comprehensive clinical note. This major gap in the Objective section materially reduces the overall clinical usefulness, despite the strengths in other areas, making the note meaningfully incomplete.",
     "omissions": [
-      "Chief Complaint: recent abnormal lab findings",
-      "HPI: joint pain primarily in his knees and hands",
-      "HPI: joint pain limiting his mobility",
-      "HPI: joint pain making daily activities such as climbing stairs challenging",
-      "HPI: shortness of breath which he attributes to his COPD",
-      "HPI: sleep is frequently interrupted by joint pain",
-      "ROS General: Overweight",
-      "ROS Respiratory: mild wheezing",
-      "ROS Musculoskeletal: joint stiffness",
-      "ROS Musculoskeletal: limited range of motion",
-      "Objective Physical Exam: General: Overweight, BMI 32, appears tired but in no acute distress",
-      "Objective Physical Exam: Cardiovascular: S1 S2 normal, no murmurs",
-      "Objective Physical Exam: Respiratory: Decreased breath sounds bilaterally, mild wheezing",
-      "Objective Physical Exam: Musculoskeletal: Tenderness in multiple joints, limited range of motion in knees and hands",
-      "Objective Physical Exam: Neurological: Reflexes normal, sensation intact",
-      "Objective Investigation/Test Results: Normal kidney function (from Basic Metabolic Panel)",
-      "Assessment: Pre-diabetes with elevated glucose levels (Generated is less specific)",
-      "Assessment: Chronic Obstructive Pulmonary Disease (COPD), symptomatic (Generated is more specific with 'exertional dyspnea')",
-      "Plan Treatment: 'orally' for Metformin",
-      "Plan Treatment: 'orally' for Lisinopril",
-      "Plan Follow-Up: Blood work in 1 month to reassess glucose levels (as a separate item)",
-      "Plan Tests Ordered: Pulmonary Function Test (PFT) for detailed COPD assessment",
-      "Plan Other: Mr. Doe understands the treatment plan and has agreed to follow the recommended interventions. All questions were answered to his satisfaction."
+      "Chief Complaint detail: \"with recent abnormal lab findings\"",
+      "HPI detail: Patient attributes shortness of breath to COPD",
+      "ROS General: \"Overweight\"",
+      "ROS General: \"moderate pain\"",
+      "ROS Respiratory: \"mild wheezing\"",
+      "ROS Musculoskeletal: \"stiffness\"",
+      "ROS Musculoskeletal: \"limited range of motion\"",
+      "Objective: Normal kidney function from Basic Metabolic Panel",
+      "Objective: All physical examination findings (General, Cardiovascular, Respiratory, Musculoskeletal, Neurological)",
+      "Plan: Medication route of administration (e.g., \"orally\") for Metformin",
+      "Plan: Medication route of administration (e.g., \"orally\") for Lisinopril",
+      "Plan: PFT purpose: \"for detailed COPD assessment\"",
+      "Plan: Patient education/engagement statement (\"Mr. Doe understands the treatment plan and has agreed to follow the recommended interventions. All questions were answered to his satisfaction.\")"
     ],
     "additions": [
-      "Subjective HPI: Pain is constant and exacerbated by movement",
-      "Subjective HPI: constant tiredness",
-      "Subjective HPI: Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet (as part of HPI, not ROS)",
-      "Objective: Physical exam findings: Not explicitly documented in conversation.",
-      "Assessment: Osteoarthritis, worsening, with moderate changes on X-ray (added specificity)",
-      "Assessment: Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea (added specificity)",
-      "Assessment: Insomnia, likely secondary to pain",
-      "Assessment: Suboptimal diet and occasional alcohol use",
-      "Plan Diagnostics: 'for follow-up' for Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs)",
-      "Plan Follow-up: 'and review blood work' (combined with appointment)"
+      "Subjective HPI: Pain described as \"constant and exacerbated by movement\"",
+      "Subjective HPI: \"constant tiredness\"",
+      "Subjective HPI: Specific examples for exertional shortness of breath (e.g., walking short distances, climbing stairs)",
+      "Objective: Meta-comment \"Physical exam findings: Not explicitly documented in conversation.\"",
+      "Assessment: Osteoarthritis described as \"worsening, with moderate changes on X-ray\"",
+      "Assessment: COPD described \"with exertional dyspnea\"",
+      "Assessment: Diagnosis of \"Insomnia, likely secondary to pain\"",
+      "Assessment: Diagnosis of \"Suboptimal diet and occasional alcohol use\"",
+      "Plan Diagnostics: \"for follow-up\" for CBC, LFTs, KFTs"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Objective: 'Physical exam findings: Not explicitly documented in conversation.' is an unjustified inference, as GroundTruthSOAP explicitly documents physical exam findings."
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits several clinically important details from the HPI, such as the specific joints affected by pain, the impact on mobility, and the attribution of shortness of breath to COPD. It also misses details like 'overweight' and 'mild wheezing' from the ROS.",
+        "grade": "B",
+        "summary": "The Subjective section has several minor omissions, including specific details from the Chief Complaint and HPI, and several items from the Review of Systems such as 'Overweight,' 'moderate pain,' 'mild wheezing,' 'stiffness,' and 'limited range of motion.' All additions in this section are supported by the transcript and therefore do not impact the grade. The core HPI is well-captured, but the cumulative minor omissions prevent an A grade.",
         "omissions": [
-          "Chief Complaint: recent abnormal lab findings",
-          "HPI: joint pain primarily in his knees and hands",
-          "HPI: joint pain limiting his mobility",
-          "HPI: joint pain making daily activities such as climbing stairs challenging",
-          "HPI: shortness of breath which he attributes to his COPD",
-          "HPI: sleep is frequently interrupted by joint pain",
-          "ROS General: Overweight",
-          "ROS Respiratory: mild wheezing",
-          "ROS Musculoskeletal: joint stiffness",
-          "ROS Musculoskeletal: limited range of motion"
+          "Chief Complaint detail: \"with recent abnormal lab findings\"",
+          "HPI detail: Patient attributes shortness of breath to COPD",
+          "ROS General: \"Overweight\"",
+          "ROS General: \"moderate pain\"",
+          "ROS Respiratory: \"mild wheezing\"",
+          "ROS Musculoskeletal: \"stiffness\"",
+          "ROS Musculoskeletal: \"limited range of motion\""
         ],
         "additions": [
-          "HPI: Pain is constant and exacerbated by movement",
-          "HPI: constant tiredness",
-          "HPI: Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet (as part of HPI, not ROS)"
+          "HPI: Pain described as \"constant and exacerbated by movement\"",
+          "HPI: \"constant tiredness\"",
+          "HPI: Specific examples for exertional shortness of breath (e.g., walking short distances, climbing stairs)"
         ]
       },
       {
         "section": "Objective",
-        "grade": "F",
-        "summary": "This section receives an F due to the complete omission of all physical examination findings and the 'Normal kidney function' detail from the investigation results. Furthermore, it includes a critical unjustified inference stating that physical exam findings were 'Not explicitly documented in conversation,' which directly contradicts the GroundTruth and renders the section unsafe.",
+        "grade": "D",
+        "summary": "This section has a major omission of all physical examination findings (General, Cardiovascular, Respiratory, Musculoskeletal, Neurological) and the detail about 'Normal kidney function' from the Basic Metabolic Panel. While the generated note includes a supported meta-comment acknowledging the absence of physical exam findings in the conversation, their omission from the GroundTruth note significantly impacts the completeness and clinical usefulness of this section, constituting a major issue.",
         "omissions": [
-          "Physical Exam General: Overweight, BMI 32, appears tired but in no acute distress",
-          "Physical Exam Cardiovascular: S1 S2 normal, no murmurs",
-          "Physical Exam Respiratory: Decreased breath sounds bilaterally, mild wheezing",
-          "Physical Exam Musculoskeletal: Tenderness in multiple joints, limited range of motion in knees and hands",
-          "Physical Exam Neurological: Reflexes normal, sensation intact",
-          "Investigation/Test Results: Normal kidney function (from Basic Metabolic Panel)"
+          "Basic Metabolic Panel: Normal kidney function",
+          "Physical Examination: General: Overweight, BMI 32, appears tired but in no acute distress.",
+          "Physical Examination: Cardiovascular: S1 S2 normal, no murmurs.",
+          "Physical Examination: Respiratory: Decreased breath sounds bilaterally, mild wheezing.",
+          "Physical Examination: Musculoskeletal: Tenderness in multiple joints, limited range of motion in knees and hands.",
+          "Physical Examination: Neurological: Reflexes normal, sensation intact."
         ],
         "additions": [
-          "Physical exam findings: Not explicitly documented in conversation."
+          "Meta-comment \"Physical exam findings: Not explicitly documented in conversation.\""
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is strong, with only a minor omission regarding the specificity of 'Pre-diabetes with elevated glucose levels' compared to 'Pre-diabetes.'",
-        "omissions": [
-          "Pre-diabetes with elevated glucose levels (Generated is less specific)",
-          "Chronic Obstructive Pulmonary Disease (COPD), symptomatic (Generated is more specific with 'exertional dyspnea')"
-        ],
+        "summary": "This section is excellent, with no omissions from the GroundTruth. All additions, such as 'Insomnia, likely secondary to pain' and 'Suboptimal diet and occasional alcohol use,' are fully supported by the transcript and enhance the clinical picture without introducing unsupported content.",
+        "omissions": [],
         "additions": [
-          "Osteoarthritis, worsening, with moderate changes on X-ray (added specificity)",
-          "Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea (added specificity)",
-          "Insomnia, likely secondary to pain",
-          "Suboptimal diet and occasional alcohol use"
+          "Osteoarthritis described as \"worsening, with moderate changes on X-ray\"",
+          "COPD described \"with exertional dyspnea\"",
+          "Diagnosis of \"Insomnia, likely secondary to pain\"",
+          "Diagnosis of \"Suboptimal diet and occasional alcohol use\""
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section has minor omissions, including the route of administration ('orally') for medications and a detail about the purpose of the PFT. A more significant omission is the lack of documentation that Mr. Doe understood and agreed to the treatment plan.",
+        "summary": "The Plan section has several minor omissions, including the route of administration for medications (Metformin, Lisinopril), the specific purpose of the PFT ('for detailed COPD assessment'), and the patient education/engagement statement. All additions in this section are supported by the transcript and do not impact the grade. The core treatment plan and follow-up recommendations are present, but the minor omissions reduce the overall completeness.",
         "omissions": [
-          "Medication details: 'orally' for Metformin",
-          "Medication details: 'orally' for Lisinopril",
-          "Follow-Up: Blood work in 1 month to reassess glucose levels (as a separate item)",
-          "Tests Ordered: Pulmonary Function Test (PFT) for detailed COPD assessment",
-          "Other: Mr. Doe understands the treatment plan and has agreed to follow the recommended interventions. All questions were answered to his satisfaction."
+          "Medication route of administration (e.g., \"orally\") for Metformin",
+          "Medication route of administration (e.g., \"orally\") for Lisinopril",
+          "PFT purpose: \"for detailed COPD assessment\"",
+          "Patient education/engagement statement (\"Mr. Doe understands the treatment plan and has agreed to follow the recommended interventions. All questions were answered to his satisfaction.\")"
         ],
         "additions": [
-          "Diagnostics: 'for follow-up' for Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs)",
-          "Follow-up: 'and review blood work' (combined with appointment)"
+          "Diagnostics: \"for follow-up\" for CBC, LFTs, KFTs"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "No discrepancies were found in this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective HPI: Pain is constant and exacerbated by movement",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "It's pretty much constant, and it gets worse when I move.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective HPI: constant tiredness",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I also feel a bit tired all the time.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective HPI: Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet (as part of HPI, not ROS)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: No, nothing like that. No, I haven't noticed any of that.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet."
-      },
-      {
-        "addition_text": "Objective: Physical exam findings: Not explicitly documented in conversation.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": null,
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Physical exam findings are not explicitly documented in the conversation."
-      },
-      {
-        "addition_text": "Assessment: Osteoarthritis, worsening, with moderate changes on X-ray (added specificity)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I've been having worsening joint pain over the past three months... [Doctor]: Additionally, your X-ray shows moderate osteoarthritic changes in your knees.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Osteoarthritis, worsening, with moderate changes on X-ray."
-      },
-      {
-        "addition_text": "Assessment: Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea (added specificity)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I see that you have a history of COPD... [Patient]: I have shortness of breath when I exert myself, which I think is because of my COPD.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea."
-      },
-      {
-        "addition_text": "Assessment: Insomnia, likely secondary to pain",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: My sleep has also been affected because of the pain. I usually get only about 5-6 hours of sleep a night.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Insomnia, likely secondary to pain."
-      },
-      {
-        "addition_text": "Assessment: Suboptimal diet and occasional alcohol use",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I don't have much access to fresh fruits and vegetables, so my diet is mostly processed foods. I drink alcohol occasionally, maybe 1-2 drinks a week.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Suboptimal diet and occasional alcohol use."
-      },
-      {
-        "addition_text": "Plan Diagnostics: 'for follow-up' for Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Additionally, we’ll order a Pulmonary Function Test (PFT)... We’ll do a Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs).",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics ordered include Pulmonary Function Test (PFT), Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs) for follow-up."
-      },
-      {
-        "addition_text": "Plan Follow-up: 'and review blood work' (combined with appointment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’ll need to follow up in a month to reassess your blood pressure and glucose levels. We’ll also do blood work at that time.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow up in one month to reassess blood pressure and glucose levels, and review blood work."
-      },
-      {
-        "addition_text": "HPI: Pain is constant and exacerbated by movement",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "It's pretty much constant, and it gets worse when I move.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "HPI: constant tiredness",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I also feel a bit tired all the time.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "HPI: Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet (as part of HPI, not ROS)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: No, nothing like that. No, I haven't noticed any of that.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet."
-      },
-      {
-        "addition_text": "Physical exam findings: Not explicitly documented in conversation.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": null,
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Physical exam findings are not explicitly documented in the conversation."
-      },
-      {
-        "addition_text": "Osteoarthritis, worsening, with moderate changes on X-ray (added specificity)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I've been having worsening joint pain over the past three months... [Doctor]: Additionally, your X-ray shows moderate osteoarthritic changes in your knees.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Osteoarthritis, worsening, with moderate changes on X-ray."
-      },
-      {
-        "addition_text": "Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea (added specificity)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I see that you have a history of COPD... [Patient]: I have shortness of breath when I exert myself, which I think is because of my COPD.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea."
-      },
-      {
-        "addition_text": "Insomnia, likely secondary to pain",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: My sleep has also been affected because of the pain. I usually get only about 5-6 hours of sleep a night.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Insomnia, likely secondary to pain."
-      },
-      {
-        "addition_text": "Suboptimal diet and occasional alcohol use",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I don't have much access to fresh fruits and vegetables, so my diet is mostly processed foods. I drink alcohol occasionally, maybe 1-2 drinks a week.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Suboptimal diet and occasional alcohol use."
-      },
-      {
-        "addition_text": "Diagnostics: 'for follow-up' for Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Additionally, we’ll order a Pulmonary Function Test (PFT)... We’ll do a Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs).",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics ordered include Pulmonary Function Test (PFT), Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs) for follow-up."
-      },
-      {
-        "addition_text": "Follow-up: 'and review blood work' (combined with appointment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’ll need to follow up in a month to reassess your blood pressure and glucose levels. We’ll also do blood work at that time.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow up in one month to reassess blood pressure and glucose levels, and review blood work."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective HPI: Pain is constant and exacerbated by movement",
+      "addition_text": "Subjective HPI: Pain described as \"constant and exacerbated by movement\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's pretty much constant, and it gets worse when I move.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Subjective HPI: constant tiredness",
+      "addition_text": "Subjective HPI: \"constant tiredness\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also feel a bit tired all the time.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Subjective HPI: Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet (as part of HPI, not ROS)",
+      "addition_text": "Subjective HPI: Specific examples for exertional shortness of breath (e.g., walking short distances, climbing stairs)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: No, nothing like that. No, I haven't noticed any of that.",
+      "transcript_evidence": "[Patient]: I have shortness of breath when I exert myself... I also feel a bit tired all the time. Walking even short distances can make me short of breath.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet."
+      "matched_claim_text": "Also reports shortness of breath with exertion (e.g., walking short distances, climbing stairs) and constant tiredness."
     },
     {
-      "addition_text": "Objective: Physical exam findings: Not explicitly documented in conversation.",
+      "addition_text": "Objective: Meta-comment \"Physical exam findings: Not explicitly documented in conversation.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Physical exam findings are not explicitly documented in the conversation."
     },
     {
-      "addition_text": "Assessment: Osteoarthritis, worsening, with moderate changes on X-ray (added specificity)",
+      "addition_text": "Assessment: Osteoarthritis described as \"worsening, with moderate changes on X-ray\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I've been having worsening joint pain over the past three months... [Doctor]: Additionally, your X-ray shows moderate osteoarthritic changes in your knees.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Osteoarthritis, worsening, with moderate changes on X-ray."
     },
     {
-      "addition_text": "Assessment: Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea (added specificity)",
+      "addition_text": "Assessment: COPD described \"with exertional dyspnea\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see that you have a history of COPD... [Patient]: I have shortness of breath when I exert myself, which I think is because of my COPD.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea."
     },
     {
-      "addition_text": "Assessment: Insomnia, likely secondary to pain",
+      "addition_text": "Assessment: Diagnosis of \"Insomnia, likely secondary to pain\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My sleep has also been affected because of the pain. I usually get only about 5-6 hours of sleep a night.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Insomnia, likely secondary to pain."
     },
     {
-      "addition_text": "Assessment: Suboptimal diet and occasional alcohol use",
+      "addition_text": "Assessment: Diagnosis of \"Suboptimal diet and occasional alcohol use\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I don't have much access to fresh fruits and vegetables, so my diet is mostly processed foods. I drink alcohol occasionally, maybe 1-2 drinks a week.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Suboptimal diet and occasional alcohol use."
     },
     {
-      "addition_text": "Plan Diagnostics: 'for follow-up' for Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs)",
+      "addition_text": "Plan Diagnostics: \"for follow-up\" for CBC, LFTs, KFTs",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Additionally, we’ll order a Pulmonary Function Test (PFT)... We’ll do a Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs).",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnostics ordered include Pulmonary Function Test (PFT), Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs) for follow-up."
     },
     {
-      "addition_text": "Plan Follow-up: 'and review blood work' (combined with appointment)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll need to follow up in a month to reassess your blood pressure and glucose levels. We’ll also do blood work at that time.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow up in one month to reassess blood pressure and glucose levels, and review blood work."
-    },
-    {
-      "addition_text": "HPI: Pain is constant and exacerbated by movement",
+      "addition_text": "HPI: Pain described as \"constant and exacerbated by movement\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's pretty much constant, and it gets worse when I move.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "HPI: constant tiredness",
+      "addition_text": "HPI: \"constant tiredness\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also feel a bit tired all the time.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "HPI: Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet (as part of HPI, not ROS)",
+      "addition_text": "HPI: Specific examples for exertional shortness of breath (e.g., walking short distances, climbing stairs)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: No, nothing like that. No, I haven't noticed any of that.",
+      "transcript_evidence": "[Patient]: I have shortness of breath when I exert myself... I also feel a bit tired all the time. Walking even short distances can make me short of breath.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Denies chest pain, palpitations, dizziness, headaches, or tingling/numbness in hands/feet."
+      "matched_claim_text": "Also reports shortness of breath with exertion (e.g., walking short distances, climbing stairs) and constant tiredness."
     },
     {
-      "addition_text": "Physical exam findings: Not explicitly documented in conversation.",
+      "addition_text": "Meta-comment \"Physical exam findings: Not explicitly documented in conversation.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Physical exam findings are not explicitly documented in the conversation."
     },
     {
-      "addition_text": "Osteoarthritis, worsening, with moderate changes on X-ray (added specificity)",
+      "addition_text": "Osteoarthritis described as \"worsening, with moderate changes on X-ray\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I've been having worsening joint pain over the past three months... [Doctor]: Additionally, your X-ray shows moderate osteoarthritic changes in your knees.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Osteoarthritis, worsening, with moderate changes on X-ray."
     },
     {
-      "addition_text": "Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea (added specificity)",
+      "addition_text": "COPD described \"with exertional dyspnea\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see that you have a history of COPD... [Patient]: I have shortness of breath when I exert myself, which I think is because of my COPD.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Chronic Obstructive Pulmonary Disease (COPD), with exertional dyspnea."
     },
     {
-      "addition_text": "Insomnia, likely secondary to pain",
+      "addition_text": "Diagnosis of \"Insomnia, likely secondary to pain\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My sleep has also been affected because of the pain. I usually get only about 5-6 hours of sleep a night.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Insomnia, likely secondary to pain."
     },
     {
-      "addition_text": "Suboptimal diet and occasional alcohol use",
+      "addition_text": "Diagnosis of \"Suboptimal diet and occasional alcohol use\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I don't have much access to fresh fruits and vegetables, so my diet is mostly processed foods. I drink alcohol occasionally, maybe 1-2 drinks a week.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Suboptimal diet and occasional alcohol use."
     },
     {
-      "addition_text": "Diagnostics: 'for follow-up' for Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs)",
+      "addition_text": "Diagnostics: \"for follow-up\" for CBC, LFTs, KFTs",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Additionally, we’ll order a Pulmonary Function Test (PFT)... We’ll do a Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs).",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnostics ordered include Pulmonary Function Test (PFT), Complete Blood Count (CBC), Liver Function Tests (LFTs), and Kidney Function Tests (KFTs) for follow-up."
-    },
-    {
-      "addition_text": "Follow-up: 'and review blood work' (combined with appointment)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll need to follow up in a month to reassess your blood pressure and glucose levels. We’ll also do blood work at that time.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow up in one month to reassess blood pressure and glucose levels, and review blood work."
     }
   ]
 }

@@ -226,8 +226,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6748394879973827,
-    "overall_rouge_l_f1": 0.5761205146533823,
+    "overall_token_f1": 0.5935493599967284,
+    "overall_rouge_l_f1": 0.47015064331672785,
     "by_section": [
       {
         "section": "Subjective",
@@ -256,13 +256,6 @@
         "gen_present": true,
         "token_f1": 0.631578947368421,
         "rouge_l_f1": 0.3829787234042554
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.36363636363636365,
@@ -271,166 +264,136 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is generally well-aligned with the GroundTruth, but it has minor omissions. Specifically, it misses a formal diagnosis in the Assessment section and a key patient education detail regarding medication adherence in the Plan. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures most of the critical clinical information from the Ground Truth and Transcript. However, it has several minor omissions, primarily related to section headers and specific details in the Plan. A moderate omission is the lack of a specific ICD-10 diagnosis in the Assessment. Additionally, there is one moderate unsupported addition in the Plan regarding medication dosage, which, while likely correct, lacks explicit transcript evidence.",
     "omissions": [
-      "Assessment: Formal diagnosis of \"Nausea with vomiting, unspecified\"",
-      "Plan: Patient education detail regarding \"importance of medication adherence despite concerns about side effects, emphasizing the benefits of symptom relief and preventing complications\"",
-      "Plan: Instruction to \"Schedule a follow-up visit in the clinic in 1 week\""
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Specific diagnosis \"Nausea with vomiting, unspecified\" in Assessment",
+      "Reason for smoking cessation: \"to improve overall health and potentially reduce gastrointestinal symptoms\"",
+      "Details regarding medication adherence: \"despite concerns about side effects, emphasizing the benefits of symptom relief and preventing complications\"",
+      "Explicit \"Instructions\" section header in Plan"
     ],
     "additions": [
-      "Subjective: Mention of \"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\"",
-      "Assessment: Summary of HPI/ROS details: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work. No fever, chills, or weight loss reported.\"",
-      "Plan: General instruction to \"Contact if symptoms change or worsen\""
+      "\"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\" in Subjective",
+      "Summary of HPI/ROS in Assessment: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work.\"",
+      "Summary of ROS in Assessment: \"No fever, chills, or weight loss reported.\"",
+      "\"1 tablet\" for Promethazine dosage",
+      "\"Contact if symptoms change or worsen\" instruction in Plan's Follow-up"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "\"1 tablet\" for Promethazine dosage"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "This section accurately captures all GroundTruth content. The addition regarding the patient acknowledging chronic conditions is supported by the transcript and does not reduce the grade.",
-        "omissions": [],
+        "summary": "The Subjective section is excellent, capturing all relevant clinical details. The only issues are minor omissions of explicit section headers (CC, HPI, ROS), which do not impact clinical content. The addition regarding chronic conditions was supported by the transcript.",
+        "omissions": [
+          "Explicit \"Chief Complaint (CC)\" section header",
+          "Explicit \"History of Present Illness (HPI)\" section header",
+          "Explicit \"Review of Systems (ROS)\" section header"
+        ],
         "additions": [
-          "Mention of \"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\""
+          "\"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\""
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is complete and accurate, with no omissions or unsupported additions.",
+        "summary": "The Objective section is perfect, with no omissions or unsupported/unknown additions. All vital signs and physical exam findings are accurately documented.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section omits the formal diagnosis of \"Nausea with vomiting, unspecified.\" The additional summary of HPI/ROS details and the denial of fever/chills/weight loss are supported by the transcript and do not reduce the grade.",
+        "summary": "The Assessment section provides a good clinical summary and correctly identifies contributing factors. However, it omits the specific ICD-10 diagnosis of 'Nausea with vomiting, unspecified,' which is a moderate omission. The additions in this section were supported by the transcript and do not negatively impact the grade.",
         "omissions": [
-          "Formal diagnosis of \"Nausea with vomiting, unspecified\""
+          "Specific diagnosis \"Nausea with vomiting, unspecified\""
         ],
         "additions": [
-          "Summary of HPI/ROS details: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work.\"",
-          "\"No fever, chills, or weight loss reported.\""
+          "Summary of HPI/ROS: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work.\"",
+          "Summary of ROS: \"No fever, chills, or weight loss reported.\""
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section omits a specific patient education detail regarding the importance of medication adherence despite concerns about side effects. It also omits the instruction to schedule a follow-up visit in the clinic in 1 week. The general instruction to contact if symptoms change or worsen is supported by the transcript.",
+        "summary": "The Plan section is mostly comprehensive but has several minor omissions, such as the full rationale for smoking cessation and detailed benefits of medication adherence. A moderate issue is the unsupported addition of '1 tablet' for Promethazine dosage, which, while likely standard, lacks explicit support from the transcript. Other additions in this section were supported.",
         "omissions": [
-          "Patient education detail regarding \"importance of medication adherence despite concerns about side effects, emphasizing the benefits of symptom relief and preventing complications\"",
-          "Instruction to \"Schedule a follow-up visit in the clinic in 1 week\""
+          "Reason for smoking cessation: \"to improve overall health and potentially reduce gastrointestinal symptoms\"",
+          "Details regarding medication adherence: \"despite concerns about side effects, emphasizing the benefits of symptom relief and preventing complications\"",
+          "Explicit \"Instructions\" section header"
         ],
         "additions": [
-          "General instruction to \"Contact if symptoms change or worsen\""
+          "\"1 tablet\" for Promethazine dosage",
+          "\"Contact if symptoms change or worsen\" instruction in Follow-up"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "This section has no discrepancies and is fully aligned with the GroundTruth.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: Mention of \"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] ...I suspect the nausea and vomiting could be related to your chronic conditions, like Irritable Bowel Syndrome (IBS) and Type 2 Diabetes. Does that make sense to you?\n[patient] Yes, it does.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes."
-      },
-      {
-        "addition_text": "Assessment: Summary of HPI/ROS details: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work. No fever, chills, or weight loss reported.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm really struggling with severe nausea and vomiting. It's been going on for the past 5 days. I vomit about 4-5 times a day and constantly feel nauseous. Yes, occasionally I have diarrhea and there's a diffuse abdominal pain that comes with it. The nausea wakes me up at night, so I can't sleep well. I haven't been able to do my daily chores or go to work for several days.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work."
-      },
-      {
-        "addition_text": "Plan: General instruction to \"Contact if symptoms change or worsen\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "If anything changes or you have new symptoms, don't hesitate to reach out or visit the emergency room if necessary.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up: Contact if symptoms change or worsen, or visit ER if necessary."
-      },
-      {
-        "addition_text": "Mention of \"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] ...I suspect the nausea and vomiting could be related to your chronic conditions, like Irritable Bowel Syndrome (IBS) and Type 2 Diabetes. Does that make sense to you?\n[patient] Yes, it does.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes."
-      },
-      {
-        "addition_text": "Summary of HPI/ROS details: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm really struggling with severe nausea and vomiting. It's been going on for the past 5 days. I vomit about 4-5 times a day and constantly feel nauseous. Yes, occasionally I have diarrhea and there's a diffuse abdominal pain that comes with it. The nausea wakes me up at night, so I can't sleep well. I haven't been able to do my daily chores or go to work for several days.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work."
-      },
-      {
-        "addition_text": "\"No fever, chills, or weight loss reported.\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "No fever or chills, and I haven't noticed any weight loss.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "No fever, chills, or weight loss reported."
-      },
-      {
-        "addition_text": "General instruction to \"Contact if symptoms change or worsen\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "If anything changes or you have new symptoms, don't hesitate to reach out or visit the emergency room if necessary.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up: Contact if symptoms change or worsen, or visit ER if necessary."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Mention of \"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\"",
+      "addition_text": "\"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\" in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] ...I suspect the nausea and vomiting could be related to your chronic conditions, like Irritable Bowel Syndrome (IBS) and Type 2 Diabetes. Does that make sense to you?\n[patient] Yes, it does.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes."
     },
     {
-      "addition_text": "Assessment: Summary of HPI/ROS details: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work. No fever, chills, or weight loss reported.\"",
+      "addition_text": "Summary of HPI/ROS in Assessment: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm really struggling with severe nausea and vomiting. It's been going on for the past 5 days. I vomit about 4-5 times a day and constantly feel nauseous. Yes, occasionally I have diarrhea and there's a diffuse abdominal pain that comes with it. The nausea wakes me up at night, so I can't sleep well. I haven't been able to do my daily chores or go to work for several days.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work."
     },
     {
-      "addition_text": "Plan: General instruction to \"Contact if symptoms change or worsen\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "If anything changes or you have new symptoms, don't hesitate to reach out or visit the emergency room if necessary.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up: Contact if symptoms change or worsen, or visit ER if necessary."
-    },
-    {
-      "addition_text": "Mention of \"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] ...I suspect the nausea and vomiting could be related to your chronic conditions, like Irritable Bowel Syndrome (IBS) and Type 2 Diabetes. Does that make sense to you?\n[patient] Yes, it does.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes."
-    },
-    {
-      "addition_text": "Summary of HPI/ROS details: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm really struggling with severe nausea and vomiting. It's been going on for the past 5 days. I vomit about 4-5 times a day and constantly feel nauseous. Yes, occasionally I have diarrhea and there's a diffuse abdominal pain that comes with it. The nausea wakes me up at night, so I can't sleep well. I haven't been able to do my daily chores or go to work for several days.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work."
-    },
-    {
-      "addition_text": "\"No fever, chills, or weight loss reported.\"",
+      "addition_text": "Summary of ROS in Assessment: \"No fever, chills, or weight loss reported.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No fever or chills, and I haven't noticed any weight loss.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "No fever, chills, or weight loss reported."
     },
     {
-      "addition_text": "General instruction to \"Contact if symptoms change or worsen\"",
+      "addition_text": "\"1 tablet\" for Promethazine dosage",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Contact if symptoms change or worsen\" instruction in Plan's Follow-up",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If anything changes or you have new symptoms, don't hesitate to reach out or visit the emergency room if necessary.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Follow-up: Contact if symptoms change or worsen, or visit ER if necessary."
+    },
+    {
+      "addition_text": "\"Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] ...I suspect the nausea and vomiting could be related to your chronic conditions, like Irritable Bowel Syndrome (IBS) and Type 2 Diabetes. Does that make sense to you?\n[patient] Yes, it does.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient acknowledges chronic conditions of Irritable Bowel Syndrome (IBS) and Type 2 Diabetes."
+    },
+    {
+      "addition_text": "Summary of HPI/ROS: \"Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'm really struggling with severe nausea and vomiting. It's been going on for the past 5 days. I vomit about 4-5 times a day and constantly feel nauseous. Yes, occasionally I have diarrhea and there's a diffuse abdominal pain that comes with it. The nausea wakes me up at night, so I can't sleep well. I haven't been able to do my daily chores or go to work for several days.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Acute onset of severe nausea, vomiting, diarrhea, and diffuse abdominal pain for 5 days, significantly impacting sleep, daily activities, and work."
+    },
+    {
+      "addition_text": "Summary of ROS: \"No fever, chills, or weight loss reported.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No fever or chills, and I haven't noticed any weight loss.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No fever, chills, or weight loss reported."
+    },
+    {
+      "addition_text": "\"Contact if symptoms change or worsen\" instruction in Follow-up",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If anything changes or you have new symptoms, don't hesitate to reach out or visit the emergency room if necessary.",
       "evidence_source": "agent3_claims",

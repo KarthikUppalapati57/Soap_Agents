@@ -227,8 +227,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6335749363078333,
-    "overall_rouge_l_f1": 0.5420148814749032,
+    "overall_token_f1": 0.5419686703847917,
+    "overall_rouge_l_f1": 0.42751860184362905,
     "by_section": [
       {
         "section": "Subjective",
@@ -257,19 +257,119 @@
         "gen_present": true,
         "token_f1": 0.46706586826347307,
         "rouge_l_f1": 0.2705314009661836
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.5,
     "plan_alignment_score": 0.46706586826347307
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Other'; got ['Subjective', 'Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the patient's presentation, examination, diagnosis, and core treatment plan. It includes several minor omissions, such as specific section headers, the severity of nausea and vomiting, and details about the patient's recreational activities. A moderate omission is the lack of a statement regarding patient understanding and agreement with the plan. There are also two minor unsupported additions related to formatting in the Plan section. Despite these, the note remains clinically sound and useful.",
+    "omissions": [],
+    "additions": [],
+    "hallucinations_or_unjustified_inferences": [
+      "Numbering of plan items",
+      "Bold formatting for plan item categories"
+    ],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section is mostly clinically aligned and usable. It omits several minor details such as specific section headers, the patient's occupation, irregular diet, recreational activities, and the 'Other Systems: Negative' statement. A moderate omission is the lack of explicit mention of the 'moderate to severe' severity of nausea and vomiting. No unsupported or unknown additions were present.",
+        "omissions": [
+          "Chief Complaint section header",
+          "History of Present Illness section header",
+          "Review of Systems (ROS) section header",
+          "Severity of nausea and vomiting (moderate to severe)",
+          "Patient's occupation (part-time in retail)",
+          "Irregular diet",
+          "Recreational activities (watching TV and reading)",
+          "\"Other Systems: Negative\" in ROS"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is excellent, capturing all major clinically important Ground Truth content. The only omissions are the 'Physical Examination' section header and the explicit listing of specific vital signs (BP, HR, RR, Temp) being within normal limits, which are minor details as 'Vital Signs: Within normal limits' is captured. No unsupported or unknown additions were present.",
+        "omissions": [
+          "Physical Examination section header",
+          "Specific vital signs (BP, HR, RR, Temp) being within normal limits"
+        ],
+        "additions": [
+          "\"Labs: Pending blood work\""
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is excellent, accurately identifying the primary diagnosis. The omissions are minor, consisting of the 'Primary diagnosis' section header and the 'unspecified' qualifier for nausea with vomiting. No unsupported or unknown additions were present.",
+        "omissions": [
+          "Primary diagnosis section header",
+          "\"unspecified\" qualifier for nausea with vomiting"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section is mostly clinically aligned and usable. It omits several minor details such as specific section headers, the quantity of Ondansetron, and the rationale 'to prevent dehydration' for oral rehydration solution. A moderate omission is the lack of a statement regarding patient understanding and agreement with the recommended plan. Additionally, there are two minor unsupported additions related to formatting: numbering of plan items and bold formatting for plan item categories.",
+        "omissions": [
+          "Medical Treatment section header",
+          "Further Testing section header",
+          "Patient Education and Lifestyle Recommendations section header",
+          "Follow-up Recommendations section header",
+          "Quantity of Ondansetron (6 tablets)",
+          "\"to prevent dehydration\" for oral rehydration solution",
+          "Statement about patient understanding and agreement with the plan"
+        ],
+        "additions": [
+          "\"sip small amounts frequently\" for oral rehydration solution",
+          "\"Return Precautions: Return immediately if symptoms worsen or unable to keep fluids down\"",
+          "Numbering of plan items",
+          "Bold formatting for plan item categories"
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "\"Labs: Pending blood work\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We also need to do some blood work to check for any electrolyte imbalances and other possible underlying conditions.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Labs are pending blood work."
+    },
+    {
+      "addition_text": "\"sip small amounts frequently\" for oral rehydration solution",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'm also recommending an oral rehydration solution to keep you hydrated. Try to sip small amounts frequently. Increase your fluid intake as much as possible.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recommend oral rehydration solution, sipping small amounts frequently, and increasing overall fluid intake."
+    },
+    {
+      "addition_text": "\"Return Precautions: Return immediately if symptoms worsen or unable to keep fluids down\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If you feel worse or can't keep any fluids down, come back immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Instruct patient to return immediately if symptoms worsen or unable to keep fluids down."
+    },
+    {
+      "addition_text": "Numbering of plan items",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Bold formatting for plan item categories",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    }
+  ]
 }

@@ -173,8 +173,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7132743652743653,
-    "overall_rouge_l_f1": 0.6283987026715174,
+    "overall_token_f1": 0.6415929565929566,
+    "overall_rouge_l_f1": 0.5354983783393967,
     "by_section": [
       {
         "section": "Subjective",
@@ -203,13 +203,6 @@
         "gen_present": true,
         "token_f1": 0.6272727272727272,
         "rouge_l_f1": 0.5
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.43243243243243246,
@@ -218,26 +211,24 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The document has multiple issues, primarily in the Plan section, which omits a referral to an Orthopedic Specialist and patient instructions on proper back care, and includes an unsupported 'Contingency' category. The Assessment section also has a minor omission regarding the consistency of findings. While some sections are strong, the cumulative issues reduce the overall quality.",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, with excellent Subjective and Objective sections. However, the Assessment section has a minor omission of explanatory detail. The Plan section contains multiple moderate omissions, including a specific specialist referral and the entire 'Environmental and Lifestyle Considerations' section, which collectively make the note meaningfully incomplete and warrant an overall grade of C.",
     "omissions": [
-      "Assessment detail: explicit statement that the patient's symptoms and physical examination findings are consistent with lumbar radiculopathy",
-      "Plan: Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy",
-      "Plan: Follow-up detail 'to assess response to treatment and determine further management steps'",
-      "Plan: Patient instruction on 'proper back care'",
-      "Plan: Environmental and Lifestyle Consideration: patient lives in an affluent suburban area with excellent access to healthcare services and low environmental health risks",
-      "Plan: Environmental and Lifestyle Consideration: patient has a high level of health literacy and is very cooperative and motivated to follow medical advice"
+      "Explanation in Assessment that patient's symptoms and physical examination findings are consistent with lumbar radiculopathy",
+      "Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy",
+      "Detail in Follow-Up: 'to assess response to treatment and determine further management steps'",
+      "Patient instruction on 'proper back care'",
+      "Patient instruction to 'avoid indulging in foods that could affect blood sugar levels'",
+      "Entire 'Environmental and Lifestyle Considerations' section"
     ],
     "additions": [
-      "Subjective: description of pain as 'sharp'",
-      "Plan: new category 'Contingency'",
-      "Plan: instruction to call clinic 'immediately' if symptoms worsen or new symptoms develop"
+      "Description of pain as 'sharp' in Subjective"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section accurately captures all clinically important GroundTruth content and contains no unsupported additions.",
+        "summary": "The Subjective section is excellent, accurately capturing all Ground Truth content. The addition of 'sharp' to describe the pain is supported by the transcript and does not reduce the grade.",
         "omissions": [],
         "additions": [
           "Description of pain as 'sharp'"
@@ -246,111 +237,43 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurate, with no omissions or unsupported additions.",
+        "summary": "The Objective section is perfect, with no omissions or additions, fully aligning with the Ground Truth.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section is missing the explicit statement that the patient's symptoms and physical examination findings are consistent with lumbar radiculopathy.",
+        "summary": "The Assessment section accurately identifies the primary diagnosis. However, it omits the explanation that the patient's symptoms and physical examination findings are consistent with lumbar radiculopathy, which is a minor omission of contextual detail.",
         "omissions": [
-          "Explicit statement that the patient’s symptoms and physical examination findings are consistent with lumbar radiculopathy"
+          "Explanation that patient’s symptoms and physical examination findings are consistent with lumbar radiculopathy"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several omissions, including a referral to an Orthopedic Specialist and patient instruction on proper back care. It also includes an unsupported addition of a new 'Contingency' category.",
+        "summary": "The Plan section has several omissions that make it meaningfully incomplete. It notably misses the referral to Dr. Emily Carter, Orthopedic Specialist, and the entire 'Environmental and Lifestyle Considerations' section, both of which are moderate to major omissions. Additionally, minor details regarding the rationale for follow-up, proper back care instructions, and specific dietary advice for diabetes management are omitted.",
         "omissions": [
           "Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy",
-          "Follow-up detail 'to assess response to treatment and determine further management steps'",
+          "Detail in Follow-Up: 'to assess response to treatment and determine further management steps'",
           "Patient instruction on 'proper back care'",
-          "Environmental and Lifestyle Consideration: patient lives in an affluent suburban area with excellent access to healthcare services and low environmental health risks",
-          "Environmental and Lifestyle Consideration: patient has a high level of health literacy and is very cooperative and motivated to follow medical advice"
+          "Patient instruction to 'avoid indulging in foods that could affect blood sugar levels'",
+          "Entire 'Environmental and Lifestyle Considerations' section"
         ],
-        "additions": [
-          "New category 'Contingency'",
-          "Instruction to call clinic 'immediately' if symptoms worsen or new symptoms develop"
-        ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The Other section is complete and accurate, with no omissions or unsupported additions.",
-        "omissions": [],
         "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: description of pain as 'sharp'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Sure, it’s a constant, sharp pain that radiates down my left leg.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Plan: new category 'Contingency'",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Plan: instruction to call clinic 'immediately' if symptoms worsen or new symptoms develop",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: If your symptoms worsen or you develop new symptoms, call the clinic immediately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Advised to call clinic immediately if symptoms worsen or new symptoms develop."
-      },
-      {
-        "addition_text": "Description of pain as 'sharp'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Sure, it’s a constant, sharp pain that radiates down my left leg.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "New category 'Contingency'",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Instruction to call clinic 'immediately' if symptoms worsen or new symptoms develop",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: If your symptoms worsen or you develop new symptoms, call the clinic immediately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Advised to call clinic immediately if symptoms worsen or new symptoms develop."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: description of pain as 'sharp'",
+      "addition_text": "Description of pain as 'sharp' in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Sure, it’s a constant, sharp pain that radiates down my left leg.",
       "evidence_source": "gemini",
       "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: new category 'Contingency'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: instruction to call clinic 'immediately' if symptoms worsen or new symptoms develop",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If your symptoms worsen or you develop new symptoms, call the clinic immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advised to call clinic immediately if symptoms worsen or new symptoms develop."
     },
     {
       "addition_text": "Description of pain as 'sharp'",
@@ -358,20 +281,6 @@
       "transcript_evidence": "Sure, it’s a constant, sharp pain that radiates down my left leg.",
       "evidence_source": "gemini",
       "matched_claim_text": null
-    },
-    {
-      "addition_text": "New category 'Contingency'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Instruction to call clinic 'immediately' if symptoms worsen or new symptoms develop",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If your symptoms worsen or you develop new symptoms, call the clinic immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advised to call clinic immediately if symptoms worsen or new symptoms develop."
     }
   ]
 }

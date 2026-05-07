@@ -277,8 +277,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7899245529726053,
-    "overall_rouge_l_f1": 0.7383631615676542,
+    "overall_token_f1": 0.7374056912157567,
+    "overall_rouge_l_f1": 0.6729539519595679,
     "by_section": [
       {
         "section": "Subjective",
@@ -307,163 +307,174 @@
         "gen_present": true,
         "token_f1": 0.83248730964467,
         "rouge_l_f1": 0.6988847583643123
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.6071428571428571,
     "plan_alignment_score": 0.83248730964467
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The document accurately captures most of the GroundTruthSOAP content. However, the Subjective section includes two unjustified inferences ('polydipsia' and 'polyuria'), which are treated as severe alignment issues. Additionally, the Assessment section omits the 'Encounter for general adult medical examination with abnormal findings'. These multiple grading-input issues reduce the overall grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures all major clinically important Ground Truth content. There are two moderate omissions: the impact of symptoms on daily activities and the encounter diagnosis code. Additionally, there are several minor formatting omissions and one minor unsupported structural addition in the Subjective section, but these do not significantly detract from the note's clinical utility or introduce misleading information.",
     "omissions": [
-      "Assessment: 'Encounter for general adult medical examination with abnormal findings'"
+      "Encounter for general adult medical examination with abnormal findings",
+      "moderate impact (regarding symptoms on work/activities)",
+      "abnormal (qualifier for blood glucose levels in referral)"
     ],
     "additions": [
-      "Subjective: Medical term 'polydipsia'",
-      "Subjective: Medical term 'polyuria'",
-      "Plan: Patient education includes 'as prescribed'"
+      "daily (qualifier for fatigue)",
+      "constant (qualifier for thirst)",
+      "polydipsia",
+      "polyuria",
+      "appointment (after follow-up)",
+      "as prescribed (qualifier for medication adherence)"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Subjective: Medical term 'polydipsia' is an unjustified inference as it was not stated in the transcript or GroundTruthSOAP",
-      "Subjective: Medical term 'polyuria' is an unjustified inference as it was not stated in the transcript or GroundTruthSOAP"
+      "appointment (after follow-up)",
+      "Integration of positive ROS findings into the initial HPI-like sentence"
     ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section accurately captures the patient's reported symptoms and social history but includes two unjustified inferences: 'polydipsia' and 'polyuria'. These medical terms were not explicitly stated in the transcript or GroundTruthSOAP and are treated as severe alignment issues.",
-        "omissions": [],
+        "grade": "B",
+        "summary": "The Subjective section is mostly clinically aligned. It omits the specific mention of 'moderate impact' of symptoms on work and daily activities, which is a moderate clinical detail. Several minor omissions relate to section headings and the structured listing of ROS findings. The unsupported addition regarding the integration of positive ROS findings is a minor structural deviation, but the underlying clinical information is accurately presented.",
+        "omissions": [
+          "Chief Complaint (CC) section heading",
+          "History of Present Illness (HPI) section heading",
+          "\"presenting for a general adult medical examination\" (from HPI)",
+          "\"moderate impact\" (regarding symptoms on work/activities)",
+          "Review of Systems (ROS) section heading",
+          "Positive ROS findings (mild fatigue, increased thirst, occasional blurred vision, frequent urination) listed under specific systems",
+          "Patient’s self-reported habits and lifestyle section heading"
+        ],
         "additions": [
-          "Medical term 'polydipsia'",
-          "Medical term 'polyuria'"
+          "\"daily\" (qualifier for fatigue)",
+          "\"constant\" (qualifier for thirst)",
+          "\"polydipsia\"",
+          "\"polyuria\"",
+          "Integration of positive ROS findings into the initial HPI-like sentence"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is accurately documented with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is excellent, with no omissions or unsupported/unknown additions. It perfectly aligns with the Ground Truth content.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section is missing the 'Encounter for general adult medical examination with abnormal findings' entry, which is an omission.",
+        "summary": "The Assessment section is mostly clinically aligned. It omits the 'Encounter for general adult medical examination with abnormal findings' diagnosis, which is a moderate omission. However, all other primary clinical assessments are accurately captured, making the section largely usable.",
         "omissions": [
-          "'Encounter for general adult medical examination with abnormal findings'"
+          "\"Encounter for general adult medical examination with abnormal findings\""
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is accurately documented with no omissions or unsupported/unknown additions. The addition of 'as prescribed' in patient education is supported by the transcript.",
-        "omissions": [],
+        "summary": "The Plan section is excellent. It contains only two minor omissions: the word 'Start' for medication and the qualifier 'abnormal' for blood glucose levels in the referral. These do not impact the clinical usefulness or clarity of the plan.",
+        "omissions": [
+          "\"Start\" (for Metformin medication)",
+          "\"abnormal\" (qualifier for blood glucose levels in referral)"
+        ],
         "additions": [
-          "Patient education includes 'as prescribed'"
+          "\"appointment\" (after follow-up)",
+          "\"as prescribed\" (qualifier for medication adherence)"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "No discrepancies were found in this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: Medical term 'polydipsia'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I've noticed that I'm always thirsty.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective: Medical term 'polyuria'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I've also been having some occasional blurred vision and frequent urination.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Plan: Patient education includes 'as prescribed'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I want to make sure you understand the importance of adhering to these lifestyle changes and taking your medication as prescribed.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Medical term 'polydipsia'",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Medical term 'polyuria'",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Patient education includes 'as prescribed'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I want to make sure you understand the importance of adhering to these lifestyle changes and taking your medication as prescribed.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Medical term 'polydipsia'",
+      "addition_text": "daily (qualifier for fatigue)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "They happen every day and they're starting to interfere with my work and daily activities.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "constant (qualifier for thirst)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've noticed that I'm always thirsty.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Subjective: Medical term 'polyuria'",
+      "addition_text": "polydipsia",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I've also been having some occasional blurred vision and frequent urination.",
+      "transcript_evidence": "[Patient]: Well, for the past three months, I've been feeling mildly fatigued and I've noticed that I'm always thirsty. I've also been having some occasional blurred vision and frequent urination.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports a 3-month history of daily mild fatigue, constant thirst (polydipsia), occasional blurred vision, and frequent urination (polyuria)."
+    },
+    {
+      "addition_text": "polyuria",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Well, for the past three months, I've been feeling mildly fatigued and I've noticed that I'm always thirsty. I've also been having some occasional blurred vision and frequent urination.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports a 3-month history of daily mild fatigue, constant thirst (polydipsia), occasional blurred vision, and frequent urination (polyuria)."
+    },
+    {
+      "addition_text": "appointment (after follow-up)",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Plan: Patient education includes 'as prescribed'",
+      "addition_text": "as prescribed (qualifier for medication adherence)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I want to make sure you understand the importance of adhering to these lifestyle changes and taking your medication as prescribed.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Medical term 'polydipsia'",
+      "addition_text": "\"daily\" (qualifier for fatigue)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: They happen every day and they're starting to interfere with my work and daily activities.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"constant\" (qualifier for thirst)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I've noticed that I'm always thirsty.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"polydipsia\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I've noticed that I'm always thirsty.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"polyuria\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I've also been having some occasional blurred vision and frequent urination.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Integration of positive ROS findings into the initial HPI-like sentence",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Medical term 'polyuria'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "\"appointment\" (after follow-up)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Let’s schedule a follow-up appointment in 1 month",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Patient education includes 'as prescribed'",
+      "addition_text": "\"as prescribed\" (qualifier for medication adherence)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I want to make sure you understand the importance of adhering to these lifestyle changes and taking your medication as prescribed.",
       "evidence_source": "gemini",

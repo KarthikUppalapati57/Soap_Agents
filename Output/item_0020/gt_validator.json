@@ -213,8 +213,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6646119509014963,
-    "overall_rouge_l_f1": 0.5715702804817655,
+    "overall_token_f1": 0.5807649386268704,
+    "overall_rouge_l_f1": 0.4644628506022068,
     "by_section": [
       {
         "section": "Subjective",
@@ -243,172 +243,104 @@
         "gen_present": true,
         "token_f1": 0.6425339366515838,
         "rouge_l_f1": 0.42592592592592593
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.28571428571428575,
     "plan_alignment_score": 0.6425339366515838
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated SOAP note contains multiple omissions, particularly in the Plan section, missing important details such as medication quantity, specific reasons for referrals, and key patient education. A significant hallucination regarding the timing for MRI and Orthopedics referral (stating 2 weeks instead of GroundTruth's 4 weeks for MRI) introduces a critical safety concern, reducing the clinical usefulness and reliability of the note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps and moderate issues, particularly in the Assessment and Plan sections. The Assessment omits two important chronic conditions (Hypertension and Hyperlipidemia). The Plan contains several minor omissions and alters the timing and certainty of key referrals (MRI and Orthopedics) compared to the Ground Truth, and also omits important patient education and follow-up monitoring details. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Subjective: Explicit 'Review of Systems (ROS)' section with sub-headings",
-      "Objective: General appearance: 'Patient appears in moderate distress due to pain'",
-      "Plan: Medication detail: 'oral' route for Ibuprofen",
-      "Plan: Medication detail: 'quantity: 30 tablets' for Ibuprofen",
-      "Plan: Specific reason for physical therapy: 'for back strengthening exercises'",
-      "Plan: Specific purpose of follow-up: 'to assess pain and response to treatment'",
-      "Plan: Specific purpose of Orthopedics referral: 'for further evaluation'",
-      "Plan: Lifestyle recommendation: 'Patient advised to maintain a balanced diet'",
-      "Plan: Patient education: 'Advised on proper body mechanics and techniques to avoid strain on the back'",
-      "Plan: Next Steps: 'Monitor response to treatment and make necessary adjustments based on symptoms and physical exam findings at the next visit'"
+      "Hypertension - controlled on Lisinopril",
+      "Hyperlipidemia",
+      "General: Patient appears in moderate distress due to pain",
+      "Ibuprofen 'oral' route of administration",
+      "Ibuprofen 'quantity: 30 tablets'",
+      "Referral to Orthopedics for further evaluation with Dr. John Smith if no improvement",
+      "MRI of the lumbar spine to be ordered if no improvement in 4 weeks",
+      "Patient advised to maintain a balanced diet",
+      "Advised on proper body mechanics and techniques to avoid strain on the back",
+      "The patient is cooperative and motivated to follow medical advice",
+      "Discussed the potential need for further evaluation if symptoms do not improve as expected",
+      "Monitor response to treatment and make necessary adjustments based on symptoms and physical exam findings at the next visit"
     ],
     "additions": [
-      "Subjective: 'difficulty with simple home tasks due to pain'",
-      "Objective: 'on palpation' for tenderness",
+      "difficulty with simple home tasks due to pain",
+      "Tenderness over the lower lumbar area 'on palpation'",
       "Assessment: 'possibly due to a lumbar issue'",
-      "Plan: 'start as soon as possible' for physical therapy referral"
+      "Physical therapy referral: 'start as soon as possible'",
+      "Contingency: 'If no improvement in 2 weeks, consider MRI of the lumbar spine and possible referral to Orthopedics'"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Plan: Stating that MRI of the lumbar spine and possible referral to Orthopedics would be considered 'in 2 weeks' if no improvement, as the transcript does not specify this timeframe for these actions, and GroundTruth specifies 'in 4 weeks' for MRI."
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section omits the explicit 'Review of Systems (ROS)' section with sub-headings, though the content is largely integrated into the narrative. All additions were supported by the transcript.",
-        "omissions": [
-          "Explicit 'Review of Systems (ROS)' section with sub-headings"
-        ],
+        "grade": "A",
+        "summary": "The Subjective section has no omissions or unsupported/unknown additions.",
+        "omissions": [],
         "additions": [
           "difficulty with simple home tasks due to pain"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section omits the general appearance observation that the 'Patient appears in moderate distress due to pain.' All additions were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Objective section omitted the general observation that the patient appeared in moderate distress due to pain. This is a minor omission that does not significantly impact the clinical usefulness of the section.",
         "omissions": [
-          "General appearance: 'Patient appears in moderate distress due to pain.'"
+          "General: Patient appears in moderate distress due to pain"
         ],
         "additions": [
-          "'on palpation' for tenderness"
+          "Tenderness over the lower lumbar area 'on palpation'"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section is accurate and complete, with no omissions or unsupported additions.",
-        "omissions": [],
+        "grade": "C",
+        "summary": "The Assessment section omitted two important chronic conditions, Hypertension and Hyperlipidemia, which are significant gaps in a comprehensive patient assessment. This makes the note meaningfully incomplete regarding the patient's overall health status.",
+        "omissions": [
+          "Hypertension - controlled on Lisinopril",
+          "Hyperlipidemia"
+        ],
         "additions": [
-          "possibly due to a lumbar issue"
+          "Lower back pain, 'possibly due to a lumbar issue'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has numerous omissions, including specific medication details (oral route, quantity of 30 tablets), specific purposes for physical therapy and follow-up, a lifestyle recommendation (balanced diet), and important patient education on proper body mechanics. Critically, it contains a hallucination stating that MRI and Orthopedics referral would be considered in 2 weeks if no improvement, which contradicts the GroundTruth's 4-week timeframe for MRI, making this aspect of the plan unreliable and potentially unsafe.",
+        "grade": "C",
+        "summary": "The Plan section contains several minor omissions, including specific details for Ibuprofen (route, quantity), a specific doctor's name for referral, and a recommendation for a balanced diet. More significantly, it altered the timing and certainty of MRI and Orthopedics referrals (2 weeks vs. 4 weeks for MRI, 'consider' vs. 'referral') and omitted explicit advice on proper body mechanics and detailed follow-up instructions to monitor response and adjust treatment. These issues reduce the precision and completeness of the plan.",
         "omissions": [
-          "Medication detail: 'oral' route for Ibuprofen",
-          "Medication detail: 'quantity: 30 tablets' for Ibuprofen",
-          "Specific reason for physical therapy: 'for back strengthening exercises'",
-          "Specific purpose of follow-up: 'to assess pain and response to treatment'",
-          "Specific purpose of Orthopedics referral: 'for further evaluation'",
-          "Lifestyle recommendation: 'Patient advised to maintain a balanced diet'",
-          "Patient education: 'Advised on proper body mechanics and techniques to avoid strain on the back'",
-          "Next Steps: 'Monitor response to treatment and make necessary adjustments based on symptoms and physical exam findings at the next visit.'"
+          "Ibuprofen 'oral' route of administration",
+          "Ibuprofen 'quantity: 30 tablets'",
+          "Referral to Orthopedics for further evaluation with Dr. John Smith if no improvement",
+          "MRI of the lumbar spine to be ordered if no improvement in 4 weeks",
+          "Patient advised to maintain a balanced diet",
+          "Advised on proper body mechanics and techniques to avoid strain on the back",
+          "The patient is cooperative and motivated to follow medical advice",
+          "Discussed the potential need for further evaluation if symptoms do not improve as expected",
+          "Monitor response to treatment and make necessary adjustments based on symptoms and physical exam findings at the next visit"
         ],
         "additions": [
-          "'start as soon as possible' for physical therapy referral"
+          "Physical therapy referral: 'start as soon as possible'",
+          "Contingency: 'If no improvement in 2 weeks, consider MRI of the lumbar spine and possible referral to Orthopedics'"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "This section has no grading issues, with no omissions or unsupported additions.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: 'difficulty with simple home tasks due to pain'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] I also have a hard time sleeping because of the pain. ... It's really hard to do my job, and even simple tasks at home are difficult.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports difficulty sleeping, performing job tasks, and simple home tasks due to pain."
-      },
-      {
-        "addition_text": "Objective: 'on palpation' for tenderness",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I see, there is tenderness over the lower lumbar area.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Back exam shows tenderness over the lower lumbar area on palpation."
-      },
-      {
-        "addition_text": "Assessment: 'possibly due to a lumbar issue'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might be dealing with lower back pain possibly due to a lumbar issue.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnosis is lower back pain, possibly due to a lumbar issue."
-      },
-      {
-        "addition_text": "Plan: 'start as soon as possible' for physical therapy referral",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I’m also going to refer you to physical therapy. ... You should start as soon as possible.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Refer to physical therapy, to start as soon as possible."
-      },
-      {
-        "addition_text": "difficulty with simple home tasks due to pain",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] I also have a hard time sleeping because of the pain. ... It's really hard to do my job, and even simple tasks at home are difficult.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports difficulty sleeping, performing job tasks, and simple home tasks due to pain."
-      },
-      {
-        "addition_text": "'on palpation' for tenderness",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I see, there is tenderness over the lower lumbar area.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Back exam shows tenderness over the lower lumbar area on palpation."
-      },
-      {
-        "addition_text": "possibly due to a lumbar issue",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might be dealing with lower back pain possibly due to a lumbar issue.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnosis is lower back pain, possibly due to a lumbar issue."
-      },
-      {
-        "addition_text": "'start as soon as possible' for physical therapy referral",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I’m also going to refer you to physical therapy. ... You should start as soon as possible.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Refer to physical therapy, to start as soon as possible."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'difficulty with simple home tasks due to pain'",
+      "addition_text": "difficulty with simple home tasks due to pain",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I also have a hard time sleeping because of the pain. ... It's really hard to do my job, and even simple tasks at home are difficult.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient reports difficulty sleeping, performing job tasks, and simple home tasks due to pain."
     },
     {
-      "addition_text": "Objective: 'on palpation' for tenderness",
+      "addition_text": "Tenderness over the lower lumbar area 'on palpation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see, there is tenderness over the lower lumbar area.",
       "evidence_source": "agent3_claims",
@@ -422,39 +354,25 @@
       "matched_claim_text": "Diagnosis is lower back pain, possibly due to a lumbar issue."
     },
     {
-      "addition_text": "Plan: 'start as soon as possible' for physical therapy referral",
+      "addition_text": "Physical therapy referral: 'start as soon as possible'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’m also going to refer you to physical therapy. ... You should start as soon as possible.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Refer to physical therapy, to start as soon as possible."
     },
     {
-      "addition_text": "difficulty with simple home tasks due to pain",
+      "addition_text": "Contingency: 'If no improvement in 2 weeks, consider MRI of the lumbar spine and possible referral to Orthopedics'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I also have a hard time sleeping because of the pain. ... It's really hard to do my job, and even simple tasks at home are difficult.",
+      "transcript_evidence": "[doctor] If there's no improvement, we might need to consider an MRI of the lumbar spine and possibly a referral to Orthopedics.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports difficulty sleeping, performing job tasks, and simple home tasks due to pain."
+      "matched_claim_text": "If no improvement in 2 weeks, consider MRI of the lumbar spine and possible referral to Orthopedics."
     },
     {
-      "addition_text": "'on palpation' for tenderness",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I see, there is tenderness over the lower lumbar area.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Back exam shows tenderness over the lower lumbar area on palpation."
-    },
-    {
-      "addition_text": "possibly due to a lumbar issue",
+      "addition_text": "Lower back pain, 'possibly due to a lumbar issue'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might be dealing with lower back pain possibly due to a lumbar issue.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnosis is lower back pain, possibly due to a lumbar issue."
-    },
-    {
-      "addition_text": "'start as soon as possible' for physical therapy referral",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I’m also going to refer you to physical therapy. ... You should start as soon as possible.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Refer to physical therapy, to start as soon as possible."
     }
   ]
 }

@@ -169,8 +169,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6924671398882621,
-    "overall_rouge_l_f1": 0.5605804405290129,
+    "overall_token_f1": 0.6155839248603276,
+    "overall_rouge_l_f1": 0.45072555066126613,
     "by_section": [
       {
         "section": "Subjective",
@@ -199,347 +199,228 @@
         "gen_present": true,
         "token_f1": 0.6865671641791044,
         "rouge_l_f1": 0.5038167938931297
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.47619047619047616,
     "plan_alignment_score": 0.6865671641791044
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is clinically aligned and largely accurate. It successfully captures the core clinical information from the GroundTruthSOAP. The overall grade is B due to minor omissions, specifically the absence of the visit's follow-up nature, reassurance about medication cost management, and the detailed reason for the cardiology referral. All additions made by the model were supported by the transcript and did not negatively impact the grade. There were no hallucinations.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaints, history, and the core elements of the assessment and plan. The primary issues are several minor omissions, mainly structural or specific phrasing, and one moderate omission of a key objective finding (BMI). Crucially, all additions made by the model are supported by the transcript and do not introduce any unsupported or misleading clinical content.",
     "omissions": [
-      "Subjective: HPI: 'presents for a follow-up regarding his blood pressure management'",
-      "Plan: Patient Education: 'reassured about cost management strategies' (related to Lisinopril)",
-      "Plan: Referral: 'for further evaluation of hypertensive heart disease'"
+      "Subjective: Explicit 'CC' section header and content.",
+      "Subjective: Explicit 'ROS' section header and content.",
+      "Subjective: HPI detail 'presents for a follow-up regarding his blood pressure management'.",
+      "Objective: General physical exam finding 'Overweight, BMI of 29'.",
+      "Plan: Patient education point 'reassured about cost management strategies'.",
+      "Plan: Patient education point 'Educate on the importance of medication adherence despite concerns about side effects'."
     ],
     "additions": [
-      "Subjective: HPI: 'mostly when active or standing up quickly' (more specific dizziness trigger)",
-      "Subjective: HPI: 'primarily with physical activity like walking stairs or gardening' (more specific chest tightness trigger)",
-      "Subjective: HPI: 'Symptoms are bothersome'",
-      "Subjective: ROS: 'normal appetite, and decent energy levels'",
-      "Subjective: ROS: 'Denies other cardiovascular symptoms'",
-      "Objective: 'Basic Metabolic Panel and Lipid Panel results are awaited.'",
-      "Assessment: 'Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance.' (as a problem list)",
-      "Plan: Medication: 'Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema).'",
-      "Plan: Patient Education: 'Instruct patient to contact clinic immediately for any urgent issues or concerning side effects.'"
+      "Subjective: HPI detail 'dizziness... or standing up quickly'.",
+      "Subjective: HPI detail 'chest tightness, primarily with physical activity like walking stairs or gardening'.",
+      "Subjective: HPI detail 'Symptoms are bothersome'.",
+      "Subjective: HPI detail 'Denies other cardiovascular symptoms'.",
+      "Subjective: HPI detail 'normal appetite, and decent energy levels'.",
+      "Objective: Statement 'Basic Metabolic Panel and Lipid Panel results are awaited'.",
+      "Assessment: 'Problems' list including 'Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance'.",
+      "Plan: Specific common side effects of Lisinopril (dizziness, headache, dry cough).",
+      "Plan: Specific serious side effect of Lisinopril (angioedema).",
+      "Plan: Instruction to 'contact clinic immediately for any urgent issues or concerning side effects'."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section is excellent, with only one minor omission regarding the patient presenting for a follow-up regarding blood pressure management. All additions in this section were supported by the transcript and enhanced the clinical detail.",
+        "summary": "The Subjective section accurately captures the patient's subjective complaints and history. Minor omissions include the explicit 'CC' and 'ROS' section headers, and a small detail about the visit being a follow-up, but the relevant clinical information is present within the HPI. All additions are supported by the transcript.",
         "omissions": [
-          "HPI: 'presents for a follow-up regarding his blood pressure management'"
+          "Explicit 'CC' section header and content.",
+          "Explicit 'ROS' section header and content.",
+          "HPI detail 'presents for a follow-up regarding his blood pressure management'."
         ],
         "additions": [
-          "HPI: 'mostly when active or standing up quickly'",
-          "HPI: 'primarily with physical activity like walking stairs or gardening'",
-          "HPI: 'Symptoms are bothersome'",
-          "ROS: 'normal appetite, and decent energy levels'",
-          "ROS: 'Denies other cardiovascular symptoms'"
+          "HPI detail 'dizziness... or standing up quickly'.",
+          "HPI detail 'chest tightness, primarily with physical activity like walking stairs or gardening'.",
+          "HPI detail 'Symptoms are bothersome'.",
+          "HPI detail 'Denies other cardiovascular symptoms'.",
+          "HPI detail 'normal appetite, and decent energy levels'."
         ]
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is accurate and complete. There were no omissions, and the single addition regarding awaited lab results was fully supported by the transcript.",
-        "omissions": [],
+        "grade": "B",
+        "summary": "The Objective section accurately reports vital signs and physical exam findings. However, it omits the Ground Truth detail regarding the patient being 'Overweight, BMI of 29', which is a clinically relevant finding. All additions are supported by the transcript.",
+        "omissions": [
+          "General physical exam finding 'Overweight, BMI of 29'."
+        ],
         "additions": [
-          "'Basic Metabolic Panel and Lipid Panel results are awaited.'"
+          "Statement 'Basic Metabolic Panel and Lipid Panel results are awaited'."
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is accurate and complete. There were no omissions, and the addition of a problem list was fully supported by the transcript.",
+        "summary": "This section is perfectly aligned with the Ground Truth, with no omissions or unsupported additions. The 'Problems' list addition is fully supported by the transcript.",
         "omissions": [],
         "additions": [
-          "'Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance.'"
+          "'Problems' list including 'Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance'."
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is mostly strong but receives a B due to two minor omissions: the absence of 'reassured about cost management strategies' under Patient Education and 'for further evaluation of hypertensive heart disease' under Referral. All additions in this section were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive and well-structured. It has minor omissions regarding specific patient education points about cost management strategies and the exact phrasing of medication adherence despite side effects, though adherence is emphasized. All additions, including specific side effects and urgent contact instructions, are supported by the transcript.",
         "omissions": [
-          "Patient Education: 'reassured about cost management strategies'",
-          "Referral: 'for further evaluation of hypertensive heart disease'"
+          "Patient education point 'reassured about cost management strategies'.",
+          "Patient education point 'Educate on the importance of medication adherence despite concerns about side effects'."
         ],
         "additions": [
-          "Medication: 'Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema).'",
-          "Patient Education: 'Instruct patient to contact clinic immediately for any urgent issues or concerning side effects.'"
+          "Specific common side effects of Lisinopril (dizziness, headache, dry cough).",
+          "Specific serious side effect of Lisinopril (angioedema).",
+          "Instruction to 'contact clinic immediately for any urgent issues or concerning side effects'."
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "There were no discrepancies in the 'Other' section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": "Omissions of '68-year-old Caucasian male' and 'Overweight, BMI of 29' were not counted as they were fabricated in the GroundTruthSOAP and not present in the Transcript.",
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: HPI: 'mostly when active or standing up quickly' (more specific dizziness trigger)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Morning, doctor. I'm okay, just dealing with these issues with my blood pressure. ... [patient] Sure. Over the past six months, I've been getting these mild to moderate headaches and sometimes feel dizzy. ... [patient] Several times a week, I'd say. ... [patient] They mostly happen when I'm being active or sometimes if I stand up too quickly.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports issues with blood pressure over the past six months, experiencing mild to moderate headaches and occasional dizziness several times a week, mostly when active or standing up quickly."
-      },
-      {
-        "addition_text": "Subjective: HPI: 'primarily with physical activity like walking stairs or gardening' (more specific chest tightness trigger)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] The chest tightness happens mostly when I'm doing something physical, like walking up the stairs or gardening. ... [patient] Several times a week, I'd say.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "He also reports chest tightness, primarily with physical activity like walking stairs or gardening, occurring several times a week."
-      },
-      {
-        "addition_text": "Subjective: HPI: 'Symptoms are bothersome'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] It's not constant, but it's frequent enough to be bothersome. ... [patient] It's mild. I can still do most things, but I have to take it easy sometimes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Symptoms are bothersome but have a mild impact on daily activities."
-      },
-      {
-        "addition_text": "Subjective: ROS: 'normal appetite, and decent energy levels'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] No, my appetite is normal, and I feel like I have a decent amount of energy.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "normal appetite, and decent energy levels."
-      },
-      {
-        "addition_text": "Subjective: ROS: 'Denies other cardiovascular symptoms'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] No, just those.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Denies other cardiovascular symptoms."
-      },
-      {
-        "addition_text": "Objective: 'Basic Metabolic Panel and Lipid Panel results are awaited.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] We are still awaiting the results of your Basic Metabolic Panel and Lipid Panel.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Basic Metabolic Panel and Lipid Panel results are awaited."
-      },
-      {
-        "addition_text": "Assessment: 'Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance.' (as a problem list)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Alright, I see here that you're experiencing elevated blood pressure, headaches, occasional dizziness, and chest tightness. ... [doctor] I see you have a history of hyperlipidemia and previously discontinued statin use due to muscle pain. ... [patient] Yes, I stopped the statin because it was causing me a lot of discomfort in my muscles.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance."
-      },
-      {
-        "addition_text": "Plan: Medication: 'Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema).'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Common side effects of Lisinopril can include dizziness, headache, and a persistent dry cough. Serious side effects are rare but can include swelling of the face, lips, or throat.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema)."
-      },
-      {
-        "addition_text": "Plan: Patient Education: 'Instruct patient to contact clinic immediately for any urgent issues or concerning side effects.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] If you experience any issues, please let us know immediately. ... [doctor] If anything urgent comes up before then, don't hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Instruct patient to contact clinic immediately for any urgent issues or concerning side effects."
-      },
-      {
-        "addition_text": "HPI: 'mostly when active or standing up quickly'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Morning, doctor. I'm okay, just dealing with these issues with my blood pressure. ... [patient] Sure. Over the past six months, I've been getting these mild to moderate headaches and sometimes feel dizzy. ... [patient] Several times a week, I'd say. ... [patient] They mostly happen when I'm being active or sometimes if I stand up too quickly.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports issues with blood pressure over the past six months, experiencing mild to moderate headaches and occasional dizziness several times a week, mostly when active or standing up quickly."
-      },
-      {
-        "addition_text": "HPI: 'primarily with physical activity like walking stairs or gardening'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] The chest tightness happens mostly when I'm doing something physical, like walking up the stairs or gardening. ... [patient] Several times a week, I'd say.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "He also reports chest tightness, primarily with physical activity like walking stairs or gardening, occurring several times a week."
-      },
-      {
-        "addition_text": "HPI: 'Symptoms are bothersome'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] It's not constant, but it's frequent enough to be bothersome. ... [patient] It's mild. I can still do most things, but I have to take it easy sometimes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Symptoms are bothersome but have a mild impact on daily activities."
-      },
-      {
-        "addition_text": "ROS: 'normal appetite, and decent energy levels'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] No, my appetite is normal, and I feel like I have a decent amount of energy.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "normal appetite, and decent energy levels."
-      },
-      {
-        "addition_text": "ROS: 'Denies other cardiovascular symptoms'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] No, just those.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Denies other cardiovascular symptoms."
-      },
-      {
-        "addition_text": "'Basic Metabolic Panel and Lipid Panel results are awaited.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] We are still awaiting the results of your Basic Metabolic Panel and Lipid Panel.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Basic Metabolic Panel and Lipid Panel results are awaited."
-      },
-      {
-        "addition_text": "'Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Alright, I see here that you're experiencing elevated blood pressure, headaches, occasional dizziness, and chest tightness. ... [doctor] I see you have a history of hyperlipidemia and previously discontinued statin use due to muscle pain. ... [patient] Yes, I stopped the statin because it was causing me a lot of discomfort in my muscles.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance."
-      },
-      {
-        "addition_text": "Medication: 'Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema).'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Common side effects of Lisinopril can include dizziness, headache, and a persistent dry cough. Serious side effects are rare but can include swelling of the face, lips, or throat.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema)."
-      },
-      {
-        "addition_text": "Patient Education: 'Instruct patient to contact clinic immediately for any urgent issues or concerning side effects.'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] If you experience any issues, please let us know immediately. ... [doctor] If anything urgent comes up before then, don't hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Instruct patient to contact clinic immediately for any urgent issues or concerning side effects."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: HPI: 'mostly when active or standing up quickly' (more specific dizziness trigger)",
+      "addition_text": "Subjective: HPI detail 'dizziness... or standing up quickly'.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Morning, doctor. I'm okay, just dealing with these issues with my blood pressure. ... [patient] Sure. Over the past six months, I've been getting these mild to moderate headaches and sometimes feel dizzy. ... [patient] Several times a week, I'd say. ... [patient] They mostly happen when I'm being active or sometimes if I stand up too quickly.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports issues with blood pressure over the past six months, experiencing mild to moderate headaches and occasional dizziness several times a week, mostly when active or standing up quickly."
+      "transcript_evidence": "They mostly happen when I'm being active or sometimes if I stand up too quickly.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "Subjective: HPI: 'primarily with physical activity like walking stairs or gardening' (more specific chest tightness trigger)",
+      "addition_text": "Subjective: HPI detail 'chest tightness, primarily with physical activity like walking stairs or gardening'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] The chest tightness happens mostly when I'm doing something physical, like walking up the stairs or gardening. ... [patient] Several times a week, I'd say.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "He also reports chest tightness, primarily with physical activity like walking stairs or gardening, occurring several times a week."
     },
     {
-      "addition_text": "Subjective: HPI: 'Symptoms are bothersome'",
+      "addition_text": "Subjective: HPI detail 'Symptoms are bothersome'.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] It's not constant, but it's frequent enough to be bothersome. ... [patient] It's mild. I can still do most things, but I have to take it easy sometimes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms are bothersome but have a mild impact on daily activities."
+      "transcript_evidence": "Several times a week, I'd say. It's not constant, but it's frequent enough to be bothersome.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "Subjective: ROS: 'normal appetite, and decent energy levels'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] No, my appetite is normal, and I feel like I have a decent amount of energy.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "normal appetite, and decent energy levels."
-    },
-    {
-      "addition_text": "Subjective: ROS: 'Denies other cardiovascular symptoms'",
+      "addition_text": "Subjective: HPI detail 'Denies other cardiovascular symptoms'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] No, just those.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Denies other cardiovascular symptoms."
     },
     {
-      "addition_text": "Objective: 'Basic Metabolic Panel and Lipid Panel results are awaited.'",
+      "addition_text": "Subjective: HPI detail 'normal appetite, and decent energy levels'.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] No, my appetite is normal, and I feel like I have a decent amount of energy.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "normal appetite, and decent energy levels."
+    },
+    {
+      "addition_text": "Objective: Statement 'Basic Metabolic Panel and Lipid Panel results are awaited'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are still awaiting the results of your Basic Metabolic Panel and Lipid Panel.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Basic Metabolic Panel and Lipid Panel results are awaited."
     },
     {
-      "addition_text": "Assessment: 'Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance.' (as a problem list)",
+      "addition_text": "Assessment: 'Problems' list including 'Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Alright, I see here that you're experiencing elevated blood pressure, headaches, occasional dizziness, and chest tightness. ... [doctor] I see you have a history of hyperlipidemia and previously discontinued statin use due to muscle pain. ... [patient] Yes, I stopped the statin because it was causing me a lot of discomfort in my muscles.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance."
     },
     {
-      "addition_text": "Plan: Medication: 'Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema).'",
+      "addition_text": "Plan: Specific common side effects of Lisinopril (dizziness, headache, dry cough).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Common side effects of Lisinopril can include dizziness, headache, and a persistent dry cough. Serious side effects are rare but can include swelling of the face, lips, or throat.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema)."
     },
     {
-      "addition_text": "Plan: Patient Education: 'Instruct patient to contact clinic immediately for any urgent issues or concerning side effects.'",
+      "addition_text": "Plan: Specific serious side effect of Lisinopril (angioedema).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Serious side effects are rare but can include swelling of the face, lips, or throat.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Plan: Instruction to 'contact clinic immediately for any urgent issues or concerning side effects'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If you experience any issues, please let us know immediately. ... [doctor] If anything urgent comes up before then, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Instruct patient to contact clinic immediately for any urgent issues or concerning side effects."
     },
     {
-      "addition_text": "HPI: 'mostly when active or standing up quickly'",
+      "addition_text": "HPI detail 'dizziness... or standing up quickly'.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Morning, doctor. I'm okay, just dealing with these issues with my blood pressure. ... [patient] Sure. Over the past six months, I've been getting these mild to moderate headaches and sometimes feel dizzy. ... [patient] Several times a week, I'd say. ... [patient] They mostly happen when I'm being active or sometimes if I stand up too quickly.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports issues with blood pressure over the past six months, experiencing mild to moderate headaches and occasional dizziness several times a week, mostly when active or standing up quickly."
+      "transcript_evidence": "They mostly happen when I'm being active or sometimes if I stand up too quickly.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "HPI: 'primarily with physical activity like walking stairs or gardening'",
+      "addition_text": "HPI detail 'chest tightness, primarily with physical activity like walking stairs or gardening'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] The chest tightness happens mostly when I'm doing something physical, like walking up the stairs or gardening. ... [patient] Several times a week, I'd say.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "He also reports chest tightness, primarily with physical activity like walking stairs or gardening, occurring several times a week."
     },
     {
-      "addition_text": "HPI: 'Symptoms are bothersome'",
+      "addition_text": "HPI detail 'Symptoms are bothersome'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's not constant, but it's frequent enough to be bothersome. ... [patient] It's mild. I can still do most things, but I have to take it easy sometimes.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Symptoms are bothersome but have a mild impact on daily activities."
     },
     {
-      "addition_text": "ROS: 'normal appetite, and decent energy levels'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] No, my appetite is normal, and I feel like I have a decent amount of energy.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "normal appetite, and decent energy levels."
-    },
-    {
-      "addition_text": "ROS: 'Denies other cardiovascular symptoms'",
+      "addition_text": "HPI detail 'Denies other cardiovascular symptoms'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] No, just those.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Denies other cardiovascular symptoms."
     },
     {
-      "addition_text": "'Basic Metabolic Panel and Lipid Panel results are awaited.'",
+      "addition_text": "HPI detail 'normal appetite, and decent energy levels'.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] No, my appetite is normal, and I feel like I have a decent amount of energy.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "normal appetite, and decent energy levels."
+    },
+    {
+      "addition_text": "Statement 'Basic Metabolic Panel and Lipid Panel results are awaited'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are still awaiting the results of your Basic Metabolic Panel and Lipid Panel.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Basic Metabolic Panel and Lipid Panel results are awaited."
     },
     {
-      "addition_text": "'Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance.'",
+      "addition_text": "'Problems' list including 'Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Alright, I see here that you're experiencing elevated blood pressure, headaches, occasional dizziness, and chest tightness. ... [doctor] I see you have a history of hyperlipidemia and previously discontinued statin use due to muscle pain. ... [patient] Yes, I stopped the statin because it was causing me a lot of discomfort in my muscles.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Problems: Hypertension, headaches, dizziness, chest tightness, hyperlipidemia (history of), statin intolerance."
     },
     {
-      "addition_text": "Medication: 'Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema).'",
+      "addition_text": "Specific common side effects of Lisinopril (dizziness, headache, dry cough).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Common side effects of Lisinopril can include dizziness, headache, and a persistent dry cough. Serious side effects are rare but can include swelling of the face, lips, or throat.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Counsel patient on common side effects (dizziness, headache, dry cough) and serious side effects (angioedema)."
     },
     {
-      "addition_text": "Patient Education: 'Instruct patient to contact clinic immediately for any urgent issues or concerning side effects.'",
+      "addition_text": "Specific serious side effect of Lisinopril (angioedema).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Serious side effects are rare but can include swelling of the face, lips, or throat.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Instruction to 'contact clinic immediately for any urgent issues or concerning side effects'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If you experience any issues, please let us know immediately. ... [doctor] If anything urgent comes up before then, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",

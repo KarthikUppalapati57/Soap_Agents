@@ -257,8 +257,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7496487595801098,
-    "overall_rouge_l_f1": 0.6190570004792555,
+    "overall_token_f1": 0.6870609494751372,
+    "overall_rouge_l_f1": 0.5238212505990694,
     "by_section": [
       {
         "section": "Subjective",
@@ -287,223 +287,78 @@
         "gen_present": true,
         "token_f1": 0.6428571428571429,
         "rouge_l_f1": 0.3826086956521739
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.7142857142857144,
     "plan_alignment_score": 0.6428571428571429
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note exhibits multiple grading-input issues across several sections. Key omissions include the structured Review of Systems and the 'Patient Agreements' sections. There are also unsupported structural additions, such as integrating Review of Systems negatives into the History of Present Illness and the placement of 'Awaiting blood work results' under the Objective section. Additionally, the medical reasoning in the Assessment section includes an unsupported addition of 'dizziness'. While the core clinical information is present, these structural and detail discrepancies lead to a 'C' grade.",
+    "model": "clinical-documentation-reviewer-expert",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures most of the Ground Truth content. The overall grade is B due to one minor omission regarding patient agreements and one moderate unsupported addition in the Assessment section, where dizziness was explicitly included in the medical reasoning for iron deficiency anemia, which was not present in the Ground Truth's specific reasoning.",
     "omissions": [
-      "Structured Review of Systems section.",
-      "Specificity of \"Unspecific\" in the diagnosis \"Iron Deficiency Anemia\".",
-      "\"Patient Agreements\" section.",
-      "Detail in patient education regarding \"ways to incorporate iron-rich foods\".",
-      "Description of patient education as \"Educated on the role of Vitamin C\" rather than \"Advise consuming Vitamin C\"."
+      "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up instructions."
     ],
     "additions": [
-      "Integration of Review of Systems negatives into the History of Present Illness.",
-      "Placement of \"Awaiting blood work results\" under the Objective section.",
-      "Inclusion of \"dizziness\" as a symptom in the medical reasoning for the diagnosis.",
-      "Instruction to \"Advise patient to contact sooner for any new or worsening symptoms\" in the Plan."
+      "dizziness explicitly listed as a symptom supporting suspected iron deficiency anemia in the assessment reasoning",
+      "Advise patient to contact sooner for any new or worsening symptoms"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "dizziness explicitly listed as a symptom supporting suspected iron deficiency anemia in the assessment reasoning"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section receives a C due to the omission of the structured Review of Systems section. Additionally, there is an unsupported addition where Review of Systems negatives are integrated into the History of Present Illness, and a minor omission regarding the specific phrasing of dietary habits.",
-        "omissions": [
-          "Structured Review of Systems section.",
-          "Specific phrasing \"infrequent consumption of red meat or iron-fortified foods\" (Generated uses \"limited\")."
-        ],
-        "additions": [
-          "Integration of Review of Systems negatives (e.g., \"Denies chest pain, palpitations, leg swelling...\") into the HPI."
-        ]
+        "grade": "A",
+        "summary": "The Subjective section is excellent, with no omissions or unsupported/unknown additions identified.",
+        "omissions": [],
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section receives a B due to two unsupported additions: the placement of 'Awaiting blood work results' under this section (instead of the Plan as in GroundTruth) and the redundant inclusion of 'Alert and oriented' under the General physical exam.",
+        "grade": "A",
+        "summary": "The Objective section is excellent, with no omissions or unsupported/unknown additions identified.",
         "omissions": [],
-        "additions": [
-          "Inclusion of \"Alert and oriented\" under General physical exam (also present under Neurological in GT).",
-          "Placement of \"Awaiting blood work results: Complete blood count (CBC), Serum ferritin, Serum iron, and Total iron-binding capacity (TIBC)\" under Labs."
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section receives a B due to a minor omission of the specificity 'Unspecific' in the diagnosis 'Iron Deficiency Anemia'. There is also an unsupported addition of 'dizziness' as a symptom in the medical reasoning for the diagnosis.",
-        "omissions": [
-          "Specificity of \"Unspecific\" in the diagnosis \"Iron Deficiency Anemia\"."
-        ],
+        "summary": "The Assessment section receives a B due to an unsupported addition. The generated note explicitly lists dizziness as a symptom supporting suspected iron deficiency anemia in the medical reasoning, which was not explicitly stated in the Ground Truth's reasoning for the diagnosis.",
+        "omissions": [],
         "additions": [
-          "Inclusion of \"dizziness\" as a symptom in the medical reasoning for the diagnosis."
+          "dizziness explicitly listed as a symptom supporting suspected iron deficiency anemia in the assessment reasoning"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section receives a C due to the significant omission of the 'Patient Agreements' section. There is also a loss of detail in patient education regarding 'ways to incorporate iron-rich foods' and a minor phrasing difference in the description of Vitamin C education.",
+        "grade": "B",
+        "summary": "The Plan section receives a B due to a minor omission. The note omits the 'Patient Agreements' statement, which confirms the patient's understanding and agreement with the treatment plan. All additions in this section were supported by the transcript.",
         "omissions": [
-          "\"Patient Agreements\" section.",
-          "Detail in patient education regarding \"ways to incorporate iron-rich foods\".",
-          "Description of patient education as \"Educated on the role of Vitamin C\" rather than \"Advise consuming Vitamin C\"."
+          "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up instructions."
         ],
         "additions": [
-          "Instruction to \"Advise patient to contact sooner for any new or worsening symptoms\" in follow-up recommendations.",
-          "Duplication of \"Awaiting CBC, Serum ferritin, Serum iron, and TIBC\" under Diagnostics (already listed under Objective in Generated)."
+          "Advise patient to contact sooner for any new or worsening symptoms"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section has no grading-input issues and therefore receives an A.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Integration of Review of Systems negatives into the History of Present Illness.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Placement of \"Awaiting blood work results\" under the Objective section.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Inclusion of \"dizziness\" as a symptom in the medical reasoning for the diagnosis.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Instruction to \"Advise patient to contact sooner for any new or worsening symptoms\" in the Plan.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I’d like to see you back in 4 weeks to reassess your symptoms and repeat some blood tests. ... If you notice any new or worsening symptoms, please contact me sooner.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up: Reassess symptoms and repeat blood tests in 4 weeks, with advice to contact sooner for any new or worsening symptoms."
-      },
-      {
-        "addition_text": "Integration of Review of Systems negatives (e.g., \"Denies chest pain, palpitations, leg swelling...\") into the HPI.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Inclusion of \"Alert and oriented\" under General physical exam (also present under Neurological in GT).",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Placement of \"Awaiting blood work results: Complete blood count (CBC), Serum ferritin, Serum iron, and Total iron-binding capacity (TIBC)\" under Labs.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’re awaiting some blood work results: Complete blood count, Serum ferritin, Serum iron, and Total iron-binding capacity.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Labs awaiting: Complete Blood Count (CBC), Serum ferritin, Serum iron, and Total Iron-Binding Capacity (TIBC)."
-      },
-      {
-        "addition_text": "Instruction to \"Advise patient to contact sooner for any new or worsening symptoms\" in follow-up recommendations.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: I’d like to see you back in 4 weeks to reassess your symptoms and repeat some blood tests. ... If you notice any new or worsening symptoms, please contact me sooner.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up: Reassess symptoms and repeat blood tests in 4 weeks, with advice to contact sooner for any new or worsening symptoms."
-      },
-      {
-        "addition_text": "Duplication of \"Awaiting CBC, Serum ferritin, Serum iron, and TIBC\" under Diagnostics (already listed under Objective in Generated).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’re awaiting some blood work results: Complete blood count, Serum ferritin, Serum iron, and Total iron-binding capacity. These will help us confirm the diagnosis.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: Awaiting CBC, Serum ferritin, Serum iron, and TIBC to confirm diagnosis."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Integration of Review of Systems negatives into the History of Present Illness.",
+      "addition_text": "dizziness explicitly listed as a symptom supporting suspected iron deficiency anemia in the assessment reasoning",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Placement of \"Awaiting blood work results\" under the Objective section.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Inclusion of \"dizziness\" as a symptom in the medical reasoning for the diagnosis.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Instruction to \"Advise patient to contact sooner for any new or worsening symptoms\" in the Plan.",
+      "addition_text": "Advise patient to contact sooner for any new or worsening symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d like to see you back in 4 weeks to reassess your symptoms and repeat some blood tests. ... If you notice any new or worsening symptoms, please contact me sooner.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Follow-up: Reassess symptoms and repeat blood tests in 4 weeks, with advice to contact sooner for any new or worsening symptoms."
-    },
-    {
-      "addition_text": "Integration of Review of Systems negatives (e.g., \"Denies chest pain, palpitations, leg swelling...\") into the HPI.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Inclusion of \"Alert and oriented\" under General physical exam (also present under Neurological in GT).",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Placement of \"Awaiting blood work results: Complete blood count (CBC), Serum ferritin, Serum iron, and Total iron-binding capacity (TIBC)\" under Labs.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re awaiting some blood work results: Complete blood count, Serum ferritin, Serum iron, and Total iron-binding capacity.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Labs awaiting: Complete Blood Count (CBC), Serum ferritin, Serum iron, and Total Iron-Binding Capacity (TIBC)."
-    },
-    {
-      "addition_text": "Instruction to \"Advise patient to contact sooner for any new or worsening symptoms\" in follow-up recommendations.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’d like to see you back in 4 weeks to reassess your symptoms and repeat some blood tests. ... If you notice any new or worsening symptoms, please contact me sooner.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up: Reassess symptoms and repeat blood tests in 4 weeks, with advice to contact sooner for any new or worsening symptoms."
-    },
-    {
-      "addition_text": "Duplication of \"Awaiting CBC, Serum ferritin, Serum iron, and TIBC\" under Diagnostics (already listed under Objective in Generated).",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re awaiting some blood work results: Complete blood count, Serum ferritin, Serum iron, and Total iron-binding capacity. These will help us confirm the diagnosis.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnostics: Awaiting CBC, Serum ferritin, Serum iron, and TIBC to confirm diagnosis."
     }
   ]
 }

@@ -281,8 +281,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6391373623624588,
-    "overall_rouge_l_f1": 0.45422311467158794,
+    "overall_token_f1": 0.5489217029530734,
+    "overall_rouge_l_f1": 0.31777889333948495,
     "by_section": [
       {
         "section": "Subjective",
@@ -311,169 +311,195 @@
         "gen_present": true,
         "token_f1": 0.6798418972332017,
         "rouge_l_f1": 0.3392857142857143
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.11538461538461539,
     "plan_alignment_score": 0.6798418972332017
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The generated SOAP note contains a critical hallucination by referring to the patient as 'himself' in the Subjective and Assessment sections, directly contradicting the GroundTruth's 'female' patient. This is a significant safety and reliability concern. Additionally, the note omits important clinical details such as the full list of differential diagnoses and the comprehensive conclusion details regarding patient understanding and adherence to the plan. Several minor omissions regarding the specific purposes of treatment instructions are also present.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, HPI, ROS, Objective findings, primary diagnosis, and the core treatment plan. The main issues are the omission of three differential diagnoses in the Assessment section and several minor omissions in the Plan section related to patient education rationales and the conclusion of the visit. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Detail in HPI: 'significant inability to perform routine tasks' (Generated has 'decreased ability to perform daily tasks')",
-      "Detail in ROS General: 'significant decrease in daily activities' (Generated has 'decreased ability to perform daily tasks')",
-      "Differential diagnoses: Chronic blood loss anemia, Iron deficiency anemia, Vitamin B12 or folate deficiency anemia",
-      "Purpose of repeat CBC: 'to monitor response to treatment'",
-      "Purpose of taking iron supplements with food: 'to avoid gastrointestinal upset'",
-      "Purpose of avoiding caffeine and calcium-rich foods with iron supplements: 'to enhance absorption'",
-      "Conclusion section details: patient expressed understanding and willingness to adhere to treatment and follow-up plan; initial consultation concluded with scheduling follow-up to reassess and review lab results"
+      "Chronic blood loss anemia (as a differential diagnosis)",
+      "Iron deficiency anemia (as a differential diagnosis)",
+      "Vitamin B12 or folate deficiency anemia (as a differential diagnosis)",
+      "Rationale for taking iron with food: importance of taking iron supplements with food to avoid gastrointestinal upset",
+      "Rationale for avoiding caffeine/calcium with iron: to enhance absorption",
+      "Patient expressed understanding and willingness to adhere to treatment",
+      "Initial consultation concluded",
+      "Follow-up to reassess"
     ],
     "additions": [
-      "Direct quotes in HPI: 'extremely tired, almost bedridden', 'no energy at all'",
-      "Summary of symptoms and signs in Assessment (e.g., severe fatigue, dizziness, shortness of breath, pallor, easy bruising, tachycardia, mild tachypnea, epigastric tenderness)",
-      "Specification of 'today' for administering 2 units of packed red blood cells (PRBCs)",
-      "Specification of 'today' for ordering lab tests (CBC, CMP, iron studies, Vitamin B12, Folate levels)"
+      "Patient describing himself as \"extremely tired, almost bedridden\" with \"no energy at all.\"",
+      "\"intermittent\" qualifier for heart racing/tachycardia",
+      "\"on auscultation\" for tachycardia",
+      "Summary of symptoms and signs consistent with anemia in Assessment",
+      "Summary of physical exam findings in Assessment",
+      "Reasoning for suspected diagnosis: \"Given the history of peptic ulcer disease\" in Assessment",
+      "\"today\" for ordering lab tests",
+      "\"today\" for administering PRBCs",
+      "Reasoning for GI referral: \"given history of peptic ulcer disease\" in Plan",
+      "\"severe\" qualifier for shortness of breath as a complication"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Patient referred to as 'himself' in Subjective and Assessment, contradicting GroundTruthSOAP's 'female'"
+      "Summary of physical exam findings in Assessment"
     ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section contains a critical hallucination, referring to the patient as 'himself' instead of 'female'. It also has minor omissions regarding the patient's 'significant inability to perform routine tasks' and 'significant decrease in daily activities', though similar content is present.",
-        "omissions": [
-          "Detail in HPI: 'significant inability to perform routine tasks' (Generated has 'decreased ability to perform daily tasks')",
-          "Detail in ROS General: 'significant decrease in daily activities' (Generated has 'decreased ability to perform daily tasks')"
-        ],
+        "grade": "A",
+        "summary": "The Subjective section is excellent, capturing all Ground Truth content without any omissions. All additions were supported by the transcript and did not reduce the grade.",
+        "omissions": [],
         "additions": [
-          "Direct quotes in HPI: 'extremely tired, almost bedridden', 'no energy at all'"
+          "Patient describing himself as \"extremely tired, almost bedridden\" with \"no energy at all.\"",
+          "\"intermittent\" qualifier for heart racing/tachycardia"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section accurately captures all GroundTruth content with no omissions, unsupported/unknown additions, or hallucinations.",
+        "summary": "The Objective section is excellent, capturing all Ground Truth content without any omissions. All additions were supported by the transcript and did not reduce the grade.",
         "omissions": [],
-        "additions": []
+        "additions": [
+          "\"on auscultation\" for tachycardia"
+        ]
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section omits the complete list of differential diagnoses (Chronic blood loss anemia, Iron deficiency anemia, Vitamin B12 or folate deficiency anemia). Furthermore, it contains a critical hallucination by referring to the patient as 'himself' instead of 'female'.",
+        "grade": "B",
+        "summary": "The Assessment section omits three differential diagnoses: Chronic blood loss anemia, Iron deficiency anemia, and Vitamin B12 or folate deficiency anemia. While the primary diagnosis is present, these omissions represent a noticeable gap in the comprehensive assessment. All additions were supported by the transcript.",
         "omissions": [
-          "Differential diagnoses: Chronic blood loss anemia, Iron deficiency anemia, Vitamin B12 or folate deficiency anemia"
+          "Chronic blood loss anemia (as a differential diagnosis)",
+          "Iron deficiency anemia (as a differential diagnosis)",
+          "Vitamin B12 or folate deficiency anemia (as a differential diagnosis)"
         ],
         "additions": [
-          "Summary of symptoms and signs consistent with anemia (e.g., severe fatigue, dizziness, shortness of breath, pallor, easy bruising, tachycardia, mild tachypnea, epigastric tenderness)"
+          "Summary of symptoms and signs consistent with anemia",
+          "Summary of physical exam findings",
+          "Reasoning for suspected diagnosis: \"Given the history of peptic ulcer disease\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section omits the full conclusion details regarding the patient's expressed understanding and willingness to adhere to the treatment and follow-up plan, and the initial consultation concluding with scheduling the follow-up. It also omits the specific purposes for repeat CBC ('to monitor response to treatment'), taking iron with food ('to avoid gastrointestinal upset'), and avoiding caffeine/calcium ('to enhance absorption').",
+        "grade": "B",
+        "summary": "The Plan section has several minor omissions, including the specific rationales for taking iron with food (to avoid GI upset) and avoiding caffeine/calcium (to enhance absorption). It also omits details about the patient expressing understanding, the initial consultation concluding, and the follow-up being for reassessment. These are minor issues that do not significantly impact the core treatment plan or safety. All additions were supported by the transcript.",
         "omissions": [
-          "Purpose of repeat CBC: 'to monitor response to treatment'",
-          "Purpose of taking iron supplements with food: 'to avoid gastrointestinal upset'",
-          "Purpose of avoiding caffeine and calcium-rich foods with iron supplements: 'to enhance absorption'",
-          "Conclusion section details: patient expressed understanding and willingness to adhere to treatment and follow-up plan; initial consultation concluded with scheduling follow-up to reassess and review lab results"
+          "Rationale for taking iron with food: importance of taking iron supplements with food to avoid gastrointestinal upset",
+          "Rationale for avoiding caffeine/calcium with iron: to enhance absorption",
+          "Patient expressed understanding and willingness to adhere to treatment",
+          "Initial consultation concluded",
+          "Follow-up to reassess"
         ],
         "additions": [
-          "Specification of 'today' for administering 2 units of packed red blood cells (PRBCs)",
-          "Specification of 'today' for ordering lab tests (CBC, CMP, iron studies, Vitamin B12, Folate levels)"
+          "\"today\" for ordering lab tests",
+          "\"today\" for administering PRBCs",
+          "Reasoning for GI referral: \"given history of peptic ulcer disease\"",
+          "\"severe\" qualifier for shortness of breath as a complication"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "This section has no omissions, unsupported/unknown additions, or hallucinations.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Direct quotes in HPI: 'extremely tired, almost bedridden', 'no energy at all'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I've been dealing with severe fatigue and dizziness for the past week. I've been extremely tired, almost bedridden. I also feel dizzy, short of breath, and my skin looks very pale. My heart seems to race sometimes too. Yes, I can hardly do anything. It's like I have no energy at all.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports severe fatigue and dizziness for the past week, describing himself as \"extremely tired, almost bedridden\" with \"no energy at all.\""
-      },
-      {
-        "addition_text": "Summary of symptoms and signs in Assessment (e.g., severe fatigue, dizziness, shortness of breath, pallor, easy bruising, tachycardia, mild tachypnea, epigastric tenderness)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I also feel dizzy, short of breath, and my skin looks very pale. My heart seems to race sometimes too. Yes, I get short of breath quite easily. Yes, my skin is pale and I bruise easily. Yes, my heart races sometimes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Associated symptoms include shortness of breath, pale skin, easy bruising, and intermittent heart racing (tachycardia)."
-      },
-      {
-        "addition_text": "Specification of 'today' for administering 2 units of packed red blood cells (PRBCs)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Additionally, we’ll arrange for you to receive 2 units of packed red blood cells (PRBCs) as a blood transfusion to quickly improve your symptoms. Let’s get you started on the treatment and the lab tests today.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Administer 2 units of packed red blood cells (PRBCs) transfusion today."
-      },
-      {
-        "addition_text": "Specification of 'today' for ordering lab tests (CBC, CMP, iron studies, Vitamin B12, Folate levels)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We need to confirm this with some lab tests, including a Complete Blood Count (CBC), Comprehensive Metabolic Panel (CMP), and iron studies, Vitamin B12, and Folate levels. Let’s get you started on the treatment and the lab tests today.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Order Complete Blood Count (CBC), Comprehensive Metabolic Panel (CMP), iron studies, Vitamin B12, and Folate levels today."
-      },
-      {
-        "addition_text": "Summary of symptoms and signs consistent with anemia (e.g., severe fatigue, dizziness, shortness of breath, pallor, easy bruising, tachycardia, mild tachypnea, epigastric tenderness)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I also feel dizzy, short of breath, and my skin looks very pale. My heart seems to race sometimes too. Yes, I get short of breath quite easily. Yes, my skin is pale and I bruise easily. Yes, my heart races sometimes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Associated symptoms include shortness of breath, pale skin, easy bruising, and intermittent heart racing (tachycardia)."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Direct quotes in HPI: 'extremely tired, almost bedridden', 'no energy at all'",
+      "addition_text": "Patient describing himself as \"extremely tired, almost bedridden\" with \"no energy at all.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I've been dealing with severe fatigue and dizziness for the past week. I've been extremely tired, almost bedridden. I also feel dizzy, short of breath, and my skin looks very pale. My heart seems to race sometimes too. Yes, I can hardly do anything. It's like I have no energy at all.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient reports severe fatigue and dizziness for the past week, describing himself as \"extremely tired, almost bedridden\" with \"no energy at all.\""
     },
     {
-      "addition_text": "Summary of symptoms and signs in Assessment (e.g., severe fatigue, dizziness, shortness of breath, pallor, easy bruising, tachycardia, mild tachypnea, epigastric tenderness)",
+      "addition_text": "\"intermittent\" qualifier for heart racing/tachycardia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I also feel dizzy, short of breath, and my skin looks very pale. My heart seems to race sometimes too. Yes, I get short of breath quite easily. Yes, my skin is pale and I bruise easily. Yes, my heart races sometimes.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Associated symptoms include shortness of breath, pale skin, easy bruising, and intermittent heart racing (tachycardia)."
     },
     {
-      "addition_text": "Specification of 'today' for administering 2 units of packed red blood cells (PRBCs)",
+      "addition_text": "\"on auscultation\" for tachycardia",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Additionally, we’ll arrange for you to receive 2 units of packed red blood cells (PRBCs) as a blood transfusion to quickly improve your symptoms. Let’s get you started on the treatment and the lab tests today.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Administer 2 units of packed red blood cells (PRBCs) transfusion today."
+      "transcript_evidence": "I’m going to listen to your heart now. (Pause) I do hear tachycardia",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "Specification of 'today' for ordering lab tests (CBC, CMP, iron studies, Vitamin B12, Folate levels)",
+      "addition_text": "Summary of symptoms and signs consistent with anemia in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We need to confirm this with some lab tests, including a Complete Blood Count (CBC), Comprehensive Metabolic Panel (CMP), and iron studies, Vitamin B12, and Folate levels. Let’s get you started on the treatment and the lab tests today.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order Complete Blood Count (CBC), Comprehensive Metabolic Panel (CMP), iron studies, Vitamin B12, and Folate levels today."
+      "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have acute posthemorrhagic anemia.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "Summary of symptoms and signs consistent with anemia (e.g., severe fatigue, dizziness, shortness of breath, pallor, easy bruising, tachycardia, mild tachypnea, epigastric tenderness)",
+      "addition_text": "Summary of physical exam findings in Assessment",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Reasoning for suspected diagnosis: \"Given the history of peptic ulcer disease\" in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I also feel dizzy, short of breath, and my skin looks very pale. My heart seems to race sometimes too. Yes, I get short of breath quite easily. Yes, my skin is pale and I bruise easily. Yes, my heart races sometimes.",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have acute posthemorrhagic anemia. I’m also referring you to a gastroenterologist, Dr. John Smith, to evaluate any potential gastrointestinal bleeding, given your history of peptic ulcer disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Associated symptoms include shortness of breath, pale skin, easy bruising, and intermittent heart racing (tachycardia)."
+      "matched_claim_text": "Acute posthemorrhagic anemia is suspected, given the history of peptic ulcer disease."
+    },
+    {
+      "addition_text": "\"today\" for ordering lab tests",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Let’s get you started on the treatment and the lab tests today.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"today\" for administering PRBCs",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Let’s get you started on the treatment and the lab tests today.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Reasoning for GI referral: \"given history of peptic ulcer disease\" in Plan",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have acute posthemorrhagic anemia. I’m also referring you to a gastroenterologist, Dr. John Smith, to evaluate any potential gastrointestinal bleeding, given your history of peptic ulcer disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Acute posthemorrhagic anemia is suspected, given the history of peptic ulcer disease."
+    },
+    {
+      "addition_text": "\"severe\" qualifier for shortness of breath as a complication",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Also, keep an eye on any signs of complications like severe shortness of breath, chest pain, or worsened fatigue.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Educate on monitoring for complications: severe shortness of breath, chest pain, or worsened fatigue."
+    },
+    {
+      "addition_text": "Summary of symptoms and signs consistent with anemia",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have acute posthemorrhagic anemia.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Summary of physical exam findings",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "The doctor noted the patient looked quite pale and fatigued, had tachycardia, mild tachypnea, mild tenderness in the epigastric region, and pale, cool skin.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Reasoning for suspected diagnosis: \"Given the history of peptic ulcer disease\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have acute posthemorrhagic anemia. I’m also referring you to a gastroenterologist, Dr. John Smith, to evaluate any potential gastrointestinal bleeding, given your history of peptic ulcer disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Acute posthemorrhagic anemia is suspected, given the history of peptic ulcer disease."
+    },
+    {
+      "addition_text": "Reasoning for GI referral: \"given history of peptic ulcer disease\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have acute posthemorrhagic anemia. I’m also referring you to a gastroenterologist, Dr. John Smith, to evaluate any potential gastrointestinal bleeding, given your history of peptic ulcer disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Acute posthemorrhagic anemia is suspected, given the history of peptic ulcer disease."
     }
   ]
 }

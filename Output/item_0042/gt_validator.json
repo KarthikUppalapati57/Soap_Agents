@@ -177,8 +177,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5995654449990411,
-    "overall_rouge_l_f1": 0.5311474551531562,
+    "overall_token_f1": 0.4994568062488014,
+    "overall_rouge_l_f1": 0.4139343189414453,
     "by_section": [
       {
         "section": "Subjective",
@@ -207,254 +207,307 @@
         "gen_present": true,
         "token_f1": 0.5567010309278351,
         "rouge_l_f1": 0.44531250000000006
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.29411764705882354,
     "plan_alignment_score": 0.5567010309278351
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note has multiple omissions, primarily concentrated in the Plan section. These include the specific reason for the physical therapy referral, important patient context regarding motivation and health literacy, and the explicit statement about pending lab results. Minor omissions were also noted in the Objective and Assessment sections. All additions were well-supported by the transcript and did not negatively impact the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately capturing the patient's chief complaint, history, objective findings, assessment, and the core elements of the plan. It effectively integrates details from the transcript. However, the note has several minor structural omissions (e.g., explicit section headers for CC, HPI, ROS, Vital Signs, Extremities) and omits some moderate contextual information, such as the patient's motivation, social determinants of health, and health literacy, which are important for a comprehensive plan. The omission of the \"General Appearance\" description is also a minor clinical detail. There is only one minor unsupported addition, a section header, which does not impact clinical content.",
     "omissions": [
-      "General Appearance details: 'No acute distress, overweight, alert'",
-      "Specific reason for physical therapy referral: 'To improve physical capacity and manage obesity'",
-      "Patient's motivation/cooperativeness: 'The patient is highly cooperative and motivated to make lifestyle changes'",
-      "Patient's health literacy and fluency in English: 'Given his high health literacy and fluency in English'",
-      "Explicit statement that biochemistry panel results are pending and will be reviewed in subsequent consultations"
+      "Explicit \"Chief Complaint (CC)\" section header and its content \"Obesity and associated symptoms.\"",
+      "Explicit \"History of Present Illness (HPI)\" section header",
+      "Explicit \"Review of Systems (ROS)\" section header",
+      "Structured breakdown of ROS by system (Constitutional, Respiratory, Cardiovascular, Gastrointestinal, Musculoskeletal, Endocrine)",
+      "\"Vital Signs\" section header in Objective",
+      "\"General Appearance: No acute distress, overweight, alert.\" in Objective",
+      "\"Extremities\" section header in Objective",
+      "\"unspecified\" qualifier for obesity in Assessment",
+      "Specific reason for PT referral: \"To improve physical capacity and manage obesity.\"",
+      "Specialist and Doctor details for PT referral: \"Specialist: Physical Therapist. Doctor: Dr. Emily Johnson.\"",
+      "Patient's motivation and cooperation: \"The patient is highly cooperative and motivated to make lifestyle changes.\"",
+      "Patient's social determinants of health/environment: \"He resides in an urban, affluent neighborhood with good access to parks and recreational facilities, and minimal environmental health risks.\"",
+      "Patient's health literacy and English fluency as context for education: \"Given his high health literacy and fluency in English,\"",
+      "Status of biochemistry panel results: \"Follow-up results of the biochemistry panel are pending\""
     ],
     "additions": [
-      "Specific severity of fatigue: 'severity 6-7/10'",
-      "Specific location of swelling: 'particularly around the ankles'",
-      "Linking BMI to obesity diagnosis in Assessment: '(BMI 34.5 kg/m²)'",
-      "Explicitly stating 'Functional limitations due to weight and fatigue' in Assessment",
-      "Explicitly stating 'Stable hypothyroidism on current medication' in Assessment",
-      "Specific timeframe for diagnostics: 'to be completed within next week'",
-      "Specific timeframe for follow-up: 'Return in 2 weeks to discuss progress and review lab results'"
+      "Severity rating for fatigue: \"severity 6-7/10\"",
+      "Specific location of swelling: \"particularly around the ankles\"",
+      "\"weight gain\" as the primary concern in the opening sentence of Subjective",
+      "\"other musculoskeletal issues\" in the denial list in Subjective",
+      "\"Physical Exam\" section header in Objective",
+      "\"BMI 34.5 kg/m²\" associated with obesity in Assessment",
+      "\"chronic fatigue\" qualifier in Assessment",
+      "\"bilateral pedal edema\" specificity in Assessment",
+      "\"Functional limitations due to weight and fatigue.\" in Assessment",
+      "\"Stable hypothyroidism on current medication.\" in Assessment",
+      "\"Diagnostics\" section header in Plan",
+      "\"Education\" section header in Plan",
+      "\"Follow-up\" section header in Plan",
+      "Specific timeframe for diagnostics: \"to be completed within next week\"",
+      "Specific follow-up timeframe: \"Return in 2 weeks to discuss progress and review lab results.\""
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "\"Diagnostics\" section header in Plan",
+      "\"weight gain\" as the primary concern in the opening sentence",
+      "\"Diagnostics\" section header",
+      "\"Education\" section header",
+      "\"Follow-up\" section header"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section is excellent, capturing all clinically important GroundTruth content. The additions made were well-supported by the transcript and enhance the clinical picture.",
-        "omissions": [],
+        "summary": "The Subjective section accurately captures all clinically relevant information from the Ground Truth. Omissions are limited to structural elements like explicit section headers (CC, HPI, ROS) and the structured breakdown of the Review of Systems, but the content itself is present in narrative form. There are no unsupported or unknown additions.",
+        "omissions": [
+          "Explicit \"Chief Complaint (CC)\" section header and its content \"Obesity and associated symptoms.\"",
+          "Explicit \"History of Present Illness (HPI)\" section header",
+          "Explicit \"Review of Systems (ROS)\" section header",
+          "Structured breakdown of ROS by system (Constitutional, Respiratory, Cardiovascular, Gastrointestinal, Musculoskeletal, Endocrine)"
+        ],
         "additions": [
-          "Severity of fatigue: 'severity 6-7/10'",
-          "Specific location of swelling: 'particularly around the ankles'"
+          "Severity rating for fatigue: \"severity 6-7/10\"",
+          "Specific location of swelling: \"particularly around the ankles\"",
+          "\"weight gain\" as the primary concern in the opening sentence",
+          "\"other musculoskeletal issues\" in the denial list"
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section has one minor omission regarding the patient's general appearance details ('No acute distress, overweight, alert').",
+        "summary": "The Objective section accurately presents vital signs and the key physical exam finding of mild bilateral pedal edema. However, it omits the \"General Appearance\" description (\"No acute distress, overweight, alert\") and structural headers for \"Vital Signs\" and \"Extremities.\" There are no unsupported or unknown additions.",
         "omissions": [
-          "General Appearance details: 'No acute distress, overweight, alert'"
+          "\"Vital Signs\" section header",
+          "\"General Appearance: No acute distress, overweight, alert.\"",
+          "\"Extremities\" section header"
         ],
-        "additions": []
+        "additions": [
+          "\"Physical Exam\" section header"
+        ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section is strong, with only a minor omission regarding the specificity of the obesity diagnosis ('unspecified'). Supported additions enhance clarity without negatively impacting the grade.",
+        "grade": "A",
+        "summary": "The Assessment section is excellent, accurately capturing the primary diagnoses and their interrelationships, including relevant functional limitations and the status of hypothyroidism. The only omission is the minor qualifier \"unspecified\" for obesity, which does not impact clinical meaning. There are no unsupported or unknown additions.",
         "omissions": [
-          "Specificity of obesity diagnosis: 'unspecified'"
+          "\"unspecified\" qualifier for obesity"
         ],
         "additions": [
-          "Linking BMI to obesity diagnosis: '(BMI 34.5 kg/m²)'",
-          "Explicitly stating 'Functional limitations due to weight and fatigue'",
-          "Explicitly stating 'Stable hypothyroidism on current medication'"
+          "\"BMI 34.5 kg/m²\" associated with obesity",
+          "\"chronic fatigue\" qualifier",
+          "\"bilateral pedal edema\" specificity",
+          "\"Functional limitations due to weight and fatigue.\"",
+          "\"Stable hypothyroidism on current medication.\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple omissions, including the specific reason for the physical therapy referral, important patient context (motivation, health literacy), and the explicit statement that biochemistry panel results are pending and will be reviewed in subsequent consultations. Supported additions did not affect the grade.",
+        "grade": "B",
+        "summary": "The Plan section effectively outlines all key clinical interventions, including lifestyle modifications, referrals, medications, diagnostics, and education. Omissions include specific details for the PT referral (reason, specialist name), and important contextual information about the patient's motivation, social determinants of health, and health literacy. There is one unsupported addition, which is the \"Diagnostics\" section header, a minor structural element that does not introduce misleading clinical content.",
         "omissions": [
-          "Specific reason for physical therapy referral: 'To improve physical capacity and manage obesity'",
-          "Patient's motivation/cooperativeness: 'The patient is highly cooperative and motivated to make lifestyle changes'",
-          "Patient's health literacy and fluency in English: 'Given his high health literacy and fluency in English'",
-          "Explicit statement that biochemistry panel results are pending and will be reviewed in subsequent consultations"
+          "Specific reason for PT referral: \"To improve physical capacity and manage obesity.\"",
+          "Specialist and Doctor details for PT referral: \"Specialist: Physical Therapist. Doctor: Dr. Emily Johnson.\"",
+          "Patient's motivation and cooperation: \"The patient is highly cooperative and motivated to make lifestyle changes.\"",
+          "Patient's social determinants of health/environment: \"He resides in an urban, affluent neighborhood with good access to parks and recreational facilities, and minimal environmental health risks.\"",
+          "Patient's health literacy and English fluency as context for education: \"Given his high health literacy and fluency in English,\"",
+          "Status of biochemistry panel results: \"Follow-up results of the biochemistry panel are pending\""
         ],
         "additions": [
-          "Specific timeframe for diagnostics: 'to be completed within next week'",
-          "Specific timeframe for follow-up: 'Return in 2 weeks to discuss progress and review lab results'"
+          "\"Diagnostics\" section header",
+          "\"Education\" section header",
+          "\"Follow-up\" section header",
+          "Specific timeframe for diagnostics: \"to be completed within next week\"",
+          "Specific follow-up timeframe: \"Return in 2 weeks to discuss progress and review lab results.\""
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section is complete with no discrepancies.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Specific severity of fatigue: 'severity 6-7/10'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I feel tired all the time, and my legs swell up, especially around my ankles. ... I'd say about a 6 or 7. The fatigue is there every day, and the swelling in my legs makes it hard to move around.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports daily fatigue (severity 6-7/10) and bilateral lower extremity swelling, particularly around the ankles."
-      },
-      {
-        "addition_text": "Specific location of swelling: 'particularly around the ankles'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I feel tired all the time, and my legs swell up, especially around my ankles. ... I'd say about a 6 or 7. The fatigue is there every day, and the swelling in my legs makes it hard to move around.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports daily fatigue (severity 6-7/10) and bilateral lower extremity swelling, particularly around the ankles."
-      },
-      {
-        "addition_text": "Linking BMI to obesity diagnosis in Assessment: '(BMI 34.5 kg/m²)'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "your BMI is 34.5 kg/m²",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "BMI: 34.5 kg/m²"
-      },
-      {
-        "addition_text": "Explicitly stating 'Functional limitations due to weight and fatigue' in Assessment",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Climbing stairs is really difficult, and carrying groceries has become almost impossible. ... I enjoy gardening, but even that has become hard because of my weight and fatigue.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Functional limitations due to weight and fatigue."
-      },
-      {
-        "addition_text": "Explicitly stating 'Stable hypothyroidism on current medication' in Assessment",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I have hypothyroidism, and I take levothyroxine—75 mcg daily. ... It's been stable.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Stable hypothyroidism on current medication."
-      },
-      {
-        "addition_text": "Specific timeframe for diagnostics: 'to be completed within next week'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We'll also order a biochemistry panel to assess your metabolic status. This will include a fasting lipid profile, fasting blood glucose, and HbA1c. ... You can have the blood work done at your convenience, preferably within the next week.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: Order biochemistry panel including fasting lipid profile, fasting blood glucose, and HbA1c, to be completed within next week."
-      },
-      {
-        "addition_text": "Specific timeframe for follow-up: 'Return in 2 weeks to discuss progress and review lab results'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Let's set up a follow-up appointment in two weeks to discuss your progress and review the results of the biochemistry panel.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up: Return in 2 weeks to discuss progress and review lab results."
-      },
-      {
-        "addition_text": "Severity of fatigue: 'severity 6-7/10'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I feel tired all the time, and my legs swell up, especially around my ankles. ... I'd say about a 6 or 7. The fatigue is there every day, and the swelling in my legs makes it hard to move around.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient reports daily fatigue (severity 6-7/10) and bilateral lower extremity swelling, particularly around the ankles."
-      },
-      {
-        "addition_text": "Linking BMI to obesity diagnosis: '(BMI 34.5 kg/m²)'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "your BMI is 34.5 kg/m²",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "BMI: 34.5 kg/m²"
-      },
-      {
-        "addition_text": "Explicitly stating 'Functional limitations due to weight and fatigue'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Climbing stairs is really difficult, and carrying groceries has become almost impossible. ... I enjoy gardening, but even that has become hard because of my weight and fatigue.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Functional limitations due to weight and fatigue."
-      },
-      {
-        "addition_text": "Explicitly stating 'Stable hypothyroidism on current medication'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I have hypothyroidism, and I take levothyroxine—75 mcg daily. ... It's been stable.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Stable hypothyroidism on current medication."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Specific severity of fatigue: 'severity 6-7/10'",
+      "addition_text": "Severity rating for fatigue: \"severity 6-7/10\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I feel tired all the time, and my legs swell up, especially around my ankles. ... I'd say about a 6 or 7. The fatigue is there every day, and the swelling in my legs makes it hard to move around.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient reports daily fatigue (severity 6-7/10) and bilateral lower extremity swelling, particularly around the ankles."
     },
     {
-      "addition_text": "Specific location of swelling: 'particularly around the ankles'",
+      "addition_text": "Specific location of swelling: \"particularly around the ankles\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I feel tired all the time, and my legs swell up, especially around my ankles. ... I'd say about a 6 or 7. The fatigue is there every day, and the swelling in my legs makes it hard to move around.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient reports daily fatigue (severity 6-7/10) and bilateral lower extremity swelling, particularly around the ankles."
     },
     {
-      "addition_text": "Linking BMI to obesity diagnosis in Assessment: '(BMI 34.5 kg/m²)'",
+      "addition_text": "\"weight gain\" as the primary concern in the opening sentence of Subjective",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'm doing okay, but I've been struggling with some issues related to my weight.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"other musculoskeletal issues\" in the denial list in Subjective",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: And you mentioned difficulty with physical activities like climbing stairs. Any other musculoskeletal issues?\n[Patient]: Not really, just the difficulty with activities because of my weight.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Physical Exam\" section header in Objective",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is 128/78 mmHg, and your BMI is 34.5 kg/m². You have mild bilateral pedal edema.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"BMI 34.5 kg/m²\" associated with obesity in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "your BMI is 34.5 kg/m²",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "BMI: 34.5 kg/m²"
     },
     {
-      "addition_text": "Explicitly stating 'Functional limitations due to weight and fatigue' in Assessment",
+      "addition_text": "\"chronic fatigue\" qualifier in Assessment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "For the past two years, I've noticed that I'm gaining weight and it's becoming harder to do my daily activities. I feel tired all the time, and my legs swell up, especially around my ankles.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"bilateral pedal edema\" specificity in Assessment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "You have mild bilateral pedal edema",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Physical Exam: Mild bilateral pedal edema."
+    },
+    {
+      "addition_text": "\"Functional limitations due to weight and fatigue.\" in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Climbing stairs is really difficult, and carrying groceries has become almost impossible. ... I enjoy gardening, but even that has become hard because of my weight and fatigue.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Functional limitations due to weight and fatigue."
     },
     {
-      "addition_text": "Explicitly stating 'Stable hypothyroidism on current medication' in Assessment",
+      "addition_text": "\"Stable hypothyroidism on current medication.\" in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I have hypothyroidism, and I take levothyroxine—75 mcg daily. ... It's been stable.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Stable hypothyroidism on current medication."
     },
     {
-      "addition_text": "Specific timeframe for diagnostics: 'to be completed within next week'",
+      "addition_text": "\"Diagnostics\" section header in Plan",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Education\" section header in Plan",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'll provide you with some educational materials about the Mediterranean diet and exercise regimens.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Follow-up\" section header in Plan",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Let's set up a follow-up appointment in two weeks to discuss your progress and review the results of the biochemistry panel.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Specific timeframe for diagnostics: \"to be completed within next week\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll also order a biochemistry panel to assess your metabolic status. This will include a fasting lipid profile, fasting blood glucose, and HbA1c. ... You can have the blood work done at your convenience, preferably within the next week.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnostics: Order biochemistry panel including fasting lipid profile, fasting blood glucose, and HbA1c, to be completed within next week."
     },
     {
-      "addition_text": "Specific timeframe for follow-up: 'Return in 2 weeks to discuss progress and review lab results'",
+      "addition_text": "Specific follow-up timeframe: \"Return in 2 weeks to discuss progress and review lab results.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Let's set up a follow-up appointment in two weeks to discuss your progress and review the results of the biochemistry panel.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Follow-up: Return in 2 weeks to discuss progress and review lab results."
     },
     {
-      "addition_text": "Severity of fatigue: 'severity 6-7/10'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I feel tired all the time, and my legs swell up, especially around my ankles. ... I'd say about a 6 or 7. The fatigue is there every day, and the swelling in my legs makes it hard to move around.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports daily fatigue (severity 6-7/10) and bilateral lower extremity swelling, particularly around the ankles."
+      "addition_text": "\"weight gain\" as the primary concern in the opening sentence",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "Linking BMI to obesity diagnosis: '(BMI 34.5 kg/m²)'",
+      "addition_text": "\"other musculoskeletal issues\" in the denial list",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: And you mentioned difficulty with physical activities like climbing stairs. Any other musculoskeletal issues?\n[Patient]: Not really, just the difficulty with activities because of my weight.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Physical Exam\" section header",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "You have mild bilateral pedal edema",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Physical Exam: Mild bilateral pedal edema."
+    },
+    {
+      "addition_text": "\"BMI 34.5 kg/m²\" associated with obesity",
       "supported_by_transcript": "supported",
       "transcript_evidence": "your BMI is 34.5 kg/m²",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "BMI: 34.5 kg/m²"
     },
     {
-      "addition_text": "Explicitly stating 'Functional limitations due to weight and fatigue'",
+      "addition_text": "\"chronic fatigue\" qualifier",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "For the past two years, I've noticed that I'm gaining weight and it's becoming harder to do my daily activities. I feel tired all the time, and my legs swell up, especially around my ankles.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"bilateral pedal edema\" specificity",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "You have mild bilateral pedal edema",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Physical Exam: Mild bilateral pedal edema."
+    },
+    {
+      "addition_text": "\"Functional limitations due to weight and fatigue.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Climbing stairs is really difficult, and carrying groceries has become almost impossible. ... I enjoy gardening, but even that has become hard because of my weight and fatigue.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Functional limitations due to weight and fatigue."
     },
     {
-      "addition_text": "Explicitly stating 'Stable hypothyroidism on current medication'",
+      "addition_text": "\"Stable hypothyroidism on current medication.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I have hypothyroidism, and I take levothyroxine—75 mcg daily. ... It's been stable.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Stable hypothyroidism on current medication."
+    },
+    {
+      "addition_text": "\"Diagnostics\" section header",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Education\" section header",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Follow-up\" section header",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     }
   ]
 }

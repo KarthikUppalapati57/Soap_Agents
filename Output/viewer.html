@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOAP Output Viewer</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --panel-soft: #f1f5f9;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d9e0ea;
+      --blue: #2563eb;
+      --green: #16803c;
+      --yellow: #9a6700;
+      --red: #c22727;
+      --purple: #7952b3;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 4px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button.active {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 330px 1fr;
+    }
+
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      border-right: 1px solid var(--line);
+      background: var(--panel);
+      padding: 18px;
+    }
+
+    main {
+      min-width: 0;
+      padding: 22px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .small {
+      font-size: 12px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .controls {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .controls input,
+    .controls select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 4px;
+      padding: 9px 11px;
+      color: var(--text);
+    }
+
+    .load-box {
+      border: 1px dashed var(--line);
+      background: var(--panel-soft);
+      border-radius: 4px;
+      padding: 12px;
+    }
+
+    .file-input {
+      width: 100%;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .item-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .item-row {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+      border-radius: 4px;
+      padding: 10px;
+    }
+
+    .item-row.active {
+      background: #eff6ff;
+      border-color: var(--blue);
+    }
+
+    .item-sub {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid var(--line);
+      background: var(--panel-soft);
+      color: var(--text);
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .grade {
+      font-weight: 700;
+      min-width: 28px;
+      justify-content: center;
+    }
+
+    .grade-a { color: var(--green); border-color: #b7e3c7; background: #eefbf3; }
+    .grade-b { color: #246bfe; border-color: #bfdbfe; background: #eff6ff; }
+    .grade-c { color: var(--yellow); border-color: #fde68a; background: #fffbeb; }
+    .grade-d,
+    .grade-f { color: var(--red); border-color: #fecaca; background: #fef2f2; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .card,
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      padding: 12px;
+    }
+
+    .card .label {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .card .value {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .panel {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px;
+      background: #fbfcff;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .metric-value {
+      margin-top: 3px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .bar {
+      height: 6px;
+      background: #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--blue);
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 4px;
+      padding: 12px;
+      max-height: 55vh;
+      overflow: auto;
+    }
+
+    .note-box {
+      border: 1px solid var(--line);
+      background: #fbfcff;
+      border-radius: 4px;
+      padding: 12px;
+      white-space: pre-wrap;
+      max-height: 62vh;
+      overflow: auto;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fbfcff;
+      padding: 10px 12px;
+    }
+
+    details + details {
+      margin-top: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 5px;
+    }
+
+    .chip-list {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      display: inline-flex;
+      border-radius: 4px;
+      padding: 4px 9px;
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      font-size: 12px;
+    }
+
+    .status-supported { color: var(--green); }
+    .status-unsupported { color: var(--red); }
+    .status-unknown { color: var(--yellow); }
+
+    .empty {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 920px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+        height: auto;
+      }
+
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <div class="stack">
+        <div>
+          <h1>SOAP Output Viewer</h1>
+          <div id="loadStatus" class="muted small">Loading item data...</div>
+        </div>
+
+        <div id="filePickerBox" class="load-box hidden">
+          <strong>Open local output folder</strong>
+          <div class="muted small">If browser fetch is blocked, select the `Output` folder here.</div>
+          <input id="folderInput" class="file-input" type="file" webkitdirectory directory multiple>
+        </div>
+
+        <div class="controls">
+          <input id="searchBox" type="search" placeholder="Search item, summary, notes, entities...">
+          <select id="gradeFilter">
+            <option value="">All grades</option>
+            <option value="A">Grade A</option>
+            <option value="B">Grade B</option>
+            <option value="C">Grade C</option>
+            <option value="D">Grade D</option>
+            <option value="F">Grade F</option>
+            <option value="missing">Missing judge grade</option>
+          </select>
+        </div>
+
+        <div id="itemCount" class="muted small"></div>
+        <div id="itemList" class="item-list"></div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="topbar">
+        <div>
+          <h2 id="title">No item selected</h2>
+          <div id="subtitle" class="muted"></div>
+        </div>
+        <div id="topGrade"></div>
+      </div>
+
+      <section id="summaryCards" class="cards"></section>
+
+      <nav id="tabs" class="tabs">
+        <button data-tab="overview" class="active">Overview</button>
+        <button data-tab="notes">SOAP Compare</button>
+        <button data-tab="transcript">Transcript</button>
+        <button data-tab="groundTruth">Ground Truth SOAP</button>
+        <button data-tab="generated">Generated SOAP</button>
+        <button data-tab="entities">Entities</button>
+        <button data-tab="judge">Judge</button>
+        <button data-tab="claims">Claims</button>
+        <button data-tab="hallucinations">All Hallucinations</button>
+        <button data-tab="raw">Raw JSON</button>
+      </nav>
+
+      <div id="content"></div>
+    </main>
+  </div>
+
+  <script>
+    const DEFAULT_ITEM_IDS = Array.from({ length: 50 }, (_, i) => `item_${String(i).padStart(4, "0")}`);
+    const ITEM_FILES = ["gt_validator.json", "agent3_result.json", "source.json", "meta.json", "prompt_optimizations.json"];
+
+    const state = {
+      items: [],
+      selectedItem: null,
+      activeTab: "overview",
+      search: "",
+      grade: "",
+    };
+
+    const els = {
+      loadStatus: document.getElementById("loadStatus"),
+      filePickerBox: document.getElementById("filePickerBox"),
+      folderInput: document.getElementById("folderInput"),
+      searchBox: document.getElementById("searchBox"),
+      gradeFilter: document.getElementById("gradeFilter"),
+      itemCount: document.getElementById("itemCount"),
+      itemList: document.getElementById("itemList"),
+      title: document.getElementById("title"),
+      subtitle: document.getElementById("subtitle"),
+      topGrade: document.getElementById("topGrade"),
+      summaryCards: document.getElementById("summaryCards"),
+      tabs: document.getElementById("tabs"),
+      content: document.getElementById("content"),
+    };
+
+    function pct(value) {
+      return Number.isFinite(value) ? `${Math.round(value * 100)}%` : "n/a";
+    }
+
+    function fixed(value, digits = 2) {
+      return Number.isFinite(value) ? value.toFixed(digits) : "n/a";
+    }
+
+    function esc(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function gradeClass(grade) {
+      return `grade-${String(grade || "").toLowerCase().slice(0, 1)}`;
+    }
+
+    function gradePill(grade) {
+      return grade
+        ? `<span class="pill grade ${gradeClass(grade)}">${esc(grade)}</span>`
+        : `<span class="pill grade">n/a</span>`;
+    }
+
+    function list(items) {
+      if (!items || items.length === 0) return `<div class="empty">None</div>`;
+      return `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`;
+    }
+
+    function chips(items) {
+      if (!items || items.length === 0) return `<div class="empty">None</div>`;
+      return `<div class="chip-list">${items.map((item) => `<span class="chip">${esc(item)}</span>`).join("")}</div>`;
+    }
+
+    function metric(label, value, rawValue = null) {
+      const width = Number.isFinite(rawValue) ? Math.max(0, Math.min(100, rawValue * 100)) : 0;
+      const bar = Number.isFinite(rawValue) ? `<div class="bar"><span style="width: ${width}%"></span></div>` : "";
+      return `
+        <div class="metric">
+          <div class="metric-label">${esc(label)}</div>
+          <div class="metric-value">${esc(value)}</div>
+          ${bar}
+        </div>
+      `;
+    }
+
+    async function fetchText(path) {
+      const response = await fetch(path, { cache: "no-store" });
+      if (!response.ok) throw new Error(`${path}: ${response.status}`);
+      return response.text();
+    }
+
+    async function fetchJson(path) {
+      return JSON.parse(await fetchText(path));
+    }
+
+    function parseCsvItems(csv) {
+      return csv
+        .trim()
+        .split(/\r?\n/)
+        .slice(1)
+        .map((line) => line.split(",")[0])
+        .filter((item) => /^item_\d{4}$/.test(item));
+    }
+
+    async function loadItemViaFetch(itemId) {
+      const item = { id: itemId };
+      const entries = await Promise.all(ITEM_FILES.map(async (fileName) => {
+        const key = fileName.replace(".json", "");
+        try {
+          return [key, await fetchJson(`${itemId}/${fileName}`)];
+        } catch {
+          return [key, null];
+        }
+      }));
+
+      for (const [key, value] of entries) item[key] = value;
+      return item.gt_validator || item.agent3_result || item.source ? normalizeItem(item) : null;
+    }
+
+    async function loadViaFetch(onItemLoaded) {
+      let itemIds = DEFAULT_ITEM_IDS;
+      try {
+        itemIds = parseCsvItems(await fetchText("analysis/gt_validator_summary.csv"));
+      } catch {
+        itemIds = DEFAULT_ITEM_IDS;
+      }
+
+      const loaded = [];
+      await Promise.all(itemIds.map(async (itemId) => {
+        try {
+          const item = await loadItemViaFetch(itemId);
+          if (!item) return;
+          loaded.push(item);
+          loaded.sort((a, b) => a.id.localeCompare(b.id));
+          onItemLoaded?.(loaded.slice(), itemIds.length);
+        } catch {
+          // Keep loading the rest of the folder.
+        }
+      }));
+      return loaded.sort((a, b) => a.id.localeCompare(b.id));
+    }
+
+    async function loadViaFolder(files) {
+      const byItem = new Map();
+      const wanted = new Set(ITEM_FILES);
+      const jsonFiles = Array.from(files).filter((file) => {
+        const parts = file.webkitRelativePath.split("/");
+        return parts.some((part) => /^item_\d{4}$/.test(part)) && wanted.has(parts.at(-1));
+      });
+
+      for (const file of jsonFiles) {
+        const parts = file.webkitRelativePath.split("/");
+        const itemId = parts.find((part) => /^item_\d{4}$/.test(part));
+        const fileName = parts.at(-1);
+        if (!byItem.has(itemId)) byItem.set(itemId, { id: itemId });
+        byItem.get(itemId)[fileName.replace(".json", "")] = JSON.parse(await file.text());
+      }
+
+      return Array.from(byItem.values())
+        .sort((a, b) => a.id.localeCompare(b.id))
+        .map(normalizeItem);
+    }
+
+    function normalizeItem(item) {
+      const gt = item.gt_validator || {};
+      const agent = item.agent3_result || {};
+      const source = item.source || {};
+      const expert = gt.expert_judge || {};
+      const structural = gt.structural_alignment || {};
+      const recall = gt.clinical_recall_all || {};
+
+      item.grade = expert.overall_grade || "";
+      item.summary = expert.overall_summary || gt.judge_overall_summary || "";
+      item.generated = gt.generated_soap || agent.generated || "";
+      item.groundTruth = gt.ground_truth_soap || source.ground_truth || "";
+      item.transcript = source.transcript || agent.transcript || "";
+      item.overallScore = agent.overall_score;
+      item.recall = recall.recall;
+      item.tokenF1 = structural.overall_token_f1;
+      item.rougeF1 = structural.overall_rouge_l_f1;
+      item.searchText = [
+        item.id,
+        item.grade,
+        item.summary,
+        item.generated,
+        item.groundTruth,
+        item.transcript,
+        JSON.stringify(gt.entities_gt || {}),
+        JSON.stringify(gt.entities_generated || {}),
+        JSON.stringify(expert.omissions || []),
+        JSON.stringify(expert.additions || []),
+        JSON.stringify(expert.hallucinations_or_unjustified_inferences || []),
+      ].join(" ").toLowerCase();
+      return item;
+    }
+
+    function filteredItems() {
+      return state.items.filter((item) => {
+        const matchesSearch = !state.search || item.searchText.includes(state.search.toLowerCase());
+        const matchesGrade = !state.grade
+          || (state.grade === "missing" ? !item.grade : item.grade === state.grade);
+        return matchesSearch && matchesGrade;
+      });
+    }
+
+    function selectItem(itemId) {
+      state.selectedItem = state.items.find((item) => item.id === itemId) || state.items[0] || null;
+      render();
+    }
+
+    function renderList() {
+      const items = filteredItems();
+      els.itemCount.textContent = `${items.length} of ${state.items.length} items`;
+      els.itemList.innerHTML = items.map((item) => `
+        <button class="item-row ${state.selectedItem?.id === item.id ? "active" : ""}" data-item="${esc(item.id)}">
+          <span>
+            <strong>${esc(item.id)}</strong>
+            <span class="item-sub">
+              <span>Recall ${pct(item.recall)}</span>
+              <span>Token F1 ${pct(item.tokenF1)}</span>
+              <span>Agent ${pct(item.overallScore)}</span>
+            </span>
+          </span>
+          ${gradePill(item.grade)}
+        </button>
+      `).join("");
+
+      els.itemList.querySelectorAll("[data-item]").forEach((button) => {
+        button.addEventListener("click", () => selectItem(button.dataset.item));
+      });
+    }
+
+    function renderCards(item) {
+      const gt = item.gt_validator || {};
+      const agent = item.agent3_result || {};
+      const expert = gt.expert_judge || {};
+      const structural = gt.structural_alignment || {};
+
+      els.summaryCards.innerHTML = [
+        { label: "Judge grade", value: item.grade || "n/a" },
+        { label: "Clinical recall", value: pct(gt.clinical_recall_all?.recall) },
+        { label: "Token F1", value: pct(structural.overall_token_f1) },
+        { label: "ROUGE-L F1", value: pct(structural.overall_rouge_l_f1) },
+        { label: "Agent overall", value: pct(agent.overall_score) },
+        { label: "Omissions", value: String(expert.omissions?.length ?? "n/a") },
+        { label: "Additions", value: String(expert.additions?.length ?? "n/a") },
+        { label: "Hallucinations", value: String(expert.hallucinations_or_unjustified_inferences?.length ?? "n/a") },
+      ].map((card) => `
+        <div class="card">
+          <div class="label">${esc(card.label)}</div>
+          <div class="value">${esc(card.value)}</div>
+        </div>
+      `).join("");
+    }
+
+    function renderOverview(item) {
+      const gt = item.gt_validator || {};
+      const agent = item.agent3_result || {};
+      const structural = gt.structural_alignment || {};
+
+      return `
+        <section class="panel">
+          <h2>Judge Summary</h2>
+          <p>${esc(item.summary || "No judge summary available.")}</p>
+          ${gt.expert_judge_error ? `<p class="status-unsupported"><strong>Judge error:</strong> ${esc(gt.expert_judge_error)}</p>` : ""}
+        </section>
+
+        <section class="panel">
+          <h2>Clinical Recall</h2>
+          <div class="metric-grid">
+            ${metric("All entities", pct(gt.clinical_recall_all?.recall), gt.clinical_recall_all?.recall)}
+            ${metric("Symptoms", pct(gt.clinical_recall_symptoms?.recall), gt.clinical_recall_symptoms?.recall)}
+            ${metric("Medications", pct(gt.clinical_recall_medications?.recall), gt.clinical_recall_medications?.recall)}
+            ${metric("Labs / tests", pct(gt.clinical_recall_labs?.recall), gt.clinical_recall_labs?.recall)}
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Alignment Scores</h2>
+          <div class="metric-grid">
+            ${metric("Overall token F1", pct(structural.overall_token_f1), structural.overall_token_f1)}
+            ${metric("Overall ROUGE-L F1", pct(structural.overall_rouge_l_f1), structural.overall_rouge_l_f1)}
+            ${metric("Assessment alignment", pct(structural.assessment_alignment_score), structural.assessment_alignment_score)}
+            ${metric("Plan alignment", pct(structural.plan_alignment_score), structural.plan_alignment_score)}
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Agent 3 Scores</h2>
+          <div class="metric-grid">
+            ${metric("Overall", pct(agent.overall_score), agent.overall_score)}
+            ${metric("Accuracy", pct(agent.accuracy_score), agent.accuracy_score)}
+            ${metric("Completeness", pct(agent.completeness_score), agent.completeness_score)}
+            ${metric("Context awareness", pct(agent.context_awareness_score), agent.context_awareness_score)}
+            ${metric("Instruction following", pct(agent.instruction_following_score), agent.instruction_following_score)}
+            ${metric("Communication quality", pct(agent.communication_quality_score), agent.communication_quality_score)}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderNotes(item) {
+      return `
+        <section class="grid-two">
+          <div class="panel">
+            <h2>Ground Truth SOAP</h2>
+            <div class="note-box">${esc(item.groundTruth || "No ground truth note available.")}</div>
+          </div>
+          <div class="panel">
+            <h2>Generated SOAP</h2>
+            <div class="note-box">${esc(item.generated || "No generated note available.")}</div>
+          </div>
+        </section>
+        <section class="panel">
+          <h2>Transcript</h2>
+          <div class="note-box">${esc(item.transcript || "No transcript available.")}</div>
+        </section>
+      `;
+    }
+
+    function renderTextPanel(title, text, emptyMessage) {
+      return `
+        <section class="panel">
+          <h2>${esc(title)}</h2>
+          <div class="note-box">${esc(text || emptyMessage)}</div>
+        </section>
+      `;
+    }
+
+    function recallDetails(title, data) {
+      if (!data) return "";
+      return `
+        <details>
+          <summary>${esc(title)}: ${pct(data.recall)} (${esc(data.overlap_count ?? "n/a")} / ${esc(data.gt_count ?? "n/a")})</summary>
+          <div class="grid-two" style="margin-top: 12px;">
+            <div>
+              <h3>Ground truth only</h3>
+              ${chips(data.gt_only || [])}
+            </div>
+            <div>
+              <h3>Generated only</h3>
+              ${chips(data.gen_only || [])}
+            </div>
+          </div>
+          <div style="margin-top: 12px;">
+            <h3>Overlap</h3>
+            ${chips(data.overlap || [])}
+          </div>
+        </details>
+      `;
+    }
+
+    function renderEntities(item) {
+      const gt = item.gt_validator || {};
+      return `
+        <section class="panel">
+          <h2>Entity Recall Details</h2>
+          ${recallDetails("All entities", gt.clinical_recall_all)}
+          ${recallDetails("Symptoms", gt.clinical_recall_symptoms)}
+          ${recallDetails("Medications", gt.clinical_recall_medications)}
+          ${recallDetails("Labs / tests", gt.clinical_recall_labs)}
+        </section>
+
+        <section class="grid-two">
+          <div class="panel">
+            <h2>Ground Truth Entities</h2>
+            <h3>All</h3>${chips(gt.entities_gt?.all_entities || [])}
+            <h3 style="margin-top: 14px;">Symptoms</h3>${chips(gt.entities_gt?.symptoms || [])}
+            <h3 style="margin-top: 14px;">Medications</h3>${chips(gt.entities_gt?.medications || [])}
+            <h3 style="margin-top: 14px;">Labs / tests</h3>${chips(gt.entities_gt?.labs || [])}
+          </div>
+          <div class="panel">
+            <h2>Generated Entities</h2>
+            <h3>All</h3>${chips(gt.entities_generated?.all_entities || [])}
+            <h3 style="margin-top: 14px;">Symptoms</h3>${chips(gt.entities_generated?.symptoms || [])}
+            <h3 style="margin-top: 14px;">Medications</h3>${chips(gt.entities_generated?.medications || [])}
+            <h3 style="margin-top: 14px;">Labs / tests</h3>${chips(gt.entities_generated?.labs || [])}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderJudge(item) {
+      const judge = item.gt_validator?.expert_judge || {};
+      const evidence = item.gt_validator?.addition_evidence || [];
+      return `
+        <section class="panel">
+          <h2>Overall Judge</h2>
+          <p>${gradePill(judge.overall_grade)} <span class="muted">${esc(judge.model || "")}</span></p>
+          <p>${esc(judge.overall_summary || "No judge output available.")}</p>
+        </section>
+
+        <section class="grid-two">
+          <div class="panel">
+            <h2>Omissions</h2>
+            ${list(judge.omissions)}
+          </div>
+          <div class="panel">
+            <h2>Additions</h2>
+            ${list(judge.additions)}
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Hallucinations / Unjustified Inferences</h2>
+          ${list(judge.hallucinations_or_unjustified_inferences)}
+        </section>
+
+        <section class="panel">
+          <h2>Section Grades</h2>
+          ${(judge.section_grades || []).map((section) => `
+            <details>
+              <summary>${esc(section.section)} ${gradePill(section.grade)}</summary>
+              <p>${esc(section.summary || "")}</p>
+              <div class="grid-two">
+                <div><h3>Omissions</h3>${list(section.omissions)}</div>
+                <div><h3>Additions</h3>${list(section.additions)}</div>
+              </div>
+            </details>
+          `).join("") || `<div class="empty">No section grades available.</div>`}
+        </section>
+
+        <section class="panel">
+          <h2>Addition Evidence</h2>
+          ${evidence.map((entry) => `
+            <details>
+              <summary>
+                <span class="status-${esc(entry.supported_by_transcript || "unknown")}">${esc(entry.supported_by_transcript || "unknown")}</span>
+                ${esc(entry.addition_text || "")}
+              </summary>
+              <p><strong>Transcript evidence:</strong> ${esc(entry.transcript_evidence || "n/a")}</p>
+              <p><strong>Matched claim:</strong> ${esc(entry.matched_claim_text || "n/a")}</p>
+              <p><strong>Source:</strong> ${esc(entry.evidence_source || "n/a")}</p>
+            </details>
+          `).join("") || `<div class="empty">No addition evidence available.</div>`}
+        </section>
+      `;
+    }
+
+    function renderClaims(item) {
+      const claims = item.agent3_result?.claim_verification?.claims || [];
+      return `
+        <section class="panel">
+          <h2>Claim Verification</h2>
+          ${claims.map((claim) => `
+            <details>
+              <summary>
+                <span class="status-${esc(claim.support_status || "unknown")}">${esc(claim.support_status || "unknown")}</span>
+                ${esc(claim.soap_section || "Unknown")} - ${esc(claim.claim_text || "")}
+              </summary>
+              <p><strong>Rationale:</strong> ${esc(claim.rationale || "n/a")}</p>
+              <p><strong>Transcript evidence:</strong> ${esc(claim.transcript_evidence || "n/a")}</p>
+              ${claim.medical_knowledge_rationale ? `<p><strong>Medical knowledge:</strong> ${esc(claim.medical_knowledge_rationale)}</p>` : ""}
+            </details>
+          `).join("") || `<div class="empty">No claim verification data available.</div>`}
+        </section>
+      `;
+    }
+
+    function renderRaw(item) {
+      return `
+        <section class="panel">
+          <h2>Raw Item Data</h2>
+          <pre>${esc(JSON.stringify({
+            gt_validator: item.gt_validator,
+            agent3_result: item.agent3_result,
+            source: item.source,
+            meta: item.meta,
+            prompt_optimizations: item.prompt_optimizations,
+          }, null, 2))}</pre>
+        </section>
+      `;
+    }
+
+    function collectHallucinations(items) {
+      const rows = [];
+      for (const item of items) {
+        const judge = item.gt_validator?.expert_judge || {};
+        const file = `${item.id}/gt_validator.json`;
+        const seen = new Set();
+
+        const push = (entry) => {
+          const key = `${entry.section}::${entry.text}::${entry.kind}`;
+          if (seen.has(key)) return;
+          seen.add(key);
+          rows.push({ ...entry, itemId: item.id, file, grade: item.grade });
+        };
+
+        for (const text of judge.hallucinations_or_unjustified_inferences || []) {
+          push({ section: "Overall", text, kind: "hallucination", evidence: null });
+        }
+
+        for (const section of judge.section_grades || []) {
+          const overall = new Set(judge.hallucinations_or_unjustified_inferences || []);
+          for (const text of section.hallucinations_or_unjustified_inferences || []) {
+            push({ section: section.section || "Section", text, kind: "hallucination", evidence: null });
+          }
+          for (const text of section.additions || []) {
+            if (overall.has(text)) {
+              push({ section: section.section || "Section", text, kind: "hallucination", evidence: null });
+            }
+          }
+        }
+
+        for (const entry of item.gt_validator?.addition_evidence || []) {
+          if (entry.supported_by_transcript === "unsupported") {
+            push({
+              section: "Addition evidence",
+              text: entry.addition_text || "(unspecified addition)",
+              kind: "unsupported_addition",
+              evidence: entry,
+            });
+          }
+        }
+      }
+      return rows;
+    }
+
+    function renderHallucinations() {
+      const rows = collectHallucinations(state.items);
+      const search = state.search.toLowerCase();
+      const filtered = rows.filter((row) => {
+        if (!search) return true;
+        return (
+          row.itemId.toLowerCase().includes(search)
+          || row.text.toLowerCase().includes(search)
+          || (row.section || "").toLowerCase().includes(search)
+        );
+      });
+
+      const counts = filtered.reduce((acc, row) => {
+        acc[row.kind] = (acc[row.kind] || 0) + 1;
+        return acc;
+      }, {});
+
+      const byItem = filtered.reduce((map, row) => {
+        if (!map.has(row.itemId)) map.set(row.itemId, []);
+        map.get(row.itemId).push(row);
+        return map;
+      }, new Map());
+
+      const groups = Array.from(byItem.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
+      const groupBlocks = groups.map(([itemId, entries]) => {
+        const grade = entries[0]?.grade;
+        const list = entries.map((row) => {
+          const kindLabel = row.kind === "hallucination"
+            ? `<span class="pill status-unsupported">hallucination</span>`
+            : `<span class="pill status-unsupported">unsupported addition</span>`;
+          const evidence = row.evidence
+            ? `<div class="muted small" style="margin-top: 6px;">
+                Source: ${esc(row.evidence.evidence_source || "n/a")}
+                ${row.evidence.transcript_evidence ? ` | Transcript: ${esc(row.evidence.transcript_evidence)}` : ""}
+              </div>`
+            : "";
+          return `
+            <li style="margin-top: 8px;">
+              ${kindLabel}
+              <span class="pill">${esc(row.section || "Section")}</span>
+              <div style="margin-top: 4px;">${esc(row.text)}</div>
+              ${evidence}
+            </li>
+          `;
+        }).join("");
+
+        return `
+          <details open>
+            <summary>
+              <button class="link-like" data-jump="${esc(itemId)}" style="background: none; border: none; padding: 0; color: var(--blue); cursor: pointer; font: inherit;">${esc(itemId)}</button>
+              ${gradePill(grade)}
+              <span class="muted small">${entries.length} flagged</span>
+              <span class="muted small">| <a href="${esc(itemId)}/gt_validator.json" target="_blank" rel="noopener">${esc(itemId)}/gt_validator.json</a></span>
+            </summary>
+            <ul style="list-style: none; padding-left: 0;">${list}</ul>
+          </details>
+        `;
+      }).join("");
+
+      const summary = `
+        <section class="panel">
+          <h2>Hallucinations Across All Items</h2>
+          <div class="muted small">
+            Showing ${filtered.length} entries from ${groups.length} items
+            (${counts.hallucination || 0} judge hallucinations, ${counts.unsupported_addition || 0} unsupported additions).
+            Use the sidebar search box to filter by item, text, or section.
+          </div>
+        </section>
+      `;
+
+      const body = groups.length
+        ? groupBlocks
+        : `<section class="panel"><div class="empty">No hallucinations or unsupported additions found.</div></section>`;
+
+      return summary + body;
+    }
+
+    function renderContent() {
+      if (state.activeTab === "hallucinations") {
+        if (!state.items.length) {
+          els.content.innerHTML = `<section class="panel"><p>No item data loaded yet.</p></section>`;
+          return;
+        }
+        els.content.innerHTML = renderHallucinations();
+        els.content.querySelectorAll("[data-jump]").forEach((button) => {
+          button.addEventListener("click", () => {
+            selectItem(button.dataset.jump);
+            state.activeTab = "judge";
+            els.tabs.querySelectorAll("button").forEach((tab) => {
+              tab.classList.toggle("active", tab.dataset.tab === "judge");
+            });
+            renderContent();
+          });
+        });
+        return;
+      }
+
+      const item = state.selectedItem;
+      if (!item) {
+        els.content.innerHTML = `<section class="panel"><p>No item data loaded.</p></section>`;
+        return;
+      }
+
+      const renderers = {
+        overview: renderOverview,
+        notes: renderNotes,
+        transcript: (selected) => renderTextPanel("Transcript", selected.transcript, "No transcript available."),
+        groundTruth: (selected) => renderTextPanel("Ground Truth SOAP", selected.groundTruth, "No ground truth note available."),
+        generated: (selected) => renderTextPanel("Generated SOAP", selected.generated, "No generated note available."),
+        entities: renderEntities,
+        judge: renderJudge,
+        claims: renderClaims,
+        raw: renderRaw,
+      };
+      els.content.innerHTML = renderers[state.activeTab](item);
+    }
+
+    function render() {
+      const item = state.selectedItem;
+      renderList();
+
+      if (!item) {
+        els.title.textContent = "No item selected";
+        els.subtitle.textContent = "";
+        els.topGrade.innerHTML = "";
+        els.summaryCards.innerHTML = "";
+        renderContent();
+        return;
+      }
+
+      els.title.textContent = item.id;
+      els.subtitle.textContent = item.summary || "No summary available.";
+      els.topGrade.innerHTML = gradePill(item.grade);
+      renderCards(item);
+      renderContent();
+    }
+
+    function setItems(items, sourceLabel) {
+      state.items = items;
+      if (!state.selectedItem || !items.some((item) => item.id === state.selectedItem.id)) {
+        state.selectedItem = items[0] || null;
+      }
+      els.loadStatus.textContent = items.length
+        ? `Loaded ${items.length} items from ${sourceLabel}.`
+        : "No item data found.";
+      render();
+    }
+
+    els.searchBox.addEventListener("input", (event) => {
+      state.search = event.target.value;
+      renderList();
+      if (state.activeTab === "hallucinations") renderContent();
+    });
+
+    els.gradeFilter.addEventListener("change", (event) => {
+      state.grade = event.target.value;
+      renderList();
+    });
+
+    els.tabs.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-tab]");
+      if (!button) return;
+      state.activeTab = button.dataset.tab;
+      els.tabs.querySelectorAll("button").forEach((tab) => tab.classList.toggle("active", tab === button));
+      renderContent();
+    });
+
+    els.folderInput.addEventListener("change", async (event) => {
+      try {
+        els.loadStatus.textContent = "Reading selected folder...";
+        setItems(await loadViaFolder(event.target.files), "selected folder");
+      } catch (error) {
+        console.error(error);
+        els.loadStatus.textContent = `Could not read selected folder: ${error.message}`;
+      }
+    });
+
+    (async function init() {
+      try {
+        const items = await loadViaFetch((partialItems, total) => {
+          state.items = partialItems;
+          if (!state.selectedItem) state.selectedItem = partialItems[0] || null;
+          els.loadStatus.textContent = `Loaded ${partialItems.length} of ${total} items...`;
+          render();
+        });
+        if (!items.length) throw new Error("No items loaded via fetch.");
+        setItems(items, "relative JSON files");
+      } catch (error) {
+        console.warn(error);
+        els.filePickerBox.classList.remove("hidden");
+        els.loadStatus.textContent = "Fetch was blocked or no server is running. Select the Output folder below.";
+        render();
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -283,8 +283,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7197215686363146,
-    "overall_rouge_l_f1": 0.611929679265171,
+    "overall_token_f1": 0.6496519607953933,
+    "overall_rouge_l_f1": 0.5149120990814636,
     "by_section": [
       {
         "section": "Subjective",
@@ -313,13 +313,6 @@
         "gen_present": true,
         "token_f1": 0.5656565656565656,
         "rouge_l_f1": 0.3333333333333333
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.7804878048780488,
@@ -327,218 +320,221 @@
   },
   "expert_judge": {
     "model": "Clinical Documentation Reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated SOAP note contains a significant hallucination in the Assessment section by adding 'etiology uncertain' for the persistent cough and shortness of breath, which is treated as a severe alignment issue. Additionally, there are multiple omissions in the Plan section, including the specific reason for the Chest X-ray, details about medication education, and the referral plan. A minor omission was also noted in the Objective section.",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately capturing the majority of the Ground Truth content. All additions are supported by the transcript and do not negatively impact the grade. However, the note contains numerous minor structural omissions (e.g., section headers, sub-headers) across all sections and several minor clinical/contextual omissions in the Plan section (e.g., explicit reason for Chest X-ray, referrals statement, concluding paragraph). A moderate omission in the Plan is the lack of explicit discussion regarding the \"potential side effects of Acetaminophen,\" although the instruction not to exceed the dose is present.",
     "omissions": [
-      "Objective: Abdominal exam detail 'no organomegaly'",
-      "Plan: Reason for Chest X-ray: 'for evaluation of persistent cough and shortness of breath'",
-      "Plan: Education about 'potential side effects of Acetaminophen'",
-      "Plan: Specificity of medication adherence education: 'for controlling hypertension and diabetes'",
-      "Plan: 'No immediate referrals but will consider based on follow-up test results'"
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Specific ROS sub-sections (Constitutional, Respiratory, Cardiovascular, Gastrointestinal, Neurological)",
+      "Impact on \"physical activities\" (from HPI)",
+      "Vital Signs section header",
+      "Physical Exam section header",
+      "\"no organomegaly\" (from Abdominal exam)",
+      "Tests section header",
+      "Blood Work sub-header",
+      "Imaging sub-header",
+      "Reason for Chest X-ray: \"for evaluation of persistent cough and shortness of breath\"",
+      "Follow-Up section header",
+      "Education section header",
+      "Discussion of \"potential side effects of Acetaminophen\"",
+      "Referrals section header",
+      "\"No immediate referrals but will consider based on follow-up test results.\"",
+      "Concluding paragraph about patient's cooperativeness, frustration, and understanding of the plan"
     ],
     "additions": [
-      "Subjective: 'Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)' (moved from Assessment)",
-      "Assessment: 'etiology uncertain' for persistent cough and shortness of breath",
-      "Plan: 'Continue Lisinopril and Metformin as prescribed' (as a separate plan item under Medications)",
-      "Plan: Education: 'contact provider for changes/concerns'",
-      "Plan: Education: 'rest'"
+      "\"worsening\" of symptoms (in Subjective)",
+      "\"rated 7-8/10 severity daily\" (in Subjective)",
+      "Past Medical History (Hypertension on Lisinopril, Type 2 Diabetes Mellitus on Metformin) explicitly stated in Subjective section",
+      "\"etiology uncertain\" for persistent cough and shortness of breath (in Assessment)",
+      "Instruction to \"Continue Lisinopril and Metformin as prescribed\" (in Plan)",
+      "\"Lifestyle\" header (in Plan)",
+      "\"Monitoring\" header (in Plan)",
+      "Education to \"contact provider for changes/concerns\" (in Plan)",
+      "Education about \"rest\" (in Plan)"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Assessment: 'etiology uncertain' for persistent cough and shortness of breath"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section accurately captures all clinically important Ground Truth content with no omissions or unsupported/unknown additions.",
-        "omissions": [],
+        "summary": "The Subjective section accurately captures all major clinically important information from the Ground Truth. Omissions are limited to structural headers (CC, HPI, ROS, and specific ROS sub-sections) and a minor detail about the impact on \"physical activities,\" none of which materially reduce clinical usefulness. All additions are supported by the transcript.",
+        "omissions": [
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Specific ROS sub-sections (Constitutional, Respiratory, Cardiovascular, Gastrointestinal, Neurological)",
+          "Impact on \"physical activities\" (from HPI)"
+        ],
         "additions": [
-          "Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)"
+          "\"worsening\" of symptoms",
+          "\"rated 7-8/10 severity daily\"",
+          "Past Medical History (Hypertension on Lisinopril, Type 2 Diabetes Mellitus on Metformin) explicitly stated in Subjective section"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has a minor omission of the detail 'no organomegaly' from the abdominal exam.",
+        "grade": "A",
+        "summary": "The Objective section is highly accurate, capturing all vital signs and physical exam findings. Omissions are limited to structural headers (Vital Signs, Physical Exam) and the minor detail \"no organomegaly\" from the abdominal exam, which does not significantly impact the clinical utility of the section.",
         "omissions": [
-          "Abdominal exam detail 'no organomegaly'"
+          "Vital Signs section header",
+          "Physical Exam section header",
+          "\"no organomegaly\" (from Abdominal exam)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section includes a hallucination by stating 'etiology uncertain' for the persistent cough and shortness of breath, which is considered a severe clinical misrepresentation.",
+        "grade": "A",
+        "summary": "The Assessment section is complete and accurate, with no omissions. The addition of \"etiology uncertain\" is supported by the transcript and provides appropriate clinical context.",
         "omissions": [],
         "additions": [
-          "'etiology uncertain' for persistent cough and shortness of breath"
+          "\"etiology uncertain\" for persistent cough and shortness of breath"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple omissions, including the specific reason for the Chest X-ray, education about potential side effects of Acetaminophen, the specific conditions for medication adherence (hypertension and diabetes), and the statement regarding no immediate referrals.",
+        "grade": "B",
+        "summary": "The Plan section captures most of the critical actions but has several omissions. These include various structural headers (Tests, Blood Work, Imaging, Follow-Up, Education, Referrals), the explicit reason for the Chest X-ray, and the statement regarding future referrals. A more significant omission is the discussion of \"potential side effects of Acetaminophen,\" which is an important patient education detail. Despite these, the core plan for medications, tests, and follow-up is present, and all additions are supported.",
         "omissions": [
-          "Reason for Chest X-ray: 'for evaluation of persistent cough and shortness of breath'",
-          "Education about 'potential side effects of Acetaminophen'",
-          "Specificity of medication adherence education: 'for controlling hypertension and diabetes'",
-          "'No immediate referrals but will consider based on follow-up test results'"
+          "Tests section header",
+          "Blood Work sub-header",
+          "Imaging sub-header",
+          "Reason for Chest X-ray: \"for evaluation of persistent cough and shortness of breath\"",
+          "Follow-Up section header",
+          "Education section header",
+          "Discussion of \"potential side effects of Acetaminophen\"",
+          "Referrals section header",
+          "\"No immediate referrals but will consider based on follow-up test results.\"",
+          "Concluding paragraph about patient's cooperativeness, frustration, and understanding of the plan"
         ],
         "additions": [
-          "'Continue Lisinopril and Metformin as prescribed' (as a separate plan item under Medications)",
-          "Education: 'contact provider for changes/concerns'",
-          "Education: 'rest'"
+          "Instruction to \"Continue Lisinopril and Metformin as prescribed\"",
+          "\"Lifestyle\" header",
+          "\"Monitoring\" header",
+          "Education to \"contact provider for changes/concerns\"",
+          "Education about \"rest\""
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "No grading issues were found in this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: 'Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)' (moved from Assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Your hypertension seems to be well-controlled on Lisinopril, and your Type 2 Diabetes Mellitus is well-controlled on Metformin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)."
-      },
-      {
-        "addition_text": "Assessment: 'etiology uncertain' for persistent cough and shortness of breath",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, you have a persistent cough and shortness of breath. ... I’d also like to order some blood work... Additionally, we’ll get a Chest X-ray to further evaluate your persistent cough and shortness of breath.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Persistent cough and shortness of breath, etiology uncertain."
-      },
-      {
-        "addition_text": "Plan: 'Continue Lisinopril and Metformin as prescribed' (as a separate plan item under Medications)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Remember, it’s crucial to adhere to your medications for controlling hypertension and diabetes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Continue Lisinopril and Metformin as prescribed."
-      },
-      {
-        "addition_text": "Plan: Education: 'contact provider for changes/concerns'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Remember, it’s crucial to adhere to your medications for controlling hypertension and diabetes. And be aware of the potential side effects of Acetaminophen; don’t exceed the recommended dose. ... If you notice any changes or have concerns, don’t hesitate to call or message me through the patient portal. ... Take care and get plenty of rest.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Education provided on medication adherence (Lisinopril/Metformin, Acetaminophen dose), contacting provider for concerns, and rest."
-      },
-      {
-        "addition_text": "Plan: Education: 'rest'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Take care and get plenty of rest.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Your hypertension seems to be well-controlled on Lisinopril, and your Type 2 Diabetes Mellitus is well-controlled on Metformin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)."
-      },
-      {
-        "addition_text": "'etiology uncertain' for persistent cough and shortness of breath",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, you have a persistent cough and shortness of breath. ... I’d also like to order some blood work... Additionally, we’ll get a Chest X-ray to further evaluate your persistent cough and shortness of breath.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Persistent cough and shortness of breath, etiology uncertain."
-      },
-      {
-        "addition_text": "'Continue Lisinopril and Metformin as prescribed' (as a separate plan item under Medications)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Remember, it’s crucial to adhere to your medications for controlling hypertension and diabetes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Continue Lisinopril and Metformin as prescribed."
-      },
-      {
-        "addition_text": "Education: 'contact provider for changes/concerns'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Remember, it’s crucial to adhere to your medications for controlling hypertension and diabetes. And be aware of the potential side effects of Acetaminophen; don’t exceed the recommended dose. ... If you notice any changes or have concerns, don’t hesitate to call or message me through the patient portal. ... Take care and get plenty of rest.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Education provided on medication adherence (Lisinopril/Metformin, Acetaminophen dose), contacting provider for concerns, and rest."
-      },
-      {
-        "addition_text": "Education: 'rest'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Take care and get plenty of rest.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)' (moved from Assessment)",
+      "addition_text": "\"worsening\" of symptoms (in Subjective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "The cough and shortness of breath have been getting worse.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"rated 7-8/10 severity daily\" (in Subjective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I've been having a persistent cough and shortness of breath for the past few months. ... it started about three months ago. The cough and shortness of breath have been getting worse. ... I’d say it’s about a 7 or 8 most of the time, sometimes even worse. ... Yes, every single day.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports persistent cough and shortness of breath for 3 months, worsening, rated 7-8/10 severity daily."
+    },
+    {
+      "addition_text": "Past Medical History (Hypertension on Lisinopril, Type 2 Diabetes Mellitus on Metformin) explicitly stated in Subjective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your hypertension seems to be well-controlled on Lisinopril, and your Type 2 Diabetes Mellitus is well-controlled on Metformin.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)."
     },
     {
-      "addition_text": "Assessment: 'etiology uncertain' for persistent cough and shortness of breath",
+      "addition_text": "\"etiology uncertain\" for persistent cough and shortness of breath (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, you have a persistent cough and shortness of breath. ... I’d also like to order some blood work... Additionally, we’ll get a Chest X-ray to further evaluate your persistent cough and shortness of breath.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Persistent cough and shortness of breath, etiology uncertain."
     },
     {
-      "addition_text": "Plan: 'Continue Lisinopril and Metformin as prescribed' (as a separate plan item under Medications)",
+      "addition_text": "Instruction to \"Continue Lisinopril and Metformin as prescribed\" (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Remember, it’s crucial to adhere to your medications for controlling hypertension and diabetes.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Continue Lisinopril and Metformin as prescribed."
     },
     {
-      "addition_text": "Plan: Education: 'contact provider for changes/concerns'",
+      "addition_text": "\"Lifestyle\" header (in Plan)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Remember, it’s crucial to adhere to your medications for controlling hypertension and diabetes. And be aware of the potential side effects of Acetaminophen; don’t exceed the recommended dose. ... If you notice any changes or have concerns, don’t hesitate to call or message me through the patient portal. ... Take care and get plenty of rest.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Education provided on medication adherence (Lisinopril/Metformin, Acetaminophen dose), contacting provider for concerns, and rest."
+      "transcript_evidence": "In the meantime, it’s important to make some lifestyle modifications, like following a balanced diet and engaging in regular light exercise as tolerated.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "Plan: Education: 'rest'",
+      "addition_text": "\"Monitoring\" header (in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We’ll schedule a follow-up appointment in 2 weeks to review your test results and assess how your symptoms are progressing. ... It would also be helpful if you could keep a symptom diary. Note the severity and frequency of your cough, shortness of breath, and any chest pain episodes. This will help us track your progress.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Education to \"contact provider for changes/concerns\" (in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If you notice any changes or have concerns, don’t hesitate to call or message me through the patient portal.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Education about \"rest\" (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Take care and get plenty of rest.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)",
+      "addition_text": "\"worsening\" of symptoms",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Your hypertension seems to be well-controlled on Lisinopril, and your Type 2 Diabetes Mellitus is well-controlled on Metformin.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Past Medical History includes Hypertension (on Lisinopril) and Type 2 Diabetes Mellitus (on Metformin)."
+      "transcript_evidence": "The cough and shortness of breath have been getting worse.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "'etiology uncertain' for persistent cough and shortness of breath",
+      "addition_text": "\"rated 7-8/10 severity daily\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I've been having a persistent cough and shortness of breath for the past few months. ... it started about three months ago. The cough and shortness of breath have been getting worse. ... I’d say it’s about a 7 or 8 most of the time, sometimes even worse. ... Yes, every single day.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports persistent cough and shortness of breath for 3 months, worsening, rated 7-8/10 severity daily."
+    },
+    {
+      "addition_text": "\"etiology uncertain\" for persistent cough and shortness of breath",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, you have a persistent cough and shortness of breath. ... I’d also like to order some blood work... Additionally, we’ll get a Chest X-ray to further evaluate your persistent cough and shortness of breath.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Persistent cough and shortness of breath, etiology uncertain."
     },
     {
-      "addition_text": "'Continue Lisinopril and Metformin as prescribed' (as a separate plan item under Medications)",
+      "addition_text": "Instruction to \"Continue Lisinopril and Metformin as prescribed\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Remember, it’s crucial to adhere to your medications for controlling hypertension and diabetes.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Continue Lisinopril and Metformin as prescribed."
     },
     {
-      "addition_text": "Education: 'contact provider for changes/concerns'",
+      "addition_text": "\"Lifestyle\" header",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "it’s important to make some lifestyle modifications, like following a balanced diet and engaging in regular light exercise as tolerated.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Monitoring\" header",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It would also be helpful if you could keep a symptom diary. Note the severity and frequency of your cough, shortness of breath, and any chest pain episodes. This will help us track your progress.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Education to \"contact provider for changes/concerns\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Remember, it’s crucial to adhere to your medications for controlling hypertension and diabetes. And be aware of the potential side effects of Acetaminophen; don’t exceed the recommended dose. ... If you notice any changes or have concerns, don’t hesitate to call or message me through the patient portal. ... Take care and get plenty of rest.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Education provided on medication adherence (Lisinopril/Metformin, Acetaminophen dose), contacting provider for concerns, and rest."
     },
     {
-      "addition_text": "Education: 'rest'",
+      "addition_text": "Education about \"rest\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Take care and get plenty of rest.",
       "evidence_source": "gemini",

@@ -247,8 +247,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.696117451474769,
-    "overall_rouge_l_f1": 0.5892751440991404,
+    "overall_token_f1": 0.6201468143434613,
+    "overall_rouge_l_f1": 0.48659393012392543,
     "by_section": [
       {
         "section": "Subjective",
@@ -277,13 +277,6 @@
         "gen_present": true,
         "token_f1": 0.6371681415929203,
         "rouge_l_f1": 0.40514469453376206
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.4222222222222222,
@@ -291,271 +284,157 @@
   },
   "expert_judge": {
     "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The generated SOAP note is unsafe and unreliable due to pervasive unjustified content and numerous omissions of critical information. The Assessment section alone contains four severe hallucinations/unjustified inferences, including diagnoses not supported by the Ground Truth. Additionally, there are significant omissions across all sections, such as the patient's initial consultation status, the severe impact of weight on mobility, concerns about medication adherence, important clinical reasoning, and crucial follow-up instructions. Several minor unsupported additions further detract from the document's accuracy.",
+    "overall_grade": "D",
+    "overall_summary": "The generated note contains major issues, primarily in the Assessment section, where several unsupported diagnostic additions, such as 'likely osteoarthritis,' 'Hypertension,' and 'Mild wheezing (etiology uncertain),' introduce misleading clinical content not supported by the Ground Truth or Transcript. These are high-severity alignment issues. Additionally, there are moderate omissions in the Subjective and Plan sections, which reduce the completeness of the patient's history and the rationale behind the treatment plan. While the Objective section is well-captured, the critical flaws in the Assessment section materially reduce the clinical usefulness and reliability of the overall note.",
     "omissions": [
-      "Patient presenting for initial consultation.",
-      "Weight severely limiting mobility and physical activities.",
-      "Specificity of alcohol consumption as \"rare, occasional\".",
-      "Concerns about adherence to expensive medications.",
-      "General Appearance: \"Morbidly obese female.\"",
-      "Assessment of obesity being \"likely exacerbated by lifestyle factors including poor diet and lack of exercise.\"",
-      "Assessment that \"Family history of obesity and diabetes increases risk for metabolic disorders.\"",
-      "Exercise plan detail: \"to improve mobility and cardiovascular health.\"",
-      "Follow-up detail: \"provide ongoing support and education.\"",
-      "Instruction to \"Provide resources and support for accessing affordable healthy food options and exercise facilities.\"",
-      "Specific instruction to \"Return to clinic in 2 weeks for follow-up and review of test results.\""
+      "Patient presents for initial consultation regarding severe obesity.",
+      "Patient's weight has severely limited her mobility and physical activities.",
+      "General Appearance: Morbidly obese female.",
+      "Obesity likely exacerbated by lifestyle factors including poor diet and lack of exercise.",
+      "Family history of obesity and diabetes increases risk for metabolic disorders.",
+      "Exercise plan to improve mobility and cardiovascular health.",
+      "Follow-up for weight management and monitoring.",
+      "Follow-up to provide ongoing support and education.",
+      "Awaiting investigation results to assess metabolic status and comorbidities.",
+      "Awaiting abdominal ultrasound results to evaluate for fatty liver disease.",
+      "Provide resources and support for accessing affordable healthy food options and exercise facilities.",
+      "Specific instruction: Return to clinic in 2 weeks for follow-up and review of test results."
     ],
     "additions": [
-      "Specificity of knee pain as \"constant bilateral\".",
-      "Specificity of awakenings as \"nocturnal\".",
-      "Specificity of drug use as \"illicit\".",
-      "\"HbA1c\" abbreviation for Hemoglobin A1C.",
-      "Explicitly stating \"BMI 40 kg/m^2\" in Assessment.",
-      "\"reported\" for sleep apnea in Assessment.",
-      "\"etiology pending, concern for fatty liver disease\" for hepatomegaly in Assessment.",
-      "\"etiology uncertain\" for mild wheezing in Assessment."
+      "Patient reports constant bilateral knee pain.",
+      "Patient reports frequent nocturnal awakenings.",
+      "Prior attempts at weight management were overwhelming.",
+      "Assessment includes BMI 40 kg/m^2.",
+      "Assessment includes bilateral knee pain (likely osteoarthritis).",
+      "Assessment includes sleep apnea (reported).",
+      "Assessment includes Hypertension.",
+      "Assessment includes Hepatomegaly (etiology pending, concern for fatty liver disease).",
+      "Assessment includes Mild wheezing (etiology uncertain)."
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Diagnosis of \"likely osteoarthritis\" for bilateral knee pain in Assessment.",
-      "Diagnosis of \"Hypertension\" in Assessment.",
-      "Diagnosis of \"Hepatomegaly\" as a comorbidity in Assessment.",
-      "Diagnosis of \"Mild wheezing\" as a comorbidity in Assessment."
+      "Assessment includes bilateral knee pain (likely osteoarthritis).",
+      "Assessment includes Hypertension.",
+      "Assessment includes Mild wheezing (etiology uncertain)."
     ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits important context regarding the patient's initial consultation, the severe impact of weight on mobility, the specific frequency of alcohol consumption, and the patient's concerns about medication adherence due to cost. It also includes an unsupported addition specifying drug use as \"illicit.\"",
+        "grade": "B",
+        "summary": "The Subjective section is mostly clinically aligned. It has one moderate omission regarding the patient's weight severely limiting mobility and physical activities, which is an important aspect of the patient's history. However, there are no unsupported or unknown additions in this section.",
         "omissions": [
-          "Patient presenting for initial consultation.",
-          "Weight severely limiting mobility and physical activities.",
-          "Specificity of alcohol consumption as \"rare, occasional\".",
-          "Concerns about adherence to expensive medications."
+          "Patient presents for initial consultation regarding severe obesity.",
+          "Patient's weight has severely limited her mobility and physical activities."
         ],
         "additions": [
-          "Specificity of knee pain as \"constant bilateral\".",
-          "Specificity of awakenings as \"nocturnal\".",
-          "Specificity of drug use as \"illicit\"."
+          "Patient reports constant bilateral knee pain.",
+          "Patient reports frequent nocturnal awakenings.",
+          "Prior attempts at weight management were overwhelming."
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section omits the important general appearance finding of \"Morbidly obese female.\" It also includes an unsupported abbreviation \"HbA1c\" for Hemoglobin A1C.",
+        "grade": "A",
+        "summary": "The Objective section is excellent, capturing all major clinically important Ground Truth content. The only omission is the 'General Appearance: Morbidly obese female,' which is minor given that the BMI of 40 kg/m^2 is included. There are no unsupported or unknown additions.",
         "omissions": [
-          "General Appearance: \"Morbidly obese female.\""
+          "General Appearance: Morbidly obese female."
         ],
-        "additions": [
-          "\"HbA1c\" abbreviation for Hemoglobin A1C."
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "F",
-        "summary": "The Assessment section contains severe issues, including four unjustified inferences/hallucinations: diagnosing \"likely osteoarthritis\" for knee pain, \"Hypertension,\" \"Hepatomegaly\" as a comorbidity, and \"Mild wheezing\" as a comorbidity, none of which are explicitly stated as diagnoses in the Ground Truth Assessment. It also omits important clinical reasoning regarding obesity being exacerbated by lifestyle factors and the increased risk for metabolic disorders due to family history. Additionally, it includes an unsupported addition stating \"etiology uncertain\" for mild wheezing.",
+        "grade": "D",
+        "summary": "The Assessment section has major issues. It includes three high-severity unsupported additions: 'bilateral knee pain (likely osteoarthritis),' 'Hypertension,' and 'Mild wheezing (etiology uncertain).' These additions introduce specific diagnostic inferences and claims that are not supported by the transcript or Ground Truth, making the content misleading. Additionally, there are moderate omissions regarding the exacerbating lifestyle factors and the increased risk from family history, further reducing the clinical usefulness of this section.",
         "omissions": [
-          "Assessment of obesity being \"likely exacerbated by lifestyle factors including poor diet and lack of exercise.\"",
-          "Assessment that \"Family history of obesity and diabetes increases risk for metabolic disorders.\""
+          "Obesity likely exacerbated by lifestyle factors including poor diet and lack of exercise.",
+          "Family history of obesity and diabetes increases risk for metabolic disorders."
         ],
         "additions": [
-          "Explicitly stating \"BMI 40 kg/m^2\".",
-          "\"reported\" for sleep apnea.",
-          "\"etiology pending, concern for fatty liver disease\" for hepatomegaly.",
-          "\"etiology uncertain\" for mild wheezing."
+          "Assessment includes BMI 40 kg/m^2.",
+          "Assessment includes bilateral knee pain (likely osteoarthritis).",
+          "Assessment includes sleep apnea (reported).",
+          "Assessment includes Hypertension.",
+          "Assessment includes Hepatomegaly (etiology pending, concern for fatty liver disease).",
+          "Assessment includes Mild wheezing (etiology uncertain)."
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section omits several important details, including the rationale for exercise (to improve mobility and cardiovascular health), the detail about providing ongoing support and education during follow-ups, the instruction to provide resources for affordable healthy food and exercise, and the crucial instruction to return to clinic in 2 weeks. It also includes an unsupported abbreviation \"HbA1c\" for Hemoglobin A1C.",
+        "summary": "The Plan section has noticeable gaps due to multiple moderate omissions. These include the specific purpose of awaiting investigation results (to assess metabolic status/comorbidities and evaluate for fatty liver disease) and the instruction to provide resources for affordable healthy food and exercise facilities. While the core plan elements are present, these omissions make the note meaningfully incomplete regarding the rationale and patient support aspects.",
         "omissions": [
-          "Exercise plan detail: \"to improve mobility and cardiovascular health.\"",
-          "Follow-up detail: \"provide ongoing support and education.\"",
-          "Instruction to \"Provide resources and support for accessing affordable healthy food options and exercise facilities.\"",
-          "Specific instruction to \"Return to clinic in 2 weeks for follow-up and review of test results.\""
+          "Exercise plan to improve mobility and cardiovascular health.",
+          "Follow-up for weight management and monitoring.",
+          "Follow-up to provide ongoing support and education.",
+          "Awaiting investigation results to assess metabolic status and comorbidities.",
+          "Awaiting abdominal ultrasound results to evaluate for fatty liver disease.",
+          "Provide resources and support for accessing affordable healthy food options and exercise facilities.",
+          "Specific instruction: Return to clinic in 2 weeks for follow-up and review of test results."
         ],
-        "additions": [
-          "\"HbA1c\" abbreviation for Hemoglobin A1C."
-        ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The \"Other\" section has no omissions, unsupported/unknown additions, or hallucinations.",
-        "omissions": [],
         "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Specificity of knee pain as \"constant bilateral\".",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Over the past five years, I've gained a lot of weight. It's gotten to the point where my knees are in constant pain",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Specificity of awakenings as \"nocturnal\".",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I wake up frequently during the night.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Specificity of drug use as \"illicit\".",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "\"HbA1c\" abbreviation for Hemoglobin A1C.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Explicitly stating \"BMI 40 kg/m^2\" in Assessment.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Your blood pressure is 150/95 mmHg, and your heart rate is 90 bpm. Your BMI is 40 kg/m^2.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Vitals: BP 150/95 mmHg, HR 90 bpm, BMI 40 kg/m^2."
-      },
-      {
-        "addition_text": "\"reported\" for sleep apnea in Assessment.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Based on what we've discussed and your exam, it looks like your obesity is leading to joint pain and sleep apnea.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "\"etiology pending, concern for fatty liver disease\" for hepatomegaly in Assessment.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "\"etiology uncertain\" for mild wheezing in Assessment.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Explicitly stating \"BMI 40 kg/m^2\".",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Your blood pressure is 150/95 mmHg, and your heart rate is 90 bpm. Your BMI is 40 kg/m^2.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Vitals: BP 150/95 mmHg, HR 90 bpm, BMI 40 kg/m^2."
-      },
-      {
-        "addition_text": "\"reported\" for sleep apnea.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Severe obesity with associated joint pain and sleep apnea.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "\"etiology pending, concern for fatty liver disease\" for hepatomegaly.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Your abdomen... there's noted hepatomegaly. We also need to do an abdominal ultrasound to check for fatty liver disease. We'll await the results... to assess your metabolic status and any comorbidities.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "\"etiology uncertain\" for mild wheezing.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Specificity of knee pain as \"constant bilateral\".",
+      "addition_text": "Patient reports constant bilateral knee pain.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Over the past five years, I've gained a lot of weight. It's gotten to the point where my knees are in constant pain",
+      "transcript_evidence": "my knees are in constant pain",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Specificity of awakenings as \"nocturnal\".",
+      "addition_text": "Patient reports frequent nocturnal awakenings.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I wake up frequently during the night.",
+      "transcript_evidence": "I have trouble sleeping because I wake up frequently during the night.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Specificity of drug use as \"illicit\".",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "addition_text": "Prior attempts at weight management were overwhelming.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I've tried, but I find it really overwhelming, especially with the cost of some medications.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prior attempts at weight management were overwhelming, particularly due to medication cost."
     },
     {
-      "addition_text": "\"HbA1c\" abbreviation for Hemoglobin A1C.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explicitly stating \"BMI 40 kg/m^2\" in Assessment.",
+      "addition_text": "Assessment includes BMI 40 kg/m^2.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 150/95 mmHg, and your heart rate is 90 bpm. Your BMI is 40 kg/m^2.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Vitals: BP 150/95 mmHg, HR 90 bpm, BMI 40 kg/m^2."
     },
     {
-      "addition_text": "\"reported\" for sleep apnea in Assessment.",
+      "addition_text": "Assessment includes bilateral knee pain (likely osteoarthritis).",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment includes sleep apnea (reported).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on what we've discussed and your exam, it looks like your obesity is leading to joint pain and sleep apnea.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "\"etiology pending, concern for fatty liver disease\" for hepatomegaly in Assessment.",
+      "addition_text": "Assessment includes Hypertension.",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "\"etiology uncertain\" for mild wheezing in Assessment.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "Assessment includes Hepatomegaly (etiology pending, concern for fatty liver disease).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your abdomen... there's noted hepatomegaly. We also need to do an abdominal ultrasound to check for fatty liver disease.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Explicitly stating \"BMI 40 kg/m^2\".",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Your blood pressure is 150/95 mmHg, and your heart rate is 90 bpm. Your BMI is 40 kg/m^2.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vitals: BP 150/95 mmHg, HR 90 bpm, BMI 40 kg/m^2."
-    },
-    {
-      "addition_text": "\"reported\" for sleep apnea.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Severe obesity with associated joint pain and sleep apnea.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"etiology pending, concern for fatty liver disease\" for hepatomegaly.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your abdomen... there's noted hepatomegaly. We also need to do an abdominal ultrasound to check for fatty liver disease. We'll await the results... to assess your metabolic status and any comorbidities.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"etiology uncertain\" for mild wheezing.",
+      "addition_text": "Assessment includes Mild wheezing (etiology uncertain).",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",

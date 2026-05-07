@@ -239,8 +239,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7911923946819936,
-    "overall_rouge_l_f1": 0.6754780860524594,
+    "overall_token_f1": 0.7389904933524921,
+    "overall_rouge_l_f1": 0.5943476075655743,
     "by_section": [
       {
         "section": "Subjective",
@@ -269,197 +269,12 @@
         "gen_present": true,
         "token_f1": 0.7476635514018691,
         "rouge_l_f1": 0.5223367697594502
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.8387096774193549,
     "plan_alignment_score": 0.7476635514018691
   },
-  "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is clinically aligned, accurately capturing the patient's condition and the proposed plan. Minor omissions include specific demographic details (age, ethnicity) and the explicit mention of \"initial consultation\" in the Subjective section. Additionally, there are unsupported structural additions in both the Subjective (combining sections) and Plan (using numbered lists and bolded subheadings) sections, which are formatting choices not present in the GroundTruth. No hallucinations or unjustified inferences were identified.",
-    "omissions": [
-      "The Chief Complaint in GroundTruth specifies \"Initial consultation for management of severe obesity and related health issues,\" while Generated states \"struggling with weight for many years, affecting health and daily life.\" The specific phrase \"Initial consultation\" is omitted.",
-      "The HPI introduction in GroundTruth includes \"Mr. Rodriguez is a 52-year-old Hispanic male presenting for an initial consultation regarding severe obesity.\" Generated omits the demographic details \"52-year-old Hispanic male\" and the context \"presenting for an initial consultation\" from the HPI."
-    ],
-    "additions": [
-      "Generated combines the Chief Complaint, History of Present Illness, and Review of Systems into a single narrative paragraph in the Subjective section, which is a structural addition compared to GroundTruth's distinct headings.",
-      "In the Subjective section, Generated includes the specific example \"e.g., climbing stairs\" for shortness of breath, which is not explicitly in GroundTruth.",
-      "In the Subjective section, Generated provides more specific detail for joint pain: \"making it difficult to walk or stand for long periods,\" which is more detailed than GroundTruth's \"limited mobility\" in the HPI/ROS.",
-      "In the Plan section, Generated uses numbered lists and bolded subheadings (e.g., \"Medications:\", \"Lifestyle Modifications:\", \"Referrals:\", \"Diagnostics:\", \"Follow-up:\") for organization, which is a structural addition compared to GroundTruth's less structured bullet points."
-    ],
-    "hallucinations_or_unjustified_inferences": [],
-    "section_grades": [
-      {
-        "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has minor omissions, specifically the patient's age, ethnicity, and the explicit phrase \"initial consultation.\" It also includes an unsupported structural addition by combining the Chief Complaint, HPI, and ROS into a single narrative paragraph, which deviates from the GroundTruth's distinct headings.",
-        "omissions": [
-          "Chief Complaint: \"Initial consultation\"",
-          "HPI: \"52-year-old Hispanic male\"",
-          "HPI: \"presenting for an initial consultation\""
-        ],
-        "additions": [
-          "Combining Chief Complaint, HPI, and ROS into a single narrative paragraph.",
-          "Specific example for shortness of breath: \"e.g., climbing stairs\".",
-          "More specific detail for joint pain: \"making it difficult to walk or stand for long periods\"."
-        ]
-      },
-      {
-        "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is excellent, with no omissions or unsupported/unknown additions identified.",
-        "omissions": [],
-        "additions": []
-      },
-      {
-        "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section is excellent, with no omissions or unsupported/unknown additions identified.",
-        "omissions": [],
-        "additions": []
-      },
-      {
-        "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has no omissions but includes an unsupported structural addition by using numbered lists and bolded subheadings for organization, which is a formatting deviation from the GroundTruth.",
-        "omissions": [],
-        "additions": [
-          "Use of numbered lists and bolded subheadings for organization (e.g., \"Medications:\", \"Lifestyle Modifications:\", \"Referrals:\", \"Diagnostics:\", \"Follow-up:\")."
-        ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section has no discrepancies.",
-        "omissions": [],
-        "additions": []
-      }
-    ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Generated combines the Chief Complaint, History of Present Illness, and Review of Systems into a single narrative paragraph in the Subjective section, which is a structural addition compared to GroundTruth's distinct headings.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "In the Subjective section, Generated includes the specific example \"e.g., climbing stairs\" for shortness of breath, which is not explicitly in GroundTruth.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I get short of breath easily... It's mostly with exertion. Even simple activities like climbing stairs leave me breathless.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Experiences shortness of breath easily, primarily with exertion (e.g., climbing stairs)."
-      },
-      {
-        "addition_text": "In the Subjective section, Generated provides more specific detail for joint pain: \"making it difficult to walk or stand for long periods,\" which is more detailed than GroundTruth's \"limited mobility\" in the HPI/ROS.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: my joints, especially my knees, hurt a lot... Yes, it's in both knees. It makes it hard to walk or stand for long periods.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Reports bilateral knee joint pain, limiting mobility and making it difficult to walk or stand for long periods."
-      },
-      {
-        "addition_text": "In the Plan section, Generated uses numbered lists and bolded subheadings (e.g., \"Medications:\", \"Lifestyle Modifications:\", \"Referrals:\", \"Diagnostics:\", \"Follow-up:\") for organization, which is a structural addition compared to GroundTruth's less structured bullet points.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Combining Chief Complaint, HPI, and ROS into a single narrative paragraph.",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Specific example for shortness of breath: \"e.g., climbing stairs\".",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I get short of breath easily... It's mostly with exertion. Even simple activities like climbing stairs leave me breathless.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Experiences shortness of breath easily, primarily with exertion (e.g., climbing stairs)."
-      },
-      {
-        "addition_text": "More specific detail for joint pain: \"making it difficult to walk or stand for long periods\".",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: my joints, especially my knees, hurt a lot... Yes, it's in both knees. It makes it hard to walk or stand for long periods.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Reports bilateral knee joint pain, limiting mobility and making it difficult to walk or stand for long periods."
-      },
-      {
-        "addition_text": "Use of numbered lists and bolded subheadings for organization (e.g., \"Medications:\", \"Lifestyle Modifications:\", \"Referrals:\", \"Diagnostics:\", \"Follow-up:\").",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      }
-    ]
-  },
-  "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "Generated combines the Chief Complaint, History of Present Illness, and Review of Systems into a single narrative paragraph in the Subjective section, which is a structural addition compared to GroundTruth's distinct headings.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "In the Subjective section, Generated includes the specific example \"e.g., climbing stairs\" for shortness of breath, which is not explicitly in GroundTruth.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I get short of breath easily... It's mostly with exertion. Even simple activities like climbing stairs leave me breathless.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Experiences shortness of breath easily, primarily with exertion (e.g., climbing stairs)."
-    },
-    {
-      "addition_text": "In the Subjective section, Generated provides more specific detail for joint pain: \"making it difficult to walk or stand for long periods,\" which is more detailed than GroundTruth's \"limited mobility\" in the HPI/ROS.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: my joints, especially my knees, hurt a lot... Yes, it's in both knees. It makes it hard to walk or stand for long periods.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports bilateral knee joint pain, limiting mobility and making it difficult to walk or stand for long periods."
-    },
-    {
-      "addition_text": "In the Plan section, Generated uses numbered lists and bolded subheadings (e.g., \"Medications:\", \"Lifestyle Modifications:\", \"Referrals:\", \"Diagnostics:\", \"Follow-up:\") for organization, which is a structural addition compared to GroundTruth's less structured bullet points.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Combining Chief Complaint, HPI, and ROS into a single narrative paragraph.",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Specific example for shortness of breath: \"e.g., climbing stairs\".",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I get short of breath easily... It's mostly with exertion. Even simple activities like climbing stairs leave me breathless.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Experiences shortness of breath easily, primarily with exertion (e.g., climbing stairs)."
-    },
-    {
-      "addition_text": "More specific detail for joint pain: \"making it difficult to walk or stand for long periods\".",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: my joints, especially my knees, hurt a lot... Yes, it's in both knees. It makes it hard to walk or stand for long periods.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports bilateral knee joint pain, limiting mobility and making it difficult to walk or stand for long periods."
-    },
-    {
-      "addition_text": "Use of numbered lists and bolded subheadings for organization (e.g., \"Medications:\", \"Lifestyle Modifications:\", \"Referrals:\", \"Diagnostics:\", \"Follow-up:\").",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    }
-  ]
+  "expert_judge": null,
+  "expert_judge_error": "Judge returned non-JSON output: Expecting property name enclosed in double quotes: line 11 column 5 (char 738)",
+  "addition_evidence": []
 }

@@ -236,8 +236,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6731957022754569,
-    "overall_rouge_l_f1": 0.5619651051155377,
+    "overall_token_f1": 0.5914946278443212,
+    "overall_rouge_l_f1": 0.4524563813944221,
     "by_section": [
       {
         "section": "Subjective",
@@ -266,217 +266,119 @@
         "gen_present": true,
         "token_f1": 0.5925925925925926,
         "rouge_l_f1": 0.41044776119402987
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.5142857142857143,
     "plan_alignment_score": 0.5925925925925926
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated SOAP note has several omissions, most notably the complete absence of the referral to a Pain Management Specialist in the Plan section, which is a critical component of care for chronic lower back pain. Other omissions include minor details in the Subjective, Objective, and Assessment sections, and some patient education points in the Plan. All additions were supported by the transcript and do not lower the grade. The significant missing referral reduces the overall clinical usefulness of the note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has several minor omissions across the Subjective and Objective sections. Critically, the Plan section has a major omission regarding the referral to a Pain Management Specialist, which significantly impacts the completeness and usefulness of the treatment strategy for chronic pain. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "presents for a follow-up visit (in HPI)",
-      "chronic in 'chronic lower back pain'",
-      "occasional muscle weakness",
-      "frequently interrupted sleep",
-      "as needed for Albuterol inhaler",
-      "General: Cooperative but appears anxious (in Physical Examination)",
-      "Musculoskeletal: Inspection: No visible deformities (in Physical Examination)",
-      "No obvious motor deficits (under Neurological Motor in Physical Examination)",
-      "Special Tests: Positive for (before mild weakness in foot dorsiflexion)",
-      "quantity: 14 tablets (for Cyclobenzaprine medication)",
-      "for better anatomical visualization (reason for CT scan)",
-      "Discuss the importance of adherence to physical therapy and medication",
-      "alongside back pain (in managing COPD education)",
-      "Refer to Dr. Emily Johnson, Pain Management Specialist, for further evaluation and management of chronic lower back pain and radiating symptoms (entire Referral section)",
-      "The patient understands and agrees with the proposed plan. Will monitor and adjust the treatment plan based on the response in subsequent follow-up visits (concluding statement in Plan)"
+      "Referral to Pain Management Specialist (Dr. Emily Johnson) for further evaluation and management of chronic lower back pain and radiating symptoms.",
+      "Concluding statement about patient understanding, agreement, and plan monitoring/adjustment."
     ],
     "additions": [
-      "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up (in Plan)",
-      "Await results of lumbar spine CT scan (in Plan, instead of 'Order')"
+      "Instruction to contact clinic if symptoms worsen or new concerns arise before follow-up."
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "'suspected' for lumbar spinal stenosis (GroundTruth states it as a diagnosis, not suspected)",
-      "'stable on Albuterol' for COPD (GroundTruth states 'managed with Albuterol inhaler as needed', 'stable' is an inference)"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits several minor details such as the follow-up visit context, specific qualifiers like \"chronic\" and \"frequently,\" and the \"as needed\" detail for Albuterol. It also lacks an explicit Review of Systems section, though some neurological ROS content was moved to the Objective section.",
+        "grade": "B",
+        "summary": "The Subjective section accurately captures the chief complaint and the core history of present illness. However, it omits the context of the visit being a 'follow-up' and several specific neurological details from the Review of Systems, such as decreased sensation, reduced ankle reflexes, and mild weakness in foot dorsiflexion. These are minor to moderate omissions, but the primary clinical narrative is intact.",
         "omissions": [
-          "Explicit 'Review of Systems (ROS)' section",
-          "presents for a follow-up visit",
-          "chronic in 'chronic lower back pain'",
-          "occasional muscle weakness",
-          "frequently interrupted sleep",
-          "as needed for Albuterol inhaler",
-          "Neurological ROS details (decreased sensation in lower extremities, reduced ankle reflexes, mild weakness in foot dorsiflexion)"
+          "Context of HPI as a \"follow-up visit\".",
+          "Neurological Review of Systems details: decreased sensation in lower extremities, reduced ankle reflexes, mild weakness in foot dorsiflexion."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section has minor omissions, including the patient's general appearance (\"Cooperative but appears anxious\"), the absence of visible deformities on inspection, and the specific phrasing \"No obvious motor deficits\" and \"Positive for\" in special tests. However, all vital signs and key physical exam findings are present.",
+        "summary": "The Objective section correctly includes all vital signs and the key positive findings from the physical examination. However, it omits minor details such as the patient's general appearance ('Cooperative but appears anxious'), the musculoskeletal inspection finding ('No visible deformities'), and the neurological motor assessment ('No obvious motor deficits'). The omission of the 'Special Tests section/finding' is also noted, though the specific finding of mild weakness in foot dorsiflexion is present. The addition regarding the CT scan is supported by the transcript.",
         "omissions": [
-          "General: Cooperative but appears anxious",
-          "Musculoskeletal: Inspection: No visible deformities",
-          "No obvious motor deficits (under Neurological Motor)",
-          "Special Tests: Positive for (before mild weakness in foot dorsiflexion)"
+          "General appearance: \"Cooperative but appears anxious\".",
+          "Musculoskeletal inspection: \"No visible deformities\".",
+          "Neurological motor assessment: \"No obvious motor deficits\".",
+          "Special Tests section/finding."
         ],
         "additions": [
-          "Diagnostics: CT scan of lumbar spine ordered, results pending"
+          "\"Diagnostics: CT scan of lumbar spine ordered, results pending.\""
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section has only one minor omission regarding the \"as needed\" detail for the Albuterol inhaler in the COPD description. The additions of \"suspected\" for spinal stenosis and \"stable on Albuterol\" for COPD were supported by the transcript and do not impact the grade.",
-        "omissions": [
-          "as needed for Albuterol inhaler (in COPD description)"
-        ],
+        "grade": "A",
+        "summary": "The Assessment section is excellent, accurately capturing both the primary diagnosis and secondary condition. All additions, including the 'suspected' qualifier for spinal stenosis and 'stable on Albuterol' for COPD, are fully supported by the transcript and do not detract from the grade.",
+        "omissions": [],
         "additions": [
-          "suspected (for lumbar spinal stenosis)",
-          "stable on Albuterol (for COPD)"
+          "\"suspected\" qualifier for Lumbar spinal stenosis.",
+          "\"stable on Albuterol\" qualifier for Chronic Obstructive Pulmonary Disease (COPD)."
         ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has a major omission: the complete absence of the referral to a Pain Management Specialist, which is a critical part of the patient's ongoing care. It also omits the importance of adherence to physical therapy and medication, the quantity of tablets for Cyclobenzaprine, and the reason for the CT scan. Supported additions do not lower the grade.",
+        "grade": "C",
+        "summary": "The Plan section has several omissions, including the specific quantity of Cyclobenzaprine (14 tablets) and the reason for the CT scan ('for better anatomical visualization'). More significantly, it omits patient education on the 'importance of adherence to physical therapy and medication' and, most critically, the 'Referral to Dr. Emily Johnson, Pain Management Specialist'. This referral is a major component of the plan for chronic pain management, and its absence makes the plan meaningfully incomplete. All additions in this section are supported by the transcript.",
         "omissions": [
-          "quantity: 14 tablets (for Cyclobenzaprine)",
-          "for better anatomical visualization (reason for CT scan)",
-          "Discuss the importance of adherence to physical therapy and medication",
-          "alongside back pain (in managing COPD education)",
-          "Refer to Dr. Emily Johnson, Pain Management Specialist, for further evaluation and management of chronic lower back pain and radiating symptoms",
-          "The patient understands and agrees with the proposed plan. Will monitor and adjust the treatment plan based on the response in subsequent follow-up visits"
+          "Quantity of Cyclobenzaprine (14 tablets).",
+          "Reason for CT scan: \"for better anatomical visualization\".",
+          "Patient education on \"importance of adherence to physical therapy and medication\".",
+          "Referral to Dr. Emily Johnson, Pain Management Specialist, for further evaluation and management of chronic lower back pain and radiating symptoms."
         ],
         "additions": [
-          "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up",
-          "Await results of lumbar spine CT scan"
+          "\"Diagnostics: Await results of lumbar spine CT scan.\"",
+          "\"Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up.\""
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "No discrepancies were identified for this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up (in Plan)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up."
-      },
-      {
-        "addition_text": "Await results of lumbar spine CT scan (in Plan, instead of 'Order')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We are still waiting for the results.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: Await results of lumbar spine CT scan."
-      },
-      {
-        "addition_text": "Diagnostics: CT scan of lumbar spine ordered, results pending",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We have already ordered a CT scan of your lumbar spine to get a better visualization. We are still waiting for the results.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: CT scan of lumbar spine ordered, results pending."
-      },
-      {
-        "addition_text": "suspected (for lumbar spinal stenosis)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Based on your symptoms and the physical examination, it seems like you might have spinal stenosis in the lumbar region.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Lumbar spinal stenosis, suspected."
-      },
-      {
-        "addition_text": "stable on Albuterol (for COPD)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: Well, I have Chronic Obstructive Pulmonary Disease, but I manage it with my Albuterol inhaler. [...] [Doctor]: ...managing your COPD alongside your back pain.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Chronic Obstructive Pulmonary Disease (COPD), stable on Albuterol."
-      },
-      {
-        "addition_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up."
-      },
-      {
-        "addition_text": "Await results of lumbar spine CT scan",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We are still waiting for the results.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostics: Await results of lumbar spine CT scan."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up (in Plan)",
+      "addition_text": "Instruction to contact clinic if symptoms worsen or new concerns arise before follow-up.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up."
     },
     {
-      "addition_text": "Await results of lumbar spine CT scan (in Plan, instead of 'Order')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We are still waiting for the results.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnostics: Await results of lumbar spine CT scan."
-    },
-    {
-      "addition_text": "Diagnostics: CT scan of lumbar spine ordered, results pending",
+      "addition_text": "\"Diagnostics: CT scan of lumbar spine ordered, results pending.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We have already ordered a CT scan of your lumbar spine to get a better visualization. We are still waiting for the results.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnostics: CT scan of lumbar spine ordered, results pending."
     },
     {
-      "addition_text": "suspected (for lumbar spinal stenosis)",
+      "addition_text": "\"suspected\" qualifier for Lumbar spinal stenosis.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical examination, it seems like you might have spinal stenosis in the lumbar region.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Lumbar spinal stenosis, suspected."
     },
     {
-      "addition_text": "stable on Albuterol (for COPD)",
+      "addition_text": "\"stable on Albuterol\" qualifier for Chronic Obstructive Pulmonary Disease (COPD).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Well, I have Chronic Obstructive Pulmonary Disease, but I manage it with my Albuterol inhaler. [...] [Doctor]: ...managing your COPD alongside your back pain.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Chronic Obstructive Pulmonary Disease (COPD), stable on Albuterol."
     },
     {
-      "addition_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up."
-    },
-    {
-      "addition_text": "Await results of lumbar spine CT scan",
+      "addition_text": "\"Diagnostics: Await results of lumbar spine CT scan.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We are still waiting for the results.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnostics: Await results of lumbar spine CT scan."
+    },
+    {
+      "addition_text": "\"Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Instruct patient to contact clinic if symptoms worsen or new concerns arise before follow-up."
     }
   ]
 }

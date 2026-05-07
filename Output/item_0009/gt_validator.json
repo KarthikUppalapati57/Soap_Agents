@@ -209,8 +209,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5981028648770584,
-    "overall_rouge_l_f1": 0.4803717061814968,
+    "overall_token_f1": 0.49762858109632296,
+    "overall_rouge_l_f1": 0.35046463272687106,
     "by_section": [
       {
         "section": "Subjective",
@@ -239,265 +239,138 @@
         "gen_present": true,
         "token_f1": 0.5290322580645161,
         "rouge_l_f1": 0.3315508021390374
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.2051282051282051,
     "plan_alignment_score": 0.5290322580645161
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_model",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note presents multiple grading issues across several sections. Key omissions include the patient's moderate health literacy and the explicit statement of 'UTI site not specified' from the GroundTruth. The Assessment section contains significant issues, including an unsupported inference of 'likely acute cystitis' and a structural hallucination by explicitly listing 'Contributing factors'. The Subjective section also includes an unsupported exaggeration of dysuria severity.",
+    "model": "clinical_reviewer_model",
+    "overall_grade": "A",
+    "overall_summary": "The generated SOAP note is highly accurate and clinically comprehensive. All major clinically important content from the GroundTruth was captured, and the note is clearly usable. The few omissions, such as 'moderate health literacy' and the Celsius temperature, are minor and do not impact the clinical utility or safety of the note. Crucially, all additions made by the model were supported by the transcript and therefore do not negatively impact the overall grade.",
     "omissions": [
-      "Patient's moderate health literacy (from ROS Lifestyle)",
-      "UTI site not specified (from Assessment)",
-      "Statement that patient agrees with the treatment plan and understood the instructions provided (from Plan)"
+      "moderate health literacy",
+      "Temperature in Celsius (37°C)",
+      "Site Not Specified (as part of the UTI diagnosis)",
+      "Patient agrees with the treatment plan and understood the instructions provided."
     ],
     "additions": [
-      "Patient allergic to Penicillin (from Subjective)",
-      "Dysuria described as 'severe' (GroundTruth states 'moderate dysuria' and 'significant pain during urination')",
-      "UTI specified as 'likely acute cystitis' (GroundTruth states 'Site Not Specified')",
-      "Explicit listing of contributing factors (recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, high-carb diet) in Assessment",
-      "Reason for Nitrofurantoin prescription ('due to Penicillin allergy') in Plan",
-      "Instruction to contact clinic if symptoms worsen or for any concerns (from Plan)"
+      "Allergic to Penicillin (in Subjective section)",
+      "to severe (in 'moderate to severe dysuria')",
+      "likely acute cystitis",
+      "given classic symptoms and positive urinalysis",
+      "Contributing factors: History of recurrent UTIs, Type 2 Diabetes (comorbidity), sedentary lifestyle, high-carb diet.",
+      "(due to Penicillin allergy)",
+      "Contact clinic if symptoms worsen or for any concerns."
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Describing dysuria as 'severe' when GroundTruth states 'moderate dysuria' and 'significant pain during urination'",
-      "Inferring the UTI as 'likely acute cystitis' when GroundTruth explicitly states 'Site Not Specified'",
-      "Explicitly listing 'Contributing factors' (recurrent UTIs, Type 2 Diabetes (comorbidity), sedentary lifestyle, high-carb diet) in the Assessment section, which is a structural inference not present in GroundTruth's assessment"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits the patient's moderate health literacy and includes an unsupported addition describing dysuria as 'severe' instead of 'moderate' as per GroundTruth.",
+        "grade": "A",
+        "summary": "The Subjective section is excellent. The only omission, 'moderate health literacy', is minor and does not detract from the clinical usefulness. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Patient's moderate health literacy"
+          "moderate health literacy"
         ],
         "additions": [
-          "Patient allergic to Penicillin",
-          "Dysuria described as 'severe'"
+          "Allergic to Penicillin.",
+          "to severe (in 'moderate to severe dysuria')"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures all GroundTruth content with no omissions or unsupported/unknown additions.",
-        "omissions": [],
+        "summary": "The Objective section is highly accurate. The omission of the Celsius temperature is minor, as the Fahrenheit temperature is provided, and does not affect the clinical utility of the vital signs or physical examination findings.",
+        "omissions": [
+          "Temperature in Celsius (37°C)"
+        ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section omits the GroundTruth's 'UTI site not specified' and instead includes an unsupported inference of 'likely acute cystitis'. Additionally, it introduces a structural hallucination by explicitly listing 'Contributing factors' which is not present in the GroundTruth's assessment structure.",
+        "grade": "A",
+        "summary": "The Assessment section is strong. The omission of 'Site Not Specified' is minor, as the primary diagnosis of UTI is clearly stated. All additions, such as 'likely acute cystitis' and 'Contributing factors', were supported by the transcript and enhance the clinical context without penalty.",
         "omissions": [
-          "UTI site not specified"
+          "Site Not Specified (as part of the UTI diagnosis)"
         ],
         "additions": [
-          "UTI specified as 'likely acute cystitis'",
-          "Explicit listing of contributing factors (recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, high-carb diet)"
+          "likely acute cystitis",
+          "given classic symptoms and positive urinalysis",
+          "Contributing factors: History of recurrent UTIs, Type 2 Diabetes (comorbidity), sedentary lifestyle, high-carb diet."
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has a minor omission regarding the GroundTruth's statement that the patient agrees with the treatment plan and understood the instructions provided.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive and clinically sound. The omission of the patient's agreement with the plan is minor and administrative in nature. All additions, including the rationale for Nitrofurantoin and advice to contact the clinic for worsening symptoms, were supported by the transcript and improve the completeness of the plan.",
         "omissions": [
-          "Statement that patient agrees with the treatment plan and understood the instructions provided"
+          "Patient agrees with the treatment plan and understood the instructions provided."
         ],
         "additions": [
-          "Reason for Nitrofurantoin prescription ('due to Penicillin allergy')",
-          "Instruction to contact clinic if symptoms worsen or for any concerns"
+          "(due to Penicillin allergy)",
+          "Contact clinic if symptoms worsen or for any concerns."
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "No discrepancies were noted for this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Patient allergic to Penicillin (from Subjective)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I'm allergic to Penicillin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient is allergic to Penicillin."
-      },
-      {
-        "addition_text": "Dysuria described as 'severe' (GroundTruth states 'moderate dysuria' and 'significant pain during urination')",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "UTI specified as 'likely acute cystitis' (GroundTruth states 'Site Not Specified')",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Explicit listing of contributing factors (recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, high-carb diet) in Assessment",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I've had recurrent UTIs before.\nI have type 2 diabetes.\nI have a sedentary job. I sit at a desk most of the day.\nI mostly eat high-carb foods with some fruits and vegetables.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Contributing factors include history of recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, and high-carb diet."
-      },
-      {
-        "addition_text": "Reason for Nitrofurantoin prescription ('due to Penicillin allergy') in Plan",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I initially planned to prescribe Amoxicillin, but given your allergy, I'll prescribe Nitrofurantoin instead. You'll need to take 100 mg orally, twice daily for 7 days.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Prescribe Nitrofurantoin 100 mg orally twice daily for 7 days due to Penicillin allergy."
-      },
-      {
-        "addition_text": "Instruction to contact clinic if symptoms worsen or for any concerns (from Plan)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Contact clinic if symptoms worsen or for any concerns."
-      },
-      {
-        "addition_text": "Patient allergic to Penicillin",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I'm allergic to Penicillin.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient is allergic to Penicillin."
-      },
-      {
-        "addition_text": "Dysuria described as 'severe'",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "UTI specified as 'likely acute cystitis'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnosis is Urinary Tract Infection (UTI), likely acute cystitis, based on classic symptoms and positive urinalysis."
-      },
-      {
-        "addition_text": "Explicit listing of contributing factors (recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, high-carb diet)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I've had recurrent UTIs before.\nI have type 2 diabetes.\nI have a sedentary job. I sit at a desk most of the day.\nI mostly eat high-carb foods with some fruits and vegetables.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Contributing factors include history of recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, and high-carb diet."
-      },
-      {
-        "addition_text": "Reason for Nitrofurantoin prescription ('due to Penicillin allergy')",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I initially planned to prescribe Amoxicillin, but given your allergy, I'll prescribe Nitrofurantoin instead. You'll need to take 100 mg orally, twice daily for 7 days.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Prescribe Nitrofurantoin 100 mg orally twice daily for 7 days due to Penicillin allergy."
-      },
-      {
-        "addition_text": "Instruction to contact clinic if symptoms worsen or for any concerns",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Contact clinic if symptoms worsen or for any concerns."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Patient allergic to Penicillin (from Subjective)",
+      "addition_text": "Allergic to Penicillin (in Subjective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I'm allergic to Penicillin.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient is allergic to Penicillin."
     },
     {
-      "addition_text": "Dysuria described as 'severe' (GroundTruth states 'moderate dysuria' and 'significant pain during urination')",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "UTI specified as 'likely acute cystitis' (GroundTruth states 'Site Not Specified')",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explicit listing of contributing factors (recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, high-carb diet) in Assessment",
+      "addition_text": "to severe (in 'moderate to severe dysuria')",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I've had recurrent UTIs before.\nI have type 2 diabetes.\nI have a sedentary job. I sit at a desk most of the day.\nI mostly eat high-carb foods with some fruits and vegetables.",
+      "transcript_evidence": "Sure, for the past three days, I've had moderate pain when I urinate, I feel like I need to go to the bathroom all the time, and I have some lower abdominal pain. The discomfort is constant and the pain during urination is really bad.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Contributing factors include history of recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, and high-carb diet."
+      "matched_claim_text": "Patient reports 3 days of moderate to severe dysuria, increased urinary frequency, and constant lower abdominal pain."
     },
     {
-      "addition_text": "Reason for Nitrofurantoin prescription ('due to Penicillin allergy') in Plan",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I initially planned to prescribe Amoxicillin, but given your allergy, I'll prescribe Nitrofurantoin instead. You'll need to take 100 mg orally, twice daily for 7 days.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Nitrofurantoin 100 mg orally twice daily for 7 days due to Penicillin allergy."
-    },
-    {
-      "addition_text": "Instruction to contact clinic if symptoms worsen or for any concerns (from Plan)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Contact clinic if symptoms worsen or for any concerns."
-    },
-    {
-      "addition_text": "Patient allergic to Penicillin",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I'm allergic to Penicillin.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is allergic to Penicillin."
-    },
-    {
-      "addition_text": "Dysuria described as 'severe'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "UTI specified as 'likely acute cystitis'",
+      "addition_text": "likely acute cystitis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnosis is Urinary Tract Infection (UTI), likely acute cystitis, based on classic symptoms and positive urinalysis."
     },
     {
-      "addition_text": "Explicit listing of contributing factors (recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, high-carb diet)",
+      "addition_text": "given classic symptoms and positive urinalysis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnosis is Urinary Tract Infection (UTI), likely acute cystitis, based on classic symptoms and positive urinalysis."
+    },
+    {
+      "addition_text": "Contributing factors: History of recurrent UTIs, Type 2 Diabetes (comorbidity), sedentary lifestyle, high-carb diet.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I've had recurrent UTIs before.\nI have type 2 diabetes.\nI have a sedentary job. I sit at a desk most of the day.\nI mostly eat high-carb foods with some fruits and vegetables.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Contributing factors include history of recurrent UTIs, Type 2 Diabetes, sedentary lifestyle, and high-carb diet."
     },
     {
-      "addition_text": "Reason for Nitrofurantoin prescription ('due to Penicillin allergy')",
+      "addition_text": "(due to Penicillin allergy)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I initially planned to prescribe Amoxicillin, but given your allergy, I'll prescribe Nitrofurantoin instead. You'll need to take 100 mg orally, twice daily for 7 days.",
+      "transcript_evidence": "Yes, I'm allergic to Penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Nitrofurantoin 100 mg orally twice daily for 7 days due to Penicillin allergy."
+      "matched_claim_text": "Patient is allergic to Penicillin."
     },
     {
-      "addition_text": "Instruction to contact clinic if symptoms worsen or for any concerns",
+      "addition_text": "Contact clinic if symptoms worsen or for any concerns.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Contact clinic if symptoms worsen or for any concerns."
+    },
+    {
+      "addition_text": "Allergic to Penicillin.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Yes, I'm allergic to Penicillin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient is allergic to Penicillin."
     }
   ]
 }

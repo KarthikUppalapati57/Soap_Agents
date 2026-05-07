@@ -200,8 +200,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5690992055821559,
-    "overall_rouge_l_f1": 0.4869549687460135,
+    "overall_token_f1": 0.4613740069776948,
+    "overall_rouge_l_f1": 0.35869371093251695,
     "by_section": [
       {
         "section": "Subjective",
@@ -230,19 +230,234 @@
         "gen_present": true,
         "token_f1": 0.5560975609756097,
         "rouge_l_f1": 0.4253731343283582
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.186046511627907,
     "plan_alignment_score": 0.5560975609756097
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Other'; got ['Subjective', 'Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "A",
+    "overall_summary": "The generated note is highly accurate and clinically usable. All additions are well-supported by the transcript, indicating excellent grounding in the patient encounter. The few omissions are minor, primarily consisting of contextual patient details and minor phrasing, none of which detract from the core clinical content or safety of the note. The note captures all major clinically important Ground Truth content.",
+    "omissions": [
+      "Patient cooperation and adherence to medical advice.",
+      "Patient lives in a rural area with good access to healthcare resources.",
+      "Patient belongs to a moderate-income neighborhood.",
+      "Patient is a non-native English speaker fluent in English, with no difficulty understanding or communicating.",
+      "Patient understands and agrees with the recommended medical treatment plan.",
+      "\"oral\" route for Ondansetron.",
+      "\"to improve overall health\" as a reason for dietary modifications.",
+      "\"daily\" for walking her dog."
+    ],
+    "additions": [
+      "Duration of associated symptoms (fatigue, dizziness, headaches) in Subjective.",
+      "Patient reports no similar severe episodes in the past (in Subjective).",
+      "Denial of new medications and statement about general health until this episode (in Subjective).",
+      "Laboratory results status (pending) in Objective.",
+      "\"Acute\" and \"moderate severity\" for nausea and vomiting in Assessment.",
+      "Listing associated symptoms (fatigue, dizziness, headaches) in Assessment.",
+      "Differential considerations (dehydration and electrolyte imbalance) in Assessment.",
+      "Patient reports no prior similar severe episodes (in Assessment).",
+      "\"Results pending\" for diagnostics in Plan.",
+      "\"Provider will contact patient with test results\" in Plan."
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "A",
+        "summary": "The Subjective section is excellent. There are no omissions, and all additions are fully supported by the transcript, enhancing the detail and clarity of the patient's history without introducing unsupported information.",
+        "omissions": [],
+        "additions": [
+          "Duration of associated symptoms (fatigue, dizziness, headaches) (\"which have been present for the past couple of days along with the nausea and vomiting\").",
+          "Patient reports no similar severe episodes in the past.",
+          "Denies new medications; general health has been good until this episode."
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is accurate and complete. There are no omissions, and the addition regarding laboratory results status is fully supported by the transcript, providing relevant information.",
+        "omissions": [],
+        "additions": [
+          "Laboratory results status: Pending (electrolyte panel ordered)."
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is comprehensive and accurate. There are no omissions, and all additions, such as specifying 'acute' and 'moderate severity' and listing associated symptoms and differential considerations, are fully supported by the transcript, enriching the clinical picture.",
+        "omissions": [],
+        "additions": [
+          "\"Acute\" and \"moderate severity\" for nausea and vomiting.",
+          "Listing associated symptoms (fatigue, dizziness, headaches).",
+          "Differential considerations (dehydration and electrolyte imbalance).",
+          "Patient reports no prior similar severe episodes."
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "A",
+        "summary": "The Plan section is strong, capturing all essential clinical recommendations. While there are several minor omissions related to patient background (e.g., cooperation, living situation, language fluency, agreement with plan) and minor details of the plan (e.g., 'oral' route, specific reason for diet, 'daily' for activity), these do not impact the core clinical usefulness or safety of the treatment plan. All additions in this section are supported by the transcript.",
+        "omissions": [
+          "\"oral\" route for Ondansetron.",
+          "\"to improve overall health\" as a reason for dietary modifications.",
+          "\"daily\" for walking her dog.",
+          "Patient cooperation and adherence to medical advice.",
+          "Patient lives in a rural area with good access to healthcare resources.",
+          "Patient belongs to a moderate-income neighborhood.",
+          "Patient is a non-native English speaker fluent in English, with no difficulty understanding or communicating.",
+          "Patient understands and agrees with the recommended medical treatment plan."
+        ],
+        "additions": [
+          "\"Results pending\" for diagnostics.",
+          "\"Provider will contact patient with test results.\""
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Duration of associated symptoms (fatigue, dizziness, headaches) in Subjective.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's making me feel very fatigued and dizzy. I also get occasional headaches. ... They've been happening along with the nausea and vomiting, so just these past couple of days.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Associated symptoms include fatigue, dizziness, and occasional headaches, which have been present for the past couple of days along with the nausea and vomiting."
+    },
+    {
+      "addition_text": "Patient reports no similar severe episodes in the past (in Subjective).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, this is the first time I've had it this bad.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports no similar severe episodes of nausea and vomiting in the past."
+    },
+    {
+      "addition_text": "Denial of new medications and statement about general health until this episode (in Subjective).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No new medications, and my general health has been pretty good until now.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient denies new medications and reports general health has been good until this episode."
+    },
+    {
+      "addition_text": "Laboratory results status (pending) in Objective.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "However, I have ordered an electrolyte panel to assess for potential dehydration and electrolyte imbalance. We should have the results soon.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Acute\" and \"moderate severity\" for nausea and vomiting in Assessment.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's pretty moderate",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Nausea and vomiting described as moderate in severity."
+    },
+    {
+      "addition_text": "Listing associated symptoms (fatigue, dizziness, headaches) in Assessment.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I've been having nausea and vomiting for the past two days... It's pretty moderate, but it's making me feel very fatigued and dizzy. I also get occasional headaches.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Assessment: Acute nausea and vomiting, moderate severity, with associated fatigue, dizziness, and headaches."
+    },
+    {
+      "addition_text": "Differential considerations (dehydration and electrolyte imbalance) in Assessment.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "to assess for potential dehydration and electrolyte imbalance.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Differential considerations include dehydration and electrolyte imbalance."
+    },
+    {
+      "addition_text": "Patient reports no prior similar severe episodes (in Assessment).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, this is the first time I've had it this bad.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports no prior similar severe episodes."
+    },
+    {
+      "addition_text": "\"Results pending\" for diagnostics in Plan.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I have ordered an electrolyte panel to assess for potential dehydration and electrolyte imbalance. We should have the results soon.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnostics: Electrolyte panel ordered to assess for potential dehydration and electrolyte imbalance; results pending."
+    },
+    {
+      "addition_text": "\"Provider will contact patient with test results\" in Plan.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If your symptoms persist or worsen, please follow up in 3 days. ... I'll be in touch once we have your test results.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Follow-up: Return in 3 days if symptoms persist or worsen; provider will contact patient with test results."
+    },
+    {
+      "addition_text": "Duration of associated symptoms (fatigue, dizziness, headaches) (\"which have been present for the past couple of days along with the nausea and vomiting\").",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's making me feel very fatigued and dizzy. I also get occasional headaches. ... They've been happening along with the nausea and vomiting, so just these past couple of days.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Associated symptoms include fatigue, dizziness, and occasional headaches, which have been present for the past couple of days along with the nausea and vomiting."
+    },
+    {
+      "addition_text": "Patient reports no similar severe episodes in the past.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, this is the first time I've had it this bad.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports no similar severe episodes of nausea and vomiting in the past."
+    },
+    {
+      "addition_text": "Denies new medications; general health has been good until this episode.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No new medications, and my general health has been pretty good until now.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient denies new medications and reports general health has been good until this episode."
+    },
+    {
+      "addition_text": "Laboratory results status: Pending (electrolyte panel ordered).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I have ordered an electrolyte panel... We should have the results soon.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "An electrolyte panel was ordered, and results are pending."
+    },
+    {
+      "addition_text": "\"Acute\" and \"moderate severity\" for nausea and vomiting.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's pretty moderate",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Nausea and vomiting described as moderate in severity."
+    },
+    {
+      "addition_text": "Listing associated symptoms (fatigue, dizziness, headaches).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I've been having nausea and vomiting for the past two days... It's pretty moderate, but it's making me feel very fatigued and dizzy. I also get occasional headaches.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Assessment: Acute nausea and vomiting, moderate severity, with associated fatigue, dizziness, and headaches."
+    },
+    {
+      "addition_text": "Differential considerations (dehydration and electrolyte imbalance).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "to assess for potential dehydration and electrolyte imbalance.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Differential considerations include dehydration and electrolyte imbalance."
+    },
+    {
+      "addition_text": "Patient reports no prior similar severe episodes.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, this is the first time I've had it this bad.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports no prior similar severe episodes."
+    },
+    {
+      "addition_text": "\"Results pending\" for diagnostics.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I have ordered an electrolyte panel to assess for potential dehydration and electrolyte imbalance. We should have the results soon.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnostics: Electrolyte panel ordered to assess for potential dehydration and electrolyte imbalance; results pending."
+    },
+    {
+      "addition_text": "\"Provider will contact patient with test results.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If your symptoms persist or worsen, please follow up in 3 days. ... I'll be in touch once we have your test results.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Follow-up: Return in 3 days if symptoms persist or worsen; provider will contact patient with test results."
+    }
+  ]
 }

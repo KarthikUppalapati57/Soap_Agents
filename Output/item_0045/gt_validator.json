@@ -187,8 +187,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6426870720145585,
-    "overall_rouge_l_f1": 0.5570106001677725,
+    "overall_token_f1": 0.5533588400181981,
+    "overall_rouge_l_f1": 0.4462632502097156,
     "by_section": [
       {
         "section": "Subjective",
@@ -217,13 +217,6 @@
         "gen_present": true,
         "token_f1": 0.5373134328358209,
         "rouge_l_f1": 0.3900709219858156
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.5555555555555556,
@@ -232,139 +225,92 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note has multiple omissions across several sections, particularly in the Objective, Assessment, and Plan. Key missing details include specific lab results (reticulocyte count and blood smear), the clinical justification for immediate intervention in the Assessment, and several important elements in the Plan such as medication purpose, specific conditions for activity restrictions, and detailed patient education. There are no unsupported additions or hallucinations.",
+    "overall_summary": "The generated note is mostly clinically aligned but contains several moderate omissions across the Subjective, Objective, and Plan sections. Key diagnostic lab findings (reticulocyte count, blood smear) are missing from the Objective section. The Subjective section omits the significant impact of symptoms on daily tasks and lacks a structured Review of Systems. The Plan section is missing important 'Next Steps' for ongoing monitoring and prompt review of test results, as well as a detailed summary of patient education. There are no unsupported or unknown additions.",
     "omissions": [
-      "HPI: 'significantly impacted her ability to complete daily tasks'",
-      "Objective: Cardiovascular exam details 'regular rhythm, no murmurs'",
-      "Objective: Respiratory exam detail 'bilaterally' (for clear to auscultation)",
-      "Objective: Lab results 'Reticulocyte count: Elevated'",
-      "Objective: Lab results 'Blood smear: Normocytic, normochromic cells'",
-      "Assessment: 'Given the patient's severe fatigue, dizziness, shortness of breath, and palpitations, immediate intervention is necessary.'",
-      "Plan: Medication purpose 'to replenish iron stores' (for Ferrous sulfate)",
-      "Plan: Condition for avoiding strenuous activities 'until hemoglobin levels stabilize and symptoms resolve'",
-      "Plan: Patient's cooperation and willingness to adhere to treatment plan",
-      "Plan: Next Steps: 'Monitor closely for any changes in symptoms and adjust the treatment plan as necessary.'",
-      "Plan: Next Steps: 'Ensure results of the stool occult blood test are reviewed promptly to aid in identifying the source of bleeding.'",
-      "Plan: Patient Education details regarding condition, treatments, follow-up, and demonstrated understanding"
+      "Symptoms are constant",
+      "Symptoms significantly impacted ability to complete daily tasks",
+      "Structured Review of Systems (ROS) section with categories (General, Cardiovascular, Respiratory, Gastrointestinal, Neurological)",
+      "No focal deficits from Subjective ROS",
+      "Cardiovascular: regular rhythm, no murmurs",
+      "Reticulocyte count: Elevated",
+      "Blood smear: Normocytic, normochromic cells",
+      "Statement that immediate intervention is necessary given the patient's symptoms",
+      "Purpose of Ferrous sulfate: to replenish iron stores",
+      "Condition for avoiding strenuous activities: until hemoglobin levels stabilize and symptoms resolve",
+      "Patient's cooperativeness and willingness to adhere to treatment plan",
+      "Next Steps: Monitor closely for any changes in symptoms and adjust the treatment plan as necessary",
+      "Next Steps: Ensure results of the stool occult blood test are reviewed promptly to aid in identifying the source of bleeding",
+      "Patient Education details: Jane was provided with detailed information about her condition, the importance of the prescribed treatments, and the necessity of the follow-up appointments. She demonstrated a good understanding of her medical condition and the treatment plan."
     ],
     "additions": [
-      "Plan: Advice to 'focus on rest'",
-      "Plan: Instruction to 'contact clinic immediately for any unusual or worsening symptoms'"
+      "Advise patient to focus on rest",
+      "Instruct patient to contact clinic immediately for any unusual or worsening symptoms"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section is strong, with only one minor omission regarding the significant impact of symptoms on daily tasks.",
+        "grade": "B",
+        "summary": "The Subjective section omits details about the constancy of symptoms and their significant impact on daily tasks. It also lacks a structured Review of Systems section, though much of the ROS content is integrated into the History of Present Illness.",
         "omissions": [
-          "HPI: 'significantly impacted her ability to complete daily tasks'"
+          "Symptoms are constant",
+          "Symptoms significantly impacted ability to complete daily tasks",
+          "Structured Review of Systems (ROS) section with categories (General, Cardiovascular, Respiratory, Gastrointestinal, Neurological)",
+          "No focal deficits from Subjective ROS"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section has several omissions, including specific cardiovascular and respiratory exam details, and importantly, the reticulocyte count and blood smear results, which are clinically significant lab findings.",
+        "summary": "The Objective section omits specific cardiovascular findings like 'no murmurs' and, more significantly, the elevated reticulocyte count and normocytic, normochromic blood smear findings, which are important lab results for characterizing the anemia.",
         "omissions": [
-          "Cardiovascular exam details 'regular rhythm, no murmurs'",
-          "Respiratory exam detail 'bilaterally' (for clear to auscultation)",
-          "Lab results 'Reticulocyte count: Elevated'",
-          "Lab results 'Blood smear: Normocytic, normochromic cells'"
+          "Cardiovascular: regular rhythm, no murmurs",
+          "Reticulocyte count: Elevated",
+          "Blood smear: Normocytic, normochromic cells"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits the crucial clinical justification for immediate intervention, which reduces the completeness of the assessment rationale.",
+        "grade": "A",
+        "summary": "The Assessment section is largely complete, with only a minor omission regarding the explicit statement of immediate intervention necessity.",
         "omissions": [
-          "'Given the patient's severe fatigue, dizziness, shortness of breath, and palpitations, immediate intervention is necessary.'"
+          "Statement that immediate intervention is necessary given the patient's symptoms"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains multiple omissions, including the purpose of the prescribed Ferrous sulfate, the specific conditions for avoiding strenuous activities, details about patient cooperation, and several important 'Next Steps' and 'Patient Education' elements. All additions in this section were supported by the transcript and did not lower the grade.",
+        "summary": "The Plan section has several omissions, including the specific purpose of Ferrous sulfate, the full condition for avoiding strenuous activities, and details about patient cooperativeness. More significantly, it omits two 'Next Steps' regarding ongoing monitoring and prompt review of stool occult blood test results, as well as a detailed summary of patient education.",
         "omissions": [
-          "Medication purpose 'to replenish iron stores' (for Ferrous sulfate)",
-          "Condition for avoiding strenuous activities 'until hemoglobin levels stabilize and symptoms resolve'",
-          "Patient's cooperation and willingness to adhere to treatment plan",
-          "Next Steps: 'Monitor closely for any changes in symptoms and adjust the treatment plan as necessary.'",
-          "Next Steps: 'Ensure results of the stool occult blood test are reviewed promptly to aid in identifying the source of bleeding.'",
-          "Patient Education details regarding condition, treatments, follow-up, and demonstrated understanding"
+          "Purpose of Ferrous sulfate: to replenish iron stores",
+          "Condition for avoiding strenuous activities: until hemoglobin levels stabilize and symptoms resolve",
+          "Patient's cooperativeness and willingness to adhere to treatment plan",
+          "Next Steps: Monitor closely for any changes in symptoms and adjust the treatment plan as necessary",
+          "Next Steps: Ensure results of the stool occult blood test are reviewed promptly to aid in identifying the source of bleeding",
+          "Patient Education details: Jane was provided with detailed information about her condition, the importance of the prescribed treatments, and the necessity of the follow-up appointments. She demonstrated a good understanding of her medical condition and the treatment plan."
         ],
         "additions": [
-          "Advice to 'focus on rest'",
-          "Instruction to 'contact clinic immediately for any unusual or worsening symptoms'"
+          "Advise patient to focus on rest",
+          "Instruct patient to contact clinic immediately for any unusual or worsening symptoms"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section is not applicable as there were no discrepancies identified for this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Plan: Advice to 'focus on rest'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Until then, it's important to avoid any strenuous activities and focus on resting until your hemoglobin levels stabilize and your symptoms improve. Maintain a balanced diet rich in iron. Foods like red meat, beans, and leafy green vegetables are good options.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient advised to avoid strenuous activities, focus on rest, and maintain a balanced, iron-rich diet."
-      },
-      {
-        "addition_text": "Plan: Instruction to 'contact clinic immediately for any unusual or worsening symptoms'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: If you notice any unusual symptoms or if anything feels off, don't hesitate to contact us immediately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Instruct patient to contact clinic immediately for any unusual or worsening symptoms."
-      },
-      {
-        "addition_text": "Advice to 'focus on rest'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Until then, it's important to avoid any strenuous activities and focus on resting until your hemoglobin levels stabilize and your symptoms improve. Maintain a balanced diet rich in iron. Foods like red meat, beans, and leafy green vegetables are good options.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient advised to avoid strenuous activities, focus on rest, and maintain a balanced, iron-rich diet."
-      },
-      {
-        "addition_text": "Instruction to 'contact clinic immediately for any unusual or worsening symptoms'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: If you notice any unusual symptoms or if anything feels off, don't hesitate to contact us immediately.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Instruct patient to contact clinic immediately for any unusual or worsening symptoms."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Plan: Advice to 'focus on rest'",
+      "addition_text": "Advise patient to focus on rest",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Until then, it's important to avoid any strenuous activities and focus on resting until your hemoglobin levels stabilize and your symptoms improve. Maintain a balanced diet rich in iron. Foods like red meat, beans, and leafy green vegetables are good options.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient advised to avoid strenuous activities, focus on rest, and maintain a balanced, iron-rich diet."
     },
     {
-      "addition_text": "Plan: Instruction to 'contact clinic immediately for any unusual or worsening symptoms'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If you notice any unusual symptoms or if anything feels off, don't hesitate to contact us immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to contact clinic immediately for any unusual or worsening symptoms."
-    },
-    {
-      "addition_text": "Advice to 'focus on rest'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Until then, it's important to avoid any strenuous activities and focus on resting until your hemoglobin levels stabilize and your symptoms improve. Maintain a balanced diet rich in iron. Foods like red meat, beans, and leafy green vegetables are good options.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient advised to avoid strenuous activities, focus on rest, and maintain a balanced, iron-rich diet."
-    },
-    {
-      "addition_text": "Instruction to 'contact clinic immediately for any unusual or worsening symptoms'",
+      "addition_text": "Instruct patient to contact clinic immediately for any unusual or worsening symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you notice any unusual symptoms or if anything feels off, don't hesitate to contact us immediately.",
       "evidence_source": "agent3_claims",

@@ -256,8 +256,8 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.006611570247933884,
-    "overall_rouge_l_f1": 0.004092071611253197,
+    "overall_token_f1": 0.0,
+    "overall_rouge_l_f1": 0.0,
     "by_section": [
       {
         "section": "Subjective",
@@ -286,163 +286,116 @@
         "gen_present": true,
         "token_f1": 0.0,
         "rouge_l_f1": 0.0
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 0.03305785123966942,
-        "rouge_l_f1": 0.020460358056265983
       }
     ],
     "assessment_alignment_score": 0.0,
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is clinically aligned with minor issues. It omits details such as the patient's presentation as an 'initial consultation', specific physical exam findings like 'regular rhythm' and the general 'no other abnormalities detected', and several minor details in the plan, including the 'oral' route for medication, explicit instruction to 'schedule' follow-up, and the patient's agreement with the plan. All additions were supported by the transcript, and no hallucinations were present.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "A",
+    "overall_summary": "The generated note is highly accurate and clinically useful, capturing all major clinically important Ground Truth content. All additions are well-supported by the transcript and do not detract from the note's quality. The few omissions are minor and do not impact the clinical utility or safety of the documentation.",
     "omissions": [
-      "The patient's presentation as an 'initial consultation'.",
-      "The finding of 'regular rhythm' in the cardiovascular physical examination.",
-      "The general statement 'Other Systems: No other abnormalities detected' in the physical examination.",
-      "The 'oral' route of administration for Ferrous Sulfate.",
-      "The explicit instruction to 'Schedule a follow-up appointment' for the 3-month follow-up.",
-      "The statement 'The patient understands and agrees with the treatment plan.'"
+      "The patient understands and agrees with the treatment plan."
     ],
     "additions": [
-      "The inclusion of 'Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone' in the Objective section.",
-      "The use of 'Suspected' in 'Suspected Iron Deficiency Anemia' in the Assessment section.",
-      "The clarification '(other than dizziness)' in the neurological review of systems."
+      "Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "This section is strong but omits the detail that the patient's presentation was an 'initial consultation'. The addition of '(other than dizziness)' was supported by the transcript and does not lower the grade.",
+        "grade": "A",
+        "summary": "The Subjective section is excellent. It accurately captures the patient's chief complaint, history of present illness, and review of systems. The omissions of 'initial consultation', 'necessitating frequent breaks', 'exercises moderately', and 'denies rashes or itching' are minor and do not diminish the clinical completeness or usefulness of the section. The addition of 'occasional palpitations' is supported by the transcript.",
         "omissions": [
-          "The patient's presentation as an 'initial consultation'."
+          "initial consultation",
+          "necessitating frequent breaks",
+          "exercises moderately",
+          "denies rashes or itching"
         ],
         "additions": [
-          "The clarification '(other than dizziness)' in the neurological review of systems."
+          "occasional palpitations"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section has minor omissions, specifically the finding of 'regular rhythm' in the cardiovascular physical examination and the general statement 'Other Systems: No other abnormalities detected'. The inclusion of diagnostic tests ordered was supported by the transcript and does not lower the grade.",
+        "grade": "A",
+        "summary": "The Objective section is very strong. It accurately presents vital signs and physical examination findings. The omissions of 'regular rhythm' and 'Other Systems: No other abnormalities detected' are minor and do not affect the key objective findings. The addition of 'Diagnostic Tests Ordered' is fully supported by the transcript and enhances the note.",
         "omissions": [
-          "The finding of 'regular rhythm' in the cardiovascular physical examination.",
-          "The general statement 'Other Systems: No other abnormalities detected'."
+          "regular rhythm",
+          "Other Systems: No other abnormalities detected."
         ],
         "additions": [
-          "The inclusion of 'Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone'."
+          "Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone."
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is excellent with no omissions. The use of 'Suspected' in 'Suspected Iron Deficiency Anemia' was supported by the transcript and does not lower the grade.",
-        "omissions": [],
+        "summary": "The Assessment section is comprehensive and accurate. It correctly identifies the primary diagnosis and provides sound medical reasoning. The omissions of 'Unspecified', 'indicative of anemia', and 'further support the likelihood of iron deficiency' are minor phrasing differences that do not alter the core clinical assessment. The additions of 'Suspected' and 'pallor (listed as a symptom in rationale)' are both supported by the transcript.",
+        "omissions": [
+          "Unspecified",
+          "indicative of anemia",
+          "further support the likelihood of iron deficiency"
+        ],
         "additions": [
-          "The use of 'Suspected' in 'Suspected Iron Deficiency Anemia'."
+          "Suspected (qualifier for diagnosis)",
+          "pallor (listed as a symptom in rationale, rather than solely a physical finding)"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section has several minor omissions, including the 'oral' route of administration for Ferrous Sulfate, the explicit instruction to 'Schedule a follow-up appointment' for the 3-month follow-up, and the statement that 'The patient understands and agrees with the treatment plan'.",
-        "omissions": [
-          "The 'oral' route of administration for Ferrous Sulfate.",
-          "The explicit instruction to 'Schedule a follow-up appointment' for the 3-month follow-up.",
-          "The statement 'The patient understands and agrees with the treatment plan'."
-        ],
-        "additions": []
-      },
-      {
-        "section": "Other",
         "grade": "A",
-        "summary": "This section has no grading issues.",
-        "omissions": [],
-        "additions": []
+        "summary": "The Plan section is well-structured and clinically appropriate. The omissions of 'oral' for medication route, 'Advised to' for recommendations, 'possible' in the referral context, and 'The patient understands and agrees with the treatment plan' are minor and do not compromise the actionable steps or patient safety. The addition of 'Vitamin C-rich foods' is supported by the transcript and provides helpful specificity.",
+        "omissions": [
+          "oral (for Ferrous Sulfate)",
+          "Advised to (for lifestyle recommendations)",
+          "possible (in 'possible underlying causes')",
+          "The patient understands and agrees with the treatment plan."
+        ],
+        "additions": [
+          "Vitamin C-rich foods (more specific than 'Vitamin C')"
+        ]
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "The inclusion of 'Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone' in the Objective section.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I’ve ordered some tests, including a Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, and Thyroid-stimulating Hormone",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostic tests ordered include Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, and Thyroid-stimulating Hormone."
-      },
-      {
-        "addition_text": "The use of 'Suspected' in 'Suspected Iron Deficiency Anemia' in the Assessment section.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and physical findings, I suspect you might have Iron Deficiency Anemia.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "The assessment is suspected Iron Deficiency Anemia."
-      },
-      {
-        "addition_text": "The clarification '(other than dizziness)' in the neurological review of systems.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "No headaches or tingling, just the dizziness.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "The inclusion of 'Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone'.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] I’ve ordered some tests, including a Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, and Thyroid-stimulating Hormone",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Diagnostic tests ordered include Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, and Thyroid-stimulating Hormone."
-      },
-      {
-        "addition_text": "The use of 'Suspected' in 'Suspected Iron Deficiency Anemia'.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[doctor] Based on your symptoms and physical findings, I suspect you might have Iron Deficiency Anemia.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "The assessment is suspected Iron Deficiency Anemia."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "The inclusion of 'Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone' in the Objective section.",
+      "addition_text": "Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’ve ordered some tests, including a Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, and Thyroid-stimulating Hormone",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Diagnostic tests ordered include Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, and Thyroid-stimulating Hormone."
     },
     {
-      "addition_text": "The use of 'Suspected' in 'Suspected Iron Deficiency Anemia' in the Assessment section.",
+      "addition_text": "occasional palpitations",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and physical findings, I suspect you might have Iron Deficiency Anemia.",
+      "transcript_evidence": "[patient] For the past three months, I’ve been feeling fatigued, dizzy, and my nails have become really brittle. I also get palpitations every now and then. ... They’re moderate, I’d say. They happen every day and it's really affecting my concentration at work. I need to take breaks frequently just to get through the day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The assessment is suspected Iron Deficiency Anemia."
+      "matched_claim_text": "Patient reports a 3-month history of moderate, daily fatigue, dizziness, brittle nails, and occasional palpitations, significantly impacting concentration at work."
     },
     {
-      "addition_text": "The clarification '(other than dizziness)' in the neurological review of systems.",
+      "addition_text": "Suspected (qualifier for diagnosis)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "No headaches or tingling, just the dizziness.",
+      "transcript_evidence": "Based on your symptoms and physical findings, I suspect you might have Iron Deficiency Anemia.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "The inclusion of 'Diagnostic Tests Ordered: Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, Thyroid-stimulating Hormone'.",
+      "addition_text": "pallor (listed as a symptom in rationale, rather than solely a physical finding)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I’ve ordered some tests, including a Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, and Thyroid-stimulating Hormone",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnostic tests ordered include Complete Blood Count with differential, Serum Ferritin, Serum Iron, Total Iron-Binding Capacity, and Thyroid-stimulating Hormone."
+      "transcript_evidence": "No rashes or itching, just the brittle nails and I think I look paler than usual.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "The use of 'Suspected' in 'Suspected Iron Deficiency Anemia'.",
+      "addition_text": "Vitamin C-rich foods (more specific than 'Vitamin C')",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and physical findings, I suspect you might have Iron Deficiency Anemia.",
+      "transcript_evidence": "[doctor] I also recommend incorporating more iron-rich foods into your diet, such as spinach, beans, and fortified cereals. Consuming Vitamin C-rich foods alongside these can help enhance iron absorption.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The assessment is suspected Iron Deficiency Anemia."
+      "matched_claim_text": "Plan includes dietary recommendations to incorporate more iron-rich foods (spinach, beans, fortified cereals) and Vitamin C-rich foods to enhance iron absorption."
     }
   ]
 }

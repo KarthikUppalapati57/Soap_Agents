@@ -294,8 +294,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6803901271974333,
-    "overall_rouge_l_f1": 0.5667743900811011,
+    "overall_token_f1": 0.6004876589967917,
+    "overall_rouge_l_f1": 0.45846798760137625,
     "by_section": [
       {
         "section": "Subjective",
@@ -324,221 +324,138 @@
         "gen_present": true,
         "token_f1": 0.7011494252873562,
         "rouge_l_f1": 0.39826839826839827
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.3684210526315789,
     "plan_alignment_score": 0.7011494252873562
   },
   "expert_judge": {
-    "model": "Model",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note has multiple omissions, particularly in the Assessment and Plan sections, affecting its completeness and structure. Key omissions include the ICD-10 code, explicit problem listing for fatigue, and detailed medical reasoning in the Assessment, as well as a distinct patient education section and patient agreement in the Plan. There is one minor unsupported structural addition in the Objective section. While the core clinical information is present, the numerous omissions reduce the overall clinical utility and alignment with the Ground Truth structure.",
-    "omissions": [
-      "Lack of distinct 'Chief Complaint' section",
-      "Patient's age (45-year-old) in HPI",
-      "Statement that patient 'presents for a general adult medical examination' in HPI",
-      "ROS General: 'or recent illnesses'",
-      "ROS Endocrine: 'Reports weight gain, cold intolerance, and fatigue'",
-      "ROS Psychological: 'Reports feeling tired'",
-      "Assessment: 'Encounter for general adult medical examination with abnormal findings'",
-      "Assessment: Explicitly listing 'Moderate fatigue' as a problem/diagnosis",
-      "Assessment: 'Medical Reasoning' and 'Further Evaluation' sub-sections for diagnoses",
-      "Assessment: Specific medication (Metformin) for prediabetes in the medical reasoning",
-      "Assessment: Specific medication (Atorvastatin) for hyperlipidemia in the medical reasoning",
-      "Plan: 'further tests' in the follow-up section",
-      "Plan: Explicit 'Patient Education' section",
-      "Plan: 'Discuss potential thyroid issues' as part of patient education",
-      "Plan: 'Patient understands and agrees with the recommended plan'"
+    "overall_summary": "The generated note is broadly usable but has noticeable gaps, primarily in the Assessment section. While Subjective and Objective sections are well-captured with only minor omissions, the Assessment omits the primary encounter diagnosis and all medical reasoning, making it meaningfully incomplete in its clinical thought process. The Plan section also has several moderate omissions related to patient education details. The few unsupported additions are minor formatting elements and do not introduce misleading clinical content.",
+    "omissions": [],
+    "additions": [],
+    "hallucinations_or_unjustified_inferences": [
+      "\"Pulmonary\" as a Physical Examination sub-header",
+      "\"Diagnostics\" as a sub-header"
     ],
-    "additions": [
-      "Subjective: 'constant' cold intolerance",
-      "Subjective: Medication details (Metformin 500 mg BID, Atorvastatin 10 mg daily) included in the Subjective section (PMH/ROS)",
-      "Objective: 'Neck' as a heading for thyroid exam",
-      "Plan: 'Patient advised to comply with medication and lifestyle changes and to contact clinic with any questions or concerns' in Follow-up"
-    ],
-    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has several minor omissions, including the lack of a distinct Chief Complaint section, the patient's age, and the statement about presenting for a general examination. Some ROS details were also omitted, though the core symptoms are captured. No unsupported or unknown additions were present.",
+        "grade": "A",
+        "summary": "The Subjective section is well-captured with only minor omissions such as the \"Chief Complaint (CC)\" header, the specific mention of \"general adult medical examination\" in the HPI, and \"recent illnesses\" in the ROS. These do not detract from the overall clinical utility.",
         "omissions": [
-          "Lack of distinct 'Chief Complaint' section",
-          "Patient's age (45-year-old) in HPI",
-          "Statement that patient 'presents for a general adult medical examination' in HPI",
-          "ROS General: 'or recent illnesses'",
-          "ROS Endocrine: 'Reports weight gain, cold intolerance, and fatigue'",
-          "ROS Psychological: 'Reports feeling tired'"
+          "Chief Complaint (CC) section header",
+          "\"general adult medical examination\" as the reason for presentation in HPI",
+          "\"recent illnesses\" in Review of Systems"
         ],
         "additions": [
-          "'constant' cold intolerance",
-          "Medication details (Metformin 500 mg BID, Atorvastatin 10 mg daily) included in the Subjective section (PMH/ROS)"
+          "\"constant\" cold intolerance",
+          "Medication details (Metformin 500 mg BID, Atorvastatin 10 mg daily) included in Subjective Past Medical History"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is strong with no clinical omissions. There is one minor unsupported structural addition, the 'Neck' heading for the thyroid exam, which does not impact clinical content.",
-        "omissions": [],
+        "summary": "The Objective section is accurate and complete. Omissions are limited to minor details like the Celsius temperature conversion, \"bilaterally\" for clear lungs, and \"no hepatosplenomegaly\" (covered by \"no organ enlargement\"). There is one unsupported formatting addition, \"Pulmonary\" as a sub-header, which does not impact clinical content.",
+        "omissions": [
+          "Temperature \"(37°C)\"",
+          "\"bilaterally\" for clear lungs",
+          "\"no hepatosplenomegaly\" for abdominal exam"
+        ],
         "additions": [
-          "'Neck' as a heading for thyroid exam"
+          "\"Neck\" as a Physical Examination sub-header",
+          "\"Pulmonary\" as a Physical Examination sub-header"
         ]
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has multiple omissions. It lacks the ICD-10 code for the general adult medical examination, does not explicitly list 'Moderate fatigue' as a problem, and omits the structured 'Medical Reasoning' and 'Further Evaluation' sub-sections, including specific medication details within the reasoning for prediabetes and hyperlipidemia. While the core diagnoses are present, these omissions significantly reduce the section's completeness and detail.",
+        "summary": "The Assessment section has noticeable gaps due to the omission of the primary diagnosis \"Encounter for general adult medical examination with abnormal findings\" and all \"Medical Reasoning\" statements for each problem. The specific \"Further Evaluation\" point for thyroid dysfunction is also missing. These omissions make the section less complete and reduce its clinical usefulness.",
         "omissions": [
-          "'Encounter for general adult medical examination with abnormal findings'",
-          "Explicitly listing 'Moderate fatigue' as a problem/diagnosis",
-          "'Medical Reasoning' and 'Further Evaluation' sub-sections for diagnoses",
-          "Specific medication (Metformin) for prediabetes in the medical reasoning",
-          "Specific medication (Atorvastatin) for hyperlipidemia in the medical reasoning"
+          "\"Encounter for general adult medical examination with abnormal findings\" (excluding ICD-10 code)",
+          "\"Medical Reasoning\" for moderate fatigue, possible thyroid dysfunction",
+          "\"Further Evaluation: Referral to endocrinologist for further evaluation\" as a distinct point in Assessment",
+          "\"Medical Reasoning\" for prediabetes",
+          "\"Medical Reasoning\" for hyperlipidemia"
         ],
-        "additions": []
+        "additions": [
+          "Detailed descriptive sentence for the first problem: \"Fatigue, weight gain, and cold intolerance with a slightly enlarged, non-tender thyroid on physical exam.\"",
+          "Combined statement for other diagnoses: \"Other active diagnoses include prediabetes and hyperlipidemia, both currently managed with medication.\""
+        ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section has several omissions, including the mention of 'further tests' in the follow-up, the explicit 'Patient Education' section, specific content about discussing potential thyroid issues, and the important closing statement about patient understanding and agreement. The core plan items are present, but the structural and specific content omissions are notable.",
+        "summary": "The Plan section is mostly complete but has several omissions, including specific patient education points like \"Discuss potential thyroid issues\" and the \"importance of compliance with medications and lifestyle modifications.\" Minor omissions include \"and further tests\" in follow-up and the patient agreement statement. There is one unsupported formatting addition, \"Diagnostics\" as a sub-header, which does not affect clinical content.",
         "omissions": [
-          "'further tests' in the follow-up section",
-          "Explicit 'Patient Education' section",
-          "'Discuss potential thyroid issues' as part of patient education",
-          "'Patient understands and agrees with the recommended plan'"
+          "\"potential thyroid dysfunction\" in the referral reason",
+          "\"and further tests\" in the follow-up description",
+          "\"Discuss potential thyroid issues\" in patient education",
+          "\"importance of compliance with medications and lifestyle modifications\" as a distinct patient education point",
+          "\"Patient understands and agrees with the recommended plan.\""
         ],
         "additions": [
-          "'Patient advised to comply with medication and lifestyle changes and to contact clinic with any questions or concerns' in Follow-up"
+          "\"Diagnostics\" as a sub-header",
+          "\"contact clinic with any questions or concerns\" in follow-up/patient education"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "No discrepancies were found in this section.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: 'constant' cold intolerance",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: Yes, I've noticed some weight gain and I feel cold all the time, even when others are comfortable. ... No, just the cold intolerance.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Associated symptoms include weight gain and constant cold intolerance."
-      },
-      {
-        "addition_text": "Subjective: Medication details (Metformin 500 mg BID, Atorvastatin 10 mg daily) included in the Subjective section (PMH/ROS)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Great, continue taking those medications.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Medications to continue: Metformin 500 mg BID and Atorvastatin 10 mg daily."
-      },
-      {
-        "addition_text": "Objective: 'Neck' as a heading for thyroid exam",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Plan: 'Patient advised to comply with medication and lifestyle changes and to contact clinic with any questions or concerns' in Follow-up",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’ll follow up in 3 months to reevaluate and see how you’re doing. In the meantime, please comply with your medication and lifestyle changes. ... If you have any questions or concerns before then, don’t hesitate to reach out.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up in 3 months for reevaluation, with advice to comply with medication and lifestyle changes and to contact the clinic with any questions or concerns."
-      },
-      {
-        "addition_text": "'constant' cold intolerance",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: Yes, I've noticed some weight gain and I feel cold all the time, even when others are comfortable. ... No, just the cold intolerance.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Associated symptoms include weight gain and constant cold intolerance."
-      },
-      {
-        "addition_text": "Medication details (Metformin 500 mg BID, Atorvastatin 10 mg daily) included in the Subjective section (PMH/ROS)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Great, continue taking those medications.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Medications to continue: Metformin 500 mg BID and Atorvastatin 10 mg daily."
-      },
-      {
-        "addition_text": "'Neck' as a heading for thyroid exam",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: When I palpate your thyroid, it feels slightly enlarged but non-tender.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Neck exam: Thyroid slightly enlarged, non-tender on palpation."
-      },
-      {
-        "addition_text": "'Patient advised to comply with medication and lifestyle changes and to contact clinic with any questions or concerns' in Follow-up",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’ll follow up in 3 months to reevaluate and see how you’re doing. In the meantime, please comply with your medication and lifestyle changes. ... If you have any questions or concerns before then, don’t hesitate to reach out.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up in 3 months for reevaluation, with advice to comply with medication and lifestyle changes and to contact the clinic with any questions or concerns."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'constant' cold intolerance",
+      "addition_text": "\"constant\" cold intolerance",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I've noticed some weight gain and I feel cold all the time, even when others are comfortable. ... No, just the cold intolerance.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Associated symptoms include weight gain and constant cold intolerance."
     },
     {
-      "addition_text": "Subjective: Medication details (Metformin 500 mg BID, Atorvastatin 10 mg daily) included in the Subjective section (PMH/ROS)",
+      "addition_text": "Medication details (Metformin 500 mg BID, Atorvastatin 10 mg daily) included in Subjective Past Medical History",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Great, continue taking those medications.",
+      "transcript_evidence": "[Doctor]: You mentioned a history of prediabetes. Are you still taking Metformin?\n[Patient]: Yes, I take Metformin 500 mg twice daily.\n[Doctor]: And you also have hyperlipidemia. Are you still on Atorvastatin for that?\n[Patient]: Yes, 10 mg daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Medications to continue: Metformin 500 mg BID and Atorvastatin 10 mg daily."
+      "matched_claim_text": "Past medical history includes prediabetes, managed with Metformin 500 mg BID, and hyperlipidemia, managed with Atorvastatin 10 mg daily."
     },
     {
-      "addition_text": "Objective: 'Neck' as a heading for thyroid exam",
+      "addition_text": "\"Neck\" as a Physical Examination sub-header",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "When I palpate your thyroid, it feels slightly enlarged but non-tender.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Pulmonary\" as a Physical Examination sub-header",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Plan: 'Patient advised to comply with medication and lifestyle changes and to contact clinic with any questions or concerns' in Follow-up",
+      "addition_text": "Detailed descriptive sentence for the first problem: \"Fatigue, weight gain, and cold intolerance with a slightly enlarged, non-tender thyroid on physical exam.\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll follow up in 3 months to reevaluate and see how you’re doing. In the meantime, please comply with your medication and lifestyle changes. ... If you have any questions or concerns before then, don’t hesitate to reach out.",
+      "transcript_evidence": "[Patient]: I've been feeling quite tired lately... I've noticed some weight gain and I feel cold all the time... [Doctor]: When I palpate your thyroid, it feels slightly enlarged but non-tender.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up in 3 months for reevaluation, with advice to comply with medication and lifestyle changes and to contact the clinic with any questions or concerns."
+      "matched_claim_text": "Patient presents with fatigue, weight gain, and cold intolerance, with a slightly enlarged, non-tender thyroid on physical exam."
     },
     {
-      "addition_text": "'constant' cold intolerance",
+      "addition_text": "Combined statement for other diagnoses: \"Other active diagnoses include prediabetes and hyperlipidemia, both currently managed with medication.\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I've noticed some weight gain and I feel cold all the time, even when others are comfortable. ... No, just the cold intolerance.",
+      "transcript_evidence": "[Doctor]: You mentioned a history of prediabetes. Are you still taking Metformin?\n[Patient]: Yes, I take Metformin 500 mg twice daily.\n[Doctor]: And you also have hyperlipidemia. Are you still on Atorvastatin for that?\n[Patient]: Yes, 10 mg daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Associated symptoms include weight gain and constant cold intolerance."
+      "matched_claim_text": "Other active diagnoses include prediabetes and hyperlipidemia, both currently managed with medication."
     },
     {
-      "addition_text": "Medication details (Metformin 500 mg BID, Atorvastatin 10 mg daily) included in the Subjective section (PMH/ROS)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Great, continue taking those medications.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Medications to continue: Metformin 500 mg BID and Atorvastatin 10 mg daily."
+      "addition_text": "\"Diagnostics\" as a sub-header",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
     },
     {
-      "addition_text": "'Neck' as a heading for thyroid exam",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: When I palpate your thyroid, it feels slightly enlarged but non-tender.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Neck exam: Thyroid slightly enlarged, non-tender on palpation."
-    },
-    {
-      "addition_text": "'Patient advised to comply with medication and lifestyle changes and to contact clinic with any questions or concerns' in Follow-up",
+      "addition_text": "\"contact clinic with any questions or concerns\" in follow-up/patient education",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll follow up in 3 months to reevaluate and see how you’re doing. In the meantime, please comply with your medication and lifestyle changes. ... If you have any questions or concerns before then, don’t hesitate to reach out.",
       "evidence_source": "agent3_claims",

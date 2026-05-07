@@ -258,8 +258,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6068179635490559,
-    "overall_rouge_l_f1": 0.4620344765789909,
+    "overall_token_f1": 0.5085224544363199,
+    "overall_rouge_l_f1": 0.3275430957237387,
     "by_section": [
       {
         "section": "Subjective",
@@ -288,13 +288,6 @@
         "gen_present": true,
         "token_f1": 0.5668449197860962,
         "rouge_l_f1": 0.36042402826855124
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.27999999999999997,
@@ -302,283 +295,131 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note captures most of the clinically important information but has multiple omissions across several sections. Notable omissions include specific details about the impact of the patient's pain, the distinct Review of Systems section and its contents, detailed diagnostic reasoning in the Assessment, and the entire Patient Agreements section, along with important patient contextual information. All additions made by the model were supported by the transcript and therefore do not negatively impact the grade.",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, history, and physical exam findings, and provides a comprehensive assessment and plan. There are several minor omissions, primarily in the Plan section regarding specific patient education details and documentation of patient understanding/agreement, and one minor omission in the Objective section regarding the explicit interpretation of a special test. Crucially, all additions made by the model are fully supported by the transcript, indicating strong factual grounding.",
     "omissions": [
-      "significantly impacting daily activities (from HPI)",
-      "limiting previous exercise routines (from HPI)",
-      "hyperlipidemia (from HPI, GT uses this term, Generated uses hypercholesterolemia)",
-      "Review of Systems section (as a distinct section)",
-      "Musculoskeletal: Reports moderate joint pain, stiffness, and occasional swelling in the left knee. (as a distinct ROS item)",
-      "Cardiovascular: Managed hypertension with Lisinopril, no recent chest pain or palpitations. (as a distinct ROS item)",
-      "General: No recent weight loss or fever. (as a distinct ROS item)",
-      "Other systems: Negative. (as a distinct ROS item)",
-      "Limited (describing range of motion)",
-      "indicating possible meniscal involvement (from Special Tests description)",
-      "Considering the patient's symptoms and physical examination findings, primary osteoarthritis of the left knee is the most likely diagnosis. (reasoning for primary diagnosis)",
-      "which needs further evaluation through imaging. (justification for further evaluation of meniscal involvement)",
-      "oral (route of administration for Acetaminophen)",
-      "to monitor progress (purpose of follow-up)",
-      "rule out other pathologies (purpose of MRI)",
-      "such as meniscal tears (specific example of other pathologies for MRI)",
-      "targeted exercises (for PT)",
+      "Interpretation of positive McMurray test: indicating possible meniscal involvement (from Objective section)",
       "Educate the patient on the importance of adherence to prescribed pain management and physical therapy.",
-      "Patient Agreements section",
-      "The patient understands and agrees with the recommended medical treatment plan.",
-      "She is cooperative and willing to follow through with the prescribed regimen and follow-up appointments.",
-      "The patient is well-educated, has a high health literacy level, and lives in an urban area with access to necessary healthcare facilities."
+      "Patient understands and agrees with the recommended medical treatment plan.",
+      "Patient is cooperative and willing to follow through with the prescribed regimen and follow-up appointments.",
+      "Patient is well-educated, has a high health literacy level, and lives in an urban area with access to necessary healthcare facilities."
     ],
     "additions": [
-      "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days. (in HPI)",
-      "Denies associated symptoms of weight loss, fever, chest pain, or palpitations. (in HPI, moved from ROS)",
-      "hypercholesterolemia (in HPI, Generated uses this term, GT uses hyperlipidemia)",
-      "stiff (describing range of motion)",
-      "All vitals within normal limits.",
-      "Hypertension, well-managed. (in Assessment)",
-      "Hypercholesterolemia, managed. (in Assessment)",
-      "Advise patient to call office if issues arise prior to follow-up. (in Plan)",
-      "meniscal integrity (purpose of MRI)"
+      "Pain scale (5-6/10, escalating to 8/10 on bad days)",
+      "Vitals 'All within normal limits'",
+      "Assessment of 'Hypertension, well-managed.'",
+      "Assessment of 'Hypercholesterolemia, managed.'",
+      "Plan instruction: 'Advise patient to call office if issues arise prior to follow-up.'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section omits details regarding the impact of the patient's pain on daily activities and exercise routines. It also omits the distinct Review of Systems section and its specific items, although some ROS content is integrated into the HPI. The term 'hyperlipidemia' was omitted in favor of 'hypercholesterolemia', though the latter is supported by the transcript. All additions were supported by the transcript.",
-        "omissions": [
-          "significantly impacting daily activities (from HPI)",
-          "limiting previous exercise routines (from HPI)",
-          "hyperlipidemia (from HPI, GT uses this term, Generated uses hypercholesterolemia)",
-          "Review of Systems section (as a distinct section)",
-          "Musculoskeletal: Reports moderate joint pain, stiffness, and occasional swelling in the left knee. (as a distinct ROS item)",
-          "Cardiovascular: Managed hypertension with Lisinopril, no recent chest pain or palpitations. (as a distinct ROS item)",
-          "General: No recent weight loss or fever. (as a distinct ROS item)",
-          "Other systems: Negative. (as a distinct ROS item)"
-        ],
+        "grade": "A",
+        "summary": "The Subjective section is excellent, with no omissions. All additions, such as the pain scale, are fully supported by the transcript and enhance the clinical detail without introducing unsupported information.",
+        "omissions": [],
         "additions": [
-          "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days. (in HPI)",
-          "Denies associated symptoms of weight loss, fever, chest pain, or palpitations. (in HPI, moved from ROS)",
-          "hypercholesterolemia (in HPI, Generated uses this term, GT uses hyperlipidemia)"
+          "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days."
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section has minor omissions, such as the specific term 'Limited' for range of motion (replaced by 'stiff', which is supported) and a detail about the McMurray test. All additions, including 'stiff' and 'All vitals within normal limits', were supported by the transcript.",
+        "summary": "The Objective section is mostly accurate. It has one minor omission regarding the explicit interpretation of the positive McMurray test within the physical exam findings. All additions, such as the vitals being 'within normal limits,' are supported by the transcript.",
         "omissions": [
-          "Limited (describing range of motion)",
-          "indicating possible meniscal involvement (from Special Tests description)"
+          "Interpretation of positive McMurray test: indicating possible meniscal involvement."
         ],
         "additions": [
-          "stiff (describing range of motion)",
-          "All vitals within normal limits."
+          "All within normal limits (for vitals)."
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "This section omits the detailed reasoning for the primary diagnosis of osteoarthritis. It includes supported additions of 'Hypertension, well-managed' and 'Hypercholesterolemia, managed' as diagnoses, which are clinically relevant and transcript-supported.",
-        "omissions": [
-          "Considering the patient's symptoms and physical examination findings, primary osteoarthritis of the left knee is the most likely diagnosis. (reasoning for primary diagnosis)",
-          "which needs further evaluation through imaging. (justification for further evaluation of meniscal involvement)"
-        ],
+        "grade": "A",
+        "summary": "The Assessment section is excellent, with no omissions. All additions, including the well-managed hypertension and hypercholesterolemia, are fully supported by the transcript and provide a more complete clinical picture.",
+        "omissions": [],
         "additions": [
-          "Hypertension, well-managed. (as a diagnosis)",
-          "Hypercholesterolemia, managed. (as a diagnosis)"
+          "Hypertension, well-managed.",
+          "Hypercholesterolemia, managed."
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has several omissions, including specific patient education on adherence to treatment and physical therapy, and the entire 'Patient Agreements' section with details about patient understanding and cooperation. Minor omissions include the route of administration for medication and some specific phrasing for follow-up and MRI purposes. All additions were supported by the transcript.",
+        "grade": "B",
+        "summary": "The Plan section captures all major clinical interventions. It has several minor omissions related to specific patient education on adherence, documentation of patient understanding and agreement, and patient contextual information. All additions, such as advising the patient to call if issues arise, are supported by the transcript.",
         "omissions": [
-          "oral (route of administration for Acetaminophen)",
-          "to monitor progress (purpose of follow-up)",
-          "rule out other pathologies (purpose of MRI)",
-          "such as meniscal tears (specific example of other pathologies for MRI)",
-          "targeted exercises (for PT)",
           "Educate the patient on the importance of adherence to prescribed pain management and physical therapy.",
-          "Patient Agreements section",
-          "The patient understands and agrees with the recommended medical treatment plan.",
-          "She is cooperative and willing to follow through with the prescribed regimen and follow-up appointments."
+          "Patient understands and agrees with the recommended medical treatment plan.",
+          "Patient is cooperative and willing to follow through with the prescribed regimen and follow-up appointments.",
+          "Patient is well-educated, has a high health literacy level, and lives in an urban area with access to necessary healthcare facilities."
         ],
         "additions": [
-          "Advise patient to call office if issues arise prior to follow-up.",
-          "meniscal integrity (purpose of MRI)"
+          "Advise patient to call office if issues arise prior to follow-up."
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "B",
-        "summary": "This section omits important contextual information about the patient's health literacy and access to healthcare facilities.",
-        "omissions": [
-          "The patient is well-educated, has a high health literacy level, and lives in an urban area with access to necessary healthcare facilities."
-        ],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days. (in HPI)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "It’s pretty constant. It gets worse when I walk or stand for a long time. I’d say it’s usually around a 5 or 6, but it can go up to an 8 on bad days. Walking and standing for long periods definitely make it worse. I used to take daily walks, but I can't do that anymore.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days, aggravated by walking and standing, impacting daily walks."
-      },
-      {
-        "addition_text": "Denies associated symptoms of weight loss, fever, chest pain, or palpitations. (in HPI, moved from ROS)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "No, none of that. No, my blood pressure is well-managed with the Lisinopril.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient denies associated symptoms of weight loss, fever, chest pain, or palpitations."
-      },
-      {
-        "addition_text": "hypercholesterolemia (in HPI, Generated uses this term, GT uses hyperlipidemia)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I take Lisinopril 10 mg daily for my blood pressure and Atorvastatin 20 mg daily for high cholesterol.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "stiff (describing range of motion)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[patient] Sure, but it’s quite stiff. [doctor] I can hear some crepitus, like a grinding noise, when you move it.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Range of motion is stiff with crepitus."
-      },
-      {
-        "addition_text": "All vitals within normal limits.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Your blood pressure is 130/80 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All within normal limits.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Vitals are BP 130/80 mmHg, HR 72 bpm, RR 16 bpm, Temp 98.6°F, all within normal limits."
-      },
-      {
-        "addition_text": "Hypertension, well-managed. (in Assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "No, my blood pressure is well-managed with the Lisinopril.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypertension, well-managed."
-      },
-      {
-        "addition_text": "Hypercholesterolemia, managed. (in Assessment)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Atorvastatin 20 mg daily for high cholesterol.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypercholesterolemia, managed."
-      },
-      {
-        "addition_text": "Advise patient to call office if issues arise prior to follow-up. (in Plan)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "If you have any issues before then, don’t hesitate to call the office.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Advise patient to call office if issues arise prior to follow-up."
-      },
-      {
-        "addition_text": "meniscal integrity (purpose of MRI)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "We’ll need an MRI to see the extent of the joint degeneration and check for any meniscal tears. In the meantime, I’ll order an MRI for your left knee to get a better look at what’s going on inside.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Order MRI of the left knee to assess joint degeneration and meniscal integrity."
-      },
-      {
-        "addition_text": "Hypertension, well-managed. (as a diagnosis)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "No, my blood pressure is well-managed with the Lisinopril.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypertension, well-managed."
-      },
-      {
-        "addition_text": "Hypercholesterolemia, managed. (as a diagnosis)",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Atorvastatin 20 mg daily for high cholesterol.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Hypercholesterolemia, managed."
-      },
-      {
-        "addition_text": "Advise patient to call office if issues arise prior to follow-up.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "If you have any issues before then, don’t hesitate to call the office.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Advise patient to call office if issues arise prior to follow-up."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days. (in HPI)",
+      "addition_text": "Pain scale (5-6/10, escalating to 8/10 on bad days)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It’s pretty constant. It gets worse when I walk or stand for a long time. I’d say it’s usually around a 5 or 6, but it can go up to an 8 on bad days. Walking and standing for long periods definitely make it worse. I used to take daily walks, but I can't do that anymore.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days, aggravated by walking and standing, impacting daily walks."
     },
     {
-      "addition_text": "Denies associated symptoms of weight loss, fever, chest pain, or palpitations. (in HPI, moved from ROS)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "No, none of that. No, my blood pressure is well-managed with the Lisinopril.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient denies associated symptoms of weight loss, fever, chest pain, or palpitations."
-    },
-    {
-      "addition_text": "hypercholesterolemia (in HPI, Generated uses this term, GT uses hyperlipidemia)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I take Lisinopril 10 mg daily for my blood pressure and Atorvastatin 20 mg daily for high cholesterol.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "stiff (describing range of motion)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Sure, but it’s quite stiff. [doctor] I can hear some crepitus, like a grinding noise, when you move it.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Range of motion is stiff with crepitus."
-    },
-    {
-      "addition_text": "All vitals within normal limits.",
+      "addition_text": "Vitals 'All within normal limits'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 130/80 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All within normal limits.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Vitals are BP 130/80 mmHg, HR 72 bpm, RR 16 bpm, Temp 98.6°F, all within normal limits."
     },
     {
-      "addition_text": "Hypertension, well-managed. (in Assessment)",
+      "addition_text": "Assessment of 'Hypertension, well-managed.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, my blood pressure is well-managed with the Lisinopril.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Hypertension, well-managed."
     },
     {
-      "addition_text": "Hypercholesterolemia, managed. (in Assessment)",
+      "addition_text": "Assessment of 'Hypercholesterolemia, managed.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Atorvastatin 20 mg daily for high cholesterol.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Hypercholesterolemia, managed."
     },
     {
-      "addition_text": "Advise patient to call office if issues arise prior to follow-up. (in Plan)",
+      "addition_text": "Plan instruction: 'Advise patient to call office if issues arise prior to follow-up.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any issues before then, don’t hesitate to call the office.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Advise patient to call office if issues arise prior to follow-up."
     },
     {
-      "addition_text": "meniscal integrity (purpose of MRI)",
+      "addition_text": "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "We’ll need an MRI to see the extent of the joint degeneration and check for any meniscal tears. In the meantime, I’ll order an MRI for your left knee to get a better look at what’s going on inside.",
+      "transcript_evidence": "It’s pretty constant. It gets worse when I walk or stand for a long time. I’d say it’s usually around a 5 or 6, but it can go up to an 8 on bad days. Walking and standing for long periods definitely make it worse. I used to take daily walks, but I can't do that anymore.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order MRI of the left knee to assess joint degeneration and meniscal integrity."
+      "matched_claim_text": "Pain is constant, usually 5-6/10, escalating to 8/10 on bad days, aggravated by walking and standing, impacting daily walks."
     },
     {
-      "addition_text": "Hypertension, well-managed. (as a diagnosis)",
+      "addition_text": "All within normal limits (for vitals).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is 130/80 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All within normal limits.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Vitals are BP 130/80 mmHg, HR 72 bpm, RR 16 bpm, Temp 98.6°F, all within normal limits."
+    },
+    {
+      "addition_text": "Hypertension, well-managed.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, my blood pressure is well-managed with the Lisinopril.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Hypertension, well-managed."
     },
     {
-      "addition_text": "Hypercholesterolemia, managed. (as a diagnosis)",
+      "addition_text": "Hypercholesterolemia, managed.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Atorvastatin 20 mg daily for high cholesterol.",
       "evidence_source": "agent3_claims",

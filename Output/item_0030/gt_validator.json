@@ -199,8 +199,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7016499442586399,
-    "overall_rouge_l_f1": 0.6177419782400412,
+    "overall_token_f1": 0.6270624303232999,
+    "overall_rouge_l_f1": 0.5221774728000514,
     "by_section": [
       {
         "section": "Subjective",
@@ -229,384 +229,368 @@
         "gen_present": true,
         "token_f1": 0.782608695652174,
         "rouge_l_f1": 0.6124031007751938
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.3666666666666667,
     "plan_alignment_score": 0.782608695652174
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_v1",
+    "model": "expert_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is generally well-aligned with the Ground Truth. There are no hallucinations or unsupported additions. However, there are minor omissions, notably the lack of medication management details within the secondary diagnoses in the Assessment section, and some minor details from the Chief Complaint and General Appearance.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the patient's history, physical findings, and plan. The primary issues are several moderate omissions, including the explicit Chief Complaint and the specific medication management details for hypertension and Type 2 Diabetes Mellitus within the Assessment diagnoses. There is one minor unsupported structural addition in the Assessment section, but it does not introduce misleading clinical content. Despite these, the note remains clinically useful.",
     "omissions": [
-      "Chief Complaint detail: 'affecting daily activities'",
-      "Objective Physical Examination - General Appearance detail: 'alert, and oriented'",
-      "Assessment Secondary Diagnosis detail: 'Hypertension (managed on Lisinopril 20 mg daily)'",
-      "Assessment Secondary Diagnosis detail: 'Type 2 Diabetes Mellitus (managed on Metformin 500 mg twice daily)'"
+      "Chief Complaint section header and content 'Severe obesity and associated symptoms affecting daily activities.'",
+      "HPI detail: 'initial consultation'",
+      "Objective detail: General Appearance 'Obese, alert, and oriented.'",
+      "Assessment detail: Hypertension 'managed on Lisinopril 20 mg daily'",
+      "Assessment detail: Type 2 Diabetes Mellitus 'managed on Metformin 500 mg twice daily'",
+      "Plan detail: Orlistat 'orally'",
+      "Plan detail: Patient education on sleep routine 'to improve overall well-being'",
+      "Plan concluding statement: 'The patient expressed understanding and agreed to the proposed treatment plans and follow-up schedules.'"
     ],
     "additions": [
-      "Subjective section includes 'Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily'",
-      "Objective section includes 'Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound'",
-      "Assessment lists 'Fatigue' as a complication/diagnosis",
-      "Assessment lists 'Shortness of breath' as a complication/diagnosis",
-      "Assessment lists 'Knee pain' as a complication/diagnosis",
-      "Assessment lists 'Limited mobility' as a complication/diagnosis",
-      "Assessment lists 'Interrupted sleep' as a complication/diagnosis",
-      "Assessment lists 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors' as a complication/diagnosis",
-      "Plan includes a redundant follow-up instruction: 'Return in one month for follow-up'",
-      "Plan includes a 'Medication Management' section with 'Continue Lisinopril 20 mg daily for hypertension' and 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus'"
+      "Subjective detail: 'easy shortness of breath'",
+      "Subjective detail: 'significant knee pain'",
+      "Subjective section: 'Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily.'",
+      "Objective detail: heart rate 'rate not specified'",
+      "Objective detail: Cardiovascular exam 'Normal'",
+      "Objective detail: Respiratory exam 'Normal'",
+      "Objective section: 'Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.'",
+      "Assessment detail: Morbid obesity '(BMI 42)'",
+      "Assessment detail: 'complicated by:'",
+      "Assessment diagnosis/complication: 'Fatigue'",
+      "Assessment diagnosis/complication: 'Shortness of breath'",
+      "Assessment diagnosis/complication: 'Knee pain'",
+      "Assessment diagnosis/complication: 'Limited mobility'",
+      "Assessment diagnosis/complication: 'Interrupted sleep'",
+      "Assessment diagnosis/complication: 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors.'",
+      "Plan section: 'Medication Management'",
+      "Plan detail: 'Continue Lisinopril 20 mg daily for hypertension.'",
+      "Plan detail: 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus.'",
+      "Plan section: 'Diagnostics'",
+      "Plan detail: 'Follow up on pending' for tests",
+      "Plan detail: 'Return in one month for follow-up.'"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "Assessment detail: 'complicated by:'",
+      "'complicated by:'",
+      "Diagnosis/complication: 'Fatigue'"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section is comprehensive, with only a minor omission regarding the Chief Complaint detail 'affecting daily activities.' All additions were supported by the transcript.",
+        "grade": "B",
+        "summary": "This section omits the explicit Chief Complaint header and its content, which is a moderate structural omission, though the HPI effectively conveys the patient's primary concern. A minor detail about 'initial consultation' is also omitted. No unsupported or unknown additions were found.",
         "omissions": [
-          "Chief Complaint detail: 'affecting daily activities'"
+          "Chief Complaint section header and content 'Severe obesity and associated symptoms affecting daily activities.'",
+          "HPI detail: 'initial consultation'"
         ],
         "additions": [
-          "Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily"
+          "Subjective detail: 'easy shortness of breath'",
+          "Subjective detail: 'significant knee pain'",
+          "Subjective section: 'Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily.'"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is accurate, with only a minor omission of the 'alert, and oriented' detail from the General Appearance. All additions were supported by the transcript.",
+        "summary": "This section is highly aligned with the GroundTruth. The only omission is the 'General Appearance' detail ('Obese, alert, and oriented'), which is minor as 'Obese' is covered by the BMI and 'alert and oriented' is a common finding. No unsupported or unknown additions were found.",
         "omissions": [
-          "Physical Examination - General Appearance detail: 'alert, and oriented'"
+          "General Appearance: 'Obese, alert, and oriented.'"
         ],
         "additions": [
-          "Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound"
+          "Objective detail: heart rate 'rate not specified'",
+          "Objective detail: Cardiovascular exam 'Normal'",
+          "Objective detail: Respiratory exam 'Normal'",
+          "Objective section: 'Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.'"
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section accurately identifies primary and secondary diagnoses. However, it omits the specific medication management details for hypertension and Type 2 Diabetes Mellitus from the secondary diagnoses, which were present in the Ground Truth. All additional listed complications were supported by the transcript.",
+        "summary": "This section omits the specific medication management details for hypertension and Type 2 Diabetes Mellitus from the diagnosis statements, which are moderate omissions impacting the completeness of the assessment. It includes one minor unsupported structural addition, 'complicated by:', which is a framing choice rather than a factual error and does not introduce misleading clinical content.",
         "omissions": [
-          "Secondary Diagnosis detail: 'Hypertension (managed on Lisinopril 20 mg daily)'",
-          "Secondary Diagnosis detail: 'Type 2 Diabetes Mellitus (managed on Metformin 500 mg twice daily)'"
+          "Hypertension 'managed on Lisinopril 20 mg daily'",
+          "Type 2 Diabetes Mellitus 'managed on Metformin 500 mg twice daily'"
         ],
         "additions": [
-          "Listing 'Fatigue' as a complication/diagnosis",
-          "Listing 'Shortness of breath' as a complication/diagnosis",
-          "Listing 'Knee pain' as a complication/diagnosis",
-          "Listing 'Limited mobility' as a complication/diagnosis",
-          "Listing 'Interrupted sleep' as a complication/diagnosis",
-          "Listing 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors' as a complication/diagnosis"
+          "Morbid obesity '(BMI 42)'",
+          "'complicated by:'",
+          "Diagnosis/complication: 'Fatigue'",
+          "Diagnosis/complication: 'Shortness of breath'",
+          "Diagnosis/complication: 'Knee pain'",
+          "Diagnosis/complication: 'Limited mobility'",
+          "Diagnosis/complication: 'Interrupted sleep'",
+          "Diagnosis/complication: 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors.'"
         ]
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is complete and accurate, capturing all necessary elements from the Ground Truth. All additions were supported by the transcript.",
-        "omissions": [],
+        "summary": "The plan is comprehensive and clinically sound. It contains several minor omissions, such as the 'orally' route for Orlistat (which is implied) and a concluding statement about patient understanding and agreement. These do not detract from the clinical usefulness or safety of the plan. No unsupported or unknown additions were found.",
+        "omissions": [
+          "Orlistat 'orally'",
+          "Patient education on sleep routine 'to improve overall well-being'",
+          "Concluding statement: 'The patient expressed understanding and agreed to the proposed treatment plans and follow-up schedules.'"
+        ],
         "additions": [
-          "Redundant follow-up instruction: 'Return in one month for follow-up'",
-          "'Medication Management' section with 'Continue Lisinopril 20 mg daily for hypertension' and 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus'"
+          "Section: 'Medication Management'",
+          "Detail: 'Continue Lisinopril 20 mg daily for hypertension.'",
+          "Detail: 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus.'",
+          "Section: 'Diagnostics'",
+          "Detail: 'Follow up on pending' for tests",
+          "Detail: 'Return in one month for follow-up.'"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section is not applicable as there were no discrepancies identified for it.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": "The GroundTruthSOAP includes '45-year-old African American female' and 'Angela' in the HPI, which are not present in the Transcript. These fabricated fields were correctly excluded from omissions.",
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective section includes 'Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Current medications include Lisinopril 20 mg daily and Metformin 500 mg twice daily."
-      },
-      {
-        "addition_text": "Objective section includes 'Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’re awaiting the results of your comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound are awaiting results."
-      },
-      {
-        "addition_text": "Assessment lists 'Fatigue' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Alright, let’s go through a quick review of your systems. Do you experience fatigue?\n[Patient]: Yes, I do.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Assessment lists 'Shortness of breath' as a complication/diagnosis",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Assessment lists 'Knee pain' as a complication/diagnosis",
-        "supported_by_transcript": "unsupported",
-        "transcript_evidence": null,
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Assessment lists 'Limited mobility' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "my mobility is very limited.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Assessment lists 'Interrupted sleep' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I sleep around 6 hours per night, but my sleep is often interrupted.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Assessment lists 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I eat a lot of high-calorie, high-fat, and high-sugar foods. No, I have a pretty sedentary lifestyle.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Sedentary lifestyle and high-calorie, high-fat, high-sugar diet are contributing factors."
-      },
-      {
-        "addition_text": "Plan includes a redundant follow-up instruction: 'Return in one month for follow-up'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’ll schedule monthly appointments to monitor your weight and overall health status. I’ll see you in a month for the follow-up.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up Plan: Schedule monthly appointments to monitor weight and overall health status, with a return in one month."
-      },
-      {
-        "addition_text": "Plan includes a 'Medication Management' section with 'Continue Lisinopril 20 mg daily for hypertension' and 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Medication Management Plan: Continue Lisinopril 20 mg daily for hypertension and Metformin 500 mg twice daily for Type 2 Diabetes Mellitus."
-      },
-      {
-        "addition_text": "Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Current medications include Lisinopril 20 mg daily and Metformin 500 mg twice daily."
-      },
-      {
-        "addition_text": "Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’re awaiting the results of your comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound are awaiting results."
-      },
-      {
-        "addition_text": "Listing 'Fatigue' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: Alright, let’s go through a quick review of your systems. Do you experience fatigue?\n[Patient]: Yes, I do.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Listing 'Shortness of breath' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I get short of breath easily",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Listing 'Knee pain' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "My knees hurt a lot. I have joint pain in my knees. I can see there are signs of joint pain in your knees. Yes, my knees are really painful.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Listing 'Limited mobility' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "It’s really hard to do daily tasks, and my mobility is very limited.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Listing 'Interrupted sleep' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I sleep around 6 hours per night, but my sleep is often interrupted.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Listing 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors' as a complication/diagnosis",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: I eat a lot of high-calorie, high-fat, and high-sugar foods. No, I have a pretty sedentary lifestyle.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Sedentary lifestyle and high-calorie, high-fat, high-sugar diet are contributing factors."
-      },
-      {
-        "addition_text": "Redundant follow-up instruction: 'Return in one month for follow-up'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: We’ll schedule monthly appointments to monitor your weight and overall health status. I’ll see you in a month for the follow-up.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Follow-up Plan: Schedule monthly appointments to monitor weight and overall health status, with a return in one month."
-      },
-      {
-        "addition_text": "'Medication Management' section with 'Continue Lisinopril 20 mg daily for hypertension' and 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus'",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Medication Management Plan: Continue Lisinopril 20 mg daily for hypertension and Metformin 500 mg twice daily for Type 2 Diabetes Mellitus."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective section includes 'Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Current medications include Lisinopril 20 mg daily and Metformin 500 mg twice daily."
-    },
-    {
-      "addition_text": "Objective section includes 'Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re awaiting the results of your comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound are awaiting results."
-    },
-    {
-      "addition_text": "Assessment lists 'Fatigue' as a complication/diagnosis",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Alright, let’s go through a quick review of your systems. Do you experience fatigue?\n[Patient]: Yes, I do.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment lists 'Shortness of breath' as a complication/diagnosis",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment lists 'Knee pain' as a complication/diagnosis",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment lists 'Limited mobility' as a complication/diagnosis",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "my mobility is very limited.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment lists 'Interrupted sleep' as a complication/diagnosis",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I sleep around 6 hours per night, but my sleep is often interrupted.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment lists 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors' as a complication/diagnosis",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I eat a lot of high-calorie, high-fat, and high-sugar foods. No, I have a pretty sedentary lifestyle.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Sedentary lifestyle and high-calorie, high-fat, high-sugar diet are contributing factors."
-    },
-    {
-      "addition_text": "Plan includes a redundant follow-up instruction: 'Return in one month for follow-up'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll schedule monthly appointments to monitor your weight and overall health status. I’ll see you in a month for the follow-up.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up Plan: Schedule monthly appointments to monitor weight and overall health status, with a return in one month."
-    },
-    {
-      "addition_text": "Plan includes a 'Medication Management' section with 'Continue Lisinopril 20 mg daily for hypertension' and 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Medication Management Plan: Continue Lisinopril 20 mg daily for hypertension and Metformin 500 mg twice daily for Type 2 Diabetes Mellitus."
-    },
-    {
-      "addition_text": "Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Current medications include Lisinopril 20 mg daily and Metformin 500 mg twice daily."
-    },
-    {
-      "addition_text": "Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re awaiting the results of your comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound are awaiting results."
-    },
-    {
-      "addition_text": "Listing 'Fatigue' as a complication/diagnosis",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Alright, let’s go through a quick review of your systems. Do you experience fatigue?\n[Patient]: Yes, I do.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Listing 'Shortness of breath' as a complication/diagnosis",
+      "addition_text": "Subjective detail: 'easy shortness of breath'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I get short of breath easily",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Listing 'Knee pain' as a complication/diagnosis",
+      "addition_text": "Subjective detail: 'significant knee pain'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "My knees hurt a lot. I have joint pain in my knees. I can see there are signs of joint pain in your knees. Yes, my knees are really painful.",
+      "transcript_evidence": "my knees hurt a lot. ... Yes, my knees are really painful.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Listing 'Limited mobility' as a complication/diagnosis",
+      "addition_text": "Subjective section: 'Current Medications (patient reported and confirmed): Lisinopril 20 mg daily, Metformin 500 mg twice daily.'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "It’s really hard to do daily tasks, and my mobility is very limited.",
+      "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Current medications include Lisinopril 20 mg daily and Metformin 500 mg twice daily."
+    },
+    {
+      "addition_text": "Objective detail: heart rate 'rate not specified'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Your blood pressure is 145/90 mmHg, your heart rate is regular, and your BMI is 42.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Listing 'Interrupted sleep' as a complication/diagnosis",
+      "addition_text": "Objective detail: Cardiovascular exam 'Normal'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your cardiovascular and respiratory systems seem normal",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Objective detail: Respiratory exam 'Normal'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your cardiovascular and respiratory systems seem normal; your lungs are clear to auscultation bilaterally.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Objective section: 'Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’re awaiting the results of your comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pending Diagnostics: Comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound are awaiting results."
+    },
+    {
+      "addition_text": "Assessment detail: Morbid obesity '(BMI 42)'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on everything we’ve discussed and your physical exam, the primary diagnosis is morbid obesity due to excess calories.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Primary diagnosis is morbid obesity (BMI 42) due to excess calories."
+    },
+    {
+      "addition_text": "Assessment detail: 'complicated by:'",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment diagnosis/complication: 'Fatigue'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Alright, let’s go through a quick review of your systems. Do you experience fatigue?\n[Patient]: Yes, I do.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment diagnosis/complication: 'Shortness of breath'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I do experience shortness of breath",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment diagnosis/complication: 'Knee pain'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I have joint pain in my knees",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment diagnosis/complication: 'Limited mobility'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "my mobility is very limited.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment diagnosis/complication: 'Interrupted sleep'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I sleep around 6 hours per night, but my sleep is often interrupted.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Listing 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors' as a complication/diagnosis",
+      "addition_text": "Assessment diagnosis/complication: 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I eat a lot of high-calorie, high-fat, and high-sugar foods. No, I have a pretty sedentary lifestyle.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Sedentary lifestyle and high-calorie, high-fat, high-sugar diet are contributing factors."
     },
     {
-      "addition_text": "Redundant follow-up instruction: 'Return in one month for follow-up'",
+      "addition_text": "Plan section: 'Medication Management'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: For weight management, we’re going to initiate a structured program with a dietitian. I’m also prescribing Orlistat 120 mg to take three times a day before meals.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Plan detail: 'Continue Lisinopril 20 mg daily for hypertension.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Medication Management Plan: Continue Lisinopril 20 mg daily for hypertension and Metformin 500 mg twice daily for Type 2 Diabetes Mellitus."
+    },
+    {
+      "addition_text": "Plan detail: 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Medication Management Plan: Continue Lisinopril 20 mg daily for hypertension and Metformin 500 mg twice daily for Type 2 Diabetes Mellitus."
+    },
+    {
+      "addition_text": "Plan section: 'Diagnostics'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We need to follow up on the additional tests, including the comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound to assess for possible fatty liver disease.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Plan detail: 'Follow up on pending' for tests",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We need to follow up on the additional tests, including the comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound to assess for possible fatty liver disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnostics Plan: Follow up on pending comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound to assess for possible fatty liver disease."
+    },
+    {
+      "addition_text": "Plan detail: 'Return in one month for follow-up.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll schedule monthly appointments to monitor your weight and overall health status. I’ll see you in a month for the follow-up.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Follow-up Plan: Schedule monthly appointments to monitor weight and overall health status, with a return in one month."
     },
     {
-      "addition_text": "'Medication Management' section with 'Continue Lisinopril 20 mg daily for hypertension' and 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus'",
+      "addition_text": "Morbid obesity '(BMI 42)'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on everything we’ve discussed and your physical exam, the primary diagnosis is morbid obesity due to excess calories.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Primary diagnosis is morbid obesity (BMI 42) due to excess calories."
+    },
+    {
+      "addition_text": "'complicated by:'",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Diagnosis/complication: 'Fatigue'",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Diagnosis/complication: 'Shortness of breath'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I do experience shortness of breath, but no cough or wheezing.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Respiratory Review of Systems: Reports shortness of breath; denies cough or wheezing."
+    },
+    {
+      "addition_text": "Diagnosis/complication: 'Knee pain'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I have joint pain in my knees",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Diagnosis/complication: 'Limited mobility'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It’s really hard to do daily tasks, and my mobility is very limited.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Diagnosis/complication: 'Interrupted sleep'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I sleep around 6 hours per night, but my sleep is often interrupted.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Diagnosis/complication: 'Sedentary lifestyle and high-calorie, high-fat, high-sugar diet contributing factors.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I eat a lot of high-calorie, high-fat, and high-sugar foods. No, I have a pretty sedentary lifestyle.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Sedentary lifestyle and high-calorie, high-fat, high-sugar diet are contributing factors."
+    },
+    {
+      "addition_text": "Section: 'Medication Management'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on everything we’ve discussed and your physical exam, the primary diagnosis is morbid obesity due to excess calories. You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily. ... For weight management, we’re going to initiate a structured program with a dietitian. I’m also prescribing Orlistat 120 mg to take three times a day before meals.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Detail: 'Continue Lisinopril 20 mg daily for hypertension.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Medication Management Plan: Continue Lisinopril 20 mg daily for hypertension and Metformin 500 mg twice daily for Type 2 Diabetes Mellitus."
+    },
+    {
+      "addition_text": "Detail: 'Continue Metformin 500 mg twice daily for Type 2 Diabetes Mellitus.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You also have hypertension, which you are managing with Lisinopril 20 mg daily, and Type 2 Diabetes Mellitus, which you are managing with Metformin 500 mg twice daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Medication Management Plan: Continue Lisinopril 20 mg daily for hypertension and Metformin 500 mg twice daily for Type 2 Diabetes Mellitus."
+    },
+    {
+      "addition_text": "Section: 'Diagnostics'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We’re awaiting the results of your comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Detail: 'Follow up on pending' for tests",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We need to follow up on the additional tests, including the comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound to assess for possible fatty liver disease.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Detail: 'Return in one month for follow-up.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’ll schedule monthly appointments to monitor your weight and overall health status. I’ll see you in a month for the follow-up.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Follow-up Plan: Schedule monthly appointments to monitor weight and overall health status, with a return in one month."
     }
   ]
 }

@@ -239,8 +239,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.578869014478794,
-    "overall_rouge_l_f1": 0.443036019755097,
+    "overall_token_f1": 0.4735862680984926,
+    "overall_rouge_l_f1": 0.30379502469387115,
     "by_section": [
       {
         "section": "Subjective",
@@ -269,320 +269,207 @@
         "gen_present": true,
         "token_f1": 0.6952789699570815,
         "rouge_l_f1": 0.3221884498480243
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 0.2597402597402597,
     "plan_alignment_score": 0.6952789699570815
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated SOAP note contains several omissions, most notably the detailed reasoning for all three diagnoses in the Assessment section, and the patient's general presentation in the Objective section. A significant issue is the inclusion of \"Chronic knee pain, likely secondary to obesity\" as an assessment item, which is identified as an unjustified inference. These issues collectively reduce the clinical usefulness and reliability of the note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The GeneratedSOAP note is mostly clinically aligned but has noticeable gaps, particularly in the Assessment section where all detailed reasoning for the diagnoses is omitted. Additionally, there are moderate omissions regarding the patient's expressed frustration in the Objective section and explicit patient agreement in the Plan. While the note is still usable, these multiple moderate issues make it meaningfully incomplete and warrant caution and review.",
     "omissions": [
-      "GroundTruth's detailed reasoning for Severe Obesity in Assessment (patient's history, physical examination, reported lifestyle habits consistent with severe obesity; associated symptoms like shortness of breath and knee pain)",
-      "GroundTruth's detailed reasoning for Hypertension in Assessment (persistent blood pressure reading of 140/90 mmHg)",
-      "GroundTruth's detailed reasoning for Pre-diabetes in Assessment (previous diagnosis supported by family history of type 2 diabetes and current lifestyle factors)",
-      "GroundTruth's Objective finding: \"General: Alert, cooperative but expresses frustration with past failed weight loss attempts.\"",
-      "GroundTruth's \"due to excess calories\" for severe obesity in Assessment",
-      "GroundTruth's specific patient education point: \"Discussed the importance of a balanced diet and regular exercise.\"",
-      "GroundTruth's purpose for ordered labs: \"to assess overall metabolic health.\"",
-      "GroundTruth's \"Patient Agreements: The patient understands and agrees with the recommended medical treatment plan.\"",
-      "GroundTruth's \"Laboratory Tests: Pending Results: Awaiting results from the ordered biochemistry panel including lipid profile and HbA1c.\""
+      "Subjective: daily difficulties with physical activity",
+      "Subjective: shortness of breath with exertion (specifically 'with exertion')",
+      "Objective: General: Alert, cooperative but expresses frustration with past failed weight loss attempts",
+      "Objective: Cardiovascular: Regular rate and rhythm, no murmurs",
+      "Assessment: Severe obesity 'due to excess calories'",
+      "Assessment: Reasoning for Severe obesity: 'The patient's history, physical examination, and reported lifestyle habits are consistent with severe obesity. The patient also has associated symptoms including shortness of breath and knee pain, which are common in obesity.'",
+      "Assessment: Reasoning for Hypertension: 'Persistent blood pressure reading of 140/90 mmHg.'",
+      "Assessment: Reasoning for Pre-diabetes: 'Previous diagnosis supported by family history of type 2 diabetes and current lifestyle factors.'",
+      "Plan: Patient Education and Counseling: 'Discussed the importance of a balanced diet and regular exercise.'",
+      "Plan: Laboratory Tests: Pending Results: 'Awaiting results from the ordered biochemistry panel including lipid profile and HbA1c.'",
+      "Plan: Patient Agreements: 'The patient understands and agrees with the recommended medical treatment plan.'"
     ],
     "additions": [
-      "Subjective detail: \"worsening lately\" regarding weight struggles",
-      "Subjective detail: \"constant fatigue\"",
-      "Subjective detail: \"knee pain that worsens with activity\"",
-      "Subjective detail: \"Reports past unsuccessful attempts at weight loss with diets and medications\"",
-      "Subjective detail: \"Family history is positive for Type 2 Diabetes in both parents\"",
-      "Assessment item: \"Chronic knee pain, likely secondary to obesity\"",
-      "Plan item: \"Discuss importance of addressing pre-diabetes given family history and current lifestyle\" under Patient Education/Counseling"
+      "Subjective: weight struggle 'worsening lately'",
+      "Subjective: knee pain 'worsens with activity'",
+      "Subjective: 'Reports past unsuccessful attempts at weight loss with diets and medications.'",
+      "Subjective: 'Family history is positive for Type 2 Diabetes in both parents.'",
+      "Objective: 'with normal heart sounds' (as part of respiratory exam description)",
+      "Assessment: Hypertension '(currently on Lisinopril 10 mg daily)'",
+      "Assessment: 'Chronic knee pain, likely secondary to obesity'",
+      "Plan: Patient Education/Counseling: 'Discuss importance of addressing pre-diabetes given family history and current lifestyle.'"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "The assessment item \"Chronic knee pain, likely secondary to obesity\" is an inference. While knee pain is mentioned as a symptom, it is not explicitly diagnosed as a separate assessment item in the GroundTruth or Transcript by the provider."
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The section omits the structured Review of Systems as a separate section, though most of its content is integrated into the HPI. There are no unsupported or unknown additions, and no hallucinations.",
+        "summary": "The Subjective section is strong, capturing all major clinically important content. The omissions of 'daily difficulties with physical activity' and the specific qualifier 'with exertion' for shortness of breath are minor and do not detract from the overall clinical usefulness. All additions were supported by the transcript.",
         "omissions": [
-          "GroundTruth's structured Review of Systems (General, Cardiovascular, Respiratory, Gastrointestinal, Musculoskeletal, Endocrine, Neurological) as a separate section (though content is largely present within the generated HPI)."
+          "daily difficulties with physical activity",
+          "shortness of breath with exertion (specifically 'with exertion')"
         ],
         "additions": [
-          "Detail: \"worsening lately\" regarding weight struggles",
-          "Detail: \"constant fatigue\"",
-          "Detail: \"knee pain that worsens with activity\"",
-          "Detail: \"Reports past unsuccessful attempts at weight loss with diets and medications\"",
-          "Detail: \"Family history is positive for Type 2 Diabetes in both parents\""
+          "weight struggle 'worsening lately'",
+          "knee pain 'worsens with activity'",
+          "Reports past unsuccessful attempts at weight loss with diets and medications.",
+          "Family history is positive for Type 2 Diabetes in both parents."
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The section omits the clinically relevant observation regarding the patient's general presentation and frustration with past weight loss attempts. There are no unsupported or unknown additions, and no hallucinations.",
+        "summary": "The Objective section is mostly clinically aligned. It omits the patient's general appearance and expressed frustration with past weight loss attempts, which is a moderate omission as it impacts patient engagement context. The omission of 'regular rate and rhythm, no murmurs' is a minor detail, as 'normal heart sounds' is included. All additions were supported by the transcript.",
         "omissions": [
-          "\"General: Alert, cooperative but expresses frustration with past failed weight loss attempts.\""
+          "General: Alert, cooperative but expresses frustration with past failed weight loss attempts.",
+          "Cardiovascular: Regular rate and rhythm, no murmurs."
         ],
         "additions": [
-          "\"Respiratory exam clear with normal heart sounds\" (combines respiratory and cardiovascular findings from GroundTruth)."
+          "with normal heart sounds (as part of respiratory exam description)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section has significant omissions, including the detailed reasoning for all three diagnoses (Severe obesity, Hypertension, Pre-diabetes) and the specific etiology for severe obesity (\"due to excess calories\"). Furthermore, it includes \"Chronic knee pain, likely secondary to obesity\" as an unjustified inference, which is a severe alignment issue.",
+        "grade": "C",
+        "summary": "The Assessment section has noticeable gaps due to the omission of all detailed reasoning for the diagnoses of severe obesity, hypertension, and pre-diabetes. While the diagnoses are correctly identified, the lack of supporting clinical rationale makes the note meaningfully incomplete in this section. All additions were supported by the transcript.",
         "omissions": [
-          "Reasoning for Severe obesity (patient's history, physical examination, reported lifestyle habits consistent with severe obesity; associated symptoms like shortness of breath and knee pain).",
-          "\"due to excess calories\" for severe obesity.",
-          "Reasoning for Hypertension (persistent blood pressure reading of 140/90 mmHg).",
-          "Reasoning for Pre-diabetes (previous diagnosis supported by family history of type 2 diabetes and current lifestyle factors)."
+          "Severe obesity 'due to excess calories'",
+          "Reasoning for Severe obesity: 'The patient's history, physical examination, and reported lifestyle habits are consistent with severe obesity. The patient also has associated symptoms including shortness of breath and knee pain, which are common in obesity.'",
+          "Reasoning for Hypertension: 'Persistent blood pressure reading of 140/90 mmHg.'",
+          "Reasoning for Pre-diabetes: 'Previous diagnosis supported by family history of type 2 diabetes and current lifestyle factors.'"
         ],
         "additions": [
-          "\"Chronic knee pain, likely secondary to obesity\""
+          "Hypertension '(currently on Lisinopril 10 mg daily)'",
+          "Chronic knee pain, likely secondary to obesity"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The section omits a specific patient education point about a balanced diet and regular exercise, and the stated purpose for the ordered labs (\"to assess overall metabolic health\"). There are no unsupported or unknown additions, and no hallucinations.",
+        "summary": "The Plan section is mostly clinically aligned and usable. It omits the explicit statement that the patient understands and agrees with the recommended medical treatment plan, which is a moderate omission regarding shared decision-making. The omission of 'Discussed the importance of a balanced diet and regular exercise' is minor as similar content is covered, and the pending lab results status is also a minor omission. All additions were supported by the transcript.",
         "omissions": [
-          "Specific patient education point: \"Discussed the importance of a balanced diet and regular exercise.\"",
-          "Purpose for ordered labs: \"to assess overall metabolic health.\""
+          "Patient Education and Counseling: 'Discussed the importance of a balanced diet and regular exercise.'",
+          "Laboratory Tests: Pending Results: 'Awaiting results from the ordered biochemistry panel including lipid profile and HbA1c.'",
+          "Patient Agreements: 'The patient understands and agrees with the recommended medical treatment plan.'"
         ],
         "additions": [
-          "\"Discuss importance of addressing pre-diabetes given family history and current lifestyle\" under Patient Education/Counseling."
+          "Patient Education/Counseling: 'Discuss importance of addressing pre-diabetes given family history and current lifestyle.'"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "B",
-        "summary": "This section omits the patient's agreement with the treatment plan and the status of pending laboratory results. There are no unsupported or unknown additions, and no hallucinations.",
-        "omissions": [
-          "\"Patient Agreements: The patient understands and agrees with the recommended medical treatment plan.\"",
-          "\"Laboratory Tests: Pending Results: Awaiting results from the ordered biochemistry panel including lipid profile and HbA1c.\""
-        ],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective detail: \"worsening lately\" regarding weight struggles",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "It's been a few years, but it's gotten worse lately. Every day feels like a struggle.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective detail: \"constant fatigue\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Subjective detail: \"knee pain that worsens with activity\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... It definitely gets worse when I'm moving around a lot.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Reports chronic shortness of breath, constant fatigue, and knee pain that worsens with activity."
-      },
-      {
-        "addition_text": "Subjective detail: \"Reports past unsuccessful attempts at weight loss with diets and medications\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I've tried so many diets and even some medications, but nothing has really worked for me.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Reports past unsuccessful attempts at weight loss with diets and medications."
-      },
-      {
-        "addition_text": "Subjective detail: \"Family history is positive for Type 2 Diabetes in both parents\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, my parents both have type 2 diabetes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Family history is positive for Type 2 Diabetes in both parents."
-      },
-      {
-        "addition_text": "Assessment item: \"Chronic knee pain, likely secondary to obesity\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... but you do have pain on palpation of your knees. ... I would diagnose you with severe obesity...",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Chronic knee pain, likely secondary to obesity."
-      },
-      {
-        "addition_text": "Plan item: \"Discuss importance of addressing pre-diabetes given family history and current lifestyle\" under Patient Education/Counseling",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Given your family history and current lifestyle, it’s important to take action now.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Discuss importance of addressing pre-diabetes given family history and current lifestyle."
-      },
-      {
-        "addition_text": "Detail: \"worsening lately\" regarding weight struggles",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "It's been a few years, but it's gotten worse lately.",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Detail: \"constant fatigue\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "tired all the time",
-        "evidence_source": "gemini",
-        "matched_claim_text": null
-      },
-      {
-        "addition_text": "Detail: \"knee pain that worsens with activity\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... It definitely gets worse when I'm moving around a lot.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Reports chronic shortness of breath, constant fatigue, and knee pain that worsens with activity."
-      },
-      {
-        "addition_text": "Detail: \"Reports past unsuccessful attempts at weight loss with diets and medications\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, I've tried so many diets and even some medications, but nothing has really worked for me.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Reports past unsuccessful attempts at weight loss with diets and medications."
-      },
-      {
-        "addition_text": "Detail: \"Family history is positive for Type 2 Diabetes in both parents\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Yes, my parents both have type 2 diabetes.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Family history is positive for Type 2 Diabetes in both parents."
-      },
-      {
-        "addition_text": "\"Respiratory exam clear with normal heart sounds\" (combines respiratory and cardiovascular findings from GroundTruth).",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Your respiratory exam is clear, which is good. Your heart sounds normal, and there's no wheezing or rales in your lungs.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Respiratory exam clear with normal heart sounds, no wheezing or rales."
-      },
-      {
-        "addition_text": "\"Chronic knee pain, likely secondary to obesity\"",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... but you do have pain on palpation of your knees. ... I would diagnose you with severe obesity...",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Chronic knee pain, likely secondary to obesity."
-      },
-      {
-        "addition_text": "\"Discuss importance of addressing pre-diabetes given family history and current lifestyle\" under Patient Education/Counseling.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "Given your family history and current lifestyle, it’s important to take action now.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Discuss importance of addressing pre-diabetes given family history and current lifestyle."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective detail: \"worsening lately\" regarding weight struggles",
+      "addition_text": "Subjective: weight struggle 'worsening lately'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's been a few years, but it's gotten worse lately. Every day feels like a struggle.",
       "evidence_source": "gemini",
       "matched_claim_text": null
     },
     {
-      "addition_text": "Subjective detail: \"constant fatigue\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Subjective detail: \"knee pain that worsens with activity\"",
+      "addition_text": "Subjective: knee pain 'worsens with activity'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... It definitely gets worse when I'm moving around a lot.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Reports chronic shortness of breath, constant fatigue, and knee pain that worsens with activity."
     },
     {
-      "addition_text": "Subjective detail: \"Reports past unsuccessful attempts at weight loss with diets and medications\"",
+      "addition_text": "Subjective: 'Reports past unsuccessful attempts at weight loss with diets and medications.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I've tried so many diets and even some medications, but nothing has really worked for me.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Reports past unsuccessful attempts at weight loss with diets and medications."
     },
     {
-      "addition_text": "Subjective detail: \"Family history is positive for Type 2 Diabetes in both parents\"",
+      "addition_text": "Subjective: 'Family history is positive for Type 2 Diabetes in both parents.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, my parents both have type 2 diabetes.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Family history is positive for Type 2 Diabetes in both parents."
     },
     {
-      "addition_text": "Assessment item: \"Chronic knee pain, likely secondary to obesity\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... but you do have pain on palpation of your knees. ... I would diagnose you with severe obesity...",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic knee pain, likely secondary to obesity."
-    },
-    {
-      "addition_text": "Plan item: \"Discuss importance of addressing pre-diabetes given family history and current lifestyle\" under Patient Education/Counseling",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Given your family history and current lifestyle, it’s important to take action now.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss importance of addressing pre-diabetes given family history and current lifestyle."
-    },
-    {
-      "addition_text": "Detail: \"worsening lately\" regarding weight struggles",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It's been a few years, but it's gotten worse lately.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Detail: \"constant fatigue\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "tired all the time",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Detail: \"knee pain that worsens with activity\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... It definitely gets worse when I'm moving around a lot.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports chronic shortness of breath, constant fatigue, and knee pain that worsens with activity."
-    },
-    {
-      "addition_text": "Detail: \"Reports past unsuccessful attempts at weight loss with diets and medications\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I've tried so many diets and even some medications, but nothing has really worked for me.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports past unsuccessful attempts at weight loss with diets and medications."
-    },
-    {
-      "addition_text": "Detail: \"Family history is positive for Type 2 Diabetes in both parents\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, my parents both have type 2 diabetes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Family history is positive for Type 2 Diabetes in both parents."
-    },
-    {
-      "addition_text": "\"Respiratory exam clear with normal heart sounds\" (combines respiratory and cardiovascular findings from GroundTruth).",
+      "addition_text": "Objective: 'with normal heart sounds' (as part of respiratory exam description)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your respiratory exam is clear, which is good. Your heart sounds normal, and there's no wheezing or rales in your lungs.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Respiratory exam clear with normal heart sounds, no wheezing or rales."
     },
     {
-      "addition_text": "\"Chronic knee pain, likely secondary to obesity\"",
+      "addition_text": "Assessment: Hypertension '(currently on Lisinopril 10 mg daily)'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I’d also like you to continue taking Lisinopril 10 mg daily for your hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Hypertension is currently managed with Lisinopril 10 mg daily."
+    },
+    {
+      "addition_text": "Assessment: 'Chronic knee pain, likely secondary to obesity'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... but you do have pain on palpation of your knees. ... I would diagnose you with severe obesity...",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Chronic knee pain, likely secondary to obesity."
     },
     {
-      "addition_text": "\"Discuss importance of addressing pre-diabetes given family history and current lifestyle\" under Patient Education/Counseling.",
+      "addition_text": "Plan: Patient Education/Counseling: 'Discuss importance of addressing pre-diabetes given family history and current lifestyle.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Given your family history and current lifestyle, it’s important to take action now.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Discuss importance of addressing pre-diabetes given family history and current lifestyle."
+    },
+    {
+      "addition_text": "weight struggle 'worsening lately'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's been a few years, but it's gotten worse lately.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "knee pain 'worsens with activity'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... It definitely gets worse when I'm moving around a lot.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Reports chronic shortness of breath, constant fatigue, and knee pain that worsens with activity."
+    },
+    {
+      "addition_text": "Reports past unsuccessful attempts at weight loss with diets and medications.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Yes, I've tried so many diets and even some medications, but nothing has really worked for me.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Reports past unsuccessful attempts at weight loss with diets and medications."
+    },
+    {
+      "addition_text": "Family history is positive for Type 2 Diabetes in both parents.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Yes, my parents both have type 2 diabetes.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Family history is positive for Type 2 Diabetes in both parents."
+    },
+    {
+      "addition_text": "with normal heart sounds (as part of respiratory exam description)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your respiratory exam is clear, which is good. Your heart sounds normal, and there's no wheezing or rales in your lungs.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Respiratory exam clear with normal heart sounds, no wheezing or rales."
+    },
+    {
+      "addition_text": "Hypertension '(currently on Lisinopril 10 mg daily)'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I’d also like you to continue taking Lisinopril 10 mg daily for your hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Hypertension is currently managed with Lisinopril 10 mg daily."
+    },
+    {
+      "addition_text": "Chronic knee pain, likely secondary to obesity",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'm always out of breath, tired all the time, and my knees hurt a lot. ... but you do have pain on palpation of your knees. ... I would diagnose you with severe obesity...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Chronic knee pain, likely secondary to obesity."
+    },
+    {
+      "addition_text": "Patient Education/Counseling: 'Discuss importance of addressing pre-diabetes given family history and current lifestyle.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Given your family history and current lifestyle, it’s important to take action now.",
       "evidence_source": "agent3_claims",

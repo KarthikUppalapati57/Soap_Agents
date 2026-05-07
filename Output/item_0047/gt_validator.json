@@ -181,8 +181,8 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.8001369916784424,
-    "overall_rouge_l_f1": 0.7361476551617396,
+    "overall_token_f1": 0.7501712395980531,
+    "overall_rouge_l_f1": 0.6701845689521746,
     "by_section": [
       {
         "section": "Subjective",
@@ -211,141 +211,89 @@
         "gen_present": true,
         "token_f1": 0.6321243523316061,
         "rouge_l_f1": 0.5054945054945056
-      },
-      {
-        "section": "Other",
-        "gt_present": true,
-        "gen_present": true,
-        "token_f1": 1.0,
-        "rouge_l_f1": 1.0
       }
     ],
     "assessment_alignment_score": 1.0,
     "plan_alignment_score": 0.6321243523316061
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note has multiple omissions, primarily in the Plan section, which reduce its completeness regarding patient education, agreement, and detailed follow-up. While there are no unsupported additions or hallucinations, the missing clinically important details in the Plan section make the overall note weaker, though still usable.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's subjective complaints, objective findings, and assessment. While there are no unsupported or unknown additions, the Plan section contains several minor omissions and one moderate omission regarding explicit patient understanding and agreement with the treatment plan, as well as details about the status of investigations and reinforcement of adherence. Despite these, the core clinical plan is well-documented.",
     "omissions": [
-      "HPI detail: Symptoms have been persistent",
-      "Plan detail: Discussed the importance of adherence to iron supplementation",
-      "Plan detail: Investigations are awaiting results",
-      "Plan detail: Patient understands and agrees with the recommended medical treatment plan",
-      "Plan detail: Patient is keen to follow the dietary recommendations and adhere to the iron supplementation regimen",
-      "Plan detail: Patient will return in 2 weeks for further evaluation of lab results"
+      "Importance of adherence to iron supplementation",
+      "\"Awaiting results\" for investigations",
+      "Patient understanding and agreement with the recommended medical treatment plan",
+      "Patient keenness to follow dietary recommendations and adhere to the iron supplementation regimen",
+      "Patient agreement to return for follow-up and further evaluation of lab results"
     ],
     "additions": [
-      "Subjective: Patient states usual heart rate is not as high",
-      "Plan: Advised patient to contact clinic if any concerns arise before follow-up"
+      "Patient states usual heart rate is not as high",
+      "Example of vitamin C-rich food (oranges)",
+      "Advice to contact clinic if any concerns arise before follow-up"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section is nearly perfect, with only one minor omission regarding the persistence of symptoms. The addition of the patient's usual heart rate being lower is supported by the transcript and does not reduce the grade.",
-        "omissions": [
-          "HPI detail: Symptoms have been persistent"
-        ],
+        "summary": "The Subjective section is excellent, accurately capturing all Ground Truth content. The addition of \"Patient states usual heart rate is not as high\" is supported by the transcript and enhances the clinical context without being an unsupported addition.",
+        "omissions": [],
         "additions": [
-          "Patient states usual heart rate is not as high."
+          "Patient states usual heart rate is not as high"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, capturing all ground truth content with no omissions or additions.",
+        "summary": "The Objective section is excellent, perfectly aligning with the Ground Truth and containing no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfect, accurately reflecting the ground truth with no omissions or additions.",
+        "summary": "The Assessment section is excellent, perfectly aligning with the Ground Truth and containing no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several clinically important omissions, including details about the importance of adherence to iron supplementation, the status of investigations, and the patient's understanding, agreement, and keenness to follow the plan. Specifics about the follow-up reason (further evaluation of lab results) are also missing. The addition regarding contacting the clinic for concerns is supported by the transcript and does not lower the grade.",
+        "grade": "B",
+        "summary": "The Plan section is mostly clinically aligned but has several minor omissions and one moderate omission. The moderate omission is the lack of explicit documentation of the patient's understanding and agreement with the medical treatment plan. Minor omissions include the importance of adherence to iron supplementation, the \"awaiting results\" status for investigations, the patient's keenness to follow recommendations, and explicit agreement to return for follow-up. All additions in this section are supported by the transcript and do not detract from the grade.",
         "omissions": [
-          "Discussed the importance of adherence to iron supplementation",
-          "Investigations: Awaiting results",
-          "Patient understands and agrees with the recommended medical treatment plan",
-          "Patient is keen to follow the dietary recommendations and adhere to the iron supplementation regimen",
-          "Patient will return in 2 weeks for further evaluation of lab results"
+          "Discussion of the importance of adherence to iron supplementation",
+          "\"Awaiting results\" for investigations",
+          "Patient understanding and agreement with the recommended medical treatment plan",
+          "Patient keenness to follow dietary recommendations and adhere to the iron supplementation regimen",
+          "Patient agreement to return for follow-up and further evaluation of lab results"
         ],
         "additions": [
-          "Advised patient to ... contact clinic if any concerns arise before follow-up."
+          "Example of vitamin C-rich food (oranges)",
+          "Advice to contact clinic if any concerns arise before follow-up"
         ]
-      },
-      {
-        "section": "Other",
-        "grade": "A",
-        "summary": "The 'Other' section, if applicable, has no identified omissions or additions, indicating full alignment.",
-        "omissions": [],
-        "additions": []
       }
     ],
-    "rubric_notes": null,
-    "addition_evidence": [
-      {
-        "addition_text": "Subjective: Patient states usual heart rate is not as high",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: No, my heart rate is usually not that high.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient states usual heart rate is not as high."
-      },
-      {
-        "addition_text": "Plan: Advised patient to contact clinic if any concerns arise before follow-up",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: If anything comes up before then, don’t hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "and to contact clinic if any concerns arise before follow-up."
-      },
-      {
-        "addition_text": "Patient states usual heart rate is not as high.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Patient]: No, my heart rate is usually not that high.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "Patient states usual heart rate is not as high."
-      },
-      {
-        "addition_text": "Advised patient to ... contact clinic if any concerns arise before follow-up.",
-        "supported_by_transcript": "supported",
-        "transcript_evidence": "[Doctor]: If anything comes up before then, don’t hesitate to contact us.",
-        "evidence_source": "agent3_claims",
-        "matched_claim_text": "and to contact clinic if any concerns arise before follow-up."
-      }
-    ]
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Patient states usual heart rate is not as high",
+      "addition_text": "Patient states usual heart rate is not as high",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, my heart rate is usually not that high.",
       "evidence_source": "agent3_claims",
       "matched_claim_text": "Patient states usual heart rate is not as high."
     },
     {
-      "addition_text": "Plan: Advised patient to contact clinic if any concerns arise before follow-up",
+      "addition_text": "Example of vitamin C-rich food (oranges)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If anything comes up before then, don’t hesitate to contact us.",
+      "transcript_evidence": "[Doctor]: Consuming vitamin C-rich foods like oranges can help enhance iron absorption.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and to contact clinic if any concerns arise before follow-up."
+      "matched_claim_text": "and vitamin C-rich foods (e.g., oranges) to enhance iron absorption."
     },
     {
-      "addition_text": "Patient states usual heart rate is not as high.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: No, my heart rate is usually not that high.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient states usual heart rate is not as high."
-    },
-    {
-      "addition_text": "Advised patient to ... contact clinic if any concerns arise before follow-up.",
+      "addition_text": "Advice to contact clinic if any concerns arise before follow-up",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If anything comes up before then, don’t hesitate to contact us.",
       "evidence_source": "agent3_claims",
