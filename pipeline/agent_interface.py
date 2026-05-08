@@ -1,4 +1,4 @@
-from Agent_1.V1.generate_test import generate_soap_v1
+from Agent_1.V1.generate import generate_soap_v1
 from Agent_2.v2.OpenAI_health_Benchmark.agent2 import evaluate_soap, parse_output
 from Agent_3.MKG import PrimeKGExplorer, extract_medical_terms
 from Agent_3.agent3 import _process_one
@@ -102,7 +102,7 @@ class AgentInterface:
         return "\n".join(out_lines) if out_lines else "No PrimeKG matches found for extracted medical terms."
 
     def run_agent_1(self, transcript: str, prompt_optimizations_list: list) -> str:
-        prompt_path = os.path.join(self.prompt_folder, "A1_prompt.txt")
+        prompt_path = os.path.join(self.prompt_folder, "A1_Few_shot.txt")
         return self.agent_1(transcript, prompt_path, prompt_optimizations_list)
 
     def run_agent_2(self, transcript: str, generated: str) -> str:
@@ -117,14 +117,19 @@ class AgentInterface:
     def run_agent_3(self, parsed_output: dict, mkg_terms: str, client: Client) -> str:
         return self.agent_3(parsed_output, medical_knowledge_terms=mkg_terms, client=client)
 
-    def run(self, transcript: str, prompt_optimizations_list: list) -> str:
+    def run(self, transcript: str, prompt_optimizations_list: list, only_generate: bool = False, no_mkg: bool = False) -> str:
         print("Running Agent 1")
         generated_soap = self.run_agent_1(transcript, prompt_optimizations_list)
+        if only_generate:
+            return {"transcript": transcript, "generated_soap": generated_soap}
         print("Running Agent 2")
         parsed_output = self.run_agent_2(transcript, generated_soap)
         print("Running Agent 3")
-        kg_context_text = self._primekg_context(generated_soap, parsed_output)
-        print(f"KG Context Text: {kg_context_text.strip()[:100]}", file=sys.stderr)
+        if not no_mkg:
+            kg_context_text = self._primekg_context(generated_soap, parsed_output)
+            print(f"KG Context Text: {kg_context_text.strip()[:100]}", file=sys.stderr)
+        else:
+            kg_context_text = ""
         claim_verification = self.run_agent_3(parsed_output, kg_context_text, client=self.client)
 
         return claim_verification

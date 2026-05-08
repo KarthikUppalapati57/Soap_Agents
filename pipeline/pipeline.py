@@ -40,7 +40,7 @@ class Pipeline:
         _dump("prompt_optimizations.json", prompt_optimizations_list)
         return sub
 
-    def run(self):
+    def run(self, only_generate: bool = False, no_mkg: bool = False):
         data_path = os.path.join(self.data_path, "clean_medsynth_final.json")
         with open(data_path, encoding="utf-8") as f:
             data = json.load(f)
@@ -55,8 +55,11 @@ class Pipeline:
             while True:
                 iteration += 1
                 transcript = item["transcript"]
-                claim_verification = self.agent_interface.run(transcript, prompt_optimizations_list)
-
+                claim_verification = self.agent_interface.run(transcript, prompt_optimizations_list, only_generate, no_mkg)
+                if only_generate:
+                    self._save_item_output(index, item, claim_verification, prompt_optimizations_list, iteration)
+                    yield claim_verification, prompt_optimizations_list
+                    break
                 unsupported_claims = []
                 claims = (claim_verification.get("claim_verification") or {}).get("claims") or []
                 for claim in claims:
