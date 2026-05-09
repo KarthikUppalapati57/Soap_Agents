@@ -460,6 +460,11 @@
           <div id="loadStatus" class="muted small">Loading item data...</div>
         </div>
 
+        <div class="controls">
+          <label class="small muted" for="outputFolderSelect">Output folder</label>
+          <select id="outputFolderSelect" title="Load JSON from this directory"></select>
+        </div>
+
         <div id="filePickerBox" class="load-box hidden">
           <strong>Open local output folder</strong>
           <div class="muted small">If browser fetch is blocked, select the `Output` folder here.</div>
@@ -525,6 +530,8 @@
   <script>
     const DEFAULT_ITEM_IDS = Array.from({ length: 50 }, (_, i) => `item_${String(i).padStart(4, "0")}`);
     const ITEM_FILES = ["gt_validator.json", "agent3_result.json", "source.json", "meta.json", "prompt_optimizations.json"];
+    const OUTPUT_FOLDER_FALLBACK = ["Output", "Output_baseline", "Output_full", "Output_no_mkg"];
+    const OUTPUT_FOLDER_STORAGE_KEY = "soapViewer.outputFolder";
 
     const state = {
       items: [],
@@ -533,10 +540,12 @@
       search: "",
       grade: "",
       globalView: null,
+      outputFolder: "",
     };
 
     const els = {
       loadStatus: document.getElementById("loadStatus"),
+      outputFolderSelect: document.getElementById("outputFolderSelect"),
       filePickerBox: document.getElementById("filePickerBox"),
       folderInput: document.getElementById("folderInput"),
       searchBox: document.getElementById("searchBox"),
@@ -611,6 +620,84 @@
       return JSON.parse(await fetchText(path));
     }
 
+    function getViewerParentUrl() {
+      const u = new URL(window.location.href);
+      let path = u.pathname;
+      if (!path.endsWith("/")) path = path.replace(/[^/]+$/, "");
+      u.pathname = path || "/";
+      return u.toString();
+    }
+
+    function pathUnderOutput(relPath) {
+      const prefix = state.outputFolder ? `${state.outputFolder}/` : "";
+      return `${prefix}${relPath}`;
+    }
+
+    async function probePathOk(path) {
+      try {
+        const response = await fetch(path, { method: "GET", cache: "no-store" });
+        return response.ok;
+      } catch {
+        return false;
+      }
+    }
+
+    async function discoverFromDirectoryListing() {
+      try {
+        const res = await fetch(getViewerParentUrl(), { cache: "no-store" });
+        if (!res.ok) return [];
+        const html = await res.text();
+        const names = new Set();
+        const re = /href="(Output[^"/]*)\/"/gi;
+        let m;
+        while ((m = re.exec(html)) !== null) names.add(m[1]);
+        return [...names].sort((a, b) => a.localeCompare(b));
+      } catch {
+        return [];
+      }
+    }
+
+    async function discoverOutputFolders() {
+      const fromListing = await discoverFromDirectoryListing();
+      if (fromListing.length) return fromListing;
+      const fromProbe = [];
+      for (const name of OUTPUT_FOLDER_FALLBACK) {
+        if (await probePathOk(`${name}/analysis/gt_validator_summary.csv`)) fromProbe.push(name);
+      }
+      return fromProbe.sort((a, b) => a.localeCompare(b));
+    }
+
+    async function buildOutputFolderOptions() {
+      const outputFolders = await discoverOutputFolders();
+      const merged = [...new Set([...outputFolders, ...OUTPUT_FOLDER_FALLBACK])].sort((a, b) =>
+        a.localeCompare(b),
+      );
+      const rootOk = await probePathOk("analysis/gt_validator_summary.csv");
+      const options = [];
+      if (rootOk) options.push({ value: "", label: "Current directory (server root)" });
+      for (const name of merged) options.push({ value: name, label: name });
+      return options;
+    }
+
+    function applyOutputFolderOptions(options) {
+      const sel = els.outputFolderSelect;
+      sel.innerHTML = options
+        .map((o) => `<option value="${esc(o.value)}">${esc(o.label)}</option>`)
+        .join("");
+      if (!options.length) {
+        sel.disabled = true;
+        return;
+      }
+      sel.disabled = false;
+      let pref = "";
+      try {
+        pref = localStorage.getItem(OUTPUT_FOLDER_STORAGE_KEY) ?? "";
+      } catch { /* ignore */ }
+      const pick = options.some((o) => o.value === pref) ? pref : options[0].value;
+      state.outputFolder = pick;
+      sel.value = pick;
+    }
+
     function parseCsvItems(csv) {
       return csv
         .trim()
@@ -625,7 +712,7 @@
       const entries = await Promise.all(ITEM_FILES.map(async (fileName) => {
         const key = fileName.replace(".json", "");
         try {
-          return [key, await fetchJson(`${itemId}/${fileName}`)];
+          return [key, await fetchJson(pathUnderOutput(`${itemId}/${fileName}`))];
         } catch {
           return [key, null];
         }
@@ -638,7 +725,7 @@
     async function loadViaFetch(onItemLoaded) {
       let itemIds = DEFAULT_ITEM_IDS;
       try {
-        itemIds = parseCsvItems(await fetchText("analysis/gt_validator_summary.csv"));
+        itemIds = parseCsvItems(await fetchText(pathUnderOutput("analysis/gt_validator_summary.csv")));
       } catch {
         itemIds = DEFAULT_ITEM_IDS;
       }
@@ -1196,20 +1283,46 @@
       }
     });
 
+    async function loadItemsFromHttp() {
+      const items = await loadViaFetch((partialItems, total) => {
+        state.items = partialItems;
+        if (!state.selectedItem) state.selectedItem = partialItems[0] || null;
+        els.loadStatus.textContent = `Loaded ${partialItems.length} of ${total} items...`;
+        render();
+      });
+      if (!items.length) throw new Error("No items loaded via fetch.");
+      const sourceLabel = state.outputFolder ? `folder “${state.outputFolder}”` : "relative JSON files";
+      setItems(items, sourceLabel);
+    }
+
+    els.outputFolderSelect.addEventListener("change", async (event) => {
+      state.outputFolder = event.target.value;
+      try {
+        localStorage.setItem(OUTPUT_FOLDER_STORAGE_KEY, state.outputFolder);
+      } catch { /* ignore */ }
+      try {
+        els.loadStatus.textContent = "Loading item data...";
+        await loadItemsFromHttp();
+      } catch (error) {
+        console.error(error);
+        els.loadStatus.textContent = `Could not load folder: ${error.message}`;
+        render();
+      }
+    });
+
     (async function init() {
       try {
-        const items = await loadViaFetch((partialItems, total) => {
-          state.items = partialItems;
-          if (!state.selectedItem) state.selectedItem = partialItems[0] || null;
-          els.loadStatus.textContent = `Loaded ${partialItems.length} of ${total} items...`;
-          render();
-        });
-        if (!items.length) throw new Error("No items loaded via fetch.");
-        setItems(items, "relative JSON files");
+        const options = await buildOutputFolderOptions();
+        applyOutputFolderOptions(options);
+        await loadItemsFromHttp();
       } catch (error) {
         console.warn(error);
         els.filePickerBox.classList.remove("hidden");
-        els.loadStatus.textContent = "Fetch was blocked or no server is running. Select the Output folder below.";
+        if (!els.outputFolderSelect.options.length) {
+          applyOutputFolderOptions(OUTPUT_FOLDER_FALLBACK.map((name) => ({ value: name, label: name })));
+        }
+        els.loadStatus.textContent =
+          "Fetch was blocked or no server is running. Start a local server from this directory (e.g. python -m http.server), pick an Output folder above, or use the file picker.";
         render();
       }
     })();
