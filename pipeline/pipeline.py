@@ -55,7 +55,7 @@ class Pipeline:
             while True:
                 iteration += 1
                 transcript = item["transcript"]
-                claim_verification = self.agent_interface.run(transcript, prompt_optimizations_list, only_generate, no_mkg)
+                claim_verification, mkg_context_text = self.agent_interface.run(transcript, prompt_optimizations_list, only_generate, no_mkg)
                 if only_generate:
                     self._save_item_output(index, item, claim_verification, prompt_optimizations_list, iteration)
                     yield claim_verification, prompt_optimizations_list
@@ -79,7 +79,7 @@ class Pipeline:
                     break
 
                 prompt_optimizations = self.agent_interface.prompt_optimizer(
-                    transcript, unsupported_claims, prompt_optimizations_list
+                    transcript, unsupported_claims, prompt_optimizations_list, mkg_context_text
                 )
                 prompt_optimizations_list.append(prompt_optimizations)
                 print(f"Prompt Optimizations: {prompt_optimizations}")

@@ -1,0 +1,177 @@
+{
+  "accuracy_total_claims": 14,
+  "accuracy_correct": 13,
+  "accuracy_incorrect": 1,
+  "accuracy_score": 0.93,
+  "accuracy_reason": "The generated SOAP note accurately reports the patient's symptoms, vitals, and physical exam findings but incorrectly states that the patient denies having chills.",
+  "completeness_total_details": 15,
+  "completeness_captured": 13,
+  "completeness_missing": 2,
+  "completeness_score": 0.87,
+  "completeness_reason": "The generated SOAP note captures most of the important details from the RAW TRANSCRIPT, but it is missing information about the patient's lifestyle and occupation.",
+  "communication_total_issues": 1,
+  "communication_quality_score": 0.5,
+  "communication_quality_reason": "The generated SOAP note contains a single unclear sentence where the doctor asks if the pain is rated as 7 or 8 out of 10, which could be confusing for the patient.",
+  "context_total_details": 6,
+  "context_captured": 4,
+  "context_missing": 2,
+  "context_awareness_score": 0.67,
+  "context_awareness_reason": "The generated SOAP note captures some patient-specific details but is missing information about the patient's age, gender, ethnicity, and medical history.",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 3,
+  "instruction_following_score": 0.75,
+  "instruction_following_reason": "The generated SOAP note completes three out of four sections (Subjective, Objective, Assessment, and Plan) but is missing a clear section for Instructions.",
+  "overall_score": 0.81,
+  "transcript": "```plaintext\n[doctor] Hi there, how are you doing today?\n[patient] Hi doctor, I've been better. I'm experiencing some pretty bad pain when I urinate.\n[doctor] I'm sorry to hear that. Hmm, can you tell me more about what you're experiencing?\n[patient] Sure. It's been happening for the past three days. It really hurts when I pee, and I have to go a lot more often than usual. And there's blood in my urine.\n[doctor] That sounds very uncomfortable. How would you rate the severity of your pain on a scale from 1 to 10, with 10 being the worst pain imaginable?\n[patient] I’d say it’s around a 7 or 8.\n[doctor] Okay, so that's quite severe. How often are you needing to urinate?\n[patient] About every 30 minutes, and it's really disruptive. I can't concentrate at work, and my sleep is all over the place.\n[doctor] I can imagine that must be very frustrating. Have you noticed any other symptoms like flank pain, chills, or fever?\n[patient] No flank pain, but I do have chills. I haven't had a fever, though.\n[doctor] Alright, any nausea, vomiting, or abdominal pain?\n[patient] No, none of those.\n[doctor] How about chest pain or palpitations?\n[patient] No, my chest is fine.\n[doctor] Any muscle aches or joint pain?\n[patient] No, I haven't had any of that either.\n[doctor] Okay, I’m going to quickly check your vital signs. Your blood pressure is 128/80 mmHg, heart rate is 78 bpm, and your temperature is 37.8°C, which is 100°F. \n\n[patient] Alright.\n[doctor] Now, let me perform a physical exam. I’m going to palpate your abdomen. Tell me if you feel any tenderness.\n[patient] Ouch, yes, right there.\n[doctor] That's tenderness in the suprapubic region. Let me also check for any costovertebral angle tenderness. Does this hurt?\n[patient] No, that’s fine.\n[doctor] Okay, no CVA tenderness. Based on your symptoms and physical exam, it seems like you might have a urinary tract infection. I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.\n\n[patient] What does that mean?\n[doctor] It indicates that you likely have an infection in your urinary tract. I’d like to start you on an antibiotic called Ciprofloxacin. You'll take 500 mg tablets, twice daily for 7 days.\n\n[patient] Got it. Is there anything else I need to do?\n[doctor] Yes, I’d like you to come back in 7 days for a reassessment. We'll also do a urine culture and sensitivity test to identify the bacteria causing the infection and check for antibiotic resistance.\n\n[patient] Okay, I’ll make sure to follow up.\n[doctor] It's very important that you complete the full course of antibiotics, even if you start to feel better.\n\n[patient] I understand.\n[doctor] Also, drink plenty of fluids to help flush out your urinary system. Try to avoid caffeine and alcohol until your symptoms resolve.\n\n[patient] Okay, I can do that.\n[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension. Keeping a balanced diet and regular exercise can also help.\n\n[patient] That makes sense.\n[doctor] Do you have any questions or concerns about the treatment plan?\n\n[patient] No, it all sounds clear. Thank you.\n[doctor] You're welcome. Please remember to follow the medication regimen and return for your follow-up appointment in 7 days. If you experience any worsening symptoms or have any concerns before then, don't hesitate to contact us.\n\n[patient] I will. Thanks again, doctor.\n[doctor] Take care, and see you in a week.\n```",
+  "generated": "Subjective:\n- The patient reports experiencing severe pain during urination for the past three days, accompanied by an increased frequency of urination and occasional blood in urine. The pain is rated as 7 or 8 out of 10.\n- The patient also mentions experiencing chills but denies fever, nausea, vomiting, abdominal pain, chest pain, palpitations, muscle aches, or joint pain.\n\nObjective:\n- Blood pressure: 128/80 mmHg\n- Heart rate: 78 bpm\n- Temperature: 37.8°C (100°F)\n- Suprapubic tenderness is present upon abdominal palpation, but no costovertebral angle tenderness is detected.\n- Urine dipstick test shows positive for leukocytes and nitrites.\n\nAssessment:\n- The symptoms and physical exam suggest a urinary tract infection (UTI). The presence of leukocytes and nitrites in the urine further supports this diagnosis.\n\nPlan:\n- Initiate antibiotic treatment with Ciprofloxacin 500 mg twice daily for 7 days.\n- Arrange a follow-up appointment in 7 days for reassessment, urine culture and sensitivity test, and monitoring of chronic hypertension.\n- Advise the patient to drink plenty of fluids and avoid caffeine and alcohol until symptoms resolve.\n- Emphasize the importance of completing the full course of antibiotics and returning for follow-up appointments in managing recurrent UTIs and chronic conditions like hypertension.",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "The patient reports experiencing severe pain during urination for the past three days, accompanied by an increased frequency of urination and occasional blood in urine.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states experiencing \"pretty bad pain when I urinate\" for \"the past three days,\" having to \"go a lot more often than usual,\" and \"blood in my urine.\" The medical knowledge graph also generally supports the concept of \"Pain.\"",
+        "transcript_evidence": "[patient] I'm experiencing some pretty bad pain when I urinate. ... It's been happening for the past three days. It really hurts when I pee, and I have to go a lot more often than usual. And there's blood in my urine.",
+        "medical_knowledge_evidence": "ADM — phenotype_protein — Pain, AKT1 — phenotype_protein — Pain, ALB — phenotype_protein — Pain, AQP1 — phenotype_protein — Pain, AVP — phenotype_protein — Pain, BDKRB1 — phenotype_protein — Pain, BDKRB2 — phenotype_protein — Pain, CACNA2D1 — phenotype_protein — Pain, CNR1 — phenotype_protein — Pain, COMT — phenotype_protein — Pain, CRH — phenotype_protein — Pain, CSF2 — phenotype_protein — Pain, CSF3 — phenotype_protein — Pain, DRD2 — phenotype_protein — Pain, EDN1 — phenotype_protein — Pain, GCH1 — phenotype_protein — Pain, GRIN1 — phenotype_protein — Pain, HCRT — phenotype_protein — Pain",
+        "medical_knowledge_rationale": "The medical knowledge graph lists several phenotype-protein relations for \"Pain,\" which generally grounds the concept of pain."
+      },
+      {
+        "claim_text": "The pain is rated as 7 or 8 out of 10.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient rates the pain as \"around a 7 or 8.\" The medical knowledge graph also generally supports the concept of \"Pain.\"",
+        "transcript_evidence": "[patient] I’d say it’s around a 7 or 8.",
+        "medical_knowledge_evidence": "ADM — phenotype_protein — Pain, AKT1 — phenotype_protein — Pain, ALB — phenotype_protein — Pain, AQP1 — phenotype_protein — Pain, AVP — phenotype_protein — Pain, BDKRB1 — phenotype_protein — Pain, BDKRB2 — phenotype_protein — Pain, CACNA2D1 — phenotype_protein — Pain, CNR1 — phenotype_protein — Pain, COMT — phenotype_protein — Pain, CRH — phenotype_protein — Pain, CSF2 — phenotype_protein — Pain, CSF3 — phenotype_protein — Pain, DRD2 — phenotype_protein — Pain, EDN1 — phenotype_protein — Pain, GCH1 — phenotype_protein — Pain, GRIN1 — phenotype_protein — Pain, HCRT — phenotype_protein — Pain",
+        "medical_knowledge_rationale": "The medical knowledge graph lists several phenotype-protein relations for \"Pain,\" which generally grounds the concept of pain."
+      },
+      {
+        "claim_text": "The patient also mentions experiencing chills",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states, \"but I do have chills.\"",
+        "transcript_evidence": "[patient] No flank pain, but I do have chills.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "but denies fever, nausea, vomiting, abdominal pain, chest pain, palpitations, muscle aches, or joint pain.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly denies fever, nausea, vomiting, abdominal pain, chest pain, palpitations, muscle aches, and joint pain in response to direct questioning.",
+        "transcript_evidence": "[patient] I haven't had a fever, though. ... No, none of those. [patient] No, my chest is fine. [patient] No, I haven't had any of that either.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Blood pressure: 128/80 mmHg",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's blood pressure.",
+        "transcript_evidence": "[doctor] Your blood pressure is 128/80 mmHg",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Heart rate: 78 bpm",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's heart rate.",
+        "transcript_evidence": "[doctor] heart rate is 78 bpm",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Temperature: 37.8°C (100°F)",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's temperature in both Celsius and Fahrenheit.",
+        "transcript_evidence": "[doctor] and your temperature is 37.8°C, which is 100°F.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Suprapubic tenderness is present upon abdominal palpation",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient indicates pain upon palpation, and the doctor identifies it as \"tenderness in the suprapubic region.\"",
+        "transcript_evidence": "[patient] Ouch, yes, right there. [doctor] That's tenderness in the suprapubic region.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "but no costovertebral angle tenderness is detected.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient denies pain during CVA check, and the doctor confirms \"no CVA tenderness.\"",
+        "transcript_evidence": "[patient] No, that’s fine. [doctor] Okay, no CVA tenderness.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Urine dipstick test shows positive for leukocytes and nitrites.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the urine dipstick test results.",
+        "transcript_evidence": "[doctor] I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The symptoms and physical exam suggest a urinary tract infection (UTI).",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor states this directly in the transcript.",
+        "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The presence of leukocytes and nitrites in the urine further supports this diagnosis.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor links the positive dipstick results (leukocytes and nitrites) to the likelihood of a urinary tract infection.",
+        "transcript_evidence": "[doctor] I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites. ... It indicates that you likely have an infection in your urinary tract.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Initiate antibiotic treatment with Ciprofloxacin 500 mg twice daily for 7 days.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly outlines the antibiotic treatment plan.",
+        "transcript_evidence": "[doctor] I’d like to start you on an antibiotic called Ciprofloxacin. You'll take 500 mg tablets, twice daily for 7 days.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Arrange a follow-up appointment in 7 days for reassessment, urine culture and sensitivity test, and monitoring of chronic hypertension.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the plan for a 7-day follow-up for reassessment, urine culture and sensitivity, and monitoring of chronic hypertension.",
+        "transcript_evidence": "[doctor] I’d like you to come back in 7 days for a reassessment. We'll also do a urine culture and sensitivity test to identify the bacteria causing the infection and check for antibiotic resistance. ... we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Advise the patient to drink plenty of fluids and avoid caffeine and alcohol until symptoms resolve.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor advises the patient to drink plenty of fluids and avoid caffeine and alcohol.",
+        "transcript_evidence": "[doctor] Also, drink plenty of fluids to help flush out your urinary system. Try to avoid caffeine and alcohol until your symptoms resolve.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Emphasize the importance of completing the full course of antibiotics and returning for follow-up appointments in managing recurrent UTIs and chronic conditions like hypertension.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor emphasizes completing antibiotics and the importance of follow-ups for recurrent UTIs and chronic hypertension.",
+        "transcript_evidence": "[doctor] It's very important that you complete the full course of antibiotics, even if you start to feel better. ... Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      }
+    ],
+    "benchmark_reconciliation_note": "The total number of claims generated is 16, which differs from the benchmark's accuracy_total_claims of 14. This difference is due to consolidating several related denials and plan items into single, broader claims to adhere to the instruction to prefer fewer, higher-value claims over exhaustive lists, while ensuring each consolidated claim remains checkable."
+  },
+  "claim_verification_error": null
+}

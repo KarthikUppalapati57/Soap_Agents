@@ -1,0 +1,168 @@
+{
+  "accuracy_total_claims": 24,
+  "accuracy_correct": 22,
+  "accuracy_incorrect": 2,
+  "accuracy_score": 0.92,
+  "accuracy_reason": "The SOAP note accurately captured most medical claims, but missed the patient's smoking history and mentioned a food desert without explicit mention in the transcript.",
+  "completeness_total_details": 15,
+  "completeness_captured": 14,
+  "completeness_missing": 1,
+  "completeness_score": 0.93,
+  "completeness_reason": "The SOAP note captured most important details, but missed the patient's joint pain and swelling.",
+  "communication_total_issues": 2,
+  "communication_quality_score": 0.5,
+  "communication_quality_reason": "The SOAP note contained unclear sentences regarding lifestyle changes in a food desert without explicit mention of resources provided by the doctor.",
+  "context_total_details": 8,
+  "context_captured": 7,
+  "context_missing": 1,
+  "context_awareness_score": 0.88,
+  "context_awareness_reason": "The SOAP note captured most patient-specific details, but missed the patient's age and ethnicity.",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 3,
+  "instruction_following_score": 0.75,
+  "instruction_following_reason": "The SOAP note accurately followed the instruction of having all four sections present, but did not capture the doctor's explanation for the patient's condition in detail.",
+  "overall_score": 0.88,
+  "transcript": "[Doctor]: Good morning, how are you doing today?\n\n[Patient]: Morning, doctor. I've been better, to be honest. I'm having some trouble with breathing.\n\n[Doctor]: I see. Can you tell me more about your breathing difficulties?\n\n[Patient]: Well, it's been going on for about three months now. I get short of breath every day, especially when I try to do any physical activity. Even simple chores around the house make me feel dizzy and tired.\n\n[Doctor]: I understand. Does the shortness of breath come with any chest pain?\n\n[Patient]: No, no chest pain. Just the shortness of breath, some wheezing, and occasional dizziness.\n\n[Doctor]: Hmm, okay. Do you experience any fatigue?\n\n[Patient]: Yes, I feel tired a lot. It's affecting my daily life quite a bit.\n\n[Doctor]: Any fever or weight loss recently?\n\n[Patient]: No, no fever or weight loss.\n\n[Doctor]: How about nausea or vomiting?\n\n[Patient]: No, none of that.\n\n[Doctor]: Any joint pain or swelling?\n\n[Patient]: No, my joints are fine.\n\n[Doctor]: Alright, I see. Can you tell me about your current medications?\n\n[Patient]: I’m already taking Atorvastatin 20 mg daily for my cholesterol.\n\n[Doctor]: Okay, got it. Now, let's check your vitals. Your blood pressure is 140/85 mmHg, your heart rate is 78 beats per minute, respiratory rate is 20 breaths per minute, and your temperature is 98.6°F.\n\n[Patient]: That sounds alright, but I still feel off.\n\n[Doctor]: Let me perform a physical exam. Please take deep breaths while I listen to your lungs.\n\n[Patient]: Okay.\n\n[Doctor]: I hear wheezing and decreased breath sounds at the bases of your lungs. You're also using your accessory muscles to breathe. How are your fingers feeling?\n\n[Patient]: They feel a bit cold sometimes.\n\n[Doctor]: There's some mild cyanosis in your fingers, and I noticed mild ankle edema. Your heart sounds normal, but we need to investigate further.\n\n[Patient]: What do you think it could be?\n\n[Doctor]: Based on your symptoms and examination, I suspect atherosclerotic heart disease of the native coronary artery without angina pectoris. We'll need an echocardiogram to assess your heart's function and structure.\n\n[Patient]: Alright, what do I need to do?\n\n[Doctor]: First, we'll start you on Metoprolol 50 mg twice daily to manage your heart rate and blood pressure. Continue taking your Atorvastatin for hyperlipidemia, and I'll prescribe an Albuterol inhaler for your COPD.\n\n[Patient]: Okay, I can do that.\n\n[Doctor]: I'll also refer you to a pulmonary specialist, Dr. John Harris, for further evaluation of your shortness of breath.\n\n[Patient]: Do I need to see him soon?\n\n[Doctor]: Yes, it's important. We'll schedule that appointment for you. In the meantime, we'll need to make some lifestyle changes. Are you a smoker?\n\n[Patient]: Yes, I am.\n\n[Doctor]: I strongly recommend a smoking cessation program. It's crucial for your lung and heart health. Also, try to reduce your alcohol intake and increase dietary fiber.\n\n[Patient]: I'll try. It’s hard with the resources in my neighborhood.\n\n[Doctor]: I understand. We’ll provide you with information on local resources for smoking cessation and dietary modifications, even though you live in a food desert.\n\n[Patient]: Thank you, doctor.\n\n[Doctor]: You're welcome. We'll also order an echocardiogram and a lipid profile blood test. We'll need to see you again in three months to reassess your symptoms and medication efficacy.\n\n[Patient]: Okay, I’ll make sure to follow up.\n\n[Doctor]: Great. Adhering to the new medication regimen and lifestyle changes is important. If you have any questions or concerns, don't hesitate to contact us.\n\n[Patient]: I will. Thank you for all the help.\n\n[Doctor]: Take care, and we'll see you in three months.",
+  "generated": "Subjective:\n- Chief Complaint (CC): Shortness of breath over the past 3 months\n- Symptoms include daily dyspnea, wheezing, occasional dizziness, and fatigue\n- No chest pain, fever, weight loss, nausea, vomiting, joint pain, or swelling reported\n\nObjective:\n- Blood Pressure: 140/85 mmHg\n- Heart Rate: 78 bpm\n- Respiratory Rate: 20 breaths per minute\n- Temperature: 98.6°F\n- Physical exam reveals wheezing, decreased breath sounds at the bases of lungs, use of accessory muscles to breathe, mild cyanosis in fingers, and mild ankle edema\n\nAssessment:\n- Atherosclerotic heart disease of the native coronary artery without angina pectoris suspected based on symptoms and examination\n- COPD suspected due to wheezing and decreased breath sounds\n\nPlan:\n- Initiate Metoprolol 50 mg twice daily for heart rate and blood pressure management\n- Continue Atorvastatin for hyperlipidemia\n- Prescribe Albuterol inhaler for COPD management\n- Refer patient to pulmonary specialist Dr. John Harris for further evaluation of shortness of breath\n- Recommend smoking cessation program and encourage reduction of alcohol intake and increase in dietary fiber\n- Order echocardiogram and lipid profile blood test\n- Schedule follow-up appointment in 3 months to reassess symptoms and medication efficacy\n- Encourage adherence to new medication regimen and lifestyle changes, with resources provided for smoking cessation and dietary modifications even in a food desert.",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "Chief Complaint (CC): Shortness of breath over the past 3 months",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient states, \"I'm having some trouble with breathing. ... Well, it's been going on for about three months now. I get short of breath every day...\"",
+        "transcript_evidence": "[Patient]: I'm having some trouble with breathing. ... Well, it's been going on for about three months now. I get short of breath every day...",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Symptoms include daily dyspnea, wheezing, occasional dizziness, and fatigue",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient reports, \"I get short of breath every day...\", \"Just the shortness of breath, some wheezing, and occasional dizziness.\", and \"Yes, I feel tired a lot.\"",
+        "transcript_evidence": "[Patient]: I get short of breath every day... Just the shortness of breath, some wheezing, and occasional dizziness. ... Yes, I feel tired a lot.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "No chest pain, fever, weight loss, nausea, vomiting, joint pain, or swelling reported",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly denies these symptoms: \"No, no chest pain.\", \"No, no fever or weight loss.\", \"No, none of that.\" (for nausea/vomiting), and \"No, my joints are fine.\" (for joint pain/swelling).",
+        "transcript_evidence": "[Patient]: No, no chest pain. ... No, no fever or weight loss. ... No, none of that. ... No, my joints are fine.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Blood Pressure: 140/85 mmHg, Heart Rate: 78 bpm, Respiratory Rate: 20 breaths per minute, Temperature: 98.6°F",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states these vital signs verbatim: \"Your blood pressure is 140/85 mmHg, your heart rate is 78 beats per minute, respiratory rate is 20 breaths per minute, and your temperature is 98.6°F.\"",
+        "transcript_evidence": "[Doctor]: Your blood pressure is 140/85 mmHg, your heart rate is 78 beats per minute, respiratory rate is 20 breaths per minute, and your temperature is 98.6°F.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Physical exam reveals wheezing, decreased breath sounds at the bases of lungs, use of accessory muscles to breathe, mild cyanosis in fingers, and mild ankle edema",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor reports these findings during the physical exam: \"I hear wheezing and decreased breath sounds at the bases of your lungs. You're also using your accessory muscles to breathe. ... There's some mild cyanosis in your fingers, and I noticed mild ankle edema.\"",
+        "transcript_evidence": "[Doctor]: I hear wheezing and decreased breath sounds at the bases of your lungs. You're also using your accessory muscles to breathe. ... There's some mild cyanosis in your fingers, and I noticed mild ankle edema.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Atherosclerotic heart disease of the native coronary artery without angina pectoris suspected based on symptoms and examination",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this suspicion: \"Based on your symptoms and examination, I suspect atherosclerotic heart disease of the native coronary artery without angina pectoris.\"",
+        "transcript_evidence": "[Doctor]: Based on your symptoms and examination, I suspect atherosclerotic heart disease of the native coronary artery without angina pectoris.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "COPD suspected due to wheezing and decreased breath sounds",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "While not explicitly stated as 'suspected', the doctor's plan includes, \"I'll prescribe an Albuterol inhaler for your COPD,\" which strongly implies a diagnosis or high suspicion of COPD. The objective findings of wheezing and decreased breath sounds further support this clinical judgment.",
+        "transcript_evidence": "[Doctor]: I hear wheezing and decreased breath sounds at the bases of your lungs. ... and I'll prescribe an Albuterol inhaler for your COPD.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Initiate Metoprolol 50 mg twice daily for heart rate and blood pressure management",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states, \"First, we'll start you on Metoprolol 50 mg twice daily to manage your heart rate and blood pressure.\"",
+        "transcript_evidence": "[Doctor]: First, we'll start you on Metoprolol 50 mg twice daily to manage your heart rate and blood pressure.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Continue Atorvastatin for hyperlipidemia",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The patient mentions taking Atorvastatin for cholesterol, and the doctor instructs, \"Continue taking your Atorvastatin for hyperlipidemia.\"",
+        "transcript_evidence": "[Patient]: I’m already taking Atorvastatin 20 mg daily for my cholesterol. [Doctor]: Continue taking your Atorvastatin for hyperlipidemia...",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Prescribe Albuterol inhaler for COPD management",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states, \"...and I'll prescribe an Albuterol inhaler for your COPD.\"",
+        "transcript_evidence": "[Doctor]: ...and I'll prescribe an Albuterol inhaler for your COPD.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Refer patient to pulmonary specialist Dr. John Harris for further evaluation of shortness of breath",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states, \"I'll also refer you to a pulmonary specialist, Dr. John Harris, for further evaluation of your shortness of breath.\"",
+        "transcript_evidence": "[Doctor]: I'll also refer you to a pulmonary specialist, Dr. John Harris, for further evaluation of your shortness of breath.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Recommend smoking cessation program and encourage reduction of alcohol intake and increase in dietary fiber",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states, \"I strongly recommend a smoking cessation program. ... Also, try to reduce your alcohol intake and increase dietary fiber.\"",
+        "transcript_evidence": "[Doctor]: I strongly recommend a smoking cessation program. ... Also, try to reduce your alcohol intake and increase dietary fiber.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Order echocardiogram and lipid profile blood test",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states, \"We'll need an echocardiogram to assess your heart's function and structure. ... We'll also order an echocardiogram and a lipid profile blood test.\"",
+        "transcript_evidence": "[Doctor]: We'll need an echocardiogram to assess your heart's function and structure. ... We'll also order an echocardiogram and a lipid profile blood test.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Schedule follow-up appointment in 3 months to reassess symptoms and medication efficacy",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states, \"We'll need to see you again in three months to reassess your symptoms and medication efficacy.\"",
+        "transcript_evidence": "[Doctor]: We'll need to see you again in three months to reassess your symptoms and medication efficacy.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Encourage adherence to new medication regimen and lifestyle changes, with resources provided for smoking cessation and dietary modifications even in a food desert.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states, \"Adhering to the new medication regimen and lifestyle changes is important.\" and \"We’ll provide you with information on local resources for smoking cessation and dietary modifications, even though you live in a food desert.\"",
+        "transcript_evidence": "[Doctor]: Great. Adhering to the new medication regimen and lifestyle changes is important. ... We’ll provide you with information on local resources for smoking cessation and dietary modifications, even though you live in a food desert.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      }
+    ],
+    "benchmark_reconciliation_note": "The audit produced 15 claims, fewer than the benchmark's 24, due to consolidation of related facts into single, high-value claims as per instructions. The benchmark's accuracy reason states the SOAP missed the patient's smoking history; however, the SOAP's plan to 'Recommend smoking cessation program' implies this history, which is supported by the transcript. The benchmark also claims the food desert mention was 'without explicit mention in the transcript', which is contradicted by the transcript: 'We’ll provide you with information on local resources for smoking cessation and dietary modifications, even though you live in a food desert.' Lastly, the benchmark states the SOAP missed 'joint pain and swelling', but the SOAP correctly notes 'No joint pain or swelling reported', which is supported by the transcript."
+  },
+  "claim_verification_error": null
+}

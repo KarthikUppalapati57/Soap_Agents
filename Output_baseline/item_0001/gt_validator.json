@@ -1,0 +1,364 @@
+{
+  "item": "item_0001",
+  "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0001",
+  "ground_truth_soap": "Subjective:\n\n   - Chief Complaint (CC): Pain in left knee.\n   \n   - History of Present Illness (HPI):\n     - Severity: Moderate pain\n     - Duration: 2 months\n     - Associated Symptoms: Occasional locking sensation in the knee, moderate swelling\n     - Frequency: Intermittent pain, worsens with prolonged sitting or standing\n     - Impact on Daily Activities: Difficulty sitting for long periods or walking distances\n     \n   - Review of Systems (ROS):\n     - Musculoskeletal: Reports moderate left knee pain, occasional locking, moderate swelling.\n     - General: Reports occasional insomnia due to pain.\n     \n   - Patient’s self-reported habits and lifestyle:\n     - Sleep: Occasional insomnia due to pain.\n     - Diet: High in saturated fats and sugars, low in vegetables and fruits.\n     - Exercise: Minimal exercise, sedentary lifestyle due to knee pain.\n     - Tobacco Use: Smoked for 10 years, quit 5 years ago.\n     - Alcohol Consumption: Drinks 3-4 times a week, moderate consumption.\n     - Drug Use: No recreational drug use.\n     - Recreational Activities: Enjoys knitting and watching TV.\n\n   - Medical/Social History:\n     - Previous Diagnoses: Obesity, Hypertension.\n     - Family Medical History: Mother with osteoporosis, father with heart disease.\n     - Medication History: Hydrochlorothiazide 25 mg once daily for hypertension.\n     - Allergies: None.\n     - Chronic Conditions: Obesity, Hypertension.\n \n   - Demographic Information:\n     - Age: 42\n     - Gender: Female\n     - Ethnicity: Asian\n     - Socio-economic Status: Low-income\n     - Education Level: Bachelor's degree\n     - Health Literacy: Adequate, understands medical advice well\n     - Job Status: Office worker\n     \n   - Patient's Behavior: Motivated to change lifestyle after understanding the impact of weight on knee pain.\n   \n   - Geographical Location:\n     - Big City vs Small City: Lives in a big city\n     - Rural vs Urban: Urban\n     - Pollution and Environmental Health Risks: Moderate air pollution\n     - Neighborhood Type: Low-income, food desert\n   \nObjective:\n\n   - Physical Exams:\n     - Not applicable (Telemedicine)\n   \nAssessment:\n\n   - Diagnosis:\n     - Pain in left knee (ICD-10: M25.562)\n     - Contributing factors: Obesity and sedentary lifestyle.\n     \nPlan:\n\n   - Medical Treatment:\n     - Acetaminophen 500 mg, oral, every 6 hours as needed for pain.\n     \n   - Lifestyle Modifications:\n     - Referral to Weight Management Program for assistance in weight loss.\n     \n   - Follow-up Recommendations:\n     - Follow-up in 1 month to reassess weight management and pain levels.\n     \n   - Further Investigations:\n     - Ordered complete lipid profile to evaluate the patient's cardiovascular health.\n     \nPatient Agreements:\n   - The patient understands and agrees with the recommended medical treatment plan.",
+  "generated_soap": "Subjective:\n- Patient reports moderate left knee pain for 2 months, intermittent and exacerbated by prolonged sitting or standing\n- Occasional knee locking and moderate swelling\n- Pain impacts daily activities and sleep\n- History of obesity, hypertension, osteoporosis (mother), heart disease (father)\n- Sedentary lifestyle due to knee pain\n- Poor diet with high consumption of saturated fats, sugars, and low intake of vegetables and fruits\n- Smoker for 10 years but quit 5 years ago; moderate alcohol consumption (3-4 times a week)\n- No recreational drug use or allergies known\n- Educated (bachelor's degree), low-income, office worker\n- Lives in an urban, food desert, low-income area with moderate air pollution\n\nObjective:\n- Moderate left knee pain on presentation\n- Slight swelling of the knee\n- Adequate understanding of medical advice\n- Obese and hypertensive patient\n\nAssessment:\n- Knee pain possibly due to obesity and sedentary lifestyle\n- Lifestyle modifications required, including diet changes and increased physical activity\n- Need for complete lipid profile to evaluate cardiovascular health\n\nPlan:\n- Prescribe Acetaminophen 500 mg, oral, as needed for knee pain\n- Refer patient to a Weight Management Program\n- Order complete lipid profile\n- Encourage lifestyle modifications (diet, exercise)",
+  "entities_gt": {
+    "all_entities": [
+      "pain in left knee",
+      "pain",
+      "occasional locking sensation",
+      "moderate swelling",
+      "occasional locking",
+      "insomnia",
+      "osteoporosis",
+      "heart disease",
+      "hydrochlorothiazide",
+      "allergies",
+      "physical exams",
+      "recommended medical treatment plan"
+    ],
+    "symptoms": [
+      "pain in left knee",
+      "moderate pain",
+      "moderate swelling",
+      "pain",
+      "occasional locking",
+      "insomnia",
+      "sleep",
+      "allergies"
+    ],
+    "medications": [
+      "hydrochlorothiazide"
+    ],
+    "labs": [
+      "physical exams"
+    ]
+  },
+  "entities_generated": {
+    "all_entities": [
+      "knee pain",
+      "knee locking",
+      "moderate swelling",
+      "obesity",
+      "hypertension",
+      "osteoporosis",
+      "heart disease",
+      "smoker",
+      "allergies",
+      "moderate left knee pain",
+      "slight swelling of the knee",
+      "complete lipid profile",
+      "acetaminophen 500 mg",
+      "weight management program"
+    ],
+    "symptoms": [
+      "moderate left knee pain",
+      "knee locking",
+      "moderate swelling",
+      "knee pain",
+      "slight swelling of the knee"
+    ],
+    "medications": [
+      "acetaminophen 500 mg"
+    ],
+    "labs": [
+      "hypertension",
+      "heart disease"
+    ]
+  },
+  "clinical_recall_all": {
+    "gt_count": 12,
+    "gen_count": 14,
+    "overlap_count": 4,
+    "recall": 0.3333333333333333,
+    "gt_only": [
+      "hydrochlorothiazide",
+      "insomnia",
+      "occasional locking",
+      "occasional locking sensation",
+      "pain",
+      "pain in left knee",
+      "physical exams",
+      "recommended medical treatment plan"
+    ],
+    "gen_only": [
+      "acetaminophen 500 mg",
+      "complete lipid profile",
+      "hypertension",
+      "knee locking",
+      "knee pain",
+      "moderate left knee pain",
+      "obesity",
+      "slight swelling of the knee",
+      "smoker",
+      "weight management program"
+    ],
+    "overlap": [
+      "allergies",
+      "heart disease",
+      "moderate swelling",
+      "osteoporosis"
+    ]
+  },
+  "clinical_recall_symptoms": {
+    "gt_count": 8,
+    "gen_count": 5,
+    "overlap_count": 1,
+    "recall": 0.125,
+    "gt_only": [
+      "allergies",
+      "insomnia",
+      "moderate pain",
+      "occasional locking",
+      "pain",
+      "pain in left knee",
+      "sleep"
+    ],
+    "gen_only": [
+      "knee locking",
+      "knee pain",
+      "moderate left knee pain",
+      "slight swelling of the knee"
+    ],
+    "overlap": [
+      "moderate swelling"
+    ]
+  },
+  "clinical_recall_medications": {
+    "gt_count": 1,
+    "gen_count": 1,
+    "overlap_count": 0,
+    "recall": 0.0,
+    "gt_only": [
+      "hydrochlorothiazide"
+    ],
+    "gen_only": [
+      "acetaminophen 500 mg"
+    ],
+    "overlap": []
+  },
+  "clinical_recall_labs": {
+    "gt_count": 1,
+    "gen_count": 2,
+    "overlap_count": 0,
+    "recall": 0.0,
+    "gt_only": [
+      "physical exams"
+    ],
+    "gen_only": [
+      "heart disease",
+      "hypertension"
+    ],
+    "overlap": []
+  },
+  "structural_alignment": {
+    "overall_token_f1": 0.3433739837398374,
+    "overall_rouge_l_f1": 0.2241884946445282,
+    "by_section": [
+      {
+        "section": "Subjective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.5934959349593496,
+        "rouge_l_f1": 0.33810888252148996
+      },
+      {
+        "section": "Objective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      },
+      {
+        "section": "Assessment",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.3,
+        "rouge_l_f1": 0.23255813953488372
+      },
+      {
+        "section": "Plan",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.48000000000000004,
+        "rouge_l_f1": 0.3260869565217391
+      }
+    ],
+    "assessment_alignment_score": 0.3,
+    "plan_alignment_score": 0.48000000000000004
+  },
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "D",
+    "overall_summary": "The generated note contains several omissions, including the patient's current medication and specific follow-up details. Most critically, the Objective section includes two high-severity unsupported additions that misrepresent subjective patient reports as objective physical findings, with one also altering the reported degree of swelling. These issues introduce misleading clinical content and significantly reduce the note's reliability and usefulness.",
+    "omissions": [
+      "Patient's recreational activities (knitting and watching TV)",
+      "Current medication: Hydrochlorothiazide 25 mg once daily for hypertension",
+      "Patient's motivation to change lifestyle after understanding the impact of weight on knee pain",
+      "Statement that physical exams are 'Not applicable (Telemedicine)'",
+      "Specific dosage frequency for Acetaminophen (every 6 hours)",
+      "Follow-up recommendation details: 'in 1 month to reassess weight management and pain levels'",
+      "Patient agreement statement: 'The patient understands and agrees with the recommended medical treatment plan.'"
+    ],
+    "additions": [
+      "Objective finding: Moderate left knee pain on presentation",
+      "Objective finding: Slight swelling of the knee",
+      "Objective finding: Obese and hypertensive patient",
+      "Assessment statement: Lifestyle modifications required, including diet changes and increased physical activity",
+      "Assessment statement: Need for complete lipid profile to evaluate cardiovascular health",
+      "Plan item: Encourage lifestyle modifications (diet, exercise)"
+    ],
+    "hallucinations_or_unjustified_inferences": [
+      "Objective finding: Moderate left knee pain on presentation",
+      "Objective finding: Slight swelling of the knee",
+      "Slight swelling of the knee"
+    ],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section has several minor omissions, such as recreational activities, patient motivation, and health literacy details. It also omits the patient's current medication (Hydrochlorothiazide 25 mg once daily for hypertension), which is a moderate clinical omission. Despite these, the core HPI and ROS are well-captured.",
+        "omissions": [
+          "Recreational Activities: Enjoys knitting and watching TV",
+          "Medication History: Hydrochlorothiazide 25 mg once daily for hypertension",
+          "Patient's Behavior: Motivated to change lifestyle after understanding the impact of weight on knee pain",
+          "Health Literacy: Adequate, understands medical advice well"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "D",
+        "summary": "The Objective section omits the important context that physical exams were 'Not applicable (Telemedicine)'. More critically, it includes two high-severity unsupported additions: 'Objective finding: Moderate left knee pain on presentation' and 'Objective finding: Slight swelling of the knee'. These additions misrepresent subjective patient reports as objective physical findings, and the latter also inaccurately changes the reported degree of swelling from 'moderate' to 'slight', introducing misleading clinical content.",
+        "omissions": [
+          "Physical Exams: Not applicable (Telemedicine)"
+        ],
+        "additions": [
+          "Moderate left knee pain on presentation",
+          "Slight swelling of the knee",
+          "Adequate understanding of medical advice",
+          "Obese and hypertensive patient"
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is complete and accurate, with no omissions or unsupported/unknown additions. All additions in this section were supported by the transcript.",
+        "omissions": [],
+        "additions": [
+          "Lifestyle modifications required, including diet changes and increased physical activity",
+          "Need for complete lipid profile to evaluate cardiovascular health"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section omits important details regarding the specific dosage frequency for Acetaminophen ('every 6 hours') and the full specifics of the follow-up recommendation ('in 1 month to reassess weight management and pain levels'). It also misses the patient agreement statement. These are moderate omissions that impact the completeness of the treatment plan and patient consent.",
+        "omissions": [
+          "Medical Treatment: 'every 6 hours' dosage frequency for Acetaminophen",
+          "Follow-up Recommendations: Follow-up in 1 month to reassess weight management and pain levels",
+          "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan"
+        ],
+        "additions": [
+          "Encourage lifestyle modifications (diet, exercise)"
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Objective finding: Moderate left knee pain on presentation",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Objective finding: Slight swelling of the knee",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Objective finding: Obese and hypertensive patient",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Yes, I have obesity and hypertension.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment statement: Lifestyle modifications required, including diet changes and increased physical activity",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment statement: Need for complete lipid profile to evaluate cardiovascular health",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I also want to order a complete lipid profile to evaluate your cardiovascular health.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Plan item: Encourage lifestyle modifications (diet, exercise)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "And remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Moderate left knee pain on presentation",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I've been having some pain in my left knee. ... It's moderate, I'd say.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Slight swelling of the knee",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Adequate understanding of medical advice",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I’d say it’s adequate. I understand medical advice well.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Obese and hypertensive patient",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Yes, I have obesity and hypertension.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Lifestyle modifications required, including diet changes and increased physical activity",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Alright, and remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Need for complete lipid profile to evaluate cardiovascular health",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I also want to order a complete lipid profile to evaluate your cardiovascular health.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Encourage lifestyle modifications (diet, exercise)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "And remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    }
+  ]
+}

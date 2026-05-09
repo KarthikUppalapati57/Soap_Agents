@@ -151,6 +151,8 @@ def run_one_item(
 
     gt = str(source.get("ground_truth") or "")
     gen = str(a3.get("generated") or "")
+    if gen == "":
+        gen = str(a3.get("generated_soap") or "")
     transcript = str(a3.get("transcript") or "")
     agent3_claims = ((a3.get("claim_verification") or {}) or {}).get("claims") or []
     if not gt.strip():

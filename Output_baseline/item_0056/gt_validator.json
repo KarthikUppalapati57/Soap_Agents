@@ -1,0 +1,211 @@
+{
+  "item": "item_0056",
+  "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0056",
+  "ground_truth_soap": "Subjective:\n\nChief Complaint (CC):\nSevere constipation.\n\nHistory of Present Illness (HPI):\nThe patient, named Carlos Martinez, is a 30-year-old Hispanic male who came to the clinic with a complaint of severe constipation for the past 5 days. He reports associated symptoms of nausea and decreased appetite. The patient notes that the constipation has been intermittent throughout the day and has severely impacted his daily activities, as he is unable to attend work and frequently needs to rest.\n\nReview of Systems (ROS):\n- Gastrointestinal: Severe constipation, nausea, decreased appetite.\n- General: Reports fatigue and difficulty sleeping, averaging 4-5 hours/night.\n- Musculoskeletal: Engages in regular exercise including running thrice a week, enjoys outdoor activities like hiking and gardening.\n\nObjective:\n\nVital Signs:\n- Blood Pressure: 120/78 mmHg\n- Heart Rate: 75 bpm\n- Respiratory Rate: 16 breaths per minute\n- Temperature: 98.6°F\n- Oxygen Saturation: 98% on room air\n\nPhysical Exam:\n- General Appearance: The patient appears fatigued and slightly dehydrated.\n- Abdomen: Firm abdomen with tenderness in the lower quadrants, no palpable masses, normal bowel sounds.\n- Rectal Exam: Stool present, no blood.\n\nAssessment:\n\nDiagnosis: Constipation, unspecified (ICD-10: K59.00)\n\nDifferential Diagnosis:\n- Irritable Bowel Syndrome (IBS)\n- Dietary fiber deficiency\n- Dehydration\n\nPlan:\n\nTreatment Recommendations:\nDiet: Increase dietary fiber intake, including whole grains, fruits, and vegetables.\nHydration: Encourage increased water intake.\nExercise: Maintain regular physical activity.\nMedication: Prescribe Lactulose, 15 mL, oral, twice daily, until symptom resolution.\n\nFollow-up:\n- Schedule a follow-up visit in 1 week if symptoms persist or worsen.\n- Referral to a dietician, Dr. Emily Johnson, for meal planning and education on fiber-rich diets.\n\nLifestyle Change:\n- Adopt a balanced diet inclusive of whole grains, fruits, and vegetables.\n\nAdditional Tests:\n- Monitor blood work (CBC, BMP) to rule out any underlying conditions.\n\nThe patient was receptive to the treatment plan and recommendations. He was advised to return to the clinic if symptoms worsen or fail to improve in the next week. A follow-up appointment was scheduled to review the progress and blood test results.\n\nPlan Summary Provided to Patient:\nIncrease fiber intake.\nDrink more water.\nMaintain physical activity.\nTake Lactulose as prescribed.\nFollow-up in 1 week.",
+  "generated_soap": "Subjective:\n- Chief Complaint: Severe constipation for 5 days\n- Fatigue, difficulty sleeping, decreased appetite, nausea\n\nObjective:\n- Blood pressure: 120/78 mmHg\n- Heart rate: 75 bpm\n- Respiratory rate: 16 breaths per minute\n- Temperature: 98.6°F\n- Oxygen saturation: 98% on room air\n- Fatigued, dehydrated appearance\n- Firm abdomen with lower quadrant tenderness but no palpable masses and normal bowel sounds\n- Rectal exam reveals stool present but no blood\n\nAssessment:\n- Constipation\n- Potential dehydration due to constipation\n\nPlan:\n- Increase dietary fiber intake (whole grains, fruits, vegetables)\n- Drink plenty of water\n- Maintain physical activity\n- Prescribe Lactulose 15 mL oral twice daily until symptoms resolve\n- Follow up in 1 week to review blood test results and progress\n- Refer to a dietician for education on fiber-rich diets\n- Follow up if symptoms persist or worsen before scheduled appointment",
+  "entities_gt": {
+    "all_entities": [
+      "nausea",
+      "decreased appetite",
+      "fatigue",
+      "vital signs",
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature",
+      "physical exam",
+      "abdomen",
+      "rectal exam",
+      "irritable bowel syndrome",
+      "lactulose",
+      "cbc",
+      "bmp"
+    ],
+    "symptoms": [
+      "severe constipation",
+      "nausea",
+      "decreased appetite",
+      "constipation",
+      "fatigue",
+      "difficulty sleeping",
+      "normal bowel sounds"
+    ],
+    "medications": [
+      "lactulose",
+      "15 ml"
+    ],
+    "labs": [
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature",
+      "oxygen saturation",
+      "cbc",
+      "bmp"
+    ]
+  },
+  "entities_generated": {
+    "all_entities": [
+      "constipation",
+      "fatigue",
+      "difficulty sleeping",
+      "decreased appetite",
+      "nausea",
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature",
+      "oxygen saturation",
+      "fatigued",
+      "rectal exam",
+      "lactulose",
+      "blood test"
+    ],
+    "symptoms": [
+      "constipation",
+      "fatigue",
+      "difficulty sleeping",
+      "decreased appetite",
+      "nausea",
+      "fatigued",
+      "normal bowel sounds"
+    ],
+    "medications": [
+      "lactulose"
+    ],
+    "labs": [
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature",
+      "oxygen saturation",
+      "rectal exam",
+      "blood test"
+    ]
+  },
+  "clinical_recall_all": {
+    "gt_count": 15,
+    "gen_count": 14,
+    "overlap_count": 9,
+    "recall": 0.6,
+    "gt_only": [
+      "abdomen",
+      "bmp",
+      "cbc",
+      "irritable bowel syndrome",
+      "physical exam",
+      "vital signs"
+    ],
+    "gen_only": [
+      "blood test",
+      "constipation",
+      "difficulty sleeping",
+      "fatigued",
+      "oxygen saturation"
+    ],
+    "overlap": [
+      "blood pressure",
+      "decreased appetite",
+      "fatigue",
+      "heart rate",
+      "lactulose",
+      "nausea",
+      "rectal exam",
+      "respiratory rate",
+      "temperature"
+    ]
+  },
+  "clinical_recall_symptoms": {
+    "gt_count": 7,
+    "gen_count": 7,
+    "overlap_count": 6,
+    "recall": 0.8571428571428571,
+    "gt_only": [
+      "severe constipation"
+    ],
+    "gen_only": [
+      "fatigued"
+    ],
+    "overlap": [
+      "constipation",
+      "decreased appetite",
+      "difficulty sleeping",
+      "fatigue",
+      "nausea",
+      "normal bowel sounds"
+    ]
+  },
+  "clinical_recall_medications": {
+    "gt_count": 2,
+    "gen_count": 1,
+    "overlap_count": 1,
+    "recall": 0.5,
+    "gt_only": [
+      "15 ml"
+    ],
+    "gen_only": [],
+    "overlap": [
+      "lactulose"
+    ]
+  },
+  "clinical_recall_labs": {
+    "gt_count": 7,
+    "gen_count": 7,
+    "overlap_count": 5,
+    "recall": 0.7142857142857143,
+    "gt_only": [
+      "bmp",
+      "cbc"
+    ],
+    "gen_only": [
+      "blood test",
+      "rectal exam"
+    ],
+    "overlap": [
+      "blood pressure",
+      "heart rate",
+      "oxygen saturation",
+      "respiratory rate",
+      "temperature"
+    ]
+  },
+  "structural_alignment": {
+    "overall_token_f1": 0.4869683581023787,
+    "overall_rouge_l_f1": 0.3682707039430361,
+    "by_section": [
+      {
+        "section": "Subjective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.2680412371134021,
+        "rouge_l_f1": 0.1550387596899225
+      },
+      {
+        "section": "Objective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.8659793814432989,
+        "rouge_l_f1": 0.7889908256880733
+      },
+      {
+        "section": "Assessment",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.19047619047619047,
+        "rouge_l_f1": 0.1739130434782609
+      },
+      {
+        "section": "Plan",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.6233766233766235,
+        "rouge_l_f1": 0.35514018691588783
+      }
+    ],
+    "assessment_alignment_score": 0.19047619047619047,
+    "plan_alignment_score": 0.6233766233766235
+  },
+  "expert_judge": null,
+  "expert_judge_error": "Judge returned non-JSON output: Expecting property name enclosed in double quotes: line 11 column 5 (char 1025)",
+  "addition_evidence": []
+}

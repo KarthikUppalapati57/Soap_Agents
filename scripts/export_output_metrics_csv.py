@@ -247,12 +247,13 @@ def main() -> None:
     ap.add_argument(
         "--csv",
         type=Path,
-        default=root / "Output" / "analysis" / "output_metrics.csv",
+        default="output_metrics.csv",
         help="Output CSV path.",
     )
     args = ap.parse_args()
     output_dir: Path = args.output_dir
     out_csv: Path = args.csv
+    out_csv = output_dir / "analysis" / out_csv
 
     rows: list[dict[str, object]] = []
     for folder in _iter_item_dirs(output_dir):

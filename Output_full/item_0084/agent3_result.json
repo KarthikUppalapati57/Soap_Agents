@@ -1,0 +1,222 @@
+{
+  "accuracy_total_claims": 14,
+  "accuracy_correct": 13,
+  "accuracy_incorrect": 1,
+  "accuracy_score": 0.93,
+  "accuracy_reason": "",
+  "completeness_total_details": 15,
+  "completeness_captured": 13,
+  "completeness_missing": 2,
+  "completeness_score": 0.87,
+  "completeness_reason": "",
+  "communication_total_issues": 1,
+  "communication_quality_score": 0.5,
+  "communication_quality_reason": "The communication quality score is low due to a single unclear sentence about the patient's symptoms being constant since they started.",
+  "context_total_details": 8,
+  "context_captured": 7,
+  "context_missing": 1,
+  "context_awareness_score": 0.88,
+  "context_awareness_reason": "",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 3,
+  "instruction_following_score": 0.75,
+  "instruction_following_reason": "The instruction following score is low because only three out of four sections (Subjective, Objective, and Plan) are complete.",
+  "overall_score": 0.86,
+  "transcript": "[Doctor]: Good morning. How are you feeling today?\n\n[Patient]: Not too great, doctor. I've been really tired and just feeling off for the past few days.\n\n[Doctor]: Hmm, I see. Can you tell me more about what's been going on?\n\n[Patient]: Sure. For the past 5 days, I've been dealing with moderate fatigue, a mild fever, body aches, and headaches. It's been making it really hard to do anything, even go to work.\n\n[Doctor]: That sounds quite uncomfortable. Have these symptoms been continuous since they started?\n\n[Patient]: Yes, they've been constant. No breaks in between.\n\n[Doctor]: Alright. Do you have a history of any medical conditions that I should be aware of?\n\n[Patient]: Yes, I have hypertension and seasonal allergies. I take Lisinopril 20 mg daily for my blood pressure and Cetirizine 10 mg daily for the allergies.\n\n[Doctor]: Thanks for sharing that. Are you concerned that any of these symptoms might be side effects of your medications?\n\n[Patient]: I was wondering about that, but I'm not really sure.\n\n[Doctor]: We'll definitely take that into consideration. Have you experienced any chest pain or palpitations?\n\n[Patient]: No, none of that.\n\n[Doctor]: How about shortness of breath?\n\n[Patient]: No, my breathing has been fine.\n\n[Doctor]: Any issues with nausea, vomiting, or diarrhea?\n\n[Patient]: No, my stomach has been okay.\n\n[Doctor]: Any problems with urination, like pain or increased frequency?\n\n[Patient]: No, everything's normal there.\n\n[Doctor]: Have you noticed any dizziness, tingling, or numbness?\n\n[Patient]: No, none of those symptoms.\n\n[Doctor]: How about your sleep? Have you been able to rest well?\n\n[Patient]: Not really. I've been getting only about 5-6 hours of sleep because of the discomfort.\n\n[Doctor]: I'm sorry to hear that. Let's take a look at your vitals and do an examination. Your temperature is 100.5°F, blood pressure is 130/85 mmHg, heart rate is 88 bpm, and respiratory rate is 18 breaths per minute. You appear tired but are not in any acute distress.\n\n[Patient]: Okay.\n\n[Doctor]: Your nasal passages are congested, but there are no signs of infection in your ears, nose, or throat. Your lungs are clear to auscultation bilaterally, and your heart has a regular rhythm with no murmurs. Your abdomen is soft and non-tender, and your extremities show no edema with a normal range of motion.\n\n[Patient]: Alright.\n\n[Doctor]: Based on your symptoms and examination, it sounds like you might have a viral or other self-limiting illness. Given your medical history, there's no obvious indication of a more serious condition, but we'll do some further testing to be sure.\n\n[Patient]: What tests will you be doing?\n\n[Doctor]: We'll order some blood work, including a Complete Blood Count (CBC) and a Basic Metabolic Panel (BMP), to check for any underlying causes.\n\n[Patient]: Okay, that sounds good.\n\n[Doctor]: In the meantime, I recommend you get plenty of rest and stay hydrated. For the fever and body aches, you can take over-the-counter pain relief like acetaminophen or ibuprofen as needed.\n\n[Patient]: Got it.\n\n[Doctor]: It's also important to maintain good sleep hygiene. Try to go to bed and wake up at the same time each day, avoid caffeine late in the day, and create a comfortable sleeping environment.\n\n[Patient]: I'll try that.\n\n[Doctor]: Moderate physical activity can also help, but only as much as you can tolerate without worsening your symptoms.\n\n[Patient]: Okay, I'll keep that in mind.\n\n[Doctor]: If your symptoms persist or worsen, I want you to come back for a follow-up visit in one week.\n\n[Patient]: Alright, I will.\n\n[Doctor]: Do you have any other questions or concerns?\n\n[Patient]: No, I think that covers it.\n\n[Doctor]: Great. I'll see you in a week if you're still not feeling better. Take care and follow the treatment plan we discussed.\n\n[Patient]: Thank you, doctor.",
+  "generated": "Subjective:\nThe patient reports moderate fatigue, a mild fever, body aches, and headaches for the past 5 days, affecting their ability to work and sleep.\n\nObjective:\nTemperature: 100.5°F (38°C), Blood Pressure: 130/85 mmHg, Heart Rate: 88 bpm, Respiratory Rate: 18 breaths per minute. The patient appears tired but is not in acute distress. Nasal passages are congested, lungs are clear to auscultation bilaterally, heart has a regular rhythm with no murmurs, abdomen is soft and non-tender, and extremities show no edema with normal range of motion.\n\nAssessment:\nThe patient may have a viral or other self-limiting illness, but further testing (CBC, BMP) is needed to rule out underlying causes. Given the medical history, there's no obvious indication of a more serious condition.\n\nPlan:\nRecommend plenty of rest, hydration, over-the-counter pain relief, good sleep hygiene, moderate physical activity as tolerable, and a follow-up visit in one week if symptoms persist or worsen.",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "The patient reports moderate fatigue, a mild fever, body aches, and headaches for the past 5 days",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states these symptoms and their duration. The medical knowledge terms support the presence of fever and headache as disease phenotypes.",
+        "transcript_evidence": "For the past 5 days, I've been dealing with moderate fatigue, a mild fever, body aches, and headaches.",
+        "medical_knowledge_evidence": "Fever — disease_phenotype_positive — hyperthermia, cutaneous, with headaches and nausea, Headache — disease_phenotype_positive — hyperthermia, cutaneous, with headaches and nausea",
+        "medical_knowledge_rationale": "The medical knowledge graph explicitly lists 'Fever' and 'Headache' as positive disease phenotypes associated with 'hyperthermia, cutaneous, with headaches and nausea', which aligns with the patient's reported symptoms."
+      },
+      {
+        "claim_text": "affecting their ability to work and sleep.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient states difficulty going to work and reduced sleep due to discomfort.",
+        "transcript_evidence": "It's been making it really hard to do anything, even go to work. ... Not really. I've been getting only about 5-6 hours of sleep because of the discomfort.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Temperature: 100.5°F (38°C)",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the temperature. The medical knowledge terms support the concept of fever, which is consistent with the measured temperature.",
+        "transcript_evidence": "Your temperature is 100.5°F",
+        "medical_knowledge_evidence": "Fever — disease_phenotype_positive — hyperthermia, cutaneous, with headaches and nausea",
+        "medical_knowledge_rationale": "The medical knowledge graph lists 'Fever' as a disease phenotype, which is consistent with the objective finding of a temperature of 100.5°F."
+      },
+      {
+        "claim_text": "Blood Pressure: 130/85 mmHg",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the blood pressure.",
+        "transcript_evidence": "blood pressure is 130/85 mmHg",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Heart Rate: 88 bpm",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the heart rate.",
+        "transcript_evidence": "heart rate is 88 bpm",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Respiratory Rate: 18 breaths per minute.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the respiratory rate.",
+        "transcript_evidence": "respiratory rate is 18 breaths per minute.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patient appears tired but is not in acute distress.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this observation.",
+        "transcript_evidence": "You appear tired but are not in any acute distress.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Nasal passages are congested",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this finding.",
+        "transcript_evidence": "Your nasal passages are congested",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "lungs are clear to auscultation bilaterally",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this finding.",
+        "transcript_evidence": "Your lungs are clear to auscultation bilaterally",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "heart has a regular rhythm with no murmurs",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this finding.",
+        "transcript_evidence": "your heart has a regular rhythm with no murmurs.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "abdomen is soft and non-tender",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this finding.",
+        "transcript_evidence": "Your abdomen is soft and non-tender",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "extremities show no edema with normal range of motion.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this finding.",
+        "transcript_evidence": "your extremities show no edema with a normal range of motion.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patient may have a viral or other self-limiting illness",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this as a potential diagnosis.",
+        "transcript_evidence": "Based on your symptoms and examination, it sounds like you might have a viral or other self-limiting illness.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "further testing (CBC, BMP) is needed to rule out underlying causes.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the need for further testing and specifies CBC and BMP to check for underlying causes.",
+        "transcript_evidence": "We'll order some blood work, including a Complete Blood Count (CBC) and a Basic Metabolic Panel (BMP), to check for any underlying causes.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Given the medical history, there's no obvious indication of a more serious condition.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this assessment based on the patient's medical history.",
+        "transcript_evidence": "Given your medical history, there's no obvious indication of a more serious condition",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Recommend plenty of rest",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly recommends rest.",
+        "transcript_evidence": "I recommend you get plenty of rest",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "hydration",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly recommends hydration.",
+        "transcript_evidence": "and stay hydrated.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "over-the-counter pain relief",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly recommends over-the-counter pain relief.",
+        "transcript_evidence": "For the fever and body aches, you can take over-the-counter pain relief like acetaminophen or ibuprofen as needed.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "good sleep hygiene",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly recommends good sleep hygiene.",
+        "transcript_evidence": "It's also important to maintain good sleep hygiene.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "moderate physical activity as tolerable",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly recommends moderate physical activity as tolerated.",
+        "transcript_evidence": "Moderate physical activity can also help, but only as much as you can tolerate without worsening your symptoms.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "and a follow-up visit in one week if symptoms persist or worsen.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly instructs the patient to follow up in one week if symptoms persist or worsen.",
+        "transcript_evidence": "If your symptoms persist or worsen, I want you to come back for a follow-up visit in one week.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      }
+    ],
+    "benchmark_reconciliation_note": "The auditor identified 21 distinct claims, which is more than the benchmark's 14 claims. This difference is due to a more granular breakdown of individual clinical facts, particularly in the Objective section (e.g., each vital sign and physical exam finding is treated as a separate checkable claim), while still adhering to the maximum claim limit of 25."
+  },
+  "claim_verification_error": null
+}

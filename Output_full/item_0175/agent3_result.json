@@ -1,0 +1,213 @@
+{
+  "accuracy_total_claims": 14,
+  "accuracy_correct": 13,
+  "accuracy_incorrect": 1,
+  "accuracy_score": 0.93,
+  "accuracy_reason": "The SOAP note accurately captures most medical claims, but incorrectly includes \"Pale and dry skin appearance\" as a separate claim.",
+  "completeness_total_details": 15,
+  "completeness_captured": 14,
+  "completeness_missing": 1,
+  "completeness_score": 0.93,
+  "completeness_reason": "The SOAP note captures most important details, but misses the patient's age and ethnicity.",
+  "communication_total_issues": 2,
+  "communication_quality_score": 0.5,
+  "communication_quality_reason": "The SOAP note contains unclear sentences (\"Pale and dry skin appearance\" is not clearly explained) and unnecessary repetition (the doctor repeats themselves when asking if the patient has noticed any changes in their diet or exercise habits).",
+  "context_total_details": 8,
+  "context_captured": 7,
+  "context_missing": 1,
+  "context_awareness_score": 0.88,
+  "context_awareness_reason": "The SOAP note captures most patient-specific details, but misses the patient's medical history and lifestyle.",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 3,
+  "instruction_following_score": 0.75,
+  "instruction_following_reason": "The SOAP note is mostly complete, but lacks a clear plan for medication adherence and does not explicitly state the importance of monitoring symptoms.",
+  "overall_score": 0.88,
+  "transcript": "[doctor] Hi Ms. Doe, how are you feeling today?\n\n[patient] Hi doctor, I'm feeling quite tired, to be honest.\n\n[doctor] Hmm, I understand. I see you're here for a follow-up on your hypothyroidism. Can you tell me more about how you've been feeling?\n\n[patient] Sure. Over the past three months, I've been experiencing a lot of fatigue, weight gain, constipation, dry skin, and hair loss. It’s really impacting my work.\n\n[doctor] I'm sorry to hear that. How often do these symptoms occur?\n\n[patient] Every day. I find it really hard to keep up with my work, and I need to rest a lot more than I used to.\n\n[doctor] That sounds quite challenging. How much sleep are you getting at night?\n\n[patient] I usually get around 6-7 hours, but I still feel unrested.\n\n[doctor] Have you noticed any changes in your diet or exercise habits?\n\n[patient] Yes, my diet hasn’t been great. I eat a lot of processed foods and don’t exercise much.\n\n[doctor] Okay, let’s review your symptoms in detail. You mentioned fatigue and difficulty maintaining work performance. Anything else?\n\n[patient] Yes, I have dry skin and my hair is thinning. \n\n[doctor] I see. Any issues with your digestive system?\n\n[patient] Yes, I've been constipated a lot.\n\n[doctor] How about your weight? Have you noticed any changes?\n\n[patient] Yes, I've gained weight over the past few months.\n\n[doctor] Thank you for sharing that. Let’s go over your vital signs now. Your blood pressure is 128/82 mmHg, heart rate is 72 bpm, respiratory rate is 18 breaths per minute, and your temperature is 98.6°F. \n\n[patient] That sounds normal, right?\n\n[doctor] Yes, they are within the normal range. Now, let’s do a quick physical exam. I notice your skin appears pale and dry, and your hair is thinning. \n\n[patient] Yes, that’s been a concern for me.\n\n[doctor] Upon palpation, your thyroid is slightly enlarged. I also see mild peripheral edema in your lower extremities. \n\n[patient] What does that mean?\n\n[doctor] It’s swelling in your legs, which can be related to hypothyroidism. We're still waiting for the complete thyroid panel results, which include TSH, Free T4, and T3.\n\n[patient] Okay, what’s next?\n\n[doctor] Based on your symptoms and physical exam, it seems your hypothyroidism might not be well controlled. I suggest we increase your Levothyroxine dose to 75 mcg daily.\n\n[patient] Will that help?\n\n[doctor] It should help manage your symptoms better. We’ll recheck your TSH and Free T4 levels in 6 weeks to see how you’re responding to the new dose.\n\n[patient] What else can I do to feel better?\n\n[doctor] Increasing physical activity can help. Try to aim for at least 30 minutes of moderate exercise most days of the week. Also, adopting a balanced diet rich in iodine, with more fruits, vegetables, and iodized salt, will be beneficial. Reducing processed foods can also make a big difference.\n\n[patient] That sounds doable. \n\n[doctor] Great. Medication adherence is crucial, and lifestyle modifications are very important in managing hypothyroidism. Make sure to take your medication exactly as prescribed.\n\n[patient] I will, thank you.\n\n[doctor] Also, keep an eye out for signs of over- or under-treatment, such as palpitations, excessive sweating, or extreme fatigue. If you notice any of these, contact us immediately.\n\n[patient] Understood.\n\n[doctor] We’ll schedule a follow-up appointment in 6 weeks to review your lab results and evaluate how you’re feeling.\n\n[patient] Sounds good. \n\n[doctor] If you have any questions or concerns before then, don’t hesitate to call us. And keep monitoring your symptoms and report any significant changes.\n\n[patient] I will. Thank you, doctor.\n\n[doctor] You're welcome. Take care and see you in 6 weeks.\n\n[patient] Thank you, see you then.",
+  "generated": "Subjective:\n* Fatigue\n* Weight gain\n* Constipation\n* Dry skin\n* Hair loss\n* Pale and dry skin appearance\n* Mild peripheral edema in lower extremities\n\nObjective:\n* Blood pressure 128/82 mmHg\n* Heart rate 72 bpm\n* Respiratory rate 18 breaths per minute\n* Temperature 98.6°F\n* Slightly enlarged thyroid upon palpation\n* Mild peripheral edema in lower extremities\n\nAssessment:\n* Hypothyroidism appears to be poorly controlled, possibly leading to symptoms mentioned by the patient\n\nPlan:\n* Increase Levothyroxine dose to 75 mcg daily\n* Schedule follow-up appointment in 6 weeks to review lab results and evaluate response to new dose\n* Recheck TSH and Free T4 levels in 6 weeks\n* Encourage physical activity (30 minutes of moderate exercise most days of the week)\n* Adopt a balanced diet rich in iodine, with more fruits, vegetables, and iodized salt, while reducing processed foods\n* Emphasize medication adherence and report any significant changes in symptoms to the healthcare provider immediately",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "Fatigue",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states experiencing fatigue and feeling tired over the past three months, impacting work. The medical knowledge terms also link fatigue to hypothyroidism.",
+        "transcript_evidence": "[patient] I'm feeling quite tired, to be honest. ... Over the past three months, I've been experiencing a lot of fatigue... Every day. I find it really hard to keep up with my work, and I need to rest a lot more than I used to.",
+        "medical_knowledge_evidence": "Fatigue — phenotype_phenotype — Chronic fatigue; hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue",
+        "medical_knowledge_rationale": "The medical knowledge graph lists 'Fatigue' as a phenotype and explicitly links it to 'hypothyroidism', which is the patient's condition."
+      },
+      {
+        "claim_text": "Weight gain",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states experiencing weight gain.",
+        "transcript_evidence": "[patient] Over the past three months, I've been experiencing a lot of fatigue, weight gain... Yes, I've gained weight over the past few months.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Constipation",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states experiencing constipation.",
+        "transcript_evidence": "[patient] Over the past three months, I've been experiencing a lot of fatigue, weight gain, constipation... Yes, I've been constipated a lot.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Dry skin",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states having dry skin.",
+        "transcript_evidence": "[patient] Over the past three months, I've been experiencing a lot of fatigue, weight gain, constipation, dry skin... Yes, I have dry skin and my hair is thinning.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Hair loss",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states experiencing hair loss/thinning hair.",
+        "transcript_evidence": "[patient] Over the past three months, I've been experiencing a lot of fatigue, weight gain, constipation, dry skin, and hair loss. ... Yes, I have dry skin and my hair is thinning.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Pale and dry skin appearance",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The doctor observed the patient's skin appearing pale and dry. While supported by the transcript, this is an objective finding and is incorrectly placed in the Subjective section of the SOAP note.",
+        "transcript_evidence": "[doctor] I notice your skin appears pale and dry, and your hair is thinning.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Mild peripheral edema in lower extremities",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The doctor observed mild peripheral edema in the patient's lower extremities. While supported by the transcript, this is an objective finding and is incorrectly placed in the Subjective section of the SOAP note.",
+        "transcript_evidence": "[doctor] I also see mild peripheral edema in your lower extremities.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Blood pressure 128/82 mmHg",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's blood pressure.",
+        "transcript_evidence": "[doctor] Your blood pressure is 128/82 mmHg...",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Heart rate 72 bpm",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's heart rate.",
+        "transcript_evidence": "[doctor] ...heart rate is 72 bpm...",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Respiratory rate 18 breaths per minute",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's respiratory rate.",
+        "transcript_evidence": "[doctor] ...respiratory rate is 18 breaths per minute...",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Temperature 98.6°F",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's temperature.",
+        "transcript_evidence": "[doctor] ...and your temperature is 98.6°F.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Slightly enlarged thyroid upon palpation",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical exam.",
+        "transcript_evidence": "[doctor] Upon palpation, your thyroid is slightly enlarged.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Mild peripheral edema in lower extremities",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical exam.",
+        "transcript_evidence": "[doctor] I also see mild peripheral edema in your lower extremities.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Hypothyroidism appears to be poorly controlled, possibly leading to symptoms mentioned by the patient",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor states that the patient's hypothyroidism might not be well controlled and links peripheral edema to hypothyroidism. The MKG also links hypothyroidism to fatigue, a key symptom.",
+        "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems your hypothyroidism might not be well controlled. ... It’s swelling in your legs, which can be related to hypothyroidism.",
+        "medical_knowledge_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue",
+        "medical_knowledge_rationale": "The medical knowledge graph explicitly links hypothyroidism to fatigue, supporting the idea that poorly controlled hypothyroidism can lead to symptoms."
+      },
+      {
+        "claim_text": "Increase Levothyroxine dose to 75 mcg daily",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly suggests increasing the Levothyroxine dose.",
+        "transcript_evidence": "[doctor] I suggest we increase your Levothyroxine dose to 75 mcg daily.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Schedule follow-up appointment in 6 weeks to review lab results and evaluate response to new dose",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states scheduling a follow-up appointment in 6 weeks for this purpose.",
+        "transcript_evidence": "[doctor] We’ll schedule a follow-up appointment in 6 weeks to review your lab results and evaluate how you’re feeling.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Recheck TSH and Free T4 levels in 6 weeks",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states rechecking TSH and Free T4 levels in 6 weeks.",
+        "transcript_evidence": "[doctor] We’ll recheck your TSH and Free T4 levels in 6 weeks to see how you’re responding to the new dose.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Encourage physical activity (30 minutes of moderate exercise most days of the week)",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly advises increasing physical activity with a specific recommendation.",
+        "transcript_evidence": "[doctor] Increasing physical activity can help. Try to aim for at least 30 minutes of moderate exercise most days of the week.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Adopt a balanced diet rich in iodine, with more fruits, vegetables, and iodized salt, while reducing processed foods",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly advises adopting a balanced diet with specific components and reducing processed foods.",
+        "transcript_evidence": "[doctor] Also, adopting a balanced diet rich in iodine, with more fruits, vegetables, and iodized salt, will be beneficial. Reducing processed foods can also make a big difference.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Emphasize medication adherence and report any significant changes in symptoms to the healthcare provider immediately",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor emphasizes medication adherence and instructs the patient to report significant changes or signs of over/under-treatment immediately.",
+        "transcript_evidence": "[doctor] Medication adherence is crucial... Make sure to take your medication exactly as prescribed. ... If you notice any of these, contact us immediately. ... And keep monitoring your symptoms and report any significant changes.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      }
+    ],
+    "benchmark_reconciliation_note": "My audit identified 20 claims, which differs from the benchmark's 14 claims. This is primarily due to a more granular approach to claim extraction, where individual symptoms (e.g., fatigue, weight gain, constipation, dry skin, hair loss) and distinct plan items are treated as separate checkable claims, as per the instruction to 'Split compound sentences into multiple claims when they assert multiple facts. Do not merge unrelated facts.' The benchmark's reason mentions 'Pale and dry skin appearance' as an issue, which I also noted as being incorrectly placed in the Subjective section, though factually supported."
+  },
+  "claim_verification_error": null
+}

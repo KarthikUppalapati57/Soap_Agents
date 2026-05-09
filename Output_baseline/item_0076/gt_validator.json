@@ -1,0 +1,286 @@
+{
+  "item": "item_0076",
+  "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0076",
+  "ground_truth_soap": "# Subjective\n\nChief Complaint (CC):\nFatigue, muscle weakness, and bone discomfort lasting for 3 months.\n\nHistory of Present Illness (HPI):\nThe patient, named Emily Johnson, is a 34-year-old Caucasian female presenting with a 3-month history of mild to moderate fatigue, muscle weakness, and bone discomfort. She reports these symptoms occur daily and have reduced her energy levels, affecting her job performance as an office worker. She has limited sunlight exposure, and her diet lacks dairy and fortified foods. Additionally, she leads a sedentary lifestyle and feels unrefreshed despite sleeping 6-7 hours per night. \n\nReview of Systems (ROS):\n- Constitutional: Reports daily fatigue and unrefreshed sleep.\n- Musculoskeletal: Reports muscle weakness and bone discomfort.\n- Endocrine: Has a history of hypothyroidism, managed with Levothyroxine.\n- Dietary: Limited intake of vitamin D-rich foods and minimal sunlight exposure.\n\n# Objective\n\n- General: No acute distress; alert and cooperative.\n- Vital Signs: Stable—specific measurements not provided.\n- Physical Examination: Normal physical exam; detailed musculoskeletal and endocrine exams not performed during the initial consultation.\n\n# Assessment\n\nVitamin D Deficiency:\n   - Reasoning: The patient's symptoms of fatigue, muscle weakness, and bone discomfort, combined with her limited sunlight exposure and dietary habits, suggest Vitamin D deficiency.\n   - Diagnostic Confirmation: Awaiting blood work for Vitamin D level (25-hydroxyvitamin D).\n\n# Plan\n\nMedical Treatment:\n   - Start Cholecalciferol (Vitamin D3) 50,000 IU, oral, once weekly for 8 weeks.\n   - Continue Levothyroxine 75 mcg daily for hypothyroidism.\n\nFollow-up:\n   - Re-evaluate Vitamin D levels in 3 months.\n\nLifestyle Modifications:\n   - Increase intake of dairy and fortified foods rich in vitamin D.\n   - Encourage moderate sunlight exposure.\n   - Advise increasing physical activity levels to combat the sedentary lifestyle.\n\nPatient Education and Counseling:\n   - Discuss the importance of adherence to the prescribed vitamin D supplementation.\n   - Educate about dietary sources of vitamin D and the benefits of physical activity.\n   - Provide strategies to improve adherence to dietary recommendations.\n\nMonitoring and Future Considerations:\n   - Monitor symptoms and energy levels over the next few weeks.\n   - Schedule follow-up visit to review blood test results and assess the efficacy of the treatment plan.\n\nPatient Agreements:\nThe patient understands and agrees with the recommended medical treatment plan.\n\n# Instructions\n\n- The patient is to follow up in 3 months for re-evaluation of her Vitamin D levels.\n- Contact the office if symptoms worsen or new symptoms develop.",
+  "generated_soap": "Subjective:\n- Patient reports chronic fatigue, muscle weakness, and bone discomfort for the past three months\n- Patient leads a sedentary lifestyle with limited exposure to sunlight and poor dietary habits\n- No changes in weight or appetite reported\n- Patient is being managed for hypothyroidism with Levothyroxine\n\nObjective:\n- Vital signs are stable\n- Physical examination was normal during the initial consultation, no detailed musculoskeletal or endocrine exam performed\n- Patient appears tired and weak during the consultation\n\nAssessment:\n- Vitamin D deficiency is suspected based on symptoms, limited sunlight exposure, and dietary habits\n- Hypothyroidism is well-managed with Levothyroxine\n\nPlan:\n- Initiate Cholecalciferol (Vitamin D3) at a dose of 50,000 IU once weekly for 8 weeks\n- Continue current Levothyroxine dosage for hypothyroidism management\n- Follow-up in 3 months to reevaluate Vitamin D levels and assess treatment efficacy\n- Recommend lifestyle changes: increase intake of dairy and fortified foods rich in Vitamin D, increase moderate sunlight exposure, and increase physical activity levels\n- Monitor symptoms and energy levels over the next few weeks; contact office if symptoms worsen\n- Schedule a follow-up visit in 3 months to review blood test results",
+  "entities_gt": {
+    "all_entities": [
+      "fatigue",
+      "muscle weakness",
+      "bone discomfort",
+      "musculoskeletal",
+      "hypothyroidism",
+      "levothyroxine",
+      "vital signs",
+      "physical examination",
+      "normal physical exam",
+      "blood work",
+      "medical treatment",
+      "recommended medical treatment plan",
+      "re-evaluation",
+      "vitamin d levels",
+      "symptoms"
+    ],
+    "symptoms": [
+      "fatigue",
+      "muscle weakness",
+      "bone discomfort",
+      "vital signs",
+      "symptoms"
+    ],
+    "medications": [
+      "levothyroxine",
+      "vitamin d"
+    ],
+    "labs": [
+      "vital signs",
+      "stable",
+      "normal physical exam",
+      "blood work",
+      "re-evaluation",
+      "vitamin d levels"
+    ]
+  },
+  "entities_generated": {
+    "all_entities": [
+      "chronic fatigue",
+      "muscle weakness",
+      "bone discomfort",
+      "hypothyroidism",
+      "levothyroxine",
+      "vital signs",
+      "physical examination",
+      "symptoms",
+      "treatment efficacy",
+      "blood test results"
+    ],
+    "symptoms": [
+      "chronic fatigue",
+      "muscle weakness",
+      "bone discomfort",
+      "vital signs",
+      "symptoms"
+    ],
+    "medications": [
+      "levothyroxine"
+    ],
+    "labs": [
+      "vital signs",
+      "physical examination",
+      "blood test results"
+    ]
+  },
+  "clinical_recall_all": {
+    "gt_count": 15,
+    "gen_count": 10,
+    "overlap_count": 7,
+    "recall": 0.4666666666666667,
+    "gt_only": [
+      "blood work",
+      "fatigue",
+      "medical treatment",
+      "musculoskeletal",
+      "normal physical exam",
+      "re-evaluation",
+      "recommended medical treatment plan",
+      "vitamin d levels"
+    ],
+    "gen_only": [
+      "blood test results",
+      "chronic fatigue",
+      "treatment efficacy"
+    ],
+    "overlap": [
+      "bone discomfort",
+      "hypothyroidism",
+      "levothyroxine",
+      "muscle weakness",
+      "physical examination",
+      "symptoms",
+      "vital signs"
+    ]
+  },
+  "clinical_recall_symptoms": {
+    "gt_count": 5,
+    "gen_count": 5,
+    "overlap_count": 4,
+    "recall": 0.8,
+    "gt_only": [
+      "fatigue"
+    ],
+    "gen_only": [
+      "chronic fatigue"
+    ],
+    "overlap": [
+      "bone discomfort",
+      "muscle weakness",
+      "symptoms",
+      "vital signs"
+    ]
+  },
+  "clinical_recall_medications": {
+    "gt_count": 2,
+    "gen_count": 1,
+    "overlap_count": 1,
+    "recall": 0.5,
+    "gt_only": [
+      "vitamin d"
+    ],
+    "gen_only": [],
+    "overlap": [
+      "levothyroxine"
+    ]
+  },
+  "clinical_recall_labs": {
+    "gt_count": 6,
+    "gen_count": 3,
+    "overlap_count": 1,
+    "recall": 0.16666666666666666,
+    "gt_only": [
+      "blood work",
+      "normal physical exam",
+      "re-evaluation",
+      "stable",
+      "vitamin d levels"
+    ],
+    "gen_only": [
+      "blood test results",
+      "physical examination"
+    ],
+    "overlap": [
+      "vital signs"
+    ]
+  },
+  "structural_alignment": {
+    "overall_token_f1": 0.0,
+    "overall_rouge_l_f1": 0.0,
+    "by_section": [
+      {
+        "section": "Subjective",
+        "gt_present": false,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      },
+      {
+        "section": "Objective",
+        "gt_present": false,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      },
+      {
+        "section": "Assessment",
+        "gt_present": false,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      },
+      {
+        "section": "Plan",
+        "gt_present": false,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      }
+    ],
+    "assessment_alignment_score": 0.0,
+    "plan_alignment_score": 0.0
+  },
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, history of present illness, objective findings, and the core assessment and plan for Vitamin D deficiency and hypothyroidism. However, there are several minor omissions across the Subjective and Plan sections, including specific symptom details, medication dosage in ROS, and explicit patient education/adherence points. The Assessment section also omits the explicit mention of awaiting blood work for diagnostic confirmation. All additions made by the generated note were supported by the transcript and did not negatively impact the grade.",
+    "omissions": [],
+    "additions": [],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete but has several minor omissions. These include the description of symptoms as mild to moderate, the impact on job performance, the patient feeling unrefreshed despite sleeping, the specific Levothyroxine dosage in ROS, and the distinct ROS point for dietary habits and sunlight exposure. No unsupported or unknown additions were present.",
+        "omissions": [
+          "Symptoms described as mild to moderate",
+          "Symptoms affect job performance as an office worker",
+          "Patient feels unrefreshed despite sleeping 6-7 hours per night",
+          "ROS: Constitutional: Unrefreshed sleep",
+          "ROS: Endocrine: Levothyroxine dosage of 75 mcg daily",
+          "ROS: Dietary: Limited intake of vitamin D-rich foods and minimal sunlight exposure (as a distinct ROS point)"
+        ],
+        "additions": [
+          "No changes in weight or appetite reported"
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is excellent, capturing all major clinically important GroundTruth content. The only omission is 'General: No acute distress; alert and cooperative,' which is a minor detail. No unsupported or unknown additions were present.",
+        "omissions": [
+          "General: No acute distress; alert and cooperative"
+        ],
+        "additions": [
+          "Patient appears tired and weak during the consultation"
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "B",
+        "summary": "The Assessment section is mostly clinically aligned. The primary omission is the explicit statement 'Diagnostic Confirmation: Awaiting blood work for Vitamin D level (25-hydroxyvitamin D),' which is a moderate issue as it clarifies the diagnostic process. No unsupported or unknown additions were present.",
+        "omissions": [
+          "Diagnostic Confirmation: Awaiting blood work for Vitamin D level (25-hydroxyvitamin D)"
+        ],
+        "additions": [
+          "Hypothyroidism is well-managed with Levothyroxine (as a separate assessment point)"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section is usable but has several minor omissions. These include the specific Levothyroxine dosage, explicit patient education points regarding adherence to supplementation, dietary sources, benefits of physical activity, strategies for adherence, and the patient's agreement with the plan. A safety instruction to contact the office if new symptoms develop was also omitted. No unsupported or unknown additions were present.",
+        "omissions": [
+          "Medical Treatment: Levothyroxine dosage of 75 mcg daily",
+          "Patient Education and Counseling: Discuss the importance of adherence to the prescribed vitamin D supplementation",
+          "Patient Education and Counseling: Explicit education about dietary sources of vitamin D and the benefits of physical activity",
+          "Patient Education and Counseling: Provide strategies to improve adherence to dietary recommendations",
+          "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan",
+          "Instructions: Contact the office if new symptoms develop"
+        ],
+        "additions": [
+          "Schedule a follow-up visit in 3 months to review blood test results (redundant with other follow-up instructions)"
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "No changes in weight or appetite reported",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Have you noticed any changes in your weight or appetite? No, not really.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Patient appears tired and weak during the consultation",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'm okay, thanks. A bit tired though. ... How are you feeling right now? ... Just the same, tired and weak.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Hypothyroidism is well-managed with Levothyroxine (as a separate assessment point)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's been managed pretty well with Levothyroxine. I take 75 mcg daily.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Schedule a follow-up visit in 3 months to review blood test results (redundant with other follow-up instructions)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We'll schedule a follow-up visit in 3 months to review your blood test results and assess the efficacy of the treatment plan.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    }
+  ]
+}

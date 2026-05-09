@@ -126,18 +126,18 @@ class AgentInterface:
         parsed_output = self.run_agent_2(transcript, generated_soap)
         print("Running Agent 3")
         if not no_mkg:
-            kg_context_text = self._primekg_context(generated_soap, parsed_output)
-            print(f"KG Context Text: {kg_context_text.strip()[:100]}", file=sys.stderr)
+            mkg_context_text = self._primekg_context(generated_soap, parsed_output)
+            print(f"MKG Context Text: {mkg_context_text.strip()[:100]}", file=sys.stderr)
         else:
-            kg_context_text = ""
-        claim_verification = self.run_agent_3(parsed_output, kg_context_text, client=self.client)
+            mkg_context_text = ""
+        claim_verification = self.run_agent_3(parsed_output, mkg_context_text, client=self.client)
 
-        return claim_verification
+        return claim_verification, mkg_context_text
 
-    def prompt_optimizer(self, transcript: str, unsupported_claims: list, prompt_optimizations_list: list) -> str:
+    def prompt_optimizer(self, transcript: str, unsupported_claims: list, prompt_optimizations_list: list, mkg_context_text: str) -> str:
         prompt_path = os.path.join(self.prompt_folder, "A3_optimizer_prompt.txt")
         prompt_template = open(prompt_path, "r").read()
-        prompt = prompt_template.format(transcript=transcript, unsupported_claims=unsupported_claims, previous_optimizations=prompt_optimizations_list)
+        prompt = prompt_template.format(transcript=transcript, unsupported_claims=unsupported_claims, previous_optimizations=prompt_optimizations_list, mkg_context_text=mkg_context_text)
         response = self.client.models.generate_content(
             model=self.model,
             contents=prompt,

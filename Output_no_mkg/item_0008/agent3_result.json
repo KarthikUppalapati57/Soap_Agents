@@ -1,0 +1,231 @@
+{
+  "accuracy_total_claims": 14,
+  "accuracy_correct": 13,
+  "accuracy_incorrect": 1,
+  "accuracy_score": 0.93,
+  "accuracy_reason": "",
+  "completeness_total_details": 24,
+  "completeness_captured": 20,
+  "completeness_missing": 4,
+  "completeness_score": 0.83,
+  "completeness_reason": "",
+  "communication_total_issues": 2,
+  "communication_quality_score": 0.5,
+  "communication_quality_reason": "The doctor's language is clear, but there are a few instances of unnecessary repetition and missing structure.",
+  "context_total_details": 12,
+  "context_captured": 9,
+  "context_missing": 3,
+  "context_awareness_score": 0.75,
+  "context_awareness_reason": "",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 4,
+  "instruction_following_score": 1.0,
+  "instruction_following_reason": "The SOAP note accurately includes all four sections.",
+  "overall_score": 0.84,
+  "transcript": "```plaintext\n[doctor] Hi there, how are you doing today?\n[patient] Hi doctor, I've been better. I'm experiencing some pretty bad pain when I urinate.\n[doctor] I'm sorry to hear that. Hmm, can you tell me more about what you're experiencing?\n[patient] Sure. It's been happening for the past three days. It really hurts when I pee, and I have to go a lot more often than usual. And there's blood in my urine.\n[doctor] That sounds very uncomfortable. How would you rate the severity of your pain on a scale from 1 to 10, with 10 being the worst pain imaginable?\n[patient] I’d say it’s around a 7 or 8.\n[doctor] Okay, so that's quite severe. How often are you needing to urinate?\n[patient] About every 30 minutes, and it's really disruptive. I can't concentrate at work, and my sleep is all over the place.\n[doctor] I can imagine that must be very frustrating. Have you noticed any other symptoms like flank pain, chills, or fever?\n[patient] No flank pain, but I do have chills. I haven't had a fever, though.\n[doctor] Alright, any nausea, vomiting, or abdominal pain?\n[patient] No, none of those.\n[doctor] How about chest pain or palpitations?\n[patient] No, my chest is fine.\n[doctor] Any muscle aches or joint pain?\n[patient] No, I haven't had any of that either.\n[doctor] Okay, I’m going to quickly check your vital signs. Your blood pressure is 128/80 mmHg, heart rate is 78 bpm, and your temperature is 37.8°C, which is 100°F. \n\n[patient] Alright.\n[doctor] Now, let me perform a physical exam. I’m going to palpate your abdomen. Tell me if you feel any tenderness.\n[patient] Ouch, yes, right there.\n[doctor] That's tenderness in the suprapubic region. Let me also check for any costovertebral angle tenderness. Does this hurt?\n[patient] No, that’s fine.\n[doctor] Okay, no CVA tenderness. Based on your symptoms and physical exam, it seems like you might have a urinary tract infection. I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.\n\n[patient] What does that mean?\n[doctor] It indicates that you likely have an infection in your urinary tract. I’d like to start you on an antibiotic called Ciprofloxacin. You'll take 500 mg tablets, twice daily for 7 days.\n\n[patient] Got it. Is there anything else I need to do?\n[doctor] Yes, I’d like you to come back in 7 days for a reassessment. We'll also do a urine culture and sensitivity test to identify the bacteria causing the infection and check for antibiotic resistance.\n\n[patient] Okay, I’ll make sure to follow up.\n[doctor] It's very important that you complete the full course of antibiotics, even if you start to feel better.\n\n[patient] I understand.\n[doctor] Also, drink plenty of fluids to help flush out your urinary system. Try to avoid caffeine and alcohol until your symptoms resolve.\n\n[patient] Okay, I can do that.\n[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension. Keeping a balanced diet and regular exercise can also help.\n\n[patient] That makes sense.\n[doctor] Do you have any questions or concerns about the treatment plan?\n\n[patient] No, it all sounds clear. Thank you.\n[doctor] You're welcome. Please remember to follow the medication regimen and return for your follow-up appointment in 7 days. If you experience any worsening symptoms or have any concerns before then, don't hesitate to contact us.\n\n[patient] I will. Thanks again, doctor.\n[doctor] Take care, and see you in a week.\n```",
+  "generated": "Subjective:\n- Chief Complaint (CC): Severe pain during urination with increased frequency, accompanied by hematuria and chills\n- History of Present Illness (HPI): Three days of painful, frequent urination, and blood in urine; associated with disrupted work and sleep\n\nObjective:\n- Vital Signs: Blood pressure 128/80 mmHg, heart rate 78 bpm, temperature 37.8°C (100°F)\n- Physical Exam Findings: Tenderness in the suprapubic region on abdominal palpation; no costovertebral angle tenderness\n\nAssessment:\n- Urinary Tract Infection (UTI) likely, confirmed by positive urine dipstick test for leukocytes and nitrites\n- Chronic hypertension present\n\nPlan:\n- Medical Treatment: Prescribe Ciprofloxacin 500 mg tablets, twice daily for 7 days\n- Follow-Up Recommendations: Urine culture and sensitivity test in 7 days; reassessment of symptoms\n- Patient Education: Complete full course of antibiotics; drink plenty of fluids; avoid caffeine and alcohol until symptoms resolve\n- Lifestyle Modifications: Regular follow-ups for chronic hypertension management; maintain a balanced diet and regular exercise",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "Severe pain during urination",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states experiencing 'pretty bad pain when I urinate' and rates the pain as 'around a 7 or 8', which the doctor acknowledges as 'quite severe'.",
+        "transcript_evidence": "[patient] I'm experiencing some pretty bad pain when I urinate. ... It really hurts when I pee, ... I’d say it’s around a 7 or 8. [doctor] Okay, so that's quite severe.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "increased frequency (of urination)",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient states they 'have to go a lot more often than usual' and specifies 'About every 30 minutes'.",
+        "transcript_evidence": "[patient] I have to go a lot more often than usual. ... About every 30 minutes",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "accompanied by hematuria",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly mentions 'blood in my urine'.",
+        "transcript_evidence": "[patient] And there's blood in my urine.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "accompanied by chills",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient confirms having 'chills' when asked about other symptoms.",
+        "transcript_evidence": "[patient] No flank pain, but I do have chills.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Three days of painful, frequent urination, and blood in urine",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient states the symptoms have been happening 'for the past three days' and describes 'painful, frequent urination, and blood in urine'.",
+        "transcript_evidence": "[patient] It's been happening for the past three days. It really hurts when I pee, and I have to go a lot more often than usual. And there's blood in my urine.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "associated with disrupted work and sleep",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explains that the frequent urination is 'really disruptive. I can't concentrate at work, and my sleep is all over the place.'",
+        "transcript_evidence": "[patient] About every 30 minutes, and it's really disruptive. I can't concentrate at work, and my sleep is all over the place.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Blood pressure 128/80 mmHg",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's blood pressure verbatim.",
+        "transcript_evidence": "[doctor] Your blood pressure is 128/80 mmHg",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "heart rate 78 bpm",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's heart rate verbatim.",
+        "transcript_evidence": "[doctor] heart rate is 78 bpm",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "temperature 37.8°C (100°F)",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states the patient's temperature verbatim, including both Celsius and Fahrenheit.",
+        "transcript_evidence": "[doctor] and your temperature is 37.8°C, which is 100°F.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Tenderness in the suprapubic region on abdominal palpation",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor palpates the abdomen, the patient indicates pain, and the doctor identifies it as 'tenderness in the suprapubic region'.",
+        "transcript_evidence": "[doctor] I’m going to palpate your abdomen. Tell me if you feel any tenderness. [patient] Ouch, yes, right there. [doctor] That's tenderness in the suprapubic region.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "no costovertebral angle tenderness",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor checks for CVA tenderness, and the patient responds 'No, that’s fine', which the doctor confirms as 'no CVA tenderness'.",
+        "transcript_evidence": "[doctor] Let me also check for any costovertebral angle tenderness. Does this hurt? [patient] No, that’s fine. [doctor] Okay, no CVA tenderness.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Urinary Tract Infection (UTI) likely",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor states, 'Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.'",
+        "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "confirmed by positive urine dipstick test for leukocytes and nitrites",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states confirming the diagnosis with a urine dipstick test showing 'positive for leukocytes and nitrites'.",
+        "transcript_evidence": "[doctor] I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Chronic hypertension present",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor mentions 'monitoring your chronic hypertension' in the context of the patient's history.",
+        "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Prescribe Ciprofloxacin 500 mg tablets, twice daily for 7 days",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor clearly outlines the antibiotic prescription, dosage, frequency, and duration.",
+        "transcript_evidence": "[doctor] I’d like to start you on an antibiotic called Ciprofloxacin. You'll take 500 mg tablets, twice daily for 7 days.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Urine culture and sensitivity test in 7 days",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states that a urine culture and sensitivity test will be done when the patient returns for reassessment in 7 days.",
+        "transcript_evidence": "[doctor] I’d like you to come back in 7 days for a reassessment. We'll also do a urine culture and sensitivity test to identify the bacteria causing the infection and check for antibiotic resistance.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "reassessment of symptoms",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor instructs the patient to 'come back in 7 days for a reassessment'.",
+        "transcript_evidence": "[doctor] I’d like you to come back in 7 days for a reassessment.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Complete full course of antibiotics",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor emphasizes the importance of completing the full course of antibiotics.",
+        "transcript_evidence": "[doctor] It's very important that you complete the full course of antibiotics, even if you start to feel better.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "drink plenty of fluids",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor advises the patient to 'drink plenty of fluids'.",
+        "transcript_evidence": "[doctor] Also, drink plenty of fluids to help flush out your urinary system.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "avoid caffeine and alcohol until symptoms resolve",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor advises the patient to 'Try to avoid caffeine and alcohol until your symptoms resolve'.",
+        "transcript_evidence": "[doctor] Try to avoid caffeine and alcohol until your symptoms resolve.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Regular follow-ups for chronic hypertension management",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor mentions discussing 'the importance of regular follow-ups and monitoring your chronic hypertension'.",
+        "transcript_evidence": "[doctor] we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "maintain a balanced diet and regular exercise",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor suggests that 'Keeping a balanced diet and regular exercise can also help'.",
+        "transcript_evidence": "[doctor] Keeping a balanced diet and regular exercise can also help.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      }
+    ],
+    "benchmark_reconciliation_note": "The benchmark reports 14 total claims, while this audit identifies 22. This difference is due to splitting compound statements in the SOAP note into individual, checkable clinical facts, as per the instruction to 'Split compound sentences into multiple claims when they assert multiple facts' to ensure granular auditing."
+  },
+  "claim_verification_error": null
+}

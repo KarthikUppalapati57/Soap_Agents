@@ -1,0 +1,334 @@
+{
+  "item": "item_0018",
+  "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0018",
+  "ground_truth_soap": "#\nSubjective:\n\nChief Complaint (CC):\nNausea with vomiting.\n\nHistory of Present Illness (HPI):\nMs. Li Zhang is a 70-year-old female presenting with complaints of nausea and vomiting. She reports that these symptoms have been ongoing for the past 2 days, with episodes occurring approximately 3-4 times per day. The severity of these episodes is moderate, and they are accompanied by fatigue, dizziness, and occasional headaches. Ms. Zhang finds herself able to perform light activities such as walking her dog but mentions that more strenuous tasks are currently not feasible.\n\nReview of Systems (ROS):\n- Constitutional: Endorses fatigue.\n- Gastrointestinal: Endorses nausea and vomiting, denies diarrhea or abdominal pain.\n- Neurological: Endorses dizziness and occasional headaches.\n- Endocrine: No recent changes in weight, denies heat or cold intolerance.\n- Cardiovascular: Denies chest pain, palpitations.\n- Respiratory: Denies cough, shortness of breath.\n\nObjective:\n- Vital Signs: NA (telemedicine consultation)\n- Physical Examination: NA (telemedicine consultation)\n\nAssessment:\nMs. Li Zhang is a 70-year-old female presenting with nausea and vomiting, unspecified (ICD-10 R11.2).\n\nPlan:\n- Medical Treatment:\n  - Prescribed Ondansetron 8 mg, oral, every 6 hours as needed for nausea and vomiting, quantity: 20 tablets.\n- Additional Testing:\n  - Electrolyte panel is ordered to assess for potential dehydration and electrolyte imbalance.\n- Follow-up Recommendations:\n  - Follow-up in 3 days if symptoms persist or worsen.\n- Patient Education and Counseling:\n  - Educated Ms. Zhang on the importance of staying hydrated and advised to sip on oral rehydration solutions. Discussed dietary modifications, emphasizing the need to reduce processed foods and increase intake of fruits and vegetables to improve overall health.\n- Lifestyle Recommendations:\n  - Encourage continuation of light physical activity, such as walking her dog daily. Suggested she incorporate gentle exercises and yoga to improve well-being.\n\nMs. Zhang was highly cooperative during the consultation and is adherent to medical advice. She lives in a rural area with good access to healthcare resources and belongs to a moderate-income neighborhood. Being a non-native English speaker who is fluent in English, she had no difficulty understanding or communicating during the consultation. The patient understands and agrees with the recommended medical treatment plan.\n#",
+  "generated_soap": "Subjective:\n- Chief Complaint: Nausea and vomiting for the past 2 days with associated fatigue, dizziness, and occasional headaches\n- New or recurrent symptoms: First episode of this severity\n\nObjective:\n- Assessment limited due to telemedicine consultation; ordered electrolyte panel to evaluate potential dehydration and electrolyte imbalance\n\nAssessment:\n- Nausea, vomiting, fatigue, dizziness, and headaches suggest gastrointestinal distress\n\nPlan:\n- Prescribe Ondansetron 8 mg tablets (1 tablet every 6 hours as needed) for nausea and vomiting relief\n- Advise to stay hydrated by sipping on oral rehydration solutions\n- Encourage a diet rich in fruits and vegetables, avoid processed foods\n- Recommend gentle exercises and yoga for improved well-being\n- Schedule follow-up within 3 days if symptoms persist or worsen",
+  "entities_gt": {
+    "all_entities": [
+      "chief complaint",
+      "nausea with vomiting",
+      "nausea and vomiting",
+      "fatigue",
+      "dizziness",
+      "occasional headaches",
+      "constitutional",
+      "gastrointestinal",
+      "diarrhea",
+      "abdominal pain",
+      "neurological",
+      "endocrine",
+      "cardiovascular",
+      "chest pain",
+      "palpitations",
+      "cough",
+      "shortness of breath",
+      "vital signs",
+      "na",
+      "physical examination",
+      "unspecified",
+      "medical treatment",
+      "ondansetron 8 mg",
+      "electrolyte panel"
+    ],
+    "symptoms": [
+      "nausea with vomiting",
+      "nausea and vomiting",
+      "fatigue",
+      "dizziness",
+      "occasional headaches",
+      "gastrointestinal",
+      "diarrhea",
+      "abdominal pain",
+      "chest pain",
+      "palpitations",
+      "respiratory",
+      "cough",
+      "shortness of breath",
+      "vital signs"
+    ],
+    "medications": [
+      "ondansetron 8 mg"
+    ],
+    "labs": [
+      "na",
+      "physical examination",
+      "electrolyte panel"
+    ]
+  },
+  "entities_generated": {
+    "all_entities": [
+      "chief complaint",
+      "nausea",
+      "vomiting",
+      "fatigue",
+      "dizziness",
+      "headaches",
+      "electrolyte panel",
+      "ondansetron"
+    ],
+    "symptoms": [
+      "nausea",
+      "vomiting",
+      "fatigue",
+      "dizziness",
+      "headaches"
+    ],
+    "medications": [
+      "ondansetron"
+    ],
+    "labs": [
+      "electrolyte panel"
+    ]
+  },
+  "clinical_recall_all": {
+    "gt_count": 24,
+    "gen_count": 8,
+    "overlap_count": 4,
+    "recall": 0.16666666666666666,
+    "gt_only": [
+      "abdominal pain",
+      "cardiovascular",
+      "chest pain",
+      "constitutional",
+      "cough",
+      "diarrhea",
+      "endocrine",
+      "gastrointestinal",
+      "medical treatment",
+      "na",
+      "nausea and vomiting",
+      "nausea with vomiting",
+      "neurological",
+      "occasional headaches",
+      "ondansetron 8 mg",
+      "palpitations",
+      "physical examination",
+      "shortness of breath",
+      "unspecified",
+      "vital signs"
+    ],
+    "gen_only": [
+      "headaches",
+      "nausea",
+      "ondansetron",
+      "vomiting"
+    ],
+    "overlap": [
+      "chief complaint",
+      "dizziness",
+      "electrolyte panel",
+      "fatigue"
+    ]
+  },
+  "clinical_recall_symptoms": {
+    "gt_count": 14,
+    "gen_count": 5,
+    "overlap_count": 2,
+    "recall": 0.14285714285714285,
+    "gt_only": [
+      "abdominal pain",
+      "chest pain",
+      "cough",
+      "diarrhea",
+      "gastrointestinal",
+      "nausea and vomiting",
+      "nausea with vomiting",
+      "occasional headaches",
+      "palpitations",
+      "respiratory",
+      "shortness of breath",
+      "vital signs"
+    ],
+    "gen_only": [
+      "headaches",
+      "nausea",
+      "vomiting"
+    ],
+    "overlap": [
+      "dizziness",
+      "fatigue"
+    ]
+  },
+  "clinical_recall_medications": {
+    "gt_count": 1,
+    "gen_count": 1,
+    "overlap_count": 0,
+    "recall": 0.0,
+    "gt_only": [
+      "ondansetron 8 mg"
+    ],
+    "gen_only": [
+      "ondansetron"
+    ],
+    "overlap": []
+  },
+  "clinical_recall_labs": {
+    "gt_count": 3,
+    "gen_count": 1,
+    "overlap_count": 1,
+    "recall": 0.3333333333333333,
+    "gt_only": [
+      "na",
+      "physical examination"
+    ],
+    "gen_only": [],
+    "overlap": [
+      "electrolyte panel"
+    ]
+  },
+  "structural_alignment": {
+    "overall_token_f1": 0.2864908633658362,
+    "overall_rouge_l_f1": 0.18939847919214167,
+    "by_section": [
+      {
+        "section": "Subjective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.2992125984251969,
+        "rouge_l_f1": 0.22360248447204967
+      },
+      {
+        "section": "Objective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.19047619047619047,
+        "rouge_l_f1": 0.15384615384615385
+      },
+      {
+        "section": "Assessment",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.21428571428571427,
+        "rouge_l_f1": 0.14285714285714285
+      },
+      {
+        "section": "Plan",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.4419889502762431,
+        "rouge_l_f1": 0.23728813559322035
+      }
+    ],
+    "assessment_alignment_score": 0.21428571428571427,
+    "plan_alignment_score": 0.4419889502762431
+  },
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a usable summary of the patient's visit but contains noticeable gaps and a significant unsupported clinical interpretation. The Subjective section is incomplete due to the omission of the detailed Review of Systems. The Assessment section includes an unsupported statement suggesting gastrointestinal distress, which is a high-severity issue as it introduces a clinical inference not grounded in the transcript, and also omits the specific diagnosis. The Plan section has minor omissions regarding medication quantity and patient context.",
+    "omissions": [
+      "Detailed Review of Systems (ROS) section",
+      "Severity of nausea/vomiting episodes (moderate)",
+      "Patient's ability to perform light activities (walking her dog) but not strenuous tasks",
+      "Specific diagnosis of \"nausea and vomiting, unspecified\"",
+      "Quantity of Ondansetron tablets (20 tablets)",
+      "Instruction to continue light physical activity, such as walking her dog daily",
+      "Details about patient's cooperation, adherence, living situation, language fluency, and agreement with the plan"
+    ],
+    "additions": [
+      "\"New or recurrent symptoms: First episode of this severity\" in Subjective section",
+      "\"Assessment limited due to telemedicine consultation; ordered electrolyte panel to evaluate potential dehydration and electrolyte imbalance\" in Objective section",
+      "\"Nausea, vomiting, fatigue, dizziness, and headaches suggest gastrointestinal distress\" in Assessment section"
+    ],
+    "hallucinations_or_unjustified_inferences": [
+      "\"Nausea, vomiting, fatigue, dizziness, and headaches suggest gastrointestinal distress\" in Assessment section",
+      "\"Nausea, vomiting, fatigue, dizziness, and headaches suggest gastrointestinal distress\""
+    ],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "C",
+        "summary": "This section omits the entire detailed Review of Systems, which is a major structural and content gap. It also misses the severity of nausea/vomiting and the patient's ability to perform light activities but not strenuous tasks, which are important HPI details. The addition regarding recurrent symptoms is supported by the transcript and does not lower the grade.",
+        "omissions": [
+          "Severity of nausea/vomiting episodes (moderate)",
+          "Patient's ability to perform light activities (walking her dog) but not strenuous tasks",
+          "Review of Systems (ROS) section (Constitutional, GI, Neurological, Endocrine, Cardiovascular, Respiratory details)",
+          "Specific ROS details: denies diarrhea or abdominal pain, no recent changes in weight, denies heat or cold intolerance, denies chest pain, palpitations, denies cough, shortness of breath"
+        ],
+        "additions": [
+          "\"New or recurrent symptoms: First episode of this severity\""
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "This section accurately captures the limitations due to telemedicine and the ordered electrolyte panel, which is supported by the transcript. The omissions are minor formatting details and do not impact clinical usefulness.",
+        "omissions": [
+          "\"Vital Signs: NA (telemedicine consultation)\" as a separate line item",
+          "\"Physical Examination: NA (telemedicine consultation)\" as a separate line item"
+        ],
+        "additions": [
+          "\"Assessment limited due to telemedicine consultation; ordered electrolyte panel to evaluate potential dehydration and electrolyte imbalance\""
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "D",
+        "summary": "This section has a major issue with the inclusion of an unsupported clinical interpretation, \"Nausea, vomiting, fatigue, dizziness, and headaches suggest gastrointestinal distress.\" This statement is not explicitly supported by the transcript as an assessment and introduces a potentially misleading clinical inference. Additionally, the specific diagnosis of \"nausea and vomiting, unspecified\" is omitted.",
+        "omissions": [
+          "Specific diagnosis of \"nausea and vomiting, unspecified\""
+        ],
+        "additions": [
+          "\"Nausea, vomiting, fatigue, dizziness, and headaches suggest gastrointestinal distress\""
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section effectively captures the main medical treatment, additional testing, and follow-up recommendations. However, it omits the specific quantity of Ondansetron tablets and the instruction to continue light physical activity. It also misses important contextual details about the patient's cooperation, adherence, and understanding of the plan.",
+        "omissions": [
+          "Quantity of Ondansetron tablets (20 tablets)",
+          "Instruction to continue light physical activity, such as walking her dog daily",
+          "Details about patient's cooperation, adherence, living situation, language fluency, and agreement with the plan"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "\"New or recurrent symptoms: First episode of this severity\" in Subjective section",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, this is the first time I've had it this bad.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Assessment limited due to telemedicine consultation; ordered electrolyte panel to evaluate potential dehydration and electrolyte imbalance\" in Objective section",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Now, since this is a telemedicine consultation, we can't take your vital signs or do a physical examination. However, I have ordered an electrolyte panel to assess for potential dehydration and electrolyte imbalance.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Nausea, vomiting, fatigue, dizziness, and headaches suggest gastrointestinal distress\" in Assessment section",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"New or recurrent symptoms: First episode of this severity\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, this is the first time I've had it this bad.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Assessment limited due to telemedicine consultation; ordered electrolyte panel to evaluate potential dehydration and electrolyte imbalance\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Now, since this is a telemedicine consultation, we can't take your vital signs or do a physical examination. However, I have ordered an electrolyte panel to assess for potential dehydration and electrolyte imbalance.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Nausea, vomiting, fatigue, dizziness, and headaches suggest gastrointestinal distress\"",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    }
+  ]
+}

@@ -1,0 +1,315 @@
+{
+  "item": "item_0109",
+  "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0109",
+  "ground_truth_soap": "# Medical Note\n\nSubjective:\n\nChief Complaint (CC):\nChronic pain in the lower back with tingling and numbness in the lower extremities.\n\nHistory of Present Illness (HPI):\nMs. Smith is a 52-year-old female presenting with chronic lower back pain, which she rates as 7/10 on average. The pain has persisted for over 6 months and is described as severe enough to impact her daily activities, such as climbing stairs and carrying groceries. She also reports associated symptoms of tingling and numbness in the lower extremities. Pain is present daily and worsens at night, leading to difficulty sleeping.\n\nReview of Systems (ROS):\n- Neurological: Tingling and numbness in the lower extremities.\n- Gastrointestinal: Previous gastrointestinal discomfort from NSAIDs.\n- Musculoskeletal: Pain and tenderness in the lumbar spine, limited range of motion.\n\nCurrent Medications:\n- Previously on NSAIDs (discontinued due to gastrointestinal discomfort).\n\nPast Medical History:\n- Degenerative Disc Disease\n\nFamily History:\n- Mother had rheumatoid arthritis.\n\nObjective:\n\nVital Signs:\n- Blood pressure: 120/80 mmHg\n- Heart rate: 72 bpm\n- Respiratory rate: 16 breaths/min\n- Temperature: 98.6°F\n\nPhysical Examination:\n- Neurological Exam: Decreased sensation in the lower extremities, mildly reduced reflexes in the patellar and Achilles tendons.\n- Musculoskeletal Exam: Tenderness upon palpation of the lumbar spine, limited range of motion due to pain.\n\nAssessment:\n\nChronic Pain Syndrome (ICD-10: G89.4)\n\nPlan:\n\n- Medication: Prescribed Gabapentin 300 mg, 1 capsule orally at bedtime, quantity 30 capsules, for 1 month.\n- Imaging: Referral for MRI of the lumbar spine to evaluate possible underlying pathological causes.\n- Lifestyle Recommendations: Incorporate low-impact exercises such as swimming or cycling to improve physical activity levels without exacerbating pain.\n- Follow-Up: Scheduled a follow-up appointment in 1 month to review medication efficacy and MRI results.\n\nAdditional Notes:\n- Patient is highly cooperative with medical advice and willing to try new treatments.\n- Advised on the importance of adhering to the prescribed medication and monitoring for any side effects.\n- Discussed the potential benefits and risks associated with the use of Gabapentin.\n- Encouraged maintaining a balanced diet and avoiding NSAIDs due to previous gastrointestinal issues.",
+  "generated_soap": "Subjective:\nThe patient presents with chronic lower back pain of 7/10 intensity, worsening at night and affecting daily activities. The patient reports associated tingling and numbness in the legs and a history of degenerative disc disease.\n\nObjective:\n- Vital signs within normal limits (BP 120/80 mmHg, HR 72 bpm, RR 16 breaths/min, T 98.6°F)\n- Decreased sensation in lower extremities and mildly reduced reflexes in patellar and Achilles tendons\n- Lumbar spine tenderness upon palpation and limited range of motion due to pain\n\nAssessment:\nChronic Pain Syndrome potentially related to degenerative disc disease with nerve involvement.\n\nPlan:\n- Prescribe Gabapentin 300 mg once daily at bedtime for one month\n- Refer patient for an MRI of the lumbar spine\n- Schedule a follow-up appointment in one month to review medication effectiveness and discuss MRI results\n- Recommend low-impact exercises like swimming or cycling\n- Advise adherence to prescribed medication, maintaining a balanced diet, and avoiding NSAIDs due to previous gastrointestinal issues.",
+  "entities_gt": {
+    "all_entities": [
+      "pain",
+      "tingling and numbness",
+      "gastrointestinal discomfort",
+      "nsaids",
+      "lumbar spine",
+      "limited range of motion",
+      "degenerative disc disease",
+      "rheumatoid arthritis",
+      "vital signs",
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature",
+      "decreased sensation in the lower extremities",
+      "gabapentin 300 mg",
+      "mri",
+      "new treatments"
+    ],
+    "symptoms": [
+      "pain",
+      "tingling and numbness",
+      "tingling and numbness in the lower extremities",
+      "gastrointestinal discomfort",
+      "limited range of motion",
+      "blood pressure",
+      "decreased sensation in the lower extremities",
+      "tenderness upon palpation of the lumbar spine"
+    ],
+    "medications": [
+      "nsaids",
+      "gabapentin 300 mg"
+    ],
+    "labs": [
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature",
+      "mri"
+    ]
+  },
+  "entities_generated": {
+    "all_entities": [
+      "chronic lower back pain",
+      "degenerative disc disease",
+      "vital signs",
+      "bp",
+      "hr",
+      "rr 16 breaths/min",
+      "decreased sensation",
+      "mildly reduced reflexes",
+      "lumbar spine",
+      "limited range of motion",
+      "chronic pain syndrome",
+      "gabapentin 300 mg",
+      "mri",
+      "follow-up appointment",
+      "nsaids"
+    ],
+    "symptoms": [
+      "chronic lower back pain",
+      "vital signs",
+      "decreased sensation in lower extremities"
+    ],
+    "medications": [
+      "gabapentin 300 mg",
+      "nsaids"
+    ],
+    "labs": [
+      "bp",
+      "hr",
+      "rr",
+      "mri"
+    ]
+  },
+  "clinical_recall_all": {
+    "gt_count": 17,
+    "gen_count": 15,
+    "overlap_count": 7,
+    "recall": 0.4117647058823529,
+    "gt_only": [
+      "blood pressure",
+      "decreased sensation in the lower extremities",
+      "gastrointestinal discomfort",
+      "heart rate",
+      "new treatments",
+      "pain",
+      "respiratory rate",
+      "rheumatoid arthritis",
+      "temperature",
+      "tingling and numbness"
+    ],
+    "gen_only": [
+      "bp",
+      "chronic lower back pain",
+      "chronic pain syndrome",
+      "decreased sensation",
+      "follow-up appointment",
+      "hr",
+      "mildly reduced reflexes",
+      "rr 16 breaths/min"
+    ],
+    "overlap": [
+      "degenerative disc disease",
+      "gabapentin 300 mg",
+      "limited range of motion",
+      "lumbar spine",
+      "mri",
+      "nsaids",
+      "vital signs"
+    ]
+  },
+  "clinical_recall_symptoms": {
+    "gt_count": 8,
+    "gen_count": 3,
+    "overlap_count": 0,
+    "recall": 0.0,
+    "gt_only": [
+      "blood pressure",
+      "decreased sensation in the lower extremities",
+      "gastrointestinal discomfort",
+      "limited range of motion",
+      "pain",
+      "tenderness upon palpation of the lumbar spine",
+      "tingling and numbness",
+      "tingling and numbness in the lower extremities"
+    ],
+    "gen_only": [
+      "chronic lower back pain",
+      "decreased sensation in lower extremities",
+      "vital signs"
+    ],
+    "overlap": []
+  },
+  "clinical_recall_medications": {
+    "gt_count": 2,
+    "gen_count": 2,
+    "overlap_count": 2,
+    "recall": 1.0,
+    "gt_only": [],
+    "gen_only": [],
+    "overlap": [
+      "gabapentin 300 mg",
+      "nsaids"
+    ]
+  },
+  "clinical_recall_labs": {
+    "gt_count": 5,
+    "gen_count": 4,
+    "overlap_count": 1,
+    "recall": 0.2,
+    "gt_only": [
+      "blood pressure",
+      "heart rate",
+      "respiratory rate",
+      "temperature"
+    ],
+    "gen_only": [
+      "bp",
+      "hr",
+      "rr"
+    ],
+    "overlap": [
+      "mri"
+    ]
+  },
+  "structural_alignment": {
+    "overall_token_f1": 0.5075929534626332,
+    "overall_rouge_l_f1": 0.4275491041973304,
+    "by_section": [
+      {
+        "section": "Subjective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.38095238095238093,
+        "rouge_l_f1": 0.25136612021857924
+      },
+      {
+        "section": "Objective",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.7956989247311828,
+        "rouge_l_f1": 0.7058823529411765
+      },
+      {
+        "section": "Assessment",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.3157894736842105,
+        "rouge_l_f1": 0.3157894736842105
+      },
+      {
+        "section": "Plan",
+        "gt_present": true,
+        "gen_present": true,
+        "token_f1": 0.5379310344827586,
+        "rouge_l_f1": 0.4371584699453552
+      }
+    ],
+    "assessment_alignment_score": 0.3157894736842105,
+    "plan_alignment_score": 0.5379310344827586
+  },
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, with no unsupported or unknown additions. However, it has noticeable gaps due to multiple moderate omissions, particularly in the Subjective section regarding the Review of Systems and prior medication context, and in the Plan section concerning patient education and safety discussions for Gabapentin. These omissions make the note meaningfully incomplete in key areas.",
+    "omissions": [
+      "Pain duration (over 6 months)",
+      "Specific daily activities impacted by pain (climbing stairs, carrying groceries)",
+      "Pain leading to difficulty sleeping",
+      "Review of Systems (ROS) - Musculoskeletal: Pain and tenderness in the lumbar spine, limited range of motion",
+      "Family History: Mother had rheumatoid arthritis",
+      "Medication detail: '1 capsule orally' for Gabapentin",
+      "Medication detail: 'quantity 30 capsules' for Gabapentin",
+      "Imaging detail: 'to evaluate possible underlying pathological causes' for MRI",
+      "Lifestyle Recommendations detail: 'to improve physical activity levels without exacerbating pain'",
+      "Additional Note: Patient is highly cooperative with medical advice and willing to try new treatments",
+      "Additional Note: Discussed the potential benefits and risks associated with the use of Gabapentin",
+      "Additional Note: Advised on monitoring for any side effects (related to Gabapentin)"
+    ],
+    "additions": [
+      "Objective: 'Vital signs within normal limits'",
+      "Assessment: 'potentially related to degenerative disc disease with nerve involvement'"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "C",
+        "summary": "The Subjective section has several minor omissions, including pain duration, specific daily activity impacts, and difficulty sleeping. More significantly, it omits key details from the Review of Systems (Gastrointestinal discomfort from NSAIDs, Musculoskeletal findings) and the full context of current medications (NSAIDs discontinued due to GI issues), as well as family history. These omissions represent moderate gaps in the clinical picture.",
+        "omissions": [
+          "Pain duration (over 6 months)",
+          "Specific daily activities impacted by pain (climbing stairs, carrying groceries)",
+          "Pain leading to difficulty sleeping",
+          "Review of Systems (ROS) - Gastrointestinal: Previous gastrointestinal discomfort from NSAIDs",
+          "Review of Systems (ROS) - Musculoskeletal: Pain and tenderness in the lumbar spine, limited range of motion",
+          "Current Medications: Previously on NSAIDs (discontinued due to gastrointestinal discomfort)",
+          "Family History: Mother had rheumatoid arthritis"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is complete and accurate, with no omissions or unsupported/unknown additions. The addition 'Vital signs within normal limits' is supported by the transcript and does not reduce the grade.",
+        "omissions": [],
+        "additions": [
+          "Vital signs within normal limits"
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is complete and accurate, with no omissions or unsupported/unknown additions. The addition 'potentially related to degenerative disc disease with nerve involvement' is supported by the transcript and does not reduce the grade.",
+        "omissions": [],
+        "additions": [
+          "potentially related to degenerative disc disease with nerve involvement"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "C",
+        "summary": "The Plan section includes the core treatment recommendations but has several minor omissions regarding specific medication details (e.g., '1 capsule orally', 'quantity 30 capsules') and the rationale for imaging and lifestyle recommendations. Crucially, it omits important patient education points from the 'Additional Notes' section, specifically the discussion of Gabapentin's potential benefits and risks, and advice on monitoring for side effects. These are moderate omissions impacting patient safety and informed consent documentation.",
+        "omissions": [
+          "Medication detail: '1 capsule orally' for Gabapentin",
+          "Medication detail: 'quantity 30 capsules' for Gabapentin",
+          "Imaging detail: 'to evaluate possible underlying pathological causes' for MRI",
+          "Lifestyle Recommendations detail: 'to improve physical activity levels without exacerbating pain'",
+          "Additional Note: Patient is highly cooperative with medical advice and willing to try new treatments",
+          "Additional Note: Discussed the potential benefits and risks associated with the use of Gabapentin",
+          "Additional Note: Advised on monitoring for any side effects (related to Gabapentin)"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Objective: 'Vital signs within normal limits'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is 120/80 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. Everything looks normal there.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Assessment: 'potentially related to degenerative disc disease with nerve involvement'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It suggests some nerve involvement, which could be related to your degenerative disc disease.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "Vital signs within normal limits",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is 120/80 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. Everything looks normal there.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "potentially related to degenerative disc disease with nerve involvement",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It suggests some nerve involvement, which could be related to your degenerative disc disease.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    }
+  ]
+}

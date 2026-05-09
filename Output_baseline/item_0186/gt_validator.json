@@ -1,0 +1,356 @@
+{
+  "item": "item_0186",
+  "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0186",
+  "ground_truth_soap": "# Medical Note\n\n 1. Subjective\n\nChief Complaint (CC):\nRoutine child health examination with minor concerns of occasional fatigue and pale skin.\n\nHistory of Present Illness (HPI):\nThe patient is a 6-year-old Hispanic female presenting for a routine check-up. Her mother reports occasional fatigue and pale skin for the last month. These symptoms occur once or twice a week and have minimal impact on daily activities. No other associated symptoms were reported.\n\nReview of Systems (ROS):\n- General: Occasional fatigue, pale skin.\n- Sleep: Approximately 9 hours per night.\n- Diet: Prefers carbohydrates, less interested in vegetables and meats.\n- Exercise: Plays outside intermittently, not regularly involved in sports.\n- Tobacco, Alcohol, Drug Use: None.\n- Recreational Activities: Enjoys drawing and playing video games.\n\n 2. Objective\n\nVitals:\n- Temperature: 98.6°F\n- Pulse: 85 bpm\n- Respiratory Rate: 20 bpm\n- Blood Pressure: 100/60 mmHg\n- Height: 42 inches\n- Weight: 40 pounds\n\nPhysical Examination:\n- General: Alert, cooperative, appears mildly pale.\n- HEENT: Slightly pale conjunctiva, no other abnormalities.\n- Cardiac: Normal heart sounds, no murmurs.\n- Respiratory: Clear lung fields.\n- Abdomen: Soft, non-tender, no organomegaly.\n- Neurological: Normal developmental milestones.\n- Vision and Hearing: Normal screenings.\n- Skin: Slight paleness, no rashes or lesions.\n\n 3. Assessment\n\n- 1. Mild iron-deficiency anemia: Considered due to the patient’s history and current symptoms of pale skin and occasional fatigue. Awaiting CBC with differential results to confirm.\n\n 4. Plan\n\n- Blood Work: Ordered Complete Blood Count (CBC) with differential for evaluation of anemia.\n- Diet and Nutrition: Provided educational materials on balanced diet and physical activity. Referred to nutritionist, Dr. Lydia Green, for diet assessment and planning.\n- Follow-Up: Recommended next routine check-up in 6 months. Will review CBC results once available and adjust treatment plan as necessary.\n- Patient Education and Counseling: Discussed with mother the importance of a balanced diet, particularly the inclusion of iron-rich foods. Provided strategies to improve dietary habits and increase physical activity.\n- Socio-economic Considerations: Aware of potential follow-up delays due to socio-economic factors; provided information on community resources available for nutritional support.\n\nInterpreter Used: Yes, for Spanish translation.\n\nPatient Agreements: The patient’s mother understands and agrees with the recommended medical treatment plan.\n\n---\n\nSigned by: Dr. [Physician's Name]\nDate: [Current Date]\nCommunity Health Center",
+  "generated_soap": "Subjective:\n- The patient's mother reports occasional fatigue and pale skin in the patient.\n- No reported fever, cough, or difficulty breathing.\n- Normal sleep pattern.\n- Diet preference for carbohydrates over vegetables and meats.\n- No history of tobacco, alcohol, or drug use in the household.\n\nObjective:\n- Vitals within normal range: temperature 98.6°F, pulse 85 bpm, respiratory rate 20 bpm, blood pressure 100/60 mmHg, height 42 inches, weight 40 pounds.\n- Mild pallor noted.\n- Normal head, eyes, ears, nose, and throat examination.\n- Normal heart and lung examinations.\n- Soft, non-tender abdomen with no signs of organ enlargement.\n- Neurologically meeting developmental milestones.\n- Normal vision and hearing screenings.\n- Slight pallor and no rashes or lesions on skin.\n\nAssessment:\n- Mild iron-deficiency anemia is suspected based on symptoms and physical examination findings.\n\nPlan:\n- Order a Complete Blood Count (CBC) with differential to confirm diagnosis.\n- Discuss diet and nutrition, with a focus on increasing iron-rich foods in the patient's diet.\n- Refer patient to a nutritionist for diet plan creation.\n- Schedule a follow-up appointment in six months to review CBC results and adjust treatment plan if necessary.\n- Provide information on community resources that offer nutritional support.",
+  "entities_gt": {
+    "all_entities": [
+      "occasional fatigue",
+      "symptoms",
+      "temperature",
+      "pulse",
+      "respiratory rate",
+      "blood pressure",
+      "cardiac",
+      "heart sounds",
+      "clear lung fields",
+      "abdomen",
+      "cbc",
+      "blood work",
+      "complete blood count",
+      "treatment plan",
+      "recommended medical treatment plan"
+    ],
+    "symptoms": [
+      "occasional fatigue",
+      "pale skin"
+    ],
+    "medications": [],
+    "labs": [
+      "temperature",
+      "pulse",
+      "respiratory rate",
+      "blood pressure",
+      "heart sounds",
+      "cbc",
+      "blood work",
+      "complete blood count"
+    ]
+  },
+  "entities_generated": {
+    "all_entities": [
+      "cough",
+      "temperature",
+      "pulse",
+      "respiratory rate",
+      "blood pressure",
+      "head",
+      "eyes",
+      "ears",
+      "nose",
+      "throat",
+      "symptoms",
+      "complete blood count",
+      "cbc",
+      "treatment plan"
+    ],
+    "symptoms": [
+      "occasional fatigue",
+      "cough",
+      "difficulty breathing",
+      "symptoms"
+    ],
+    "medications": [],
+    "labs": [
+      "temperature",
+      "pulse",
+      "respiratory rate",
+      "blood pressure",
+      "weight 40 pounds",
+      "complete blood count",
+      "cbc"
+    ]
+  },
+  "clinical_recall_all": {
+    "gt_count": 15,
+    "gen_count": 14,
+    "overlap_count": 8,
+    "recall": 0.5333333333333333,
+    "gt_only": [
+      "abdomen",
+      "blood work",
+      "cardiac",
+      "clear lung fields",
+      "heart sounds",
+      "occasional fatigue",
+      "recommended medical treatment plan"
+    ],
+    "gen_only": [
+      "cough",
+      "ears",
+      "eyes",
+      "head",
+      "nose",
+      "throat"
+    ],
+    "overlap": [
+      "blood pressure",
+      "cbc",
+      "complete blood count",
+      "pulse",
+      "respiratory rate",
+      "symptoms",
+      "temperature",
+      "treatment plan"
+    ]
+  },
+  "clinical_recall_symptoms": {
+    "gt_count": 2,
+    "gen_count": 4,
+    "overlap_count": 1,
+    "recall": 0.5,
+    "gt_only": [
+      "pale skin"
+    ],
+    "gen_only": [
+      "cough",
+      "difficulty breathing",
+      "symptoms"
+    ],
+    "overlap": [
+      "occasional fatigue"
+    ]
+  },
+  "clinical_recall_medications": {
+    "gt_count": 0,
+    "gen_count": 0,
+    "overlap_count": 0,
+    "recall": 0.0,
+    "gt_only": [],
+    "gen_only": [],
+    "overlap": []
+  },
+  "clinical_recall_labs": {
+    "gt_count": 8,
+    "gen_count": 7,
+    "overlap_count": 6,
+    "recall": 0.75,
+    "gt_only": [
+      "blood work",
+      "heart sounds"
+    ],
+    "gen_only": [
+      "weight 40 pounds"
+    ],
+    "overlap": [
+      "blood pressure",
+      "cbc",
+      "complete blood count",
+      "pulse",
+      "respiratory rate",
+      "temperature"
+    ]
+  },
+  "structural_alignment": {
+    "overall_token_f1": 0.0,
+    "overall_rouge_l_f1": 0.0,
+    "by_section": [
+      {
+        "section": "Subjective",
+        "gt_present": false,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      },
+      {
+        "section": "Objective",
+        "gt_present": false,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      },
+      {
+        "section": "Assessment",
+        "gt_present": false,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      },
+      {
+        "section": "Plan",
+        "gt_present": false,
+        "gen_present": true,
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
+      }
+    ],
+    "assessment_alignment_score": 0.0,
+    "plan_alignment_score": 0.0
+  },
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a clinically usable summary but has noticeable gaps and one moderate unsupported addition. Significant omissions include the Chief Complaint, patient's age and race, details regarding interpreter use, patient agreements, and socio-economic considerations. The Objective section contains an unsupported generalization about the HEENT examination being 'normal' despite the Ground Truth noting 'slightly pale conjunctiva,' which introduces a factual inaccuracy. While the core clinical content for assessment and plan is present, these issues reduce the overall completeness and reliability of the documentation.",
+    "omissions": [
+      "Chief Complaint section and content",
+      "History of Present Illness section and content (details like age, race, duration, frequency, impact, no other associated symptoms)",
+      "Review of Systems section",
+      "Interpreter Used information",
+      "Patient Agreements information",
+      "Physician's signature, date, and clinic name"
+    ],
+    "additions": [],
+    "hallucinations_or_unjustified_inferences": [
+      "\"Normal head, eyes, ears, nose, and throat examination.\" (as an over-generalization)"
+    ],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "C",
+        "summary": "This section has several moderate omissions, including the Chief Complaint header and content, the patient's age and race, and the Review of Systems header. While the main HPI symptoms are captured, the lack of these key demographic and contextual details makes the section meaningfully incomplete. All additions in this section were supported by the transcript.",
+        "omissions": [
+          "Chief Complaint (CC) section header and content (\"Routine child health examination with minor concerns of occasional fatigue and pale skin.\")",
+          "History of Present Illness (HPI) section header",
+          "Patient's age and race (\"6-year-old Hispanic female\")",
+          "Duration of symptoms (\"for the last month\")",
+          "Frequency of symptoms (\"once or twice a week\")",
+          "Impact on daily activities (\"minimal impact on daily activities\")",
+          "\"No other associated symptoms were reported\" (from HPI)",
+          "Review of Systems (ROS) section header",
+          "Specific sleep duration (\"Approximately 9 hours per night\")",
+          "Specific diet detail (\"less interested in vegetables and meats\")",
+          "Exercise details (\"Plays outside intermittently, not regularly involved in sports\")",
+          "Recreational Activities (\"Enjoys drawing and playing video games\")",
+          "\"General: Occasional fatigue, pale skin.\" (ROS sub-section)"
+        ],
+        "additions": [
+          "\"No reported fever, cough, or difficulty breathing.\"",
+          "\"Normal sleep pattern.\" (as a summary, instead of specific hours)",
+          "\"No history of tobacco, alcohol, or drug use in the household.\" (adding 'in the household')"
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "C",
+        "summary": "This section contains a moderate unsupported addition: 'Normal head, eyes, ears, nose, and throat examination.' This is inaccurate as the Ground Truth specifically noted 'Slightly pale conjunctiva.' While overall pallor was noted elsewhere, this generalization misrepresents a specific physical exam finding. Minor omissions include 'General: Alert, cooperative' and specific details like 'no murmurs' and 'Clear lung fields' which were generalized.",
+        "omissions": [
+          "\"General: Alert, cooperative\"",
+          "Specific HEENT finding: \"Slightly pale conjunctiva, no other abnormalities.\"",
+          "Specific Cardiac finding: \"no murmurs.\"",
+          "Specific Respiratory finding: \"Clear lung fields.\""
+        ],
+        "additions": [
+          "\"Vitals within normal range\"",
+          "\"Normal head, eyes, ears, nose, and throat examination.\" (as an over-generalization)",
+          "\"Normal heart and lung examinations.\" (as an over-generalization)"
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "This section accurately captures the core assessment of mild iron-deficiency anemia. The omissions ('Considered due to the patient’s history...' and 'Awaiting CBC...') are minor details that do not detract from the clinical usefulness of the assessment. All additions were supported by the transcript.",
+        "omissions": [
+          "\"Considered due to the patient’s history and current symptoms of pale skin and occasional fatigue.\"",
+          "\"Awaiting CBC with differential results to confirm.\""
+        ],
+        "additions": [
+          "\"based on symptoms and physical examination findings.\" (explicitly adding 'physical examination findings')"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "C",
+        "summary": "This section has multiple moderate omissions that reduce its completeness. Key missing elements include the 'Patient Education and Counseling' section content, 'Socio-economic Considerations' (including awareness of follow-up delays and community resources), 'Interpreter Used' information, and 'Patient Agreements.' While the core plan items are present, these omissions remove important contextual and administrative details for comprehensive patient care. All additions in this section were supported by the transcript.",
+        "omissions": [
+          "\"for evaluation of anemia.\" (from Blood Work)",
+          "\"Provided educational materials on balanced diet and physical activity.\"",
+          "Specific nutritionist name: \"Dr. Lydia Green\"",
+          "\"Recommended next routine check-up\" (phrasing difference)",
+          "\"Patient Education and Counseling\" section header and content (\"Discussed with mother the importance of a balanced diet, particularly the inclusion of iron-rich foods. Provided strategies to improve dietary habits and increase physical activity.\")",
+          "\"Socio-economic Considerations\" section header and content (\"Aware of potential follow-up delays due to socio-economic factors;\")",
+          "\"Interpreter Used: Yes, for Spanish translation.\"",
+          "\"Patient Agreements: The patient’s mother understands and agrees with the recommended medical treatment plan.\""
+        ],
+        "additions": [
+          "\"to confirm diagnosis.\" (from Blood Work)",
+          "\"with a focus on increasing iron-rich foods in the patient's diet.\" (from Diet and Nutrition)",
+          "\"for diet plan creation.\" (from Refer to nutritionist)"
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "\"No reported fever, cough, or difficulty breathing.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, nothing like that. Just the occasional tiredness and pale skin.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Normal sleep pattern.\" (as a summary, instead of specific hours)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "She usually sleeps about 9 hours each night. [Doctor]: That's good to hear.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"No history of tobacco, alcohol, or drug use in the household.\" (adding 'in the household')",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Understood. Any tobacco, alcohol, or drug use in the household?\n[patient's mother]: No, none at all.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Vitals within normal range\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Her temperature is 98.6°F, pulse is 85 bpm, respiratory rate is 20 breaths per minute, and blood pressure is 100/60 mmHg. Her height is 42 inches and weight is 40 pounds. Everything looks within normal range.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Normal head, eyes, ears, nose, and throat examination.\" (as an over-generalization)",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"Normal heart and lung examinations.\" (as an over-generalization)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Her heart sounds are normal and there are no murmurs. Lungs are clear.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"based on symptoms and physical examination findings.\" (explicitly adding 'physical examination findings')",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on the examination and your description of her symptoms, it seems she might have mild iron-deficiency anemia.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"to confirm diagnosis.\" (from Blood Work)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "To confirm this, we'll need to do a blood test, specifically a Complete Blood Count (CBC) with differential.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"with a focus on increasing iron-rich foods in the patient's diet.\" (from Diet and Nutrition)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's important to include more iron-rich foods like leafy greens, beans, and lean meats in her diet.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    },
+    {
+      "addition_text": "\"for diet plan creation.\" (from Refer to nutritionist)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'll refer you to a nutritionist, Dr. Lydia Green, who can help you create a diet plan.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null
+    }
+  ]
+}
