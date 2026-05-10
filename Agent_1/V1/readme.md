@@ -1,6 +1,6 @@
-#  v1 – SOAP Generation Pipeline (Agent-1)
+# v1 – SOAP Generation Pipeline (Agent-1)
 
-##  Overview
+## Overview
 
 The `v1/` folder contains the **first version of the SOAP note generation pipeline** for Agent-1.
 
@@ -13,7 +13,7 @@ It defines how:
 
 ---
 
-##  Architecture (High-Level Flow)
+## Architecture (High-Level Flow)
 
 ```
 Transcript → Prompt Template → LLM (Mistral via Ollama) → SOAP Output → JSON Results
@@ -21,7 +21,7 @@ Transcript → Prompt Template → LLM (Mistral via Ollama) → SOAP Output → 
 
 ---
 
-##  Files in This Folder
+## Files in This Folder
 
 ### 1. `generate.py`
 
@@ -51,7 +51,7 @@ generate_soap_v1(transcript, prompt_path="v1/prompt.txt", prompt_optimizations=N
 * Prompt is dynamically constructed using placeholders:
 
   * `{transcript}`
-  * `{prompt_optimizations}` 
+  * `{prompt_optimizations}`
 
 ---
 
@@ -98,8 +98,6 @@ data/clean_medsynth_final.json
 }
 ```
 
-
-
 ---
 
 ### 3. `prompt.txt` (structure) [We have all the prompts inside the Promots folder]
@@ -122,7 +120,7 @@ data/clean_medsynth_final.json
 
 ---
 
-##  Execution Workflow
+## Execution Workflow
 
 ### Step 1: Load Dataset
 
@@ -155,15 +153,15 @@ v1_results.json
 
 ---
 
-##  How to Run
+## How to Run
 
-### Run full pipeline:
+### Run full pipeline
 
 ```bash
 python v1/run.py
 ```
 
-### Customize number of samples:
+### Customize number of samples
 
 ```python
 run_v1(num_samples=100)
@@ -171,7 +169,7 @@ run_v1(num_samples=100)
 
 ---
 
-##  Configuration
+## Configuration
 
 | Parameter   | Value                     | Purpose              |
 | ----------- | ------------------------- | -------------------- |
@@ -182,7 +180,7 @@ run_v1(num_samples=100)
 
 ---
 
-##  Design Decisions
+## Design Decisions
 
 ### Deterministic Outputs
 
@@ -204,7 +202,7 @@ run_v1(num_samples=100)
 
 ---
 
-##  Limitations (v1)
+## Limitations (v1)
 
 * No evaluation inside pipeline (handled separately)
 * No error recovery beyond simple try/except
@@ -214,7 +212,7 @@ run_v1(num_samples=100)
 
 ---
 
-##  Key Insight
+## Key Insight
 
 `v1` is your **baseline generation engine**.
 
