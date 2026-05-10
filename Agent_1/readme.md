@@ -68,7 +68,7 @@ pip install -r requirements.txt
 
 ```bash
 we used the Ollama models
-Used llama 3.2 vision model
+Used llama mistrail model
 ```
 
 ---
