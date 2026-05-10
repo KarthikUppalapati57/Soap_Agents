@@ -42,7 +42,7 @@ User Input → Prompt Engineering → LLM → SOAP Formatter → JSON Output
 Agent-1/
 │── main.py              # Entry point
 │── prompts/             # Prompt templates
-│── V1          # This flder have all the agent codes
+│── V1                   # This folder have all the agent codes
 │── utils/               # Helper functions
 │── results/             # Generated outputs
 ```
