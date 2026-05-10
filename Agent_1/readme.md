@@ -118,8 +118,15 @@ Results are stored in:
 
 ```
 /results/v1_results.json
+/results/v1_rouge_zero_shot.json
+/results/v1_rouge_one_shot.json
+/results/v1_rouge_few_shot.json
+/results/Final_rouge_summary.json
+/results/rouge_summary.json
+/results/rouge_scores_comparison.png
 ```
 
+** note the generated SOAP notes are stored in Google drive and the access in the readme.md file of result folder
 ---
 
 ## Design Decisions
