@@ -234,45 +234,56 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a mostly usable clinical summary but contains significant issues that reduce its completeness and accuracy. The Subjective section includes an unsupported addition of objective diagnoses, which is a structural error. The Assessment section notably omits all reasoning for the diagnoses, making it meaningfully incomplete. While the Objective and Plan sections are strong, these critical gaps and an unsupported addition in other sections warrant a lower overall grade.",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions, most critically the complete absence of clinical reasoning for all diagnoses in the Assessment section, which materially reduces its usefulness. Additionally, there are numerous moderate omissions of detailed Review of Systems, physical exam findings, and patient education points across other sections. One addition in the Objective section was identified as unsupported, contributing to overall alignment issues.",
     "omissions": [
-      "Review of Systems (ROS) detail: No chest pain or palpitations",
-      "Review of Systems (ROS) detail: No changes in bowel habits",
-      "Review of Systems (ROS) detail: No polyuria or polydipsia",
-      "Review of Systems (ROS) detail: No headaches or dizziness",
-      "History of Present Illness (HPI) detail: daily difficulties with physical activity",
-      "General physical exam finding: expresses frustration with past failed weight loss attempts",
-      "Cardiovascular physical exam finding: no murmurs",
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Daily difficulties with physical activity (from HPI)",
+      "Review of Systems (ROS) section header",
+      "ROS - Cardiovascular: No chest pain or palpitations",
+      "ROS - Respiratory: with exertion",
+      "ROS - Gastrointestinal: No changes in bowel habits",
+      "ROS - Endocrine: No polyuria or polydipsia",
+      "ROS - Neurological: No headaches or dizziness",
+      "Physical Examination section header",
+      "General physical exam finding: Alert, cooperative but expresses frustration with past failed weight loss attempts",
+      "Respiratory physical exam detail: to auscultation bilaterally",
+      "Cardiovascular physical exam findings: Regular rate and rhythm, no murmurs",
       "Extremities physical exam finding: No edema",
-      "Reasoning for Severe obesity diagnosis",
-      "Reasoning for Hypertension diagnosis",
-      "Reasoning for Pre-diabetes diagnosis",
-      "Patient education detail: Advised to aim for gradual weight loss targets and set realistic goals",
-      "Patient agreement to the recommended medical treatment plan",
-      "Status of pending laboratory results (Awaiting results from ordered biochemistry panel including lipid profile and HbA1c)"
+      "Reasoning for Severe obesity in Assessment",
+      "Reasoning for Hypertension in Assessment",
+      "Reasoning for Pre-diabetes in Assessment",
+      "\"due to excess calories\" for severe obesity in Assessment",
+      "Metformin dosage detail: orally",
+      "Patient education point: Discussed the importance of a balanced diet and regular exercise",
+      "Patient education point: Advised to aim for gradual weight loss targets and set realistic goals",
+      "Laboratory Tests section: Pending Results: Awaiting results from the ordered biochemistry panel including lipid profile and HbA1c",
+      "Patient Agreements section: The patient understands and agrees with the recommended medical treatment plan"
     ],
     "additions": [
-      "Hypertension, pre-diabetes noted in physical examination (in Subjective section)",
-      "No wheezing or rales in lungs (listed under heart sounds in Objective section)",
-      "of the knees (when describing knee pain on palpation)",
-      "bring it to the next visit (regarding blood pressure log)"
+      "Subjective: Hypertension, pre-diabetes noted in physical examination",
+      "Objective: \"no wheezing or rales in lungs\" attached to \"Heart sounds normal\" (misplaced/redundant in this context)",
+      "Plan: \"bring it to the next visit\" (referring to the blood pressure log)"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Hypertension, pre-diabetes noted in physical examination (in Subjective section)",
-      "Hypertension, pre-diabetes noted in physical examination"
+      "Objective: \"no wheezing or rales in lungs\" attached to \"Heart sounds normal\" (misplaced/redundant in this context)"
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several minor omissions of negative Review of Systems findings and a minor History of Present Illness detail. More significantly, it includes an unsupported addition of 'Hypertension, pre-diabetes noted in physical examination' within the subjective section, which is a structural error and introduces misleading content.",
+        "summary": "The Subjective section omits several section headers (CC, HPI, ROS) and numerous negative findings from the Review of Systems (Cardiovascular, GI, Endocrine, Neurological). While the core HPI is present, the lack of detail and structured ROS makes the section meaningfully incomplete.",
         "omissions": [
-          "Review of Systems (ROS) detail: No chest pain or palpitations",
-          "Review of Systems (ROS) detail: No changes in bowel habits",
-          "Review of Systems (ROS) detail: No polyuria or polydipsia",
-          "Review of Systems (ROS) detail: No headaches or dizziness",
-          "History of Present Illness (HPI) detail: daily difficulties with physical activity"
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Daily difficulties with physical activity",
+          "Review of Systems (ROS) section header",
+          "ROS - Cardiovascular: No chest pain or palpitations",
+          "ROS - Respiratory: with exertion",
+          "ROS - Gastrointestinal: No changes in bowel habits",
+          "ROS - Endocrine: No polyuria or polydipsia",
+          "ROS - Neurological: No headaches or dizziness"
         ],
         "additions": [
           "Hypertension, pre-diabetes noted in physical examination"
@@ -280,40 +291,44 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "This section is strong, accurately capturing key objective findings. It has only a few minor omissions of negative physical exam findings and a minor behavioral observation, none of which materially impact clinical usefulness. There are no unsupported or unknown additions.",
+        "grade": "C",
+        "summary": "The Objective section omits the Physical Examination header, important general findings (patient demeanor), and several negative physical exam details (Cardiovascular, Extremities). Although an addition related to respiratory findings was noted, it was supported by the transcript and does not lower the grade for this section.",
         "omissions": [
-          "General physical exam finding: expresses frustration with past failed weight loss attempts",
-          "Cardiovascular physical exam finding: no murmurs",
+          "Physical Examination section header",
+          "General physical exam finding: Alert, cooperative but expresses frustration with past failed weight loss attempts",
+          "Respiratory physical exam detail: to auscultation bilaterally",
+          "Cardiovascular physical exam findings: Regular rate and rhythm, no murmurs",
           "Extremities physical exam finding: No edema"
         ],
         "additions": [
-          "No wheezing or rales in lungs (listed under heart sounds)",
-          "of the knees (when describing knee pain on palpation)"
+          "no wheezing or rales in lungs attached to Heart sounds normal"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "While the diagnoses are correctly identified, this section completely omits the reasoning for severe obesity, hypertension, and pre-diabetes. These are moderate omissions that significantly reduce the clinical usefulness and completeness of the assessment, making it less informative for other clinicians.",
+        "grade": "D",
+        "summary": "This section presents a major issue by completely omitting the clinical reasoning for all three diagnoses (Severe obesity, Hypertension, Pre-diabetes). This significantly reduces the clinical usefulness and interpretability of the assessment, making it materially incomplete.",
         "omissions": [
-          "Reasoning for Severe obesity diagnosis",
-          "Reasoning for Hypertension diagnosis",
-          "Reasoning for Pre-diabetes diagnosis"
+          "Reasoning for Severe obesity: The patient's history, physical examination, and reported lifestyle habits are consistent with severe obesity. The patient also has associated symptoms including shortness of breath and knee pain, which are common in obesity.",
+          "Reasoning for Hypertension: Persistent blood pressure reading of 140/90 mmHg.",
+          "Reasoning for Pre-diabetes: Previous diagnosis supported by family history of type 2 diabetes and current lifestyle factors.",
+          "\"due to excess calories\" for severe obesity"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "This section is comprehensive and captures all major interventions. It has only a few minor omissions related to specific patient education details, patient agreement, and the status of pending labs, but these do not detract from the core action items. There are no unsupported or unknown additions.",
+        "grade": "C",
+        "summary": "The Plan section has several moderate omissions, including a specific dosage detail for Metformin, two important patient education points (balanced diet/exercise, gradual weight loss goals), and the 'Patient Agreements' section. While the core treatment plan is present, these omissions make the section less comprehensive regarding patient counseling and documentation.",
         "omissions": [
-          "Patient education detail: Advised to aim for gradual weight loss targets and set realistic goals",
-          "Patient agreement to the recommended medical treatment plan",
-          "Status of pending laboratory results (Awaiting results from ordered biochemistry panel including lipid profile and HbA1c)"
+          "Metformin dosage detail: orally",
+          "Patient education point: Discussed the importance of a balanced diet and regular exercise",
+          "Patient education point: Advised to aim for gradual weight loss targets and set realistic goals",
+          "Laboratory Tests section: Pending Results: Awaiting results from the ordered biochemistry panel including lipid profile and HbA1c",
+          "Patient Agreements section: The patient understands and agrees with the recommended medical treatment plan"
         ],
         "additions": [
-          "bring it to the next visit (regarding blood pressure log)"
+          "bring it to the next visit (referring to the blood pressure log)"
         ]
       }
     ],
@@ -322,46 +337,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Hypertension, pre-diabetes noted in physical examination (in Subjective section)",
+      "addition_text": "Subjective: Hypertension, pre-diabetes noted in physical examination",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on your symptoms and physical exam, I would diagnose you with severe obesity, hypertension, and pre-diabetes.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Objective: \"no wheezing or rales in lungs\" attached to \"Heart sounds normal\" (misplaced/redundant in this context)",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "No wheezing or rales in lungs (listed under heart sounds in Objective section)",
+      "addition_text": "Plan: \"bring it to the next visit\" (referring to the blood pressure log)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your heart sounds normal, and there's no wheezing or rales in your lungs.",
+      "transcript_evidence": "keep a log of your blood pressure at home and bring it with you to the next visit.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "of the knees (when describing knee pain on palpation)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "pain on palpation of your knees",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "bring it to the next visit (regarding blood pressure log)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "In the meantime, keep a log of your blood pressure at home and bring it with you to the next visit.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Hypertension, pre-diabetes noted in physical examination",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and physical exam, I would diagnose you with severe obesity, hypertension, and pre-diabetes.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "No wheezing or rales in lungs (listed under heart sounds)",
+      "addition_text": "no wheezing or rales in lungs attached to Heart sounds normal",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your heart sounds normal, and there's no wheezing or rales in your lungs.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "bring it to the next visit (referring to the blood pressure log)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "In the meantime, keep a log of your blood pressure at home and bring it with you to the next visit.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

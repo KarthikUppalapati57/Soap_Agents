@@ -281,8 +281,8 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness and completeness. Most notably, the Assessment section completely omits the patient's chronic conditions (Type 2 Diabetes and Hypertension). Additionally, the Subjective section is missing several important negative Review of Systems findings and some contextual details from the History of Present Illness. The Plan section also lacks crucial medical reasoning, patient agreement details, and socio-economic considerations that are important for patient care and adherence. There are no unsupported or unknown additions that negatively impact the grade.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Assessment and Plan sections. Key omissions include the patient's chronic conditions (Type 2 Diabetes, Hypertension) from the Assessment list, and important details in the Plan such as the contingency for a negative RADT, patient support for non-native English speakers, and socio-economic considerations impacting adherence. There are no unsupported or unknown additions.",
     "omissions": [
       "HPI: 'constant' pain description",
       "HPI: 'significantly impacting his daily activities'",
@@ -310,8 +310,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of several negative Review of Systems findings (e.g., no cough, no chest pain, no nausea, no dizziness, no anxiety) and some details from the History of Present Illness, such as the 'constant' nature of the pain, its 'significant impact on daily activities,' and 'difficulty in communicating and swallowing.' While not critical safety issues, these omissions make the HPI less complete and the ROS less thorough.",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete, capturing the chief complaint and main HPI symptoms. However, it omits several minor negative ROS findings and some moderate HPI details, such as the 'constant' nature of the pain, its significant impact on daily activities, and difficulty in communicating.",
         "omissions": [
           "HPI: 'constant' pain description",
           "HPI: 'significantly impacting his daily activities'",
@@ -327,7 +327,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned. The omission of 'no rubs' from the cardiovascular exam is a minor detail. The omission of the 'Tests' subsection for RADT results is a structural issue, but the information about awaiting RADT results is present in the Assessment section, mitigating its impact.",
+        "summary": "The Objective section accurately captures vital signs and most physical examination findings. A minor omission is 'no rubs' from the cardiovascular exam. The note also omits the 'Tests' subsection, specifically the RADT status, though this information is present in the Assessment section of the generated note.",
         "omissions": [
           "Physical Exam: Cardiovascular: 'no rubs'",
           "Tests: 'Rapid antigen detection test (RADT) for Group A Streptococcus: Awaiting results.'"
@@ -336,8 +336,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section has major issues that materially reduce clinical usefulness. The generated note only lists 'Acute pharyngitis' and completely omits the patient's two chronic conditions: 'Type 2 Diabetes, well-managed' and 'Hypertension, controlled.' This represents a significant gap in the patient's overall problem list and assessment. The addition regarding awaiting RADT results is supported by the transcript and does not lower the grade.",
+        "grade": "C",
+        "summary": "The Assessment section is meaningfully incomplete due to the omission of two moderate issues: the patient's Type 2 Diabetes and Hypertension diagnoses. While acute pharyngitis is correctly identified, the absence of these chronic conditions from the primary assessment list reduces the section's completeness.",
         "omissions": [
           "Type 2 Diabetes, well-managed",
           "Hypertension, controlled"
@@ -349,7 +349,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has multiple moderate issues that make the note meaningfully incomplete. Key omissions include the contingency plan for a throat culture if the RADT is negative, the patient's agreement to the plan, the acknowledgment of the patient's non-native English-speaking status and family assistance, and important socio-economic and geographic considerations impacting follow-up and adherence. These omissions reduce the completeness and safety context of the plan. The 'Lifestyle Modifications' heading is a supported addition and does not reduce the grade.",
+        "summary": "The Plan section has multiple moderate omissions that reduce its clinical usefulness. These include the contingency plan for a negative throat culture, important patient agreement details regarding non-native English speaking status and family assistance, and crucial socio-economic and geographic considerations impacting adherence to the treatment plan. There are no unsupported or unknown additions in this section.",
         "omissions": [
           "Acute Pharyngitis - Medical Reasoning: 'The patient's symptoms and physical examination findings are consistent with acute pharyngitis.'",
           "Acute Pharyngitis - Medical Reasoning: 'if negative, a throat culture will be sent.'",
@@ -373,21 +373,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Make sure to maintain hydration with a liquid diet",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle Modifications: Maintain hydration with a liquid diet"
+      "matched_claim_text": "Lifestyle Modifications: Maintain hydration with a liquid diet",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Awaiting results from Rapid Antigen Detection Test (RADT) for Group A Streptococcus",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’ve ordered a rapid antigen detection test (RADT) for Group A Streptococcus, and we are currently awaiting the results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "awaiting results from Rapid Antigen Detection Test (RADT) for Group A Streptococcus"
+      "matched_claim_text": "awaiting results from Rapid Antigen Detection Test (RADT) for Group A Streptococcus",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Lifestyle Modifications' as a heading/category",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Make sure to maintain hydration with a liquid diet",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle Modifications: Maintain hydration with a liquid diet"
+      "matched_claim_text": "Lifestyle Modifications: Maintain hydration with a liquid diet",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

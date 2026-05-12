@@ -235,9 +235,9 @@
     "plan_alignment_score": 0.7142857142857143
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally usable clinical summary. However, it has noticeable gaps in the Subjective section, omitting several moderate details regarding the patient's HPI and social history. The Plan section also has a moderate omission of critical medication details (dosage and frequency) for Levothyroxine. All additions are supported by the transcript and do not negatively impact the grade. These omissions collectively make the note meaningfully incomplete in key areas, warranting a C grade.",
+    "model": "Clinical Documentation AI",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness. The Subjective section is missing several important details regarding the patient's lifestyle, the impact of symptoms on daily life, and sleep quality. Most critically, the Plan section omits essential medication details such as the specific dosage, route, and frequency for Levothyroxine, which are crucial for safe and effective treatment. While the Objective and Assessment sections are well-documented, these major gaps in other key sections lead to an overall low grade.",
     "omissions": [
       "Chief Complaint section header",
       "History of Present Illness section header",
@@ -271,7 +271,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several moderate omissions, including the impact of symptoms on work/recreational activities, the patient sleeping 8-9 hours but still feeling fatigued, details about a sedentary lifestyle, and specific social history regarding smoking and alcohol consumption. These omissions make the subjective account meaningfully incomplete.",
+        "summary": "This section has noticeable gaps due to the omission of several important clinical details. These include the impact of symptoms on work and recreational activities, the patient's persistent fatigue despite 8-9 hours of sleep, their sedentary lifestyle, and their non-smoking/alcohol consumption history. These omissions make the patient's history less comprehensive.",
         "omissions": [
           "Chief Complaint section header",
           "History of Present Illness section header",
@@ -289,7 +289,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-aligned with the Ground Truth. The only omissions are the 'bradycardic' qualifier for heart rate and section headers, which are minor and do not impact clinical usefulness. All core objective data is present.",
+        "summary": "This section is largely accurate and complete. The only omissions are the 'bradycardic' qualifier for heart rate and minor structural section headers, which do not significantly detract from the clinical usefulness of the documented findings.",
         "omissions": [
           "\"bradycardic\" qualifier for heart rate",
           "Vitals section header",
@@ -300,7 +300,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is excellent, with no omissions. All additions are fully supported by the transcript and enhance the clinical context without introducing unsupported information.",
+        "summary": "This section is excellent, with no omissions. All additions made by the generated note are supported by the transcript, enhancing the clarity and clinical reasoning without introducing unsupported information.",
         "omissions": [],
         "additions": [
           "Explanation linking diminished deep tendon reflexes to hypothyroidism",
@@ -310,8 +310,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has moderate omissions of critical medication details, specifically the dosage (50 mcg) and frequency (once daily) for Levothyroxine. While the medication is prescribed, these missing details make the treatment plan incomplete. Minor omissions include the route of administration, an instruction to monitor symptoms' progress (though 'reassess symptoms' is present), and explicit section headers. All additions are supported by the transcript.",
+        "grade": "D",
+        "summary": "This section contains major omissions that significantly reduce its clinical usefulness. Crucially, the specific dosage (50 mcg), route (oral), and frequency (once daily) for Levothyroxine are missing. These are critical details for medication management. The section also omits the instruction to monitor symptoms' progress and several explicit sub-section headers.",
         "omissions": [
           "Specific dosage of Levothyroxine (50 mcg)",
           "Route of administration for Levothyroxine (oral)",
@@ -336,112 +336,144 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I've gained about 10 pounds.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Weight gain of approximately 10 lbs over the same period"
+      "matched_claim_text": "Weight gain of approximately 10 lbs over the same period",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Explanation linking diminished deep tendon reflexes to hypothyroidism (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] It means that your reflexes are not as brisk as we would expect. This can be associated with conditions like hypothyroidism, which seems to match your symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diminished deep tendon reflexes suggest hypothyroidism"
+      "matched_claim_text": "Diminished deep tendon reflexes suggest hypothyroidism",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Mention of alignment with patient's symptoms (fatigue, weight gain, dry skin, hair loss, cold intolerance) (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I also get cold easily. ... [patient] I just feel cold more often than I used to, even when others are comfortable.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cold intolerance"
+      "matched_claim_text": "Cold intolerance",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement \"Awaiting laboratory test results for confirmation\" (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4. These tests will help confirm if you have hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Awaiting laboratory test results for confirmation."
+      "matched_claim_text": "Awaiting laboratory test results for confirmation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"to confirm hypothyroidism\" for Thyroid Function Tests (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4. These tests will help confirm if you have hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Thyroid Function Tests (TSH, Free T3, Free T4) to confirm hypothyroidism"
+      "matched_claim_text": "Initiate Thyroid Function Tests (TSH, Free T3, Free T4) to confirm hypothyroidism",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "Conditional phrasing for Levothyroxine prescription: \"If confirmed\" (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If the tests confirm hypothyroidism, we'll start you on a medication called Levothyroxine. It's a synthetic thyroid hormone that you'll take once daily for lifelong treatment.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If confirmed, prescribe Levothyroxine for lifelong treatment"
+      "matched_claim_text": "If confirmed, prescribe Levothyroxine for lifelong treatment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"monitoring thyroid levels and adjusting medication as needed\" for follow-ups (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You'll need regular follow-ups to monitor your thyroid levels and adjust the medication as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and regular follow-ups for monitoring thyroid levels and adjusting medication as needed."
+      "matched_claim_text": "and regular follow-ups for monitoring thyroid levels and adjusting medication as needed.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"reassess symptoms\" for reevaluation (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We'll see you back in the clinic in 6 weeks to reevaluate and repeat your thyroid function tests.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a reevaluation in 6 weeks to reassess symptoms and repeat thyroid function tests."
+      "matched_claim_text": "Schedule a reevaluation in 6 weeks to reassess symptoms and repeat thyroid function tests.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Weight gain of approximately 10 lbs",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I've gained about 10 pounds.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Weight gain of approximately 10 lbs over the same period"
+      "matched_claim_text": "Weight gain of approximately 10 lbs over the same period",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Explanation linking diminished deep tendon reflexes to hypothyroidism",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] It means that your reflexes are not as brisk as we would expect. This can be associated with conditions like hypothyroidism, which seems to match your symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diminished deep tendon reflexes suggest hypothyroidism"
+      "matched_claim_text": "Diminished deep tendon reflexes suggest hypothyroidism",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Mention of alignment with patient's symptoms (fatigue, weight gain, dry skin, hair loss, cold intolerance)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I also get cold easily. ... [patient] I just feel cold more often than I used to, even when others are comfortable.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cold intolerance"
+      "matched_claim_text": "Cold intolerance",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement \"Awaiting laboratory test results for confirmation\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4. These tests will help confirm if you have hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Awaiting laboratory test results for confirmation."
+      "matched_claim_text": "Awaiting laboratory test results for confirmation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"to confirm hypothyroidism\" for Thyroid Function Tests",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4. These tests will help confirm if you have hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Thyroid Function Tests (TSH, Free T3, Free T4) to confirm hypothyroidism"
+      "matched_claim_text": "Initiate Thyroid Function Tests (TSH, Free T3, Free T4) to confirm hypothyroidism",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "Conditional phrasing for Levothyroxine prescription: \"If confirmed\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If the tests confirm hypothyroidism, we'll start you on a medication called Levothyroxine. It's a synthetic thyroid hormone that you'll take once daily for lifelong treatment.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If confirmed, prescribe Levothyroxine for lifelong treatment"
+      "matched_claim_text": "If confirmed, prescribe Levothyroxine for lifelong treatment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"monitoring thyroid levels and adjusting medication as needed\" for follow-ups",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You'll need regular follow-ups to monitor your thyroid levels and adjust the medication as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and regular follow-ups for monitoring thyroid levels and adjusting medication as needed."
+      "matched_claim_text": "and regular follow-ups for monitoring thyroid levels and adjusting medication as needed.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"reassess symptoms\" for reevaluation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll see you back in the clinic in 6 weeks to reevaluate and repeat your thyroid function tests. It's important to monitor your symptoms' progress and make any necessary adjustments.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

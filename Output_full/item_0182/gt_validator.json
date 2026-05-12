@@ -234,89 +234,115 @@
     "plan_alignment_score": 0.3972602739726028
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness and completeness. Key issues include the complete absence of the detailed Review of Systems in the Subjective section, and the omission of entire 'Preventive Care' and 'INSTRUCTIONS' sections in the Plan, along with specific medication dosage and detailed lifestyle modifications. While the Objective and Assessment sections are largely accurate, the substantial gaps in Subjective and Plan make the note meaningfully incomplete and potentially impact patient safety and understanding.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note provides a basic outline of the patient's visit, capturing the chief complaint, some lifestyle factors, and the primary diagnostic and follow-up plan. However, it suffers from numerous omissions across the Subjective, Assessment, and Plan sections. Key missing details include a comprehensive review of systems, the patient's asymptomatic status and anxiety, a formal differential diagnosis, specific medication instructions, and the entire Preventive Care section with important patient education. While there are no unsupported additions, the significant gaps in clinical detail and planning reduce the note's overall completeness and usefulness, requiring careful review.",
     "omissions": [
-      "Detailed History of Present Illness (HPI) beyond chief complaint and anxiety.",
-      "Comprehensive Review of Systems (ROS).",
-      "Specific details about exercise, alcohol, drug use, and recreational activities.",
-      "Specific vital signs (BP, HR, RR, Temp) listed as 'Not measured'.",
-      "Specific physical exam finding 'N/A as this initial consultation focused on history and lab work orders'.",
-      "Preventive Care section.",
-      "INSTRUCTIONS section.",
-      "Differential Diagnoses section header."
+      "HISTORY OF PRESENT ILLNESS: Initial consultation at the community health center.",
+      "HISTORY OF PRESENT ILLNESS: Patient is cooperative.",
+      "HISTORY OF PRESENT ILLNESS: Patient reports being asymptomatic.",
+      "HISTORY OF PRESENT ILLNESS: Patient wishes to be tested due to a recent exposure, which she did not detail further.",
+      "REVIEW OF SYSTEMS: General: Denies fever, chills, or weight loss.",
+      "REVIEW OF SYSTEMS: Cardiovascular: No chest pain or palpitations.",
+      "REVIEW OF SYSTEMS: Respiratory: Denies cough or shortness of breath.",
+      "REVIEW OF SYSTEMS: Gastrointestinal: No nausea, vomiting, or changes in bowel habits.",
+      "REVIEW OF SYSTEMS: Genitourinary: No dysuria, discharge, or pelvic pain.",
+      "REVIEW OF SYSTEMS: Neurological: No headaches, dizziness, or changes in vision.",
+      "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Exercise: Rarely exercises, physically demanding job.",
+      "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Alcohol Consumption: None.",
+      "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Drug Use: None.",
+      "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Recreational Activities: Enjoys gardening and reading when time allows.",
+      "OBJECTIVE: Specific vital signs listed as 'Not measured during this visit' (Blood Pressure, Heart Rate, Respiratory Rate, Temperature).",
+      "OBJECTIVE: Physical Exam: N/A as this initial consultation focused on history and lab work orders.",
+      "ASSESSMENT: Patient is anxious and seeks testing to confirm her health status (despite being asymptomatic).",
+      "ASSESSMENT: Differential Diagnoses heading.",
+      "ASSESSMENT: Possible STI exposure with no current symptoms (awaiting test results) as a differential diagnosis.",
+      "PLAN: Medications section.",
+      "PLAN: Continue Lisinopril 10 mg daily for hypertension (as a distinct medication entry in Plan).",
+      "PLAN: Lifestyle Modifications: Smoking cessation resources available at the community health center.",
+      "PLAN: Lifestyle Modifications: Managing meal schedules despite shift work.",
+      "PLAN: Lifestyle Modifications: Encourage light physical activities that can be incorporated into her daily routine, considering her job's physical demands.",
+      "PLAN: Follow-up: Phone call to discuss test results and potential management options.",
+      "PLAN: Preventive Care section.",
+      "PLAN: Preventive Care: Educate the patient on the importance of regular STI screenings, especially following suspected exposure.",
+      "PLAN: Preventive Care: Discuss the significance of maintaining regular blood pressure monitoring and management.",
+      "PLAN: INSTRUCTIONS section.",
+      "PLAN: INSTRUCTIONS: Return for a follow-up visit in 2 weeks.",
+      "PLAN: INSTRUCTIONS: Await a phone call for test result discussions.",
+      "PLAN: INSTRUCTIONS: Call the community health center with any immediate questions or concerns."
     ],
     "additions": [
-      "Statement in Assessment: 'Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status.'"
+      "ASSESSMENT: Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status.",
+      "ASSESSMENT: Lisinopril 10 mg daily dosage mentioned in the Assessment section."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section receives a C due to several moderate to major omissions. It omits the comprehensive Review of Systems entirely, which is a significant gap. Additionally, specific details from the History of Present Illness (e.g., initial consultation, patient cooperative, asymptomatic, recent exposure not detailed) and Patient's Self-Reported Habits and Lifestyle (e.g., sleep disrupted by work stress, diet high in processed foods, physically demanding job, no alcohol/drug use, hobbies) are missing, reducing the overall context and completeness.",
+        "summary": "The Subjective section captures the patient's anxiety about potential STI exposure and some lifestyle factors. However, it omits a detailed history of present illness, including the patient being asymptomatic and the specific reason for testing (recent exposure not detailed). A complete review of systems is also missing, as are details regarding exercise habits, alcohol consumption, and drug use.",
         "omissions": [
-          "History of Present Illness details: initial consultation at the community health center.",
-          "History of Present Illness details: patient is cooperative.",
-          "History of Present Illness details: reports being asymptomatic.",
-          "History of Present Illness details: recent exposure, which she did not detail further.",
-          "Review of Systems (ROS) details: General (denies fever, chills, weight loss).",
-          "Review of Systems (ROS) details: Cardiovascular (no chest pain or palpitations).",
-          "Review of Systems (ROS) details: Respiratory (denies cough or shortness of breath).",
-          "Review of Systems (ROS) details: Gastrointestinal (no nausea, vomiting, or changes in bowel habits).",
-          "Review of Systems (ROS) details: Genitourinary (no dysuria, discharge, or pelvic pain).",
-          "Review of Systems (ROS) details: Neurological (no headaches, dizziness, or changes in vision).",
-          "Patient's Self-Reported Habits and Lifestyle details: sleep often disrupted due to work stress.",
-          "Patient's Self-Reported Habits and Lifestyle details: diet high in processed foods; meals irregular due to shift work.",
-          "Patient's Self-Reported Habits and Lifestyle details: rarely exercises, physically demanding job.",
-          "Patient's Self-Reported Habits and Lifestyle details: no alcohol consumption.",
-          "Patient's Self-Reported Habits and Lifestyle details: no drug use.",
-          "Patient's Self-Reported Habits and Lifestyle details: enjoys gardening and reading when time allows."
+          "HISTORY OF PRESENT ILLNESS: Initial consultation at the community health center.",
+          "HISTORY OF PRESENT ILLNESS: Patient is cooperative.",
+          "HISTORY OF PRESENT ILLNESS: Patient reports being asymptomatic.",
+          "HISTORY OF PRESENT ILLNESS: Patient wishes to be tested due to a recent exposure, which she did not detail further.",
+          "REVIEW OF SYSTEMS: General: Denies fever, chills, or weight loss.",
+          "REVIEW OF SYSTEMS: Cardiovascular: No chest pain or palpitations.",
+          "REVIEW OF SYSTEMS: Respiratory: Denies cough or shortness of breath.",
+          "REVIEW OF SYSTEMS: Gastrointestinal: No nausea, vomiting, or changes in bowel habits.",
+          "REVIEW OF SYSTEMS: Genitourinary: No dysuria, discharge, or pelvic pain.",
+          "REVIEW OF SYSTEMS: Neurological: No headaches, dizziness, or changes in vision.",
+          "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Specifics of sleep (4-5 hours, work stress).",
+          "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Specifics of diet (high in processed foods, irregular due to shift work).",
+          "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Exercise (rarely exercises, physically demanding job).",
+          "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Alcohol Consumption (None).",
+          "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Drug Use (None).",
+          "PATIENT'S SELF-REPORTED HABITS AND LIFESTYLE: Recreational Activities (gardening and reading)."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section receives an A. While it omits the specific phrasing 'Not measured during this visit' for vital signs and 'N/A as this initial consultation focused on history and lab work orders' for the physical exam, the generated note accurately states 'No objective data provided,' which conveys the correct clinical information. These omissions are minor and do not impact clinical meaning.",
+        "summary": "The Objective section correctly states that no objective data was provided. However, it omits the GroundTruth's specific documentation that vital signs were 'Not measured during this visit' and that a physical exam was 'N/A as this initial consultation focused on history and lab work orders.' These are minor omissions that do not significantly impact clinical usefulness.",
         "omissions": [
           "Specific vital signs listed as 'Not measured during this visit' (Blood Pressure, Heart Rate, Respiratory Rate, Temperature).",
-          "Physical Exam: 'N/A as this initial consultation focused on history and lab work orders.'"
+          "Physical Exam: N/A as this initial consultation focused on history and lab work orders."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section receives an A. The core assessment is present and accurate. The only omission is the 'Differential Diagnoses' section header, which is a minor structural detail. The addition regarding 'Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status' is supported by the transcript and therefore does not reduce the grade.",
+        "grade": "C",
+        "summary": "The Assessment section identifies the patient's concern over STIs and controlled hypertension. It includes supported additions regarding lifestyle factors and Lisinopril dosage. However, it omits the patient's anxiety and asymptomatic status, as well as the formal 'Differential Diagnoses' heading and the specific differential diagnosis of 'Possible STI exposure with no current symptoms (awaiting test results).'",
         "omissions": [
-          "Differential Diagnoses section header."
+          "Patient is anxious and seeks testing to confirm her health status (despite being asymptomatic).",
+          "Differential Diagnoses heading.",
+          "Possible STI exposure with no current symptoms (awaiting test results) as a differential diagnosis."
         ],
         "additions": [
-          "'Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status.'"
+          "Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status.",
+          "Lisinopril 10 mg daily dosage mentioned in the Assessment section."
         ]
       },
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section receives a D due to multiple major and moderate omissions. Entire critical sections like 'Preventive Care' and 'INSTRUCTIONS' are missing, which are essential for patient education, safety, and follow-up. Additionally, specific details such as the Lisinopril dosage (10 mg daily) and specific actionable lifestyle modifications (e.g., information on balanced diet, encouraging light physical activities) are omitted. These gaps significantly reduce the clinical usefulness and completeness of the patient's care plan.",
+        "summary": "The Plan section outlines diagnostic tests and general lifestyle modifications. However, it omits a distinct 'Medications' section with the instruction to continue Lisinopril. It also lacks specific details for lifestyle modifications (e.g., smoking cessation resources, managing meal schedules, encouraging light physical activities). Crucially, the entire 'Preventive Care' section, including education on STI screenings and blood pressure management, is omitted, as are specific patient instructions for follow-up and immediate concerns. These are major omissions that significantly reduce the clinical usefulness of the plan.",
         "omissions": [
-          "Diagnostic Tests section header.",
-          "Medications section header.",
-          "Specific dosage for Lisinopril (10 mg daily) in the Medications section.",
-          "Lifestyle Modifications section header.",
-          "Specific lifestyle modification: provide information on creating a balanced diet and managing meal schedules despite shift work.",
-          "Specific lifestyle modification: encourage light physical activities that can be incorporated into her daily routine, considering her job's physical demands.",
-          "Follow-up section header.",
-          "Specific follow-up: phone call to discuss test results and potential management options.",
-          "Preventive Care section (entire section).",
-          "Educate the patient on the importance of regular STI screenings.",
-          "Discuss the significance of maintaining regular blood pressure monitoring and management.",
-          "INSTRUCTIONS section (entire section).",
-          "Return for a follow-up visit in 2 weeks.",
-          "Await a phone call for test result discussions.",
-          "Call the community health center with any immediate questions or concerns."
+          "Medications section.",
+          "Continue Lisinopril 10 mg daily for hypertension (as a distinct medication entry in Plan).",
+          "Lifestyle Modifications: Smoking cessation resources available at the community health center.",
+          "Lifestyle Modifications: Managing meal schedules despite shift work.",
+          "Lifestyle Modifications: Encourage light physical activities that can be incorporated into her daily routine, considering her job's physical demands.",
+          "Follow-up: Phone call to discuss test results and potential management options.",
+          "Preventive Care section.",
+          "Preventive Care: Educate the patient on the importance of regular STI screenings, especially following suspected exposure.",
+          "Preventive Care: Discuss the significance of maintaining regular blood pressure monitoring and management.",
+          "INSTRUCTIONS section.",
+          "INSTRUCTIONS: Return for a follow-up visit in 2 weeks.",
+          "INSTRUCTIONS: Await a phone call for test result discussions.",
+          "INSTRUCTIONS: Call the community health center with any immediate questions or concerns."
         ],
         "additions": []
       }
@@ -326,18 +352,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Statement in Assessment: 'Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status.'",
+      "addition_text": "ASSESSMENT: Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Not very well. I get about 4-5 hours a night, and it's often disrupted because of work stress. [Doctor]: Hmm, that sounds tough. ... We’ll also talk about improving your diet and finding ways to incorporate light physical activity into your routine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle factors such as poor sleep may contribute to overall health status"
+      "matched_claim_text": "Lifestyle factors such as poor sleep may contribute to overall health status",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status.'",
+      "addition_text": "ASSESSMENT: Lisinopril 10 mg daily dosage mentioned in the Assessment section.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I have hypertension, but it’s under control with Lisinopril 10 mg daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient is on Lisinopril 10 mg daily",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle factors such as poor sleep, irregular diet, and smoking may contribute to overall health status.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Not very well. I get about 4-5 hours a night, and it's often disrupted because of work stress. [Doctor]: Hmm, that sounds tough. ... We’ll also talk about improving your diet and finding ways to incorporate light physical activity into your routine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle factors such as poor sleep may contribute to overall health status"
+      "matched_claim_text": "Lifestyle factors such as poor sleep may contribute to overall health status",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lisinopril 10 mg daily dosage mentioned in the Assessment section.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I have hypertension, but it’s under control with Lisinopril 10 mg daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient is on Lisinopril 10 mg daily",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

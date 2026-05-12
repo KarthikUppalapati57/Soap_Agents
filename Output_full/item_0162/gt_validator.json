@@ -214,9 +214,9 @@
     "plan_alignment_score": 0.7126436781609196
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Assessment and Plan sections. Key omissions include specific diagnoses for GERD, detailed stability and dosages for chronic conditions, and crucial clinical reasoning for chest pain evaluation. The Plan lacks specific dosages, detailed lifestyle modifications, and comprehensive patient education. While there are no unsupported or unknown additions, the numerous moderate to major omissions make the note meaningfully incomplete and require careful review.",
+    "overall_summary": "The generated note has numerous omissions across all sections, significantly impacting its completeness and clinical utility. The entire Chief Complaint section is missing, and the Assessment and Plan sections lack critical details such as medication dosages, specific diagnostic considerations, and comprehensive lifestyle advice. While there are no unsupported additions, the volume and clinical materiality of the omissions warrant a C grade, as the note is meaningfully incomplete and requires careful review.",
     "omissions": [
       "Chief Complaint section (header and content)",
       "HPI detail: initial telemedicine consultation",
@@ -249,8 +249,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is mostly clinically aligned. However, it omits important negative findings from the Review of Systems, such as no palpitations, no known history of heart disease, no cough, and no wheezing. Minor HPI details like 'initial telemedicine consultation' and 'able to work as a financial analyst' are also missing. The Chief Complaint header is absent, though the content is largely captured. All additions in this section are supported by the transcript.",
+        "grade": "C",
+        "summary": "The Subjective section received a C due to the complete omission of the Chief Complaint section. Additionally, several important details from the HPI (e.g., frequency of pain, patient's occupation) and negative findings from the ROS (cardiovascular, respiratory) were omitted, making the subjective account less comprehensive.",
         "omissions": [
           "Chief Complaint section (header and content)",
           "HPI detail: initial telemedicine consultation",
@@ -267,7 +267,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is usable but omits important contextual information: 'Physical Exam: Not applicable as this is a telemedicine consultation' and 'Vital Signs: Not available'. These omissions reduce the completeness of the objective findings for a telemedicine encounter. The addition of 'Blood tests ordered' is supported by the transcript.",
+        "summary": "The Objective section omitted the crucial context that the physical exam was not applicable due to telemedicine and that vital signs were not available. While blood tests were mentioned, the absence of other objective data and its context are important details.",
         "omissions": [
           "Physical Exam: Not applicable as this is a telemedicine consultation",
           "Vital Signs: Not available"
@@ -279,7 +279,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has noticeable gaps that make it meaningfully incomplete. It omits specific diagnoses/suspicions for GERD, detailed stability and specific dosages for hypothyroidism (75 mcg daily) and hypercholesterolemia (10 mg daily). Crucial clinical reasoning for chest pain evaluation, such as 'rule out cardiovascular causes' and 'family history of hypertension and breast cancer', is also missing. The generated assessment is very high-level compared to the Ground Truth. All additions in this section are supported by the transcript.",
+        "summary": "The Assessment section suffered from multiple moderate omissions, including the specific stability and dosages for hypothyroidism and hypercholesterolemia, the explicit suspicion of GERD, and key details for chest pain evaluation such as ruling out cardiovascular causes and family history. The generated assessment is overly general and lacks specificity.",
         "omissions": [
           "Hypothyroidism stability and specific dosage (75 mcg daily)",
           "Hypercholesterolemia stability and specific dosage (10 mg daily)",
@@ -294,7 +294,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions that reduce its clinical usefulness. It lacks the specific dosage for Pantoprazole (40 mg daily), detailed components of the investigations (awaiting specific blood test results), and the specific reason for cardiologist referral ('potential cardiovascular risk assessment'). Specifics for lifestyle modifications, such as 'focus on organic foods' and detailed exercise types/frequencies (jogging 3 times a week and yoga twice a week), are also omitted, as is the patient education point on 'importance of consistent medication adherence'.",
+        "summary": "The Plan section received a C due to several significant omissions. These include the specific dosage for Pantoprazole, the detailed list of ordered blood tests (Thyroid function tests, Lipid panel, and Cardiac enzymes), specific details for lifestyle modifications (organic foods, specific exercise types/frequencies), and the importance of medication adherence. The missing medication dosage is a critical omission.",
         "omissions": [
           "Pantoprazole dosage 40 mg daily",
           "Investigations: Await results of ordered blood tests (Thyroid function tests, Lipid panel, and Cardiac enzymes) as a statement in Plan",
@@ -307,7 +307,7 @@
         "additions": []
       }
     ],
-    "rubric_notes": null
+    "rubric_notes": "All additions identified in the discrepancy list were supported by the transcript and therefore did not reduce any section or overall grade. Grading was based solely on omissions."
   },
   "expert_judge_error": null,
   "addition_evidence": [
@@ -316,56 +316,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, it usually happens after I eat certain foods, like spicy dishes. It feels like a burning sensation in my chest.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Heartburn after consumption of spicy foods"
+      "matched_claim_text": "Heartburn after consumption of spicy foods",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Atorvastatin for high cholesterol (information moved from GT Assessment to Generated Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'm also on Atorvastatin for high cholesterol.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Currently on Atorvastatin for high cholesterol"
+      "matched_claim_text": "Currently on Atorvastatin for high cholesterol",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: Blood tests ordered (information moved from GT Plan to Generated Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I want to order some blood tests.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Good compliance with hypothyroidism and cholesterol medications (different phrasing/emphasis than 'Stable on...')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Okay, and are you consistent with your Levothyroxine medication?\n[Patient]: Yes, I take it every day as prescribed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Good compliance with hypothyroidism and cholesterol medications"
+      "matched_claim_text": "Good compliance with hypothyroidism and cholesterol medications",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Heartburn trigger after consumption of spicy foods",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, it usually happens after I eat certain foods, like spicy dishes. It feels like a burning sensation in my chest.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Heartburn after consumption of spicy foods"
+      "matched_claim_text": "Heartburn after consumption of spicy foods",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Atorvastatin for high cholesterol (information moved from GT Assessment to Generated Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'm also on Atorvastatin for high cholesterol.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Currently on Atorvastatin for high cholesterol"
+      "matched_claim_text": "Currently on Atorvastatin for high cholesterol",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Blood tests ordered (information moved from GT Plan to Generated Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I want to order some blood tests. We’ll check your thyroid function, lipid panel, and cardiac enzymes to get a better understanding of what's going on.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Good compliance with hypothyroidism and cholesterol medications",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Okay, and are you consistent with your Levothyroxine medication?\n[Patient]: Yes, I take it every day as prescribed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Good compliance with hypothyroidism and cholesterol medications"
+      "matched_claim_text": "Good compliance with hypothyroidism and cholesterol medications",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

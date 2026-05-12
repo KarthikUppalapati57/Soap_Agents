@@ -234,8 +234,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. All additions were supported by the transcript and did not negatively impact the grade. The note accurately captures the chief complaint, HPI, and the core assessment and plan. However, it omits several detailed denials from the Review of Systems, specific details regarding vitals and pending test results in the Objective section, and some specific elements in the Assessment and Plan, such as seasonal allergies and a detailed list of symptoms to monitor. While these omissions are numerous, most are minor, and the few moderate omissions do not significantly reduce the note's overall clinical usefulness or introduce misleading content.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, but it contains several moderate omissions across multiple sections. Specifically, the Objective section lacks documentation of vitals not being recorded and the explicit status of the RT-PCR test. The Assessment section omits the patient's past medical history of seasonal allergies and the explicit statement that the patient has been tested for SARS-CoV-2. The Plan section also omits the specific COVID-19 symptoms the patient should monitor for. All additions were supported by the transcript and did not impact the grade. These omissions, while not introducing misleading content, make the note meaningfully incomplete in key areas.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -278,7 +278,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the core information regarding possible COVID-19 exposure and asymptomatic status, along with the patient's mild asthma. However, it omits several detailed denials from the Review of Systems (e.g., chills, fatigue, chest tightness, GI symptoms, headache, muscle aches, new allergies) and the patient's specific concern due to asthma. The omission of section headers for CC, HPI, and ROS are minor formatting issues. Despite these omissions, the essential subjective clinical picture is present.",
+        "summary": "The Subjective section has several minor omissions, including various ROS denials and details about the patient being informed of exposure and her concern regarding asthma. However, the core chief complaint, present illness, and relevant history are captured, making the section mostly clinically aligned and usable.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -299,8 +299,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section correctly states that no physical examination was performed due to the patient's asymptomatic status. However, it omits the detailed list of specific vitals (Temperature, Heart Rate, Respiratory Rate, Blood Pressure, Oxygen Saturation) and their status as 'Not recorded, patient asymptomatic' from the Ground Truth. It also omits the explicit mention of the pending RT-PCR test results within the Objective section. These are moderate omissions that reduce the completeness of the objective data, though the main point of no physical exam is conveyed.",
+        "grade": "C",
+        "summary": "The Objective section has noticeable gaps. It omits the specific documentation of vitals not being recorded due to the patient's asymptomatic status and the explicit mention of the RT-PCR test for SARS-CoV-2 awaiting results. While the absence of a physical exam is noted, these omissions make the objective findings meaningfully incomplete.",
         "omissions": [
           "\"due to the nature of the consultation\" (reason for no physical exam)",
           "Vitals Reviewed section",
@@ -312,8 +312,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section provides a concise and accurate summary of the patient's condition, including possible COVID-19 exposure, pending test results, and controlled asthma. However, it omits the patient's past medical history of seasonal allergies and the explicit statement that the patient has been tested for SARS-CoV-2 via RT-PCR within the assessment. While the core assessment is sound, these omissions represent moderate gaps in completeness.",
+        "grade": "C",
+        "summary": "The Assessment section contains moderate omissions, specifically the patient's past medical history of seasonal allergies and the explicit statement that the patient has been tested for SARS-CoV-2 via RT-PCR. These gaps in the patient's medical history and current diagnostic status reduce the completeness of the assessment.",
         "omissions": [
           "Past medical history of seasonal allergies",
           "\"significant for\" (qualifier for PMH)",
@@ -326,7 +326,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section effectively captures all the essential recommendations, including self-isolation, symptom monitoring with Acetaminophen, follow-up, patient education, and preventive measures. However, it omits several section headers (e.g., Self-Isolation, Symptom Monitoring, Medications), the specific reason for self-isolation ('to prevent potential spread'), and a detailed list of specific COVID-19 symptoms to monitor for. It also misses the general advice about using symptomatic over-the-counter medications and the concluding statement about patient understanding and compliance. While numerous, most omissions are minor, and the core plan remains clinically sound and actionable.",
+        "summary": "The Plan section omits several sub-headers and the specific list of COVID-19 symptoms (fever, cough, shortness of breath, loss of taste/smell) the patient should monitor for. While the core instructions for self-isolation, medication, follow-up, and general advice are present, the lack of specific symptoms to monitor is a moderate omission that reduces the clarity of patient education.",
         "omissions": [
           "Self-Isolation section header",
           "Symptom Monitoring section header",
@@ -352,42 +352,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I was informed that I had been in contact with someone who tested positive for COVID-19 recently.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible exposure to COVID-19"
+      "matched_claim_text": "Possible exposure to COVID-19",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Albuterol inhaler PRN (in Subjective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have an albuterol inhaler that I use when needed, but I haven’t needed it recently.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Has albuterol inhaler PRN"
+      "matched_claim_text": "Has albuterol inhaler PRN",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Controlled asthma\" (in Assessment section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I have mild asthma. It’s usually well-controlled. ... I haven’t needed it recently.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Controlled asthma"
+      "matched_claim_text": "Controlled asthma",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Possible exposure to COVID-19 \"three days prior\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I was informed that I had been in contact with someone who tested positive for COVID-19 recently.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible exposure to COVID-19"
+      "matched_claim_text": "Possible exposure to COVID-19",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Albuterol inhaler PRN",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have an albuterol inhaler that I use when needed, but I haven’t needed it recently.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Has albuterol inhaler PRN"
+      "matched_claim_text": "Has albuterol inhaler PRN",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Controlled asthma\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I have mild asthma. It’s usually well-controlled. ... I haven’t needed it recently.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Controlled asthma"
+      "matched_claim_text": "Controlled asthma",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

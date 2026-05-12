@@ -258,57 +258,58 @@
     "plan_alignment_score": 0.6805555555555556
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The GeneratedSOAP note provides a mostly accurate and clinically usable summary of the patient encounter. All additions made by the model are supported by the transcript and therefore do not negatively impact the grade. However, the note has several omissions across the Subjective, Objective, and Plan sections. Key details such as the 5-year history of osteoarthritis, specific functional limitations, and blood work results were omitted. In the Plan, the explicit referral to a specific orthopedic surgeon and the contingency for discussing further options if symptoms do not improve were also missed. Despite these omissions, the core diagnosis and immediate treatment plan are well-captured, making the note largely aligned and usable.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the chief complaint, current symptoms, physical exam findings, assessment, and core treatment plan. All additions are supported by the transcript. However, it contains multiple moderate omissions that make it meaningfully incomplete. These include significant historical context (5-year history of OA), detailed functional impact, the entire Review of Systems section, specific blood work results, the name of the orthopedic surgeon for referral, and the patient agreement section. While usable, these gaps necessitate caution and review.",
     "omissions": [
+      "Patient age (65-year-old)",
+      "Patient race (Caucasian)",
       "5-year history of right knee osteoarthritis",
       "Symptoms are daily",
-      "Specific impacts on mobility: \"ability to walk, climb stairs, and rise from a seated position\"",
-      "Frequency of physical therapy exercises (3 times a week)",
+      "Impacts ability to walk, climb stairs, and rise from a seated position",
       "Uses a cane for short distances",
       "Overall high health literacy",
-      "ROS - Constitutional: Reports good general health",
-      "ROS - Musculoskeletal: No new joint involvement",
-      "ROS - Neurological: No reports of numbness, tingling, or weakness",
+      "Review of Systems (ROS) section",
+      "Constitutional ROS: Reports good general health",
+      "Musculoskeletal ROS: No new joint involvement",
+      "Neurological ROS: No reports of numbness, tingling, or weakness",
       "Blood Work: CBC and BMP within normal limits except for slightly elevated cholesterol levels",
-      "\"Unilateral\" for primary osteoarthritis",
-      "\"today\" for corticosteroid injection",
-      "\"oral\" for Meloxicam",
-      "\"If symptoms do not improve\" for discussing further options",
-      "Referral to Dr. John Smith, Orthopedic Surgeon, for further evaluation and management of right knee osteoarthritis",
+      "\"oral\" route for Meloxicam",
+      "Referral to Dr. John Smith, Orthopedic Surgeon",
       "Advise continuing with low-impact exercises",
-      "Patient Agreements section: \"The patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications\""
+      "Patient Agreements section (Patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications)"
     ],
     "additions": [
-      "Assessment: \"persists\" (qualifier for osteoarthritis)",
-      "Assessment: \"inflammation\" (as a cause of symptoms in assessment)",
-      "Assessment: \"but requires further management for improved symptoms\""
+      "Assessment elaborates on diagnosis: \"persists, causing pain, inflammation, and limited mobility.\"",
+      "Assessment includes statement: \"The patient... requires further management for improved symptoms.\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main symptoms but omits several minor to moderate details. These include the 5-year history of osteoarthritis, specific impacts on mobility (walking, climbing stairs, rising from seated), frequency of physical therapy, use of a cane, and several negative findings from the Review of Systems. While the core information is present, these omissions reduce the completeness of the patient's history.",
+        "grade": "C",
+        "summary": "The Subjective section captures the chief complaint and current symptoms but omits several important details from the HPI, such as the 5-year history of osteoarthritis and the specific functional impacts on walking, climbing stairs, and rising from a seated position. A significant structural omission is the entire Review of Systems section, which includes details about good general health, no new joint involvement, and no neurological symptoms. Several minor details like patient age, race, daily symptom frequency, cane use, and health literacy are also missing.",
         "omissions": [
+          "Chief Complaint section header",
+          "HPI section header",
+          "Patient age (65-year-old)",
+          "Patient race (Caucasian)",
           "5-year history of right knee osteoarthritis",
           "Symptoms are daily",
-          "Specific impacts on mobility: \"ability to walk, climb stairs, and rise from a seated position\"",
-          "Performs prescribed physical therapy exercises 3 times a week",
+          "Impacts ability to walk, climb stairs, and rise from a seated position",
           "Uses a cane for short distances",
           "Overall high health literacy",
-          "ROS - Constitutional: Reports good general health",
-          "ROS - Musculoskeletal: No new joint involvement",
-          "ROS - Neurological: No reports of numbness, tingling, or weakness",
-          "Maintains a balanced diet"
+          "Review of Systems (ROS) section",
+          "Constitutional ROS: Reports good general health",
+          "Musculoskeletal ROS: No new joint involvement",
+          "Neurological ROS: No reports of numbness, tingling, or weakness"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports vitals, physical exam findings, and X-ray results. However, it omits the details regarding blood work, specifically that CBC and BMP were within normal limits except for slightly elevated cholesterol levels. This is a moderate omission of relevant investigation results.",
+        "summary": "The Objective section accurately reports vitals and physical exam findings. The primary omission is the detailed blood work results, specifically that CBC and BMP were within normal limits except for slightly elevated cholesterol levels.",
         "omissions": [
           "Blood Work: CBC and BMP within normal limits except for slightly elevated cholesterol levels"
         ],
@@ -317,26 +318,22 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is strong, accurately identifying primary osteoarthritis in the right knee. The only omission is the word \"Unilateral.\" All additions in this section are supported by the transcript and enhance the clinical context without introducing unsupported information.",
-        "omissions": [
-          "\"Unilateral\" for primary osteoarthritis"
-        ],
+        "summary": "The Assessment section is excellent, accurately stating the diagnosis. All additional elaborations on the diagnosis and patient compliance are fully supported by the transcript and enhance the clinical picture without introducing any unsupported information.",
+        "omissions": [],
         "additions": [
-          "\"persists, causing pain, inflammation, and limited mobility.\"",
-          "\"The patient is compliant with physical therapy exercises and a balanced diet but requires further management for improved symptoms.\""
+          "Elaboration on diagnosis: \"persists, causing pain, inflammation, and limited mobility.\"",
+          "Statement: \"The patient is compliant with physical therapy exercises and a balanced diet but requires further management for improved symptoms.\""
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section captures the main treatment strategies (corticosteroid injection, Meloxicam, follow-up, MRI, lifestyle advice). However, it has several omissions, including the specific timing of the injection (\"today\"), the route of administration for Meloxicam (\"oral\"), and the important contingency for discussing further options \"If symptoms do not improve.\" Most significantly, the explicit referral to Dr. John Smith, Orthopedic Surgeon, is omitted, which is a material gap in the comprehensive plan.",
+        "summary": "The Plan section outlines the main treatment strategies, including the injection, medication, follow-up, MRI, and lifestyle advice. However, it omits the specific name of the orthopedic surgeon for referral and the entire Patient Agreements section, which is crucial for documenting patient understanding and consent. Minor omissions include the \"oral\" route for Meloxicam and the advice to continue low-impact exercises.",
         "omissions": [
-          "\"today\" for corticosteroid injection",
-          "\"oral\" for Meloxicam",
-          "\"If symptoms do not improve\" for discussing further options",
-          "Referral to Dr. John Smith, Orthopedic Surgeon, for further evaluation and management of right knee osteoarthritis",
+          "\"oral\" route for Meloxicam",
+          "Referral to Dr. John Smith, Orthopedic Surgeon",
           "Advise continuing with low-impact exercises",
-          "Patient Agreements section: \"The patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications\""
+          "Patient Agreements section (Patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications)"
         ],
         "additions": []
       }
@@ -346,39 +343,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: \"persists\" (qualifier for osteoarthritis)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your history and current symptoms, the assessment remains unilateral primary osteoarthritis in your right knee.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: \"inflammation\" (as a cause of symptoms in assessment)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I think we need to take some steps to manage your pain and inflammation more effectively.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: \"but requires further management for improved symptoms\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I think we need to take some steps to manage your pain and inflammation more effectively.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further management is required for improved symptoms."
-    },
-    {
-      "addition_text": "\"persists, causing pain, inflammation, and limited mobility.\"",
+      "addition_text": "Assessment elaborates on diagnosis: \"persists, causing pain, inflammation, and limited mobility.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your history and current symptoms, the assessment remains unilateral primary osteoarthritis in your right knee. I think we need to take some steps to manage your pain and inflammation more effectively. [patient] It's daily, and it's really affecting my ability to walk, climb stairs, and even get up from a seated position.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Primary osteoarthritis in the right knee persists, causing pain, inflammation, and limited mobility."
+      "matched_claim_text": "Primary osteoarthritis in the right knee persists, causing pain, inflammation, and limited mobility.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"The patient is compliant with physical therapy exercises and a balanced diet but requires further management for improved symptoms.\"",
+      "addition_text": "Assessment includes statement: \"The patient... requires further management for improved symptoms.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I think we need to take some steps to manage your pain and inflammation more effectively.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Further management is required for improved symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Elaboration on diagnosis: \"persists, causing pain, inflammation, and limited mobility.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your history and current symptoms, the assessment remains unilateral primary osteoarthritis in your right knee. I think we need to take some steps to manage your pain and inflammation more effectively. [patient] It's daily, and it's really affecting my ability to walk, climb stairs, and even get up from a seated position.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Primary osteoarthritis in the right knee persists, causing pain, inflammation, and limited mobility.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement: \"The patient is compliant with physical therapy exercises and a balanced diet but requires further management for improved symptoms.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Are you still able to maintain a balanced diet and perform your physical therapy exercises? [patient] Yes, I do my physical therapy exercises three times a week and I try to eat well.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is compliant with physical therapy exercises and a balanced diet."
+      "matched_claim_text": "The patient is compliant with physical therapy exercises and a balanced diet.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

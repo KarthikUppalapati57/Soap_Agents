@@ -238,7 +238,7 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate overview but suffers from significant omissions, particularly the entire Review of Systems section in Subjective. Additionally, the Plan section includes two unsupported additions: an introductory phrase \"Prescribe\" and the phrase \"if possible\" regarding air purifiers, which slightly alters the patient education advice. While the core clinical information is present, these gaps and unsupported details reduce the overall completeness and reliability of the documentation.",
+    "overall_summary": "The generated SOAP note has noticeable gaps, particularly the complete omission of the Review of Systems section in Subjective and the detailed clinical reasoning and environmental factors in the Assessment. The Plan section also has several minor omissions, such as medication quantities and test rationales, and includes two unsupported additions: an introductory phrase \"Prescribe\" and the qualifier \"if possible\" regarding air purifiers. These issues make the note meaningfully incomplete and require careful review.",
     "omissions": [
       "Subjective: HPI - moderate severity of symptoms",
       "Subjective: HPI - symptoms intensified in the last 2 days",
@@ -272,14 +272,13 @@
     "hallucinations_or_unjustified_inferences": [
       "Plan: introductory phrase 'Prescribe'",
       "Plan: Patient Education - 'if possible' regarding air purifiers",
-      "introductory phrase 'Prescribe'",
       "Patient Education - 'if possible' regarding air purifiers"
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has significant omissions, most notably the complete absence of the Review of Systems (ROS) section. Several important details from the History of Present Illness (HPI) are also missing, such as the moderate severity of symptoms, intensification in the last two days, frequency of symptoms, and the impact on the patient's ability to work as a full-time teacher. These omissions represent major gaps in the clinical documentation.",
+        "summary": "This section has significant omissions, including the entire Review of Systems (ROS) section and several important details from the History of Present Illness (HPI), such as the moderate severity of symptoms, intensification in the last 2 days, frequency of symptoms, and impact on the patient's ability to work as a full-time teacher. These omissions make the subjective account meaningfully incomplete.",
         "omissions": [
           "HPI - moderate severity of symptoms",
           "HPI - symptoms intensified in the last 2 days",
@@ -298,7 +297,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly complete, accurately capturing vital signs and key physical examination findings. There are minor omissions regarding the patient's general appearance (mild distress, slightly anxious) and specific cardiovascular findings (Normal S1, S2). The addition of \"findings suggest asthma exacerbation\" is supported by the transcript and does not negatively impact the grade.",
+        "summary": "This section is mostly aligned with the GroundTruth. It accurately captures vital signs and key physical examination findings. There are minor omissions regarding the patient appearing in mild distress/slightly anxious and the specific mention of normal S1, S2 heart sounds, but these do not significantly impact the clinical usefulness of the section.",
         "omissions": [
           "Physical Examination - General: Patient appears in mild distress, slightly anxious",
           "Physical Examination - Cardiovascular: Normal S1, S2"
@@ -309,8 +308,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section correctly identifies \"Asthma Exacerbation\" but omits the detailed reasoning for the diagnosis, such as the patient exhibiting signs and symptoms consistent with an exacerbation (wheezing, chest tightness, nocturnal cough). It also misses the contextual factor that the exacerbation is likely influenced by environmental factors due to high pollution. The addition of \"requiring immediate attention\" is supported by the transcript.",
+        "grade": "C",
+        "summary": "This section is noticeably incomplete due to the omission of the detailed reasoning for the asthma exacerbation, specifically the signs and symptoms consistent with the diagnosis (wheezing, chest tightness, nocturnal cough). It also omits the likely influence of environmental factors due to high pollution in her urban area, which is an important contextual detail.",
         "omissions": [
           "Patient exhibits signs and symptoms consistent with an asthma exacerbation, including wheezing, chest tightness, and nocturnal cough",
           "Exacerbation likely influenced by environmental factors due to high pollution in her urban area"
@@ -322,7 +321,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section outlines the correct medications, follow-up, and additional testing, but omits minor details like medication quantities and the specific rationale for ordering CBC (to rule out infection) and Chest X-ray (to rule out pneumonia). Crucially, it includes two unsupported additions: the introductory phrase \"Prescribe\" and the phrase \"if possible\" when advising on air purifiers, which slightly alters the original patient education advice. These unsupported additions, combined with minor omissions, lower the grade.",
+        "summary": "This section has several minor omissions, including the specific quantities for Salbutamol and Fluticasone inhalers, the rationale for ordering CBC (to rule out infection) and Chest X-ray (to rule out pneumonia), and the final statement about patient understanding and agreement. Additionally, there are two unsupported additions: the introductory phrase 'Prescribe' and the qualifier 'if possible' regarding air purifiers, which slightly reduce the grade.",
         "omissions": [
           "Medication - Salbutamol quantity 1 inhaler",
           "Medication - Fluticasone quantity 1 inhaler",
@@ -347,70 +346,90 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It suggests that your asthma is exacerbated.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis is asthma exacerbation."
+      "matched_claim_text": "Diagnosis is asthma exacerbation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: requiring immediate attention",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We need to address this quickly.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "It requires immediate attention."
+      "matched_claim_text": "It requires immediate attention.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: introductory phrase 'Order tests'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm going to order some tests, including a Complete Blood Count (CBC) and a Chest X-ray with PA and lateral views.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: introductory phrase 'Prescribe'",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Patient Education - 'if possible' regarding air purifiers",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Physical Examination - findings suggest asthma exacerbation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It suggests that your asthma is exacerbated.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis is asthma exacerbation."
+      "matched_claim_text": "Diagnosis is asthma exacerbation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "requiring immediate attention",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We need to address this quickly.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "It requires immediate attention."
+      "matched_claim_text": "It requires immediate attention.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "introductory phrase 'Order tests'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm going to order some tests",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "introductory phrase 'Prescribe'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "For now, I'll prescribe you Salbutamol 100 mcg, 2 puffs every 4-6 hours as needed.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient Education - 'if possible' regarding air purifiers",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -207,45 +207,47 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The overall grade is significantly impacted by critical omissions in the Assessment section, specifically the complete absence of Chronic Kidney Disease Stage 2 and Hypothyroidism diagnoses. While other sections have minor to moderate omissions, the failure to include these active, significant co-morbidities in the Assessment renders the note unreliable and potentially unsafe for comprehensive patient management. All additions were supported by the transcript and did not lower the grade.",
+    "overall_grade": "D",
+    "overall_summary": "The generated note is missing critical pre-existing diagnoses of Chronic Kidney Disease Stage 2 and Hypothyroidism in the Assessment section, which significantly reduces its clinical usefulness. Additionally, there are several moderate omissions in the Plan regarding comprehensive patient education and agreements, and numerous minor omissions across Subjective and Objective sections. No unsupported or unknown additions were identified.",
     "omissions": [
-      "Detailed Review of Systems (ROS) section",
-      "General appearance: Appears well-nourished but fatigued",
-      "Cardiovascular exam findings: Normal S1, S2, no murmurs",
-      "Respiratory exam findings: Clear to auscultation bilaterally",
-      "Assessment of Chronic Kidney Disease Stage 2",
-      "Assessment of Hypothyroidism",
-      "Medical reasoning for Type 2 Diabetes Mellitus: persistent symptoms of polyuria and unintentional weight loss",
-      "Patient education on importance of regular blood glucose monitoring and adherence to medication",
-      "Patient education on potential complications of diabetes if not well-managed",
-      "Patient education on local resources for affordable, healthy food options",
+      "Full Review of Systems (ROS) section with denials and specific reports",
+      "General appearance (well-nourished but fatigued)",
+      "Cardiovascular exam findings (Normal S1, S2, no murmurs)",
+      "Respiratory exam findings (Clear to auscultation bilaterally)",
+      "Diagnosis of Chronic Kidney Disease Stage 2",
+      "Diagnosis of Hypothyroidism",
       "Patient Agreements section",
       "Translator Notes section"
     ],
     "additions": [
-      "Patient experiences fatigue due to foot numbness",
-      "Encourage patient to ask questions and report any concerns"
+      "Specific blood glucose level (160 mg/dL) mentioned in Subjective",
+      "\"a common complication of diabetes\" for peripheral neuropathy in Assessment",
+      "\"Encourage patient to ask questions and report any concerns\" in Plan"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section receives a B due to the significant omission of the detailed Review of Systems (ROS) section, which includes multiple system reviews. Additionally, a specific HPI detail regarding sleep disruption due to polyuria was omitted. The core chief complaint and present illness details are otherwise well-captured.",
+        "summary": "The Subjective section has several minor omissions regarding specific details of symptoms (e.g., duration of weight loss, specific impact of polyuria) and denials from the Review of Systems. A moderate omission is the patient's reported feeling of being overwhelmed by health issues. However, the core HPI is well-captured.",
         "omissions": [
-          "Chief Complaint (CC) section",
-          "HPI detail: frequent urination disrupts her sleep, limiting her to 6 hours of rest per night",
-          "Review of Systems (ROS) section (Constitutional, Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Neurological, Endocrine, Psychiatric systems)"
+          "Specific duration of weight loss (10 lbs in the last 2 months)",
+          "Polyuria mainly during the night",
+          "Specific impact of frequent urination on sleep (disrupts sleep, limiting to 6 hours rest per night)",
+          "Numbness causes difficulty standing for prolonged periods",
+          "Denial of chest pain and palpitations",
+          "Denial of shortness of breath and cough",
+          "Denial of nausea and vomiting",
+          "Patient reports being overwhelmed by multiple health issues, denies depression"
         ],
         "additions": [
-          "Patient experiences fatigue due to foot numbness"
+          "Specific blood glucose level (160 mg/dL) mentioned in Subjective"
         ]
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section receives an A. It accurately captures vital signs and the key finding of decreased sensation in feet. Minor omissions include the general appearance ('Appears well-nourished but fatigued') and specific normal findings from the cardiovascular and respiratory exams. These omissions do not materially impact the clinical usefulness of the section.",
+        "grade": "B",
+        "summary": "The Objective section has minor omissions related to the general appearance (well-nourished but fatigued) and specific cardiovascular and respiratory exam findings (Normal S1, S2, no murmurs; Clear to auscultation bilaterally). Key vital signs and the finding of decreased sensation in feet are present.",
         "omissions": [
           "General appearance: Appears well-nourished but fatigued",
           "Cardiovascular exam findings: Normal S1, S2, no murmurs",
@@ -255,29 +257,34 @@
       },
       {
         "section": "Assessment",
-        "grade": "F",
-        "summary": "The Assessment section receives an F due to critical omissions. The diagnoses of Chronic Kidney Disease Stage 2 and Hypothyroidism are entirely absent, despite being active co-morbidities mentioned in the GroundTruth. Furthermore, the medical reasoning for Type 2 Diabetes Mellitus omits specific symptoms like persistent polyuria and unintentional weight loss, which were key to the diagnosis. These omissions make the assessment incomplete and unreliable.",
+        "grade": "D",
+        "summary": "The Assessment section contains two major omissions: the diagnoses of Chronic Kidney Disease Stage 2 and Hypothyroidism. These are critical pre-existing conditions that are absent from the generated note, materially reducing its clinical usefulness. There is also a moderate omission of the detailed medical reasoning for the Type 2 Diabetes Mellitus diagnosis.",
         "omissions": [
-          "Type 2 Diabetes Mellitus without complications (specific phrasing)",
-          "Medical reasoning for Type 2 Diabetes Mellitus: persistent symptoms of polyuria and unintentional weight loss",
-          "Chronic Kidney Disease Stage 2 diagnosis",
-          "Hypothyroidism diagnosis"
+          "\"without complications\" for Type 2 Diabetes Mellitus",
+          "Specific medical reasoning details for T2DM: \"reported fasting blood glucose of 160 mg/dL\", \"persistent symptoms of polyuria and numbness\", \"unintentional weight loss\"",
+          "Chronic Kidney Disease Stage 2 as a diagnosis",
+          "Hypothyroidism as a diagnosis"
         ],
-        "additions": []
+        "additions": [
+          "\"a common complication of diabetes\" for peripheral neuropathy"
+        ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section receives a B. While the core medical treatment, referrals, follow-up tests, and lifestyle modifications are present, there are moderate omissions regarding patient education. Specifically, the note omits education on the importance of regular blood glucose monitoring, adherence to medication, and potential complications of diabetes if not well-managed. Minor omissions include patient agreements and translator notes.",
+        "grade": "C",
+        "summary": "The Plan section has multiple moderate omissions, including crucial patient education points on the importance of regular blood glucose monitoring, medication adherence, and potential complications of diabetes. The Patient Agreements and Translator Notes sections are also omitted, which are important for documenting shared decision-making and patient understanding. Several minor details, such as the specific ophthalmologist's name, are also missing.",
         "omissions": [
+          "\"tablets, oral\" for Metformin",
+          "Specific name of Ophthalmologist: Dr. Susan Carter",
+          "Specific purpose of lifestyle modifications: \"to manage blood glucose levels and improve overall health\"",
           "Patient education on importance of regular blood glucose monitoring and adherence to medication",
-          "Patient education on potential complications of diabetes if not well-managed",
+          "Patient education on potential complications of diabetes if not well-managed, emphasizing importance of follow-up appointments",
           "Patient education on local resources for affordable, healthy food options",
-          "Patient Agreements section",
+          "Patient Agreements section content (patient agrees to start Metformin and follow recommendations, translator confirms understanding)",
           "Translator Notes section"
         ],
         "additions": [
-          "Encourage patient to ask questions and report any concerns"
+          "\"Encourage patient to ask questions and report any concerns\""
         ]
       }
     ],
@@ -286,18 +293,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Patient experiences fatigue due to foot numbness",
+      "addition_text": "Specific blood glucose level (160 mg/dL) mentioned in Subjective",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: How has the numbness in your feet affected your daily life? [Patient]: It makes it difficult to stand for long periods. I feel fatigued all the time.",
+      "transcript_evidence": "[Patient]: Yes. My fasting blood glucose levels have been high... The last time I checked, it was around 160 mg/dL.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient experiences fatigue due to foot numbness."
+      "matched_claim_text": "Patient reports high blood glucose levels, last measured 160 mg/dL.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Encourage patient to ask questions and report any concerns",
+      "addition_text": "\"a common complication of diabetes\" for peripheral neuropathy in Assessment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It means that the nerves in your feet aren’t functioning properly, likely due to your high blood glucose levels. It’s a common complication of diabetes.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Peripheral neuropathy is likely due to high blood glucose levels and is a common complication of diabetes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Encourage patient to ask questions and report any concerns\" in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you have any questions about this? ... Do you have any other questions or concerns? ... don’t hesitate to reach out if you have any questions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to ask questions and report any concerns."
+      "matched_claim_text": "Encourage patient to ask questions and report any concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"a common complication of diabetes\" for peripheral neuropathy",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It means that the nerves in your feet aren’t functioning properly, likely due to your high blood glucose levels. It’s a common complication of diabetes.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Peripheral neuropathy is likely due to high blood glucose levels and is a common complication of diabetes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Encourage patient to ask questions and report any concerns\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Do you have any questions about this? ... Do you have any other questions or concerns? ... don’t hesitate to reach out if you have any questions.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Encourage patient to ask questions and report any concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

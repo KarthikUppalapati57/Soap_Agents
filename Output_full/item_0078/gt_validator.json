@@ -241,70 +241,77 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "B",
-    "overall_summary": "The generated note provides a clinically usable summary of the encounter, accurately capturing the chief complaint, present illness, vital signs, key physical exam findings, and the core assessment and plan. There are no unsupported or unknown additions. However, the note omits several minor details from the Review of Systems and Physical Exam, and a moderate omission of the specific vitamin D lab value and its normal range in the Objective section. Additionally, the comprehensive closing statement from the Plan section, which includes patient education and follow-up context, is missing. Despite these omissions, the note remains largely complete and clinically sound.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note has a major omission in the Objective section by failing to include the specific vitamin D level and its normal range, which is critical clinical information. Additionally, there is a moderate omission in the Subjective section regarding the impact of symptoms on the patient's daily life, and numerous minor omissions across the Subjective, Objective, and Plan sections. While no unsupported additions were found, the significant gap in objective lab results makes the note meaningfully incomplete and requires caution and review.",
     "omissions": [
-      "Patient's reduced energy levels affecting daily tasks and overall productivity",
-      "Review of Systems: Neurological - Denies headaches, dizziness, or numbness",
-      "Review of Systems: Skin - Denies rashes or discolorations",
-      "Review of Systems: Endocrine - Negative for symptoms suggestive of hypo/hyperthyroidism outside her known diagnosis",
-      "Physical Exam: General - Alert, cooperative, well-nourished",
-      "Physical Exam: HEENT - Normocephalic, atraumatic",
-      "Physical Exam: Respiratory - Clear breath sounds bilaterally, no wheezes, rales, or rhonchi",
-      "Physical Exam: Cardiovascular - Regular rate and rhythm",
-      "Physical Exam: Abdomen - Soft, non-tender, no hepatosplenomegaly",
-      "Results: Specific 25-hydroxy vitamin D level (18 ng/mL) and normal range (30-100 ng/mL)",
-      "Plan: Re-evaluate vitamin D levels in 3 months (broader clinical assessment)",
-      "Plan: Patient encouraged to contact clinic with any concerns, follow up for overall assessment, questions addressed, and patient demonstrated good understanding of the plan"
+      "Patient's reduced energy levels affecting daily tasks and overall productivity (HPI)",
+      "ROS: Neurological: Denies headaches, dizziness, or numbness",
+      "ROS: Skin: Denies rashes or discolorations",
+      "ROS: Endocrine: Negative for symptoms suggestive of hypo/hyperthyroidism outside her known diagnosis",
+      "Physical Exam - General: Alert, cooperative, well-nourished",
+      "Physical Exam - HEENT: Normocephalic, atraumatic",
+      "Physical Exam - Neck: No lymphadenopathy, goiter, or mass",
+      "Physical Exam - Respiratory: Clear breath sounds bilaterally, no wheezes, rales, or rhonchi",
+      "Physical Exam - Cardiovascular: No murmurs, rubs, or gallops. Regular rate and rhythm",
+      "Physical Exam - Abdomen: Soft, non-tender, no hepatosplenomegaly",
+      "Physical Exam - Neurological: Alert and oriented. No focal deficits",
+      "Results: Low 25-hydroxy vitamin D level at 18 ng/mL (Normal range: 30-100 ng/mL)",
+      "Assessment: \"unspecified\" for Vitamin D deficiency",
+      "Plan: Re-evaluate vitamin D levels in 3 months",
+      "Plan: Concluding paragraph regarding patient encouragement to contact clinic, follow-up for overall assessment, questions addressed, and patient understanding"
     ],
     "additions": [
-      "Assessment: Linking Vitamin D deficiency to persistent fatigue and muscle weakness"
+      "Assessment: Vitamin D deficiency \"causing persistent fatigue and muscle weakness\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main aspects of the HPI. However, it omits the patient's reduced energy levels affecting daily tasks and productivity, and several specific denials from the Review of Systems (Neurological, Skin, Endocrine), which reduces its completeness.",
+        "summary": "The Subjective section omits the patient's report of reduced energy levels affecting daily tasks and productivity from the History of Present Illness. It also omits several denials from the Review of Systems, including neurological, skin, and endocrine symptoms. These are moderate to minor omissions, but the core chief complaint and main HPI points are captured.",
         "omissions": [
-          "History of Present Illness: Patient's reduced energy levels affecting daily tasks and overall productivity",
-          "Review of Systems: Neurological - Denies headaches, dizziness, or numbness",
-          "Review of Systems: Skin - Denies rashes or discolorations",
-          "Review of Systems: Endocrine - Negative for symptoms suggestive of hypo/hyperthyroidism outside her known diagnosis"
+          "Patient's reduced energy levels affecting daily tasks and overall productivity (HPI)",
+          "ROS: Neurological: Denies headaches, dizziness, or numbness",
+          "ROS: Skin: Denies rashes or discolorations",
+          "ROS: Endocrine: Negative for symptoms suggestive of hypo/hyperthyroidism outside her known diagnosis"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section accurately reports vital signs and key physical exam findings. However, it omits several minor details from the physical exam (General appearance, HEENT specifics, Respiratory, Cardiovascular, Abdomen details). More significantly, it omits the specific 25-hydroxy vitamin D level (18 ng/mL) and its normal range, which is a moderate omission impacting the detailed understanding of the lab results.",
+        "grade": "D",
+        "summary": "The Objective section has a major omission by failing to include the specific 25-hydroxy vitamin D level (18 ng/mL) and its normal range (30-100 ng/mL) from the results. This is a critical piece of diagnostic information. Additionally, several details from the physical exam, such as general appearance, HEENT, neck, respiratory, cardiovascular, abdomen, and neurological findings, are omitted, though these are individually minor.",
         "omissions": [
-          "Physical Exam: General - Alert, cooperative, well-nourished",
-          "Physical Exam: HEENT - Normocephalic, atraumatic",
-          "Physical Exam: Respiratory - Clear breath sounds bilaterally, no wheezes, rales, or rhonchi",
-          "Physical Exam: Cardiovascular - Regular rate and rhythm",
-          "Physical Exam: Abdomen - Soft, non-tender, no hepatosplenomegaly",
-          "Results: Recent blood work showing low 25-hydroxy vitamin D level at 18 ng/mL (Normal range: 30-100 ng/mL)"
+          "Physical Exam - General: Alert, cooperative, well-nourished",
+          "Physical Exam - HEENT: Normocephalic, atraumatic",
+          "Physical Exam - Neck: No lymphadenopathy, goiter, or mass",
+          "Physical Exam - Respiratory: Clear breath sounds bilaterally, no wheezes, rales, or rhonchi",
+          "Physical Exam - Cardiovascular: No murmurs, rubs, or gallops. Regular rate and rhythm",
+          "Physical Exam - Abdomen: Soft, non-tender, no hepatosplenomegaly",
+          "Physical Exam - Neurological: Alert and oriented. No focal deficits",
+          "Results: Low 25-hydroxy vitamin D level at 18 ng/mL (Normal range: 30-100 ng/mL)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately capturing both diagnoses. The addition linking Vitamin D deficiency to fatigue and muscle weakness is supported by the transcript and therefore does not reduce the grade.",
-        "omissions": [],
+        "summary": "The Assessment section is well-aligned. The only omission is the minor detail of 'unspecified' for Vitamin D deficiency. The addition of 'causing persistent fatigue and muscle weakness' is supported by the transcript and therefore does not reduce the grade.",
+        "omissions": [
+          "\"unspecified\" for Vitamin D deficiency"
+        ],
         "additions": [
-          "Linking Vitamin D deficiency to persistent fatigue and muscle weakness"
+          "Vitamin D deficiency \"causing persistent fatigue and muscle weakness\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section includes the core treatment, lifestyle changes, and specific follow-up for re-checking vitamin D levels. However, it omits the broader 'Re-evaluate vitamin D levels in 3 months' and the comprehensive closing statement regarding patient encouragement to contact the clinic, overall assessment, addressed questions, and patient understanding, which is a moderate omission.",
+        "grade": "A",
+        "summary": "The Plan section has minor omissions, including one of the two follow-up statements regarding re-evaluation of vitamin D levels and the concluding paragraph about patient encouragement and understanding. The core treatment, lifestyle changes, and follow-up instructions are accurately captured.",
         "omissions": [
-          "Follow-Up: Re-evaluate vitamin D levels in 3 months",
-          "Closing statement: Patient encouraged to contact the clinic with any concerns and to follow up in 3 months for re-evaluation of her vitamin D levels and overall assessment. All questions were addressed, and the patient demonstrated a good understanding of the plan."
+          "Re-evaluate vitamin D levels in 3 months",
+          "Concluding paragraph regarding patient encouragement to contact clinic, follow-up for overall assessment, questions addressed, and patient understanding"
         ],
         "additions": []
       }
@@ -314,18 +321,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: Linking Vitamin D deficiency to persistent fatigue and muscle weakness",
+      "addition_text": "Assessment: Vitamin D deficiency \"causing persistent fatigue and muscle weakness\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Now, let’s discuss your recent blood work. It shows that your 25-hydroxy vitamin D level is low at 18 ng/mL, whereas the normal range is between 30-100 ng/mL. This low vitamin D level could be contributing to your fatigue and muscle weakness. So, my assessment is that you have a vitamin D deficiency.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vitamin D deficiency causing persistent fatigue and muscle weakness."
+      "matched_claim_text": "Vitamin D deficiency causing persistent fatigue and muscle weakness.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Muscle weakness"
     },
     {
-      "addition_text": "Linking Vitamin D deficiency to persistent fatigue and muscle weakness",
+      "addition_text": "Vitamin D deficiency \"causing persistent fatigue and muscle weakness\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Now, let’s discuss your recent blood work. It shows that your 25-hydroxy vitamin D level is low at 18 ng/mL, whereas the normal range is between 30-100 ng/mL. This low vitamin D level could be contributing to your fatigue and muscle weakness. So, my assessment is that you have a vitamin D deficiency.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vitamin D deficiency causing persistent fatigue and muscle weakness."
+      "matched_claim_text": "Vitamin D deficiency causing persistent fatigue and muscle weakness.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Muscle weakness"
     }
   ]
 }

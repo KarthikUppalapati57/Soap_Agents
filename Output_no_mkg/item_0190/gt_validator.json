@@ -251,84 +251,79 @@
     "plan_alignment_score": 0.6417112299465241
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has a significant omission of the entire Review of Systems section, which is a major gap in clinical documentation. While other sections are generally well-captured, they also contain several minor to moderate omissions, such as specific HPI details, physical exam findings, and precise plan elements. There are no unsupported or unknown additions that would negatively impact the grade.",
+    "overall_summary": "The generated note provides a generally accurate summary of the patient's visit. However, the Subjective section has several moderate omissions regarding the history of present illness, including details about the pain's impact on daily activities, its daily occurrence, and its progressive worsening. All negative review of systems findings were also omitted. Other sections had minor to moderate omissions but were otherwise well-aligned. Crucially, there were no unsupported or unknown additions that would negatively impact the grade, which is a strong positive.",
     "omissions": [
-      "Review of Systems (ROS) section (Musculoskeletal, General, Cardiovascular, Respiratory, Gastrointestinal, Neurological denials)",
-      "HPI detail: Pain progressively worsened over the past year",
-      "HPI detail: Difficulty engaging in physical activities she once enjoyed, such as walking and gardening",
-      "Objective Constitutional detail: 'in no acute distress'",
-      "Objective Musculoskeletal detail: 'Antalgic gait observed'",
-      "Objective Neurological detail: 'Grossly intact, no focal deficits'",
-      "Objective Respiratory detail: 'Clear to auscultation bilaterally, no wheezes or crackles'",
-      "Assessment detail: Specific symptoms and radiographic findings (crepitus, swelling, tenderness, decreased range of motion) consistent with osteoarthritis",
-      "Plan Medication detail: Acetaminophen dosage '500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain'",
-      "Plan Physical Therapy detail: 'gradual progression based on tolerance'",
-      "Plan Follow-up detail: 'functional improvement' as an assessment point",
-      "Plan Referral detail: Name of orthopedic surgeon, 'Dr. Elizabeth Turner'",
-      "Patient verbalizes understanding of the treatment plan and agrees to follow the recommendations",
-      "All questions were answered"
+      "Patient verbalizes understanding of the treatment plan and agrees to follow the recommendations.",
+      "All questions were answered."
     ],
-    "additions": [
-      "Subjective detail: Pain is 'constant'",
-      "Subjective detail: Pain can be 'sharp at times'",
-      "Subjective detail: Stiffness 'particularly in the morning'",
-      "Subjective detail: Patient reports 'no significant relief or side effects' from acetaminophen",
-      "Assessment qualifier: Diagnosis 'is likely'"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has a major omission of the entire Review of Systems, which is a critical component of a comprehensive subjective note. Additionally, important HPI details regarding the progression of pain and its impact on activities (walking and gardening) are missing. All additions in this section were supported by the transcript and did not affect the grade.",
+        "summary": "The Subjective section omits several clinically important details from the History of Present Illness, such as the pain being associated with significantly limited range of motion, experienced daily, progressively worsening over the past year, and hindering activities like walking and gardening. Additionally, all negative findings from the Review of Systems were omitted. While all additions were supported by the transcript, these multiple moderate omissions make the HPI meaningfully incomplete.",
         "omissions": [
-          "HPI detail: Pain progressively worsened over the past year",
-          "HPI detail: Difficulty engaging in physical activities she once enjoyed, such as walking and gardening",
-          "Review of Systems (ROS) section (Musculoskeletal, General, Cardiovascular, Respiratory, Gastrointestinal, Neurological denials)"
+          "Chief Complaint (CC) section header",
+          "HPI: Pain associated with significantly limited range of motion",
+          "HPI: Pain experienced daily",
+          "HPI: Pain progressively worsened over the past year",
+          "HPI: Difficulty engaging in physical activities she once enjoyed, such as walking and gardening",
+          "Review of Systems (ROS) section header",
+          "ROS: General: Denies fever, chills, or weight loss",
+          "ROS: Cardiovascular: Denies chest pain, palpitations, or shortness of breath",
+          "ROS: Respiratory: Denies cough or shortness of breath",
+          "ROS: Gastrointestinal: Denies nausea, vomiting, or abdominal pain",
+          "ROS: Neurological: Denies numbness or tingling in extremities"
         ],
         "additions": [
-          "Pain is 'constant'",
-          "Pain can be 'sharp at times'",
-          "Stiffness 'particularly in the morning'",
-          "Patient reports 'no significant relief or side effects' from acetaminophen"
+          "HPI: Pain is constant",
+          "HPI: Pain can be sharp at times",
+          "HPI: Stiffness particularly in the morning",
+          "HPI: Patient has been taking acetaminophen but reports no significant relief or side effects"
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned, capturing key physical examination findings and X-ray results. However, it omits several minor details such as the patient being 'in no acute distress,' the observation of an 'antalgic gait,' and specific neurological and respiratory findings ('Grossly intact, no focal deficits' and 'Clear to auscultation bilaterally, no wheezes or crackles').",
+        "summary": "The Objective section is mostly complete, with the primary omission being the observation of an antalgic gait, which is a moderate clinical finding. Other omissions were minor details or formatting. All additions were supported by the transcript and do not impact the grade.",
         "omissions": [
-          "Constitutional detail: 'in no acute distress'",
-          "Musculoskeletal detail: 'Antalgic gait observed'",
-          "Neurological detail: 'Grossly intact, no focal deficits'",
-          "Respiratory detail: 'Clear to auscultation bilaterally, no wheezes or crackles'"
+          "Physical Examination section header",
+          "Constitutional: 'in no acute distress'",
+          "Musculoskeletal: Gait: Antalgic gait observed",
+          "Neurological: Specific findings 'Grossly intact, no focal deficits'",
+          "Respiratory: Specific findings 'Clear to auscultation bilaterally, no wheezes or crackles'",
+          "Results section header"
         ],
-        "additions": []
+        "additions": [
+          "Summary statement: 'The cardiovascular exam is normal'",
+          "Summary statement: 'The neurological and respiratory exams are also clear'",
+          "X-ray results 'indicative of primary osteoarthritis' (vs 'consistent with osteoarthritis')"
+        ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The primary diagnosis is correctly identified. However, the generated note omits the detailed explanation of symptoms and radiographic findings (crepitus, swelling, tenderness, decreased range of motion) that support the diagnosis, making the justification less comprehensive than the Ground Truth. The addition 'is likely' was supported by the transcript and did not affect the grade.",
+        "summary": "The Assessment section omits the detailed explanation of symptoms and radiographic findings that support the diagnosis of osteoarthritis, making the justification less comprehensive. The single addition was supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Detailed explanation of symptoms and radiographic findings consistent with osteoarthritis, specifically listing: crepitus, swelling, tenderness, and decreased range of motion in the right knee"
+          "Detailed explanation of symptoms and radiographic findings consistent with osteoarthritis (crepitus, swelling, tenderness, decreased range of motion in the right knee)"
         ],
         "additions": [
-          "Diagnosis 'is likely'"
+          "Qualifier 'is likely' for the diagnosis"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section outlines the main treatment recommendations but lacks some specific details. Notable omissions include the precise acetaminophen dosage ('500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain'), the 'gradual progression based on tolerance' for physical therapy, 'functional improvement' as an assessment point for follow-up, and the name of the orthopedic surgeon ('Dr. Elizabeth Turner'). Details about patient understanding and questions being answered are also missing.",
+        "summary": "The Plan section has a moderate omission regarding the specific initial dosage of acetaminophen (500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain), focusing instead on the maximum daily limit. Other omissions were minor details, such as the gradual progression of physical therapy based on tolerance, the goal of functional improvement in follow-up, and the specific name of the orthopedic surgeon. There were no unsupported or unknown additions.",
         "omissions": [
-          "Medication detail: Acetaminophen dosage '500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain'",
-          "Physical Therapy detail: 'gradual progression based on tolerance'",
-          "Follow-up detail: 'functional improvement' as an assessment point",
-          "Referral detail: Name of orthopedic surgeon, 'Dr. Elizabeth Turner'",
-          "Patient verbalizes understanding of the treatment plan and agrees to follow the recommendations",
-          "All questions were answered"
+          "Treatment Recommendations section header",
+          "Medication: Specific dosage '500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain'",
+          "Physical Therapy: 'and gradual progression based on tolerance'",
+          "Follow-up: 'and functional improvement'",
+          "Referral: Specific name of orthopedic surgeon, 'Dr. Elizabeth Turner'"
         ],
         "additions": []
       }
@@ -338,74 +333,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective detail: Pain is 'constant'",
+      "addition_text": "HPI: Pain is constant",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's mostly a constant, dull ache, but sometimes it gets sharper, especially when I move my knee.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective detail: Pain can be 'sharp at times'",
+      "addition_text": "HPI: Pain can be sharp at times",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's mostly a constant, dull ache, but sometimes it gets sharper, especially when I move my knee.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain can be sharp at times."
+      "matched_claim_text": "The pain can be sharp at times.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective detail: Stiffness 'particularly in the morning'",
+      "addition_text": "HPI: Stiffness particularly in the morning",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, there's a lot of swelling and stiffness. It’s hard to move my knee, especially in the morning.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is accompanied by swelling and stiffness, particularly in the morning."
+      "matched_claim_text": "The pain is accompanied by swelling and stiffness, particularly in the morning.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective detail: Patient reports 'no significant relief or side effects' from acetaminophen",
+      "addition_text": "HPI: Patient has been taking acetaminophen but reports no significant relief or side effects",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I’ve been taking acetaminophen, but it doesn’t seem to help much. [...] [patient] No, not really.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has been taking acetaminophen but reports no significant relief or side effects."
+      "matched_claim_text": "The patient has been taking acetaminophen but reports no significant relief or side effects.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment qualifier: Diagnosis 'is likely'",
+      "addition_text": "Summary statement: 'The cardiovascular exam is normal'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and the X-ray findings, it looks like you have unilateral primary osteoarthritis of the right knee.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Pain is 'constant'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It's mostly a constant, dull ache, but sometimes it gets sharper, especially when I move my knee.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Pain can be 'sharp at times'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] It's mostly a constant, dull ache, but sometimes it gets sharper, especially when I move my knee.",
+      "transcript_evidence": "[doctor] Your neurological exam is grossly intact with no focal deficits",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain can be sharp at times."
+      "matched_claim_text": "The neurological exam is clear.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Stiffness 'particularly in the morning'",
+      "addition_text": "Summary statement: 'The neurological and respiratory exams are also clear'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Yes, there's a lot of swelling and stiffness. It’s hard to move my knee, especially in the morning.",
+      "transcript_evidence": "[doctor] Your neurological exam is grossly intact with no focal deficits",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is accompanied by swelling and stiffness, particularly in the morning."
+      "matched_claim_text": "The neurological exam is clear.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient reports 'no significant relief or side effects' from acetaminophen",
+      "addition_text": "X-ray results 'indicative of primary osteoarthritis' (vs 'consistent with osteoarthritis')",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I’ve been taking acetaminophen, but it doesn’t seem to help much. [...] [patient] No, not really.",
+      "transcript_evidence": "[doctor] I’ve reviewed your X-ray results, and they show a narrow joint space and osteophyte formation, which is consistent with osteoarthritis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has been taking acetaminophen but reports no significant relief or side effects."
+      "matched_claim_text": "X-ray results show narrow joint space and osteophyte formation, indicative of primary osteoarthritis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Diagnosis 'is likely'",
+      "addition_text": "Qualifier 'is likely' for the diagnosis",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and the X-ray findings, it looks like you have unilateral primary osteoarthritis of the right knee.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] Your neurological exam is grossly intact with no focal deficits",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The neurological exam is clear.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

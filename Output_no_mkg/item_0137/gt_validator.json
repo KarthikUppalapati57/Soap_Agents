@@ -243,69 +243,92 @@
     "plan_alignment_score": 0.5405405405405405
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The generated note captures the core clinical encounter but has noticeable gaps and several omissions, particularly in the Subjective and Plan sections. The Assessment section presents a less definitive diagnosis than the Ground Truth, omitting the specific diagnosis and supporting clinical findings, which materially reduces its clinical usefulness. All additions were supported by the transcript and did not negatively impact the grade.",
-    "omissions": [],
-    "additions": [],
+    "overall_summary": "The generated note is broadly usable but has several moderate omissions that reduce its completeness and clinical utility. Key missing information includes the patient's past medical history, specific urinalysis results, detailed supporting symptoms for the assessment, and the entire patient education section. There are no unsupported or unknown additions that would lower the grade.",
+    "omissions": [
+      "Past medical history (rheumatoid arthritis and chronic kidney disease stage 2)",
+      "Pain description: \"severe enough to render her completely bedridden\"",
+      "Denial of similar pain in the past",
+      "ROS section structure/labeling",
+      "ROS - Neurological: Denies headaches, denies dizziness",
+      "ROS - Musculoskeletal: Endorses chronic joint pain from rheumatoid arthritis",
+      "Abdominal Exam detail: \"with guarding\"",
+      "Urinalysis results (Positive for blood, negative for infection)",
+      "Specific symptoms mentioned in Assessment: \"severe lower abdominal pain, hematuria, and positive costovertebral angle tenderness\"",
+      "Specific diagnosis in Assessment: \"consistent with a diagnosis of calculus of the kidney\"",
+      "Tamsulosin dosage detail: \"oral\", \"10 tablets\"",
+      "Purpose of KUB X-ray: \"to determine the size, number, and specific location of the kidney stones\"",
+      "Purpose of follow-up: \"to evaluate stone passage status\"",
+      "Patient Education section (all points)",
+      "Patient understanding and agreement",
+      "Insurance and Access to Care discussion"
+    ],
+    "additions": [
+      "Subjective: Pain description: \"sharp, stabbing\"",
+      "Assessment: \"based on symptoms and urinalysis results\"",
+      "Assessment: \"Further imaging (KUB X-ray) is pending for confirmation.\"",
+      "Plan: Tamsulosin purpose: \"to help the stones pass more easily\"",
+      "Plan: Follow-up detail: \"to assess progress and perform additional imaging as needed\"",
+      "Plan: Dietary changes purpose: \"to prevent future kidney stones\""
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section omits important past medical history (rheumatoid arthritis, chronic kidney disease stage 2) and several minor details from the HPI and ROS, such as the patient being bedridden due to pain, denial of similar pain in the past, and specific ROS denials/endorsements. These omissions make the patient's background and some symptom details incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section omits the patient's past medical history (rheumatoid arthritis and chronic kidney disease stage 2), which is a moderate omission. It also misses some minor details regarding pain description, denial of similar pain, and specific Review of Systems entries. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Past medical history of rheumatoid arthritis",
-          "Past medical history of chronic kidney disease stage 2",
-          "Pain severe enough to render her completely bedridden",
+          "Past medical history (rheumatoid arthritis and chronic kidney disease stage 2)",
+          "Pain description: \"severe enough to render her completely bedridden\"",
           "Denial of similar pain in the past",
-          "Denial of headaches and dizziness (Neurological Review of Systems)",
-          "Endorsement of chronic joint pain from rheumatoid arthritis (Musculoskeletal Review of Systems)"
+          "ROS section structure/labeling",
+          "ROS - Neurological: Denies headaches, denies dizziness",
+          "ROS - Musculoskeletal: Endorses chronic joint pain from rheumatoid arthritis"
         ],
         "additions": [
-          "Pain described as \"sharp, stabbing\""
+          "Pain description: \"sharp, stabbing\""
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section has minor omissions, including the specific finding of \"guarding\" on abdominal exam and the full detail of the urinalysis results (specifically, that it was negative for infection). However, the key vital signs and other significant physical exam findings are present.",
+        "grade": "C",
+        "summary": "The Objective section has a moderate omission of the detailed urinalysis results (positive for blood, negative for infection), which is crucial objective evidence. A minor detail about abdominal guarding was also omitted. There were no additions in this section.",
         "omissions": [
-          "Abdominal exam finding: guarding",
-          "Urinalysis results: positive for blood, negative for infection"
+          "Abdominal Exam detail: \"with guarding\"",
+          "Urinalysis results (Positive for blood, negative for infection)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section is significantly incomplete and less definitive than the Ground Truth. It omits the patient's age, the specific symptoms supporting the diagnosis (severe lower abdominal pain, hematuria, positive costovertebral angle tenderness), and, most critically, provides a less certain diagnosis (\"Possible kidney stones\") compared to the Ground Truth's definitive \"calculus of the kidney.\" This materially reduces the clinical usefulness of the assessment.",
+        "grade": "B",
+        "summary": "The Assessment section is less specific than the Ground Truth, omitting the detailed list of symptoms (severe lower abdominal pain, hematuria, and positive costovertebral angle tenderness) that support the diagnosis, and presenting the diagnosis as 'Possible kidney stones' rather than 'consistent with a diagnosis of calculus of the kidney.' All additions in this section were supported by the transcript.",
         "omissions": [
-          "Patient's age (70-year-old female)",
-          "Specific symptoms supporting diagnosis: severe lower abdominal pain, hematuria, and positive costovertebral angle tenderness",
-          "Specific diagnosis: calculus of the kidney"
+          "Specific symptoms mentioned: \"severe lower abdominal pain, hematuria, and positive costovertebral angle tenderness\"",
+          "Specific diagnosis: \"consistent with a diagnosis of calculus of the kidney\""
         ],
         "additions": [
-          "Mention of \"further imaging (KUB X-ray) is pending for confirmation\""
+          "\"based on symptoms and urinalysis results\"",
+          "\"Further imaging (KUB X-ray) is pending for confirmation.\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "While the core treatment plan (medication, hydration, follow-up, diet) is present, this section omits numerous minor but important details. These include specific prescription quantities and route for Tamsulosin, the detailed purpose of the KUB X-ray, several specific patient education points, the patient's understanding and agreement, and the discussion regarding insurance and access to care.",
+        "grade": "C",
+        "summary": "The Plan section has significant omissions, most notably the entire Patient Education section, which includes several important points for patient understanding and adherence. It also omits minor details regarding Tamsulosin dosage, the specific purpose of the KUB X-ray, the purpose of follow-up, patient understanding/agreement, and the insurance discussion. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Tamsulosin prescription detail: \"oral\" route",
-          "Tamsulosin prescription detail: \"10 tablets\" quantity",
-          "Specific purpose of KUB X-ray: \"to determine the size, number, and specific location of the kidney stones\"",
-          "Patient education: explained importance of staying well-hydrated to help pass kidney stones",
-          "Patient education: advised on dietary changes to prevent future stone formation",
-          "Patient education: provided simplified explanations regarding the use of prescribed medications and the need for follow-up imaging",
-          "Patient understood and agreed with the recommended medical treatment plan and lifestyle modifications",
-          "Discussion regarding insurance and access to care"
+          "Tamsulosin dosage detail: \"oral\", \"10 tablets\"",
+          "Purpose of KUB X-ray: \"to determine the size, number, and specific location of the kidney stones\"",
+          "Purpose of follow-up: \"to evaluate stone passage status\"",
+          "Patient Education section (all points)",
+          "Patient understanding and agreement",
+          "Insurance and Access to Care discussion"
         ],
         "additions": [
           "Tamsulosin purpose: \"to help the stones pass more easily\"",
-          "Follow-up instruction: \"perform additional imaging as needed\""
+          "Follow-up detail: \"to assess progress and perform additional imaging as needed\"",
+          "Dietary changes purpose: \"to prevent future kidney stones\""
         ]
       }
     ],
@@ -314,32 +337,112 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Pain described as \"sharp, stabbing\"",
+      "addition_text": "Subjective: Pain description: \"sharp, stabbing\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's severe, and there are times when it gets excruciating. It feels like a sharp, stabbing pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is described as sharp, stabbing, and excruciating at times."
+      "matched_claim_text": "The pain is described as sharp, stabbing, and excruciating at times.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Mention of \"further imaging (KUB X-ray) is pending for confirmation\"",
+      "addition_text": "Assessment: \"based on symptoms and urinalysis results\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I reviewed your urinalysis results, and it shows blood in the urine but no signs of infection. ... It suggests that you might have kidney stones.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Possible kidney stones based on symptoms and urinalysis results.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: \"Further imaging (KUB X-ray) is pending for confirmation.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll need to do further imaging to confirm. ... We're waiting for the results of your KUB X-ray to determine the size, number, and specific location of the stones.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further imaging (KUB X-ray) is pending for confirmation."
+      "matched_claim_text": "Further imaging (KUB X-ray) is pending for confirmation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Tamsulosin purpose: \"to help the stones pass more easily\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: This will help relax the muscles in your urinary tract so the stones can pass more easily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Tamsulosin is to help the stones pass more easily.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Follow-up detail: \"to assess progress and perform additional imaging as needed\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We'll need to follow up in 3 weeks to see if you've passed the stones. ... I'll also explain how to take your medications and why you need the follow-up imaging.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Follow up in 3 weeks to perform additional imaging as needed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Dietary changes purpose: \"to prevent future kidney stones\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: and cut back on protein intake. This will help prevent future kidney stones.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Encourage dietary changes to cut back on protein intake to prevent future kidney stones.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pain description: \"sharp, stabbing\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: It's severe, and there are times when it gets excruciating. It feels like a sharp, stabbing pain.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The pain is described as sharp, stabbing, and excruciating at times.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"based on symptoms and urinalysis results\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I reviewed your urinalysis results, and it shows blood in the urine but no signs of infection. ... It suggests that you might have kidney stones.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Possible kidney stones based on symptoms and urinalysis results.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Further imaging (KUB X-ray) is pending for confirmation.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We'll need to do further imaging to confirm. ... We're waiting for the results of your KUB X-ray to determine the size, number, and specific location of the stones.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Further imaging (KUB X-ray) is pending for confirmation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Tamsulosin purpose: \"to help the stones pass more easily\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: This will help relax the muscles in your urinary tract so the stones can pass more easily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tamsulosin is to help the stones pass more easily."
+      "matched_claim_text": "Tamsulosin is to help the stones pass more easily.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Follow-up instruction: \"perform additional imaging as needed\"",
+      "addition_text": "Follow-up detail: \"to assess progress and perform additional imaging as needed\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll need to follow up in 3 weeks to see if you've passed the stones. ... I'll also explain how to take your medications and why you need the follow-up imaging.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow up in 3 weeks to perform additional imaging as needed."
+      "matched_claim_text": "Follow up in 3 weeks to perform additional imaging as needed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Dietary changes purpose: \"to prevent future kidney stones\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: and cut back on protein intake. This will help prevent future kidney stones.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Encourage dietary changes to cut back on protein intake to prevent future kidney stones.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -304,91 +304,92 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions across multiple sections, materially reducing its clinical usefulness. Key patient history, including past medical history, detailed review of systems, and lifestyle habits, is largely missing from the Subjective section. Crucially, two major chronic diagnoses (Hypertension and Hyperlipidemia) are omitted from the Assessment. The Plan also lacks a dedicated Medical Reasoning section and the entire Patient Education and Counseling section, which is vital for patient safety and adherence. All additions were supported by the transcript and did not impact the grade.",
+    "overall_summary": "The generated SOAP note suffers from numerous significant omissions across all sections. Key missing information includes the patient's past medical history, a comprehensive review of systems, detailed lifestyle habits, explicit primary diagnoses (uncontrolled Type 2 Diabetes Mellitus, Hypertension, Hyperlipidemia) in the Assessment, and crucial patient education on medication adherence and managing hypoglycemia/orthostatic hypotension in the Plan. While there are no unsupported or unknown additions, the extensive missing clinical content severely reduces the note's completeness and clinical utility, making it materially less useful.",
     "omissions": [
-      "Patient's occupation (accountant)",
       "Past Medical History (hypertension, type 2 diabetes mellitus, hyperlipidemia)",
       "Reason for visit (follow-up for chronic disease management)",
-      "Specifics of dizziness (moderate, predominantly when standing up)",
-      "Review of Systems (Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Neurological, Endocrine (except increased thirst), Musculoskeletal)",
-      "Patient’s Self-Reported Habits and Lifestyle details (sedentary lifestyle, desk job, high-carb diet, no regular exercise, former smoker quit 5 years ago, occasional social alcohol)",
-      "Weight (92 kg)",
-      "Height (175 cm)",
-      "General appearance detail: \"well-nourished\"",
-      "Neurological exam detail: \"Alert and oriented to person, place, and time\"",
-      "Foot Examination findings (no signs of neuropathy, no ulcers or calluses)",
-      "Specific list of pending blood work (HbA1c, lipid panel, fasting glucose, serum creatinine, and eGFR)",
-      "Hypertension diagnosis",
-      "Hyperlipidemia diagnosis",
-      "Dizziness (as a separate assessment item)",
-      "Lifestyle non-adherence contributing to poor disease control",
-      "Medical Reasoning section",
-      "Specifics of physical activity recommendation: \"such as a 30-minute walk daily\"",
-      "Detail about dietitian referral: \"for personalized dietary planning\"",
-      "Patient Education and Counseling section (adherence, signs of hypoglycemia and orthostatic hypotension, management)",
-      "Patient Agreements section"
+      "Detailed characterization of dizziness (moderate, predominantly when standing up)",
+      "Detailed characterization of fatigue (mild, ongoing)",
+      "Detailed characterization of thirst (slight increase)",
+      "Review of Systems (ROS) section (all content)",
+      "Patient’s Self-Reported Habits and Lifestyle section (all content: sedentary lifestyle, desk job, high-carb diet, no regular exercise, former smoker quit 5 years ago, occasional social alcohol)",
+      "Weight (92 kg) from Vital Signs",
+      "Height (175 cm) from Vital Signs",
+      "General appearance detail: 'well-nourished'",
+      "Neurological exam detail: 'Alert and oriented to person, place, and time'",
+      "Foot Examination findings (no signs of neuropathy, no ulcers or calluses noted)",
+      "Explicit mention of pending blood work (HbA1c, lipid panel, fasting glucose, serum creatinine, and eGFR) for further evaluation and medication adjustment",
+      "Primary diagnosis: Type 2 Diabetes Mellitus, uncontrolled",
+      "Primary diagnosis: Hypertension",
+      "Primary diagnosis: Hyperlipidemia",
+      "Assessment: Lifestyle non-adherence contributing to poor disease control",
+      "Medical Reasoning section (as a distinct section)",
+      "Nuance in medical treatment: 'Review antihypertensive medications and consider adjusting dosages' (Generated states 'Adjust')",
+      "Referral to a dietitian for personalized dietary planning",
+      "Patient Education and Counseling section (all content: importance of adherence, recognizing/managing hypoglycemia and orthostatic hypotension)",
+      "Patient Agreements section (all content: patient understands and agrees with plan)"
     ],
     "additions": [
-      "Subjective: \"feeling unwell\"",
-      "Assessment: \"suboptimal control of diabetes potentially causing increased thirst and fatigue\""
+      "Subjective: 'feeling unwell' (as a general statement, not specific symptoms)",
+      "Assessment: 'suboptimal control of diabetes potentially causing increased thirst and fatigue' (this reasoning was in GT Plan, not Assessment)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "D",
-        "summary": "This section has multiple major omissions, including the patient's past medical history (hypertension, type 2 diabetes, hyperlipidemia), the reason for the visit, detailed review of systems, and comprehensive lifestyle habits. These omissions significantly reduce the clinical context and usefulness of the subjective information.",
+        "summary": "This section critically omits the patient's past medical history (hypertension, type 2 diabetes mellitus, hyperlipidemia), the reason for the visit, the entire Review of Systems, and the patient's self-reported habits and lifestyle. These are fundamental components for understanding the patient's clinical context and chronic disease management, leading to a significantly incomplete section.",
         "omissions": [
-          "Patient's occupation (accountant)",
           "Past Medical History (hypertension, type 2 diabetes mellitus, hyperlipidemia)",
           "Reason for visit (follow-up for chronic disease management)",
-          "Specifics of dizziness (moderate, predominantly when standing up)",
-          "Review of Systems (Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Neurological, Endocrine (except increased thirst), Musculoskeletal)",
-          "Patient’s Self-Reported Habits and Lifestyle details (sedentary lifestyle, desk job, high-carb diet, no regular exercise, former smoker quit 5 years ago, occasional social alcohol)"
+          "Detailed characterization of dizziness (moderate, predominantly when standing up)",
+          "Detailed characterization of fatigue (mild, ongoing)",
+          "Detailed characterization of thirst (slight increase)",
+          "Review of Systems (ROS) section (all content)",
+          "Patient’s Self-Reported Habits and Lifestyle section (all content: sedentary lifestyle, desk job, high-carb diet, no regular exercise, former smoker quit 5 years ago, occasional social alcohol)"
         ],
         "additions": [
-          "\"feeling unwell\""
+          "'feeling unwell' (as a general statement, not specific symptoms)"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is mostly complete, capturing vital signs and key physical exam findings. However, it omits the patient's specific weight and height, details about general appearance and neurological exam, the full foot examination findings, and the specific list of pending blood work, which are moderate gaps.",
+        "grade": "C",
+        "summary": "The Objective section omits specific weight and height measurements, details about the patient's general appearance ('well-nourished'), specific neurological findings ('Alert and oriented'), and the complete findings of the foot examination. Crucially, it also lacks an explicit listing of the pending blood work (HbA1c, lipid panel, fasting glucose, serum creatinine, and eGFR) in the results section, making it less comprehensive.",
         "omissions": [
           "Weight (92 kg)",
           "Height (175 cm)",
-          "General appearance detail: \"well-nourished\"",
-          "Neurological exam detail: \"Alert and oriented to person, place, and time\"",
-          "Foot Examination findings (no signs of neuropathy, no ulcers or calluses)",
-          "Specific list of pending blood work (HbA1c, lipid panel, fasting glucose, serum creatinine, and eGFR)"
+          "General appearance detail: 'well-nourished'",
+          "Neurological exam detail: 'Alert and oriented to person, place, and time'",
+          "Foot Examination findings (no signs of neuropathy, no ulcers or calluses noted)",
+          "Explicit mention of pending blood work (HbA1c, lipid panel, fasting glucose, serum creatinine, and eGFR) for further evaluation and medication adjustment"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "This section has major omissions, failing to include the diagnoses of Hypertension and Hyperlipidemia, which are primary chronic conditions for this patient. While dizziness is mentioned within another assessment item, its absence as a separate item and the omission of lifestyle non-adherence further detract from the completeness.",
+        "summary": "This section has major omissions, failing to explicitly state the patient's three primary diagnoses: uncontrolled Type 2 Diabetes Mellitus, Hypertension, and Hyperlipidemia. It also omits the assessment of lifestyle non-adherence contributing to poor disease control. The absence of these core diagnoses makes the assessment significantly incomplete and reduces its clinical usefulness.",
         "omissions": [
-          "Hypertension diagnosis",
-          "Hyperlipidemia diagnosis",
-          "Dizziness (as a separate assessment item)",
-          "Lifestyle non-adherence contributing to poor disease control"
+          "Primary diagnosis: Type 2 Diabetes Mellitus, uncontrolled",
+          "Primary diagnosis: Hypertension",
+          "Primary diagnosis: Hyperlipidemia",
+          "Assessment: Lifestyle non-adherence contributing to poor disease control"
         ],
         "additions": [
-          "\"suboptimal control of diabetes potentially causing increased thirst and fatigue\""
+          "'suboptimal control of diabetes potentially causing increased thirst and fatigue' (this reasoning was in GT Plan, not Assessment)"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits the entire Medical Reasoning section and, more critically, the comprehensive Patient Education and Counseling section, which is essential for patient understanding, safety, and adherence. Minor details regarding specific physical activity recommendations and dietitian referral specifics are also missing, making the plan less detailed than the ground truth.",
+        "grade": "D",
+        "summary": "The Plan section omits the explicit referral to a dietitian for personalized dietary planning. More critically, it entirely misses the Patient Education and Counseling section, which includes vital information on the importance of adherence to treatment and recognizing/managing signs of hypoglycemia and orthostatic hypotension. The absence of this safety-critical patient education significantly impacts the note's utility.",
         "omissions": [
-          "Medical Reasoning section",
-          "Specific list of blood work for additional testing (HbA1c, lipid panel, fasting glucose, serum creatinine, and eGFR)",
-          "Specifics of physical activity recommendation: \"such as a 30-minute walk daily\"",
-          "Detail about dietitian referral: \"for personalized dietary planning\"",
-          "Patient Education and Counseling section (adherence, signs of hypoglycemia and orthostatic hypotension, management)",
-          "Patient Agreements section"
+          "Medical Reasoning section (as a distinct section)",
+          "Nuance in medical treatment: 'Review antihypertensive medications and consider adjusting dosages' (Generated states 'Adjust')",
+          "Referral to a dietitian for personalized dietary planning",
+          "Patient Education and Counseling section (all content: importance of adherence, recognizing/managing hypoglycemia and orthostatic hypotension)",
+          "Patient Agreements section (all content: patient understands and agrees with plan)"
         ],
         "additions": []
       }
@@ -398,32 +399,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: \"feeling unwell\"",
+      "addition_text": "Subjective: 'feeling unwell' (as a general statement, not specific symptoms)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've been feeling a bit off lately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: \"suboptimal control of diabetes potentially causing increased thirst and fatigue\"",
+      "addition_text": "Assessment: 'suboptimal control of diabetes potentially causing increased thirst and fatigue' (this reasoning was in GT Plan, not Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] The increased thirst and fatigue could indicate suboptimal control of your diabetes and possible dehydration.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suboptimal control of diabetes is suspected, potentially causing increased thirst and fatigue."
+      "matched_claim_text": "Suboptimal control of diabetes is suspected, potentially causing increased thirst and fatigue.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"feeling unwell\"",
+      "addition_text": "'feeling unwell' (as a general statement, not specific symptoms)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've been feeling a bit off lately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"suboptimal control of diabetes potentially causing increased thirst and fatigue\"",
+      "addition_text": "'suboptimal control of diabetes potentially causing increased thirst and fatigue' (this reasoning was in GT Plan, not Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] The increased thirst and fatigue could indicate suboptimal control of your diabetes and possible dehydration.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suboptimal control of diabetes is suspected, potentially causing increased thirst and fatigue."
+      "matched_claim_text": "Suboptimal control of diabetes is suspected, potentially causing increased thirst and fatigue.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

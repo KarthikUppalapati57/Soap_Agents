@@ -227,8 +227,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and free of unsupported additions, which is a strong positive. However, it contains several omissions, including the specific X-ray findings in the Objective section and critical medication details in the Plan. These gaps reduce the completeness and usefulness of the note, requiring careful review.",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, history of present illness, vital signs, physical exam findings, and the core assessment and plan. However, there are several minor omissions across all sections, including specific details from the ROS, general physical exam observations, and granular plan details. A moderate omission is the lack of explicit X-ray findings in the Objective section, which are crucial diagnostic evidence. Additionally, gout is integrated as an exacerbating factor rather than a distinct chronic condition as presented in the Ground Truth. No unsupported or unknown additions were identified.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "Frequency of pain flares ('few times weekly')",
@@ -256,7 +256,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits the specific frequency of pain flares ('few times weekly') and several minor details from the Review of Systems, such as the absence of other joint pain, numbness/tingling, and specific sleep discomfort. Despite these, the core History of Present Illness is well-captured.",
+        "summary": "The Subjective section accurately captures the chief complaint and history of present illness. However, it omits the 'Chief Complaint (CC)' section header and several minor details from the Review of Systems, such as the frequency of pain flares ('few times weekly'), the absence of other joint pain, no numbness or tingling, and specific sleep discomfort related to turning in bed.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "Frequency of pain flares ('few times weekly')",
@@ -268,8 +268,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "This section significantly omits the X-ray findings ('Moderate osteophyte formation and narrowed joint space consistent with osteoarthritis'), which are crucial diagnostic evidence for osteoarthritis. It also misses general physical exam observations, making the objective evidence for the diagnosis incomplete.",
+        "grade": "B",
+        "summary": "The Objective section correctly presents vital signs and key musculoskeletal physical exam findings. However, it omits the general physical exam findings ('Well-nourished, well-developed... in no acute distress') and, more significantly, the detailed X-ray findings ('Moderate osteophyte formation and narrowed joint space consistent with osteoarthritis') which are critical diagnostic evidence for the assessment.",
         "omissions": [
           "General physical exam findings: 'Well-nourished, well-developed... in no acute distress'",
           "Investigation/Test Results section",
@@ -280,7 +280,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits listing 'Chronic condition: Gout' as a separate diagnosis. However, it correctly integrates gout as a potential exacerbator of osteoarthritis, which is supported by the transcript. No unsupported additions were found.",
+        "summary": "The Assessment correctly identifies unilateral primary osteoarthritis in the right knee. While it mentions gout as 'potentially exacerbated by gout' (which is supported by the transcript), it omits listing 'Chronic condition: Gout' as a separate diagnosis as presented in the Ground Truth, representing a moderate difference in diagnostic presentation.",
         "omissions": [
           "Chronic condition: Gout"
         ],
@@ -290,8 +290,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits critical details for the acetaminophen prescription, specifically the frequency ('every 6 hours as needed') and quantity ('100 tablets'). It also misses the specific name of the referring rheumatologist, additional referral purpose details, and specific examples of low-impact activities. No unsupported additions were found.",
+        "grade": "B",
+        "summary": "The Plan section outlines the main treatment strategies, including medication, referral, therapy, and lifestyle modifications. However, it omits several minor details such as specific medication instructions ('oral, every 6 hours as needed, 100 tablets'), the specific doctor's name for referral ('Dr. John Reyes'), the full purpose of the referral ('evaluation of joint health'), specific examples of low-impact activities ('walking or swimming'), the patient's commitment statement, and the instruction to 'monitor his symptoms'.",
         "omissions": [
           "Medication details: 'oral, every 6 hours as needed, 100 tablets'",
           "Specific doctor name for referral: 'Dr. John Reyes'",
@@ -315,42 +315,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Also, I see from your records that you have a chronic condition: gout. ... [Doctor]: It's possible that your gout is contributing to the knee pain. Sometimes, the inflammation from gout can exacerbate osteoarthritis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The osteoarthritis is potentially exacerbated by gout."
+      "matched_claim_text": "The osteoarthritis is potentially exacerbated by gout.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'for pain management' (for acetaminophen prescription)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, I'll prescribe you acetaminophen 650 mg. You can take this orally every 6 hours as needed for the pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe acetaminophen 650 mg for pain management."
+      "matched_claim_text": "Prescribe acetaminophen 650 mg for pain management.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Acetaminophen — off-label use — myofascial pain syndrome"
     },
     {
       "addition_text": "Plan: 'specialized care' (for rheumatologist referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d also like to refer you to a rheumatologist, Dr. John Reyes, for further evaluation of your joint health and pain management. He’s an expert in these conditions and can offer more specialized care.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Refer patient to a rheumatologist for further evaluation and specialized care."
+      "matched_claim_text": "Refer patient to a rheumatologist for further evaluation and specialized care.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "potentially exacerbated by gout",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Also, I see from your records that you have a chronic condition: gout. ... [Doctor]: It's possible that your gout is contributing to the knee pain. Sometimes, the inflammation from gout can exacerbate osteoarthritis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The osteoarthritis is potentially exacerbated by gout."
+      "matched_claim_text": "The osteoarthritis is potentially exacerbated by gout.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "for pain management",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, I'll prescribe you acetaminophen 650 mg. You can take this orally every 6 hours as needed for the pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe acetaminophen 650 mg for pain management."
+      "matched_claim_text": "Prescribe acetaminophen 650 mg for pain management.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "RPA1 — protein_protein — RPAIN"
     },
     {
       "addition_text": "specialized care",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d also like to refer you to a rheumatologist, Dr. John Reyes, for further evaluation of your joint health and pain management. He’s an expert in these conditions and can offer more specialized care.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Refer patient to a rheumatologist for further evaluation and specialized care."
+      "matched_claim_text": "Refer patient to a rheumatologist for further evaluation and specialized care.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

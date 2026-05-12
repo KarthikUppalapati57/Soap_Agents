@@ -221,7 +221,107 @@
     "assessment_alignment_score": 0.16216216216216217,
     "plan_alignment_score": 0.5833333333333334
   },
-  "expert_judge": null,
-  "expert_judge_error": "Judge returned non-JSON output: Illegal trailing comma before end of object: line 10 column 5 (char 825)",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions, particularly in the Plan section, which materially reduce its clinical usefulness and completeness. While the Objective and Assessment sections are strong, the Subjective section has several minor omissions, and the Plan section lacks critical details regarding medication instructions, imaging as an action item, and patient safety guidance. All additions were supported by the transcript and did not negatively impact the grade.",
+    "omissions": [
+      "The pain occurs daily and limits her ability to exercise and stand for prolonged periods.",
+      "The patient is highly cooperative with medical advice and treatment.",
+      "Gabapentin: oral route",
+      "Gabapentin: Duration: 1 month",
+      "Gabapentin: Quantity: 90 capsules",
+      "Imaging: MRI of the lumbar spine to rule out structural causes of pain (as an action item in Plan)",
+      "Instruction to report any side effects from Gabapentin",
+      "Instruction to attend physical therapy sessions as scheduled",
+      "Specific dosages and frequencies for Metformin (500 mg twice daily) and Lisinopril (10 mg once daily)",
+      "Instruction to contact the clinic immediately if pain does not improve or new symptoms arise"
+    ],
+    "additions": [
+      "Chronic lower back pain likely related to underlying spinal pathology, pending MRI results for definitive diagnosis",
+      "Neuropathic component to the pain suggested by numbness in left leg and prescription of Gabapentin",
+      "address any new symptoms (added to follow-up instruction)"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section has several minor omissions, including the patient's cooperativeness and the detailed impact of pain on exercise and standing. While the core HPI is present, these details contribute to a less complete picture.",
+        "omissions": [
+          "The pain occurs daily and limits her ability to exercise and stand for prolonged periods.",
+          "The patient is highly cooperative with medical advice and treatment.",
+          "Musculoskeletal: Positive for decreased range of motion in the lumbar spine (as a specific ROS point)",
+          "Neurological: no motor weakness, normal reflexes, no sensory deficits (as a specific ROS point)"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is excellent, capturing all relevant Ground Truth content without any omissions or unsupported additions.",
+        "omissions": [],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is strong. While it includes additional diagnostic considerations, these were fully supported by the transcript and therefore do not reduce the grade. There are no omissions.",
+        "omissions": [],
+        "additions": [
+          "Chronic lower back pain likely related to underlying spinal pathology, pending MRI results for definitive diagnosis",
+          "Neuropathic component to the pain suggested by numbness in left leg and prescription of Gabapentin"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "D",
+        "summary": "The Plan section has numerous and significant omissions. Key details such as the duration and quantity of Gabapentin, the MRI of the lumbar spine as an explicit action item, specific dosages for chronic medications (Metformin, Lisinopril), and crucial patient safety instructions (reporting side effects, contacting clinic for worsening symptoms) are missing. These omissions materially reduce the clinical usefulness and safety of the plan.",
+        "omissions": [
+          "Gabapentin: oral route",
+          "Gabapentin: Duration: 1 month",
+          "Gabapentin: Quantity: 90 capsules",
+          "Imaging: MRI of the lumbar spine to rule out structural causes of pain (as an action item)",
+          "Instruction to report any side effects from Gabapentin",
+          "Instruction to attend physical therapy sessions as scheduled",
+          "Specific dosages and frequencies for Metformin (500 mg twice daily) and Lisinopril (10 mg once daily)",
+          "Instruction to contact the clinic immediately if pain does not improve or new symptoms arise"
+        ],
+        "additions": [
+          "address any new symptoms (added to follow-up instruction)"
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Chronic lower back pain likely related to underlying spinal pathology, pending MRI results for definitive diagnosis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We are still waiting for the results of your MRI of the lumbar spine. Once we have that, we can get a better understanding of what's causing your pain.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Chronic lower back pain likely related to underlying spinal pathology, pending MRI results for definitive diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Neuropathic component to the pain suggested by numbness in left leg and prescription of Gabapentin",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I occasionally feel numbness in my left leg. ... [Doctor]: For now, I'm going to prescribe Gabapentin 300 mg, three times a day for neuropathic pain.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Neuropathic component to the pain suggested by numbness in left leg and prescription of Gabapentin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "address any new symptoms (added to follow-up instruction)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Alright, Susan. We'll schedule a follow-up appointment in 4 weeks to assess how you're responding to the treatment. Take care. ... If your pain doesn't improve or if you experience any new symptoms, contact us immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up appointment in 4 weeks to assess treatment response and address any new symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

@@ -276,9 +276,9 @@
     "plan_alignment_score": 0.5666666666666667
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but the complete omission of the Chief Complaint in the Subjective section represents a significant gap, making the note meaningfully incomplete. Additionally, the Plan section omits a specific recommendation for alcohol cessation and several minor details. All additions were supported by the transcript and did not detract from the grade.",
+    "overall_summary": "The generated note has noticeable gaps, particularly in the Subjective and Plan sections. The Subjective section omits key details such as the full Chief Complaint, the duration of hypercholesterolemia, and the explicit statement that the patient is asymptomatic for hypercholesterolemia. The Plan section is missing specific actionable dietary advice, the recommendation for alcohol cessation, and important patient instructions. While there are no unsupported or unknown additions, these omissions collectively make the note meaningfully incomplete and require careful review.",
     "omissions": [
       "Chief Complaint: Patient presents for a routine preventive health screening with a focus on managing hypercholesterolemia.",
       "HPI: history of elevated cholesterol levels for the past 2 years, discovered through routine screenings.",
@@ -306,7 +306,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has a major omission with the complete absence of the Chief Complaint, which is a fundamental component of a clinical note. It also omits key historical context regarding the duration and discovery of hypercholesterolemia, and several minor ROS details.",
+        "summary": "The Subjective section has several omissions, including the full Chief Complaint, the history of elevated cholesterol levels for the past 2 years, and the explicit statement that the patient is asymptomatic regarding hypercholesterolemia. Additionally, specific negative findings for gastrointestinal ROS were summarized rather than detailed. These omissions make the history less complete and introduce noticeable gaps.",
         "omissions": [
           "Chief Complaint: Patient presents for a routine preventive health screening with a focus on managing hypercholesterolemia.",
           "HPI: history of elevated cholesterol levels for the past 2 years, discovered through routine screenings.",
@@ -321,7 +321,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-aligned with the Ground Truth, capturing all major clinically important content. The only discrepancy is a minor omission of the general physical examination finding \"Well-appearing, no acute distress.\" All additions were supported by the transcript.",
+        "summary": "The Objective section is largely complete, with only a minor omission regarding the general appearance of the patient ('Well-appearing, no acute distress'). There are no penalizable additions.",
         "omissions": [
           "Physical Examination - General: Well-appearing, no acute distress."
         ],
@@ -332,14 +332,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the Ground Truth, with no omissions or additions.",
+        "summary": "The Assessment section is complete with no omissions or penalizable additions, demonstrating excellent alignment with the Ground Truth.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned and usable. It contains a moderate omission regarding the recommendation for complete cessation of alcohol consumption. Additionally, there are several minor omissions, including the quantity of prescribed medication, specific components of the DASH diet, detailed lipid profile investigations, and specific patient instructions. All additions were supported by the transcript.",
+        "grade": "C",
+        "summary": "The Plan section has multiple moderate omissions, including specific components of the DASH diet (reducing salt, increasing fruits/vegetables/whole grains), the recommendation for complete alcohol cessation, and two important patient instructions (educating on adherence and encouraging recreational activities). Minor omissions include the quantity of prescribed medication and specific components of the lipid profile. These omissions reduce the completeness and actionable detail of the plan, making it meaningfully incomplete.",
         "omissions": [
           "Medication: 30 tablets (quantity of Ezetimibe)",
           "Lifestyle Changes - Diet: focusing on reducing salt intake and increasing consumption of fruits, vegetables, and whole grains (specific components of DASH diet)",
@@ -362,58 +362,74 @@
     {
       "addition_text": "Objective: Temperature: (37°C) (conversion to Celsius)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your temperature is 98.6°F.",
+      "transcript_evidence": "your temperature is 98.6°F",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Medication: to lower cholesterol levels (purpose of Ezetimibe)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll start by prescribing you Ezetimibe, 10 mg, to be taken orally once daily. This should help lower your cholesterol levels.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Ezetimibe, 10 mg, orally once daily to help lower cholesterol levels."
+      "matched_claim_text": "Prescribe Ezetimibe, 10 mg, orally once daily to help lower cholesterol levels.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Lifestyle Changes - Diet: for managing cholesterol and overall heart health (general benefit of DASH diet)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "The DASH diet emphasizes reducing salt intake and increasing your consumption of fruits, vegetables, and whole grains. It’s quite effective in managing cholesterol and overall heart health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend the DASH diet, emphasizing reducing salt intake and increasing fruits, vegetables, and whole grains, for managing cholesterol and overall heart health."
+      "matched_claim_text": "Recommend the DASH diet, emphasizing reducing salt intake and increasing fruits, vegetables, and whole grains, for managing cholesterol and overall heart health.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Sleep Hygiene Strategies: (regular sleep schedule, avoid caffeine in the evening, create a comfortable sleep environment) (specific strategies for improving sleep hygiene)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "let's discuss some strategies for improving your sleep hygiene to address your chronic insomnia. ... Try to establish a regular sleep schedule, avoid caffeine in the evening, and create a comfortable sleep environment.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss strategies for improving sleep hygiene, including establishing a regular sleep schedule, avoiding caffeine in the evening, and creating a comfortable sleep environment."
+      "matched_claim_text": "Discuss strategies for improving sleep hygiene, including establishing a regular sleep schedule, avoiding caffeine in the evening, and creating a comfortable sleep environment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Temperature: (37°C) (conversion to Celsius)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your temperature is 98.6°F.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Medication: to lower cholesterol levels (purpose of Ezetimibe)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll start by prescribing you Ezetimibe, 10 mg, to be taken orally once daily. This should help lower your cholesterol levels.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Ezetimibe, 10 mg, orally once daily to help lower cholesterol levels."
+      "matched_claim_text": "Prescribe Ezetimibe, 10 mg, orally once daily to help lower cholesterol levels.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Lifestyle Changes - Diet: for managing cholesterol and overall heart health (general benefit of DASH diet)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "The DASH diet emphasizes reducing salt intake and increasing your consumption of fruits, vegetables, and whole grains. It’s quite effective in managing cholesterol and overall heart health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend the DASH diet, emphasizing reducing salt intake and increasing fruits, vegetables, and whole grains, for managing cholesterol and overall heart health."
+      "matched_claim_text": "Recommend the DASH diet, emphasizing reducing salt intake and increasing fruits, vegetables, and whole grains, for managing cholesterol and overall heart health.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Sleep Hygiene Strategies: (regular sleep schedule, avoid caffeine in the evening, create a comfortable sleep environment) (specific strategies for improving sleep hygiene)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "let's discuss some strategies for improving your sleep hygiene to address your chronic insomnia. ... Try to establish a regular sleep schedule, avoid caffeine in the evening, and create a comfortable sleep environment.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss strategies for improving sleep hygiene, including establishing a regular sleep schedule, avoiding caffeine in the evening, and creating a comfortable sleep environment."
+      "matched_claim_text": "Discuss strategies for improving sleep hygiene, including establishing a regular sleep schedule, avoiding caffeine in the evening, and creating a comfortable sleep environment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

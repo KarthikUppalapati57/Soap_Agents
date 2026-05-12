@@ -190,76 +190,82 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the patient's presentation, key objective findings, primary diagnosis, and a comprehensive plan. However, it has several omissions, including the differential diagnoses and the entire 'Patient Agreements' section, which are considered moderate issues. Other minor omissions include details like the patient's denial of impact on daily activities and the lack of ulceration/infection. Crucially, there are no unsupported or unknown additions.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the core clinical information, including the chief complaint, key HPI elements, physical exam findings, diagnosis, and treatment plan. However, the note has several minor omissions and four moderate omissions: the patient's denial of significant impact on daily activities, their concern about potential malignancy, the specific differential diagnoses, and the entire Patient Agreements section. Crucially, there are no unsupported or unknown additions, which significantly contributes to its reliability.",
     "omissions": [
       "Denial of significant impact on daily activities",
-      "Explicit mention of 'sun-exposed areas' in the chief complaint/initial HPI summary",
-      "Over-the-counter emollients have not provided relief",
-      "No signs of ulceration or infection",
+      "Concern about potential malignancy",
+      "Physical exam finding: \"No signs of ulceration or infection.\"",
       "Differential diagnoses: Seborrheic keratosis, eczema",
-      "Detail 'to lesions today' for cryotherapy",
-      "Significance of early detection for skin cancer education",
-      "The entire 'Patient Agreements' section"
+      "Specific peak sun exposure hours (10 AM to 4 PM)",
+      "Patient Agreements section and its content"
     ],
     "additions": [
-      "Qualifier 'Normal vital signs'",
-      "Etiology 'likely caused by long-term sun exposure' in Assessment",
-      "Clarification 'a type of skin cancer' for squamous cell carcinoma",
-      "Detail 'for lesion removal' for cryotherapy",
-      "Detail 'for topical application' for Fluorouracil cream",
-      "Specific examples of early signs of skin cancer: '(new growths, sores that don't heal, changes in existing moles)'",
-      "Specific reason for advising against smoking: 'due to potential worsening of skin condition and increased risk of skin cancer'"
+      "\"Normal vital signs\" summary phrase",
+      "\"likely caused by long-term sun exposure\" in Assessment",
+      "\"a type of skin cancer\" as a descriptor for SCC in Assessment",
+      "\"for lesion removal\" as purpose for cryotherapy",
+      "\"for topical application\" for Fluorouracil cream",
+      "Specific reasons for smoking cessation: \"due to potential worsening of skin condition and increased risk of skin cancer.\"",
+      "Specific examples for early signs of skin cancer: \"(new growths, sores that don't heal, changes in existing moles)\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "This section is well-captured with only minor omissions, such as the patient's denial of significant impact on daily activities, the explicit mention of 'sun-exposed areas' in the initial HPI summary, and the ineffectiveness of over-the-counter emollients. No unsupported or unknown additions are present.",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete but omits the patient's denial of significant impact on daily activities and their concern about potential malignancy, which are moderate omissions. Minor omissions include specific body areas for patches, mention of sun-exposed areas, and specific denials of fever and weight loss (though 'no systemic symptoms' is present). All additions in this section were supported by the transcript.",
         "omissions": [
+          "Specific body areas for patches: \"face, arms, and dorsal hands\" (Generated says \"on skin\")",
+          "Patches on \"sun-exposed areas\" (from CC/HPI)",
           "Denial of significant impact on daily activities",
-          "Explicit mention of 'sun-exposed areas' in the chief complaint/initial HPI summary",
-          "Over-the-counter emollients have not provided relief"
+          "Concern about potential malignancy",
+          "Specific mention of \"Over-the-counter emollients\" (Generated says \"No previous treatments\")",
+          "Specific denial of \"fever\" and \"weight loss\" (Generated says \"no systemic symptoms\")"
         ],
-        "additions": []
+        "additions": [
+          "\"No previous treatments have been effective.\" (Broader than \"OTC emollients\")"
+        ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is highly accurate, with only one minor omission regarding the absence of ulceration or infection. All additions are supported by the transcript and do not negatively impact the grade.",
+        "summary": "The Objective section is well-aligned with the Ground Truth. The only omission is the physical exam finding of 'No signs of ulceration or infection,' which is a minor detail. All additions in this section were supported by the transcript.",
         "omissions": [
-          "No signs of ulceration or infection"
+          "Physical exam finding: \"No signs of ulceration or infection.\""
         ],
         "additions": [
-          "Qualifier 'Normal vital signs'"
+          "\"Normal vital signs\" (summary phrase)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section has one moderate omission: the differential diagnoses (Seborrheic keratosis, eczema) are not included. The primary diagnosis and potential progression are well-documented, and all additions are supported by the transcript.",
+        "summary": "The Assessment section accurately identifies the primary diagnosis. However, it omits the specific differential diagnoses of 'Seborrheic keratosis, eczema,' which is a moderate gap in clinical reasoning documentation. The detail about SCC progression 'if untreated' is a minor omission. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Differential diagnoses: Seborrheic keratosis, eczema"
+          "Differential diagnoses: \"Seborrheic keratosis, eczema\"",
+          "Detail for SCC progression: \"if untreated\""
         ],
         "additions": [
-          "Etiology 'likely caused by long-term sun exposure'",
-          "Clarification 'a type of skin cancer' for squamous cell carcinoma"
+          "\"likely caused by long-term sun exposure\" (etiology)",
+          "\"a type of skin cancer\" (descriptor for SCC)"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section contains a moderate omission with the complete absence of the 'Patient Agreements' section. There are also minor omissions, such as the specific detail 'to lesions today' for cryotherapy and the explicit mention of the 'significance of early detection' in patient education. All additions are supported by the transcript.",
+        "summary": "The Plan section provides a comprehensive treatment strategy. The most significant omission is the entire 'Patient Agreements' section, which documents patient understanding and consent, making it a moderate omission. Other omissions, such as specific cryotherapy instructions ('to lesions today'), specific peak sun exposure hours, and a specific reason for smoking cessation, are minor details. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Detail 'to lesions today' for cryotherapy",
-          "Significance of early detection for skin cancer education",
-          "The entire 'Patient Agreements' section"
+          "Specific instruction for cryotherapy: \"to lesions today\"",
+          "Specific peak sun exposure hours: \"(10 AM to 4 PM)\"",
+          "Reason for smoking cessation: \"to improve overall skin health and reduce risks associated with tobacco use.\"",
+          "Patient education point: \"the significance of early detection.\"",
+          "Patient Agreements section and its content: \"The patient understands and agrees with the recommended treatment plan, including the use of prescribed medications and adherence to sun protection measures.\""
         ],
         "additions": [
-          "Detail 'for lesion removal' for cryotherapy",
-          "Detail 'for topical application' for Fluorouracil cream",
-          "Specific examples of early signs of skin cancer: '(new growths, sores that don't heal, changes in existing moles)'",
-          "Specific reason for advising against smoking: 'due to potential worsening of skin condition and increased risk of skin cancer'"
+          "\"for lesion removal\" (purpose for cryotherapy)",
+          "\"for topical application\" (detail for Fluorouracil)",
+          "Specific reasons for smoking cessation: \"due to potential worsening of skin condition and increased risk of skin cancer.\"",
+          "Specific examples for early signs of skin cancer: \"(new growths, sores that don't heal, changes in existing moles)\""
         ]
       }
     ],
@@ -268,60 +274,121 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Qualifier 'Normal vital signs'",
+      "addition_text": "\"Normal vital signs\" summary phrase",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "All look normal.",
+      "transcript_evidence": "Your blood pressure is 130/85 mmHg, heart rate is 72 beats per minute, temperature is 98.6°F, and respiratory rate is 16 breaths per minute. All look normal.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Etiology 'likely caused by long-term sun exposure' in Assessment",
+      "addition_text": "\"likely caused by long-term sun exposure\" in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: Based on your symptoms and the examination, it looks like you have Actinic Keratosis. ... It's a condition caused by long-term sun exposure, leading to rough, scaly patches on sun-exposed areas.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Actinic Keratosis likely caused by long-term sun exposure."
+      "matched_claim_text": "Actinic Keratosis likely caused by long-term sun exposure.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Clarification 'a type of skin cancer' for squamous cell carcinoma",
+      "addition_text": "\"a type of skin cancer\" as a descriptor for SCC in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: If untreated, it can potentially progress to squamous cell carcinoma, a type of skin cancer.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Potential risk of progression to squamous cell carcinoma, a type of skin cancer."
+      "matched_claim_text": "Potential risk of progression to squamous cell carcinoma, a type of skin cancer.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Detail 'for lesion removal' for cryotherapy",
+      "addition_text": "\"for lesion removal\" as purpose for cryotherapy",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: We can start with liquid nitrogen cryotherapy to freeze and remove the lesions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate liquid nitrogen cryotherapy for lesion removal."
+      "matched_claim_text": "Initiate liquid nitrogen cryotherapy for lesion removal.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Detail 'for topical application' for Fluorouracil cream",
+      "addition_text": "\"for topical application\" for Fluorouracil cream",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: Then, I'll prescribe Fluorouracil 5% cream to be applied to the affected areas twice daily for 3-4 weeks.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Fluorouracil 5% cream for topical application twice daily for 3-4 weeks."
+      "matched_claim_text": "Prescribe Fluorouracil 5% cream for topical application twice daily for 3-4 weeks.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific examples of early signs of skin cancer: '(new growths, sores that don't heal, changes in existing moles)'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Doctor: Just be aware of the early signs of skin cancer, such as new growths, sores that don't heal, or changes in existing moles. Early detection is key.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Educate on early signs of skin cancer (new growths, sores that don't heal, changes in existing moles)."
-    },
-    {
-      "addition_text": "Specific reason for advising against smoking: 'due to potential worsening of skin condition and increased risk of skin cancer'",
+      "addition_text": "Specific reasons for smoking cessation: \"due to potential worsening of skin condition and increased risk of skin cancer.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: Also, if you smoke, I'd strongly advise you to quit. Smoking can worsen your skin condition and increase the risk of skin cancer.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise against smoking due to potential worsening of skin condition and increased risk of skin cancer."
+      "matched_claim_text": "Advise against smoking due to potential worsening of skin condition and increased risk of skin cancer.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Etiology 'likely caused by long-term sun exposure'",
+      "addition_text": "Specific examples for early signs of skin cancer: \"(new growths, sores that don't heal, changes in existing moles)\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Doctor: Just be aware of the early signs of skin cancer, such as new growths, sores that don't heal, or changes in existing moles. Early detection is key.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Educate on early signs of skin cancer (new growths, sores that don't heal, changes in existing moles).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"No previous treatments have been effective.\" (Broader than \"OTC emollients\")",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Patient: I've used some over-the-counter creams, but they haven't helped much.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No previous treatments have been effective.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Normal vital signs\" (summary phrase)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is 130/85 mmHg, heart rate is 72 beats per minute, temperature is 98.6°F, and respiratory rate is 16 breaths per minute. All look normal.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"likely caused by long-term sun exposure\" (etiology)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: Based on your symptoms and the examination, it looks like you have Actinic Keratosis. ... It's a condition caused by long-term sun exposure, leading to rough, scaly patches on sun-exposed areas.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Actinic Keratosis likely caused by long-term sun exposure."
+      "matched_claim_text": "Actinic Keratosis likely caused by long-term sun exposure.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"a type of skin cancer\" (descriptor for SCC)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Doctor: If untreated, it can potentially progress to squamous cell carcinoma, a type of skin cancer.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Potential risk of progression to squamous cell carcinoma, a type of skin cancer.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"for lesion removal\" (purpose for cryotherapy)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Doctor: We can start with liquid nitrogen cryotherapy to freeze and remove the lesions.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Initiate liquid nitrogen cryotherapy for lesion removal.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"for topical application\" (detail for Fluorouracil)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Doctor: Then, I'll prescribe Fluorouracil 5% cream to be applied to the affected areas twice daily for 3-4 weeks.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prescribe Fluorouracil 5% cream for topical application twice daily for 3-4 weeks.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

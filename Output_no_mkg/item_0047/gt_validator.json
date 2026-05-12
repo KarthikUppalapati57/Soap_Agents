@@ -229,73 +229,67 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the chief complaint, assessment, and core plan elements. However, it receives a 'B' due to several moderate omissions across the Subjective, Objective, and Plan sections. These omissions include details on the impact of symptoms, specific negative findings in the physical exam, and important aspects of patient education and agreement in the plan. There are no unsupported or unknown additions that would lower the grade.",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the chief complaint, assessment, and core plan. However, it omits a moderate detail regarding the impact of the patient's symptoms on daily tasks in the HPI. Additionally, several minor details are omitted from the ROS, physical examination, and plan, primarily concerning negative findings, patient education, and agreements. There are no unsupported or unknown additions that would negatively impact the grade.",
     "omissions": [
-      "Subjective: HPI detail regarding symptoms significantly impacting daily tasks and necessitating frequent rest.",
-      "Subjective: Review of Systems (ROS) section header and detailed breakdown (Cardiovascular, Respiratory, General, Neurological, Musculoskeletal).",
-      "Subjective: ROS detail: No muscle or joint pain.",
-      "Objective: Physical Examination detail: General Appearance: Alert, cooperative.",
-      "Objective: Physical Examination detail: Cardiovascular: no murmurs, rubs, or gallops.",
-      "Objective: Physical Examination detail: Respiratory: no wheezing, rales, or rhonchi.",
-      "Objective: Physical Examination detail: Abdomen: no hepatosplenomegaly.",
-      "Plan: Medical Treatment: Discussion on the importance of adherence to iron supplementation.",
-      "Plan: Investigations: Status 'Awaiting results'.",
-      "Plan: Lifestyle and Dietary Recommendations: Advice on the potential benefits of consuming vitamin C-rich foods to enhance iron absorption.",
-      "Plan: Patient Agreements section.",
-      "Plan: Patient Agreements detail: Patient understands and agrees with the recommended medical treatment plan.",
-      "Plan: Patient Agreements detail: Patient is keen to follow dietary recommendations and adhere to iron supplementation regimen.",
-      "Plan: Patient Agreements detail: Patient will return in 2 weeks for follow-up and further evaluation of lab results."
+      "HPI detail: 'These symptoms have been persistent and significantly impact her ability to perform daily tasks, necessitating frequent rest.'",
+      "ROS detail: 'Musculoskeletal: No muscle or joint pain.'",
+      "Physical Exam detail: 'General Appearance: Alert, cooperative'",
+      "Physical Exam detail: 'Cardiovascular: no murmurs, rubs, or gallops.'",
+      "Physical Exam detail: 'Respiratory: no wheezing, rales, or rhonchi.'",
+      "Physical Exam detail: 'Abdomen: no hepatosplenomegaly.'",
+      "Plan detail: 'Discussed the importance of adherence to iron supplementation.'",
+      "Plan detail: 'Investigations: Awaiting results.'",
+      "Patient Agreements detail: 'The patient understands and agrees with the recommended medical treatment plan.'",
+      "Patient Agreements detail: 'She is keen to follow the dietary recommendations and adhere to the iron supplementation regimen.'",
+      "Patient Agreements detail: 'further evaluation of lab results' (in the context of follow-up)"
     ],
     "additions": [
-      "Plan: Instruction to contact if necessary regarding potential gastrointestinal upset and constipation from iron supplements."
+      "Plan detail: Instruction to contact if necessary regarding iron supplement side effects."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section accurately captures the chief complaint and main HPI symptoms. However, it omits the detail regarding symptoms significantly impacting daily tasks and necessitating frequent rest, which is a moderate omission. Additionally, the full Review of Systems structure and the negative finding of 'No muscle or joint pain' are omitted, making the section less comprehensive.",
+        "summary": "The Subjective section accurately captures the chief complaint and main symptoms. However, it omits a moderate detail from the HPI regarding the significant impact of the patient's symptoms on her ability to perform daily tasks, and a minor negative finding from the ROS (no muscle or joint pain).",
         "omissions": [
-          "HPI detail regarding symptoms significantly impacting daily tasks and necessitating frequent rest.",
-          "Review of Systems (ROS) section header and detailed breakdown (Cardiovascular, Respiratory, General, Neurological, Musculoskeletal).",
-          "ROS detail: No muscle or joint pain."
+          "HPI detail: 'These symptoms have been persistent and significantly impact her ability to perform daily tasks, necessitating frequent rest.'",
+          "ROS detail: 'Musculoskeletal: No muscle or joint pain.'"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section correctly includes vital signs and key positive physical examination findings (pale appearance, tachycardia, noticeable pallor). However, it omits several specific negative findings from the physical exam, such as 'Alert, cooperative' for general appearance, 'no murmurs, rubs, or gallops' for cardiovascular, 'no wheezing, rales, or rhonchi' for respiratory, and 'no hepatosplenomegaly' for abdomen. While the general findings are present, these specific omissions reduce the completeness of the documentation.",
+        "grade": "A",
+        "summary": "The Objective section accurately reports vital signs and key positive physical examination findings. It omits several minor negative findings from the physical examination, including details about general appearance (alert, cooperative), cardiovascular (no murmurs, rubs, or gallops), respiratory (no wheezing, rales, or rhonchi), and abdomen (no hepatosplenomegaly).",
         "omissions": [
-          "Physical Examination detail: General Appearance: Alert, cooperative.",
-          "Physical Examination detail: Cardiovascular: no murmurs, rubs, or gallops.",
-          "Physical Examination detail: Respiratory: no wheezing, rales, or rhonchi.",
-          "Physical Examination detail: Abdomen: no hepatosplenomegaly."
+          "Physical Exam detail: 'General Appearance: Alert, cooperative'",
+          "Physical Exam detail: 'Cardiovascular: no murmurs, rubs, or gallops.'",
+          "Physical Exam detail: 'Respiratory: no wheezing, rales, or rhonchi.'",
+          "Physical Exam detail: 'Abdomen: no hepatosplenomegaly.'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the GroundTruthSOAP, with no omissions or unsupported/unknown additions. It accurately states the diagnosis.",
+        "summary": "The Assessment section is complete and accurate, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section captures the core medical treatment, investigations, dietary recommendations, and follow-up schedule. However, it omits several important details, including the discussion on the importance of adherence to iron supplementation, the status 'Awaiting results' for investigations, and the specific benefit of consuming vitamin C-rich foods to enhance iron absorption (though vitamin C foods are mentioned). Crucially, the entire 'Patient Agreements' section, detailing the patient's understanding, keenness to follow the plan, and confirmation of follow-up, is omitted. The only addition in this section is supported by the transcript and therefore does not impact the grade.",
+        "grade": "A",
+        "summary": "The Plan section accurately outlines medical treatment, investigations, lifestyle recommendations, and follow-up. It omits several minor details related to patient education on adherence, the status of awaiting investigation results, and specific patient agreements regarding the plan and follow-up. The addition regarding contacting for side effects is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Medical Treatment: Discussion on the importance of adherence to iron supplementation.",
-          "Investigations: Status 'Awaiting results'.",
-          "Lifestyle and Dietary Recommendations: Advice on the potential benefits of consuming vitamin C-rich foods to enhance iron absorption.",
-          "Patient Agreements section.",
-          "Patient Agreements detail: Patient understands and agrees with the recommended medical treatment plan.",
-          "Patient Agreements detail: Patient is keen to follow dietary recommendations and adhere to iron supplementation regimen.",
-          "Patient Agreements detail: Patient will return in 2 weeks for follow-up and further evaluation of lab results."
+          "Medical Treatment detail: 'Discussed the importance of adherence to iron supplementation.'",
+          "Investigations detail: 'Awaiting results.'",
+          "Patient Agreements detail: 'The patient understands and agrees with the recommended medical treatment plan.'",
+          "Patient Agreements detail: 'She is keen to follow the dietary recommendations and adhere to the iron supplementation regimen.'",
+          "Patient Agreements detail: 'further evaluation of lab results' (in the context of follow-up)"
         ],
         "additions": [
-          "Instruction to contact if necessary regarding potential gastrointestinal upset and constipation from iron supplements."
+          "Instruction to contact if necessary regarding iron supplement side effects."
         ]
       }
     ],
@@ -304,18 +298,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Plan: Instruction to contact if necessary regarding potential gastrointestinal upset and constipation from iron supplements.",
+      "addition_text": "Plan detail: Instruction to contact if necessary regarding iron supplement side effects.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Just a heads-up, iron supplements can sometimes cause gastrointestinal upset and constipation. If you experience these, let me know.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient was informed about potential side effects of iron supplements, specifically gastrointestinal upset and constipation, and advised to contact if necessary."
+      "matched_claim_text": "Patient was informed about potential side effects of iron supplements, specifically gastrointestinal upset and constipation, and advised to contact if necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Instruction to contact if necessary regarding potential gastrointestinal upset and constipation from iron supplements.",
+      "addition_text": "Instruction to contact if necessary regarding iron supplement side effects.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Just a heads-up, iron supplements can sometimes cause gastrointestinal upset and constipation. If you experience these, let me know.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient was informed about potential side effects of iron supplements, specifically gastrointestinal upset and constipation, and advised to contact if necessary."
+      "matched_claim_text": "Patient was informed about potential side effects of iron supplements, specifically gastrointestinal upset and constipation, and advised to contact if necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -219,9 +219,9 @@
     "plan_alignment_score": 0.7528089887640449
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "model_name_placeholder",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary but has noticeable gaps, primarily in the Subjective section where the entire Review of Systems is omitted, along with several important details from the History of Present Illness regarding the patient's condition duration, previous weight loss attempts, lifestyle, and sleep. The Assessment section also omits specific medication details for chronic conditions. The Objective and Plan sections are well-captured with only minor omissions. No unsupported or unknown additions were found.",
+    "overall_summary": "The overall note is usable but has noticeable gaps, primarily in the Subjective section where the entire Review of Systems and many detailed aspects of the History of Present Illness are omitted. The Assessment section also has moderate omissions regarding medication details for chronic conditions. The Objective and Plan sections are generally well-captured, with only minor contextual details missing. No unsupported or unknown additions were found to penalize the grade.",
     "omissions": [
       "Chief Complaint detail: affecting daily activities",
       "HPI detail: initial consultation",
@@ -253,7 +253,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has significant omissions, including the entire Review of Systems and numerous details from the History of Present Illness. Missing information includes the duration of severe obesity, challenges with daily tasks and mobility, previous weight loss attempts, sleep patterns, detailed diet and exercise habits, and social history elements like tobacco, drug, and alcohol use, and recreational activities. These omissions make the section meaningfully incomplete, though the core chief complaint and main symptoms are present.",
+        "summary": "This section has significant omissions, including the entire Review of Systems and numerous important details from the History of Present Illness such as the chronicity of obesity, functional limitations, past weight loss attempts, and specific lifestyle factors (diet, exercise, sleep, substance use, recreational activities). These omissions make the patient's history meaningfully incomplete.",
         "omissions": [
           "Chief Complaint detail: affecting daily activities",
           "HPI detail: initial consultation",
@@ -273,7 +273,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-captured with only one minor omission: the general appearance (Obese, alert, and oriented). The addition of hypertension and Type 2 Diabetes Mellitus management details is supported by the transcript and does not reduce the grade.",
+        "summary": "This section is well-captured with only a minor omission of the 'General Appearance: Obese, alert, and oriented' detail. The addition of medication details for hypertension and Type 2 Diabetes Mellitus was supported by the transcript and did not impact the grade.",
         "omissions": [
           "General Appearance: Obese, alert, and oriented"
         ],
@@ -284,7 +284,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "While the primary and secondary diagnoses are correctly identified, this section omits the specific medication details for hypertension (Lisinopril 20 mg daily) and Type 2 Diabetes Mellitus (Metformin 500 mg twice daily). Although these details appear in the Objective section of the generated note, their absence from the Assessment section represents a moderate gap in the diagnostic summary.",
+        "summary": "While the primary and secondary diagnoses are correctly identified, this section omits the specific medication details for hypertension (Lisinopril 20 mg daily) and Type 2 Diabetes Mellitus (Metformin 500 mg twice daily) as part of the diagnosis description. This is considered a moderate omission, reducing the completeness of the assessment.",
         "omissions": [
           "Medication details for hypertension (Lisinopril 20 mg daily)",
           "Medication details for Type 2 Diabetes Mellitus (Metformin 500 mg twice daily)"
@@ -293,8 +293,8 @@
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "This section is comprehensive, with only minor omissions. These include the specific duration for exercise (30 minutes), the specific reasons for endocrinologist (hormonal evaluation) and psychologist (behavioral therapy) referrals, the reason for the abdominal ultrasound (to assess for possible fatty liver disease), the goal of sleep routine education (to improve overall well-being), and the patient's understanding and agreement statement. These omissions do not materially reduce the clinical usefulness or safety of the plan.",
+        "grade": "B",
+        "summary": "The Plan section captures all major clinical recommendations, including weight management, medication, exercise, follow-up, referrals, additional tests, and patient education topics. However, it omits several minor contextual details such as the '30 minutes' for exercise, specific reasons for referrals (e.g., 'for hormonal evaluation'), reasons for tests (e.g., 'to assess for possible fatty liver disease'), and the goal of sleep education ('to improve overall well-being'). The patient understanding and agreement statement is also missing.",
         "omissions": [
           "\"30 minutes\" for moderate-intensity exercise",
           "Endocrinologist referral reason: for hormonal evaluation",
@@ -315,14 +315,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have Type 2 Diabetes Mellitus... [Doctor]: ...and Type 2 Diabetes Mellitus...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has a known history of Type 2 Diabetes Mellitus"
+      "matched_claim_text": "The patient has a known history of Type 2 Diabetes Mellitus",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "History of hypertension and Type 2 Diabetes Mellitus management details (Lisinopril 20 mg daily, Metformin 500 mg twice daily)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have Type 2 Diabetes Mellitus... [Doctor]: ...and Type 2 Diabetes Mellitus...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has a known history of Type 2 Diabetes Mellitus"
+      "matched_claim_text": "The patient has a known history of Type 2 Diabetes Mellitus",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

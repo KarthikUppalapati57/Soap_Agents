@@ -256,26 +256,19 @@
     "plan_alignment_score": 0.7263681592039801
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. While it accurately captures the patient's diagnoses and the core treatment plan, it omits several minor formatting elements and specific details. Notably, the explicit Chief Complaint content, specific dispensing instructions for Orlistat, and precise dosages for the patient's ongoing medications are missing, which are moderate issues impacting the completeness and precision of the documentation.",
+    "model": "model",
+    "overall_grade": "D",
+    "overall_summary": "The overall note receives a D grade primarily due to a high-severity omission in the Plan section regarding the specific dosages for continuing current medications. While the note captures the patient's chief complaints, history, and most objective findings, the lack of critical medication details significantly reduces its clinical usefulness and safety. Additionally, there are several minor and moderate omissions across other sections, including specific ROS details and dispensing instructions, further impacting the note's completeness.",
     "omissions": [
-      "Chief Complaint section header",
-      "Chief Complaint content: 'Initial consultation for management of severe obesity and related health issues.'",
-      "History of Present Illness (HPI) section header",
-      "Review of Systems (ROS) section header",
-      "ROS General: 'poor sleep quality (4-5 hours/night)'",
-      "ROS Cardiovascular: 'no chest pain or palpitations'",
-      "ROS Respiratory: 'no cough or wheezing'",
-      "ROS Endocrine: 'Type 2 Diabetes, no recent hypoglycemic episodes'",
-      "Physical Examination General: 'alert, and oriented'",
-      "Physical Examination Abdomen: 'Obese abdomen, no organomegaly'",
-      "Orlistat dispensing details: 'Dispense 90 tablets with monthly refills'",
-      "Specific dosages for current medications (Metformin 500 mg BID, Lisinopril 20 mg daily, Atorvastatin 20 mg daily)",
-      "Lifestyle Changes section header",
-      "Follow-up Recommendations section header",
-      "Patient Education and Counseling section header",
-      "Referral section header"
+      "Subjective: Chief Complaint (CC) section header",
+      "Subjective: History of Present Illness (HPI) section header",
+      "Subjective: Review of Systems (ROS) section header",
+      "Assessment: Diagnosis section header",
+      "Plan: Medical Treatment section header",
+      "Plan: Lifestyle Changes section header",
+      "Plan: Follow-up Recommendations section header",
+      "Plan: Patient Education and Counseling section header",
+      "Plan: Referral section header"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -283,47 +276,45 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section effectively conveys the patient's chief concerns and history. However, it omits the explicit Chief Complaint header and content, as well as the HPI and ROS section headers. Additionally, some specific negative findings from the Review of Systems (e.g., 'no chest pain or palpitations,' 'no cough or wheezing') and the detail about 'poor sleep quality (4-5 hours/night)' are not explicitly present in the generated ROS.",
+        "summary": "The Subjective section receives a B. It captures the core chief complaint and history of present illness but omits specific details such as the patient's exact sleep duration ('4-5 hours/night') and the negative findings for cardiovascular and respiratory systems in the ROS. The specific detail about Type 2 Diabetes and no recent hypoglycemic episodes was also omitted from the ROS.",
         "omissions": [
-          "Chief Complaint section header",
-          "Chief Complaint content: 'Initial consultation for management of severe obesity and related health issues.'",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
-          "ROS General: 'poor sleep quality (4-5 hours/night)'",
-          "ROS Cardiovascular: 'no chest pain or palpitations'",
-          "ROS Respiratory: 'no cough or wheezing'",
-          "ROS Endocrine: 'Type 2 Diabetes, no recent hypoglycemic episodes'"
+          "Chief Complaint (CC) content: 'Initial consultation for management of severe obesity and related health issues.'",
+          "Specific detail in HPI: 'morbid' in 'morbid obesity persisting for several years'",
+          "Specific detail in HPI: 'causing difficulty in performing routine tasks and decreased mobility'",
+          "ROS - General: 'poor sleep quality (4-5 hours/night)'",
+          "ROS - Cardiovascular: 'no chest pain or palpitations'",
+          "ROS - Respiratory: 'no cough or wheezing'",
+          "ROS - Endocrine: 'Type 2 Diabetes, no recent hypoglycemic episodes'"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-documented, accurately reflecting vital signs and key physical examination findings. The only omissions are minor descriptive details from the physical examination, specifically 'alert, and oriented' from General and 'Obese abdomen, no organomegaly' from Abdomen.",
+        "summary": "The Objective section receives an A. It accurately includes all vital signs and the most clinically relevant physical examination findings. The only omissions are minor details like 'alert, and oriented' from the general exam and 'no organomegaly' from the abdominal exam, which do not materially impact the clinical picture.",
         "omissions": [
-          "Physical Examination General: 'alert, and oriented'",
-          "Physical Examination Abdomen: 'Obese abdomen, no organomegaly'"
+          "Physical Examination - General: 'alert, and oriented'",
+          "Physical Examination - Abdomen: 'Obese abdomen, no organomegaly'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the GroundTruth, with no omissions or additions.",
-        "omissions": [],
+        "summary": "The Assessment section receives an A. All major diagnoses are correctly identified and listed. The only omission is the qualifier '(severe)' for 'Morbid obesity', which is a minor detail as 'morbid obesity' itself implies severity.",
+        "omissions": [
+          "Qualifier '(severe)' for 'Morbid obesity'"
+        ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section outlines the main treatment strategies, including new medication, continuation of existing medications, lifestyle changes, and follow-up. However, it omits specific dispensing details for Orlistat ('Dispense 90 tablets with monthly refills') and the precise dosages for the patient's ongoing medications (Metformin 500 mg BID, Lisinopril 20 mg daily, Atorvastatin 20 mg daily). Several section headers (Lifestyle Changes, Follow-up Recommendations, Patient Education and Counseling, Referral) are also omitted.",
+        "grade": "D",
+        "summary": "The Plan section receives a D. This grade is primarily due to the high-severity omission of specific dosages for the patient's continuing medications (Metformin, Lisinopril, and Atorvastatin). While the medications are listed, the absence of dosages makes the instruction to 'continue' them incomplete and potentially unsafe. Additionally, the specific dispensing instructions for Orlistat ('Dispense 90 tablets with monthly refills') were omitted, and the dedicated 'Referral' section was not included, though the referral content was present elsewhere.",
         "omissions": [
-          "Orlistat dispensing details: 'Dispense 90 tablets with monthly refills'",
-          "Specific dosages for current medications (Metformin 500 mg BID, Lisinopril 20 mg daily, Atorvastatin 20 mg daily)",
-          "Lifestyle Changes section header",
-          "Follow-up Recommendations section header",
-          "Patient Education and Counseling section header",
-          "Referral section header"
+          "Medical Treatment: 'Dispense 90 tablets with monthly refills' for Orlistat",
+          "Medical Treatment: Specific dosages for current medications (Metformin 500 mg BID, Lisinopril 20 mg daily, Atorvastatin 20 mg daily)",
+          "Referral section content: 'Referral to Dietitian Maria Gomez for dietary counseling to aid in weight management' (while the referral is mentioned, the distinct section and its full content are omitted)"
         ],
         "additions": []
       }

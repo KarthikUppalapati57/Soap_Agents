@@ -197,9 +197,9 @@
     "plan_alignment_score": 0.6844919786096256
   },
   "expert_judge": {
-    "model": "ClinicalDocumentationGrader",
-    "overall_grade": "F",
-    "overall_summary": "The generated note receives an F due to multiple critical omissions across the Subjective, Assessment, and Plan sections. Key missing information includes the patient's penicillin allergy, the diagnosis of asthma in the assessment, and crucial safety instructions in the plan regarding monitoring symptoms and seeking emergency care for worsening breathing difficulties. These omissions significantly reduce the clinical usefulness and reliability of the note, posing potential safety risks.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The note contains several significant omissions across the Subjective, Assessment, and Plan sections. Key missing clinical details include the patient's allergy to Penicillin, the diagnosis of asthma and its current management in the assessment, and a critical safety instruction to seek immediate care for worsening respiratory distress. These omissions materially reduce the clinical usefulness and introduce potential safety concerns.",
     "omissions": [
       "Clinic, date, and physician information"
     ],
@@ -208,8 +208,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "The Subjective section receives a D due to numerous significant omissions. Critically, the patient's penicillin allergy is omitted. Other major omissions include the symptom of cough, details about symptoms being constant and impacting daily activities, and the entire Review of Systems. Important social history details (tobacco, alcohol, recreational drugs) and sleep patterns are also missing, making this section substantially incomplete.",
+        "grade": "C",
+        "summary": "The Subjective section has several omissions, including the patient's allergy to Penicillin, the detailed impact of symptoms on daily activities (difficulty going to work, frequent rest), and the explicit mention of cough in the initial symptom list. Additionally, several social history details (tobacco, alcohol, recreational drugs, sleep, diet) are missing. The absence of the allergy information is a significant clinical omission.",
         "omissions": [
           "Moderate severity of symptoms (fever, chills, body aches, difficulty breathing) in the initial presentation",
           "Symptoms are constant",
@@ -230,14 +230,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately reflects the GroundTruth, stating that vital signs and physical examination could not be obtained due to a telemedicine consultation. There are no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section accurately reflects the Ground Truth, stating that vital signs and physical examination could not be obtained due to telemedicine, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section receives a D primarily due to the critical omission of the patient's asthma diagnosis, which is a significant pre-existing condition relevant to the current respiratory symptoms. The moderate impact on daily activities, necessitating rest and isolation, is also omitted. While an addition is present, it is supported by the transcript and does not lower the grade.",
+        "grade": "C",
+        "summary": "The Assessment section omits two important clinical details: the patient's history of asthma and its current management with an albuterol inhaler, and the moderate impact of symptoms on daily activities necessitating rest and isolation. The omission of asthma is a significant gap in the patient's clinical picture.",
         "omissions": [
           "Asthma, currently managed with albuterol inhaler",
           "Moderate impact on daily activities, necessitating rest and isolation"
@@ -248,8 +248,8 @@
       },
       {
         "section": "Plan",
-        "grade": "F",
-        "summary": "The Plan section receives an F due to the critical omission of the instruction to monitor symptoms closely and seek immediate care if breathing difficulties worsen. This is a major safety concern, especially for a patient with a history of asthma presenting with respiratory symptoms. The discussion regarding challenges with quarantine facilities and the reinforcement of strict isolation practices and hygiene measures are also omitted, further reducing the completeness and safety of the plan.",
+        "grade": "D",
+        "summary": "The Plan section omits a critical safety instruction to monitor symptoms closely and seek immediate care if breathing difficulties worsen, which is particularly important given the patient's history of asthma. It also misses the discussion about challenges related to limited access to immediate quarantine facilities due to socio-economic constraints.",
         "omissions": [
           "Discussion of challenges related to limited access to immediate quarantine facilities due to socio-economic constraints",
           "Instruction to monitor symptoms closely and seek immediate care if breathing difficulties worsen",
@@ -267,14 +267,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In the meantime, I recommend strict isolation for you and your close contacts to prevent the spread of infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Strict isolation recommended due to potential COVID-19 infection"
+      "matched_claim_text": "Strict isolation recommended due to potential COVID-19 infection",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Moderate fever, chills, body aches, and difficulty breathing",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Sure. I’ve had a moderate fever, chills, and body aches. It’s been difficult for me to breathe, and I’ve been coughing a lot.\n[Doctor]: I’ve noted that you’re experiencing moderate fever, chills, body aches, and difficulty breathing.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Moderate fever, chills, body aches, and difficulty breathing"
+      "matched_claim_text": "Moderate fever, chills, body aches, and difficulty breathing",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

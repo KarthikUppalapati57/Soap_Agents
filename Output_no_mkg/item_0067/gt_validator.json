@@ -285,62 +285,57 @@
     "plan_alignment_score": 0.6892655367231638
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable overview but suffers from numerous omissions across all sections. Key missing details include the patient's past medical history, important physical exam findings (e.g., cyanosis, accessory muscle use, decreased breath sounds), specific differential diagnoses in the assessment, and crucial details in the plan such as medication dosages, the specific consulting physician's name, and explicit instructions for monitoring and family communication. While no unsupported additions were found, the cumulative effect of these omissions makes the note meaningfully incomplete and requires careful review.",
+    "overall_summary": "The generated SOAP note is usable but has noticeable gaps and multiple moderate to major issues. The most significant concern is the omission of critical differential diagnoses in the Assessment section. Additionally, there are several moderate omissions in the Subjective section (patient history, severity, ROS) and the Plan section (specific treatment details, supportive care, and patient instructions), which collectively make the note meaningfully incomplete. All additions were supported by the transcript and did not impact the grade.",
     "omissions": [
-      "Patient's known history of asthma and hypertension (from HPI)",
-      "Episodes of diaphoresis (sweating)",
-      "Progressive worsening of symptoms over the past day",
-      "Inability to perform daily activities and being bedbound",
-      "Usual sleep duration of 7 hours",
-      "General appearance: Distressed (in Objective)",
-      "General appearance: Cyanotic (in Objective)",
-      "General appearance: Using accessory muscles for breathing",
-      "Blood Pressure: Not recorded during initial admission",
-      "Decreased breath sounds bilaterally",
-      "Cardiovascular exam: Regular rhythm",
-      "Assessment: Complicated by possible underlying infection or other causes such as pulmonary embolism",
-      "Assessment: Differential diagnosis includes pneumonia or sepsis",
-      "Plan: Initiate intubation (for mechanical ventilation)",
-      "Plan: Albuterol sulfate 2.5 mg (dosage)",
-      "Plan: Ipratropium bromide 0.5 mg (dosage)",
-      "Plan: Dr. Robert Singh (specific name for Infectious Disease specialist)",
-      "Plan: Monitor vital signs closely and reassess the patient's oxygenation status and response to treatment",
-      "Plan: Continue current medications for asthma exacerbation",
-      "Plan: Discuss the treatment plan and potential complications with the patient’s family or designated contact"
+      "Chief Complaint section header and content",
+      "Patient's known history of asthma and hypertension in HPI",
+      "Diaphoresis as an initial symptom in HPI",
+      "Patient's inability to perform any daily activities and being bedbound due to worsening symptoms in HPI",
+      "Specific mention of 'usually gets 7 hours of sleep' regarding sleep disturbance in HPI",
+      "Review of Systems (ROS) section header and content (e.g., General: Extreme distress, Other systems: Negative except as mentioned in HPI)",
+      "General Appearance details (Distressed, cyanotic, using accessory muscles for breathing)",
+      "Vital Signs: Blood Pressure not recorded during initial admission",
+      "Respiratory Exam: Decreased breath sounds bilaterally",
+      "Cardiovascular Exam: Regular rhythm",
+      "Assessment: 'complicated by possible underlying infection or other causes such as pulmonary embolism. Differential diagnosis includes pneumonia or sepsis.'",
+      "Plan: Mechanical Ventilation: Initiate intubation",
+      "Plan: Medications: Specific dosages (Albuterol sulfate 2.5 mg, Ipratropium bromide 0.5 mg)",
+      "Plan: Referral: Specific name of specialist (Dr. Robert Singh)",
+      "Plan: Supportive Care: 'Monitor vital signs closely and reassess the patient's oxygenation status and response to treatment.'",
+      "Plan: Further Management: 'Continue current medications for asthma exacerbation.'",
+      "Plan: Instructions: 'Discuss the treatment plan and potential complications with the patient’s family or designated contact.'",
+      "Plan: Instructions: 'Ensure the patient remains in the ICU for close monitoring and management.'"
     ],
     "additions": [
-      "Subjective: Denies chest pain, fever, cough, or swelling in the legs",
-      "Plan: Administer medications 'for airway management'"
+      "Subjective: 'Denies chest pain, fever, cough, or swelling in the legs.'",
+      "Plan: Medications: 'for airway management' qualifier"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the patient's known history of asthma and hypertension, the progressive worsening of symptoms over the past day, and the impact on daily activities (bedbound). It also misses the detail about usual sleep duration and general distress from ROS. These are moderate omissions affecting the completeness of the HPI.",
+        "summary": "The section omits the explicit Chief Complaint, the patient's known history of asthma and hypertension, the full severity of their condition (bedbound), and the entire Review of Systems section, leading to noticeable gaps in the patient's subjective presentation.",
         "omissions": [
-          "Patient's known history of asthma and hypertension",
-          "Episodes of diaphoresis",
-          "Frequency and severity of episodes have progressively worsened over the past day",
-          "Completely unable to perform any daily activities and is bedbound",
-          "Usually gets 7 hours of sleep",
-          "Review of Systems: General: Extreme distress",
-          "Review of Systems: Other systems: Negative except as mentioned in HPI"
+          "Chief Complaint explicitly stated as 'Severe difficulty breathing.'",
+          "Known history of asthma and hypertension (mentioned in HPI)",
+          "Diaphoresis (sweating) as an initial symptom",
+          "Patient's inability to perform any daily activities and being bedbound due to worsening symptoms",
+          "Specific mention of 'usually gets 7 hours of sleep' regarding sleep disturbance",
+          "ROS section structure and specific entries (e.g., General: Extreme distress, Other systems: Negative except as mentioned in HPI)"
         ],
         "additions": [
-          "Denies chest pain, fever, cough, or swelling in the legs"
+          "'Denies chest pain, fever, cough, or swelling in the legs.'"
         ]
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits several critical physical exam findings, including the patient's cyanotic appearance, use of accessory muscles for breathing, and decreased breath sounds bilaterally. The absence of blood pressure recording and regular rhythm for cardiovascular exam were also omitted. These are moderate omissions of key clinical indicators.",
+        "grade": "B",
+        "summary": "The section has moderate omissions regarding the patient's general appearance (distressed, cyanotic, accessory muscle use) and a key respiratory exam finding (decreased breath sounds bilaterally), along with minor omissions of blood pressure status and cardiovascular rhythm.",
         "omissions": [
-          "General Appearance: Distressed",
-          "General Appearance: Cyanotic",
-          "General Appearance: Using accessory muscles for breathing",
+          "General Appearance: Distressed, cyanotic, using accessory muscles for breathing",
           "Vital Signs: Blood Pressure: Not recorded during initial admission",
           "Respiratory Exam: Decreased breath sounds bilaterally",
           "Cardiovascular Exam: Regular rhythm"
@@ -349,8 +344,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section omits important differential diagnoses and complicating factors, specifically 'complicated by possible underlying infection or other causes such as pulmonary embolism' and 'differential diagnosis includes pneumonia or sepsis.' These are moderate omissions that narrow the diagnostic considerations.",
+        "grade": "D",
+        "summary": "This section has major omissions by failing to include the crucial differential diagnoses of possible underlying infection, pulmonary embolism, pneumonia, or sepsis, which significantly reduces the clinical usefulness and completeness of the assessment.",
         "omissions": [
           "Complicated by possible underlying infection or other causes such as pulmonary embolism",
           "Differential diagnosis includes pneumonia or sepsis"
@@ -360,18 +355,18 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section omits specific medication dosages (Albuterol sulfate 2.5 mg, Ipratropium bromide 0.5 mg), the specific name of the Infectious Disease specialist (Dr. Robert Singh), and important instructions regarding close monitoring of vital signs and reassessment, continuing current asthma medications, and discussing the treatment plan with the patient's family. These are a mix of minor and moderate omissions impacting precision and comprehensive care instructions.",
+        "summary": "The plan omits important details such as the initiation of intubation, specific medication dosages, the name of the consulting specialist, and key supportive care instructions (monitoring vital signs, reassessing oxygenation, continuing current medications, family discussions, and ICU monitoring).",
         "omissions": [
           "Mechanical Ventilation: Initiate intubation",
-          "Medications: Albuterol sulfate 2.5 mg via nebulizer",
-          "Medications: Ipratropium bromide 0.5 mg via nebulizer",
-          "Referral: Consult Dr. Robert Singh, Infectious Disease specialist",
-          "Supportive Care: Monitor vital signs closely and reassess the patient's oxygenation status and response to treatment",
-          "Further Management: Continue current medications for asthma exacerbation",
-          "Instructions: Discuss the treatment plan and potential complications with the patient’s family or designated contact"
+          "Medications: Specific dosages (Albuterol sulfate 2.5 mg, Ipratropium bromide 0.5 mg)",
+          "Referral: Specific name of specialist (Dr. Robert Singh)",
+          "Supportive Care: 'Monitor vital signs closely and reassess the patient's oxygenation status and response to treatment.'",
+          "Further Management: 'Continue current medications for asthma exacerbation.'",
+          "Instructions: 'Discuss the treatment plan and potential complications with the patient’s family or designated contact.'",
+          "Instructions: 'Ensure the patient remains in the ICU for close monitoring and management.'"
         ],
         "additions": [
-          "Administer albuterol sulfate and ipratropium bromide 'for airway management'"
+          "Medications: 'for airway management' qualifier"
         ]
       }
     ],
@@ -380,32 +375,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Denies chest pain, fever, cough, or swelling in the legs",
+      "addition_text": "Subjective: 'Denies chest pain, fever, cough, or swelling in the legs.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My heart feels like it’s racing sometimes, but I haven’t felt any chest pain. ... [Patient]: No, none of those.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient denies chest pain, fever, cough, or swelling in the legs."
+      "matched_claim_text": "Patient denies chest pain, fever, cough, or swelling in the legs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Administer medications 'for airway management'",
+      "addition_text": "Plan: Medications: 'for airway management' qualifier",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll also give you medications like albuterol sulfate through a nebulizer every 4 hours and ipratropium bromide every 6 hours to help open up your airways.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "These medications are for airway management."
+      "matched_claim_text": "These medications are for airway management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Denies chest pain, fever, cough, or swelling in the legs",
+      "addition_text": "'Denies chest pain, fever, cough, or swelling in the legs.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My heart feels like it’s racing sometimes, but I haven’t felt any chest pain. ... [Patient]: No, none of those.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient denies chest pain, fever, cough, or swelling in the legs."
+      "matched_claim_text": "Patient denies chest pain, fever, cough, or swelling in the legs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Administer albuterol sulfate and ipratropium bromide 'for airway management'",
+      "addition_text": "Medications: 'for airway management' qualifier",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll also give you medications like albuterol sulfate through a nebulizer every 4 hours and ipratropium bromide every 6 hours to help open up your airways.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Administer ipratropium bromide every 6 hours."
+      "matched_claim_text": "These medications are for airway management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

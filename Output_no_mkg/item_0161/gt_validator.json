@@ -275,9 +275,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary but suffers from multiple omissions across the Subjective, Objective, and Plan sections. Key missing details include the patient's occupation, specific pain characteristics and functional limitations in the HPI, and the entire Review of Systems. In the Objective section, important physical exam findings like the S4 gallop and the patient's general appearance of distress are omitted, as is the urgency of the ECG review. The Plan section lacks specificity regarding the purposes of imaging and referral, specific cardiac biomarkers, and some explicit patient instructions. There are no unsupported additions.",
+    "overall_summary": "The generated note is missing the entire Review of Systems section, which is a major omission. Additionally, several moderate omissions impact the completeness of the note, including detailed descriptions of the chest pain's severity and impact in the HPI, the clinical finding of a \"possible S4 gallop\" in the Objective section, and the critical safety instruction for immediate follow-up in Urgent Care if symptoms worsen. While there are no unsupported or unknown additions, these omissions collectively make the note meaningfully incomplete, requiring careful review.",
     "omissions": [
       "Patient's occupation (construction worker)",
       "HPI detail: persistent chest pain",
@@ -310,7 +310,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has several omissions, including the patient's occupation, the persistent nature of the pain, the frequency of acute episodes, and the significant impact on daily activities. Crucially, the entire Review of Systems (ROS) section is missing, which includes important details like radiating chest pain, mild wheezing, and the absence of numbness/tingling. These omissions represent noticeable gaps in the clinical picture.",
+        "summary": "The Subjective section has significant omissions, including the entire Review of Systems (ROS) section. Key details about the severity and impact of the chest pain, such as its constant nature, escalation to acute episodes 4-5 times a day, and its severely limiting effect on job duties and daily activities, are also missing. The radiating pain to the left arm is also omitted from the generated subjective content.",
         "omissions": [
           "Chief Complaint detail: radiating pain to the left arm",
           "HPI detail: patient's occupation (construction worker)",
@@ -328,8 +328,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits several important physical exam findings, such as the patient's general appearance of distress and anxiety, and the possible S4 gallop. It also misses the crucial note that the ECG findings require an urgent cardiologist review. While the addition of '(high)' for blood pressure is supported, the omissions are moderate and reduce the completeness of the objective findings.",
+        "grade": "B",
+        "summary": "The Objective section omits several minor details regarding the patient's general appearance and neurological status (e.g., \"Appeared in distress due to pain and anxiety,\" \"Alert but anxious\"). More significantly, the \"possible S4 gallop\" finding from the cardiovascular exam is missing, which is an important clinical observation. The addition of \"(high)\" for blood pressure is supported by the transcript and does not impact the grade.",
         "omissions": [
           "Vitals: General appearance: Appeared in distress due to pain and anxiety",
           "Physical Exam: Cardiovascular: possible S4 gallop",
@@ -344,14 +344,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate, with no omissions or unsupported additions.",
+        "summary": "The Assessment section is complete and accurately reflects the Ground Truth, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several omissions regarding the specific purposes of the referral and imaging, and the specific cardiac biomarkers (Troponin I, CK-MB). It also misses explicit instructions about improving diet and sleep habits, adhering to medications and follow-up appointments, and the specific location for urgent follow-up (Urgent Care Center). While the general intent is often captured, the lack of specificity and some explicit instructions are moderate omissions.",
+        "grade": "B",
+        "summary": "The Plan section has several minor omissions, including advising on improving diet and sleep habits, and the specific purposes for the referral, imaging, and tests (e.g., \"to rule out CAD,\" \"to evaluate the functional capacity of the heart and detect ischemia,\" specific cardiac biomarkers \"Troponin I, CK-MB\"). A moderate and clinically important omission is the instruction for immediate follow-up in an Urgent Care Center if symptoms worsen or do not improve with medication.",
         "omissions": [
           "Lifestyle Change: Advise on improving diet and sleep habits",
           "Referral: purpose 'to rule out CAD'",
@@ -373,14 +373,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 140/95 mmHg. That's quite high.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure: 140/95 mmHg (high)"
+      "matched_claim_text": "Blood pressure: 140/95 mmHg (high)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Blood pressure qualifier '(high)'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 140/95 mmHg. That's quite high.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure: 140/95 mmHg (high)"
+      "matched_claim_text": "Blood pressure: 140/95 mmHg (high)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

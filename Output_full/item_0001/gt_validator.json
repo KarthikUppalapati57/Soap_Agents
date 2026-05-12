@@ -192,95 +192,98 @@
     "plan_alignment_score": 0.5555555555555556
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has multiple moderate omissions, including the dosage frequency for Acetaminophen, specific follow-up recommendations, patient agreements, and patient's motivation/behavior. Several minor omissions such as ethnicity, recreational activities, and drug use are also present. While there are no unsupported or unknown additions, the significant gaps in the Plan section and other clinically relevant details reduce the overall usefulness and clarity of the note, requiring caution and review.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable. It accurately captures the chief complaint, history of present illness, and core assessment and plan. However, it has several minor omissions, including recreational drug use, hobbies, patient motivation, and the reason for no physical exam. More significantly, the Plan section omits the specific frequency for Acetaminophen and the detailed follow-up schedule, which are important for patient care. While much of the Ground Truth's Subjective content was structurally moved to the Objective section, the information is still present in the note. There are no unsupported or unknown additions.",
     "omissions": [
-      "Ethnicity: Asian",
-      "Acetaminophen dosage frequency \"every 6 hours\"",
-      "Follow-up in 1 month to reassess weight management and pain levels",
-      "Patient Agreements (Patient understands and agrees with recommended medical treatment plan)",
-      "Recreational Activities (Knitting and watching TV)",
-      "No recreational drug use",
-      "Patient's Behavior (Motivated to change lifestyle after understanding the impact of weight on knee pain)"
+      "Drug Use: No recreational drug use",
+      "Recreational Activities: Enjoys knitting and watching TV",
+      "Patient's Behavior: Motivated to change lifestyle after understanding the impact of weight on knee pain",
+      "Objective: Physical Exams: Not applicable (Telemedicine) - reason for no physical exam",
+      "Plan: Acetaminophen frequency 'every 6 hours'",
+      "Plan: Follow-up Recommendations: Follow-up in 1 month to reassess weight management and pain levels",
+      "Plan: Patient Agreements: The patient understands and agrees with the recommended medical treatment plan"
     ],
     "additions": [
-      "\"Risk factors for cardiovascular disease due to poor diet and hypertension\" in Assessment",
-      "Specific lifestyle modifications in Plan: \"encourage more vegetables and fruits in the diet, gradually increase physical activity as tolerated by the knee.\"",
-      "\"Patient's current complaints and symptoms related to knee pain\" in Objective"
+      "Assessment: Risk factors for cardiovascular disease due to poor diet and hypertension",
+      "Plan: Specific lifestyle modifications: encourage more vegetables and fruits in the diet, gradually increase physical activity as tolerated by the knee"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has numerous omissions, including explicit Chief Complaint, ROS details, patient's recreational activities, drug use, ethnicity, and patient's behavior/motivation. While some content was relocated to the Objective section, its absence from the Subjective section as per the Ground Truth makes this section meaningfully incomplete.",
+        "summary": "The Subjective section has numerous omissions because much of the patient's history, lifestyle, and demographic information, which is present in the Ground Truth's Subjective, was moved to the Objective section in the generated note. Additionally, minor details such as recreational drug use, recreational activities, and the patient's motivation for lifestyle change were entirely omitted from the generated note.",
         "omissions": [
-          "Chief Complaint (explicitly stated as \"CC: Pain in left knee\")",
-          "Review of Systems (ROS) section header",
-          "General ROS: Occasional insomnia due to pain (as a separate point under ROS)",
-          "Patient’s self-reported habits and lifestyle section header",
-          "Sleep: Occasional insomnia due to pain (as a separate point under habits)",
-          "Drug Use: No recreational drug use",
-          "Recreational Activities: Enjoys knitting and watching TV",
-          "Medical/Social History section header",
-          "Demographic Information section header",
-          "Age: 42",
-          "Gender: Female",
-          "Ethnicity: Asian",
+          "Patient’s self-reported habits and lifestyle: Diet: High in saturated fats and sugars, low in vegetables and fruits",
+          "Patient’s self-reported habits and lifestyle: Exercise: Minimal exercise, sedentary lifestyle due to knee pain",
+          "Patient’s self-reported habits and lifestyle: Tobacco Use: Smoked for 10 years, quit 5 years ago",
+          "Patient’s self-reported habits and lifestyle: Alcohol Consumption: Drinks 3-4 times a week, moderate consumption",
+          "Patient’s self-reported habits and lifestyle: Drug Use: No recreational drug use",
+          "Patient’s self-reported habits and lifestyle: Recreational Activities: Enjoys knitting and watching TV",
+          "Medical/Social History: Previous Diagnoses: Obesity, Hypertension",
+          "Medical/Social History: Family Medical History: Mother with osteoporosis, father with heart disease",
+          "Medical/Social History: Medication History: Hydrochlorothiazide 25 mg once daily for hypertension",
+          "Medical/Social History: Allergies: None",
+          "Medical/Social History: Chronic Conditions: Obesity, Hypertension",
+          "Demographic Information: Socio-economic Status: Low-income",
+          "Demographic Information: Education Level: Bachelor's degree",
+          "Demographic Information: Health Literacy: Adequate, understands medical advice well",
+          "Demographic Information: Job Status: Office worker",
           "Patient's Behavior: Motivated to change lifestyle after understanding the impact of weight on knee pain",
-          "Geographical Location section header",
-          "Big City vs Small City: Lives in a big city",
-          "Rural vs Urban: Urban",
-          "Pollution and Environmental Health Risks: Moderate air pollution",
-          "Neighborhood Type: Low-income, food desert"
+          "Geographical Location: Rural vs Urban: Urban",
+          "Geographical Location: Pollution and Environmental Health Risks: Moderate air pollution",
+          "Geographical Location: Neighborhood Type: Low-income, food desert"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-aligned, with only one minor omission regarding the statement about physical exams being not applicable due to telemedicine. All additions in this section are supported by the transcript and do not lower the grade.",
+        "summary": "The Objective section has one minor omission regarding the reason for no physical exam (telemedicine visit). All additions in this section, which primarily consist of subjective information moved from the Ground Truth's Subjective section, are supported by the transcript and therefore do not negatively impact the grade.",
         "omissions": [
-          "Physical Exams: Not applicable (Telemedicine)"
+          "Physical Exams: Not applicable (Telemedicine) - reason for no physical exam"
         ],
         "additions": [
-          "\"Patient's current complaints and symptoms related to knee pain\"",
-          "Lifestyle factors including poor diet (high in saturated fats, sugars, low in vegetables and fruits), sedentary lifestyle, moderate alcohol consumption, previous smoking history, and obesity (moved from GT Subjective)",
-          "Medical history: hypertension and family history of osteoporosis and heart disease (moved from GT Subjective)",
-          "Current medication: Hydrochlorothiazide 25 mg once daily for hypertension (moved from GT Subjective)",
-          "No known allergies (moved from GT Subjective)",
-          "Socioeconomic status: low-income, urban area, food desert (moved from GT Subjective)",
-          "Education level: bachelor's degree (moved from GT Subjective)",
-          "Understanding of medical advice: adequate (moved from GT Subjective)",
-          "Job status: office worker (moved from GT Subjective)",
-          "Environmental factors: moderate air pollution in the neighborhood (moved from GT Subjective)",
-          "Age: 42 (moved from GT Subjective)",
-          "Gender: Female (moved from GT Subjective)"
+          "Patient's current complaints and symptoms related to knee pain (subjective information)",
+          "Lifestyle factors including poor diet (high in saturated fats, sugars, low in vegetables and fruits) (subjective information)",
+          "Lifestyle factors including sedentary lifestyle (subjective information)",
+          "Lifestyle factors including moderate alcohol consumption (subjective information)",
+          "Lifestyle factors including previous smoking history (subjective information)",
+          "Lifestyle factors including obesity (subjective information)",
+          "Medical history: hypertension (subjective information)",
+          "Medical history: family history of osteoporosis and heart disease (subjective information)",
+          "Current medication: Hydrochlorothiazide 25 mg once daily for hypertension (subjective information)",
+          "No known allergies (subjective information)",
+          "Socioeconomic status: low-income (subjective information)",
+          "Geographical location: urban area (subjective information)",
+          "Geographical location: food desert (subjective information)",
+          "Education level: bachelor's degree (subjective information)",
+          "Understanding of medical advice: adequate (subjective information)",
+          "Job status: office worker (subjective information)",
+          "Environmental factors: moderate air pollution in the neighborhood (subjective information)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section has a moderate omission of the specific diagnosis 'Pain in left knee' and its ICD-10 code. The generated diagnosis is related but less precise than the Ground Truth. The addition in this section is supported by the transcript.",
-        "omissions": [
-          "Diagnosis: Pain in left knee"
-        ],
+        "grade": "A",
+        "summary": "The Assessment section accurately reflects the Ground Truth. There are no omissions, and the single addition regarding cardiovascular risk factors is fully supported by the transcript.",
+        "omissions": [],
         "additions": [
-          "\"Risk factors for cardiovascular disease due to poor diet and hypertension\""
+          "Risk factors for cardiovascular disease due to poor diet and hypertension"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions, including the critical dosage frequency for Acetaminophen, specific follow-up recommendations (timeframe and purpose), and patient agreements. These omissions significantly impact the completeness and safety of the treatment plan. The addition in this section is supported by the transcript.",
+        "grade": "B",
+        "summary": "The Plan section has moderate omissions, specifically the frequency for Acetaminophen (every 6 hours) and the detailed follow-up recommendation (in 1 month to reassess weight management and pain levels). A minor omission is the patient's agreement with the plan. The lifestyle modification addition is supported by the transcript.",
         "omissions": [
-          "Acetaminophen dosage frequency \"every 6 hours\"",
+          "Medical Treatment: Acetaminophen frequency 'every 6 hours'",
           "Follow-up Recommendations: Follow-up in 1 month to reassess weight management and pain levels",
           "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan"
         ],
         "additions": [
-          "Specific lifestyle modifications: \"encourage more vegetables and fruits in the diet, gradually increase physical activity as tolerated by the knee.\""
+          "Lifestyle modifications: encourage more vegetables and fruits in the diet, gradually increase physical activity as tolerated by the knee"
         ]
       }
     ],
@@ -289,123 +292,193 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"Risk factors for cardiovascular disease due to poor diet and hypertension\" in Assessment",
+      "addition_text": "Assessment: Risk factors for cardiovascular disease due to poor diet and hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I have obesity and hypertension. [patient] Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits. [doctor] I also want to order a complete lipid profile to evaluate your cardiovascular health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Poor diet and hypertension are risk factors for cardiovascular disease."
+      "matched_claim_text": "Poor diet and hypertension are risk factors for cardiovascular disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific lifestyle modifications in Plan: \"encourage more vegetables and fruits in the diet, gradually increase physical activity as tolerated by the knee.\"",
+      "addition_text": "Plan: Specific lifestyle modifications: encourage more vegetables and fruits in the diet, gradually increase physical activity as tolerated by the knee",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] And remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle modifications are encouraged, including more vegetables and fruits in the diet and gradually increasing physical activity as tolerated by the knee."
+      "matched_claim_text": "Lifestyle modifications are encouraged, including more vegetables and fruits in the diet and gradually increasing physical activity as tolerated by the knee.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Knee pain — phenotype_phenotype — Lower limb pain"
     },
     {
-      "addition_text": "\"Patient's current complaints and symptoms related to knee pain\" in Objective",
+      "addition_text": "Patient's current complaints and symptoms related to knee pain (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on our discussion, it sounds like the main issue is the pain in your left knee, which might be exacerbated by your obesity and sedentary lifestyle.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Knee pain is possibly related to obesity and sedentary lifestyle."
+      "matched_claim_text": "Knee pain is possibly related to obesity and sedentary lifestyle.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Knee pain — phenotype_phenotype — Lower limb pain"
     },
     {
-      "addition_text": "\"Patient's current complaints and symptoms related to knee pain\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on our discussion, it sounds like the main issue is the pain in your left knee, which might be exacerbated by your obesity and sedentary lifestyle.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Knee pain is possibly related to obesity and sedentary lifestyle."
-    },
-    {
-      "addition_text": "Lifestyle factors including poor diet (high in saturated fats, sugars, low in vegetables and fruits), sedentary lifestyle, moderate alcohol consumption, previous smoking history, and obesity (moved from GT Subjective)",
+      "addition_text": "Lifestyle factors including poor diet (high in saturated fats, sugars, low in vegetables and fruits) (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's diet is poor, high in saturated fats and sugars, and low in vegetables and fruits."
+      "matched_claim_text": "The patient's diet is poor, high in saturated fats and sugars, and low in vegetables and fruits.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Medical history: hypertension and family history of osteoporosis and heart disease (moved from GT Subjective)",
+      "addition_text": "Lifestyle factors including sedentary lifestyle (subjective information)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "My lifestyle has become pretty sedentary because of the knee pain.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle factors including moderate alcohol consumption (subjective information)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I drink 3-4 times a week, but it's moderate.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle factors including previous smoking history (subjective information)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I smoked for 10 years but quit 5 years ago.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle factors including obesity (subjective information)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Doctor: Based on our discussion, it sounds like the main issue is the pain in your left knee, which might be exacerbated by your obesity and sedentary lifestyle. Patient: Yes, I am. I understand that my weight is affecting my knee pain.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Medical history: hypertension (subjective information)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I have obesity and hypertension. Yes, those are the two main ones.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient has a medical history of obesity and hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Medical history: family history of osteoporosis and heart disease (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] My mother has osteoporosis, and my father has heart disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's family history includes mother with osteoporosis and father with heart disease."
+      "matched_claim_text": "The patient's family history includes mother with osteoporosis and father with heart disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Current medication: Hydrochlorothiazide 25 mg once daily for hypertension (moved from GT Subjective)",
+      "addition_text": "Current medication: Hydrochlorothiazide 25 mg once daily for hypertension (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Just Hydrochlorothiazide 25 mg once daily for my hypertension.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is currently taking Hydrochlorothiazide 25 mg once daily for hypertension."
+      "matched_claim_text": "The patient is currently taking Hydrochlorothiazide 25 mg once daily for hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "No known allergies (moved from GT Subjective)",
+      "addition_text": "No known allergies (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] None that I know of.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has no known allergies."
+      "matched_claim_text": "The patient has no known allergies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Socioeconomic status: low-income, urban area, food desert (moved from GT Subjective)",
+      "addition_text": "Socioeconomic status: low-income (subjective information)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I’d say low-income. Urban. It’s a low-income area, and it's a food desert.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's socioeconomic status is low-income, living in an urban area that is a food desert."
+      "transcript_evidence": "I’d say low-income.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Education level: bachelor's degree (moved from GT Subjective)",
+      "addition_text": "Geographical location: urban area (subjective information)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Urban.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Geographical location: food desert (subjective information)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It’s a low-income area, and it's a food desert.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Education level: bachelor's degree (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I have a bachelor's degree.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Understanding of medical advice: adequate (moved from GT Subjective)",
+      "addition_text": "Understanding of medical advice: adequate (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I have a bachelor's degree. I’d say it’s adequate. I understand medical advice well.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has a bachelor's degree and adequate understanding of medical advice."
+      "matched_claim_text": "The patient has a bachelor's degree and adequate understanding of medical advice.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Job status: office worker (moved from GT Subjective)",
+      "addition_text": "Job status: office worker (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m an office worker.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Environmental factors: moderate air pollution in the neighborhood (moved from GT Subjective)",
+      "addition_text": "Environmental factors: moderate air pollution in the neighborhood (subjective information)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] There’s moderate air pollution.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "There is moderate air pollution in the patient's neighborhood."
+      "matched_claim_text": "There is moderate air pollution in the patient's neighborhood.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Age: 42 (moved from GT Subjective)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I’m 42 years old.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Gender: Female (moved from GT Subjective)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Female.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"Risk factors for cardiovascular disease due to poor diet and hypertension\"",
+      "addition_text": "Risk factors for cardiovascular disease due to poor diet and hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I have obesity and hypertension. [patient] Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits. [doctor] I also want to order a complete lipid profile to evaluate your cardiovascular health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Poor diet and hypertension are risk factors for cardiovascular disease."
+      "matched_claim_text": "Poor diet and hypertension are risk factors for cardiovascular disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific lifestyle modifications: \"encourage more vegetables and fruits in the diet, gradually increase physical activity as tolerated by the knee.\"",
+      "addition_text": "Lifestyle modifications: encourage more vegetables and fruits in the diet, gradually increase physical activity as tolerated by the knee",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] And remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle modifications are encouraged, including more vegetables and fruits in the diet and gradually increasing physical activity as tolerated by the knee."
+      "matched_claim_text": "Lifestyle modifications are encouraged, including more vegetables and fruits in the diet and gradually increasing physical activity as tolerated by the knee.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Knee pain — phenotype_phenotype — Lower limb pain"
     }
   ]
 }

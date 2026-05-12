@@ -249,9 +249,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a good overview but suffers from several significant omissions, particularly in the Subjective and Plan sections. The entire Review of Systems is missing, along with specific details from the History of Present Illness. The Plan omits detailed patient education points, patient agreements, and essential administrative information like the provider and date. While there are no unsupported or unknown additions, these omissions make the note meaningfully incomplete, requiring careful review.",
+    "overall_summary": "The generated note provides a mostly accurate summary of the patient encounter. However, it notably omits the comprehensive Review of Systems section from the Subjective, which is a significant gap for a routine check-up. Additionally, specific details regarding the well-child assessment and the detailed status of mild eczema are missing from the Assessment section. Several minor administrative details and specific patient education phrasings are also omitted from the Plan. No unsupported or unknown additions were identified.",
     "omissions": [
       "Chief Complaint: Routine check-up",
       "HPI detail: Parents report no acute complaints",
@@ -282,7 +282,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has noticeable gaps, omitting the Chief Complaint, several specific HPI details, and the entire Review of Systems. These are significant omissions for a routine check-up note, making the section meaningfully incomplete.",
+        "summary": "The Subjective section has a major omission with the complete absence of the detailed Review of Systems (ROS) section, which is a critical component of a routine check-up. Minor omissions include the Chief Complaint and several specific details from the History of Present Illness. All additions in this section were supported by the transcript.",
         "omissions": [
           "Chief Complaint: Routine check-up",
           "HPI detail: Parents report no acute complaints",
@@ -299,7 +299,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is strong, with only a minor omission of the general physical examination finding ('Well-developed, well-nourished female in no apparent distress'). All other objective findings are accurately captured.",
+        "summary": "The Objective section is well-captured with only a minor omission of the 'General: Well-developed, well-nourished female in no apparent distress' finding from the physical examination. No unsupported or unknown additions were present.",
         "omissions": [
           "Physical Examination: General: Well-developed, well-nourished female in no apparent distress"
         ],
@@ -308,7 +308,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits the explicit 'Well-child visit: Normal findings' and the detailed status of mild eczema. While it includes a supported general health statement, these omissions represent moderate gaps in capturing the full GroundTruth assessment.",
+        "summary": "The Assessment section omits two moderate, clinically important details: 'Well-child visit: Normal findings' and the specific status of 'Mild eczema: Stable, no active lesions, managed effectively with hydrocortisone cream as needed.' While the generated note includes a general statement about good health, these specific assessments are missing. All additions in this section were supported by the transcript.",
         "omissions": [
           "Well-child visit: Normal findings",
           "Mild eczema: Stable, no active lesions, managed effectively with hydrocortisone cream as needed"
@@ -320,8 +320,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions, including specific patient education and counseling points (diet, exercise, hydration/skin care), patient agreements, and critical administrative details like the provider and date. These omissions reduce the comprehensiveness and completeness of the plan.",
+        "grade": "B",
+        "summary": "The Plan section contains several minor omissions, primarily related to specific phrasing in patient education and counseling (e.g., explicit discussion of vegetables, continuing baseball practice, and detailed skin care education). It also omits administrative details such as patient agreements, provider information, and the date of the note. All additions in this section were supported by the transcript.",
         "omissions": [
           "Patient Education and Counseling: Diet: Discuss the importance of incorporating vegetables into daily meals",
           "Patient Education and Counseling: Exercise: Recommend maintaining physical activity, such as continuing baseball practice twice a week",
@@ -345,98 +345,126 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Hi, I'm good, thank you. Everything's been fine. I feel good. No, nothing really. Just here for the check-up.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports feeling good with no specific concerns or new symptoms"
+      "matched_claim_text": "Patient reports feeling good with no specific concerns or new symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Diet consists of various foods, but lacks vegetables",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I eat a lot of different foods, but I don’t always like vegetables.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diet consists of various foods, but lacks vegetables"
+      "matched_claim_text": "Diet consists of various foods, but lacks vegetables",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Engages in physical activities including baseball twice a week",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I play baseball twice a week.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Engages in physical activities including baseball twice a week"
+      "matched_claim_text": "Engages in physical activities including baseball twice a week",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Patient in good general health with no acute issues",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Everything's been fine. I feel good. Everything looks great there. Excellent.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient in good general health with no acute issues"
+      "matched_claim_text": "Patient in good general health with no acute issues",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Diet could benefit from increased vegetable intake",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I eat a lot of different foods, but I don’t always like vegetables. Vegetables are very important for your health. Try to include them in your daily meals.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diet could benefit from increased vegetable intake"
+      "matched_claim_text": "Diet could benefit from increased vegetable intake",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Continue to manage mild skin dryness with daily moisturization",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Moisturizing daily will help manage the dryness and prevent eczema flare-ups. make sure you’re drinking plenty of water and keeping your skin moisturized to prevent dryness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue to manage mild skin dryness with daily moisturization"
+      "matched_claim_text": "Continue to manage mild skin dryness with daily moisturization",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Continue using hydrocortisone cream for eczema flare-ups as needed",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Just some mild dryness, but no eczema flare-ups. We’ve been using hydrocortisone cream when needed. That’s good to know.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue using hydrocortisone cream for eczema flare-ups as needed"
+      "matched_claim_text": "Continue using hydrocortisone cream for eczema flare-ups as needed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient reports feeling good with no specific concerns or new symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Hi, I'm good, thank you. Everything's been fine. I feel good. No, nothing really. Just here for the check-up.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports feeling good with no specific concerns or new symptoms"
+      "matched_claim_text": "Patient reports feeling good with no specific concerns or new symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Diet consists of various foods, but lacks vegetables",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I eat a lot of different foods, but I don’t always like vegetables.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diet consists of various foods, but lacks vegetables"
+      "matched_claim_text": "Diet consists of various foods, but lacks vegetables",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Engages in physical activities including baseball twice a week",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I play baseball twice a week.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Engages in physical activities including baseball twice a week"
+      "matched_claim_text": "Engages in physical activities including baseball twice a week",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient in good general health with no acute issues",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Everything's been fine. I feel good. Everything looks great there. Excellent.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient in good general health with no acute issues"
+      "matched_claim_text": "Patient in good general health with no acute issues",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Diet could benefit from increased vegetable intake",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I eat a lot of different foods, but I don’t always like vegetables. Vegetables are very important for your health. Try to include them in your daily meals.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diet could benefit from increased vegetable intake"
+      "matched_claim_text": "Diet could benefit from increased vegetable intake",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Continue to manage mild skin dryness with daily moisturization",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Moisturizing daily will help manage the dryness and prevent eczema flare-ups. make sure you’re drinking plenty of water and keeping your skin moisturized to prevent dryness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue to manage mild skin dryness with daily moisturization"
+      "matched_claim_text": "Continue to manage mild skin dryness with daily moisturization",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Continue using hydrocortisone cream for eczema flare-ups as needed",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Just some mild dryness, but no eczema flare-ups. We’ve been using hydrocortisone cream when needed. That’s good to know.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue using hydrocortisone cream for eczema flare-ups as needed"
+      "matched_claim_text": "Continue using hydrocortisone cream for eczema flare-ups as needed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

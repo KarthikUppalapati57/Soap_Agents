@@ -301,9 +301,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally usable clinical summary, but its overall grade is lowered due to a critical unsupported and misleading addition in the Objective section, which incorrectly states that vital signs are \"within normal limits\" despite an elevated blood pressure. Additionally, there are several moderate and minor omissions across the Subjective and Plan sections, including the Chief Complaint, specific patient education details, and comprehensive follow-up instructions. The Assessment section is strong.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "D",
+    "overall_summary": "The overall note suffers significantly from a major, clinically misleading unsupported addition in the Objective section, stating that vital signs are within normal limits when the patient's blood pressure and BMI are elevated. This introduces incorrect and potentially harmful information. Additionally, there are multiple moderate omissions in the Subjective and Plan sections, reducing the completeness and clarity of the note. While the Assessment section is strong, the critical error in Objective and the noticeable gaps elsewhere lead to a low overall grade.",
     "omissions": [
       "Chief Complaint: Initial consultation for obesity management",
       "HPI detail: more significant increases in weight noted in the last 2 years",
@@ -336,7 +336,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly accurate, capturing the core HPI and most ROS findings. However, it omits the Chief Complaint and several minor but relevant details regarding the HPI (e.g., specific timeline of worsening weight gain, impact on walking/stairs, reduced recreational activities) and ROS (e.g., feeling unrested, reduced stamina).",
+        "summary": "The Subjective section has several minor omissions, including the chief complaint and specific details from the HPI (e.g., 'more significant increases in weight noted in the last 2 years', 'impacted ability to walk long distances or climb stairs', 'reduced participation in recreational activities'). A moderate omission is the patient reporting feeling 'unrested despite 6 hours of sleep per night'. Despite these, the core HPI and ROS are present, making the section mostly usable.",
         "omissions": [
           "Chief Complaint: Initial consultation for obesity management",
           "HPI detail: more significant increases in weight noted in the last 2 years",
@@ -351,7 +351,7 @@
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "This section has significant issues. It omits all specific vital sign measurements (blood pressure, heart rate, respiratory rate). Critically, it includes an unsupported addition stating that \"vital signs are within normal limits,\" which is clinically misleading given the elevated blood pressure (140/90 mmHg) in the Ground Truth. This unsupported and incorrect statement significantly reduces the reliability of this section.",
+        "summary": "This section has a major issue due to an unsupported addition stating that 'vital signs are within normal limits'. This is clinically misleading as the GroundTruth vital signs include a blood pressure of 140/90 mmHg and a BMI of 32.5 kg/m², neither of which are within normal limits. The omission of the specific blood pressure, heart rate, and respiratory rate values further detracts from the objective data. This critical error significantly reduces the clinical usefulness and reliability of the section.",
         "omissions": [
           "Vital Signs: Blood pressure 140/90 mmHg",
           "Vital Signs: Heart rate 78 bpm",
@@ -364,7 +364,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is strong, accurately identifying all primary diagnoses and their current management status. The omissions are minor details (e.g., specific BMI value or mention of progressive weight gain) that are already covered in other sections of the note and do not detract from the clinical usefulness of the assessment.",
+        "summary": "The Assessment section is strong, accurately capturing the diagnoses of obesity, hypertension, and hyperlipidemia. The omissions of specific supporting details for obesity (e.g., 'The patient has a BMI of 32.5 kg/m²' and 'reports progressive weight gain') are minor, as this information is present in other parts of the note. There are no unsupported or unknown additions.",
         "omissions": [
           "Detail for Obesity: The patient has a BMI of 32.5 kg/m²",
           "Detail for Obesity: reports progressive weight gain"
@@ -373,8 +373,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section outlines the main treatment strategies for each condition. However, it omits important specific details, such as the content of patient education and counseling for obesity, the specific name of the nutritionist, explicit monitoring instructions for hypertension, the reason for pending lipid panel results, and detailed follow-up instructions including patient agreement.",
+        "grade": "C",
+        "summary": "The Plan section contains multiple moderate omissions that reduce its completeness. These include specific details of patient education and counseling (e.g., 'reducing fast food and sugary drinks, increasing fruits and vegetables'), the context for the lipid panel ('Pending results from lipid panel to reassess lipid control'), and explicit follow-up instructions ('Follow up in 1 month to reassess weight, blood pressure, and review laboratory results'). While the core plan is present, these gaps make the note meaningfully incomplete, requiring caution and review.",
         "omissions": [
           "Obesity - Patient Education and Counseling details: Educated the patient on reducing fast food and sugary drinks, increasing fruits and vegetables, and incorporating regular physical activity",
           "Obesity - Referral detail: Nutritionist Dr. Sarah Martin (specific name)",
@@ -396,14 +396,18 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Interpretation that vital signs are within normal limits",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

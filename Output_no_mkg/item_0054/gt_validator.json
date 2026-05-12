@@ -220,9 +220,9 @@
     "plan_alignment_score": 0.5079365079365079
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, with no unsupported or unknown additions that would introduce misleading content. However, it has several omissions that reduce its completeness. Key details regarding the severity of the patient's episodes and their significant impact on daily activities are missing from the Subjective section. Additionally, the Plan section omits numerous minor contextual details, such as the specific cardiologist's name, the explicit purpose of diagnostic tests, and patient adherence/understanding. Despite these omissions, the core clinical information is present, making the note a useful, though incomplete, summary of the encounter.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a clinically usable summary of the patient's encounter. However, it contains numerous omissions across the Subjective, Objective, and Plan sections. While there are no unsupported additions, the missing details, particularly the clinical rationale for diagnostic tests in the Plan and the severity/impact of symptoms in the Subjective, make the note noticeably incomplete and require careful review.",
     "omissions": [
       "Severity of episodes described as moderate to severe",
       "Impact of episodes on daily activities: significantly impacting daily activities, unable to stand for long periods, needing frequent rest",
@@ -250,7 +250,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several omissions, including the severity of the episodes (moderate to severe) and their significant impact on daily activities (unable to stand for long periods, needing frequent rest). Minor ROS details regarding neurological deficits and feeling unrested are also missing. While the core complaint is captured, these omissions reduce the completeness of the HPI. There are no unsupported or unknown additions.",
+        "summary": "The Subjective section is missing important details regarding the severity of the syncope episodes, their significant impact on daily activities, and specific review of systems findings such as the absence of focal neurological deficits and the patient's feeling unrested despite adequate sleep. However, the core complaint and history are captured.",
         "omissions": [
           "Severity of episodes described as moderate to severe",
           "Impact on daily activities: significantly impacting his daily activities, unable to stand for long periods, needing frequent rest",
@@ -263,8 +263,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is largely complete. The omissions are minor details from the physical examination, such as 'no murmurs or gallops' and 'normal neurological examination,' which are implicitly covered by broader statements like 'normal heart sounds' and 'no neurological deficits.' There are no unsupported or unknown additions.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports vital signs but omits several specific physical examination findings, including the absence of heart murmurs or gallops, a normal neurological examination, and no signs of trauma or distress.",
         "omissions": [
           "Physical Examination - Cardiovascular: no murmurs or gallops",
           "Physical Examination - Neurological: normal neurological examination",
@@ -275,7 +275,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section fully captures the clinical content. The only omission is the structural heading 'Primary Diagnosis,' which does not impact the clinical usefulness or accuracy of the assessment. There are no unsupported or unknown additions.",
+        "summary": "The Assessment section is well-aligned with the Ground Truth, accurately identifying the primary diagnosis and its likely cause. The only discrepancy is the omission of the \"Primary Diagnosis\" heading/label, which is a minor formatting detail.",
         "omissions": [
           "\"Primary Diagnosis\" heading/label"
         ],
@@ -283,8 +283,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section captures all major treatment recommendations, follow-up, referrals, and patient education. However, it has numerous minor omissions, including the specific name of the cardiologist, the explicit purposes of the Holter monitor and echocardiogram, the status of the echocardiogram results, and important contextual details about patient adherence, specific advice for incorporating physical activity, and documentation of patient understanding and agreement. While individually minor, the cumulative effect of these omissions reduces the overall comprehensiveness of the plan. There are no unsupported or unknown additions.",
+        "grade": "C",
+        "summary": "The Plan section has several omissions that reduce its completeness and clinical usefulness. It fails to specify the cardiologist for referral, the clinical purpose of the ordered Holter monitor and echocardiogram, and the status of the echocardiogram. Additionally, it omits details about the patient's adherence to lifestyle changes, specific advice for incorporating physical activity, and confirmation of the patient's understanding and agreement to the plan.",
         "omissions": [
           "Referral to Dr. Emily Carter, a cardiologist",
           "Purpose of Holter monitor: to assess for cardiac dysrhythmias",
@@ -308,14 +308,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: And any family history of cardiovascular disease?\n\n[Patient]: Yes, my father had heart issues.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and family history of cardiovascular disease."
+      "matched_claim_text": "and family history of cardiovascular disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "History of hypertension and family history of cardiovascular disease",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: And any family history of cardiovascular disease?\n\n[Patient]: Yes, my father had heart issues.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and family history of cardiovascular disease."
+      "matched_claim_text": "and family history of cardiovascular disease.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "idiopathic pulmonary arterial hypertension — disease_phenotype_positive — Palpitations"
     }
   ]
 }

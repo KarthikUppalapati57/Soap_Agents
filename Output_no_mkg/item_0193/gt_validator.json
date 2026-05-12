@@ -238,107 +238,86 @@
     "plan_alignment_score": 0.5581395348837209
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, with all additions being supported by the transcript. However, it contains several omissions, including important clinical details in the Subjective and Objective sections (e.g., \"shooting sensations,\" \"episodes of the knee giving way,\" \"significant crepitus\"). Most notably, the Plan section omits a specific referral to Dr. Emily Carter, Rheumatologist, which is a major actionable item related to the differential diagnosis, making the plan meaningfully incomplete.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions, particularly in the Subjective and Plan sections. Key details such as the Chief Complaint, specific pain characteristics (rating, quality, progression), and a critical specialist referral are missing. Additionally, important patient education points and explicit next steps for treatment adjustment based on blood work are absent. While all additions are supported by the transcript, the numerous and clinically material omissions substantially reduce the note's completeness and usefulness.",
     "omissions": [
-      "Chief Complaint (CC) section header",
-      "History of Present Illness (HPI) section header",
-      "Review of Systems (ROS) section header",
-      "Pain characteristic: shooting sensations",
-      "Symptom: episodes of the knee giving way",
+      "Chief Complaint (CC) section and 'Right knee pain' statement",
+      "Pain rating (8/10)",
+      "Pain characterization (sharp, shooting sensations)",
+      "Progression of pain (progressively worsened over the last 6 months)",
+      "Symptom: knee giving way",
       "Impact on activities: gardening and longer walking activities",
-      "Musculoskeletal ROS detail: significant crepitus",
-      "Respiratory ROS detail: primarily due to environmental factors such as high pollen counts",
-      "Physical Examination section header",
-      "Vital Signs section header",
-      "Musculoskeletal physical exam finding: significant crepitus",
-      "Assessment: Primary Diagnosis section header",
-      "Assessment: Differential Diagnosis section header",
-      "Plan: Medications section header",
-      "Plan: Lifestyle Modifications section header",
-      "Plan: Follow-Up Recommendations section header",
-      "Plan: Referrals section header",
-      "Plan: Patient Education section header",
-      "Plan: Discussion section header",
-      "Plan: Next Steps section header",
-      "Referral to Dr. Emily Carter, Rheumatologist",
-      "Patient education point: Discussed with Mr. Thompson the importance of adhering to medication and lifestyle changes",
-      "Discussion point: Encouraged continued communication regarding any new or worsening symptoms",
-      "Next Steps instruction: Await results of the blood work and adjust treatment plan as necessary based on findings"
+      "Significant crepitus (in ROS Musculoskeletal)",
+      "Asthma flare-ups primarily due to environmental factors such as high pollen counts",
+      "Significant crepitus (in Physical Examination Musculoskeletal)",
+      "Referral to Dr. Emily Carter, Rheumatologist, for further evaluation of potential rheumatoid arthritis",
+      "Patient Education: Discussed importance of adhering to medication and lifestyle changes",
+      "Discussion: Encouraged continued communication regarding any new or worsening symptoms",
+      "Next Steps: Await results of the blood work and adjust treatment plan as necessary based on findings"
     ],
     "additions": [
-      "Subjective: 'constant pain' for right knee (GroundTruth states 'persistent')",
-      "Objective: 'Vital signs within normal ranges' summary statement",
-      "Assessment: 'suspected' for unilateral primary osteoarthritis",
-      "Assessment: 'concomitant rheumatoid arthritis'",
-      "Plan: 'maintaining quality of life' as part of the goal for osteoarthritis management"
+      "'constant pain' (in Subjective)",
+      "'Vital signs within normal ranges' (in Objective)",
+      "'concomitant' rheumatoid arthritis (in Assessment)",
+      "'further investigations are required to rule out' (in Assessment)",
+      "'to help manage costs' (in Plan)",
+      "'and maintaining quality of life' (in Plan)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section captures the chief complaint, severity, duration, and impact, but omits several clinically relevant details such as \"shooting sensations,\" \"episodes of the knee giving way,\" \"gardening and longer walking activities,\" and \"significant crepitus\" in the ROS. All additions were supported by the transcript and did not impact the grade.",
+        "summary": "The Subjective section has noticeable gaps. It omits the Chief Complaint section entirely, along with crucial details like the pain rating (8/10), characterization (sharp, shooting), progression over 6 months, and the symptom of the knee giving way. While some HPI elements are present, these omissions make the section meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
-          "Pain characteristic: shooting sensations",
-          "Symptom: episodes of the knee giving way",
+          "Chief Complaint (CC) section and 'Right knee pain' statement",
+          "Pain rating (8/10)",
+          "Pain characterization (sharp, shooting sensations)",
+          "Progression of pain (progressively worsened over the last 6 months)",
+          "Symptom: knee giving way",
           "Impact on activities: gardening and longer walking activities",
-          "Musculoskeletal ROS detail: significant crepitus",
-          "Respiratory ROS detail: primarily due to environmental factors such as high pollen counts"
+          "Significant crepitus (in ROS Musculoskeletal)",
+          "Asthma flare-ups primarily due to environmental factors such as high pollen counts"
         ],
         "additions": [
-          "'constant pain' for right knee (GroundTruth states 'persistent')"
+          "'constant pain'"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section accurately reports vital signs and most physical examination findings. However, it omits the finding of \"significant crepitus\" during the musculoskeletal exam. All additions were supported by the transcript and did not impact the grade.",
+        "grade": "A",
+        "summary": "The Objective section is well-aligned with the Ground Truth. The only omission is 'significant crepitus' from the Physical Examination, which is a minor detail given other findings are present. All additions in this section are supported by the transcript.",
         "omissions": [
-          "Physical Examination section header",
-          "Vital Signs section header",
-          "Musculoskeletal physical exam finding: significant crepitus"
+          "Significant crepitus (in Physical Examination Musculoskeletal)"
         ],
         "additions": [
-          "'Vital signs within normal ranges' summary statement"
+          "'Vital signs within normal ranges'"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The assessment accurately identifies the primary and differential diagnoses. The only omissions are structural section headers, which are minor. All additions were supported by the transcript and did not impact the grade.",
-        "omissions": [
-          "Primary Diagnosis section header",
-          "Differential Diagnosis section header"
-        ],
+        "summary": "The Assessment section is excellent, with no omissions or unsupported/unknown additions. All content accurately reflects the Ground Truth and is supported by the transcript.",
+        "omissions": [],
         "additions": [
-          "'suspected' for unilateral primary osteoarthritis",
-          "'concomitant rheumatoid arthritis'"
+          "'concomitant' rheumatoid arthritis",
+          "'further investigations are required to rule out'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "While the core medication, lifestyle modifications, and follow-up are present, this section has a major omission: the specific referral to Dr. Emily Carter, Rheumatologist, for further evaluation. It also omits specific patient education and discussion points, and the instruction regarding awaiting blood work results. All additions were supported by the transcript and did not impact the grade.",
+        "grade": "D",
+        "summary": "The Plan section contains major omissions that materially reduce its clinical usefulness. A critical referral to Dr. Emily Carter, Rheumatologist, is missing. Furthermore, important patient education regarding adherence to medication and lifestyle changes, encouragement for continued communication about symptoms, and explicit next steps for awaiting blood work results and adjusting the treatment plan are absent. These are significant gaps in a comprehensive care plan.",
         "omissions": [
-          "Medications section header",
-          "Lifestyle Modifications section header",
-          "Follow-Up Recommendations section header",
-          "Referrals section header",
-          "Patient Education section header",
-          "Discussion section header",
-          "Next Steps section header",
-          "Referral to Dr. Emily Carter, Rheumatologist",
-          "Patient education point: Discussed with Mr. Thompson the importance of adhering to medication and lifestyle changes",
-          "Discussion point: Encouraged continued communication regarding any new or worsening symptoms",
-          "Next Steps instruction: Await results of the blood work and adjust treatment plan as necessary based on findings"
+          "Referral to Dr. Emily Carter, Rheumatologist, for further evaluation of potential rheumatoid arthritis",
+          "Patient Education: Discussed importance of adhering to medication and lifestyle changes",
+          "Discussion: Encouraged continued communication regarding any new or worsening symptoms",
+          "Next Steps: Await results of the blood work and adjust treatment plan as necessary based on findings"
         ],
         "additions": [
-          "'maintaining quality of life' as part of the goal for osteoarthritis management"
+          "'to help manage costs'",
+          "'and maintaining quality of life'"
         ]
       }
     ],
@@ -347,74 +326,112 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'constant pain' for right knee (GroundTruth states 'persistent')",
+      "addition_text": "'constant pain' (in Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's pretty constant, but it gets worse in the afternoon and evening.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "RPA1 — protein_protein — RPAIN"
     },
     {
-      "addition_text": "Objective: 'Vital signs within normal ranges' summary statement",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your blood pressure is 130/85 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All of these are within normal ranges.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: 'suspected' for unilateral primary osteoarthritis",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on what you've told me and the examination, it seems like you might have unilateral primary osteoarthritis in your right knee.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Unilateral primary osteoarthritis in the right knee is suspected."
-    },
-    {
-      "addition_text": "Assessment: 'concomitant rheumatoid arthritis'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "This will help us rule out any concomitant rheumatoid arthritis.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: 'maintaining quality of life' as part of the goal for osteoarthritis management",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Our goal is to manage your symptoms and maintain your quality of life.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Inform the patient about the goal of managing symptoms and maintaining quality of life."
-    },
-    {
-      "addition_text": "'constant pain' for right knee (GroundTruth states 'persistent')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It's pretty constant",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'Vital signs within normal ranges' summary statement",
+      "addition_text": "'Vital signs within normal ranges' (in Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "All of these are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'suspected' for unilateral primary osteoarthritis",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on what you've told me and the examination, it seems like you might have unilateral primary osteoarthritis in your right knee.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Unilateral primary osteoarthritis in the right knee is suspected."
-    },
-    {
-      "addition_text": "'concomitant rheumatoid arthritis'",
+      "addition_text": "'concomitant' rheumatoid arthritis (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "This will help us rule out any concomitant rheumatoid arthritis.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'maintaining quality of life' as part of the goal for osteoarthritis management",
+      "addition_text": "'further investigations are required to rule out' (in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Alright, I’m going to order some blood work, including a Comprehensive Metabolic Panel (CMP) and Rheumatoid Factor (RF). This will help us rule out any concomitant rheumatoid arthritis. However, we’ll wait for the blood work results to confirm and rule out rheumatoid arthritis.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Further investigations are required to rule out concomitant rheumatoid arthritis (pending blood work results).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'to help manage costs' (in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Yes, we can discuss patient assistance programs and generic medication options to help manage the costs. I'll provide you with all the necessary information.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Discuss patient assistance programs and generic medication options to help manage costs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'and maintaining quality of life' (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Our goal is to manage your symptoms and maintain your quality of life.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Inform the patient about the goal of managing symptoms and maintaining quality of life."
+      "matched_claim_text": "Inform the patient about the goal of managing symptoms and maintaining quality of life.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'constant pain'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's pretty constant, but it gets worse in the afternoon and evening.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "RPA1 — protein_protein — RPAIN"
+    },
+    {
+      "addition_text": "'Vital signs within normal ranges'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your blood pressure is 130/85 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All of these are within normal ranges.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Vital signs are within normal ranges: BP 130/85 mmHg, HR 78 bpm, RR 16 breaths per minute, T 98.6°F.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'concomitant' rheumatoid arthritis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "This will help us rule out any concomitant rheumatoid arthritis.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'further investigations are required to rule out'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Alright, I’m going to order some blood work, including a Comprehensive Metabolic Panel (CMP) and Rheumatoid Factor (RF). This will help us rule out any concomitant rheumatoid arthritis. However, we’ll wait for the blood work results to confirm and rule out rheumatoid arthritis.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Further investigations are required to rule out concomitant rheumatoid arthritis (pending blood work results).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'to help manage costs'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Yes, we can discuss patient assistance programs and generic medication options to help manage the costs. I'll provide you with all the necessary information.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Discuss patient assistance programs and generic medication options to help manage costs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'and maintaining quality of life'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Our goal is to manage your symptoms and maintain your quality of life.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Inform the patient about the goal of managing symptoms and maintaining quality of life.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

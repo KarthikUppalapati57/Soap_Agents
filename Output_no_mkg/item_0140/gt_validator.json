@@ -262,84 +262,71 @@
     "plan_alignment_score": 0.7282051282051283
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the patient's chief complaint, HPI summary, vital signs, physical exam findings, assessment, and core plan. However, it has several minor to moderate omissions, primarily in the Subjective section, where specific HPI details and numerous negative Review of Systems findings are missing. Minor omissions also occur in the Objective and Plan sections. All additions present in the note are supported by the transcript and do not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. All additions are supported by the transcript and therefore do not negatively impact the grade. However, the note contains several minor omissions across the Subjective and Plan sections, including specific details about the timing of dyspnea, several ROS denials, medication specifics, and patient education/agreement details. A moderate omission in the Objective section is the lack of the patient's general appearance. Despite these omissions, the core clinical information is well-captured, making the note clinically useful.",
     "omissions": [
-      "Chief Complaint section header",
-      "History of Present Illness section header",
-      "Review of Systems section header",
-      "HPI detail: dyspnea occurs daily, primarily in the evenings",
-      "HPI detail: physical activity limitation such as walking up stairs or light exercise",
-      "ROS Respiratory: No history of hemoptysis",
-      "ROS Cardiovascular: Denies chest pain, palpitations, or syncope",
-      "ROS Gastrointestinal: Denies nausea, vomiting, or abdominal pain",
-      "ROS Neurological: Denies dizziness or headache",
-      "ROS Constitutional: difficulty sleeping averaging 5 hours per night",
-      "Physical Examination - General: Alert and oriented, appears moderately distressed due to dyspnea",
-      "Physical Examination - Respiratory: No crackles or wheezes noted",
-      "Physical Examination - Cardiovascular: no rubs",
-      "Medication detail: Albuterol 90 mcg/spray, inhalation",
-      "Medication detail: Albuterol Qty: 1 inhaler",
-      "Patient Education: Discussed importance of adherence to follow-up appointments",
-      "Patient Agreements section: The patient understands and agrees with the recommended treatment plan and follow-up schedule. All questions were addressed."
+      "Patient's general appearance (alert and oriented, appears moderately distressed due to dyspnea)",
+      "Denial of crackles or wheezes on respiratory exam",
+      "Denial of rubs on cardiovascular exam",
+      "Albuterol specific strength (90 mcg/spray, inhalation)",
+      "Albuterol quantity (Qty: 1 inhaler)",
+      "Patient education on adherence to follow-up appointments",
+      "Patient understanding and agreement with the recommended treatment plan and follow-up schedule",
+      "Confirmation that all patient questions were addressed"
     ],
     "additions": [
-      "Assessment: Further evaluation is needed to confirm diagnosis",
-      "Plan: Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan"
+      "Statement in Assessment: \"Further evaluation is needed to confirm diagnosis.\"",
+      "Statement in Plan: \"Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan.\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section provides a good summary of the HPI and ROS but omits several specific details. These include the precise timing of dyspnea (daily, evenings), specific examples of activity limitation (walking stairs, light exercise), and numerous negative findings from the Review of Systems (hemoptysis, chest pain, palpitations, syncope, GI, neurological symptoms). The specific detail about difficulty sleeping (5 hours per night) was also omitted. The section also lacks the explicit section headers for Chief Complaint, HPI, and ROS.",
+        "summary": "The Subjective section has several minor omissions, including the specific timing of dyspnea (daily, primarily in the evenings) and several denials from the Review of Systems (hemoptysis, chest pain/palpitations/syncope, nausea/vomiting/abdominal pain, dizziness/headache). While these omissions represent a slight lack of detail, the core HPI and ROS content is present and accurate.",
         "omissions": [
-          "Chief Complaint section header",
-          "History of Present Illness section header",
-          "Review of Systems section header",
-          "HPI detail: dyspnea occurs daily, primarily in the evenings",
-          "HPI detail: physical activity limitation such as walking up stairs or light exercise",
-          "ROS Respiratory: No history of hemoptysis",
-          "ROS Cardiovascular: Denies chest pain, palpitations, or syncope",
-          "ROS Gastrointestinal: Denies nausea, vomiting, or abdominal pain",
-          "ROS Neurological: Denies dizziness or headache",
-          "ROS Constitutional: difficulty sleeping averaging 5 hours per night"
+          "Dyspnea occurring daily, primarily in the evenings",
+          "Denial of hemoptysis",
+          "Denial of chest pain, palpitations, or syncope",
+          "Denial of nausea, vomiting, or abdominal pain",
+          "Denial of dizziness or headache"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is largely complete, accurately reporting vital signs and most physical examination findings. Minor omissions include the general appearance (alert and oriented, moderately distressed) and specific negative findings from the respiratory (no crackles or wheezes) and cardiovascular (no rubs) exams.",
+        "grade": "B",
+        "summary": "The Objective section omits the patient's general appearance (alert and oriented, appears moderately distressed due to dyspnea), which is a moderately important clinical observation. It also misses minor details from the respiratory exam (no crackles or wheezes noted) and cardiovascular exam (no rubs). The vital signs and other key physical examination findings are accurately captured.",
         "omissions": [
-          "Physical Examination - General: Alert and oriented, appears moderately distressed due to dyspnea",
-          "Physical Examination - Respiratory: No crackles or wheezes noted",
-          "Physical Examination - Cardiovascular: no rubs"
+          "General appearance: Alert and oriented, appears moderately distressed due to dyspnea",
+          "Respiratory exam: No crackles or wheezes noted",
+          "Cardiovascular exam: No rubs"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately reflecting the diagnosis and differential diagnoses from the Ground Truth. The addition regarding the need for further evaluation is supported by the transcript and does not impact the grade.",
+        "summary": "The Assessment section is excellent, accurately capturing the diagnosis and differential diagnoses from the Ground Truth. The addition regarding the need for further evaluation is fully supported by the transcript and does not detract from the note's quality.",
         "omissions": [],
         "additions": [
-          "Further evaluation is needed to confirm diagnosis"
+          "Statement that \"Further evaluation is needed to confirm diagnosis.\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is comprehensive, covering medical treatment, investigations, referrals, follow-up, and patient education. Minor omissions include specific details about the Albuterol inhaler (90 mcg/spray, inhalation, quantity of 1 inhaler) and the explicit mention of patient agreement and understanding of the plan. The addition about awaiting results for further discussion is supported by the transcript and does not impact the grade.",
+        "grade": "B",
+        "summary": "The Plan section has several minor omissions related to medication details (Albuterol specific strength and quantity) and patient education/agreement specifics (adherence to follow-up appointments, patient understanding/agreement, and confirmation that all questions were addressed). The core plan elements, including medication, investigations, referrals, and follow-up, are present and accurate. The addition regarding awaiting results is supported by the transcript.",
         "omissions": [
-          "Medication detail: Albuterol 90 mcg/spray, inhalation",
-          "Medication detail: Albuterol Qty: 1 inhaler",
-          "Patient Education: Discussed importance of adherence to follow-up appointments",
-          "Patient Agreements section: The patient understands and agrees with the recommended treatment plan and follow-up schedule. All questions were addressed."
+          "Albuterol specific strength (90 mcg/spray, inhalation)",
+          "Albuterol quantity (Qty: 1 inhaler)",
+          "Patient education: Importance of adherence to follow-up appointments",
+          "Patient Agreements: Patient understands and agrees with recommended treatment plan and follow-up schedule",
+          "Patient Agreements: All questions were addressed"
         ],
         "additions": [
-          "Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan"
+          "Statement: \"Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan.\""
         ]
       }
     ],
@@ -348,32 +335,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: Further evaluation is needed to confirm diagnosis",
+      "addition_text": "Statement in Assessment: \"Further evaluation is needed to confirm diagnosis.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We need to get a Chest X-ray to evaluate any potential pulmonary issues. ... we’ll refer you to a cardiologist, Dr. Andrew Smith, for further evaluation of any potential cardiac causes of your dyspnea.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further evaluation is needed to confirm diagnosis."
+      "matched_claim_text": "Further evaluation is needed to confirm diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan",
+      "addition_text": "Statement in Plan: \"Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We'll await the Chest X-ray and biochemistry panel results. We’ll contact you to discuss the results and modify the plan if needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan."
+      "matched_claim_text": "Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Further evaluation is needed to confirm diagnosis",
+      "addition_text": "Statement that \"Further evaluation is needed to confirm diagnosis.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We need to get a Chest X-ray to evaluate any potential pulmonary issues. ... we’ll refer you to a cardiologist, Dr. Andrew Smith, for further evaluation of any potential cardiac causes of your dyspnea.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further evaluation is needed to confirm diagnosis."
+      "matched_claim_text": "Further evaluation is needed to confirm diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan",
+      "addition_text": "Statement: \"Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We'll await the Chest X-ray and biochemistry panel results. We’ll contact you to discuss the results and modify the plan if needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan."
+      "matched_claim_text": "Await Chest X-ray and biochemistry panel results for further discussion and potential modification of the plan.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

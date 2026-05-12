@@ -228,82 +228,86 @@
     "plan_alignment_score": 0.6820809248554913
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is generally accurate but contains numerous omissions across all sections, particularly in the Review of Systems, detailed physical examination findings, and the Plan. While there are no unsupported or unknown additions, the missing clinical details in the Plan, such as specific Albuterol instructions, the administration of routine vaccinations, and crucial patient advice regarding prophylactic inhaler use and symptom monitoring, make the note meaningfully incomplete and necessitate careful review.",
+    "overall_summary": "The generated note has significant omissions, particularly in the Subjective section where the Chief Complaint and detailed Review of Systems are largely missing. The Plan section also omits important clinical details such as the specific Albuterol dosage, the administration of routine vaccinations, and the prophylactic use of the inhaler before exercise. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete and requires careful review.",
     "omissions": [
-      "Review of Systems (ROS) for General: no fever, no significant weight loss",
-      "Review of Systems (ROS) for Cardiovascular: no chest pain, no palpitations",
-      "Review of Systems (ROS) for Gastrointestinal: no nausea or vomiting",
-      "Review of Systems (ROS) for Neurological: no headaches or dizziness",
-      "Review of Systems (ROS) for Musculoskeletal: no muscle pain or joint swelling",
-      "General physical exam: patient appears well-nourished, alert, and cooperative",
-      "Respiratory physical exam: no crackles",
-      "Cardiovascular physical exam: no murmurs, rubs, or gallops",
-      "ENT physical exam: no nasal congestion or discharge",
-      "Basis for asthma diagnosis: clinical symptoms and physical examination findings",
-      "Albuterol prescription details: 'short-acting beta agonist', '2 puffs', 'One inhaler provided'",
-      "Referral detail: 'of asthma'",
-      "Routine vaccinations administered during this visit",
-      "Education provided 'to the family'",
-      "Advice to use inhaler prophylactically before playing soccer",
-      "Instruction to monitor symptoms and use inhaler as prescribed"
+      "Chief Complaint section header and content",
+      "History of Present Illness section header",
+      "Review of Systems section header and detailed content (General, Cardiovascular, Gastrointestinal, Neurological, Musculoskeletal)",
+      "Objective Vitals section header",
+      "Objective Physical Examination section header",
+      "General appearance in PE (well-nourished, alert, cooperative)",
+      "Cardiovascular PE details (no murmurs, rubs, or gallops)",
+      "ENT PE details (no nasal congestion or discharge)",
+      "Assessment detail: 'based on the patient’s clinical symptoms and physical examination findings'",
+      "Albuterol dosage (2 puffs)",
+      "Mention that one inhaler was provided",
+      "Routine vaccinations administered",
+      "Instruction to use inhaler prophylactically before playing soccer",
+      "Instruction to monitor symptoms"
     ],
     "additions": [
-      "Skin physical exam: 'skin appears good'",
+      "Objective: 'Vital signs within normal limits'",
+      "Objective: 'skin appears good'",
       "Assessment: 'likely exacerbated by physical activity'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section omits five negative Review of Systems findings (General, Cardiovascular, Gastrointestinal, Neurological, Musculoskeletal). While these are important for completeness, their absence does not introduce misleading information, making them minor omissions.",
+        "grade": "C",
+        "summary": "The Subjective section has significant omissions, including the entire Chief Complaint and most of the detailed Review of Systems (General, Cardiovascular, Gastrointestinal, Neurological, Musculoskeletal). While the History of Present Illness content is mostly present, the lack of a dedicated CC and the extensive ROS omissions make this section meaningfully incomplete.",
         "omissions": [
-          "Review of Systems (ROS) for General: no fever, no significant weight loss",
-          "Review of Systems (ROS) for Cardiovascular: no chest pain, no palpitations",
-          "Review of Systems (ROS) for Gastrointestinal: no nausea or vomiting",
-          "Review of Systems (ROS) for Neurological: no headaches or dizziness",
-          "Review of Systems (ROS) for Musculoskeletal: no muscle pain or joint swelling"
+          "Chief Complaint (CC) section header and content",
+          "History of Present Illness (HPI) section header",
+          "Mention of 'follow-up visit' in HPI",
+          "Review of Systems (ROS) section header",
+          "ROS: General (No fever, no significant weight loss)",
+          "ROS: Cardiovascular (No chest pain, no palpitations)",
+          "ROS: Gastrointestinal (No nausea or vomiting)",
+          "ROS: Neurological (No headaches or dizziness)",
+          "ROS: Musculoskeletal (No muscle pain or joint swelling)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits four negative physical examination findings (General appearance, absence of crackles, absence of murmurs/rubs/gallops, and absence of nasal congestion/discharge). The addition of 'skin appears good' is supported by the transcript and does not negatively impact the grade. The omissions are minor but collectively reduce the completeness of the physical exam documentation.",
+        "summary": "The Objective section omits some specific details from the physical examination, such as the patient's general appearance (well-nourished, alert, cooperative), specific cardiovascular findings (no murmurs, rubs, or gallops), and ENT details (no nasal congestion or discharge). However, the core vital signs and key respiratory findings are present, and all additions were supported by the transcript.",
         "omissions": [
-          "General physical exam: patient appears well-nourished, alert, and cooperative",
-          "Respiratory physical exam: no crackles",
-          "Cardiovascular physical exam: no murmurs, rubs, or gallops",
-          "ENT physical exam: no nasal congestion or discharge"
+          "Vitals section header",
+          "Physical Examination section header",
+          "General appearance in PE (Patient appears well-nourished, alert, and cooperative)",
+          "Cardiovascular PE details (no murmurs, rubs, or gallops)",
+          "ENT PE details (no nasal congestion or discharge noted)"
         ],
         "additions": [
-          "Skin physical exam: 'skin appears good'"
+          "Statement 'Vital signs within normal limits'",
+          "General skin description 'skin appears good'"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits the basis for the asthma diagnosis (clinical symptoms and physical examination findings), which is a moderate omission as it removes the clinical reasoning. The addition of 'likely exacerbated by physical activity' is supported by the transcript and does not negatively impact the grade.",
+        "grade": "A",
+        "summary": "The Assessment section is largely complete, with only a minor omission regarding the explicit basis for the diagnosis ('based on the patient’s clinical symptoms and physical examination findings'). The diagnosis itself is correctly stated, and the addition was supported by the transcript.",
         "omissions": [
-          "Basis for asthma diagnosis: clinical symptoms and physical examination findings"
+          "Detail 'based on the patient’s clinical symptoms and physical examination findings'"
         ],
         "additions": [
-          "Assessment: 'likely exacerbated by physical activity'"
+          "Qualifier 'likely exacerbated by physical activity'"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions, including specific Albuterol prescription details ('short-acting beta agonist', '2 puffs', 'One inhaler provided'), the administration of routine vaccinations, advice to use the inhaler prophylactically before playing soccer, and instructions to monitor symptoms and use the inhaler as prescribed. These omissions significantly reduce the completeness and clinical usefulness of the plan, making it meaningfully incomplete.",
+        "summary": "The Plan section has several moderate omissions, including the specific dosage for Albuterol (2 puffs), the administration of routine vaccinations, and the crucial instruction to use the inhaler prophylactically before physical activity. These omissions reduce the completeness and actionable detail of the plan.",
         "omissions": [
-          "Albuterol prescription details: 'short-acting beta agonist', '2 puffs', 'One inhaler provided'",
-          "Referral detail: 'of asthma'",
-          "Routine vaccinations administered during this visit",
-          "Education provided 'to the family'",
-          "Advice to use inhaler prophylactically before playing soccer",
-          "Instruction to monitor symptoms and use inhaler as prescribed"
+          "Specific dosage for Albuterol (2 puffs)",
+          "Mention that one inhaler was provided",
+          "Routine vaccinations were administered during this visit",
+          "Instruction to use the inhaler prophylactically before playing soccer",
+          "Instruction to monitor symptoms"
         ],
         "additions": []
       }
@@ -313,18 +317,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Skin physical exam: 'skin appears good'",
+      "addition_text": "Objective: 'Vital signs within normal limits'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] All of these look normal.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Vital signs within normal limits",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Objective: 'skin appears good'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your skin looks good too; no cyanosis or clubbing.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "skin appears good, no cyanosis or clubbing."
+      "matched_claim_text": "skin appears good, no cyanosis or clubbing.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'likely exacerbated by physical activity'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and the physical examination, it seems like you have asthma. ... [patient] Yeah, it gets worse when I'm playing soccer. ... [doctor] Continue with your regular physical activity, but make sure to use the inhaler before playing soccer. This will help prevent the symptoms from getting worse during exercise.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Asthma, likely exacerbated by physical activity."
+      "matched_claim_text": "Asthma, likely exacerbated by physical activity.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement 'Vital signs within normal limits'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] All of these look normal.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Vital signs within normal limits",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "General skin description 'skin appears good'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Your skin looks good too; no cyanosis or clubbing.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "skin appears good, no cyanosis or clubbing.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Qualifier 'likely exacerbated by physical activity'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and the physical examination, it seems like you have asthma. ... [patient] Yeah, it gets worse when I'm playing soccer. ... [doctor] Continue with your regular physical activity, but make sure to use the inhaler before playing soccer. This will help prevent the symptoms from getting worse during exercise.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Asthma, likely exacerbated by physical activity.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

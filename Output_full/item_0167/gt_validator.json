@@ -259,82 +259,97 @@
     "plan_alignment_score": 0.5533980582524273
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps and multiple moderate omissions, particularly in the Subjective and Plan sections. Key details from the History of Present Illness and the entire Review of Systems are missing. In the Plan, important patient education regarding medication side effects is omitted, and there's a conceptual shift in monitoring and follow-up goals from assessing efficacy to adherence. While all additions are supported by the transcript, the significant omissions make the note meaningfully incomplete, requiring caution and review.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The note has significant omissions, particularly in the Subjective section, where the patient's history of hypertension and Type 2 Diabetes Mellitus, the discovery of hyperlipidemia, and the entire Review of Systems are missing. The Objective section also omits many specific physical examination findings. While the Assessment and Plan sections are stronger, the foundational gaps in the Subjective section materially reduce the overall clinical usefulness of the note.",
     "omissions": [
-      "Detailed Review of Systems (ROS)",
-      "Specific positive findings from Physical Examination (e.g., well-nourished, normocephalic, regular rate and rhythm, clear lungs, soft non-tender abdomen, intact peripheral pulses, alert and oriented)",
-      "Patient's cooperation, understanding, challenges, and receptiveness to the plan (concluding paragraph in GT)"
+      "Patient's history of hypertension and Type 2 Diabetes Mellitus",
+      "Lipid panel revealed hyperlipidemia during routine screening",
+      "Review of Systems (ROS) section (General, Cardiovascular, Endocrine, Musculoskeletal, Neurological, Respiratory findings)",
+      "Physical Exam: General appearance (appears stated age)",
+      "Physical Exam: Specific HEENT findings (normocephalic, atraumatic, pupils equal, round, and reactive to light)",
+      "Physical Exam: Specific Neck findings (no carotid bruits)",
+      "Physical Exam: Specific Cardiovascular findings (regular rate and rhythm, no murmurs, gallops, or rubs)",
+      "Physical Exam: Specific Respiratory findings (clear to auscultation bilaterally, no wheezes, rales, or ronchi)",
+      "Physical Exam: Specific Abdominal findings (soft, non-tender, no hepatosplenomegaly)",
+      "Physical Exam: Specific Extremities findings (peripheral pulses intact)",
+      "Physical Exam: Specific Neurological findings (alert and oriented, no focal deficits)",
+      "\"unspecified\" qualifier for Hyperlipidemia",
+      "Medication route \"oral\" for Atorvastatin",
+      "Specific exercise suggestion (starting with walking or light jogging)",
+      "Monitoring purpose: \"to assess response to Atorvastatin\"",
+      "Patient education on importance of medication adherence and lifestyle modifications for hyperlipidemia",
+      "Discussion of specific potential side effects of Atorvastatin (muscle pain, liver enzyme abnormalities)",
+      "Reinforcement of importance of maintaining good control of blood pressure and blood glucose levels",
+      "Follow-up purpose: \"assess medication efficacy and tolerance\"",
+      "Specific name of dietitian (Dr. Maria Gonzalez)",
+      "Concluding paragraph about patient's cooperation, understanding, challenges, receptiveness, goal setting, and support resources"
     ],
     "additions": [
-      "Statement 'controlled hypertension and Type 2 Diabetes' in Assessment",
-      "Statement 'No new symptoms or issues were reported during the visit' in Assessment",
-      "Summary of lipid panel findings and treatment in Assessment ('The lipid panel showed high cholesterol, which is being addressed with a prescription of Atorvastatin and lifestyle modifications')",
-      "Instruction to 'reach out immediately if there are any issues with the medication or side effects' in Plan"
+      "\"controlled\" status for hypertension and Type 2 Diabetes",
+      "Statement: \"No new symptoms or issues were reported during the visit\"",
+      "Statement: \"The lipid panel showed high cholesterol, which is being addressed with a prescription of Atorvastatin and lifestyle modifications\"",
+      "Instruction to patient: \"advising the patient to reach out immediately if there are any issues with the medication or side effects\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has significant omissions, including the patient's history of hypertension and Type 2 Diabetes Mellitus, the finding of hyperlipidemia from the HPI, and the entire detailed Review of Systems. These are multiple moderate to major omissions that substantially reduce the completeness and clinical utility of the subjective information.",
+        "grade": "D",
+        "summary": "This section has major omissions, including the patient's history of hypertension and Type 2 Diabetes Mellitus, the finding of hyperlipidemia during routine screening, and the entire Review of Systems. These omissions represent significant gaps in the patient's clinical history.",
         "omissions": [
-          "Patient's history of hypertension and Type 2 Diabetes Mellitus (from HPI)",
-          "Finding of hyperlipidemia during routine screening (from HPI)",
-          "Detailed Review of Systems (General, Cardiovascular, Endocrine, Musculoskeletal, Neurological, Respiratory systems)"
+          "Patient's history of hypertension and Type 2 Diabetes Mellitus",
+          "Lipid panel revealed hyperlipidemia during routine screening",
+          "Review of Systems (ROS) section (General, Cardiovascular, Endocrine, Musculoskeletal, Neurological, Respiratory findings)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section accurately captures vital signs but omits many specific details from the physical examination findings across multiple systems (General, HEENT, Neck, Cardiovascular, Respiratory, Abdomen, Extremities, Neurological). While the generated note summarizes these as 'no significant findings,' the numerous minor omissions of specific positive and negative findings make it less comprehensive than the Ground Truth.",
+        "grade": "C",
+        "summary": "The Objective section omits many specific details from the physical examination, such as specific HEENT, Neck, Cardiovascular, Respiratory, Abdominal, Extremities, and Neurological findings. While it broadly states 'no significant findings,' the lack of specific documentation for each system makes the note meaningfully incomplete.",
         "omissions": [
-          "General: Well-nourished, appears stated age",
-          "HEENT: Normocephalic, atraumatic, pupils equal, round, and reactive to light",
-          "Neck: No carotid bruits (Generated mentions no lymphadenopathy, but not carotid bruits or other neck details)",
-          "Cardiovascular: Regular rate and rhythm, no murmurs, gallops, or rubs",
-          "Respiratory: Clear to auscultation bilaterally, no wheezes, rales, or ronchi",
-          "Abdomen: Soft, non-tender, no hepatosplenomegaly",
-          "Extremities: Peripheral pulses intact (Generated mentions no edema, but not intact pulses)",
-          "Neurological: Alert and oriented, no focal deficits"
+          "Physical Exam: General appearance (appears stated age)",
+          "Physical Exam: Specific HEENT findings (normocephalic, atraumatic, pupils equal, round, and reactive to light)",
+          "Physical Exam: Specific Neck findings (no carotid bruits)",
+          "Physical Exam: Specific Cardiovascular findings (regular rate and rhythm, no murmurs, gallops, or rubs)",
+          "Physical Exam: Specific Respiratory findings (clear to auscultation bilaterally, no wheezes, rales, or ronchi)",
+          "Physical Exam: Specific Abdominal findings (soft, non-tender, no hepatosplenomegaly)",
+          "Physical Exam: Specific Extremities findings (peripheral pulses intact)",
+          "Physical Exam: Specific Neurological findings (alert and oriented, no focal deficits)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section has one moderate omission: the formal diagnosis of 'Hyperlipidemia, unspecified (ICD-10: E78.5).' Although the generated note mentions 'high cholesterol' and its treatment, the explicit diagnosis with ICD-10 is missing. All additions in this section are supported by the transcript and do not negatively impact the grade.",
+        "grade": "A",
+        "summary": "This section is well-aligned with the Ground Truth. The only omission is the 'unspecified' qualifier for Hyperlipidemia, which is minor. All additions are supported by the transcript and therefore do not negatively impact the grade.",
         "omissions": [
-          "Hyperlipidemia, unspecified"
+          "\"unspecified\" qualifier for Hyperlipidemia"
         ],
         "additions": [
-          "Statement 'controlled hypertension and Type 2 Diabetes'",
-          "Statement 'No new symptoms or issues were reported during the visit'",
-          "Summary of lipid panel findings and treatment ('The lipid panel showed high cholesterol, which is being addressed with a prescription of Atorvastatin and lifestyle modifications')"
+          "\"controlled\" status for hypertension and Type 2 Diabetes",
+          "Statement: \"No new symptoms or issues were reported during the visit\"",
+          "Statement: \"The lipid panel showed high cholesterol, which is being addressed with a prescription of Atorvastatin and lifestyle modifications\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section contains several omissions, including the medication route, specific exercise suggestions, and detailed patient education points. Crucially, it omits education on potential side effects of Atorvastatin, which is a moderate safety concern. There is also a conceptual difference in the monitoring and follow-up goals, shifting from assessing medication efficacy and response to focusing solely on adherence. The concluding paragraph about patient interaction is also omitted. All additions are supported by the transcript and do not negatively impact the grade.",
+        "grade": "B",
+        "summary": "The Plan section has several moderate omissions, including specific patient education points (importance of medication adherence, specific Atorvastatin side effects, reinforcement of BP/glucose control) and the concluding paragraph detailing patient cooperation and challenges. While the core plan is present, these omissions reduce its completeness and usefulness. All additions are supported by the transcript.",
         "omissions": [
-          "Medication route 'oral'",
-          "Specific exercise suggestion 'Suggested starting with walking or light jogging'",
-          "Monitoring goal 'to assess response to Atorvastatin' (Generated states 'assess medication adherence' which is a different concept)",
-          "Patient education on 'importance of medication adherence and lifestyle modifications for managing hyperlipidemia'",
-          "Patient education on 'potential side effects of Atorvastatin, including muscle pain and liver enzyme abnormalities'",
-          "Patient education on 'importance of maintaining good control of blood pressure and blood glucose levels'",
-          "Follow-up goal 'assess medication efficacy and tolerance' (Generated states 'assess medication adherence' which is a different concept)",
-          "Specific purpose of dietitian referral 'for dietary counseling to help manage hyperlipidemia and support lifestyle changes'",
-          "Specific purpose of exercise program referral 'to assist in increasing physical activity levels'",
-          "Concluding paragraph about patient cooperation, understanding, challenges, encouragement, and receptiveness to the plan"
+          "Medication route \"oral\" for Atorvastatin",
+          "Specific exercise suggestion (starting with walking or light jogging)",
+          "Monitoring purpose: \"to assess response to Atorvastatin\"",
+          "Patient education on importance of medication adherence and lifestyle modifications for hyperlipidemia",
+          "Discussion of specific potential side effects of Atorvastatin (muscle pain, liver enzyme abnormalities)",
+          "Reinforcement of importance of maintaining good control of blood pressure and blood glucose levels",
+          "Follow-up purpose: \"assess medication efficacy and tolerance\"",
+          "Specific name of dietitian (Dr. Maria Gonzalez)",
+          "Concluding paragraph about patient's cooperation, understanding, challenges, receptiveness, goal setting, and support resources"
         ],
         "additions": [
-          "Monitoring goal 'assess medication adherence' (instead of 'assess response to Atorvastatin')",
-          "Instruction to 'reach out immediately if there are any issues with the medication or side effects'",
-          "Follow-up goal 'assess medication adherence' (instead of 'assess medication efficacy and tolerance')"
+          "Instruction to patient: \"advising the patient to reach out immediately if there are any issues with the medication or side effects\""
         ]
       }
     ],
@@ -343,74 +358,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Statement 'controlled hypertension and Type 2 Diabetes' in Assessment",
+      "addition_text": "\"controlled\" status for hypertension and Type 2 Diabetes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Sure, I have high blood pressure and Type 2 Diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and Type 2 Diabetes."
+      "matched_claim_text": "and Type 2 Diabetes.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Increased blood pressure — phenotype_phenotype — Portal hypertension"
     },
     {
-      "addition_text": "Statement 'No new symptoms or issues were reported during the visit' in Assessment",
+      "addition_text": "Statement: \"No new symptoms or issues were reported during the visit\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Nope, no specific complaints.\n\n[Patient]: No, nothing new. I feel pretty much the same.\n\n[Doctor]: Have you experienced any symptoms like chest pain, palpitations, or shortness of breath?\n\n[Patient]: Nope, none of those symptoms.\n\n[Doctor]: Have you noticed any changes like weight loss, fever, or fatigue?\n\n[Patient]: No, I haven't noticed anything like that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No new symptoms or issues were reported during the visit."
+      "matched_claim_text": "No new symptoms or issues were reported during the visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Summary of lipid panel findings and treatment in Assessment ('The lipid panel showed high cholesterol, which is being addressed with a prescription of Atorvastatin and lifestyle modifications')",
+      "addition_text": "Statement: \"The lipid panel showed high cholesterol, which is being addressed with a prescription of Atorvastatin and lifestyle modifications\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: During your last routine screening, we found that your lipid panel showed high cholesterol.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The lipid panel showed high cholesterol"
+      "matched_claim_text": "The lipid panel showed high cholesterol",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Instruction to 'reach out immediately if there are any issues with the medication or side effects' in Plan",
+      "addition_text": "Instruction to patient: \"advising the patient to reach out immediately if there are any issues with the medication or side effects\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you have any issues with the medication or experience any side effects, please reach out to me immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and advising the patient to reach out immediately if there are any issues with the medication or side effects."
-    },
-    {
-      "addition_text": "Statement 'controlled hypertension and Type 2 Diabetes'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Sure, I have high blood pressure and Type 2 Diabetes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and Type 2 Diabetes."
-    },
-    {
-      "addition_text": "Statement 'No new symptoms or issues were reported during the visit'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Nope, no specific complaints.\n\n[Patient]: No, nothing new. I feel pretty much the same.\n\n[Doctor]: Have you experienced any symptoms like chest pain, palpitations, or shortness of breath?\n\n[Patient]: Nope, none of those symptoms.\n\n[Doctor]: Have you noticed any changes like weight loss, fever, or fatigue?\n\n[Patient]: No, I haven't noticed anything like that.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "No new symptoms or issues were reported during the visit."
-    },
-    {
-      "addition_text": "Summary of lipid panel findings and treatment ('The lipid panel showed high cholesterol, which is being addressed with a prescription of Atorvastatin and lifestyle modifications')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: During your last routine screening, we found that your lipid panel showed high cholesterol.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The lipid panel showed high cholesterol"
-    },
-    {
-      "addition_text": "Monitoring goal 'assess medication adherence' (instead of 'assess response to Atorvastatin')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Excellent. We’ll schedule a follow-up appointment in 3 months to review your lipid panel results and assess how well you’re tolerating the medication.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and assess medication adherence."
-    },
-    {
-      "addition_text": "Instruction to 'reach out immediately if there are any issues with the medication or side effects'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If you have any issues with the medication or experience any side effects, please reach out to me immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and advising the patient to reach out immediately if there are any issues with the medication or side effects."
-    },
-    {
-      "addition_text": "Follow-up goal 'assess medication adherence' (instead of 'assess medication efficacy and tolerance')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Excellent. We’ll schedule a follow-up appointment in 3 months to review your lipid panel results and assess how well you’re tolerating the medication.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and assess medication adherence."
+      "matched_claim_text": "and advising the patient to reach out immediately if there are any issues with the medication or side effects.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

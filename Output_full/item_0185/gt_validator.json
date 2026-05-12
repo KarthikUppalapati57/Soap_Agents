@@ -271,112 +271,80 @@
     "plan_alignment_score": 0.6271186440677966
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps, particularly the complete omission of the detailed Review of Systems in the Subjective section and the entire Musculoskeletal physical exam in the Objective section. While the core information is present and all additions are supported by the transcript, these significant omissions reduce the overall clinical completeness and usefulness of the documentation, requiring careful review.",
+    "overall_summary": "The GeneratedSOAP provides a high-level summary of the patient's visit but significantly omits detailed clinical findings from the Ground Truth. Specifically, the entire detailed Review of Systems is missing from the Subjective section, and numerous specific physical exam findings are omitted from the Objective section, replaced by general statements of normalcy. While the core assessment and plan are present, the lack of granular detail in the subjective and objective findings makes the note meaningfully incomplete, requiring caution and further review for a comprehensive understanding of the patient's baseline status. All identified additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "History of Present Illness detail: presents to the family practice clinic",
-      "Review of Systems (ROS) section",
-      "ROS General: No fever, weight loss, or fatigue",
-      "ROS HEENT: No headaches, visual changes, or sore throat",
-      "ROS Cardiovascular: No chest pain, palpitations, or dizziness",
-      "ROS Respiratory: No cough, wheezing, or shortness of breath",
-      "ROS Gastrointestinal: No nausea, vomiting, abdominal pain, or changes in bowel habits",
-      "ROS Musculoskeletal: No joint pain, muscle weakness, or injuries",
-      "ROS Neurological: No seizures, headaches, or loss of consciousness",
-      "Physical Exam - HEENT: Normocephalic, atraumatic",
-      "Physical Exam - HEENT: Tympanic membranes clear, no erythema or discharge",
-      "Physical Exam - HEENT: Oropharynx moist, no erythema or exudates",
-      "Physical Exam - Cardiovascular: No gallops or rubs",
-      "Physical Exam - Respiratory: Clear to auscultation",
-      "Physical Exam - Respiratory: No wheezes, rales, or crackles",
-      "Physical Exam - Musculoskeletal section (Full range of motion in all extremities. No deformities or tenderness noted)",
-      "Physical Exam - Neurological: Alert and active",
-      "Physical Exam - Neurological: Responds appropriately for age",
-      "Physical Exam - Neurological: Cranial nerves II-XII intact",
-      "Physical Exam - Neurological: No focal neurological deficits",
-      "Assessment: Patient is meeting all developmental milestones appropriate for age",
-      "Assessment: Patient exhibits a healthy lifestyle",
-      "Plan: Parents were advised on the importance of regular health check-ups",
-      "Plan: Parents were advised on the importance of vaccinations",
-      "Plan: The patient and parents were cooperative and compliant with medical advice",
-      "Plan: No additional testing was deemed necessary at this time given the normal findings of the routine examination"
+      "Full Review of Systems (ROS) section",
+      "Detailed HEENT physical exam findings (Normocephalic, atraumatic, tympanic membranes clear, no erythema or discharge, oropharynx moist, no erythema or exudates)",
+      "Detailed Cardiovascular physical exam findings (gallops, rubs)",
+      "Detailed Respiratory physical exam findings (to auscultation, no wheezes, rales, or crackles)",
+      "Musculoskeletal physical exam section (Full range of motion in all extremities, no deformities or tenderness noted)",
+      "Detailed Neurological physical exam findings (Alert and active, responds appropriately for age, cranial nerves II-XII intact, no focal neurological deficits)",
+      "Assessment of meeting developmental milestones and exhibiting a healthy lifestyle",
+      "Health education on the importance of regular health check-ups",
+      "Statement about patient/parents being cooperative and compliant with medical advice",
+      "Statement about no additional testing being deemed necessary"
     ],
     "additions": [
-      "Objective - Vital Signs: 'within normal limits' summary statement",
-      "Objective - Vital Signs: Temperature in Celsius (37°C)",
-      "Objective - Cardiovascular: 'or abnormalities'",
-      "Assessment: 'appears to be in good health'",
-      "Assessment: 'with all vital signs and physical examination findings within normal limits'",
-      "Plan: 'bring them in if necessary' (instruction for parents)"
+      "Vital signs summary phrase \"within normal limits\"",
+      "Temperature in Celsius (37°C)",
+      "Instruction for parents to \"bring them in if necessary\" regarding health changes"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section significantly omits the detailed Review of Systems (ROS) section, including specific denials for various body systems (General, HEENT, Cardiovascular, Respiratory, Gastrointestinal, Musculoskeletal, Neurological). This is a major omission that makes the section meaningfully incomplete.",
+        "summary": "The Subjective section omits the entire detailed Review of Systems (ROS) from the Ground Truth. While the chief complaint and general lack of concerns are captured, the absence of the structured, itemized ROS represents a noticeable gap in the documentation's completeness.",
         "omissions": [
-          "History of Present Illness detail: presents to the family practice clinic",
-          "Review of Systems (ROS) section",
-          "ROS General: No fever, weight loss, or fatigue",
-          "ROS HEENT: No headaches, visual changes, or sore throat",
-          "ROS Cardiovascular: No chest pain, palpitations, or dizziness",
-          "ROS Respiratory: No cough, wheezing, or shortness of breath",
-          "ROS Gastrointestinal: No nausea, vomiting, abdominal pain, or changes in bowel habits",
-          "ROS Musculoskeletal: No joint pain, muscle weakness, or injuries",
-          "ROS Neurological: No seizures, headaches, or loss of consciousness"
+          "Review of Systems (ROS) - General: No fever, weight loss, or fatigue",
+          "Review of Systems (ROS) - HEENT: No headaches, visual changes, or sore throat",
+          "Review of Systems (ROS) - Cardiovascular: No chest pain, palpitations, or dizziness",
+          "Review of Systems (ROS) - Respiratory: No cough, wheezing, or shortness of breath",
+          "Review of Systems (ROS) - Gastrointestinal: No nausea, vomiting, abdominal pain, or changes in bowel habits",
+          "Review of Systems (ROS) - Musculoskeletal: No joint pain, muscle weakness, or injuries",
+          "Review of Systems (ROS) - Neurological: No seizures, headaches, or loss of consciousness"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section has noticeable gaps, including the complete omission of the Musculoskeletal physical exam section. Additionally, several specific findings from the HEENT (Normocephalic, atraumatic; Tympanic membranes clear, no erythema or discharge; Oropharynx moist, no erythema or exudates), Cardiovascular (No gallops or rubs), Respiratory (Clear to auscultation; No wheezes, rales, or crackles), and Neurological (Alert and active; Responds appropriately for age; Cranial nerves II-XII intact; No focal neurological deficits) exams are omitted.",
+        "summary": "The Objective section provides high-level summaries for physical exam findings but omits numerous specific details from the Ground Truth, including detailed HEENT, Cardiovascular (gallops, rubs), Respiratory (to auscultation, wheezes, rales, crackles), the full Musculoskeletal section, and detailed Neurological findings (alert, active, cranial nerves intact, no focal deficits). These omissions represent noticeable gaps in the detailed clinical documentation.",
         "omissions": [
-          "Physical Exam - HEENT: Normocephalic, atraumatic",
-          "Physical Exam - HEENT: Tympanic membranes clear, no erythema or discharge",
-          "Physical Exam - HEENT: Oropharynx moist, no erythema or exudates",
-          "Physical Exam - Cardiovascular: No gallops or rubs",
-          "Physical Exam - Respiratory: Clear to auscultation",
-          "Physical Exam - Respiratory: No wheezes, rales, or crackles",
-          "Physical Exam - Musculoskeletal section (Full range of motion in all extremities. No deformities or tenderness noted)",
-          "Physical Exam - Neurological: Alert and active",
-          "Physical Exam - Neurological: Responds appropriately for age",
-          "Physical Exam - Neurological: Cranial nerves II-XII intact",
-          "Physical Exam - Neurological: No focal neurological deficits"
+          "HEENT physical exam details: Normocephalic, atraumatic. Tympanic membranes clear, no erythema or discharge. Oropharynx moist, no erythema or exudates",
+          "Cardiovascular physical exam details: no gallops, or rubs",
+          "Respiratory physical exam details: Clear to auscultation, no wheezes, rales, or crackles",
+          "Musculoskeletal physical exam section: Full range of motion in all extremities. No deformities or tenderness noted",
+          "Neurological physical exam details: Alert and active. Responds appropriately for age. Cranial nerves II-XII intact. No focal neurological deficits"
         ],
         "additions": [
-          "Vital Signs: 'within normal limits' summary statement",
-          "Vital Signs: Temperature in Celsius (37°C)",
-          "Cardiovascular: 'or abnormalities'"
+          "Vital signs summary phrase \"within normal limits\"",
+          "Temperature in Celsius (37°C)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section is mostly aligned but omits details regarding the patient meeting all developmental milestones appropriate for age and exhibiting a healthy lifestyle. These are moderate omissions but do not fundamentally alter the core assessment.",
+        "summary": "The Assessment section is mostly aligned, capturing the patient's good health. However, it omits specific statements regarding the patient meeting developmental milestones appropriate for age and exhibiting a healthy lifestyle, which are moderate omissions for a pediatric routine check-up.",
         "omissions": [
-          "Patient is meeting all developmental milestones appropriate for age",
-          "Patient exhibits a healthy lifestyle"
+          "Statement that patient is meeting all developmental milestones appropriate for age",
+          "Statement that patient exhibits a healthy lifestyle"
         ],
-        "additions": [
-          "'appears to be in good health'",
-          "'with all vital signs and physical examination findings within normal limits'"
-        ]
+        "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly complete but omits specific advice given to parents regarding the importance of regular health check-ups and vaccinations. It also omits the statement that the patient and parents were cooperative and compliant, and that no additional testing was deemed necessary given the normal findings.",
+        "summary": "The Plan section is mostly aligned, covering key recommendations like follow-up, lifestyle, and immunizations. Minor omissions include the specific mention of health education on the importance of regular health check-ups (beyond vaccinations), and statements about patient/parent cooperation and no additional testing being deemed necessary.",
         "omissions": [
-          "Parents were advised on the importance of regular health check-ups",
-          "Parents were advised on the importance of vaccinations",
-          "The patient and parents were cooperative and compliant with medical advice",
-          "No additional testing was deemed necessary at this time given the normal findings of the routine examination"
+          "Health education on the importance of regular health check-ups and vaccinations",
+          "Statement that the patient and parents were cooperative and compliant with medical advice",
+          "Statement that no additional testing was deemed necessary"
         ],
         "additions": [
-          "'bring them in if necessary' (instruction for parents)"
+          "Instruction for parents to \"bring them in if necessary\" regarding health changes"
         ]
       }
     ],
@@ -385,88 +353,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective - Vital Signs: 'within normal limits' summary statement",
+      "addition_text": "Vital signs summary phrase \"within normal limits\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your heart rate is 90 beats per minute, respiratory rate is 20 breaths per minute, blood pressure is 100/60 mmHg, and your temperature is 98.6 degrees Fahrenheit. All of these are normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal limits."
+      "matched_claim_text": "Vital signs are within normal limits.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective - Vital Signs: Temperature in Celsius (37°C)",
+      "addition_text": "Temperature in Celsius (37°C)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] your temperature is 98.6 degrees Fahrenheit.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Temperature - 37°C (98.6°F)."
+      "matched_claim_text": "Temperature - 37°C (98.6°F).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective - Cardiovascular: 'or abnormalities'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Now, listening to your heart. It has a regular rate and rhythm with no murmurs, gallops, or rubs.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Heart is regular without murmurs or abnormalities."
-    },
-    {
-      "addition_text": "Assessment: 'appears to be in good health'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] That’s great news. You seem to be in good health. ... Everything looks great. You’re a healthy 7-year-old boy.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient appears to be in good health."
-    },
-    {
-      "addition_text": "Assessment: 'with all vital signs and physical examination findings within normal limits'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] You look well-nourished and well-developed. No acute distress... Everything looks normal. ... It has a regular rate and rhythm with no murmurs, gallops, or rubs. Your lungs are clear to auscultation bilaterally, no wheezes, rales, or crackles. ... It’s soft, non-tender, and there are no masses or organomegaly. ... You have a full range of motion in all extremities, and there are no deformities or tenderness noted. ... Cranial nerves II through XII are intact, and there are no focal neurological deficits.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "All physical examination findings are within normal limits."
-    },
-    {
-      "addition_text": "Plan: 'bring them in if necessary' (instruction for parents)",
+      "addition_text": "Instruction for parents to \"bring them in if necessary\" regarding health changes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your parents should watch for any sudden changes in your health status and bring you in if they notice anything unusual.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise parents to watch for any sudden changes in the patient's health status and bring them in if necessary."
-    },
-    {
-      "addition_text": "Vital Signs: 'within normal limits' summary statement",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Your heart rate is 90 beats per minute, respiratory rate is 20 breaths per minute, blood pressure is 100/60 mmHg, and your temperature is 98.6 degrees Fahrenheit. All of these are normal.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal limits."
-    },
-    {
-      "addition_text": "Vital Signs: Temperature in Celsius (37°C)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] your temperature is 98.6 degrees Fahrenheit.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Temperature - 37°C (98.6°F)."
-    },
-    {
-      "addition_text": "Cardiovascular: 'or abnormalities'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Now, listening to your heart. It has a regular rate and rhythm with no murmurs, gallops, or rubs.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Heart is regular without murmurs or abnormalities."
-    },
-    {
-      "addition_text": "'appears to be in good health'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] That’s great news. You seem to be in good health. ... Everything looks great. You’re a healthy 7-year-old boy.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient appears to be in good health."
-    },
-    {
-      "addition_text": "'with all vital signs and physical examination findings within normal limits'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] You look well-nourished and well-developed. No acute distress... Everything looks normal. ... It has a regular rate and rhythm with no murmurs, gallops, or rubs. Your lungs are clear to auscultation bilaterally, no wheezes, rales, or crackles. ... It’s soft, non-tender, and there are no masses or organomegaly. ... You have a full range of motion in all extremities, and there are no deformities or tenderness noted. ... Cranial nerves II through XII are intact, and there are no focal neurological deficits.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "All physical examination findings are within normal limits."
-    },
-    {
-      "addition_text": "'bring them in if necessary' (instruction for parents)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Your parents should watch for any sudden changes in your health status and bring you in if they notice anything unusual.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise parents to watch for any sudden changes in the patient's health status and bring them in if necessary."
+      "matched_claim_text": "Advise parents to watch for any sudden changes in the patient's health status and bring them in if necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

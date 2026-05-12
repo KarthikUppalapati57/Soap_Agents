@@ -319,57 +319,75 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note accurately captures the Subjective and Objective findings. However, the Assessment section has significant omissions, failing to list the patient's chronic diagnoses of Type 2 Diabetes and Hypertension. While the Plan section correctly addresses the management of these conditions, their absence from the Assessment makes the note meaningfully incomplete regarding the patient's overall medical status. The note is usable but requires careful review due to the gaps in the Assessment.",
-    "omissions": [],
-    "additions": [],
+    "overall_summary": "The generated note provides a generally accurate overview of the patient's acute pharyngitis. However, it has multiple moderate omissions, including the lack of assessment for chronic conditions (Type 2 Diabetes and Hypertension) in the Assessment section, the absence of the pending RADT test in the Objective section, and the omission of crucial patient communication details regarding language assistance in the Plan. Several minor details are also missing across sections. No unsupported or unknown additions were found.",
+    "omissions": [
+      "Patient's sore throat described as 'constant' in HPI",
+      "Patient's sore throat 'significantly impacting his daily activities' in HPI",
+      "Patient's 'difficulty in communicating' due to sore throat in HPI",
+      "Patient's 'difficulty in ... swallowing, causing him to follow a liquid diet' in HPI",
+      "Specific Review of Systems (ROS) structure (though content is mostly integrated)",
+      "Cardiovascular exam detail: 'no rubs'",
+      "Extremities exam detail: 'No edema or erythema'",
+      "Objective section missing 'Tests: Rapid antigen detection test (RADT) for Group A Streptococcus: Awaiting results.'",
+      "Assessment of 'Type 2 Diabetes, well-managed'",
+      "Assessment of 'Hypertension, controlled'",
+      "Plan: Medical Reasoning for acute pharyngitis: 'The patient's symptoms and physical examination findings are consistent with acute pharyngitis.'",
+      "Plan: Patient education for Chloraseptic spray for symptomatic relief",
+      "Plan: Patient agreement: 'The patient understands and agrees with the recommended medical treatment plan.'",
+      "Plan: Patient agreement: 'The patient's non-native English-speaking status is acknowledged, and a family member will assist with translation and understanding of medical instructions.'",
+      "Plan: Socio-economic consideration: 'Noted the potential delay in RADT results and will follow up promptly once results are available.'"
+    ],
+    "additions": [
+      "Assessment includes details about RADT results and throat culture (which were in Plan in GroundTruthSOAP)"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section is well-captured. It has a few minor omissions regarding specific descriptors of the sore throat (e.g., 'constant,' 'significantly impacting daily activities,' 'difficulty communicating'), but these do not detract from the overall clinical picture.",
+        "grade": "B",
+        "summary": "The Subjective section captures the chief complaint and most of the HPI and ROS content. However, it omits specific details about the sore throat's impact on daily activities, communication, and the patient's liquid diet (a moderate omission). The ROS content is integrated rather than presented in the Ground Truth's structured format, which is a minor structural omission.",
         "omissions": [
-          "Sore throat described as \"constant\"",
-          "Sore throat \"significantly impacting his daily activities\"",
-          "Difficulty communicating due to sore throat",
-          "Difficulty swallowing due to sore throat"
+          "Patient's sore throat described as 'constant'",
+          "Patient's sore throat 'significantly impacting his daily activities'",
+          "Patient's 'difficulty in communicating' due to sore throat",
+          "Patient's 'difficulty in ... swallowing, causing him to follow a liquid diet'",
+          "Specific Review of Systems (ROS) structure (though content is mostly integrated)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is excellent, accurately reporting all vital signs and physical examination findings. The only omission is the absence of 'rubs' on cardiovascular exam, which is a very minor detail.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports vital signs and most physical examination findings. However, it omits minor details like 'no rubs' in the cardiovascular exam and 'No edema or erythema' in extremities. More significantly, it fails to explicitly list the pending Rapid Antigen Detection Test (RADT) for Group A Streptococcus under a 'Tests' subsection, which is a moderate omission.",
         "omissions": [
-          "Absence of \"rubs\" on cardiovascular exam"
+          "Cardiovascular exam detail: 'no rubs'",
+          "Extremities exam detail: 'No edema or erythema'",
+          "Tests: 'Rapid antigen detection test (RADT) for Group A Streptococcus: Awaiting results.'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has significant omissions. It completely fails to include the patient's chronic diagnoses of Type 2 Diabetes and Hypertension. It also omits the qualifiers for these conditions and for acute pharyngitis. This represents a major gap, making the assessment of the patient's overall medical status meaningfully incomplete.",
+        "summary": "This section is missing the assessment of two chronic conditions: 'Type 2 Diabetes, well-managed' and 'Hypertension, controlled'. While these conditions are addressed in the Plan, their absence from the Assessment section represents a significant gap in the overall clinical picture, constituting multiple moderate omissions. The addition of RADT details is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Diagnosis of Type 2 Diabetes",
-          "Diagnosis of Hypertension",
-          "Qualifier \"unspecified\" for Acute Pharyngitis",
-          "Qualifier \"well-managed\" for Type 2 Diabetes",
-          "Qualifier \"controlled\" for Hypertension"
+          "Type 2 Diabetes, well-managed",
+          "Hypertension, controlled"
         ],
         "additions": [
-          "Detail about RADT results and throat culture if negative (moved from GT Plan)"
+          "Details about RADT results and throat culture (moved from Plan in GroundTruthSOAP)"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly complete, accurately detailing the medical treatment and follow-up for acute pharyngitis, Type 2 Diabetes, and Hypertension. It has several minor omissions related to detailed medical reasoning, patient agreement, acknowledgement of non-native English-speaking status, and specific socio-economic considerations, but these do not compromise the core treatment plan.",
+        "summary": "The Plan section outlines appropriate treatment for acute pharyngitis and addresses the patient's chronic conditions. However, it omits the specific medical reasoning for acute pharyngitis, patient education for Chloraseptic spray, and the patient's agreement to the plan (all minor omissions). A moderate omission is the lack of acknowledgment of the patient's non-native English-speaking status and the family member's role in translation, which is important for patient understanding and adherence. It also omits the socio-economic consideration regarding potential RADT delay.",
         "omissions": [
-          "Medical reasoning for acute pharyngitis: \"The patient's symptoms and physical examination findings are consistent with acute pharyngitis.\"",
-          "Patient agreement and understanding of the plan",
-          "Acknowledgement of patient's non-native English-speaking status and family member assistance",
-          "Adherence to the treatment plan to prevent complications",
-          "Note about potential delay in RADT results and prompt follow-up"
+          "Medical Reasoning for acute pharyngitis: 'The patient's symptoms and physical examination findings are consistent with acute pharyngitis.'",
+          "Patient education for Chloraseptic spray for symptomatic relief",
+          "Patient agreement: 'The patient understands and agrees with the recommended medical treatment plan.'",
+          "Patient agreement: 'The patient's non-native English-speaking status is acknowledged, and a family member will assist with translation and understanding of medical instructions.'",
+          "Socio-economic consideration: 'Noted the potential delay in RADT results and will follow up promptly once results are available.'"
         ],
         "additions": []
       }
@@ -379,11 +397,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Detail about RADT results and throat culture if negative (moved from GT Plan)",
+      "addition_text": "Assessment includes details about RADT results and throat culture (which were in Plan in GroundTruthSOAP)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] If the test is negative, we’ll send a throat culture.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "If RADT is negative, a throat culture will be sent."
+      "transcript_evidence": "Based on your symptoms and physical examination, it seems like you have acute pharyngitis. We’ll confirm this once we get the RADT results. If the test is negative, we’ll send a throat culture.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Details about RADT results and throat culture (moved from Plan in GroundTruthSOAP)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I’ve ordered a rapid antigen detection test (RADT) for Group A Streptococcus, and we are currently awaiting the results... We’ll confirm this once we get the RADT results. If the test is negative, we’ll send a throat culture.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

@@ -256,8 +256,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The Generated SOAP note is mostly clinically aligned and usable, but contains noticeable gaps, particularly in the Plan section, which make it meaningfully incomplete. While all additions were supported by the transcript and thus did not lower the grade, the note suffers from numerous minor omissions across Subjective and Objective sections, and moderate omissions in the Assessment. The Plan section has several moderate omissions and a major omission of a specific referral to a pulmonologist, along with missing key patient education regarding school/sports and monitoring instructions. These deficiencies in the Plan section reduce the overall clinical usefulness and necessitate caution and review.",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaint, history of present illness, and objective findings. All additions are supported by the transcript and therefore do not impact the grade. However, there are several minor omissions in the Subjective and Objective sections, and a few moderate omissions in the Plan section, such as specific follow-up instructions for monitoring respiratory status, the named pulmonologist referral, and details regarding blood test review and school/sports restrictions. These omissions, while not rendering the note unsafe, reduce its completeness and clinical usefulness in the Plan section.",
     "omissions": [
       "Patient's status as a 'high school freshman'",
       "HPI detail: 'Symptoms have led to missing school'",
@@ -288,8 +288,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is mostly complete, but omits minor details such as the patient's status as a high school freshman, the specific impact of fatigue on daily activities and study, and the limitation of physical activity due to illness. These omissions do not significantly impact the core clinical usability of the section.",
+        "grade": "A",
+        "summary": "The Subjective section is comprehensive, with only minor omissions related to social context (high school freshman) and detailed impact of symptoms (missing school, impacting daily activities/study, limited physical activity). The core clinical information is well-captured.",
         "omissions": [
           "Patient's status as a 'high school freshman'",
           "HPI detail: 'Symptoms have led to missing school'",
@@ -300,8 +300,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section accurately captures vital signs and key positive physical examination findings. However, it omits several minor negative findings from the physical exam, including the patient's general appearance (alert, cooperative, mildly ill), absence of crackles in lungs, normal cardiovascular rhythm and absence of murmurs, absence of hepatosplenomegaly, and no edema in extremities. These are minor omissions that do not detract from the overall clinical picture.",
+        "grade": "A",
+        "summary": "The Objective section accurately presents vital signs and key physical examination findings. Minor omissions include general appearance details ('Alert, cooperative, appears mildly ill') and several negative findings ('no crackles', 'no murmurs', 'no hepatosplenomegaly', 'No edema'), which do not detract from the overall clinical picture.",
         "omissions": [
           "General appearance: 'Alert, cooperative, appears mildly ill.'",
           "Respiratory exam detail: 'no crackles'",
@@ -313,8 +313,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section provides a clinically sound summary. However, it omits the explicit statement of 'Differential diagnosis includes possible viral etiologies' and the explicit mention of 'Past medical history is notable for mild asthma' as distinct points, although the presence of asthma is implied by 'possible asthma exacerbation.' These are moderate omissions that affect the completeness of the formal assessment structure.",
+        "grade": "A",
+        "summary": "The Assessment section is strong. While it omits explicit statements about 'Differential diagnosis includes possible viral etiologies' and 'Past medical history is notable for mild asthma', the core concepts are present, with 'possible asthma exacerbation' and 'pending laboratory test results for viral pathogens including COVID-19, Influenza, and RSV' being supported additions that convey the necessary clinical information.",
         "omissions": [
           "Explicit statement of 'Differential diagnosis includes possible viral etiologies'",
           "Explicit statement of 'Past medical history is notable for mild asthma'"
@@ -326,8 +326,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several omissions that reduce its completeness and clinical usefulness. It lacks specific details for acetaminophen (oral route, quantity), the explicit instruction to continue monitoring respiratory status, and the crucial specific referral to pulmonologist Dr. Susan Lee if symptoms worsen. Additionally, important patient education regarding refraining from school and team sports to prevent spread, and the full scope of translation services, are omitted. These omissions, particularly the missing specific referral and monitoring instructions, represent moderate to major gaps.",
+        "grade": "B",
+        "summary": "The Plan section contains several moderate omissions. These include specific details for acetaminophen (oral route, quantity), the instruction to 'Continue monitoring symptoms closely, especially respiratory status', the specific referral to 'pulmonologist Dr. Susan Lee', the need to 'Review results of blood biochemistry tests and CBC with differential', and the emphasis on refraining from 'school and team sports'. While a general instruction to contact the provider if symptoms worsen is a supported addition, these specific omissions reduce the completeness and actionable detail of the plan.",
         "omissions": [
           "Acetaminophen details: 'oral' route",
           "Acetaminophen details: 'quantity: 20 tablets'",
@@ -354,35 +354,45 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] It means that your lungs are showing some signs of irritation, which is common with respiratory infections, especially when you have a history of asthma.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment is respiratory infection with possible asthma exacerbation."
+      "matched_claim_text": "Assessment is respiratory infection with possible asthma exacerbation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'If symptoms worsen or concerns arise, contact healthcare provider promptly'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If your symptoms worsen, especially your breathing, we have a referral to a pulmonologist, Dr. Susan Lee, who can evaluate your respiratory system in more detail.\n[doctor] If anything changes or you have any concerns, don't hesitate to reach out.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms worsen or concerns arise, contact healthcare provider promptly"
+      "matched_claim_text": "If symptoms worsen or concerns arise, contact healthcare provider promptly",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'possible asthma exacerbation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] It means that your lungs are showing some signs of irritation, which is common with respiratory infections, especially when you have a history of asthma.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment is respiratory infection with possible asthma exacerbation."
+      "matched_claim_text": "Assessment is respiratory infection with possible asthma exacerbation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'pending laboratory test results for viral pathogens including COVID-19, Influenza, and RSV' (information moved from Plan section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We're also waiting on the results of a PCR test for multiple viral pathogens, including COVID-19, Influenza, and RSV.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Laboratory test results for viral pathogens including COVID-19, Influenza, and RSV are pending."
+      "matched_claim_text": "Laboratory test results for viral pathogens including COVID-19, Influenza, and RSV are pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'If symptoms worsen or concerns arise, contact healthcare provider promptly'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If your symptoms worsen, especially your breathing, we have a referral to a pulmonologist, Dr. Susan Lee, who can evaluate your respiratory system in more detail.\n[doctor] If anything changes or you have any concerns, don't hesitate to reach out.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms worsen or concerns arise, contact healthcare provider promptly"
+      "matched_claim_text": "If symptoms worsen or concerns arise, contact healthcare provider promptly",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

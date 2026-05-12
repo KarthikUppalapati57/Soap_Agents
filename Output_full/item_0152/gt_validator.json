@@ -301,7 +301,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note demonstrates strong performance in the Objective and Assessment sections. However, the Subjective section has several moderate to major omissions, particularly in the History of Present Illness, which significantly reduce the contextual completeness of the note. The Plan section suffers from numerous major omissions of critical details regarding diagnostic orders (blood work, imaging) and specific treatment parameters (medication dosage/route, specific purpose of referral), which materially reduce its clinical usefulness and actionability. While no unsupported or unknown additions were found, the extensive omissions in key sections lead to a lower overall grade.",
+    "overall_summary": "The note demonstrates significant omissions, particularly in the Plan section, where critical details regarding specific lab tests, imaging, and the detailed purpose of a vascular surgeon referral for dialysis access are missing. The Subjective section also omits important patient context, such as the explicit worsening of CKD, the patient's dependence on family, their limited English proficiency, and their residence in an underserved community. These omissions materially reduce the clinical usefulness and completeness of the note. The Objective and Assessment sections are well-captured.",
     "omissions": [
       "HPI: management of his chronic kidney disease (CKD), which has worsened significantly",
       "HPI: shortness of breath on exertion",
@@ -336,7 +336,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section is missing several clinically important details from the HPI, including the patient's history of hypertension, hyperlipidemia, and type 2 diabetes mellitus, the significant worsening of his CKD, his heavy dependence on family, dietary habits, and crucial social determinants of health like his limited English proficiency and rural living situation. These omissions create noticeable gaps in the patient's clinical picture.",
+        "summary": "The Subjective section has several omissions, including the explicit mention of CKD management worsening, the patient's dependence on family for basic tasks, their history of chronic conditions within the HPI, their limited English proficiency, and their residence in an underserved community. Minor ROS details like \"weight stable,\" \"elevated blood pressure,\" and \"no vomiting\" were also omitted.",
         "omissions": [
           "HPI: management of his chronic kidney disease (CKD), which has worsened significantly",
           "HPI: shortness of breath on exertion",
@@ -354,7 +354,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-aligned with the Ground Truth, with only a minor omission of 'Abdomen: Non-tender.' All other vital signs and physical exam findings are accurately captured.",
+        "summary": "The Objective section is largely complete, with only a minor omission of \"Abdomen: Non-tender.\"",
         "omissions": [
           "Abdomen: Non-tender"
         ],
@@ -363,7 +363,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately capturing all diagnoses from the Ground Truth. The additions of 'suspected,' 'possibly,' and 'likely' are supported by the transcript and do not detract from the grade.",
+        "summary": "The Assessment section is complete with no omissions. All additions (\"Suspected,\" \"possibly,\" \"likely\") are supported by the transcript and do not reduce the grade.",
         "omissions": [],
         "additions": [
           "Suspected (for hypertensive chronic kidney disease)",
@@ -374,7 +374,7 @@
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section has numerous major omissions that significantly reduce its clinical usefulness. Critical details for blood work (Comprehensive Metabolic Panel, Complete Blood Count, Vitamin D levels, Urinalysis specifics) and imaging (Doppler Ultrasound purpose) are entirely missing. The specific dosage and route for Erythropoietin injections are also omitted. Furthermore, the specific purpose of the vascular surgeon referral (evaluation for arteriovenous fistula for future dialysis access) is missing, making the referral vague. These omissions make the plan largely incomplete and not readily actionable.",
+        "summary": "The Plan section has numerous significant omissions. These include specific details for medications (oral route, Erythropoietin dosage and route), all specific blood work items (CMP details, CBC, Vitamin D, Urinalysis details), specific imaging (Doppler Ultrasound details), the vascular surgeon's name, and the crucial purpose of the vascular surgeon referral (creation of an arteriovenous fistula for future dialysis access). A minor omission was also the discussion of increasing physical activity.",
         "omissions": [
           "Medications: orally (for Enalapril and Atorvastatin)",
           "Medications: Erythropoietin 10,000 units subcutaneously",
@@ -401,56 +401,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and history, we suspect hypertensive chronic kidney disease, possibly stage 4.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4."
+      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: possibly (for stage 4 CKD)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and history, we suspect hypertensive chronic kidney disease, possibly stage 4.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4."
+      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: likely (for anemia due to chronic kidney disease)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You also have anemia likely due to chronic kidney disease",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anemia likely due to chronic kidney disease."
+      "matched_claim_text": "Anemia likely due to chronic kidney disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: for blood pressure control (for Enalapril)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll start you on Enalapril 10 mg twice daily to help control your blood pressure.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Suspected (for hypertensive chronic kidney disease)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and history, we suspect hypertensive chronic kidney disease, possibly stage 4.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4."
+      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "possibly (for stage 4 CKD)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and history, we suspect hypertensive chronic kidney disease, possibly stage 4.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4."
+      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "likely (for anemia due to chronic kidney disease)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You also have anemia likely due to chronic kidney disease",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anemia likely due to chronic kidney disease."
+      "matched_claim_text": "Anemia likely due to chronic kidney disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "for blood pressure control (for Enalapril)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll start you on Enalapril 10 mg twice daily to help control your blood pressure.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

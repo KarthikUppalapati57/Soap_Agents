@@ -1,8 +1,16 @@
 import json
 import os
-import spacy
+import sys
 import requests
+from pathlib import Path
 from dotenv import load_dotenv
+
+# Allow `python mkg_validation.py` from this folder to resolve `Agent_3.MKG`.
+_REPO_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from Agent_3.MKG import extract_medical_terms
 
 # ── Load API Key ───────────────────────────────────
 load_dotenv("../../.env")
@@ -13,16 +21,18 @@ V2_PATH    = "../OpenAI health Benchmark/results/v2_results.json"
 OUT_PATH   = "../OpenAI health Benchmark/results/mkg_results.json"
 CHECKPOINT = "../OpenAI health Benchmark/results/mkg_checkpoint.json"
 
-# ── Load scispaCy Model ────────────────────────────
-print("Loading scispaCy model...")
-nlp = spacy.load("en_core_sci_sm")
-print("Model loaded!")
 
-# ── Extract Medical Terms ──────────────────────────
-def extract_terms(text):
-    doc   = nlp(text)
-    terms = list(set([ent.text.lower() for ent in doc.ents]))
+def extract_terms(text: str) -> list[str]:
+    """Medical surface forms via GLiNER (same helper as PrimeKG / agent_interface)."""
+    threshold = float(os.getenv("MKG_GLINER_THRESHOLD", "0.35"))
+    terms = extract_medical_terms(text, threshold=threshold)
+    max_n = (os.getenv("MKG_UMLS_MAX_TERMS") or "").strip()
+    if max_n.isdigit():
+        n = int(max_n)
+        if n > 0:
+            terms = terms[:n]
     return terms
+
 
 # ── Check Term Against UMLS API ────────────────────
 def check_umls(term):

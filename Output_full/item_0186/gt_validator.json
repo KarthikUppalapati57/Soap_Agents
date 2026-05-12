@@ -186,49 +186,66 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary of the patient's visit, capturing the chief complaint, key symptoms, physical examination findings, assessment, and core plan. However, it has noticeable gaps, particularly in the Subjective section where patient age, sex, and the explicit reason for the visit are omitted. The Plan section also lacks detailed patient education points and the explicit mention of socio-economic considerations, reducing the comprehensiveness of the care plan. While no unsupported additions were found, these omissions make the note meaningfully incomplete in several areas, requiring caution and review.",
+    "overall_summary": "The generated note captures the core clinical presentation, physical exam findings, and primary assessment. However, it has noticeable gaps, particularly in the Subjective and Plan sections. Key details regarding the chief complaint, duration and frequency of symptoms in the HPI, and several critical elements of the plan (patient education specifics, socio-economic considerations, interpreter use, and patient agreements) are omitted. While the note is still usable, these multiple moderate omissions make it meaningfully incomplete and require careful review.",
     "omissions": [
-      "Interpreter Used: Yes, for Spanish translation.",
-      "Patient Agreements: The patient’s mother understands and agrees with the recommended medical treatment plan.",
-      "Signed by: Dr. [Physician's Name]",
-      "Date: [Current Date]",
-      "Community Health Center"
+      "Chief Complaint: Routine child health examination",
+      "HPI: Mother as reporter of symptoms",
+      "HPI: Duration of symptoms (last month)",
+      "HPI: Frequency of symptoms (once or twice a week)",
+      "HPI: Minimal impact on daily activities",
+      "HPI: General statement of no other associated symptoms",
+      "ROS: Sleep duration (9 hours per night)",
+      "ROS: Exercise details (plays outside intermittently, not regularly involved in sports)",
+      "Objective Vitals: Height (42 inches)",
+      "Objective Vitals: Weight (40 pounds)",
+      "Assessment: 'patient’s history' as a basis for suspicion",
+      "Assessment: 'with differential' for CBC",
+      "Plan: Educational materials on physical activity",
+      "Plan: Specific nutritionist name (Dr. Lydia Green)",
+      "Plan: Purpose of nutritionist referral (diet assessment and planning)",
+      "Plan: Adjust treatment plan as necessary (after CBC results)",
+      "Plan: Discussion with mother on importance of balanced diet and iron-rich foods",
+      "Plan: Strategies to improve dietary habits and increase physical activity",
+      "Plan: Socio-economic consideration for potential follow-up delays",
+      "Plan: Interpreter Used (Yes, for Spanish translation)",
+      "Plan: Patient Agreements (mother understands and agrees with treatment plan)"
     ],
-    "additions": [],
+    "additions": [
+      "Subjective: Specific negative ROS for fever, cough, or difficulty breathing",
+      "Subjective: Tobacco, alcohol, or drug use 'in the household'",
+      "Objective: Summary statement 'Vital signs are within normal range'",
+      "Assessment: 'physical examination findings' as a basis for suspicion",
+      "Plan: 'progress check' for follow-up appointment",
+      "Plan: Referring 'the family' to a nutritionist"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section receives a C due to several omissions. Most notably, the patient's age (6-year-old), sex (female), and the explicit reason for the visit (routine check-up) are missing, which are crucial demographic and contextual details. Other minor omissions include the duration, frequency, and impact of symptoms, as well as specific details about sleep duration and exercise habits. While the core symptoms are captured, these gaps make the section meaningfully incomplete.",
+        "summary": "The section captures the main symptoms but omits the chief complaint of a routine child health examination and important details from the History of Present Illness, such as the duration and frequency of symptoms. Several minor ROS details are also missing. These omissions reduce the completeness of the patient's subjective presentation.",
         "omissions": [
-          "Chief Complaint section header",
-          "History of Present Illness (HPI) section header",
-          "Patient age (6-year-old)",
-          "Patient sex (female)",
-          "Reason for visit (routine check-up)",
-          "Duration of symptoms (last month)",
-          "Frequency of symptoms (once or twice a week)",
-          "Impact of symptoms on daily activities (minimal impact)",
-          "Review of Systems (ROS) section header",
-          "Sleep duration (approximately 9 hours per night)",
-          "Exercise habits (plays outside intermittently, not regularly involved in sports)"
+          "Chief Complaint: Routine child health examination",
+          "HPI: Mother as reporter of symptoms",
+          "HPI: Duration of symptoms (last month)",
+          "HPI: Frequency of symptoms (once or twice a week)",
+          "HPI: Minimal impact on daily activities",
+          "HPI: General statement of no other associated symptoms",
+          "ROS: Sleep duration (9 hours per night)",
+          "ROS: Exercise details (plays outside intermittently, not regularly involved in sports)"
         ],
         "additions": [
-          "Explicitly stating 'No fever, cough, or difficulty breathing reported'"
+          "Specific negative ROS for fever, cough, or difficulty breathing",
+          "Tobacco, alcohol, or drug use 'in the household'"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section receives a B. It accurately captures all vital signs and physical examination findings. The primary omissions are the patient's height (42 inches) and weight (40 pounds), which are important objective measurements. Minor formatting omissions like section headers and specific phrasing also exist but do not significantly detract from the clinical usefulness of the captured content.",
+        "grade": "A",
+        "summary": "This section is largely complete and accurate. The only omissions are minor details regarding the patient's height and weight, which do not significantly impact the clinical usefulness of the objective findings.",
         "omissions": [
-          "Vitals section header",
-          "Height (42 inches)",
-          "Weight (40 pounds)",
-          "Physical Examination section header",
-          "General appearance of 'appears mildly pale'",
-          "'no other abnormalities' in HEENT"
+          "Vitals: Height (42 inches)",
+          "Vitals: Weight (40 pounds)"
         ],
         "additions": [
           "Summary statement 'Vital signs are within normal range'"
@@ -237,30 +254,34 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A. It is highly accurate and concise, clearly stating the suspected diagnosis and the need for further confirmation. The only omission is the minor detail of 'with differential' for the CBC, which does not impact the clinical accuracy or utility of the assessment.",
+        "summary": "The assessment accurately identifies the suspected condition and the need for further testing. Minor omissions include not explicitly stating 'patient’s history' as a basis for suspicion and omitting 'with differential' for the CBC, but these do not detract from the core clinical assessment.",
         "omissions": [
+          "'patient’s history' as a basis for suspicion",
           "'with differential' for CBC"
         ],
-        "additions": []
+        "additions": [
+          "'physical examination findings' as a basis for suspicion"
+        ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section receives a C. While it outlines the main components of the care plan (blood work, nutritionist referral, follow-up, community resources), it has several moderate omissions. These include the detailed discussion points for patient education (importance of balanced diet, iron-rich foods, strategies for dietary habits and physical activity) and the explicit mention of awareness regarding potential follow-up delays due to socio-economic factors. These omissions reduce the comprehensiveness and contextual understanding of the planned care. Minor omissions like the specific nutritionist's name and the exact purpose of the referral also contribute to the grade.",
+        "summary": "This section has multiple moderate omissions that significantly reduce its completeness. Critical details such as the need to adjust the treatment plan based on CBC results, specific discussions with the mother about iron-rich foods, socio-economic considerations for follow-up, the use of an interpreter, and patient agreements are all missing. These omissions impact the documentation of comprehensive care planning and patient engagement.",
         "omissions": [
-          "'with differential' for CBC",
-          "'for evaluation of anemia' for blood work",
-          "'physical activity' in diet/nutrition educational materials",
-          "Specific nutritionist name: 'Dr. Lydia Green'",
-          "'diet assessment and planning' as purpose of nutritionist referral",
-          "'adjust treatment plan as necessary' after CBC results review",
-          "Patient Education and Counseling section header",
-          "Detailed discussion points with mother (importance of balanced diet, iron-rich foods, strategies for dietary habits and physical activity)",
-          "Socio-economic Considerations section header",
-          "Awareness of potential follow-up delays due to socio-economic factors"
+          "Blood Work: 'with differential' for CBC",
+          "Diet and Nutrition: Educational materials on physical activity",
+          "Diet and Nutrition: Specific nutritionist name (Dr. Lydia Green)",
+          "Diet and Nutrition: Purpose of nutritionist referral (diet assessment and planning)",
+          "Follow-Up: Adjust treatment plan as necessary (after CBC results)",
+          "Patient Education and Counseling: Discussion with mother on importance of balanced diet and iron-rich foods",
+          "Patient Education and Counseling: Strategies to improve dietary habits and increase physical activity",
+          "Socio-economic Considerations: Awareness of potential follow-up delays due to socio-economic factors",
+          "Interpreter Used: Yes, for Spanish translation",
+          "Patient Agreements: Mother understands and agrees with treatment plan"
         ],
         "additions": [
-          "'for progress check' in follow-up appointment purpose"
+          "'progress check' for follow-up appointment",
+          "Referring 'the family' to a nutritionist"
         ]
       }
     ],
@@ -269,25 +290,112 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Explicitly stating 'No fever, cough, or difficulty breathing reported'",
+      "addition_text": "Subjective: Specific negative ROS for fever, cough, or difficulty breathing",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Does she have any other symptoms like fever, cough, or difficulty breathing?\n\n[patient's mother]: No, nothing like that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No fever, cough, or difficulty breathing reported"
+      "matched_claim_text": "No fever, cough, or difficulty breathing reported",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Subjective: Tobacco, alcohol, or drug use 'in the household'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Any tobacco, alcohol, or drug use in the household?\n\n[patient's mother]: No, none at all.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No tobacco, alcohol, or drug use in the household",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Objective: Summary statement 'Vital signs are within normal range'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Her temperature is 98.6°F, pulse is 85 bpm, respiratory rate is 20 breaths per minute, and blood pressure is 100/60 mmHg. Her height is 42 inches and weight is 40 pounds. Everything looks within normal range.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Vital signs are within normal range",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: 'physical examination findings' as a basis for suspicion",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on the examination and your description of her symptoms, it seems she might have mild iron-deficiency anemia.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: 'progress check' for follow-up appointment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We'll also schedule a follow-up appointment in six months to check on her progress and review the CBC results once they are available.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up appointment in six months for progress check and CBC results review",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Referring 'the family' to a nutritionist",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Additionally, I'll refer you to a nutritionist, Dr. Lydia Green, who can help you create a diet plan.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "referring the family to a nutritionist",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specific negative ROS for fever, cough, or difficulty breathing",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Does she have any other symptoms like fever, cough, or difficulty breathing?\n\n[patient's mother]: No, nothing like that.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No fever, cough, or difficulty breathing reported",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Tobacco, alcohol, or drug use 'in the household'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Any tobacco, alcohol, or drug use in the household?\n\n[patient's mother]: No, none at all.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No tobacco, alcohol, or drug use in the household",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Summary statement 'Vital signs are within normal range'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Her temperature is 98.6°F, pulse is 85 bpm, respiratory rate is 20 breaths per minute, and blood pressure is 100/60 mmHg. Her height is 42 inches and weight is 40 pounds. Everything looks within normal range.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal range"
+      "matched_claim_text": "Vital signs are within normal range",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'for progress check' in follow-up appointment purpose",
+      "addition_text": "'physical examination findings' as a basis for suspicion",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on the examination and your description of her symptoms, it seems she might have mild iron-deficiency anemia.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'progress check' for follow-up appointment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll also schedule a follow-up appointment in six months to check on her progress and review the CBC results once they are available.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in six months for progress check and CBC results review"
+      "matched_claim_text": "Schedule follow-up appointment in six months for progress check and CBC results review",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Referring 'the family' to a nutritionist",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Additionally, I'll refer you to a nutritionist, Dr. Lydia Green, who can help you create a diet plan.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "referring the family to a nutritionist",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

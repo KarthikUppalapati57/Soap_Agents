@@ -270,93 +270,85 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The generated note has severe deficiencies, particularly in the Subjective and Assessment sections. Critical patient information such as Past Medical History, Medication History, Allergies, and the primary diagnosis are entirely omitted, rendering the note unsafe and unreliable for clinical use. While the Objective section is largely accurate, and the Plan captures most key actions, the foundational gaps in patient history and clinical reasoning are too significant to justify a passing grade.",
+    "overall_grade": "D",
+    "overall_summary": "The generated SOAP note contains significant omissions, including critical patient history such as Past Medical History (Osteoarthritis, Hypertension), Medication History (Lisinopril, OTC NSAIDs), and Allergies (NKDA). Furthermore, the primary diagnosis of \"Left knee pain, most likely exacerbated by underlying osteoarthritis\" is missing from the Assessment section. These major omissions materially reduce the clinical usefulness and completeness of the note. All additions are supported by the transcript and do not negatively impact the grade.",
     "omissions": [
-      "Impact of pain on standing long periods and walking",
-      "Past Medical History (Osteoarthritis, Hypertension)",
-      "Medication History (Lisinopril 10 mg daily, OTC NSAIDs as needed)",
-      "Allergies (NKDA)",
-      "Social History (Retired, previously active with daily walks, non-smoker, occasional alcohol consumption (1-2 drinks per week), balanced diet with occasional fast food, sleeps 6-7 hours per night)",
-      "Primary Diagnosis: Left knee pain, most likely exacerbated by underlying osteoarthritis",
-      "Differential Diagnosis: Synovitis",
-      "Specific examples of ligament damage (MCL or ACL injury)",
-      "Detail about ROM limitation: 'particularly in flexion and extension'",
-      "Detail about antalgic gait: 'due to knee pain'",
-      "Total number of tablets for Ibuprofen (30 tablets)",
-      "Explicit statement of ordering MRI of the left knee to further evaluate for potential meniscal tear or ligament damage",
-      "Encouragement to take the prescribed medication as directed",
-      "Purpose of applying ice: 'to reduce swelling'",
-      "Purpose of elevating knee: 'to help reduce swelling'",
-      "Patient Understanding and Compliance section"
+      "Patient's past medical history (Osteoarthritis, Hypertension)",
+      "Patient's medication history (Lisinopril 10 mg daily, OTC NSAIDs as needed)",
+      "Patient's allergies (No known drug allergies)",
+      "Patient's social history (Retired, previously active with daily walks, non-smoker, occasional alcohol consumption, balanced diet with occasional fast food, sleeps 6-7 hours per night)",
+      "Primary diagnosis: Left knee pain, most likely exacerbated by underlying osteoarthritis",
+      "Differential diagnosis: Synovitis",
+      "Specific quantity of prescribed Ibuprofen (total 30 tablets)",
+      "Patient understanding and compliance (verbalized understanding, agreed to comply, questions answered)"
     ],
     "additions": [
-      "'Limited range of motion due to pain' in Subjective section",
-      "'stable' qualifier for vital signs",
-      "'based on physical examination and symptoms' qualifier for potential meniscal tear or ligament damage",
-      "Purpose of Ibuprofen: 'to manage pain and inflammation'",
-      "'as much as possible' qualifier for resting the knee",
-      "'notify the healthcare provider immediately' for reporting adverse effects or lack of improvement"
+      "\"Limited range of motion due to pain\" listed in Subjective section (GroundTruthSOAP lists this in Objective)",
+      "\"stable\" for vital signs",
+      "\"based on physical examination and symptoms\" for assessment",
+      "\"to manage pain and inflammation\" for Ibuprofen prescription",
+      "\"as much as possible\" for rest instruction",
+      "\"notify the healthcare provider immediately\" for reporting adverse effects/lack of improvement"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "D",
-        "summary": "The Subjective section has significant omissions. Key patient history such as Past Medical History (Osteoarthritis, Hypertension), Medication History (Lisinopril, OTC NSAIDs), and Allergies (NKDA) are entirely missing. The impact of pain on daily activities and the full Social History are also omitted. These are major clinical gaps that severely limit the usefulness and safety of the note.",
+        "summary": "The Subjective section has numerous critical omissions, including the patient's Past Medical History (Osteoarthritis, Hypertension), Medication History (Lisinopril 10 mg daily, OTC NSAIDs), and Allergies (No known drug allergies). Several details from the Social History are also omitted. The inclusion of \"Limited range of motion due to pain\" in this section, while supported by the transcript, is a structural deviation from the GroundTruth but does not lower the grade.",
         "omissions": [
-          "Chief Complaint (explicit heading)",
-          "Impact of pain on standing long periods and walking",
-          "Past Medical History (Osteoarthritis, Hypertension)",
-          "Medication History (Lisinopril 10 mg daily, OTC NSAIDs as needed)",
-          "Allergies (NKDA)",
-          "Social History (Retired, previously active with daily walks, non-smoker, occasional alcohol consumption (1-2 drinks per week), balanced diet with occasional fast food, sleeps 6-7 hours per night)"
+          "Patient's ability to stand for long periods and walk is impacted by pain",
+          "Past Medical History: Osteoarthritis",
+          "Past Medical History: Hypertension",
+          "Medication History: Lisinopril 10 mg daily",
+          "Medication History: Over-the-counter NSAIDs as needed for pain",
+          "Allergies: No known drug allergies (NKDA)",
+          "Social History: Retired",
+          "Social History: Previously active with daily walks",
+          "Social History: Non-smoker",
+          "Social History: Occasional alcohol consumption (1-2 drinks per week)",
+          "Social History: Balanced diet with occasional fast food",
+          "Social History: Sleeps 6-7 hours per night"
         ],
         "additions": [
-          "Limited range of motion due to pain"
+          "Limited range of motion due to pain (This is an objective finding in GroundTruthSOAP)"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete. It accurately captures vital signs and physical examination findings. The omissions are minor details regarding the specific limitations of range of motion (flexion and extension) and the reason for the antalgic gait, but the core findings are present.",
+        "summary": "The Objective section is well-aligned with the GroundTruth. The only omission is the specific detail \"particularly in flexion and extension\" for limited range of motion, which is minor. The addition of \"stable\" for vital signs is supported by the transcript.",
         "omissions": [
-          "Detail about ROM limitation: 'particularly in flexion and extension'",
-          "Detail about antalgic gait: 'due to knee pain'"
+          "Detail for limited range of motion: \"particularly in flexion and extension\""
         ],
         "additions": [
-          "'stable' qualifier for vital signs"
+          "\"stable\" for vital signs"
         ]
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section has a significant omission: the primary diagnosis of 'Left knee pain, most likely exacerbated by underlying osteoarthritis' is entirely missing. While potential meniscal tear or ligament damage is mentioned, the primary clinical context is lost. The omission of 'Synovitis' from the differential diagnosis is also a moderate gap.",
+        "summary": "The Assessment section has a major omission of the primary diagnosis, \"Left knee pain, most likely exacerbated by underlying osteoarthritis.\" It also omits \"Synovitis\" from the differential diagnoses. The addition of \"based on physical examination and symptoms\" is supported by the transcript. The absence of the primary diagnosis significantly impacts the clinical utility of this section.",
         "omissions": [
           "Primary Diagnosis: Left knee pain, most likely exacerbated by underlying osteoarthritis",
-          "Differential Diagnosis: Synovitis",
-          "Specific examples of ligament damage (MCL or ACL injury)"
+          "Differential Diagnosis: Synovitis"
         ],
         "additions": [
-          "'based on physical examination and symptoms' qualifier for potential meniscal tear or ligament damage"
+          "\"based on physical examination and symptoms\" (qualifier for the diagnosis)"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section includes the core treatment recommendations, follow-up, and patient education. However, it omits the explicit statement of ordering the MRI, which is a key diagnostic action. The entire 'Patient Understanding and Compliance' section is also missing, which is important for documenting patient engagement and informed consent. Minor details like the total tablet count and the specific purposes of ice/elevation are also omitted.",
+        "grade": "B",
+        "summary": "The Plan section is mostly complete. Minor omissions include the specific total quantity of prescribed Ibuprofen (\"total 30 tablets\") and the documentation of patient understanding and compliance. All additions, such as the reason for Ibuprofen and the instruction to notify the provider immediately, are supported by the transcript.",
         "omissions": [
-          "Total number of tablets for Ibuprofen (30 tablets)",
-          "Explicit statement of ordering MRI of the left knee to further evaluate for potential meniscal tear or ligament damage",
-          "Encouragement to take the prescribed medication as directed",
-          "Purpose of applying ice: 'to reduce swelling'",
-          "Purpose of elevating knee: 'to help reduce swelling'",
-          "Patient Understanding and Compliance section (Mr. Doe verbalized understanding... All questions were answered to his satisfaction.)"
+          "Specific quantity of prescribed Ibuprofen: \"(total 30 tablets)\"",
+          "Patient understanding and compliance: Mr. Doe verbalized understanding of the treatment plan and agreed to comply with the recommendations. All questions were answered to his satisfaction."
         ],
         "additions": [
-          "Purpose of Ibuprofen: 'to manage pain and inflammation'",
-          "'as much as possible' qualifier for resting the knee",
-          "'notify the healthcare provider immediately' for reporting adverse effects or lack of improvement"
+          "\"to manage pain and inflammation\" (reason for Ibuprofen)",
+          "\"as much as possible\" (qualifier for rest)",
+          "\"notify the healthcare provider immediately\" (part of instruction for reporting issues)"
         ]
       }
     ],
@@ -365,53 +357,103 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "'Limited range of motion due to pain' in Subjective section",
+      "addition_text": "\"Limited range of motion due to pain\" listed in Subjective section (GroundTruthSOAP lists this in Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It’s limited because of the pain, especially when I try to flex and extend it fully.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Limited range of motion due to pain."
+      "matched_claim_text": "Limited range of motion due to pain.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'stable' qualifier for vital signs",
+      "addition_text": "\"stable\" for vital signs",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Everything looks stable there.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'based on physical examination and symptoms' qualifier for potential meniscal tear or ligament damage",
+      "addition_text": "\"based on physical examination and symptoms\" for assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’m going to order an MRI of your left knee to evaluate for a potential meniscal tear or ligament damage.",
+      "transcript_evidence": "[Doctor]: I see. You also have an antalgic gait, which means you’re limping to avoid putting weight on the painful knee. I’m going to order an MRI of your left knee to evaluate for a potential meniscal tear or ligament damage.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Potential meniscal tear or ligament damage in left knee."
+      "matched_claim_text": "This assessment is based on physical examination and symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Purpose of Ibuprofen: 'to manage pain and inflammation'",
+      "addition_text": "\"to manage pain and inflammation\" for Ibuprofen prescription",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: That should help with the pain and inflammation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Purpose is to manage pain and inflammation."
+      "matched_claim_text": "Purpose is to manage pain and inflammation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'as much as possible' qualifier for resting the knee",
+      "addition_text": "\"as much as possible\" for rest instruction",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I also want you to rest your knee as much as possible. Avoid any activities that make the pain worse. Apply ice to your knee for about 20 minutes a few times a day to help reduce the swelling. Elevate your knee when you can.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Rest the knee as much as possible, avoid activities that worsen pain, apply ice for 20 minutes a few times a day, elevate knee when possible."
+      "transcript_evidence": "I also want you to rest your knee as much as possible.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'notify the healthcare provider immediately' for reporting adverse effects or lack of improvement",
+      "addition_text": "\"notify the healthcare provider immediately\" for reporting adverse effects/lack of improvement",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you experience any adverse effects from the medication or if your symptoms don’t improve, please let us know immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms don't improve or adverse effects from medication occur, notify the healthcare provider immediately."
+      "matched_claim_text": "If symptoms don't improve or adverse effects from medication occur, notify the healthcare provider immediately.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Limited range of motion due to pain",
+      "addition_text": "Limited range of motion due to pain (This is an objective finding in GroundTruthSOAP)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It’s limited because of the pain, especially when I try to flex and extend it fully.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Limited range of motion due to pain."
+      "matched_claim_text": "Limited range of motion due to pain.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"based on physical examination and symptoms\" (qualifier for the diagnosis)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I see. You also have an antalgic gait, which means you’re limping to avoid putting weight on the painful knee. I’m going to order an MRI of your left knee to evaluate for a potential meniscal tear or ligament damage.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "This assessment is based on physical examination and symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"to manage pain and inflammation\" (reason for Ibuprofen)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: That should help with the pain and inflammation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Purpose is to manage pain and inflammation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"as much as possible\" (qualifier for rest)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I also want you to rest your knee as much as possible.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"notify the healthcare provider immediately\" (part of instruction for reporting issues)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: If you experience any adverse effects from the medication or if your symptoms don’t improve, please let us know immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "If symptoms don't improve or adverse effects from medication occur, notify the healthcare provider immediately.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

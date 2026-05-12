@@ -242,73 +242,69 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note contains several minor omissions across the Subjective and Plan sections. However, the most significant issues are found in the Assessment section, where a definitive primary diagnosis is presented as 'possible' and a critical secondary diagnosis of hypertension with its management is entirely omitted. These major omissions materially reduce the clinical usefulness and accuracy of the note, justifying a lower overall grade.",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the chief complaint, most of the HPI, ROS, vital signs, and physical exam findings. All additions were supported by the transcript and did not impact the grade. However, the note has several omissions, including the patient's hypertension diagnosis and its management in the Assessment section, and the impact of pain on daily activities in the Subjective section. Minor details regarding the rationale for medication, imaging specifics, and referral details were also omitted from the Plan.",
     "omissions": [
-      "HPI: Pain severe enough to interfere with daily activities and work",
-      "ROS - Musculoskeletal: Minimal exercise due to pain",
-      "ROS - Lifestyle: Enjoys fishing and playing chess",
-      "ROS - Lifestyle: Generally cooperative but occasionally forgets lifestyle modification advice",
-      "Physical Exam: Genitourinary Exam: Normal",
-      "Assessment: Definitive diagnosis of Calculus of Kidney (instead of 'Possible kidney stone')",
-      "Assessment: Secondary Diagnosis: Hypertension, managed with Amlodipine 5 mg daily",
-      "Plan - Medications: 'orally' (route of administration for Allopurinol)",
-      "Plan - Medications: 'to reduce uric acid levels' (reason for Allopurinol)",
-      "Plan - Imaging detail: 'with contrast' (for CT scan)",
-      "Plan - Referral: Specific name 'Dr. Sarah Thompson'"
+      "Pain is severe enough to interfere with daily activities and work.",
+      "Minimal exercise due to pain.",
+      "Enjoys fishing and playing chess.",
+      "Patient is generally cooperative but occasionally forgets lifestyle modification advice.",
+      "Normal Genitourinary Exam.",
+      "Secondary diagnosis: Hypertension, managed with Amlodipine 5 mg daily.",
+      "Allopurinol prescribed to reduce uric acid levels.",
+      "CT scan of the abdomen and pelvis with contrast.",
+      "Referral to Dr. Sarah Thompson.",
+      "Referral for chronic pain management."
     ],
     "additions": [
-      "Objective - Imaging detail: 'to determine kidney stone size and location'",
-      "Assessment - Primary Diagnosis detail: 'based on symptoms and history, pending confirmation from CT scan'",
-      "Assessment - Secondary Diagnosis phrasing: 'Chronic pain management needed due to gout'"
+      "Pending CT scan results for abdomen and pelvis to determine kidney stone size and location (in Objective section).",
+      "Chronic pain management needed due to gout (in Assessment section)."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor omissions, including details about the patient's exercise limitations, hobbies, and adherence to advice. A moderate omission is the lack of detail regarding the pain's interference with daily activities and work. While the core subjective complaints are captured, these omissions reduce the completeness of the patient's history.",
+        "summary": "The Subjective section accurately captures the chief complaint and main HPI details. However, it omits the severity of pain interfering with daily activities and work, the patient's minimal exercise due to pain, specific hobbies (fishing and chess), and the detail about the patient occasionally forgetting lifestyle modification advice. These are mostly minor to moderate omissions of contextual information.",
         "omissions": [
-          "HPI: Pain severe enough to interfere with daily activities and work",
-          "ROS - Musculoskeletal: Minimal exercise due to pain",
-          "ROS - Lifestyle: Enjoys fishing and playing chess",
-          "ROS - Lifestyle: Generally cooperative but occasionally forgets lifestyle modification advice"
+          "Pain is severe enough to interfere with daily activities and work.",
+          "Minimal exercise due to pain.",
+          "Enjoys fishing and playing chess.",
+          "Generally cooperative but occasionally forgets lifestyle modification advice."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-aligned with the GroundTruth. The only omission is the normal genitourinary exam finding, which is a minor detail. All additions in this section were supported by the transcript and therefore did not impact the grade.",
+        "summary": "The Objective section is well-aligned, accurately reporting vital signs and physical exam findings. The only omission is the normal genitourinary exam finding, which is minor. The addition regarding pending CT scan results is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Physical Exam: Genitourinary Exam: Normal"
+          "Genitourinary Exam: Normal."
         ],
         "additions": [
-          "Imaging detail: 'to determine kidney stone size and location'"
+          "Pending CT scan results for abdomen and pelvis to determine kidney stone size and location."
         ]
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section has two high-severity omissions. The primary diagnosis is stated as 'possible kidney stone' instead of the definitive 'Calculus of Kidney' (ICD-10 N20.0) present in the GroundTruth. Furthermore, the secondary diagnosis of 'Hypertension, managed with Amlodipine 5 mg daily' is completely missing. These issues significantly impact the clinical accuracy and completeness of the assessment.",
+        "grade": "C",
+        "summary": "The Assessment section accurately identifies the primary diagnosis. However, it omits the secondary diagnosis of hypertension and its management with Amlodipine 5 mg daily, which is a moderate clinical omission. The addition regarding chronic pain management needed due to gout is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Primary Diagnosis: Definitive diagnosis of Calculus of Kidney (instead of 'Possible kidney stone')",
-          "Secondary Diagnosis: Hypertension, managed with Amlopidine 5 mg daily"
+          "Secondary diagnosis: Hypertension, managed with Amlodipine 5 mg daily."
         ],
         "additions": [
-          "Primary Diagnosis detail: 'based on symptoms and history, pending confirmation from CT scan'",
-          "Secondary Diagnosis phrasing: 'Chronic pain management needed due to gout'"
+          "Chronic pain management needed due to gout."
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section contains several minor omissions, including the route of administration ('orally') and reason ('to reduce uric acid levels') for Allopurinol, the specific detail 'with contrast' for the CT scan, and the specific name of the pain management specialist. While the core plan items are present, these missing details reduce the specificity and completeness of the plan.",
+        "summary": "The Plan section includes all major components of the treatment plan. However, it omits the specific rationale for Allopurinol (to reduce uric acid levels), the detail that the CT scan is 'with contrast,' the specific name of the pain management specialist (Dr. Sarah Thompson), and the explicit reason for the referral (for chronic pain management), although the referral itself and the need for chronic pain management are present elsewhere. These are minor omissions of detail.",
         "omissions": [
-          "Medications: 'orally' (route of administration for Allopurinol)",
-          "Medications: 'to reduce uric acid levels' (reason for Allopurinol)",
-          "Imaging detail: 'with contrast' (for CT scan)",
-          "Referral: Specific name 'Dr. Sarah Thompson'"
+          "Allopurinol prescribed to reduce uric acid levels.",
+          "CT scan of the abdomen and pelvis with contrast.",
+          "Referral to Dr. Sarah Thompson.",
+          "Referral for chronic pain management."
         ],
         "additions": []
       }
@@ -318,46 +314,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective - Imaging detail: 'to determine kidney stone size and location'",
+      "addition_text": "Pending CT scan results for abdomen and pelvis to determine kidney stone size and location (in Objective section).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are currently awaiting the results of your CT scan of the abdomen and pelvis to determine the size and location of any kidney stones.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending CT scan results for abdomen and pelvis to determine kidney stone size and location"
+      "matched_claim_text": "Pending CT scan results for abdomen and pelvis to determine kidney stone size and location",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment - Primary Diagnosis detail: 'based on symptoms and history, pending confirmation from CT scan'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and history, it seems like you might have a kidney stone. We’ll confirm once we get the CT results.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible kidney stone based on symptoms and history, pending confirmation from CT scan"
-    },
-    {
-      "addition_text": "Assessment - Secondary Diagnosis phrasing: 'Chronic pain management needed due to gout'",
+      "addition_text": "Chronic pain management needed due to gout (in Assessment section).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I’ve had gout for a while now. It makes it hard to exercise because of the pain. [doctor] We’re also referring you to a pain management specialist to help manage your chronic pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic pain management needed due to gout"
+      "matched_claim_text": "Chronic pain management needed due to gout",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Imaging detail: 'to determine kidney stone size and location'",
+      "addition_text": "Pending CT scan results for abdomen and pelvis to determine kidney stone size and location.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are currently awaiting the results of your CT scan of the abdomen and pelvis to determine the size and location of any kidney stones.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending CT scan results for abdomen and pelvis to determine kidney stone size and location"
+      "matched_claim_text": "Pending CT scan results for abdomen and pelvis to determine kidney stone size and location",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Primary Diagnosis detail: 'based on symptoms and history, pending confirmation from CT scan'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and history, it seems like you might have a kidney stone. We’ll confirm once we get the CT results.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible kidney stone based on symptoms and history, pending confirmation from CT scan"
-    },
-    {
-      "addition_text": "Secondary Diagnosis phrasing: 'Chronic pain management needed due to gout'",
+      "addition_text": "Chronic pain management needed due to gout.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I’ve had gout for a while now. It makes it hard to exercise because of the pain. [doctor] We’re also referring you to a pain management specialist to help manage your chronic pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic pain management needed due to gout"
+      "matched_claim_text": "Chronic pain management needed due to gout",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

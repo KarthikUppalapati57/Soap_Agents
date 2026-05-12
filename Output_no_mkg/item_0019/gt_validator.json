@@ -250,7 +250,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains multiple moderate omissions that make it meaningfully incomplete. Key details regarding the duration, frequency, and impact of symptoms are missing from the HPI. The Objective section lacks a dedicated neurological exam, and the Plan omits an important referral contingency. All additions in the note were supported by the transcript and therefore did not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note is usable but has noticeable gaps, leading to a 'C' grade. While all additions were supported by the transcript and did not penalize the grade, there were multiple moderate omissions across the Subjective, Objective, and Plan sections. Key details regarding the HPI's duration, frequency, and impact on daily activities were missing. Important negative findings from the physical exam, such as 'no rebound tenderness' and 'no focal deficits observed', were omitted. Additionally, a crucial contingency plan for specialist referral was absent from the Plan.",
     "omissions": [
       "HPI: initial consultation",
       "HPI: symptoms lasting for the past 3 days",
@@ -285,7 +285,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has several moderate omissions in the HPI, including the duration of symptoms (3 days), frequency of episodes (once per hour), and the significant impact on daily activities (work, sleep, eat). While some ROS details were present in the Objective section, their absence from the Subjective ROS is noted. No unsupported or unknown additions were found.",
+        "summary": "The Subjective section received a 'C' due to several moderate omissions from the HPI. Specifically, the note failed to capture that symptoms had lasted for 'the past 3 days', recurred 'at least once per hour', and were 'significantly impacting daily activities, including ability to work, sleep, and eat'. These omissions reduce the completeness and clinical context of the patient's chief complaint and history of present illness.",
         "omissions": [
           "HPI: initial consultation",
           "HPI: symptoms lasting for the past 3 days",
@@ -307,7 +307,7 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section omits the patient's general appearance ('Alert and oriented but appears fatigued') and completely lacks a neurological exam section, missing 'No focal deficits observed, mild vertigo noted'. The absence of 'no rebound tenderness' is also noted. These represent moderate gaps in the physical examination documentation. No unsupported or unknown additions were found.",
+        "summary": "The Objective section received a 'C' due to multiple moderate omissions. The note missed important general observations like 'Alert and oriented but appears fatigued'. Crucially, it omitted key negative findings from the physical exam, including 'no rebound tenderness' in the abdomen and the full 'Neurologic section' which noted 'No focal deficits observed' and 'mild vertigo noted'. These omissions make the physical examination documentation less thorough.",
         "omissions": [
           "General: Alert and oriented but appears fatigued",
           "Abdomen: no rebound tenderness",
@@ -321,7 +321,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is well-aligned with the Ground Truth. The only omission is a minor qualifier for the 'Early Pregnancy' differential diagnosis, which does not materially impact clinical usefulness. No unsupported or unknown additions were found.",
+        "summary": "The Assessment section received an 'A'. The primary diagnosis and differential diagnoses were accurately captured. The only omission was a minor qualifier for 'Early Pregnancy (consider differential given the age and symptoms)', which did not materially impact the clinical usefulness of the section.",
         "omissions": [
           "Differential Diagnosis: qualifier for Early Pregnancy (consider differential given the age and symptoms)"
         ],
@@ -330,7 +330,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section has a moderate omission regarding the referral to specialists, specifically the contingency for a gastroenterologist if symptoms persist or worsen. Other omissions related to explicit patient instructions and follow-up emphasis are minor, as much of the content is implied or partially covered elsewhere. No unsupported or unknown additions were found.",
+        "summary": "The Plan section received a 'B'. The most significant omission was the 'Referral to Specialists section', which included the important contingency plan to 'Consider gastroenterologist referral if symptoms persist or worsen'. Other omissions from the 'INSTRUCTIONS' were minor, as the generated note largely covered the spirit of patient education and follow-up, though specific phrasing like 'persistent vomiting' or 'any new concerning symptoms' for seeking immediate care was not explicitly included.",
         "omissions": [
           "Referral to Specialists section (None at this time. Consider gastroenterologist referral if symptoms persist or worsen.)",
           "INSTRUCTIONS: Patient agrees to adhere to the prescribed treatment and follow up as recommended",
@@ -352,126 +352,162 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] No, it just seems to happen randomly. There's nothing specific that makes it better or worse.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No specific triggers or patterns identified"
+      "matched_claim_text": "No specific triggers or patterns identified",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: No recent travel, changes in diet, or known exposure to sick individuals",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] No, I haven't traveled recently and my diet has been the same... No, not that I know of.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No recent travel, changes in diet, or known exposure to sick individuals"
+      "matched_claim_text": "No recent travel, changes in diet, or known exposure to sick individuals",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: No history of migraines or other neurological issues",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] No, I don't have a history of migraines or any other neurological problems.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of migraines or other neurological issues"
+      "matched_claim_text": "No history of migraines or other neurological issues",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Denies any pain when urinating or changes in urine color",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Are you experiencing any pain when you urinate or any changes in your urine color?\n[patient] No, my urine seems normal...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Denies any pain when urinating or changes in urine color"
+      "matched_claim_text": "Denies any pain when urinating or changes in urine color",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: No temperature taken",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you been able to check your temperature to see if you have a fever?\n[patient] No, I haven't checked my temperature.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No temperature taken"
+      "matched_claim_text": "No temperature taken",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Severity rating (7-8/10)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I would say it's around a 7 or 8.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: Normal blood pressure, heart rate, and temperature",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your blood pressure, heart rate, and temperature all look normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Normal blood pressure, heart rate, and temperature"
+      "matched_claim_text": "Normal blood pressure, heart rate, and temperature",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: 'other abnormalities found during physical examination' (part of 'No lymphadenopathy or other abnormalities found during physical examination')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'll also check for any lymphadenopathy or lymph node swelling, but I don't find any.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No lymphadenopathy or other abnormalities found during physical examination"
+      "matched_claim_text": "No lymphadenopathy or other abnormalities found during physical examination",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Advise patient to contact the clinic with any questions or concerns",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If anything comes up or you have any questions, don't hesitate to call the clinic.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to contact the clinic with any questions or concerns"
+      "matched_claim_text": "Advise patient to contact the clinic with any questions or concerns",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No specific triggers or patterns identified",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] No, it just seems to happen randomly. There's nothing specific that makes it better or worse.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No specific triggers or patterns identified"
+      "matched_claim_text": "No specific triggers or patterns identified",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No recent travel, changes in diet, or known exposure to sick individuals",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] No, I haven't traveled recently and my diet has been the same... No, not that I know of.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No recent travel, changes in diet, or known exposure to sick individuals"
+      "matched_claim_text": "No recent travel, changes in diet, or known exposure to sick individuals",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No history of migraines or other neurological issues",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] No, I don't have a history of migraines or any other neurological problems.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of migraines or other neurological issues"
+      "matched_claim_text": "No history of migraines or other neurological issues",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Denies any pain when urinating or changes in urine color",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Are you experiencing any pain when you urinate or any changes in your urine color?\n[patient] No, my urine seems normal...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Denies any pain when urinating or changes in urine color"
+      "matched_claim_text": "Denies any pain when urinating or changes in urine color",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No temperature taken",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you been able to check your temperature to see if you have a fever?\n[patient] No, I haven't checked my temperature.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No temperature taken"
+      "matched_claim_text": "No temperature taken",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Severity rating (7-8/10)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I would say it's around a 7 or 8.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Normal blood pressure, heart rate, and temperature",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your blood pressure, heart rate, and temperature all look normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Normal blood pressure, heart rate, and temperature"
+      "matched_claim_text": "Normal blood pressure, heart rate, and temperature",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'other abnormalities found during physical examination' (part of 'No lymphadenopathy or other abnormalities found during physical examination')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'll also check for any lymphadenopathy or lymph node swelling, but I don't find any.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No lymphadenopathy or other abnormalities found during physical examination"
+      "matched_claim_text": "No lymphadenopathy or other abnormalities found during physical examination",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Advise patient to contact the clinic with any questions or concerns",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If anything comes up or you have any questions, don't hesitate to call the clinic.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to contact the clinic with any questions or concerns"
+      "matched_claim_text": "Advise patient to contact the clinic with any questions or concerns",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

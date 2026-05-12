@@ -2,7 +2,7 @@
   "item": "item_0087",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0087",
   "ground_truth_soap": "Subjective:\n\nChief Complaint (CC):\nSevere sore throat for 3 days.\n\nHistory of Present Illness (HPI):\nThe patient is a 52-year-old African American male, currently working as a high school teacher, who presents to the Urgent Care Center with a chief complaint of a severe sore throat for the past 3 days. The patient reports experiencing a constant sore throat accompanied by intermittent severe headaches. He mentions significant sleep disturbances due to throat pain and having to stick to a soft food diet because of difficulty swallowing.\n\nReview of Systems (ROS):\n- HEENT: Complaints of sore throat, loss of voice, and difficulty swallowing.\n- Neurological: Reports severe intermittent headaches.\n- General: Denies fever but reports significant fatigue and disturbed sleep.\n\nObjective:\n\nVital Signs:\n- Blood Pressure: 130/85 mmHg\n- Heart Rate: 80 bpm\n- Respiratory Rate: 16 breaths per minute\n- Temperature: 98.6°F (oral)\n- Oxygen Saturation: 98% on room air\n\nPhysical Exam:\n- HEENT: Oropharyngeal examination reveals erythema without exudates. Tender cervical lymphadenopathy noted.\n- Respiratory: Lungs are clear to auscultation bilaterally, no wheezes or crackles.\n- Cardiovascular: Normal S1 and S2 sounds, no murmurs or extra sounds.\n- Neurological: No focal deficits observed.\n\nInvestigation/Test Results:\n- Rapid strep test: Negative.\n- Throat culture: Awaiting results.\n\nAssessment:\nAcute Pharyngitis, unspecified.\n\nPlan:\n\n- Medications:\n  * Prescribed Hydrocodone-Acetaminophen 5-325 mg, oral, 1 tablet every 6 hours as needed for severe pain, quantity 15 tablets.\n  \n- Lifestyle Recommendations:\n  * Encourage adequate fluid intake.\n  * Recommend rest and use of throat lozenges to soothe throat pain.\n  \n- Follow-Up:\n  * Recommended follow-up appointment in 1 week to reassess symptoms and review throat culture and CBC results.\n  \n- Referral:\n  * Referral to infectious disease specialist, Dr. James Anderson, if there's no improvement in symptoms within 7 days.\n  \n- Patient Education:\n  * Educated the patient on the importance of avoiding tobacco and reducing alcohol consumption to aid recovery.\n  * Discussed the importance of maintaining a nutritious diet suitable for current swallowing difficulties.",
-  "generated_soap": "Subjective:\n- The patient has been experiencing a sore throat for the past three days, accompanied by headaches, fatigue, loss of voice, and difficulty swallowing. The sore throat is causing sleep disturbances.\n\nObjective:\n- Blood pressure: 130/85 mmHg\n- Heart rate: 80 bpm\n- Respiratory rate: 16 breaths per minute\n- Temperature: 98.6°F\n- Oxygen saturation: 98% on room air\n- Physical examination reveals a red, inflamed throat with tender lymph nodes in the neck, clear lungs, and no focal neurological deficits.\n\nAssessment:\n- Acute pharyngitis with potential underlying bacterial infection (pending lab results)\n\nPlan:\n- Prescribe Hydrocodone-Acetaminophen 5-325 mg for severe pain, up to 15 tablets; take one tablet every 6 hours as needed.\n- Drink plenty of fluids, get as much rest as possible, and use throat lozenges to soothe the pain.\n- Avoid tobacco and reduce alcohol consumption.\n- Maintain a nutritious diet consisting of soft foods that are easy to swallow.\n- Follow-up in one week for reassessment and review of lab results; referral to an infectious disease specialist (Dr. James Anderson) if symptoms persist.\n- Advise the patient to return sooner if symptoms worsen or new concerns arise.",
+  "generated_soap": "Subjective:\nThe patient reports a sore throat for the past three days with associated symptoms of headaches, fatigue, loss of voice, difficulty swallowing, and sleep disturbances due to the pain.\n\nObjective:\nBlood pressure - 130/85 mmHg, heart rate - 80 bpm, respiratory rate - 16 breaths per minute, temperature - 98.6°F, oxygen saturation - 98% on room air. Physical examination reveals a red throat with tender lymph nodes in the neck, clear lungs, and normal heart sounds. No focal neurological deficits were noted.\n\nAssessment:\nThe sore throat is likely due to inflammation; however, pending results of throat culture and blood tests may indicate an underlying bacterial infection.\n\nPlan:\nPrescribe Hydrocodone-Acetaminophen 5-325 mg for severe pain as needed (up to 15 tablets), drink plenty of fluids, rest, use throat lozenges for pain relief, avoid tobacco and reduce alcohol consumption, follow a nutritious diet consisting of soft foods. Schedule a follow-up in a week to reassess symptoms, review test results, and if necessary, refer the patient to an infectious disease specialist. Advise the patient to return sooner if symptoms worsen or new concerns arise.",
   "entities_gt": {
     "all_entities": [
       "severe sore throat",
@@ -55,11 +55,13 @@
   "entities_generated": {
     "all_entities": [
       "sore throat",
+      "symptoms",
       "headaches",
       "fatigue",
       "loss of voice",
       "difficulty swallowing",
       "sleep disturbances",
+      "pain",
       "blood pressure",
       "heart rate",
       "respiratory rate",
@@ -69,13 +71,16 @@
       "tender lymph nodes",
       "neck",
       "clear lungs",
-      "no focal neurological deficits",
-      "acute pharyngitis",
-      "lab results",
+      "normal heart sounds",
+      "throat culture",
+      "blood tests",
+      "plan",
       "hydrocodone-acetaminophen 5-325 mg",
       "severe pain",
-      "reassessment",
-      "symptoms"
+      "throat lozenges",
+      "pain relief",
+      "reduce alcohol consumption",
+      "follow-up"
     ],
     "symptoms": [
       "sore throat",
@@ -84,7 +89,8 @@
       "loss of voice",
       "difficulty swallowing",
       "sleep disturbances",
-      "severe pain"
+      "pain",
+      "symptoms"
     ],
     "medications": [
       "hydrocodone-acetaminophen 5-325 mg"
@@ -95,17 +101,18 @@
       "heart rate",
       "respiratory rate",
       "temperature",
-      "98.6°f",
       "oxygen saturation",
-      "physical examination",
-      "lab results"
+      "clear lungs",
+      "normal heart sounds",
+      "throat culture",
+      "blood tests"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 18,
-    "gen_count": 22,
-    "overlap_count": 7,
-    "recall": 0.3888888888888889,
+    "gen_count": 27,
+    "overlap_count": 8,
+    "recall": 0.4444444444444444,
     "gt_only": [
       "cardiovascular",
       "cbc",
@@ -116,25 +123,28 @@
       "severe headaches",
       "severe intermittent headaches",
       "severe sore throat",
-      "throat culture",
       "throat pain"
     ],
     "gen_only": [
-      "acute pharyngitis",
+      "blood tests",
       "clear lungs",
       "fatigue",
+      "follow-up",
       "headaches",
-      "lab results",
       "neck",
-      "no focal neurological deficits",
+      "normal heart sounds",
       "oxygen saturation",
+      "pain",
+      "pain relief",
       "physical examination",
-      "reassessment",
+      "plan",
+      "reduce alcohol consumption",
       "severe pain",
       "sleep disturbances",
       "sore throat",
       "symptoms",
-      "tender lymph nodes"
+      "tender lymph nodes",
+      "throat lozenges"
     ],
     "overlap": [
       "blood pressure",
@@ -143,12 +153,13 @@
       "hydrocodone-acetaminophen 5-325 mg",
       "loss of voice",
       "respiratory rate",
-      "temperature"
+      "temperature",
+      "throat culture"
     ]
   },
   "clinical_recall_symptoms": {
     "gt_count": 11,
-    "gen_count": 7,
+    "gen_count": 8,
     "overlap_count": 3,
     "recall": 0.2727272727272727,
     "gt_only": [
@@ -164,8 +175,9 @@
     "gen_only": [
       "fatigue",
       "headaches",
-      "severe pain",
-      "sleep disturbances"
+      "pain",
+      "sleep disturbances",
+      "symptoms"
     ],
     "overlap": [
       "difficulty swallowing",
@@ -186,18 +198,17 @@
   },
   "clinical_recall_labs": {
     "gt_count": 9,
-    "gen_count": 9,
-    "overlap_count": 6,
-    "recall": 0.6666666666666666,
+    "gen_count": 10,
+    "overlap_count": 7,
+    "recall": 0.7777777777777778,
     "gt_only": [
       "cbc",
-      "rapid strep test",
-      "throat culture"
+      "rapid strep test"
     ],
     "gen_only": [
-      "98.6°f",
-      "lab results",
-      "physical examination"
+      "blood tests",
+      "clear lungs",
+      "normal heart sounds"
     ],
     "overlap": [
       "130/85 mmhg",
@@ -205,111 +216,112 @@
       "heart rate",
       "oxygen saturation",
       "respiratory rate",
-      "temperature"
+      "temperature",
+      "throat culture"
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.4835145190831147,
-    "overall_rouge_l_f1": 0.3740835807285595,
+    "overall_token_f1": 0.408907609756266,
+    "overall_rouge_l_f1": 0.2808346145500044,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.43564356435643564,
-        "rouge_l_f1": 0.2585034013605442
+        "token_f1": 0.4554455445544554,
+        "rouge_l_f1": 0.23287671232876714
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.6140350877192983,
-        "rouge_l_f1": 0.5439999999999999
+        "token_f1": 0.6495726495726495,
+        "rouge_l_f1": 0.5426356589147288
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.30769230769230765,
-        "rouge_l_f1": 0.30769230769230765
+        "token_f1": 0.0,
+        "rouge_l_f1": 0.0
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5766871165644172,
-        "rouge_l_f1": 0.38613861386138615
+        "token_f1": 0.5306122448979591,
+        "rouge_l_f1": 0.3478260869565218
       }
     ],
-    "assessment_alignment_score": 0.30769230769230765,
-    "plan_alignment_score": 0.5766871165644172
+    "assessment_alignment_score": 0.0,
+    "plan_alignment_score": 0.5306122448979591
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaint, history, and core plan. However, it has several minor omissions and a few moderate omissions, particularly in the Objective section, such as the negative rapid strep test result and specific cardiovascular exam findings. No unsupported or unknown additions were identified, as all additions were supported by the transcript.",
-    "omissions": [
-      "Patient's occupation (high school teacher)",
-      "Location of presentation (Urgent Care Center)",
-      "Denial of fever",
-      "Absence of exudates in oropharyngeal examination",
-      "Cardiovascular physical exam findings (Normal S1 and S2 sounds, no murmurs or extra sounds)",
-      "Rapid strep test result (Negative)",
-      "Medication route (oral)",
-      "Specific mention of CBC results for follow-up",
-      "Throat culture awaiting results (as a specific investigation/test result in Objective)",
-      "\"unspecified\" qualifier for Acute Pharyngitis"
-    ],
-    "additions": [
-      "Assessment includes \"with potential underlying bacterial infection (pending lab results)\"",
-      "Recommendation to return sooner if symptoms worsen or new concerns arise"
-    ],
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions across multiple sections. In the Subjective section, important qualifiers for the chief complaint and headaches, as well as the denial of fever, are missing. The Objective section omits critical diagnostic information, specifically the negative rapid strep test result and the pending throat culture status. Most notably, the Assessment section fails to include the specific diagnosis of \"Acute Pharyngitis, unspecified,\" instead offering descriptive statements. While the Plan section is mostly complete, the cumulative impact of these omissions, particularly the missing diagnosis, materially reduces the clinical usefulness of the note.",
+    "omissions": [],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section is strong, accurately capturing the patient's symptoms. Minor omissions include the patient's occupation (high school teacher), the location of presentation (Urgent Care Center), and the explicit denial of fever.",
+        "grade": "C",
+        "summary": "The Subjective section omits several important details, including the patient's occupation, the location of presentation, and crucial qualifiers for the severity and nature of the sore throat and headaches. The denial of fever, a clinically important negative finding, is also missing. These omissions make the HPI and ROS meaningfully incomplete.",
         "omissions": [
           "Patient's occupation (high school teacher)",
           "Location of presentation (Urgent Care Center)",
-          "Denial of fever"
+          "\"Severe\" qualifier for sore throat",
+          "\"Constant\" nature of sore throat",
+          "\"Intermittent\" and \"severe\" qualifiers for headaches",
+          "\"Significant\" qualifier for fatigue",
+          "\"Significant\" qualifier for sleep disturbances",
+          "Denial of fever",
+          "Explicit statement that difficulty swallowing is due to throat pain"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has several omissions that reduce its completeness. These include the absence of exudates in the oropharyngeal examination, specific cardiovascular physical exam findings (Normal S1 and S2 sounds, no murmurs or extra sounds), the negative rapid strep test result, and the explicit mention of throat culture awaiting results as a specific investigation/test result.",
+        "grade": "C",
+        "summary": "The Objective section has noticeable gaps. It omits the important negative finding of \"without exudates\" in the oropharyngeal exam. More critically, it fails to include the negative rapid strep test result and the pending status of the throat culture, which are essential diagnostic details for this presentation.",
         "omissions": [
-          "Absence of exudates in oropharyngeal examination",
-          "Cardiovascular physical exam findings (Normal S1 and S2 sounds, no murmurs or extra sounds)",
+          "\"Oral\" route for temperature",
+          "\"Without exudates\" in oropharyngeal examination",
+          "\"Bilateral\" for clear lungs",
+          "\"No wheezes or crackles\" in respiratory exam",
+          "\"No murmurs or extra sounds\" in cardiovascular exam",
           "Rapid strep test result (Negative)",
-          "Throat culture awaiting results (as a specific investigation/test result)"
+          "Throat culture status (Awaiting results)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section is excellent, with only a very minor omission of the \"unspecified\" qualifier for Acute Pharyngitis. The addition in this section was supported by the transcript and does not impact the grade.",
+        "grade": "D",
+        "summary": "The Assessment section receives a low grade due to the major omission of the specific diagnosis, \"Acute Pharyngitis, unspecified.\" Instead, the note provides descriptive statements and speculation about potential bacterial infection, which, while supported by the transcript, does not substitute for a clear diagnosis. This significantly reduces the clinical usefulness of the section.",
         "omissions": [
-          "\"unspecified\" qualifier for Acute Pharyngitis"
+          "Specific diagnosis: \"Acute Pharyngitis, unspecified\""
         ],
         "additions": [
-          "\"with potential underlying bacterial infection (pending lab results)\""
+          "Statement that \"The sore throat is likely due to inflammation\"",
+          "Mention of \"blood tests\" in the context of pending results for bacterial infection",
+          "Speculation that pending results \"may indicate an underlying bacterial infection\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is well-structured and comprehensive. Minor omissions include the medication route (oral) and the specific mention of CBC results for follow-up. The addition in this section was supported by the transcript and does not impact the grade.",
+        "grade": "B",
+        "summary": "The Plan section is mostly clinically aligned and usable. The primary omission is the specific dosage frequency (\"1 tablet every 6 hours\") for the prescribed Hydrocodone-Acetaminophen. Other omissions, such as the medication route, specific mention of CBC results, specialist's name, and explicit condition for referral, are minor. All additions in this section are supported by the transcript and do not reduce the grade.",
         "omissions": [
-          "Medication route (oral)",
-          "Specific mention of CBC results for follow-up"
+          "Medication dosage frequency: \"1 tablet every 6 hours\" for Hydrocodone-Acetaminophen",
+          "Medication route: \"oral\" for Hydrocodone-Acetaminophen",
+          "Specific mention of \"CBC results\" for follow-up review",
+          "Name of infectious disease specialist: \"Dr. James Anderson\"",
+          "Specific condition for referral: \"if there's no improvement in symptoms within 7 days\""
         ],
         "additions": [
-          "Recommendation to return sooner if symptoms worsen or new concerns arise"
+          "Instruction to \"Advise the patient to return sooner if symptoms worsen or new concerns arise.\""
         ]
       }
     ],
@@ -318,25 +330,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment includes \"with potential underlying bacterial infection (pending lab results)\"",
+      "addition_text": "Statement that \"The sore throat is likely due to inflammation\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "We're still waiting on the throat culture results to see if there’s any bacterial infection. I’ve also ordered a complete blood count with differential to check for underlying bacterial infection. Those results are pending.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] It means your throat is inflamed, which is why it's so painful.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The sore throat is likely due to inflammation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Recommendation to return sooner if symptoms worsen or new concerns arise",
+      "addition_text": "Mention of \"blood tests\" in the context of pending results for bacterial infection",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "if things get worse or you have any new concerns, don’t hesitate to come back sooner.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] We're still waiting on the throat culture results to see if there’s any bacterial infection. I’ve also ordered a complete blood count with differential to check for underlying bacterial infection. Those results are pending.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pending throat culture and blood test results may indicate an underlying bacterial infection.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"with potential underlying bacterial infection (pending lab results)\"",
+      "addition_text": "Speculation that pending results \"may indicate an underlying bacterial infection\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "We're still waiting on the throat culture results to see if there’s any bacterial infection. I’ve also ordered a complete blood count with differential to check for underlying bacterial infection. Those results are pending.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] We're still waiting on the throat culture results to see if there’s any bacterial infection. I’ve also ordered a complete blood count with differential to check for underlying bacterial infection. Those results are pending.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pending throat culture and blood test results may indicate an underlying bacterial infection.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Instruction to \"Advise the patient to return sooner if symptoms worsen or new concerns arise.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] And remember, if things get worse or you have any new concerns, don’t hesitate to come back sooner.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Advise the patient to return sooner if symptoms worsen or new concerns arise.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

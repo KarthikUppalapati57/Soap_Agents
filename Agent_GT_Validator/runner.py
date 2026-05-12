@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -113,6 +114,9 @@ class RunConfig:
     judge_model: str | None = None
     evidence_model: str | None = None
     allow_evidence_gemini_fallback: bool = True
+    allow_primekg_evidence: bool = True
+    # Concurrent item folders (Gemini-heavy). 1 = sequential (legacy behavior).
+    workers: int = 1
 
 
 def _read_json(path: Path) -> dict:
@@ -138,6 +142,8 @@ def run_one_item(
     skip_llm: bool,
     judge_model: str | None,
     evidence_model: str | None = None,
+    allow_evidence_gemini_fallback: bool = True,
+    allow_primekg_evidence: bool = True,
 ) -> GTValidatorReport:
     source_path = item_dir / "source.json"
     a3_path = item_dir / "agent3_result.json"
@@ -187,7 +193,9 @@ def run_one_item(
                 model=judge_model,
                 evidence_model=evidence_model,
                 agent3_claims=agent3_claims if isinstance(agent3_claims, list) else [],
-                allow_evidence_gemini_fallback=True,
+                allow_evidence_gemini_fallback=allow_evidence_gemini_fallback,
+                allow_primekg_evidence=allow_primekg_evidence,
+                agent3_document=a3,
             )
         except Exception as e:
             judge = None
@@ -211,6 +219,98 @@ def run_one_item(
     )
 
 
+def _summary_row_from_report(item_dir: Path, report: GTValidatorReport) -> dict:
+    """Build one CSV row dict for ``gt_validator_summary.csv``."""
+    n_sup = n_unsup = n_unk = None
+    n_pk_sup = n_pk_unsup = n_pk_unk = None
+    n_tr_or_pk_sup = n_tr_unsup_pk_sup = n_both_unsup = None
+    if report.addition_evidence:
+        n_sup = sum(1 for a in report.addition_evidence if a.supported_by_transcript == "supported")
+        n_unsup = sum(1 for a in report.addition_evidence if a.supported_by_transcript == "unsupported")
+        n_unk = sum(1 for a in report.addition_evidence if a.supported_by_transcript == "unknown")
+        n_pk_sup = sum(1 for a in report.addition_evidence if a.supported_by_primekg == "supported")
+        n_pk_unsup = sum(1 for a in report.addition_evidence if a.supported_by_primekg == "unsupported")
+        n_pk_unk = sum(1 for a in report.addition_evidence if a.supported_by_primekg == "unknown")
+        n_tr_or_pk_sup = sum(
+            1
+            for a in report.addition_evidence
+            if a.supported_by_transcript == "supported" or a.supported_by_primekg == "supported"
+        )
+        n_tr_unsup_pk_sup = sum(
+            1
+            for a in report.addition_evidence
+            if a.supported_by_transcript == "unsupported" and a.supported_by_primekg == "supported"
+        )
+        n_both_unsup = sum(
+            1
+            for a in report.addition_evidence
+            if a.supported_by_transcript == "unsupported" and a.supported_by_primekg == "unsupported"
+        )
+
+    n_additions_total = None
+    n_omissions_total = None
+    n_omissions_unsupported = None
+    if report.expert_judge:
+        n_additions_total = len(report.expert_judge.additions or [])
+        n_omissions_total = len(report.expert_judge.omissions or [])
+
+    if report.expert_judge and report.generated_soap:
+        a3_path = item_dir / "agent3_result.json"
+        try:
+            a3 = _read_json(a3_path)
+            transcript = str(a3.get("transcript") or "")
+        except Exception:
+            transcript = ""
+        if transcript and report.expert_judge.omissions:
+            unsupported = 0
+            for om in report.expert_judge.omissions:
+                ok = _omission_supported_by_transcript(str(om or ""), transcript)
+                if ok is False:
+                    unsupported += 1
+            n_omissions_unsupported = unsupported
+
+    return {
+        "item": report.item,
+        "clinical_recall_all": report.clinical_recall_all.recall,
+        "clinical_recall_symptoms": report.clinical_recall_symptoms.recall,
+        "clinical_recall_medications": report.clinical_recall_medications.recall,
+        "clinical_recall_labs": report.clinical_recall_labs.recall,
+        "overall_token_f1": report.structural_alignment.overall_token_f1,
+        "overall_rouge_l_f1": report.structural_alignment.overall_rouge_l_f1,
+        "assessment_alignment_score": report.structural_alignment.assessment_alignment_score,
+        "plan_alignment_score": report.structural_alignment.plan_alignment_score,
+        "judge_overall_grade": (report.expert_judge.overall_grade if report.expert_judge else None),
+        "judge_error": report.expert_judge_error,
+        "n_omissions": n_omissions_total,
+        "n_additions": n_additions_total,
+        "n_additions_supported_by_transcript": n_sup,
+        "n_additions_unsupported_by_transcript": n_unsup,
+        "n_additions_unknown_by_transcript": n_unk,
+        "n_additions_supported_by_primekg": n_pk_sup,
+        "n_additions_unsupported_by_primekg": n_pk_unsup,
+        "n_additions_unknown_by_primekg": n_pk_unk,
+        "n_additions_supported_by_transcript_or_primekg": n_tr_or_pk_sup,
+        "n_additions_transcript_unsupported_primekg_supported": n_tr_unsup_pk_sup,
+        "n_additions_unsupported_by_transcript_and_primekg": n_both_unsup,
+        "n_omissions_unsupported_by_transcript": n_omissions_unsupported,
+    }
+
+
+def _process_gt_validator_item(item_dir: Path, cfg: RunConfig) -> dict:
+    """Run one item, write ``gt_validator.json``, return one summary CSV row."""
+    report = run_one_item(
+        item_dir,
+        skip_llm=cfg.skip_llm,
+        judge_model=cfg.judge_model,
+        evidence_model=cfg.evidence_model,
+        allow_evidence_gemini_fallback=cfg.allow_evidence_gemini_fallback,
+        allow_primekg_evidence=cfg.allow_primekg_evidence,
+    )
+    out_path = item_dir / "gt_validator.json"
+    _write_json(out_path, report.model_dump())
+    return _summary_row_from_report(item_dir, report)
+
+
 def run_batch(cfg: RunConfig) -> int:
     load_env()
 
@@ -220,71 +320,24 @@ def run_batch(cfg: RunConfig) -> int:
     if not item_dirs:
         raise RuntimeError(f"No item_* folders found under {cfg.output_dir}")
 
-    rows: list[dict] = []
-    for item_dir in item_dirs:
-        print(f"Running {item_dir}")
-        # Inline run_one_item for access to cfg knobs without broad signature churn.
-        report = run_one_item(
-            item_dir,
-            skip_llm=cfg.skip_llm,
-            judge_model=cfg.judge_model,
-            evidence_model=cfg.evidence_model,
-        )
-        out_path = item_dir / "gt_validator.json"
-        _write_json(out_path, report.model_dump())
-
-        n_sup = n_unsup = n_unk = None
-        if report.addition_evidence:
-            n_sup = sum(1 for a in report.addition_evidence if a.supported_by_transcript == "supported")
-            n_unsup = sum(1 for a in report.addition_evidence if a.supported_by_transcript == "unsupported")
-            n_unk = sum(1 for a in report.addition_evidence if a.supported_by_transcript == "unknown")
-
-        n_additions_total = None
-        n_omissions_total = None
-        n_omissions_unsupported = None
-        if report.expert_judge:
-            n_additions_total = len(report.expert_judge.additions or [])
-            n_omissions_total = len(report.expert_judge.omissions or [])
-
-        # If we have the transcript (via judge inputs) we can approximate which omissions
-        # are GT-only (unsupported by transcript).
-        if report.expert_judge and report.generated_soap:
-            # transcript lives in agent3_result.json; reuse by re-reading to avoid schema changes
-            # (keeps report stable). If missing, this yields None.
-            a3_path = (item_dir / "agent3_result.json")
-            try:
-                a3 = _read_json(a3_path)
-                transcript = str(a3.get("transcript") or "")
-            except Exception:
-                transcript = ""
-            if transcript and report.expert_judge.omissions:
-                unsupported = 0
-                for om in report.expert_judge.omissions:
-                    ok = _omission_supported_by_transcript(str(om or ""), transcript)
-                    if ok is False:
-                        unsupported += 1
-                n_omissions_unsupported = unsupported
-
-        row = {
-            "item": report.item,
-            "clinical_recall_all": report.clinical_recall_all.recall,
-            "clinical_recall_symptoms": report.clinical_recall_symptoms.recall,
-            "clinical_recall_medications": report.clinical_recall_medications.recall,
-            "clinical_recall_labs": report.clinical_recall_labs.recall,
-            "overall_token_f1": report.structural_alignment.overall_token_f1,
-            "overall_rouge_l_f1": report.structural_alignment.overall_rouge_l_f1,
-            "assessment_alignment_score": report.structural_alignment.assessment_alignment_score,
-            "plan_alignment_score": report.structural_alignment.plan_alignment_score,
-            "judge_overall_grade": (report.expert_judge.overall_grade if report.expert_judge else None),
-            "judge_error": report.expert_judge_error,
-            "n_omissions": n_omissions_total,
-            "n_additions": n_additions_total,
-            "n_additions_supported_by_transcript": n_sup,
-            "n_additions_unsupported_by_transcript": n_unsup,
-            "n_additions_unknown_by_transcript": n_unk,
-            "n_omissions_unsupported_by_transcript": n_omissions_unsupported,
-        }
-        rows.append(row)
+    workers = max(1, min(int(cfg.workers), 64))
+    rows: list[dict]
+    if workers <= 1:
+        rows = []
+        for item_dir in item_dirs:
+            print(f"Running {item_dir}")
+            rows.append(_process_gt_validator_item(item_dir, cfg))
+    else:
+        print(f"Running {len(item_dirs)} items with workers={workers}")
+        by_item: dict[str, dict] = {}
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            future_to_dir = {pool.submit(_process_gt_validator_item, d, cfg): d for d in item_dirs}
+            for fut in as_completed(future_to_dir):
+                d = future_to_dir[fut]
+                row = fut.result()
+                by_item[row["item"]] = row
+                print(f"Done {row['item']} ({d})")
+        rows = [by_item[k] for k in sorted(by_item.keys())]
 
     cfg.analysis_dir.mkdir(parents=True, exist_ok=True)
     csv_path = cfg.analysis_dir / "gt_validator_summary.csv"

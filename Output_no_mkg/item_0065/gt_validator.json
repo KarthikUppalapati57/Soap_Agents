@@ -258,9 +258,9 @@
     "plan_alignment_score": 0.5925925925925926
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note provides a concise summary of the patient's presentation, assessment, and plan. However, it suffers from numerous omissions, particularly in the Subjective and Objective sections. Key missing details include the patient's full medication history (inhaled bronchodilators, Lisinopril), allergy status, comprehensive social history, and the full details of pending investigations (Chest X-ray, ABG) in the Objective section. While the Assessment is accurate and the Plan captures all major actions, the extensive missing clinical context and structured information significantly reduce the completeness and utility of the note, requiring careful review to identify these gaps.",
+    "overall_summary": "The generated SOAP note provides a concise overview but suffers from several moderate omissions across the Subjective, Objective, and Plan sections. Key missing details include the patient's own history of COPD and hypertension, their current medications (inhaled bronchodilators, Lisinopril), and the inability to perform daily activities. Additionally, the note omits the explicit orders for Chest X-ray and arterial blood gases from the Plan section, which are important diagnostic steps. There are no unsupported or unknown additions. While the core assessment and initial treatment plan are present, the significant gaps in patient history, functional status, and diagnostic planning make the note meaningfully incomplete and require careful review.",
     "omissions": [
       "Chief Complaint (CC) section",
       "History of Present Illness (HPI) section",
@@ -303,7 +303,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section is significantly incomplete due to numerous omissions. It lacks structured headers for Chief Complaint, HPI, ROS, Social History, Medication History, and Allergies. Crucially, it omits the patient's full known history of COPD and hypertension, significant fatigue, inability to perform daily activities, specific details from social history (alcohol, exercise, sleep, diet, drug denial), the complete medication list (inhaled bronchodilators, Lisinopril), and the patient's allergy status. These omissions represent noticeable gaps and multiple moderate issues that make the section meaningfully incomplete.",
+        "summary": "The Subjective section has multiple moderate omissions, including the patient's known history of COPD and hypertension, their inability to perform daily activities, and their current medications (inhaled bronchodilators and Lisinopril). Several minor details from social history and ROS are also omitted. These gaps make the section noticeably incomplete, despite capturing the chief complaint and some other relevant history.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -327,8 +327,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section accurately captures vital signs and physical examination findings. However, it omits structured headers for Vital Signs, Physical Examination, and Investigations. More importantly, it completely omits the critical pending investigations (Chest X-ray, PA/Lateral and Arterial blood gases) from the section, which are essential components of the initial workup documented in the Ground Truth. This constitutes a moderate issue that reduces the completeness of the section.",
+        "grade": "B",
+        "summary": "The Objective section accurately captures the vital signs and physical examination findings. However, it omits the documentation of pending Chest X-ray and Arterial Blood Gases (ABG) results, which are listed in the Ground Truth. This represents a moderate omission regarding the status of investigations.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -342,14 +342,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the Ground Truth, capturing all major clinically important content without any omissions or unsupported additions.",
+        "summary": "The Assessment section is perfectly aligned with the Ground Truth, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section captures all major clinical actions, including oxygen therapy, medications, further investigations, referral, and follow-up. The additions regarding the reason for Methylprednisolone and encouragement to quit smoking are supported by the transcript and do not reduce the grade. However, the section omits several structured headers (Oxygen Therapy, Medications, Further Investigations, Referrals, Follow-up), the specific descriptive details for ordering the Chest X-ray and ABG, and the specific name of the cardiologist. These are minor to moderate omissions that affect the detail and structure but do not compromise the core clinical usability of the plan.",
+        "grade": "C",
+        "summary": "The Plan section includes the core oxygen therapy, medications, referral, and follow-up. It correctly includes transcript-supported additions for the reason for Methylprednisolone and encouragement to quit smoking, which do not incur penalties. However, it omits the explicit orders for Chest X-ray and arterial blood gases (ABG) from the 'Further Investigations' part of the plan, which are important diagnostic steps. This constitutes a moderate omission, making the plan meaningfully incomplete regarding diagnostic actions.",
         "omissions": [
           "Oxygen Therapy section header",
           "Medications section header",
@@ -375,14 +375,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: ...and start you on Methylprednisolone 40 mg IV every 12 hours for 5 days to reduce inflammation in your lungs.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start Methylprednisolone 40 mg IV every 12 hours for 5 days to reduce inflammation in the lungs."
+      "matched_claim_text": "Start Methylprednisolone 40 mg IV every 12 hours for 5 days to reduce inflammation in the lungs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Encouragement to quit smoking for lung health improvement",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It’s also important to consider quitting smoking as it will significantly benefit your lungs.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage quitting smoking for lung health improvement."
+      "matched_claim_text": "Encourage quitting smoking for lung health improvement.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

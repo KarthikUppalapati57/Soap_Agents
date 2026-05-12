@@ -247,9 +247,9 @@
     "plan_alignment_score": 0.5856353591160222
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically usable but has noticeable gaps. The most significant issue is the major omission of all lab results from the Objective section, which impacts the note's structural completeness. Additionally, the Subjective section omits important HPI context and detailed Review of Systems denials, and the Plan section lacks documentation of patient education and agreement. No unsupported or unknown additions were found.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaint, current status, key objective findings, and a comprehensive plan. There are no unsupported or unknown additions that would introduce misleading clinical content. However, the note has several omissions, particularly in the detailed Review of Systems within the Subjective section and in the patient education and agreement details within the Plan section, which reduce its overall completeness compared to the Ground Truth.",
     "omissions": [
       "Patient's motivation to manage health",
       "Detailed Review of Systems (ROS) denials (fever, chills, weight loss, chest pain, palpitations, shortness of breath, cough, wheezing, nausea, vomiting, abdominal pain, headaches, dizziness, focal weakness, changes in thirst, urination, appetite)",
@@ -276,8 +276,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section omits key HPI details such as the patient being asymptomatic with elevated cholesterol and her high motivation. It also significantly condenses the Review of Systems, missing many specific denials, which reduces the completeness of the patient's reported status.",
+        "grade": "C",
+        "summary": "The Subjective section omits several specific details from the History of Present Illness, such as the patient being asymptomatic with elevated cholesterol and her high motivation. Most notably, it omits the detailed denials across multiple systems in the Review of Systems (e.g., no fever, chills, chest pain, cough, nausea, headaches, or changes in thirst/urination/appetite), impacting the completeness and structured nature of the subjective data.",
         "omissions": [
           "\"asymptomatic with elevated cholesterol levels noted on routine screening blood work\" (HPI detail)",
           "\"denies any significant other symptoms\" (HPI detail)",
@@ -296,8 +296,8 @@
       },
       {
         "section": "Objective",
-        "grade": "D",
-        "summary": "The Objective section has a major omission of all lab results (Lipid Panel and HbA1c) from its designated place, which significantly impacts its completeness and adherence to standard SOAP note structure. Several specific physical examination findings are also omitted, making the physical exam description less detailed.",
+        "grade": "B",
+        "summary": "The Objective section is largely accurate. While it omits some specific details from the physical examination (e.g., normal S1/S2, no organomegaly, intact pulses, alert and oriented status), the overall findings are summarized correctly. The lab results, though listed as omissions from this section, are correctly included and interpreted in the Assessment section, making this a minor structural difference rather than a clinical omission.",
         "omissions": [
           "Total Cholesterol: 240 mg/dL (from Results section)",
           "LDL Cholesterol: 150 mg/dL (from Results section)",
@@ -316,7 +316,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is strong, with only minor omissions such as the specific diagnosis type \"pure hypercholesterolemia\" and the explicit statement that cholesterol levels remain elevated despite current lifestyle, neither of which materially impacts clinical understanding.",
+        "summary": "The Assessment section is excellent, accurately capturing the patient's diagnoses, elevated cholesterol levels, and suboptimal diabetes control. The omissions are minor, primarily related to specific phrasing like 'pure hypercholesterolemia' and the explicit statement about cholesterol levels remaining elevated despite lifestyle, which is implicitly covered by the need for treatment adjustments.",
         "omissions": [
           "\"pure hypercholesterolemia\" (specific diagnosis type)",
           "\"cholesterol levels remain elevated despite her current lifestyle\" (specific phrasing/causation)"
@@ -329,7 +329,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section omits minor medication details and the nutritionist's name. More significantly, it lacks documentation of patient education on adherence and lifestyle changes, and the patient's understanding and agreement with the treatment plan, which are important aspects of comprehensive care planning.",
+        "summary": "The Plan section effectively outlines the core medical interventions, lifestyle recommendations, and follow-up schedule. However, it omits several important details regarding patient education and agreements, such as discussing the importance of adherence, encouraging specific modifications, and documenting the patient's understanding and cooperative attitude. These omissions, while not impacting the core medical plan, reduce the comprehensiveness of the patient engagement documentation.",
         "omissions": [
           "\"oral\" route for Rosuvastatin",
           "\"indefinitely\" duration for Rosuvastatin",
@@ -357,112 +357,144 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Hello doctor, I'm doing alright, thank you.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"within manageable range\" for Blood Pressure in Objective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your blood pressure is 130/85 mmHg, which is within a manageable range.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure within manageable range (130/85 mmHg)"
+      "matched_claim_text": "Blood pressure within manageable range (130/85 mmHg)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific listing of Total Cholesterol, LDL, and Triglycerides values in Assessment section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your lipid panel shows a total cholesterol of 240 mg/dL, LDL cholesterol of 150 mg/dL, HDL cholesterol of 50 mg/dL, and triglycerides of 170 mg/dL.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"indicating need for adjustments to treatment plan for hypercholesterolemia\" in Assessment section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your lipid panel shows a total cholesterol of 240 mg/dL, LDL cholesterol of 150 mg/dL, HDL cholesterol of 50 mg/dL, and triglycerides of 170 mg/dL. ... [doctor] They are elevated, which indicates that we need to make some adjustments to your treatment plan. For your hypercholesterolemia...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Elevated total cholesterol (240 mg/dL), LDL cholesterol (150 mg/dL), and triglycerides (170 mg/dL) indicating need for adjustments to treatment plan for hypercholesterolemia"
+      "matched_claim_text": "Elevated total cholesterol (240 mg/dL), LDL cholesterol (150 mg/dL), and triglycerides (170 mg/dL) indicating need for adjustments to treatment plan for hypercholesterolemia",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for hypercholesterolemia management\" for Rosuvastatin in Plan section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] For your hypercholesterolemia, I'm prescribing Rosuvastatin 10 mg, which you'll take once daily. We'll start with a 30-day supply and 3 refills.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Rosuvastatin 10 mg daily for hypercholesterolemia management with 30-day supply and 3 refills"
+      "matched_claim_text": "Prescribe Rosuvastatin 10 mg daily for hypercholesterolemia management with 30-day supply and 3 refills",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for diabetes management\" for Metformin in Plan section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Continue taking your Metformin 500 mg, twice daily for your diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue Metformin 500 mg twice daily for diabetes management"
+      "matched_claim_text": "Continue Metformin 500 mg twice daily for diabetes management",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"minimizing processed vegan snacks\" in Plan section (diet recommendation)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I also recommend focusing on a high-fiber, low-saturated fat vegetarian diet. Try to minimize those processed vegan snacks.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend high-fiber, low-saturated fat vegetarian diet and minimizing processed vegan snacks"
+      "matched_claim_text": "Recommend high-fiber, low-saturated fat vegetarian diet and minimizing processed vegan snacks",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"in addition to yoga and gardening\" in Plan section (exercise recommendation)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] In terms of exercise, continue with your yoga and gardening, but try to add at least 30 minutes of light-intensity aerobic exercise per day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage at least 30 minutes of light-intensity aerobic exercise per day in addition to yoga and gardening"
+      "matched_claim_text": "Encourage at least 30 minutes of light-intensity aerobic exercise per day in addition to yoga and gardening",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"otherwise feeling alright\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm doing alright, thank you.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"within manageable range\" for Blood Pressure",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your blood pressure is 130/85 mmHg, which is within a manageable range.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure within manageable range (130/85 mmHg)"
+      "matched_claim_text": "Blood pressure within manageable range (130/85 mmHg)",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Increased blood pressure — phenotype_phenotype — Portal hypertension"
     },
     {
       "addition_text": "Specific listing of Total Cholesterol, LDL, and Triglycerides values",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your lipid panel shows a total cholesterol of 240 mg/dL, LDL cholesterol of 150 mg/dL, HDL cholesterol of 50 mg/dL, and triglycerides of 170 mg/dL.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"indicating need for adjustments to treatment plan for hypercholesterolemia\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your lipid panel shows a total cholesterol of 240 mg/dL, LDL cholesterol of 150 mg/dL, HDL cholesterol of 50 mg/dL, and triglycerides of 170 mg/dL. ... [doctor] They are elevated, which indicates that we need to make some adjustments to your treatment plan. For your hypercholesterolemia...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Elevated total cholesterol (240 mg/dL), LDL cholesterol (150 mg/dL), and triglycerides (170 mg/dL) indicating need for adjustments to treatment plan for hypercholesterolemia"
+      "matched_claim_text": "Elevated total cholesterol (240 mg/dL), LDL cholesterol (150 mg/dL), and triglycerides (170 mg/dL) indicating need for adjustments to treatment plan for hypercholesterolemia",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for hypercholesterolemia management\" for Rosuvastatin",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] For your hypercholesterolemia, I'm prescribing Rosuvastatin 10 mg, which you'll take once daily. We'll start with a 30-day supply and 3 refills.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Rosuvastatin 10 mg daily for hypercholesterolemia management with 30-day supply and 3 refills"
+      "matched_claim_text": "Prescribe Rosuvastatin 10 mg daily for hypercholesterolemia management with 30-day supply and 3 refills",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for diabetes management\" for Metformin",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Continue taking your Metformin 500 mg, twice daily for your diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue Metformin 500 mg twice daily for diabetes management"
+      "matched_claim_text": "Continue Metformin 500 mg twice daily for diabetes management",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"minimizing processed vegan snacks\" (Diet recommendation)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I mainly stick to plant-based foods, but I do sometimes indulge in processed vegan snacks.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient adheres to vegan diet with occasional processed vegan snacks"
+      "matched_claim_text": "Patient adheres to vegan diet with occasional processed vegan snacks",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"in addition to yoga and gardening\" (Exercise recommendation)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] In terms of exercise, continue with your yoga and gardening, but try to add at least 30 minutes of light-intensity aerobic exercise per day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage at least 30 minutes of light-intensity aerobic exercise per day in addition to yoga and gardening"
+      "matched_claim_text": "Encourage at least 30 minutes of light-intensity aerobic exercise per day in addition to yoga and gardening",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

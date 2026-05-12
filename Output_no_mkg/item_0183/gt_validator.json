@@ -229,76 +229,93 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note captures the main clinical picture but contains multiple moderate omissions across several sections. Key details regarding the patient's medical history and the specific context of the visit are missing from the Subjective section. The Assessment lacks crucial clinical reasoning about the pending diagnosis and the explicit emphasis on the psychological component. Additionally, the Plan omits important patient instructions and reassurance. While the note is broadly usable, these gaps make it meaningfully incomplete and necessitate careful review.",
-    "omissions": [],
-    "additions": [],
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. A significant strength is the complete absence of unsupported or unknown additions, meaning all generated content is grounded in the transcript. However, the note has several omissions. The Subjective section is noticeably incomplete due to the omission of many Review of Systems details and some specific HPI and Social History elements. The Assessment section has a moderate omission regarding the explicit statement of diagnostic uncertainty. The Plan section also has moderate omissions related to the detailed listing of investigations and specific patient instructions/reassurance. Despite these omissions, the core clinical utility is maintained.",
+    "omissions": [
+      "Initial consultation via telemedicine for STI screening (HPI detail)",
+      "Not currently on any medications (HPI detail)",
+      "ROS - General: No fever, weight loss, or night sweats",
+      "ROS - Respiratory: No cough or shortness of breath",
+      "ROS - Cardiovascular: No chest pain or palpitations",
+      "ROS - Gastrointestinal: No abdominal pain, nausea, or vomiting",
+      "ROS - Genitourinary: No dysuria or abnormal discharge",
+      "ROS - Musculoskeletal: No joint pain or muscle weakness",
+      "Social History - Sleeps 6-7 hours per night",
+      "Social History - Denies illicit drug use",
+      "Social History - Watches TV and plays video games for recreation",
+      "Vital Signs: Not applicable (telemedicine consultation)",
+      "Physical Exam: Not applicable (telemedicine consultation)",
+      "A formal diagnosis cannot yet be made until test results are received (Assessment)",
+      "Plan - Investigations: Continue with the ordered blood work for HIV, Syphilis (VDRL/RPR), Hepatitis B and C",
+      "Plan - Investigations: Continue with the urine test for Gonorrhea and Chlamydia",
+      "Patient instruction to reach out to the mental health counselor to help manage anxiety",
+      "Reassurance that affordable care options will be explored and provided as needed"
+    ],
+    "additions": [
+      "No specific physical symptoms are reported; however, anxiety is noted (Objective)",
+      "No abnormal findings during the conversation (Objective)",
+      "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia (in Objective section, GT lists investigations in Plan)",
+      "Lifestyle factors contribute to increased risk for various health issues (Assessment)",
+      "Encourage patient to reach out with questions or concerns before the follow-up (Plan)"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section omits several key details, including the patient's medication status, the specific context of the initial telemedicine consultation for STI screening, and extensive details from the Review of Systems and Social History. These omissions, particularly the medication status and visit context, make the section noticeably less comprehensive than the Ground Truth.",
+        "summary": "The Subjective section omits numerous details from the Review of Systems (ROS) and some specific elements from the History of Present Illness (HPI) and Social History (SH), such as the telemedicine context, specific negative ROS findings, sleep duration, illicit drug use, and recreational activities. While the core chief complaint and key social risk factors are present, the extensive omissions in ROS and other details make this section meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint section heading",
-          "History of Present Illness section heading",
-          "Review of Systems (ROS) section heading",
-          "Social History (SH) section heading",
-          "Initial consultation via telemedicine for STI screening",
-          "Patient not currently on any medications",
+          "Initial consultation via telemedicine for STI screening (HPI detail)",
+          "Not currently on any medications (HPI detail)",
           "ROS - General: No fever, weight loss, or night sweats",
           "ROS - Respiratory: No cough or shortness of breath",
           "ROS - Cardiovascular: No chest pain or palpitations",
           "ROS - Gastrointestinal: No abdominal pain, nausea, or vomiting",
           "ROS - Genitourinary: No dysuria or abnormal discharge",
           "ROS - Musculoskeletal: No joint pain or muscle weakness",
-          "Social History - Sleep: Sleeps 6-7 hours per night",
+          "Social History - Sleeps 6-7 hours per night",
           "Social History - Denies illicit drug use",
-          "Social History - Recreation: Watches TV and plays video games"
+          "Social History - Watches TV and plays video games for recreation"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section has only minor omissions regarding the explicit 'Not applicable' statements for vital signs and physical exam in a telemedicine setting. All additions were supported by the transcript and did not impact the grade.",
+        "summary": "The Objective section omits the explicit 'Not applicable' for Vital Signs and Physical Exam, which are minor structural omissions. However, it correctly notes the absence of physical symptoms and abnormal findings, which are supported by the transcript. All additions are supported by the transcript and do not negatively impact the grade.",
         "omissions": [
           "Vital Signs: Not applicable (telemedicine consultation)",
           "Physical Exam: Not applicable (telemedicine consultation)"
         ],
         "additions": [
-          "No specific physical symptoms are reported; however, anxiety is noted.",
-          "No abnormal findings during the conversation.",
-          "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia."
+          "No specific physical symptoms are reported; however, anxiety is noted",
+          "No abnormal findings during the conversation",
+          "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "This section omits crucial clinical reasoning, specifically that a formal diagnosis cannot yet be made until test results are received, and that there is a notable psychological component requiring attention. These omissions reduce the precision and completeness of the assessment.",
+        "grade": "B",
+        "summary": "The Assessment section omits the important clinical nuance that a formal diagnosis cannot yet be made until test results are received. While the note correctly identifies anxiety and lifestyle factors, this omission represents a moderate gap in the diagnostic clarity. All additions are supported by the transcript.",
         "omissions": [
-          "a formal diagnosis cannot yet be made until test results are received.",
-          "there is a notable psychological component requiring attention."
+          "A formal diagnosis cannot yet be made until test results are received"
         ],
         "additions": [
-          "Lifestyle factors contribute to increased risk for various health issues."
+          "Lifestyle factors contribute to increased risk for various health issues"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "While the core plan elements are present, this section omits specific details for lifestyle modifications (e.g., nutritional counseling, smoking cessation support) and, more significantly, key patient instructions and reassurance regarding reaching out to mental health counseling and the exploration of affordable care options. These are moderate omissions that reduce the thoroughness of the plan.",
+        "summary": "The Plan section omits the detailed listing of specific investigations under the Plan, although these are mentioned in the Objective section. It also omits two specific patient instructions from the Ground Truth: to reach out to the mental health counselor and reassurance about affordable care options. These omissions represent moderate gaps in the comprehensive plan and patient instructions. All additions are supported by the transcript.",
         "omissions": [
-          "Specific section headings (Medications, Referrals, Investigations, Follow-Up, Lifestyle Modifications, Instructions)",
-          "\"VDRL/RPR\" for Syphilis investigation",
-          "Nutritional counseling",
-          "Smoking cessation support",
-          "Encouragement of regular physical activity",
-          "Instruction: \"It is also important for the patient to reach out to the mental health counselor to help manage her anxiety.\"",
-          "Instruction: \"The patient should be reassured that affordable care options will be explored and provided as needed.\""
+          "Investigations: Continue with the ordered blood work for HIV, Syphilis (VDRL/RPR), Hepatitis B and C",
+          "Investigations: Continue with the urine test for Gonorrhea and Chlamydia",
+          "Patient instruction to reach out to the mental health counselor to help manage anxiety",
+          "Reassurance that affordable care options will be explored and provided as needed"
         ],
         "additions": [
-          "Encourage patient to reach out with questions or concerns before the follow-up."
+          "Encourage patient to reach out with questions or concerns before the follow-up"
         ]
       }
     ],
@@ -307,39 +324,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "No specific physical symptoms are reported; however, anxiety is noted.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm doing okay, just a bit anxious, to be honest. You mentioned feeling anxious.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anxiety is noted."
-    },
-    {
-      "addition_text": "No abnormal findings during the conversation.",
+      "addition_text": "No specific physical symptoms are reported; however, anxiety is noted (Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, I haven’t had any symptoms. No, none of those. No, my breathing’s been fine. No chest pain or palpitations. No, my stomach’s been fine too. No, nothing like that. No, my joints and muscles feel normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No abnormal findings during the conversation."
+      "matched_claim_text": "No specific physical symptoms are reported.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia.",
+      "addition_text": "No abnormal findings during the conversation (Objective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, I haven’t had any symptoms. No, none of those. No, my breathing’s been fine. No chest pain or palpitations. No, my stomach’s been fine too. No, nothing like that. No, my joints and muscles feel normal.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No abnormal findings during the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia (in Objective section, GT lists investigations in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We have ordered some blood work for HIV, Syphilis, Hepatitis B and C, and a urine test for Gonorrhea and Chlamydia. The results are pending, and we should have them soon.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia."
+      "matched_claim_text": "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Lifestyle factors contribute to increased risk for various health issues.",
+      "addition_text": "Lifestyle factors contribute to increased risk for various health issues (Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Quitting smoking would be beneficial... Reducing alcohol consumption is also important. Improving your diet and incorporating some regular physical activity would also make a big difference.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle factors contribute to increased risk for various health issues."
+      "matched_claim_text": "Lifestyle factors contribute to increased risk for various health issues.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Encourage patient to reach out with questions or concerns before the follow-up.",
+      "addition_text": "Encourage patient to reach out with questions or concerns before the follow-up (Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any questions or concerns before your follow-up, don’t hesitate to contact me.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to reach out with questions or concerns before the follow-up."
+      "matched_claim_text": "Encourage patient to reach out with questions or concerns before the follow-up.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "No specific physical symptoms are reported; however, anxiety is noted",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, I haven’t had any symptoms. No, none of those. No, my breathing’s been fine. No chest pain or palpitations. No, my stomach’s been fine too. No, nothing like that. No, my joints and muscles feel normal.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No specific physical symptoms are reported.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "No abnormal findings during the conversation",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, I haven’t had any symptoms. No, none of those. No, my breathing’s been fine. No chest pain or palpitations. No, my stomach’s been fine too. No, nothing like that. No, my joints and muscles feel normal.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No abnormal findings during the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We have ordered some blood work for HIV, Syphilis, Hepatitis B and C, and a urine test for Gonorrhea and Chlamydia. The results are pending, and we should have them soon.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pending lab results for HIV, Syphilis, Hepatitis B & C, Gonorrhea, and Chlamydia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle factors contribute to increased risk for various health issues",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Quitting smoking would be beneficial... Reducing alcohol consumption is also important. Improving your diet and incorporating some regular physical activity would also make a big difference.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Lifestyle factors contribute to increased risk for various health issues.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Encourage patient to reach out with questions or concerns before the follow-up",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If you have any questions or concerns before your follow-up, don’t hesitate to contact me.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Encourage patient to reach out with questions or concerns before the follow-up.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

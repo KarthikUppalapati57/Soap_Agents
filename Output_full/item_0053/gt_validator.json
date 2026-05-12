@@ -277,9 +277,9 @@
     "plan_alignment_score": 0.5683060109289617
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately reflecting the patient's presentation, objective findings, and the core assessment and plan. There are no unsupported or unknown additions. However, the note contains several omissions, including important details regarding the impact of syncope on daily activities, specific diagnostic considerations like 'electrolyte abnormalities' in the assessment, and crucial patient education points about Midodrine's potential side effects and specific signs/symptoms to monitor. While these omissions reduce the completeness of the documentation, they do not render the note unsafe or unusable.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a generally accurate overview of the patient's presentation, assessment, and plan. However, it contains multiple moderate omissions, including the impact of syncope on daily activities, the explicit mention of electrolyte abnormalities in the diagnosis, and crucial patient education regarding Midodrine's potential side effects and signs/symptoms to monitor. These omissions reduce the completeness and safety aspects of the documentation, warranting a C grade.",
     "omissions": [
       "Impact of syncope on daily activities (unable to drive, missed work)",
       "Denial of fever, chills, or unexplained weight loss",
@@ -303,8 +303,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section captures all major clinically important Ground Truth content. Minor omissions include the impact of syncope on daily activities (unable to drive, missed work) and specific denials in the Review of Systems (fever/chills, focal neurological deficits, tobacco/drug use, social alcohol consumption). These omissions are minor and do not significantly detract from the clinical usability of the section.",
+        "grade": "B",
+        "summary": "The section accurately captures the chief complaint and core history of present illness. However, it omits the significant impact of syncope on daily activities (unable to drive, missed work), which is a moderate clinical detail, along with several minor social history and ROS denials.",
         "omissions": [
           "Impact of syncope on daily activities (unable to drive, missed work)",
           "Denial of fever, chills, or unexplained weight loss",
@@ -317,7 +317,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured, including vital signs and key physical examination findings. The omissions are minor descriptive details from the physical exam, such as the patient being 'Alert' and specific respiratory findings like 'bilaterally' for clear lungs and the absence of 'wheezes, rales, or rhonchi'. These do not impact the overall clinical picture.",
+        "summary": "This section is well-documented, accurately presenting vital signs and physical examination findings. The omissions are minor details regarding general appearance and specific respiratory exam findings, which do not impact clinical utility.",
         "omissions": [
           "General appearance: 'Alert'",
           "Respiratory exam detail: 'bilaterally' (for lungs clear to auscultation)",
@@ -328,7 +328,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section accurately identifies syncope and lists key differential diagnoses. However, it omits 'collapse' from the primary diagnosis and, more significantly, the explicit mention of 'electrolyte abnormalities' as needing to be ruled out. The contextual detail about 'awaiting MRI results' for neurological disorders in the differential is also missing. These omissions, particularly the diagnostic consideration, represent moderate issues.",
+        "summary": "The assessment correctly identifies orthostatic hypotension and lists appropriate differential diagnoses. However, it moderately omits the explicit mention of \"electrolyte abnormalities\" as a cause to rule out in the diagnosis, making the diagnostic consideration less comprehensive.",
         "omissions": [
           "Diagnosis includes 'collapse' (Generated only states 'syncope')",
           "Diagnosis explicitly mentions 'electrolyte abnormalities' as needing to be ruled out",
@@ -338,8 +338,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section covers all major treatment, testing, and referral components. However, it omits several important patient education details, specifically regarding the 'potential side effects of Midodrine' and 'signs and symptoms to monitor', which are moderate clinical safety omissions. Other minor omissions include a specific lifestyle modification ('rise slowly from sitting or lying positions'), the purpose of the MRI ('to rule out any neurological causes'), the specific neurologist's name, and the 'Patient Agreement section'. The presence of moderate omissions related to patient safety education makes this section less complete.",
+        "grade": "C",
+        "summary": "While the core treatment plan, testing, and referral are present, this section has moderate omissions regarding critical patient education. Specifically, it fails to mention the potential side effects of Midodrine and the signs/symptoms the patient should monitor, which are important for patient safety and adherence. Minor details about lifestyle modification and referral specifics are also omitted.",
         "omissions": [
           "Lifestyle modification: 'rise slowly from sitting or lying positions'",
           "Purpose of MRI: 'to rule out any neurological causes'",

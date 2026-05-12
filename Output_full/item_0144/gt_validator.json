@@ -245,86 +245,84 @@
     "plan_alignment_score": 0.5851063829787234
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains multiple moderate omissions across the Subjective, Objective, and Plan sections. Key details regarding the patient's HPI, a significant physical exam finding, specific medication instructions, pending investigations, and patient education/agreement are missing. While there are no unsupported or unknown additions, these omissions create noticeable gaps that make the note meaningfully incomplete, requiring caution and review.",
+    "overall_summary": "The generated SOAP note is broadly usable but has noticeable gaps due to multiple moderate omissions across the Subjective, Objective, and Plan sections. Key details such as the patient's occupation, specific HPI characteristics, the observation of moderate respiratory distress, precise medication dosages, and ordered blood work are missing. All additions are supported by the transcript and do not negatively impact the grade.",
     "omissions": [
-      "HPI detail: initial consultation",
-      "HPI detail: no significant improvement (of shortness of breath)",
-      "HPI detail: chest tightness particularly after physical exertion",
-      "HPI detail: symptoms interfering with his ability to perform his job tasks and daily routines",
-      "HPI detail: interrupted sleep due to persistent coughing",
-      "ROS - Cardiovascular: denial of palpitations or edema",
-      "ROS - Musculoskeletal: denial of muscle pain or joint swelling",
-      "ROS - Neurological: denial of headaches, dizziness, or syncope",
-      "ROS - General: reduced exercise tolerance",
-      "General physical exam finding: patient appears to be in moderate respiratory distress",
-      "Investigations: Blood work ordered (Complete Blood Count (CBC) and Basic Metabolic Panel (BMP)) and results awaited",
-      "Patient Education & Agreement: necessity of compliance with medication regimen and attending all scheduled tests and follow-up appointments",
-      "Patient Education & Agreement: patient understands and agrees with the recommended medical treatment plan, follow-up, and additional tests"
+      "Patient's occupation (construction worker)",
+      "Detailed Review of Systems (Cardiovascular, Musculoskeletal, Neurological, General)",
+      "Patient appears to be in moderate respiratory distress",
+      "Specific medication dosage and frequency for Albuterol (90 mcg, 2 puffs every 4-6 hours)",
+      "Specific medication dosage detail for Prednisone (1 tablet orally once daily)",
+      "Ordered blood work (Complete Blood Count and Basic Metabolic Panel)",
+      "Patient education on compliance with medication regimen, tests, and follow-up appointments",
+      "Patient understanding and agreement with the recommended medical treatment plan"
     ],
     "additions": [
-      "Subjective: 'No history of significant illnesses or known allergies'",
-      "Subjective: 'patient is a smoker' (as a standalone point in Subjective)",
-      "Assessment: more specific detail for COPD cause ('due to long-term exposure to irritating gases and particulate matter, most likely from cigarette smoke')",
-      "Plan: patient education detail 'for improved condition management' (added to smoking cessation/pollutant minimization)"
+      "Statement 'No history of significant illnesses or known allergies' in Subjective",
+      "More detailed explanation of COPD etiology in Assessment ('long-term exposure to irritating gases and particulate matter, most likely from cigarette smoke')",
+      "Added phrase 'for improved condition management' to patient education"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits several important HPI details, including the specific trigger for chest tightness (physical exertion), the impact of symptoms on daily activities and job tasks, and interrupted sleep due to persistent coughing. Additionally, several denials from the Review of Systems (palpitations/edema, muscle pain/joint swelling, headaches/dizziness/syncope) and reduced exercise tolerance are missing. These omissions represent multiple moderate issues.",
+        "summary": "The Subjective section has multiple moderate omissions, including the patient's occupation (construction worker), specific HPI details like chest tightness particularly after physical exertion, symptoms interfering with job tasks and daily routines, interrupted sleep due to persistent coughing, and several details from the Review of Systems (e.g., reduced exercise tolerance). While the core complaint is present, these omissions reduce the completeness and clinical context.",
         "omissions": [
-          "Chief Complaint detail: 'Moderate to severe' (for shortness of breath)",
-          "HPI detail: 'initial consultation'",
-          "HPI detail: 'no significant improvement' (of shortness of breath)",
-          "HPI detail: Chest tightness 'particularly after physical exertion'",
-          "HPI detail: Symptoms 'interfering with his ability to perform his job tasks and daily routines'",
-          "HPI detail: 'interrupted sleep due to persistent coughing'",
-          "ROS - Respiratory: 'cough' (as a positive finding in ROS)",
-          "ROS - Cardiovascular: Denial of 'palpitations or edema'",
-          "ROS - Musculoskeletal: Denial of 'muscle pain or joint swelling'",
-          "ROS - Neurological: Denial of 'headaches, dizziness, or syncope'",
-          "ROS - General: 'reduced exercise tolerance'"
+          "Chief Complaint (CC) explicitly stated",
+          "Patient's occupation (construction worker)",
+          "\"initial consultation\"",
+          "\"no significant improvement\" (for shortness of breath)",
+          "Chest tightness \"particularly after physical exertion\"",
+          "Symptoms interfering with \"job tasks and daily routines\"",
+          "Interrupted sleep due to \"persistent coughing\"",
+          "ROS details: Cardiovascular (denies palpitations or edema)",
+          "ROS details: Musculoskeletal (denies muscle pain or joint swelling)",
+          "ROS details: Neurological (no reported headaches, dizziness, or syncope)",
+          "ROS details: General (reduced exercise tolerance)"
         ],
         "additions": [
-          "'No history of significant illnesses or known allergies'",
-          "'patient is a smoker' (as a standalone point in Subjective)"
+          "\"No history of significant illnesses or known allergies\"",
+          "\"patient is a smoker\""
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately captures most vital signs and physical exam findings. However, it omits the clinically important general observation that the patient appears to be in moderate respiratory distress, which is a moderate issue.",
+        "summary": "The Objective section has one moderate omission: the observation that 'The patient appears to be in moderate respiratory distress.' A minor detail regarding heart sounds was also omitted. The key vital signs and physical exam findings are otherwise present.",
         "omissions": [
-          "General physical exam finding: 'The patient appears to be in moderate respiratory distress.'"
+          "\"no murmurs or additional heart sounds\"",
+          "\"The patient appears to be in moderate respiratory distress.\""
         ],
-        "additions": []
+        "additions": [
+          "\"during lung examination\""
+        ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate, capturing the suspected diagnosis of COPD and its likely cause. There are no omissions or unsupported/unknown additions in this section.",
+        "summary": "The Assessment section is complete with no omissions or unsupported/unknown additions. All additions in this section are supported by the transcript.",
         "omissions": [],
         "additions": [
-          "More specific detail for COPD cause: 'due to long-term exposure to irritating gases and particulate matter, most likely from cigarette smoke'"
+          "\"long-term exposure to irritating gases and particulate matter, most likely from cigarette smoke\""
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has significant omissions, including specific dosage and frequency for Albuterol (2 puffs every 4-6 hours as needed) and the specific daily dose for Prednisone (1 tablet orally once daily). Crucially, the ordering of CBC and BMP blood work is entirely omitted, as are the details regarding patient education on compliance with the regimen and attending appointments, and the documentation of patient understanding and agreement with the treatment plan. These constitute multiple moderate omissions.",
+        "summary": "The Plan section contains multiple moderate omissions that significantly impact its completeness. These include specific medication dosages and frequencies for Albuterol (90 mcg, 2 puffs every 4-6 hours) and Prednisone (1 tablet orally once daily), the ordered blood work (Complete Blood Count and Basic Metabolic Panel), and detailed patient education on compliance with the medication regimen, tests, and follow-up appointments. The patient's agreement with the plan is also omitted.",
         "omissions": [
-          "Medication detail (Albuterol): '90 mcg'",
-          "Medication detail (Albuterol): '2 puffs every 4-6 hours as needed'",
-          "Medication detail (Prednisone): '1 tablet orally once daily'",
-          "Investigations: 'Blood work ordered: Complete Blood Count (CBC) and Basic Metabolic Panel (BMP). Results are awaited.'",
-          "Patient Education & Agreement: 'Discussed the necessity of compliance with the medication regimen and attending all scheduled tests and follow-up appointments.'",
-          "Patient Education & Agreement: 'The patient understands and agrees with the recommended medical treatment plan, follow-up, and additional tests.'"
+          "Albuterol dosage and frequency: \"90 mcg inhaler, 2 puffs every 4-6 hours as needed\"",
+          "Prednisone dosage detail: \"1 tablet orally once daily\"",
+          "Cardiologist's name: \"Dr. John Smith\"",
+          "Investigations: \"Blood work ordered: Complete Blood Count (CBC) and Basic Metabolic Panel (BMP). Results are awaited.\"",
+          "Patient education on compliance: \"Discussed the necessity of compliance with the medication regimen and attending all scheduled tests and follow-up appointments.\"",
+          "Patient agreement: \"The patient understands and agrees with the recommended medical treatment plan, follow-up, and additional tests.\""
         ],
         "additions": [
-          "Patient education detail: 'for improved condition management' (added to smoking cessation/pollutant minimization)"
+          "\"for symptomatic relief\" (for Albuterol)",
+          "\"for improved condition management\" (added to smoking cessation/pollutant education)"
         ]
       }
     ],
@@ -333,60 +331,85 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'No history of significant illnesses or known allergies'",
+      "addition_text": "Statement 'No history of significant illnesses or known allergies' in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Not really. I've been relatively healthy...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of significant illnesses."
+      "matched_claim_text": "No history of significant illnesses.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective: 'patient is a smoker' (as a standalone point in Subjective)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Not really. I've been relatively healthy, but I do smoke. I've been a smoker for many years...",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is a smoker."
-    },
-    {
-      "addition_text": "Assessment: more specific detail for COPD cause ('due to long-term exposure to irritating gases and particulate matter, most likely from cigarette smoke')",
+      "addition_text": "More detailed explanation of COPD etiology in Assessment ('long-term exposure to irritating gases and particulate matter, most likely from cigarette smoke')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: COPD is a chronic inflammatory lung disease that causes obstructed airflow from the lungs. It’s often caused by long-term exposure to irritating gases or particulate matter, most often from cigarette smoke.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "COPD is suspected due to long-term exposure to irritating gases and particulate matter."
+      "matched_claim_text": "COPD is suspected due to long-term exposure to irritating gases and particulate matter.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: patient education detail 'for improved condition management' (added to smoking cessation/pollutant minimization)",
+      "addition_text": "Added phrase 'for improved condition management' to patient education",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It’s also very important for you to consider quitting smoking and minimizing your exposure to pollutants. This will significantly help manage your condition.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the importance of quitting smoking and minimizing exposure to pollutants for improved condition management."
+      "matched_claim_text": "Emphasize the importance of quitting smoking and minimizing exposure to pollutants for improved condition management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'No history of significant illnesses or known allergies'",
+      "addition_text": "\"No history of significant illnesses or known allergies\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Not really. I've been relatively healthy...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of significant illnesses."
+      "matched_claim_text": "No history of significant illnesses.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'patient is a smoker' (as a standalone point in Subjective)",
+      "addition_text": "\"patient is a smoker\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Not really. I've been relatively healthy, but I do smoke. I've been a smoker for many years...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is a smoker."
+      "matched_claim_text": "Patient is a smoker.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "More specific detail for COPD cause: 'due to long-term exposure to irritating gases and particulate matter, most likely from cigarette smoke'",
+      "addition_text": "\"during lung examination\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I can hear wheezing on the expiratory phase.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Wheezing heard on expiratory phase during lung examination.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"long-term exposure to irritating gases and particulate matter, most likely from cigarette smoke\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: COPD is a chronic inflammatory lung disease that causes obstructed airflow from the lungs. It’s often caused by long-term exposure to irritating gases or particulate matter, most often from cigarette smoke.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "COPD is suspected due to long-term exposure to irritating gases and particulate matter."
+      "matched_claim_text": "COPD is suspected due to long-term exposure to irritating gases and particulate matter.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient education detail: 'for improved condition management' (added to smoking cessation/pollutant minimization)",
+      "addition_text": "\"for symptomatic relief\" (for Albuterol)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’m going to prescribe an Albuterol inhaler for you. Use 2 puffs every 4-6 hours as needed for shortness of breath.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prescribe Albuterol inhaler for symptomatic relief.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"for improved condition management\" (added to smoking cessation/pollutant education)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It’s also very important for you to consider quitting smoking and minimizing your exposure to pollutants. This will significantly help manage your condition.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the importance of quitting smoking and minimizing exposure to pollutants for improved condition management."
+      "matched_claim_text": "Emphasize the importance of quitting smoking and minimizing exposure to pollutants for improved condition management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

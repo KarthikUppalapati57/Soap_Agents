@@ -282,29 +282,37 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly the complete omission of the Review of Systems in the Subjective section and the specific diagnosis and differential diagnoses in the Assessment section. While the core treatment plan is present, these omissions make the note meaningfully incomplete and require careful review to ensure all critical information is captured. There are no unsupported or unknown additions that negatively impact the grade.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The note demonstrates significant gaps in the Subjective and Assessment sections. The Subjective section omits crucial HPI context and the entire Review of Systems. The Assessment section critically lacks the formal diagnosis and differential diagnoses, which materially reduces the note's clinical utility and completeness. While the Objective and Plan sections are largely accurate, the major omissions in other key areas warrant a lower overall grade.",
     "omissions": [
-      "Patient's concern about cardiovascular health due to family history of coronary artery disease",
-      "Occasional walking (as part of lifestyle details)",
-      "Low intake of fruits and vegetables (as part of diet details)",
-      "Sleep duration (6-7 hours per night)",
-      "Frequency of social outings (twice a month)",
-      "No known drug allergies",
-      "All Review of Systems (ROS) details (denial of fever, weight loss, fatigue, chest pain, palpitations, dyspnea, cough, shortness of breath, changes in bowel habits, abdominal pain, muscle weakness, joint pain, headaches, dizziness, syncope)",
-      "Physical Examination: Cardiovascular: no murmurs, rubs, or gallops",
-      "Physical Examination: Abdomen: no hepatosplenomegaly",
-      "Physical Examination: Extremities: pulses 2+ bilaterally",
-      "Physical Examination: Skin: no lesions noted",
-      "Diagnosis: Pure Hypercholesterolemia, unspecified",
-      "Medical Reasoning: Lifestyle modifications and pharmacologic intervention are warranted",
-      "Differential Diagnosis: Familial hypercholesterolemia",
-      "Differential Diagnosis: Secondary hyperlipidemia (e.g., due to hypothyroidism, but no clinical signs or symptoms suggest this)",
-      "Medication: oral route for Atorvastatin",
-      "Medication: quantity: 30 tablets for Atorvastatin",
-      "Lifestyle Modifications: Dietary: Encourage consumption of fruits, vegetables, whole grains, and lean proteins",
-      "Patient understanding and agreement with the proposed treatment plan, and motivation to make necessary lifestyle changes"
+      "Patient was previously found to have elevated cholesterol on a recent screening test.",
+      "Patient's concern about cardiovascular health given family history of coronary artery disease.",
+      "Occasional walking (as part of sedentary lifestyle).",
+      "Low intake of fruits and vegetables (as part of diet).",
+      "Gets about 6-7 hours of sleep per night.",
+      "Enjoys social outings with friends twice a month.",
+      "No known drug allergies.",
+      "Review of Systems (ROS) - Constitutional: Denies fever, weight loss, or fatigue.",
+      "Review of Systems (ROS) - Cardiovascular: Denies chest pain, palpitations, or dyspnea.",
+      "Review of Systems (ROS) - Respiratory: Denies cough or shortness of breath.",
+      "Review of Systems (ROS) - Gastrointestinal: Denies changes in bowel habits or abdominal pain.",
+      "Review of Systems (ROS) - Musculoskeletal: Denies muscle weakness or joint pain.",
+      "Review of Systems (ROS) - Neurological: Denies headaches, dizziness, or syncope.",
+      "Physical Exam - Cardiovascular: no murmurs, rubs, or gallops.",
+      "Physical Exam - Respiratory: clear to auscultation bilaterally, no wheezes, rales, or rhonchi.",
+      "Physical Exam - Abdomen: no hepatosplenomegaly.",
+      "Physical Exam - Extremities: pulses 2+ bilaterally.",
+      "Physical Exam - Skin: no lesions noted.",
+      "Assessment summary: Patient with a history of hypertension who presents for management of elevated cholesterol.",
+      "Diagnosis: Pure Hypercholesterolemia, unspecified.",
+      "Medical Reasoning: Lifestyle modifications and pharmacologic intervention are warranted.",
+      "Differential Diagnosis: Familial hypercholesterolemia.",
+      "Differential Diagnosis: Secondary hyperlipidemia (e.g., due to hypothyroidism, but no clinical signs or symptoms suggest this).",
+      "Medication: \"oral\" route for Atorvastatin.",
+      "Medication: \"quantity: 30 tablets\" for Atorvastatin.",
+      "Lifestyle Modifications - Dietary: Encourage consumption of fruits, vegetables, whole grains, and lean proteins.",
+      "Patient understanding and motivation: \"John Smith understands and agrees with the proposed treatment plan. He is motivated to make the necessary lifestyle changes to improve his health outcomes.\""
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -312,54 +320,62 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section receives a C due to the complete omission of the Review of Systems, which is a major gap. Additionally, important HPI details such as the patient's concern about cardiovascular health due to family history, occasional walking, low intake of fruits and vegetables, sleep duration, social outings, and drug allergies are omitted. The patient's history of hypertension, while omitted here, is captured in the Assessment section.",
+        "summary": "The section omits several key details from the HPI, including the patient's history of hypertension, previous elevated cholesterol findings, and concerns about cardiovascular health. Additionally, the entire Review of Systems (ROS) is omitted, which represents a significant gap in the patient's reported symptoms.",
         "omissions": [
-          "History of hypertension managed with Lisinopril 10 mg once daily",
-          "Patient's concern about cardiovascular health due to family history of coronary artery disease",
-          "Occasional walking",
-          "Low intake of fruits and vegetables",
-          "Sleep duration (6-7 hours per night)",
-          "Frequency of social outings (twice a month)",
-          "No known drug allergies",
-          "All Review of Systems (ROS) details (denial of fever, weight loss, fatigue, chest pain, palpitations, dyspnea, cough, shortness of breath, changes in bowel habits, abdominal pain, muscle weakness, joint pain, headaches, dizziness, syncope)"
+          "Patient's history of hypertension managed with Lisinopril 10 mg once daily.",
+          "Patient was previously found to have elevated cholesterol on a recent screening test.",
+          "Patient's concern about cardiovascular health given family history of coronary artery disease.",
+          "Occasional walking (as part of sedentary lifestyle).",
+          "Low intake of fruits and vegetables (as part of diet).",
+          "Gets about 6-7 hours of sleep per night.",
+          "Enjoys social outings with friends twice a month.",
+          "No known drug allergies.",
+          "Review of Systems (ROS) - Constitutional: Denies fever, weight loss, or fatigue.",
+          "Review of Systems (ROS) - Cardiovascular: Denies chest pain, palpitations, or dyspnea.",
+          "Review of Systems (ROS) - Respiratory: Denies cough or shortness of breath.",
+          "Review of Systems (ROS) - Gastrointestinal: Denies changes in bowel habits or abdominal pain.",
+          "Review of Systems (ROS) - Musculoskeletal: Denies muscle weakness or joint pain.",
+          "Review of Systems (ROS) - Neurological: Denies headaches, dizziness, or syncope."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly complete. It accurately captures all vital signs and the general findings of the physical examination. However, it omits several minor details from the physical examination, including specific findings for cardiovascular (no murmurs, rubs, or gallops), abdomen (no hepatosplenomegaly), extremities (pulses 2+ bilaterally), and skin (no lesions noted).",
+        "summary": "The section accurately captures vital signs and general physical examination findings but omits several specific details from the cardiovascular, respiratory, abdominal, extremities, and skin examinations.",
         "omissions": [
-          "Physical Examination: Cardiovascular: no murmurs, rubs, or gallops",
-          "Physical Examination: Abdomen: no hepatosplenomegaly",
-          "Physical Examination: Extremities: pulses 2+ bilaterally",
-          "Physical Examination: Skin: no lesions noted"
+          "Physical Exam - Cardiovascular: no murmurs, rubs, or gallops.",
+          "Physical Exam - Respiratory: clear to auscultation bilaterally, no wheezes, rales, or rhonchi.",
+          "Physical Exam - Abdomen: no hepatosplenomegaly.",
+          "Physical Exam - Extremities: pulses 2+ bilaterally.",
+          "Physical Exam - Skin: no lesions noted."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "This section receives a C due to significant omissions. The specific diagnosis 'Pure Hypercholesterolemia, unspecified (ICD-10: E78.00)' is entirely missing, as is the full differential diagnosis. Part of the medical reasoning regarding the warrant for lifestyle modifications and pharmacologic intervention is also omitted. The addition of the patient's hypertension history is supported by the transcript and does not reduce the grade.",
+        "grade": "D",
+        "summary": "This section has significant omissions, most notably the formal diagnosis of \"Pure Hypercholesterolemia, unspecified\" and the differential diagnoses. While it includes a narrative assessment, the lack of a structured diagnosis and differential diagnoses materially reduces its clinical usefulness. The addition of hypertension history is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Diagnosis: Pure Hypercholesterolemia, unspecified",
-          "Medical Reasoning: Lifestyle modifications and pharmacologic intervention are warranted",
-          "Differential Diagnosis: Familial hypercholesterolemia",
-          "Differential Diagnosis: Secondary hyperlipidemia (e.g., due to hypothyroidism, but no clinical signs or symptoms suggest this)"
+          "Assessment summary: Patient with a history of hypertension who presents for management of elevated cholesterol.",
+          "Diagnosis: Pure Hypercholesterolemia, unspecified.",
+          "Medical Reasoning: Lifestyle modifications and pharmacologic intervention are warranted.",
+          "Differential Diagnosis: Familial hypercholesterolemia.",
+          "Differential Diagnosis: Secondary hyperlipidemia (e.g., due to hypothyroidism, but no clinical signs or symptoms suggest this)."
         ],
         "additions": [
-          "History of hypertension managed with Lisinopril 10 mg once daily"
+          "History of hypertension managed with Lisinopril 10 mg once daily (moved from GroundTruth Subjective HPI)."
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is largely comprehensive, detailing medication, follow-up, lifestyle modifications, blood work, and patient education. Minor omissions include the oral route and quantity (30 tablets) for Atorvastatin, specific encouragement for consumption of fruits, vegetables, whole grains, and lean proteins, and the explicit mention of patient understanding, agreement, and motivation.",
+        "summary": "The section accurately outlines the core treatment plan, including medication, follow-up, lifestyle modifications, and blood work. However, it omits minor details such as the medication route and quantity, specific encouragement for consuming fruits/vegetables/whole grains/lean proteins, and documentation of patient understanding and motivation.",
         "omissions": [
-          "Medication: oral route for Atorvastatin",
-          "Medication: quantity: 30 tablets for Atorvastatin",
-          "Lifestyle Modifications: Dietary: Encourage consumption of fruits, vegetables, whole grains, and lean proteins",
-          "Patient understanding and agreement with the proposed treatment plan, and motivation to make necessary lifestyle changes"
+          "Medication: \"oral\" route for Atorvastatin.",
+          "Medication: \"quantity: 30 tablets\" for Atorvastatin.",
+          "Lifestyle Modifications - Dietary: Encourage consumption of fruits, vegetables, whole grains, and lean proteins.",
+          "Patient understanding and motivation: \"John Smith understands and agrees with the proposed treatment plan. He is motivated to make the necessary lifestyle changes to improve his health outcomes.\""
         ],
         "additions": []
       }
@@ -369,11 +385,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "History of hypertension managed with Lisinopril 10 mg once daily",
+      "addition_text": "History of hypertension managed with Lisinopril 10 mg once daily (moved from GroundTruth Subjective HPI).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see here that you have a history of hypertension managed with Lisinopril 10 mg once daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has a history of hypertension managed with Lisinopril 10 mg once daily."
+      "matched_claim_text": "The patient has a history of hypertension managed with Lisinopril 10 mg once daily.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

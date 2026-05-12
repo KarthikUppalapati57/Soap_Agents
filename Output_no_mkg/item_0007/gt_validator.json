@@ -280,9 +280,9 @@
     "plan_alignment_score": 0.6296296296296297
   },
   "expert_judge": {
-    "model": "ClinicalDocReviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is largely accurate and clinically usable, with all additions being supported by the transcript. However, it receives a B due to several moderate omissions across the Subjective, Objective, and Plan sections. These include the absence of a structured Review of Systems with specific negative findings, detailed negative cardiovascular and respiratory exam findings, specific components of pending urinalysis results, and crucial medication quantities for both prescribed drugs. While these omissions reduce the completeness of the documentation, they do not introduce misleading information or significantly impair the note's clinical utility.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. It accurately captures the patient's chief complaint, history of present illness, vital signs, physical exam findings, and the core assessment and plan. All additions made by the model are supported by the transcript. However, the note omits several minor details, such as the explicit Review of Systems section with negative findings, specific negative cardiovascular and respiratory exam details, and the Fahrenheit temperature. More significantly, it omits the specific components of the pending urinalysis results and the exact quantities for the prescribed medications, which are important for completeness and prescription accuracy.",
     "omissions": [
       "Patient presents for a routine check-up",
       "Patient able to manage work as an IT consultant",
@@ -313,7 +313,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The History of Present Illness is well-captured. However, the section omits the structured Review of Systems and several specific negative findings for Gastrointestinal, Musculoskeletal, and Neurological systems, which are important for comprehensive documentation.",
+        "summary": "The section effectively captures the chief complaint and history of present illness. However, it omits the explicit Review of Systems section and several specific negative findings for gastrointestinal, musculoskeletal, and neurological systems, as well as the patient's occupation and reason for routine check-up. These are minor omissions that reduce the overall completeness of the subjective information.",
         "omissions": [
           "Patient presents for a routine check-up",
           "Patient able to manage work as an IT consultant",
@@ -327,7 +327,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "Vital signs and positive physical exam findings are accurately reported. However, the note omits specific negative findings for the cardiovascular and respiratory exams (e.g., no murmurs, gallops, rubs; lungs clear bilaterally with no wheezes, rales, or rhonchi) and the detailed components of the pending urinalysis results.",
+        "summary": "The vital signs and physical exam findings are well-documented. Minor omissions include the Fahrenheit temperature and specific negative findings for cardiovascular and respiratory exams (e.g., no murmurs, rales). A moderate omission is the lack of specific details regarding the pending urinalysis results (e.g., leukocyte esterase, nitrites, WBC count, bacteria count), which would provide more comprehensive information about the diagnostic process.",
         "omissions": [
           "Temperature in Fahrenheit (100°F)",
           "Cardiovascular exam: No murmurs, gallops, or rubs",
@@ -340,7 +340,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The assessment accurately reflects the likely diagnosis and the pending status of the urinalysis. The only omission is the minor detail of 'Site Not Specified' for the UTI, which does not impact clinical understanding. All additions in this section are supported by the transcript.",
+        "summary": "This section is well-aligned with the Ground Truth. It accurately reflects the clinical impression and the pending diagnostic step. The only omission is the minor ICD-10 detail 'Site Not Specified' for UTI. All additions in this section are supported by the transcript and enhance clarity.",
         "omissions": [
           "'Site Not Specified' for UTI"
         ],
@@ -352,7 +352,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The plan correctly outlines medication prescriptions, follow-up instructions, and patient education. However, it omits the specific quantities for both Nitrofurantoin and Acetaminophen, which are important details for a complete prescription. All additions in this section are supported by the transcript.",
+        "summary": "The plan outlines the medication, monitoring, patient education, and follow-up instructions clearly. However, it omits specific details regarding the dosage form (e.g., '1 capsule, oral') and, more importantly, the exact quantities for both Nitrofurantoin (14 capsules) and Acetaminophen (20 tablets). These quantity omissions are moderate issues as they are crucial for prescription accuracy and dispensing. All additions in this section are supported by the transcript.",
         "omissions": [
           "Nitrofurantoin: '1 capsule, oral'",
           "Nitrofurantoin: 'Quantity: 14 capsules'",
@@ -375,70 +375,90 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms suggest the possibility of a urinary tract infection."
+      "matched_claim_text": "The patient's symptoms suggest the possibility of a urinary tract infection.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'The diagnosis is pending the results of a urinalysis.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I've ordered a urinalysis, and we're waiting for the results. This will help us determine if there's an infection or any other issue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The diagnosis is pending the results of a urinalysis."
+      "matched_claim_text": "The diagnosis is pending the results of a urinalysis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Nitrofurantoin prescribed 'to treat potential urinary tract infection'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'll prescribe Nitrofurantoin 100 mg, to be taken twice daily for 7 days.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Nitrofurantoin 100 mg twice daily for 7 days to treat potential urinary tract infection."
+      "matched_claim_text": "Prescribe Nitrofurantoin 100 mg twice daily for 7 days to treat potential urinary tract infection.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Advise patient to complete full course of antibiotics 'even if symptoms improve'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Complete the full course of antibiotics even if you start feeling better.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise the patient to complete the full course of antibiotics even if symptoms improve."
+      "matched_claim_text": "Advise the patient to complete the full course of antibiotics even if symptoms improve.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Instruct patient to contact clinic 'immediately' if symptoms worsen or severe symptoms occur",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms worsen or if you experience severe pain, high fever, or blood in your urine, contact the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to contact the clinic immediately if symptoms worsen or if severe pain, high fever, or blood in urine occur."
+      "matched_claim_text": "Instruct the patient to contact the clinic immediately if symptoms worsen or if severe pain, high fever, or blood in urine occur.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'The patient's symptoms suggest the possibility of a urinary tract infection.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms suggest the possibility of a urinary tract infection."
+      "matched_claim_text": "The patient's symptoms suggest the possibility of a urinary tract infection.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'The diagnosis is pending the results of a urinalysis.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I've ordered a urinalysis, and we're waiting for the results. This will help us determine if there's an infection or any other issue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The diagnosis is pending the results of a urinalysis."
+      "matched_claim_text": "The diagnosis is pending the results of a urinalysis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Nitrofurantoin prescribed 'to treat potential urinary tract infection'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'll prescribe Nitrofurantoin 100 mg, to be taken twice daily for 7 days.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Nitrofurantoin 100 mg twice daily for 7 days to treat potential urinary tract infection."
+      "matched_claim_text": "Prescribe Nitrofurantoin 100 mg twice daily for 7 days to treat potential urinary tract infection.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Advise patient to complete full course of antibiotics 'even if symptoms improve'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Complete the full course of antibiotics even if you start feeling better.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise the patient to complete the full course of antibiotics even if symptoms improve."
+      "matched_claim_text": "Advise the patient to complete the full course of antibiotics even if symptoms improve.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instruct patient to contact clinic 'immediately' if symptoms worsen or severe symptoms occur",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms worsen or if you experience severe pain, high fever, or blood in your urine, contact the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to contact the clinic immediately if symptoms worsen or if severe pain, high fever, or blood in urine occur."
+      "matched_claim_text": "Instruct the patient to contact the clinic immediately if symptoms worsen or if severe pain, high fever, or blood in urine occur.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

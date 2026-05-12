@@ -268,96 +268,84 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the main clinical picture and plan. However, it has several minor omissions across all sections, including specific qualifiers for symptoms, details of negative findings in the physical exam, and specific patient education points. There are also a few moderate omissions, such as the detailed impact of symptoms on daily activities in the Subjective section and the differential diagnoses in the Assessment section. No unsupported or unknown additions were identified.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. It accurately captures the core clinical picture from the transcript. However, there are several minor omissions across all sections and a few moderate omissions, particularly the lack of specific differential diagnoses in the Assessment and the explicit mention of 'awaiting results from CBC and PCR test' under the Plan's Investigations/Tests section. No unsupported or unknown additions were found to penalize the grade.",
     "omissions": [
-      "Chief Complaint (CC) section header",
-      "History of Present Illness (HPI) section header",
-      "Review of Systems (ROS) section header",
-      "\"moderate\" qualifier for fatigue in HPI",
-      "\"mild\" qualifier for dry cough in HPI",
-      "Statement that symptoms \"moderately impacted her daily activities\"",
-      "Statement that symptoms made it \"difficult to focus at work\"",
-      "Statement that \"Symptoms are constant for fatigue and sore throat\"",
-      "Constitutional ROS detail: \"no fever reported\"",
-      "Respiratory ROS detail: \"no shortness of breath\"",
-      "ENT ROS details: \"no nasal congestion, or ear pain\"",
-      "Sleep ROS detail: \"waking up frequently at night\"",
-      "General physical exam findings: \"Alert and oriented, appears tired\"",
-      "HEENT exam finding: \"no exudates\"",
-      "Respiratory exam detail: \"to auscultation\" for lungs",
-      "Skin exam finding: \"No new rashes\"",
-      "Neurological exam finding: \"Non-focal\"",
-      "Differential diagnoses (viral pharyngitis, early viral upper respiratory tract infection)",
-      "Medication detail: \"with lisinopril\" for hypertension",
-      "Medication route: \"oral\" for Ibuprofen",
-      "Lifestyle modification: \"avoiding strenuous activities\"",
-      "Lifestyle modification detail: \"as tolerated\" for gentle exercises",
-      "Patient education on \"the importance of attending follow-up appointments and adherence to medical advice\"",
-      "Patient education on \"Provided information about the symptoms\" (general symptoms, beyond just when to seek immediate help for specific severe symptoms)"
+      "Subjective: 'moderate' for fatigue",
+      "Subjective: 'mild' for dry cough",
+      "Subjective: detail 'making it difficult to focus at work' regarding impact on daily activities",
+      "Subjective: ROS Constitutional: 'no fever reported'",
+      "Subjective: ROS Respiratory: 'no shortness of breath'",
+      "Subjective: ROS ENT: 'no nasal congestion, or ear pain'",
+      "Subjective: detail 'waking up frequently at night' regarding disturbed sleep",
+      "Objective: Physical Examination General: 'Alert and oriented, appears tired'",
+      "Objective: Physical Examination HEENT: 'no exudates'",
+      "Objective: Physical Examination Skin: 'No new rashes'",
+      "Objective: Physical Examination Neurological: 'Non-focal'",
+      "Assessment: Differential diagnoses including viral pharyngitis and early viral upper respiratory tract infection",
+      "Assessment: 'with lisinopril' for hypertension",
+      "Plan: 'oral' route for Ibuprofen",
+      "Plan: Investigations/Tests: 'Awaiting results from CBC and PCR test'",
+      "Plan: Lifestyle Modifications: 'avoiding strenuous activities'",
+      "Plan: Lifestyle Modifications: 'as tolerated' for gentle exercises",
+      "Plan: Additional Notes: 'Patient education on the importance of attending follow-up appointments and adherence to medical advice'"
     ],
     "additions": [
-      "\"but finds them only slightly helpful\" for over-the-counter cold medications",
-      "\"to confirm\" for CBC and PCR test results in Assessment"
+      "Subjective: 'but finds them only slightly helpful' regarding over-the-counter cold medications",
+      "Assessment: 'awaiting CBC and PCR test results to confirm' as part of the assessment statement"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly clinically aligned but has several minor and moderate omissions. Minor omissions include qualifiers for fatigue and cough, and details of negative findings in the ROS. Moderate omissions include the constant nature of fatigue and sore throat, and the detailed impact of symptoms on daily activities and work. No unsupported or unknown additions were present.",
+        "summary": "The Subjective section has several minor omissions, including descriptive adjectives like 'moderate' for fatigue and 'mild' for dry cough, and details from the Review of Systems (e.g., 'no fever reported', 'no shortness of breath', 'no nasal congestion, or ear pain'). The omission of 'making it difficult to focus at work' regarding the impact on daily activities is a moderate issue. The addition regarding OTC medication helpfulness was supported by the transcript and did not reduce the grade.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
-          "\"moderate\" qualifier for fatigue",
-          "\"mild\" qualifier for dry cough",
-          "Statement that \"Symptoms are constant for fatigue and sore throat\"",
-          "Statement that symptoms \"moderately impacted her daily activities\"",
-          "Statement that symptoms made it \"difficult to focus at work\"",
-          "Constitutional ROS detail: \"no fever reported\"",
-          "Respiratory ROS detail: \"no shortness of breath\"",
-          "ENT ROS details: \"no nasal congestion, or ear pain\"",
-          "Sleep ROS detail: \"waking up frequently at night\""
+          "'moderate' for fatigue",
+          "'mild' for dry cough",
+          "detail 'making it difficult to focus at work' regarding impact on daily activities",
+          "ROS Constitutional: 'no fever reported'",
+          "ROS Respiratory: 'no shortness of breath'",
+          "ROS ENT: 'no nasal congestion, or ear pain'",
+          "detail 'waking up frequently at night' regarding disturbed sleep"
         ],
         "additions": [
-          "\"but finds them only slightly helpful\" for over-the-counter cold medications"
+          "'but finds them only slightly helpful' regarding over-the-counter cold medications"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is mostly complete, capturing all vital signs and key positive physical exam findings. However, it has several minor omissions, primarily concerning general appearance (alert and oriented, appears tired) and specific negative findings (no exudates, no new rashes, non-focal neurological exam). No unsupported or unknown additions were present.",
+        "grade": "A",
+        "summary": "The Objective section is well-captured. The omissions are all minor, consisting of negative findings or general observations from the physical examination such as 'Alert and oriented, appears tired', 'no exudates', 'No new rashes', and 'Non-focal'.",
         "omissions": [
-          "General physical exam findings: \"Alert and oriented, appears tired\"",
-          "HEENT exam finding: \"no exudates\"",
-          "Respiratory exam detail: \"to auscultation\" for lungs",
-          "Skin exam finding: \"No new rashes\"",
-          "Neurological exam finding: \"Non-focal\""
+          "Physical Examination General: 'Alert and oriented, appears tired'",
+          "Physical Examination HEENT: 'no exudates'",
+          "Physical Examination Skin: 'No new rashes'",
+          "Physical Examination Neurological: 'Non-focal'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section identifies the likely viral infection and comorbid conditions. However, it has a moderate omission by not including the differential diagnoses (viral pharyngitis, early viral upper respiratory tract infection). A minor omission is the specific medication for hypertension. No unsupported or unknown additions were present.",
+        "summary": "The Assessment section has a moderate omission by not including the differential diagnoses of viral pharyngitis and early viral upper respiratory tract infection. The omission of 'with lisinopril' for hypertension is minor. The addition regarding awaiting test results was supported by the transcript and did not reduce the grade.",
         "omissions": [
-          "Differential diagnoses (viral pharyngitis, early viral upper respiratory tract infection)",
-          "Medication detail: \"with lisinopril\" for hypertension"
+          "Differential diagnoses including viral pharyngitis and early viral upper respiratory tract infection",
+          "'with lisinopril' for hypertension"
         ],
         "additions": [
-          "\"to confirm\" for CBC and PCR test results"
+          "'awaiting CBC and PCR test results to confirm' as part of the assessment statement"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is largely comprehensive, outlining medications, follow-up, referrals, and key patient education. It has several minor omissions, including the route of administration for Ibuprofen, specific details for lifestyle modifications (avoiding strenuous activities, 'as tolerated' for exercises), and general patient education points regarding follow-up adherence and general symptom information. No unsupported or unknown additions were present.",
+        "summary": "The Plan section contains several minor omissions, such as the 'oral' route for Ibuprofen, 'avoiding strenuous activities', 'as tolerated' for gentle exercises, and details from additional patient education. The omission of 'Awaiting results from CBC and PCR test' from the Investigations/Tests subsection is a moderate issue, even though the information about awaiting these tests is present in the Assessment section.",
         "omissions": [
-          "Medication route: \"oral\" for Ibuprofen",
-          "Lifestyle modification: \"avoiding strenuous activities\"",
-          "Lifestyle modification detail: \"as tolerated\" for gentle exercises",
-          "Patient education on \"the importance of attending follow-up appointments and adherence to medical advice\"",
-          "Patient education on \"Provided information about the symptoms\" (general symptoms, beyond just when to seek immediate help for specific severe symptoms)"
+          "'oral' route for Ibuprofen",
+          "Investigations/Tests: 'Awaiting results from CBC and PCR test'",
+          "Lifestyle Modifications: 'avoiding strenuous activities'",
+          "Lifestyle Modifications: 'as tolerated' for gentle exercises",
+          "Additional Notes: 'Patient education on the importance of attending follow-up appointments and adherence to medical advice'"
         ],
         "additions": []
       }
@@ -367,25 +355,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"but finds them only slightly helpful\" for over-the-counter cold medications",
+      "addition_text": "Subjective: 'but finds them only slightly helpful' regarding over-the-counter cold medications",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I've been using over-the-counter cold medications occasionally. ... They help a little bit, but not much.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is using over-the-counter cold medications occasionally but finds them only slightly helpful."
+      "matched_claim_text": "The patient is using over-the-counter cold medications occasionally but finds them only slightly helpful.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"to confirm\" for CBC and PCR test results in Assessment",
+      "addition_text": "Assessment: 'awaiting CBC and PCR test results to confirm' as part of the assessment statement",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and the examination, it seems like you might be dealing with a viral infection. We'll need to run some tests to be sure. I'm ordering a complete blood count (CBC) and a PCR test to identify any specific viruses.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely viral infection; awaiting CBC and PCR test results to confirm."
+      "matched_claim_text": "Likely viral infection; awaiting CBC and PCR test results to confirm.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"to confirm\" for CBC and PCR test results",
+      "addition_text": "'but finds them only slightly helpful' regarding over-the-counter cold medications",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I've been using over-the-counter cold medications occasionally. ... They help a little bit, but not much.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient is using over-the-counter cold medications occasionally but finds them only slightly helpful.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'awaiting CBC and PCR test results to confirm' as part of the assessment statement",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and the examination, it seems like you might be dealing with a viral infection. We'll need to run some tests to be sure. I'm ordering a complete blood count (CBC) and a PCR test to identify any specific viruses.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely viral infection; awaiting CBC and PCR test results to confirm."
+      "matched_claim_text": "Likely viral infection; awaiting CBC and PCR test results to confirm.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -176,82 +176,93 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a basic outline of the patient's visit but suffers from multiple moderate omissions and one unsupported addition. Key negative Review of Systems findings are missing from the Subjective section, and an objective finding (lesion size) is incorrectly placed there. The Assessment section lacks critical medical reasoning regarding the precancerous nature of the lesions and the rationale for treatment. The Plan omits an important patient education point about monitoring lesions. These issues collectively make the note meaningfully incomplete in several clinically important areas.",
+    "overall_summary": "The note receives a C due to multiple moderate omissions and one unsupported addition. The Subjective section omitted all negative Review of Systems findings and incorrectly included an objective finding (lesion size). The Assessment section omitted several key aspects of the medical reasoning, including the precancerous nature of the lesions and the need for treatment to prevent progression. The Plan section omitted important patient education regarding monitoring lesions for changes. These issues collectively make the note meaningfully incomplete, requiring caution and review.",
     "omissions": [
-      "Chief Complaint section header",
+      "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
+      "Lesions primarily a cosmetic concern (HPI)",
       "Review of Systems (ROS) section header",
-      "Patient's symptoms are primarily a cosmetic concern",
-      "Review of Systems details (General, Cardiovascular, Musculoskeletal, Neurological)",
+      "ROS: General - No fever, chills, or weight loss",
+      "ROS: Cardiovascular - No chest pain or palpitations",
+      "ROS: Musculoskeletal - No joint pain or swelling",
+      "ROS: Neurological - No headaches or dizziness",
       "Physical Examination section header",
-      "Medical Reasoning: family history of skin cancer",
-      "Medical Reasoning: lesions are typically precancerous",
-      "Medical Reasoning: require treatment to prevent progression to squamous cell carcinoma",
-      "Patient Education: monitor lesions for changes and report new/worsening symptoms",
-      "Referral: None indicated at this time",
-      "Additional Testing: None required at this time",
-      "Patient Agreement: Patient understands and agrees with the recommended treatment plan",
-      "Sub-headers in Plan section (Treatment, Patient Education and Counseling, Follow-up Recommendations)"
+      "\"approximately\" qualifier for lesion size (Objective)",
+      "Medical Reasoning section header (Assessment)",
+      "Reference to \"physical examination findings\" in reasoning (Assessment)",
+      "Reference to \"family history of skin cancer\" in reasoning (Assessment)",
+      "Statement that lesions are typically precancerous (Assessment)",
+      "Statement that lesions require treatment to prevent progression to squamous cell carcinoma (Assessment)",
+      "Treatment section header (Plan)",
+      "\"apply to affected areas\" instruction for the cream (Plan)",
+      "Patient Education and Counseling section header (Plan)",
+      "Advice to monitor lesions for changes and report new/worsening symptoms (Plan)",
+      "Follow-up Recommendations section header (Plan)",
+      "Referral section header and \"None indicated at this time\" (Plan)",
+      "Additional Testing section header and \"None required at this time based on current presentation\" (Plan)",
+      "Patient Agreement section header and \"The patient understands and agrees with the recommended treatment plan\" (Plan)"
     ],
     "additions": [
-      "Lesion size (2-5mm) mentioned in Subjective section (this is an objective finding in GroundTruthSOAP)"
+      "\"2-5mm\" description of the rash in Subjective"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Lesion size (2-5mm) mentioned in Subjective section (this is an objective finding in GroundTruthSOAP)",
-      "Lesion size (2-5mm) mentioned in Subjective (this is an objective finding in GroundTruthSOAP)"
+      "\"2-5mm\" description of the rash in Subjective"
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The section omits several important negative Review of Systems findings (General, Cardiovascular, Musculoskeletal, Neurological) and the patient's statement about symptoms being primarily a cosmetic concern. Additionally, it includes the lesion size (2-5mm), which is an objective finding, as an unsupported addition in the subjective section. These omissions and the misplaced addition reduce the completeness and accuracy of the subjective presentation.",
+        "summary": "The section receives a C due to the omission of all negative Review of Systems findings, which are clinically important for a complete patient picture. Additionally, an objective finding (lesion size) was incorrectly added to this section, which is considered an unsupported addition to Subjective.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
+          "Lesions primarily a cosmetic concern",
           "Review of Systems (ROS) section header",
-          "Patient indicates symptoms are primarily a cosmetic concern",
-          "Review of Systems: General (no fever, chills, or weight loss)",
-          "Review of Systems: Cardiovascular (no chest pain or palpitations)",
-          "Review of Systems: Musculoskeletal (no joint pain or swelling)",
-          "Review of Systems: Neurological (no headaches or dizziness)"
+          "ROS: General - No fever, chills, or weight loss",
+          "ROS: Cardiovascular - No chest pain or palpitations",
+          "ROS: Musculoskeletal - No joint pain or swelling",
+          "ROS: Neurological - No headaches or dizziness"
         ],
         "additions": [
-          "Lesion size (2-5mm) mentioned in Subjective (this is an objective finding in GroundTruthSOAP)"
+          "\"2-5mm\" description of the rash"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The section is largely accurate, with only minor omissions of the 'Physical Examination' header and the specific mention of lesion size (2-5mm), which was correctly an objective finding in the GroundTruth but incorrectly placed in the Subjective section of the generated note.",
+        "summary": "The section receives an A. It accurately captures the key physical examination findings with only minor omissions of a section header and the qualifier \"approximately\" for lesion size.",
         "omissions": [
           "Physical Examination section header",
-          "Lesions are approximately 2-5 mm in size"
+          "\"approximately\" qualifier for lesion size"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The medical reasoning for actinic keratosis is incomplete, omitting crucial details about the lesions being typically precancerous and requiring treatment to prevent progression to squamous cell carcinoma. This significantly reduces the clinical depth and justification of the diagnosis.",
+        "summary": "The section receives a C due to several moderate omissions in the medical reasoning. These include the reference to family history of skin cancer, the statement that lesions are typically precancerous, and the need for treatment to prevent progression to squamous cell carcinoma, making the rationale for diagnosis incomplete.",
         "omissions": [
-          "Medical Reasoning: family history of skin cancer",
-          "Medical Reasoning: lesions are typically precancerous",
-          "Medical Reasoning: require treatment to prevent progression to squamous cell carcinoma"
+          "Medical Reasoning section header",
+          "Reference to \"physical examination findings\" in reasoning",
+          "Reference to \"family history of skin cancer\" in reasoning",
+          "Statement that lesions are typically precancerous",
+          "Statement that lesions require treatment to prevent progression to squamous cell carcinoma"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The plan omits the important patient education instruction to monitor lesions for changes and report new or worsening symptoms. It also omits several minor administrative details such as sub-headers, the absence of referrals, additional testing, and patient agreement.",
+        "grade": "C",
+        "summary": "The section receives a C due to the omission of important patient education regarding monitoring lesions for changes and reporting new or worsening symptoms. Several minor administrative and formatting omissions also contribute to the reduced completeness.",
         "omissions": [
-          "\"Treatment\" sub-header",
-          "\"Patient Education and Counseling\" sub-header",
-          "\"Follow-up Recommendations\" sub-header",
-          "Patient Education: Advised the patient to monitor the lesions for any changes and to report immediately if they notice any new or worsening symptoms",
-          "Referral: None indicated at this time",
-          "Additional Testing: None required at this time based on current presentation",
-          "Patient Agreement: The patient understands and agrees with the recommended treatment plan"
+          "Treatment section header",
+          "\"apply to affected areas\" instruction for the cream",
+          "Patient Education and Counseling section header",
+          "Advice to monitor lesions for changes and report new/worsening symptoms",
+          "Follow-up Recommendations section header",
+          "Referral section header and \"None indicated at this time\"",
+          "Additional Testing section header and \"None required at this time based on current presentation\"",
+          "Patient Agreement section header and \"The patient understands and agrees with the recommended treatment plan\""
         ],
         "additions": []
       }
@@ -261,18 +272,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Lesion size (2-5mm) mentioned in Subjective section (this is an objective finding in GroundTruthSOAP)",
+      "addition_text": "\"2-5mm\" description of the rash in Subjective",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Lesion size (2-5mm) mentioned in Subjective (this is an objective finding in GroundTruthSOAP)",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "\"2-5mm\" description of the rash",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Some of these lesions are about 2-5 mm in size",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -185,7 +185,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, capturing the core clinical picture. However, it includes an unsupported addition in the Subjective section regarding the duration of symptoms, stating '3-month history' which is not supported by the transcript's 'several months'. Additionally, the Assessment section omits 'family history of skin cancer' as a basis for the diagnosis, which was a key piece of reasoning in the Ground Truth. Minor omissions in the ROS details and Plan section do not significantly detract from the note's overall usefulness.",
+    "overall_summary": "The note is mostly clinically aligned and usable. It contains several minor omissions across the Subjective and Plan sections, and a moderate omission in the Assessment section regarding the basis for diagnosis. There is also one minor unsupported addition in the Subjective section.",
     "omissions": [
       "HPI: Symptoms persistent but primarily a cosmetic concern.",
       "ROS: Detailed negative findings for General system (no fever, chills, or weight loss).",
@@ -211,7 +211,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor omissions regarding detailed negative ROS findings, though a supported summary statement ('No other symptoms reported') mitigates this. A moderate issue is the unsupported addition of '3-month history' for symptom duration, which is a factual inaccuracy compared to the transcript's 'several months'.",
+        "summary": "The section omits the patient's statement that symptoms are primarily a cosmetic concern and the detailed negative findings for several systems in the Review of Systems. It also includes an unsupported addition specifying a \"3-month history\" instead of \"several months.\"",
         "omissions": [
           "HPI: Symptoms persistent but primarily a cosmetic concern.",
           "ROS: Detailed negative findings for General system (no fever, chills, or weight loss).",
@@ -227,14 +227,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent with no omissions or unsupported/unknown additions, accurately reflecting the Ground Truth and transcript.",
+        "summary": "The Objective section is complete and accurate with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section has a moderate omission by not including 'family history of skin cancer' as a basis for the diagnosis, which was a significant part of the medical reasoning in the Ground Truth. The diagnosis itself and its implications are correctly stated.",
+        "summary": "The medical reasoning for the diagnosis omits \"physical examination findings\" and \"family history of skin cancer\" as contributing factors.",
         "omissions": [
           "Medical reasoning includes 'physical examination findings' as a basis for diagnosis.",
           "Medical reasoning includes 'family history of skin cancer' as a basis for diagnosis."
@@ -243,8 +243,8 @@
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is strong, with only minor omissions such as the explicit statements for 'no referral' or 'no additional testing' and the patient agreement. These do not materially impact the clinical usefulness or completeness of the treatment plan, education, and follow-up instructions.",
+        "grade": "B",
+        "summary": "The Plan section omits several standard documentation elements, including the instruction to report changes \"immediately,\" the absence of referrals or additional testing, and the patient's agreement with the plan.",
         "omissions": [
           "Instruction to report changes 'immediately'.",
           "Referral: None indicated at this time.",
@@ -263,28 +263,36 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: 'No other symptoms reported' (summary statement for ROS).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, none of that. ... No, I haven't had any chest pain or palpitations. ... No, my joints are fine. ... No, I haven't had any headaches or dizziness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No other symptoms reported"
+      "matched_claim_text": "No other symptoms reported",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "3-month history (more specific than 'several months').",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No other symptoms reported (summary statement for ROS).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, none of that. ... No, I haven't had any chest pain or palpitations. ... No, my joints are fine. ... No, I haven't had any headaches or dizziness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No other symptoms reported"
+      "matched_claim_text": "No other symptoms reported",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

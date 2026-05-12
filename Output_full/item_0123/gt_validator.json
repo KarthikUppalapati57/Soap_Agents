@@ -278,9 +278,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "Expert Clinical Documentation Reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Assessment section where all specific diagnoses are replaced by a narrative summary, materially reducing its clinical usefulness. The Subjective and Plan sections also contain numerous omissions of important details and standard components, making the note meaningfully incomplete. While there are no unsupported or unknown additions, the extent and clinical materiality of the omissions justify a lower overall grade.",
+    "overall_summary": "The generated note has major issues that materially reduce its clinical usefulness, primarily in the Assessment section where all explicit diagnoses are omitted and replaced by a narrative summary. Additionally, the Subjective section is meaningfully incomplete due to the absence of the Chief Complaint and the entire Review of Systems, as well as specific details regarding smoking and alcohol use. While the Objective and Plan sections are more aligned, these critical gaps significantly impact the note's completeness and utility.",
     "omissions": [
       "Chief Complaint section header and content",
       "Specific smoking quantity and duration (one pack of cigarettes daily for the past 30 years)",
@@ -335,7 +335,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the Chief Complaint, specific details regarding smoking and alcohol use (quantity and duration), and the entire Review of Systems section. These are noticeable gaps that make the subjective portion meaningfully incomplete.",
+        "summary": "The Subjective section has noticeable gaps, including the complete omission of the Chief Complaint and the entire Review of Systems. Specific details regarding smoking quantity and duration, and alcohol consumption quantity are also missing, making the section meaningfully incomplete despite capturing the general issues.",
         "omissions": [
           "Chief Complaint section header and content",
           "Specific smoking quantity and duration (one pack of cigarettes daily for the past 30 years)",
@@ -355,7 +355,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly aligned, capturing vital signs and key physical exam findings. However, it omits section headers (Vital Signs, Physical Examination), the patient's general appearance, and specific descriptive details for the cardiovascular, respiratory, and abdominal exams. These are several minor omissions.",
+        "summary": "The Objective section is mostly clinically aligned and usable. It accurately captures vital signs and key physical exam findings. Minor omissions include the general appearance description and some specific details within the cardiovascular, respiratory, and abdominal exams, but these do not significantly detract from the overall usefulness.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -371,7 +371,7 @@
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "This section has major issues. All nine specific diagnoses from the Ground Truth (e.g., Hypertension, Hyperlipidemia, Type 2 Diabetes Mellitus, Tobacco use disorder) are omitted and replaced by a narrative summary. This significantly reduces the clinical usefulness of the assessment for problem tracking, billing, and clear identification of all active diagnoses.",
+        "summary": "The Assessment section has major issues that materially reduce its clinical usefulness. All explicit diagnoses (e.g., Hypertension, Hyperlipidemia, Type 2 Diabetes Mellitus, Insomnia, Obesity, Tobacco use disorder, Alcohol use disorder) are omitted. These are replaced by a narrative summary, which, while supported by the transcript, does not fulfill the requirement of listing the patient's active problems.",
         "omissions": [
           "Assessment diagnosis: Other long term (current) drug therapy",
           "Assessment diagnosis: Hypertension",
@@ -391,8 +391,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions. It lacks specific section headers, the administration route for Rosuvastatin, the specific cardiologist's name, the stated purpose for laboratory tests, specific dietary changes (reduced sodium/cholesterol), specific conditions for patient education, emphasis on medication adherence, and the instruction to monitor blood pressure and weight at each visit. While the core plan is present, these missing details make it less comprehensive and precise.",
+        "grade": "B",
+        "summary": "The Plan section is mostly clinically aligned and clearly usable. It captures all major components of the plan, including medication adjustments, referrals, lab tests, lifestyle modifications, patient education, and follow-up. There are several minor omissions related to specific details (e.g., Rosuvastatin administration route, specific cardiologist name, detailed dietary changes, specific conditions for patient education) and section headers, but the core plan remains intact and actionable.",
         "omissions": [
           "Medication Adjustment section header",
           "Rosuvastatin administration route (oral)",
@@ -423,84 +423,108 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "I haven't been exercising much.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective section: Awaiting lipid panel and liver function test results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've ordered a lipid panel and liver function tests; we’re still waiting on those results.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment narrative: Non-adherence to medications and unhealthy lifestyle choices contribute to the persistent management challenges for chronic conditions",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm having a hard time sticking to my medications and making the lifestyle changes you recommended.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment narrative: Sleep disturbances may impact daily life",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I'm always tired and it's hard to focus.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment narrative: Elevated blood pressure and BMI indicate risks associated with hypertension, hyperlipidemia, and obesity",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is quite elevated, and your BMI indicates obesity. These factors can contribute to your other conditions.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan instruction: Encourage patient to monitor blood pressure and weight at home",
       "supported_by_transcript": "supported",
       "transcript_evidence": "During that time, try to monitor your blood pressure and weight at home. It’s important to keep track of these numbers.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "HPI detail: lack of exercise",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I haven't been exercising much.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Awaiting lipid panel and liver function test results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've ordered a lipid panel and liver function tests; we’re still waiting on those results.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Narrative: Non-adherence to medications and unhealthy lifestyle choices contribute to the persistent management challenges for chronic conditions",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm having a hard time sticking to my medications and making the lifestyle changes you recommended.",
+      "transcript_evidence": "It's been tough, honestly. I'm having a hard time sticking to my medications and making the lifestyle changes you recommended.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Narrative: Sleep disturbances may impact daily life",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I'm always tired and it's hard to focus.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Narrative: Elevated blood pressure and BMI indicate risks associated with hypertension, hyperlipidemia, and obesity",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is quite elevated, and your BMI indicates obesity. These factors can contribute to your other conditions.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instruction: Encourage patient to monitor blood pressure and weight at home",
       "supported_by_transcript": "supported",
       "transcript_evidence": "During that time, try to monitor your blood pressure and weight at home. It’s important to keep track of these numbers.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

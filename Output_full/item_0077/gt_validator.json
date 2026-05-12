@@ -227,62 +227,100 @@
     "plan_alignment_score": 0.6600985221674878
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions, particularly the complete Review of Systems, Patient's Self-Reported Habits and Lifestyle, Medication History, and Medical History sections. While the core HPI, vital signs, physical examination findings, assessment, and plan are present and accurate, these missing sections make the note meaningfully incomplete. All additions in the note are supported by the transcript and do not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note provides a concise summary of the patient's presentation, assessment, and plan. However, it suffers from numerous omissions in the Subjective and Objective sections, including detailed HPI elements, the entire Review of Systems, patient habits and lifestyle, and significant portions of the medical and family history. While all additions are supported by the transcript, the extensive missing information in the initial sections significantly reduces the completeness and clinical utility of the note, requiring a reviewer to consult the transcript for a full understanding of the patient's background.",
     "omissions": [
-      "Patient's occupation involves physical demands",
-      "Denies any new medications or recent infections",
-      "Denies recent changes in weight or appetite",
-      "Review of Systems (ROS) section (Musculoskeletal, Constitutional, Infectious Disease, Psychological)",
-      "Patient’s Self-Reported Habits and Lifestyle section (Sleep, Diet, Exercise, Tobacco Use, Alcohol Consumption, Drug Use, Recreational Activities)",
-      "Medication History section (Current Medications, Allergies)",
-      "Medical History section (Previous Diagnoses, Family Medical History, Chronic Conditions)",
-      "Physical Examination detail: General: Well-nourished, in no acute distress",
-      "Treatment detail: \"oral route\" for Vitamin D3 supplements",
-      "Treatment detail: \"180 tablets\" for Vitamin D3 supplements",
-      "Follow-up detail: Referral to a nutritionist for \"dietary counseling to improve vitamin intake and overall nutrition\"",
-      "Lifestyle Recommendations detail: Advised on the importance of regular exercise \"to improve overall health and well-being\"",
-      "Patient Education detail: Discussed the importance of adhering to the prescribed medication regimen and maintaining follow-up appointments"
+      "Chief Complaint section header",
+      "HPI details: joint pain",
+      "HPI details: pain and fatigue almost daily",
+      "HPI details: occupation involves physical demands",
+      "HPI details: finds it increasingly challenging to perform duties",
+      "HPI details: denies any new medications or recent infections",
+      "HPI details: has not had any recent changes in weight or appetite",
+      "Review of Systems (ROS) section header",
+      "ROS: Musculoskeletal (Positive for moderate muscular pain and joint pain)",
+      "ROS: Constitutional (Positive for general fatigue)",
+      "ROS: Infectious Disease (Increased frequency of infections)",
+      "ROS: Psychological (No signs of depression or anxiety)",
+      "Patient’s Self-Reported Habits and Lifestyle section header",
+      "Habits/Lifestyle: Sleep (5-6 hours per night, often interrupted)",
+      "Habits/Lifestyle: Diet (Low in vitamin-rich foods, high carbohydrate intake)",
+      "Habits/Lifestyle: Exercise (None, sedentary lifestyle)",
+      "Habits/Lifestyle: Tobacco Use (Former smoker, quit 5 years ago)",
+      "Habits/Lifestyle: Alcohol Consumption (Regular drinker, 3-4 drinks per week)",
+      "Habits/Lifestyle: Drug Use (None)",
+      "Habits/Lifestyle: Recreational Activities (Prefers indoor activities like reading and watching TV)",
+      "Medication History section header",
+      "Medication History: Current Medications (Amlodipine, 5 mg daily for hypertension)",
+      "Medication History: Allergies (Penicillin)",
+      "Medical History section header",
+      "Medical History: Previous Diagnoses (Hypertension, diagnosed 3 years ago)",
+      "Medical History: Family Medical History (Father had type 2 diabetes; Mother has osteoarthritis)",
+      "Medical History: Chronic Conditions (Hypertension)",
+      "Physical Examination: General (Well-nourished, in no acute distress)",
+      "Physical Examination: Respiratory (Clear to auscultation bilaterally)",
+      "Plan Treatment details: oral route for Vitamin D3 supplements",
+      "Plan Treatment details: 180 tablets for Vitamin D3 supplements",
+      "Plan Follow-up details: nutritionist referral for dietary counseling to improve vitamin intake and overall nutrition",
+      "Plan Patient Education details: Discussed the importance of adhering to the prescribed medication regimen and maintaining follow-up appointments"
     ],
     "additions": [
-      "Physical examination mentions \"joints\" in addition to \"muscles\" for tenderness/swelling/deformity",
-      "Assessment states Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
-      "Assessment includes patient's hypertension and current medication (Amlodipine 5 mg daily)",
-      "Assessment includes patient's penicillin allergy"
+      "Assessment: Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
+      "Assessment: Patient has hypertension and is currently taking Amlodipine 5 mg daily",
+      "Assessment: Patient is allergic to penicillin"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several moderate omissions, including the entire Review of Systems and Patient’s Self-Reported Habits and Lifestyle sections. Minor details from the HPI, such as the patient's occupation involving physical demands and denials of new medications/infections or weight/appetite changes, are also omitted. These omissions create noticeable gaps in the subjective information.",
+        "summary": "The Subjective section omits a substantial amount of clinically relevant information. Key HPI details such as the daily frequency of pain/fatigue, the patient's physically demanding occupation, and denials of new medications, recent infections, weight, or appetite changes are missing. Furthermore, the entire Review of Systems and Patient's Self-Reported Habits and Lifestyle sections are omitted, leading to significant gaps in the patient's history.",
         "omissions": [
-          "Patient's occupation involves physical demands",
-          "Denies any new medications or recent infections",
-          "Denies recent changes in weight or appetite",
-          "Review of Systems (ROS) section (Musculoskeletal, Constitutional, Infectious Disease, Psychological)",
-          "Patient’s Self-Reported Habits and Lifestyle section (Sleep, Diet, Exercise, Tobacco Use, Alcohol Consumption, Drug Use, Recreational Activities)"
+          "Chief Complaint section header",
+          "HPI details: joint pain",
+          "HPI details: pain and fatigue almost daily",
+          "HPI details: occupation involves physical demands",
+          "HPI details: finds it increasingly challenging to perform duties",
+          "HPI details: denies any new medications or recent infections",
+          "HPI details: has not had any recent changes in weight or appetite",
+          "Review of Systems (ROS) section header",
+          "ROS: Musculoskeletal (Positive for moderate muscular pain and joint pain)",
+          "ROS: Constitutional (Positive for general fatigue)",
+          "ROS: Infectious Disease (Increased frequency of infections)",
+          "ROS: Psychological (No signs of depression or anxiety)",
+          "Patient’s Self-Reported Habits and Lifestyle section header",
+          "Habits/Lifestyle: Sleep (5-6 hours per night, often interrupted)",
+          "Habits/Lifestyle: Diet (Low in vitamin-rich foods, high carbohydrate intake)",
+          "Habits/Lifestyle: Exercise (None, sedentary lifestyle)",
+          "Habits/Lifestyle: Tobacco Use (Former smoker, quit 5 years ago)",
+          "Habits/Lifestyle: Alcohol Consumption (Regular drinker, 3-4 drinks per week)",
+          "Habits/Lifestyle: Drug Use (None)",
+          "Habits/Lifestyle: Recreational Activities (Prefers indoor activities like reading and watching TV)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section omits the entire Medication History and Medical History sections, which are significant gaps. A minor detail from the Physical Examination (General: Well-nourished, in no acute distress) is also missing. The addition regarding 'joints' in the physical examination is supported by the transcript and does not affect the grade.",
+        "summary": "The Objective section has several omissions, particularly in the structured medical history. It lacks details regarding previous diagnoses (including the diagnosis date for hypertension), family medical history, and chronic conditions. While current medications and allergies are present in the Assessment section, their omission from the appropriate Medication History section within Objective represents a structural discrepancy. Minor details from the physical examination are also missing.",
         "omissions": [
-          "Medication History section (Current Medications, Allergies)",
-          "Medical History section (Previous Diagnoses, Family Medical History, Chronic Conditions)",
-          "Physical Examination detail: General: Well-nourished, in no acute distress"
+          "Medication History section header",
+          "Medication History: Current Medications (Amlodipine, 5 mg daily for hypertension)",
+          "Medication History: Allergies (Penicillin)",
+          "Medical History section header",
+          "Medical History: Previous Diagnoses (Hypertension, diagnosed 3 years ago)",
+          "Medical History: Family Medical History (Father had type 2 diabetes; Mother has osteoarthritis)",
+          "Medical History: Chronic Conditions (Hypertension)",
+          "Physical Examination: General (Well-nourished, in no acute distress)",
+          "Physical Examination: Respiratory (Clear to auscultation bilaterally)"
         ],
-        "additions": [
-          "Physical examination mentions \"joints\" in addition to \"muscles\" for tenderness/swelling/deformity"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section accurately captures the Ground Truth assessment. All additions, including the suspected Vitamin D deficiency causing symptoms, the patient's hypertension and medication, and penicillin allergy, are fully supported by the transcript and therefore do not lower the grade. There are no omissions.",
+        "summary": "The Assessment section is excellent. It accurately captures the primary diagnosis and includes relevant patient background information (hypertension, current medication, allergies) that, while omitted from the Objective section, is fully supported by the transcript. There are no omissions or unsupported/unknown additions in this section.",
         "omissions": [],
         "additions": [
           "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
@@ -293,13 +331,12 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section has several minor omissions, mostly concerning specific details or elaborations, such as the 'oral route' and '180 tablets' for Vitamin D3, the specific purpose of nutritionist referral ('dietary counseling to improve vitamin intake and overall nutrition'), the benefit of exercise ('to improve overall health and well-being'), and the importance of adhering to medication and follow-up appointments. However, the core actions of the plan are present, making it mostly clinically aligned and usable.",
+        "summary": "The Plan section is largely complete but has several minor to moderate omissions. It lacks specific details for the Vitamin D3 prescription (oral route, tablet quantity) and the full scope of the nutritionist referral (dietary counseling to improve vitamin intake and overall nutrition). Additionally, the patient education details regarding adherence to the prescribed medication regimen and follow-up appointments are not fully captured.",
         "omissions": [
-          "Treatment detail: \"oral route\" for Vitamin D3 supplements",
-          "Treatment detail: \"180 tablets\" for Vitamin D3 supplements",
-          "Follow-up detail: Referral to a nutritionist for \"dietary counseling to improve vitamin intake and overall nutrition\"",
-          "Lifestyle Recommendations detail: Advised on the importance of regular exercise \"to improve overall health and well-being\"",
-          "Patient Education detail: Discussed the importance of adhering to the prescribed medication regimen and maintaining follow-up appointments"
+          "Treatment details: oral route for Vitamin D3 supplements",
+          "Treatment details: 180 tablets for Vitamin D3 supplements",
+          "Follow-up details: nutritionist referral for dietary counseling to improve vitamin intake and overall nutrition",
+          "Patient Education details: Discussed the importance of adhering to the prescribed medication regimen and maintaining follow-up appointments"
         ],
         "additions": []
       }
@@ -309,53 +346,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Physical examination mentions \"joints\" in addition to \"muscles\" for tenderness/swelling/deformity",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I see there's mild tenderness but no swelling or deformity.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Physical examination shows mild tenderness but no swelling or deformity in the muscles and joints."
-    },
-    {
-      "addition_text": "Assessment states Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
+      "addition_text": "Assessment: Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
       "supported_by_transcript": "supported",
       "transcript_evidence": "This [Vitamin D deficiency] can cause muscular pain...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The Vitamin D deficiency is causing muscular pain."
+      "matched_claim_text": "The Vitamin D deficiency is causing muscular pain.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment includes patient's hypertension and current medication (Amlodipine 5 mg daily)",
+      "addition_text": "Assessment: Patient has hypertension and is currently taking Amlodipine 5 mg daily",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: And you're currently taking Amlodipine, 5 mg daily for that, correct?\n\n[Patient]: Yes, that's right.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is currently taking Amlodipine 5 mg daily."
+      "matched_claim_text": "The patient is currently taking Amlodipine 5 mg daily.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment includes patient's penicillin allergy",
+      "addition_text": "Assessment: Patient is allergic to penicillin",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm allergic to penicillin.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Patient]: I'm allergic to penicillin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient is allergic to penicillin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
       "supported_by_transcript": "supported",
       "transcript_evidence": "This [Vitamin D deficiency] can cause muscular pain...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The Vitamin D deficiency is causing muscular pain."
+      "matched_claim_text": "The Vitamin D deficiency is causing muscular pain.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient has hypertension and is currently taking Amlodipine 5 mg daily",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: And you're currently taking Amlodipine, 5 mg daily for that, correct?\n\n[Patient]: Yes, that's right.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is currently taking Amlodipine 5 mg daily."
+      "matched_claim_text": "The patient is currently taking Amlodipine 5 mg daily.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient is allergic to penicillin",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'm allergic to penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is allergic to penicillin."
+      "matched_claim_text": "The patient is allergic to penicillin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

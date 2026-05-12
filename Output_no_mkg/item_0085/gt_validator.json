@@ -227,9 +227,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides the core clinical information but suffers from numerous omissions across all sections, particularly in the Subjective and Assessment sections. Key details regarding the history of present illness, a complete physical examination, and the medical reasoning for the diagnosis are missing. Important patient education elements in the Plan are also omitted. While there are no unsupported additions, the significant gaps reduce the overall clinical usefulness and completeness of the note, requiring careful review.",
+    "overall_summary": "The generated note captures the core clinical picture but has noticeable gaps in important details and reasoning across multiple sections. While there are no unsupported or unknown additions, several moderate omissions, particularly in the Subjective, Assessment, and Plan sections, reduce the note's completeness and clinical usefulness. Key missing elements include detailed HPI context, medical reasoning for the diagnosis, and crucial patient education regarding medication adherence and safety.",
     "omissions": [
       "Patient's occupation (school teacher)",
       "Duration of throat pain (3-day history)",
@@ -257,8 +257,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has multiple omissions, including important details from the History of Present Illness such as the duration and severity of throat pain, the impact on work, continuous discomfort with swallowing, avoidance of solid foods, and nocturnal exacerbation of pain. Several Review of Systems denials are also missing. These omissions make the HPI less comprehensive and clinically useful.",
+        "grade": "B",
+        "summary": "This section captures the chief complaint and main symptoms but omits several important details from the History of Present Illness, such as the duration and severity of pain, impact on work, and specific discomforts. Additionally, several negative findings from the Review of Systems are missing. While the core is present, these omissions make the HPI less comprehensive.",
         "omissions": [
           "3-day history of moderate throat pain",
           "Symptoms have caused her to miss work for 2 days",
@@ -274,7 +274,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section omits several standard physical examination findings, specifically that the lungs were clear to auscultation, heart sounds were normal without murmurs, and the abdomen was soft, non-tender, and without organomegaly. While key positive findings are present, these omissions make the physical exam documentation less complete.",
+        "summary": "The Objective section accurately includes all vital signs and key positive physical exam findings. However, it omits several important negative findings from the physical exam, such as 'Lungs clear to auscultation,' 'Normal heart sounds, no murmurs,' and 'Abdomen soft, non-tender, no organomegaly.' These are minor omissions but reduce the completeness of the physical examination documentation.",
         "omissions": [
           "Lungs clear to auscultation",
           "Normal heart sounds, no murmurs",
@@ -285,7 +285,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The diagnosis is correctly identified, but the entire medical reasoning for the diagnosis is omitted. This is a significant gap as it removes the clinician's thought process and justification for the diagnosis and subsequent plan, including the consideration of bacterial pharyngitis and the decision to order a throat culture.",
+        "summary": "While the diagnosis of Acute Pharyngitis is correctly identified, the entire medical reasoning for this diagnosis is omitted. This is a moderate to major gap, as the rationale behind the clinical decision-making is a critical component of a comprehensive assessment. The absence of this reasoning makes the note less informative for understanding the clinician's thought process.",
         "omissions": [
           "Medical Reasoning: Patient presents with classic symptoms of acute pharyngitis, including sore throat, fever, and tonsillar exudates. Given her symptoms and lack of chronic conditions, bacterial pharyngitis (e.g., streptococcal infection) is considered."
         ],
@@ -293,8 +293,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section omits important patient education details, specifically the importance of completing the full course of antibiotics and advice on potential medication side effects and when to seek medical attention. The patient's agreement with the plan is also missing. While the core treatment and follow-up instructions are present, these omissions reduce the completeness of patient counseling. The addition of 'Notify the patient once throat culture results are available' is supported by the transcript and does not reduce the grade.",
+        "grade": "C",
+        "summary": "The Plan section outlines the main treatment and follow-up, but it has several moderate omissions. Crucial patient education points, such as the importance of completing the full course of antibiotics and advice on potential medication side effects and when to seek medical attention, are missing. The specific quantity of medication and documentation of patient understanding/agreement are also omitted. The single addition is supported by the transcript and does not impact the grade.",
         "omissions": [
           "Amoxicillin (20 tablets)",
           "Explained the importance of completing the full course of antibiotics",
@@ -315,7 +315,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'll let you know as soon as we have the throat culture results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Notify the patient once throat culture results are available."
+      "matched_claim_text": "Notify the patient once throat culture results are available.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

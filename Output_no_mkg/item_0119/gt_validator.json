@@ -310,9 +310,9 @@
     "plan_alignment_score": 0.5432098765432098
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness. The most critical issue is the complete absence of the primary assessment, \"Chronic lower back pain with right leg numbness,\" in the Assessment section, which only lists differential diagnoses. Additionally, the Plan section omits specific medication names and dosages for the patient's chronic conditions, as well as important patient education details and confirmation of patient understanding and agreement. The Subjective and Objective sections also contain several moderate omissions regarding the impact of pain on daily activities and specific physical examination findings. There are no unsupported or unknown additions.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is broadly usable but has noticeable gaps, particularly the omission of the primary problem statement (\"Chronic lower back pain with right leg numbness\") in the Assessment section, which is a major issue. Other moderate omissions include details on the pain's impact on daily activities and the patient's diabetes history in Subjective, tenderness in Objective, and specific medication names and dosages in the Plan. Minor omissions also contribute to a less complete clinical picture. All additions were supported by the transcript and did not reduce the grade.",
     "omissions": [
       "HPI: Pain impacts ability to climb stairs and walk long distances",
       "HPI: Pain significantly affecting daily activities",
@@ -340,7 +340,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The section omits important details about the impact of the patient's pain on daily activities, including difficulty climbing stairs and walking long distances. It also misses the patient's history of well-managed Type 2 Diabetes in the Review of Systems.",
+        "summary": "The Subjective section omits important details regarding the impact of the patient's pain on daily activities (climbing stairs, walking long distances) and the fact that the pain significantly affects daily activities. It also omits the patient's history of well-managed Type 2 Diabetes from the ROS and a minor detail about denying cough.",
         "omissions": [
           "HPI: Pain impacts ability to climb stairs and walk long distances",
           "HPI: Pain significantly affecting daily activities",
@@ -352,7 +352,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The section omits the finding of tenderness over the lumbar region. While limited range of motion is mentioned, the specific limitation in flexion and extension is not detailed. The description of the antalgic gait also lacks the detail of favoring the right leg.",
+        "summary": "The Objective section omits the finding of tenderness over the lumbar region. It also lacks the specific details that the limited range of motion was in \"flexion and extension\" and that the antalgic gait was \"favoring the right leg.\"",
         "omissions": [
           "Physical Exam: Tenderness over the lumbar region",
           "Physical Exam: Limited range of motion in flexion and extension of the lumbar spine",
@@ -362,8 +362,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The section critically omits the primary assessment of \"Chronic lower back pain with right leg numbness,\" only listing differential diagnoses. This is a major issue that significantly reduces the clinical usefulness of the note.",
+        "grade": "C",
+        "summary": "The Assessment section omits the primary problem statement of \"Chronic lower back pain with right leg numbness.\" While it lists differential diagnoses, the core assessment of the patient's condition is missing.",
         "omissions": [
           "Chronic lower back pain with right leg numbness"
         ],
@@ -373,8 +373,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The section omits specific medication names and dosages for hypertension and diabetes, which is a major issue for continuity of care. It also misses important patient education regarding proper posture and avoiding heavy lifting/sudden movements, as well as the patient's explicit agreement with the treatment plan. Minor details about the purpose of the MRI and the specific reason for the orthopedic referral are also missing.",
+        "grade": "B",
+        "summary": "The Plan section omits specific medication names and dosages for the patient's current hypertension and diabetes medications. It also lacks the specific rationale for the MRI (\"to rule out any structural causes\") and the orthopedic referral (\"due to suspected lumbar radiculopathy\"). Additionally, specific patient education points regarding proper posture, avoiding heavy lifting and sudden movements, and the patient's agreement with the plan are omitted.",
         "omissions": [
           "Diagnostic Evaluation: MRI to rule out any structural causes",
           "Referrals: Orthopedic specialist referral due to suspected lumbar radiculopathy",
@@ -399,56 +399,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: What can we do to figure out what it is? [Doctor]: We’ll start with an MRI of your lumbar spine to rule out any structural causes. I’m also going to refer you to an Orthopedic Specialist, Dr. John Smith, for further evaluation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further investigations are necessary."
+      "matched_claim_text": "Further investigations are necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Orthopedic specialist for comprehensive assessment and treatment plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m also going to refer you to an Orthopedic Specialist, Dr. John Smith, for further evaluation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "A referral to an Orthopedic Specialist, Dr. John Smith, will be made for comprehensive assessment and treatment plan."
+      "matched_claim_text": "A referral to an Orthopedic Specialist, Dr. John Smith, will be made for comprehensive assessment and treatment plan.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Encourage adherence to the exercise regimen recommended by the therapist",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’ll prescribe physical therapy to help strengthen your back and improve mobility. It’s crucial to follow through with the exercises they recommend.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Reevaluate medication needs based on MRI results and treatment plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For now, continue your current medications for hypertension and diabetes. We’ll focus on physical therapy and the MRI results before considering any new medications.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient should maintain current medications for hypertension and diabetes, and medication needs will be reevaluated based on MRI results and the treatment plan."
+      "matched_claim_text": "The patient should maintain current medications for hypertension and diabetes, and medication needs will be reevaluated based on MRI results and the treatment plan.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Further investigations are necessary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: What can we do to figure out what it is? [Doctor]: We’ll start with an MRI of your lumbar spine to rule out any structural causes. I’m also going to refer you to an Orthopedic Specialist, Dr. John Smith, for further evaluation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further investigations are necessary."
+      "matched_claim_text": "Further investigations are necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Orthopedic specialist for comprehensive assessment and treatment plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m also going to refer you to an Orthopedic Specialist, Dr. John Smith, for further evaluation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "A referral to an Orthopedic Specialist, Dr. John Smith, will be made for comprehensive assessment and treatment plan."
+      "matched_claim_text": "A referral to an Orthopedic Specialist, Dr. John Smith, will be made for comprehensive assessment and treatment plan.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Encourage adherence to the exercise regimen recommended by the therapist",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ll prescribe physical therapy to help strengthen your back and improve mobility. It’s crucial to follow through with the exercises they recommend.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Physical therapy will be prescribed for strengthening the back and improving mobility, with encouragement for adherence to the exercise regimen."
+      "matched_claim_text": "Physical therapy will be prescribed for strengthening the back and improving mobility, with encouragement for adherence to the exercise regimen.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Reevaluate medication needs based on MRI results and treatment plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For now, continue your current medications for hypertension and diabetes. We’ll focus on physical therapy and the MRI results before considering any new medications.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient should maintain current medications for hypertension and diabetes, and medication needs will be reevaluated based on MRI results and the treatment plan."
+      "matched_claim_text": "The patient should maintain current medications for hypertension and diabetes, and medication needs will be reevaluated based on MRI results and the treatment plan.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

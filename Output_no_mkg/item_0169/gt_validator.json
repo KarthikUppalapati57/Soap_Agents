@@ -220,115 +220,86 @@
     "plan_alignment_score": 0.7844827586206897
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note accurately captures most subjective and objective findings, and the treatment plan is largely complete. However, the Assessment section has a major omission by failing to include the patient's existing diagnosis of hypertension and its current management, which significantly reduces the clinical usefulness and completeness of the note. All additions were supported by the transcript and did not impact the grade.",
+    "overall_summary": "The generated note suffers from a major omission in the Assessment section, failing to include the secondary diagnosis of Hypertension and its current management with Lisinopril. This significantly impacts the clinical usefulness and completeness of the documentation. Additionally, the entire Review of Systems section is missing from the Subjective, and important patient education details regarding medication adherence and side effects are omitted from the Plan. While the primary diagnosis and plan for hyperlipidemia are well-captured, these substantial gaps warrant a lower grade.",
     "omissions": [
-      "Chief Complaint section header",
-      "History of Present Illness section header",
-      "Review of Systems section header",
-      "\"Chronic\" nature of dizziness and headaches",
-      "\"Follow-up visit\" context",
-      "Patient's profession (IT professional)",
-      "Structured Review of Systems details (General, Cardiovascular, Respiratory, Gastrointestinal, Neurological, Musculoskeletal)",
-      "Vital Signs section header",
-      "Physical Exam section header",
-      "Cardiovascular exam finding: \"Regular rate and rhythm, no murmurs or gallops\"",
-      "Gastrointestinal exam status: \"Not assessed during this visit\"",
-      "Neurological exam status: \"Not assessed during this visit\"",
-      "Musculoskeletal exam status: \"Not assessed during this visit\"",
-      "Lab Results section header",
-      "\"Comprehensive Lipid Panel\" detail",
-      "Primary Diagnosis label",
-      "Secondary Diagnoses label",
-      "Hypertension diagnosis",
-      "Detail that hypertension is controlled with Lisinopril 10mg OD",
-      "\"unspecified\" qualifier for hyperlipidemia diagnosis",
-      "Medications section header",
-      "\"oral\" route of administration for Atorvastatin",
-      "Indication for Atorvastatin: \"for the management of hyperlipidemia\"",
-      "Lifestyle Recommendations section header",
-      "Sub-headers for Physical Activity, Diet, Tobacco Use, Alcohol Consumption under Lifestyle Recommendations",
-      "Patient Education section header",
-      "Discussion of importance of medication adherence for hypertension and hyperlipidemia",
-      "Instruction to review potential side effects of Atorvastatin",
-      "Instruction on when to contact clinic regarding Atorvastatin side effects",
-      "Referrals section header",
-      "Follow-up section header",
-      "Instruction to adjust treatment plan based on follow-up results",
-      "Instructions section header"
+      "Chief Complaint section",
+      "HPI detail 'follow-up visit'",
+      "HPI detail 'chronic dizziness and headaches'",
+      "HPI detail 'mild interference with his work performance as an IT professional'",
+      "Entire Review of Systems section (General, Cardiovascular, Respiratory, Gastrointestinal, Neurological, Musculoskeletal findings)",
+      "Physical Exam detail 'Cardiovascular: Regular rate and rhythm, no murmurs or gallops'",
+      "Physical Exam detail 'Gastrointestinal: Not assessed during this visit'",
+      "Physical Exam detail 'Neurological: Not assessed during this visit'",
+      "Physical Exam detail 'Musculoskeletal: Not assessed during this visit'",
+      "Specific name of lab panel 'Comprehensive Lipid Panel'",
+      "Assessment primary diagnosis detail 'unspecified' for hyperlipidemia",
+      "Assessment secondary diagnosis 'Hypertension (controlled with Lisinopril 10mg OD)'",
+      "Plan medication route 'oral' for Atorvastatin",
+      "Plan medication indication 'for the management of hyperlipidemia'",
+      "Plan patient education on 'importance of medication adherence, particularly for controlling hypertension and hyperlipidemia'",
+      "Plan patient education on 'review potential side effects of Atorvastatin'",
+      "Plan follow-up instruction to 'Adjust treatment plan as necessary based on follow-up results'"
     ],
     "additions": [
-      "\"Dizziness and headaches persist for the past two years\" in Assessment section",
-      "\"detected based on lab results\" for hyperlipidemia in Assessment section"
+      "Objective: Parenthetical diagnosis of 'hyperlipidemia' within the lab results description",
+      "Assessment: Listing 'Dizziness and headaches persist for the past two years' as an assessment item",
+      "Assessment: Detail 'detected based on lab results' for hyperlipidemia"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section accurately captures the chief complaint and key aspects of the HPI, including symptom duration, frequency, severity, and impact on work. However, it omits the structured Review of Systems details and some minor contextual information like the 'chronic' nature of symptoms (though implied) and the 'follow-up visit' context.",
+        "summary": "The Subjective section omits the Chief Complaint as a distinct section and several minor HPI details. The most significant omission is the entire Review of Systems section, which, despite containing mostly negative findings, is a standard and expected part of a comprehensive subjective note. This represents a moderate gap in documentation.",
         "omissions": [
-          "Chief Complaint section header",
-          "History of Present Illness section header",
-          "Review of Systems section header",
-          "\"Chronic\" nature of dizziness and headaches",
-          "\"Follow-up visit\" context",
-          "Patient's profession (IT professional)",
-          "Structured Review of Systems details (General, Cardiovascular, Respiratory, Gastrointestinal, Neurological, Musculoskeletal)"
+          "Chief Complaint section",
+          "HPI detail 'follow-up visit'",
+          "HPI detail 'chronic dizziness and headaches'",
+          "HPI detail 'mild interference with his work performance as an IT professional'",
+          "Entire Review of Systems section (General, Cardiovascular, Respiratory, Gastrointestinal, Neurological, Musculoskeletal findings)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports vital signs and lab results. However, it omits specific cardiovascular exam findings (regular rate and rhythm, no murmurs or gallops) and the explicit documentation that gastrointestinal, neurological, and musculoskeletal exams were 'not assessed during this visit'.",
+        "summary": "The Objective section omits specific details from the cardiovascular physical exam, such as 'regular rate and rhythm, no murmurs or gallops,' which is a moderate omission. It also omits the explicit documentation that Gastrointestinal, Neurological, and Musculoskeletal exams were 'Not assessed during this visit,' which are minor but important for completeness. The specific name of the lab panel was also omitted.",
         "omissions": [
-          "Vital Signs section header",
-          "Physical Exam section header",
-          "Cardiovascular exam finding: \"Regular rate and rhythm, no murmurs or gallops\"",
-          "Gastrointestinal exam status: \"Not assessed during this visit\"",
-          "Neurological exam status: \"Not assessed during this visit\"",
-          "Musculoskeletal exam status: \"Not assessed during this visit\"",
-          "Lab Results section header",
-          "\"Comprehensive Lipid Panel\" detail"
+          "Physical Exam detail 'Cardiovascular: Regular rate and rhythm, no murmurs or gallops'",
+          "Physical Exam detail 'Gastrointestinal: Not assessed during this visit'",
+          "Physical Exam detail 'Neurological: Not assessed during this visit'",
+          "Physical Exam detail 'Musculoskeletal: Not assessed during this visit'",
+          "Specific name of lab panel 'Comprehensive Lipid Panel'"
         ],
-        "additions": []
+        "additions": [
+          "Parenthetical diagnosis of 'hyperlipidemia' within the lab results description"
+        ]
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section has a major clinical omission by completely failing to include the patient's secondary diagnosis of hypertension and the detail that it is controlled with Lisinopril 10mg OD. This significantly impacts the clinical usefulness and completeness of the note. The additions in this section were supported by the transcript and did not affect the grade.",
+        "summary": "The Assessment section has a major omission: the secondary diagnosis of 'Hypertension (controlled with Lisinopril 10mg OD).' This is a critical piece of the patient's medical history and current management that is completely missing, materially reducing the clinical usefulness and completeness of the assessment. The omission of 'unspecified' for hyperlipidemia is minor.",
         "omissions": [
-          "Primary Diagnosis label",
-          "Secondary Diagnoses label",
-          "Hypertension diagnosis",
-          "Detail that hypertension is controlled with Lisinopril 10mg OD",
-          "\"unspecified\" qualifier for hyperlipidemia diagnosis"
+          "Primary diagnosis detail 'unspecified' for hyperlipidemia",
+          "Secondary diagnosis 'Hypertension (controlled with Lisinopril 10mg OD)'"
         ],
         "additions": [
-          "\"Dizziness and headaches persist for the past two years\"",
-          "\"detected based on lab results\" for hyperlipidemia"
+          "Listing 'Dizziness and headaches persist for the past two years' as an assessment item",
+          "Detail 'detected based on lab results' for hyperlipidemia"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is largely complete, accurately detailing medication initiation, lifestyle recommendations, referral, and follow-up instructions. Minor omissions include the 'oral' route for Atorvastatin, the explicit indication for the medication, and some specific patient education points regarding medication adherence for both hypertension and hyperlipidemia, and explicit review of potential side effects.",
+        "grade": "C",
+        "summary": "The Plan section omits important patient education details regarding medication adherence (particularly for controlling hypertension and hyperlipidemia) and reviewing potential side effects of the new medication, Atorvastatin. These are moderate omissions that impact patient safety and understanding. Other omissions, such as medication route and indication, are minor.",
         "omissions": [
-          "Medications section header",
-          "\"oral\" route of administration for Atorvastatin",
-          "Indication for Atorvastatin: \"for the management of hyperlipidemia\"",
-          "Lifestyle Recommendations section header",
-          "Sub-headers for Physical Activity, Diet, Tobacco Use, Alcohol Consumption under Lifestyle Recommendations",
-          "Patient Education section header",
-          "Discussion of importance of medication adherence for hypertension and hyperlipidemia",
-          "Instruction to review potential side effects of Atorvastatin",
-          "Instruction on when to contact clinic regarding Atorvastatin side effects",
-          "Referrals section header",
-          "Follow-up section header",
-          "Instruction to adjust treatment plan based on follow-up results",
-          "Instructions section header"
+          "Medication route 'oral' for Atorvastatin",
+          "Medication indication 'for the management of hyperlipidemia'",
+          "Patient education on 'importance of medication adherence, particularly for controlling hypertension and hyperlipidemia'",
+          "Patient education on 'review potential side effects of Atorvastatin'",
+          "Follow-up instruction to 'Adjust treatment plan as necessary based on follow-up results'"
         ],
         "additions": []
       }
@@ -338,32 +309,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"Dizziness and headaches persist for the past two years\" in Assessment section",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I’ve been experiencing dizziness about once a week and headaches twice a week for the past two years.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Dizziness and headaches persist for the past two years"
-    },
-    {
-      "addition_text": "\"detected based on lab results\" for hyperlipidemia in Assessment section",
+      "addition_text": "Objective: Parenthetical diagnosis of 'hyperlipidemia' within the lab results description",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I noticed from your lab results that your lipid panel shows elevated total cholesterol, elevated LDL, low HDL, and elevated triglycerides. ... Hyperlipidemia can increase your risk for cardiovascular diseases.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hyperlipidemia detected based on lab results"
+      "matched_claim_text": "Hyperlipidemia detected based on lab results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Dizziness and headaches persist for the past two years\"",
+      "addition_text": "Assessment: Listing 'Dizziness and headaches persist for the past two years' as an assessment item",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I’ve been experiencing dizziness about once a week and headaches twice a week for the past two years.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Dizziness and headaches persist for the past two years"
+      "matched_claim_text": "Dizziness and headaches persist for the past two years",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"detected based on lab results\" for hyperlipidemia",
+      "addition_text": "Assessment: Detail 'detected based on lab results' for hyperlipidemia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I noticed from your lab results that your lipid panel shows elevated total cholesterol, elevated LDL, low HDL, and elevated triglycerides. ... Hyperlipidemia can increase your risk for cardiovascular diseases.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hyperlipidemia detected based on lab results"
+      "matched_claim_text": "Hyperlipidemia detected based on lab results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Parenthetical diagnosis of 'hyperlipidemia' within the lab results description",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I noticed from your lab results that your lipid panel shows elevated total cholesterol, elevated LDL, low HDL, and elevated triglycerides. ... Hyperlipidemia can increase your risk for cardiovascular diseases.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Hyperlipidemia detected based on lab results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Listing 'Dizziness and headaches persist for the past two years' as an assessment item",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I’ve been experiencing dizziness about once a week and headaches twice a week for the past two years.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Dizziness and headaches persist for the past two years",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Detail 'detected based on lab results' for hyperlipidemia",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I noticed from your lab results that your lipid panel shows elevated total cholesterol, elevated LDL, low HDL, and elevated triglycerides. ... Hyperlipidemia can increase your risk for cardiovascular diseases.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Hyperlipidemia detected based on lab results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

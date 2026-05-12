@@ -229,9 +229,9 @@
     "plan_alignment_score": 0.7320261437908497
   },
   "expert_judge": {
-    "model": "Clinical Documentation Grader",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps due to multiple moderate omissions across the Subjective and Plan sections. Key details such as the chronicity of the condition, frequency of symptoms, adherence to physical therapy, important negative findings from the ROS and labs, a specific referral to a specialist, and documentation of patient agreement are missing. While the note is usable, these omissions make it meaningfully incomplete and require caution and review.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, with no unsupported or unknown additions. However, it omits several minor details across the Subjective and Plan sections, including the 5-year history of osteoarthritis and the specific referral to an orthopedic surgeon. Despite these omissions, the core clinical content and treatment plan are well-captured, making the note clearly usable.",
     "omissions": [
       "5-year history of right knee osteoarthritis",
       "Symptoms are daily",
@@ -250,7 +250,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several moderate omissions, including the 5-year history of osteoarthritis, daily symptom frequency, performance of physical therapy 3 times a week, and the negative neurological review of systems (no numbness, tingling, or weakness). Minor omissions include high health literacy and good general health. These omissions reduce the completeness of the HPI and ROS.",
+        "summary": "The Subjective section has several minor omissions, such as the frequency of physical therapy and health literacy, and one moderate omission regarding the 5-year history of osteoarthritis, which reduces the completeness of the HPI.",
         "omissions": [
           "5-year history of right knee osteoarthritis",
           "Symptoms are daily",
@@ -263,8 +263,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has one moderate omission: the normal findings for CBC and BMP. The rest of the physical exam and investigation results are accurately captured.",
+        "grade": "A",
+        "summary": "This section is largely complete, with only a minor omission of specific blood work (CBC and BMP) being within normal limits, though elevated cholesterol was noted.",
         "omissions": [
           "CBC and BMP within normal limits"
         ],
@@ -273,14 +273,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete with no omissions or unsupported/unknown additions.",
+        "summary": "This section is perfectly aligned with the Ground Truth, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions, including the specific referral to Dr. John Smith, Orthopedic Surgeon, and the entire Patient Agreements section, which documents the patient's understanding and agreement with the plan. A minor omission is the route of administration for Meloxicam (oral). The omission of the specific referral is a significant gap in care coordination.",
+        "grade": "B",
+        "summary": "The Plan section has a moderate omission of the specific referral to Dr. John Smith, Orthopedic Surgeon, and minor omissions regarding the oral route for Meloxicam and the patient agreement statement. While the MRI is mentioned, the explicit referral detail is missing, making the plan slightly less comprehensive.",
         "omissions": [
           "Route of administration for Meloxicam (oral)",
           "Referral to Dr. John Smith, Orthopedic Surgeon",

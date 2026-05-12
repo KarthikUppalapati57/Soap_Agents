@@ -213,7 +213,7 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the patient's chief complaint, history, objective findings, assessment, and core treatment plan. A significant strength is that all additions are supported by the transcript, meaning no unsupported or unknown additions negatively impact the grade. However, the note has several omissions, particularly in the Subjective section, where the Chief Complaint section is entirely missing, along with important details regarding symptom severity, impact on daily life, and family history. Moderate omissions also exist in the Objective section (urine culture status) and Plan section (diabetes dietary adjustments, patient agreement). Despite these gaps, the note remains clinically useful.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. All additions are supported by the transcript and therefore do not negatively impact the grade. However, the note has several omissions, particularly in the Subjective and Objective sections. The Subjective section omits details such as the patient's constant discomfort, the impact of symptoms on work, and family history of UTIs and diabetes, along with some minor ROS details. The Objective section omits the genitourinary examination findings and the crucial detail that urine culture results are awaiting. Despite these omissions, the core clinical picture, assessment, and plan are well-captured, making the note broadly useful.",
     "omissions": [
       "Chief Complaint section",
       "Patient's constant discomfort and significant pain during urination",
@@ -237,8 +237,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has noticeable gaps that make it meaningfully incomplete. Key omissions include the entire Chief Complaint section, details about the patient's constant discomfort and significant pain during urination, the impact of symptoms on her ability to concentrate at work, and her mother's family history of recurrent UTIs and diabetes. Several minor ROS details (Gastrointestinal, Musculoskeletal, Lifestyle) are also omitted. While the core HPI is present, these omissions reduce the completeness and clinical context of the subjective account.",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete but has several omissions. It misses the Chief Complaint section header, details about the patient's constant discomfort and the impact of symptoms on her ability to concentrate at work, and the family history of recurrent UTIs and diabetes. Minor ROS details regarding gastrointestinal, musculoskeletal, and lifestyle (sedentary job, moderate health literacy) were also omitted. No unsupported additions were present.",
         "omissions": [
           "Chief Complaint section",
           "Patient's constant discomfort and significant pain during urination",
@@ -254,7 +254,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned and clearly usable. It accurately captures vital signs, the key abdominal examination finding, and urinalysis results. The only omissions are the minor detail of 'no external abnormalities' during the genitourinary examination and the moderately important status of 'awaiting urine culture results for antibiotic sensitivity'.",
+        "summary": "The Objective section is largely accurate but has two omissions. It misses the genitourinary examination finding of 'no external abnormalities detected' and the important context that 'urine culture results are awaiting for antibiotic sensitivity.' No unsupported additions were present.",
         "omissions": [
           "Genitourinary Examination findings (no external abnormalities)",
           "Awaiting urine culture results for antibiotic sensitivity"
@@ -264,7 +264,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is excellent, capturing all major clinically important Ground Truth content. There are no omissions. All additions, such as the reasoning for the UTI diagnosis and the patient's Penicillin allergy, are fully supported by the transcript and therefore do not reduce the grade.",
+        "summary": "The Assessment section is excellent. It accurately captures the diagnosis and includes additional information (reasoning for UTI diagnosis and penicillin allergy) that is fully supported by the transcript. There are no omissions or unsupported additions.",
         "omissions": [],
         "additions": [
           "Reasoning for UTI diagnosis (\"Likely... based on symptoms and urinalysis results\")",
@@ -273,8 +273,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section is mostly clinically aligned and clearly usable. It accurately includes the prescribed medication, lifestyle changes, and follow-up instructions. All additions, such as the instruction to contact the provider if symptoms worsen, are supported by the transcript. However, there are moderate omissions, specifically the patient education regarding 'dietary adjustments to manage diabetes' and the crucial documentation of 'patient agreement with the treatment plan and understanding of instructions'.",
+        "grade": "A",
+        "summary": "The Plan section is very strong. It includes all major components of the treatment plan. The only omissions are minor details regarding 'dietary adjustments to manage diabetes' and the 'patient agreement with treatment plan and understanding of instructions.' The addition regarding contacting the provider for worsening symptoms is supported by the transcript. No unsupported additions were present.",
         "omissions": [
           "Dietary adjustments to manage diabetes",
           "Patient agreement with treatment plan and understanding of instructions"
@@ -293,42 +293,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely urinary tract infection (UTI) based on symptoms and urinalysis results"
+      "matched_claim_text": "Likely urinary tract infection (UTI) based on symptoms and urinalysis results",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Allergy to Penicillin",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I'm allergic to Penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Allergy to Penicillin"
+      "matched_claim_text": "Allergy to Penicillin",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Instruction to contact healthcare provider if symptoms worsen or there are any concerns",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Contact the healthcare provider if symptoms worsen or there are any concerns"
+      "matched_claim_text": "Contact the healthcare provider if symptoms worsen or there are any concerns",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Reasoning for UTI diagnosis (\"Likely... based on symptoms and urinalysis results\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely urinary tract infection (UTI) based on symptoms and urinalysis results"
+      "matched_claim_text": "Likely urinary tract infection (UTI) based on symptoms and urinalysis results",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Allergy to Penicillin",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I'm allergic to Penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Allergy to Penicillin"
+      "matched_claim_text": "Allergy to Penicillin",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instruction to contact healthcare provider if symptoms worsen or there are any concerns",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Contact the healthcare provider if symptoms worsen or there are any concerns"
+      "matched_claim_text": "Contact the healthcare provider if symptoms worsen or there are any concerns",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

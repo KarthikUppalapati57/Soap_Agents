@@ -276,84 +276,107 @@
     "plan_alignment_score": 0.6949152542372883
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical_reviewer_model",
     "overall_grade": "C",
-    "overall_summary": "The generated note accurately captures the patient's chief complaint, history of present illness, vital signs, physical examination findings, and primary diagnosis. All additions were supported by the transcript. However, the note has several moderate omissions, including the complete differential diagnosis list, specific medication quantities and dosage for Albuterol, and the explicit discussion of medication side effects and adherence. Additionally, the detailed Review of Systems breakdown and many section headers are missing, making the note structurally incomplete and reducing the overall completeness and detail expected in a clinical document.",
+    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Subjective and Assessment sections. Key omissions include the entire Review of Systems and the Differential Diagnosis list, which significantly reduce the note's completeness and clinical reasoning. While there are no unsupported or unknown additions, the cumulative effect of these major omissions, along with several minor details missing in the Plan, warrants a C grade.",
     "omissions": [
-      "Chief Complaint (CC) section header",
-      "History of Present Illness (HPI) section header",
-      "Patient presents to urgent care center",
-      "Review of Systems (ROS) section header",
-      "Detailed Review of Systems breakdown (Constitutional, Respiratory, Gastrointestinal, Cardiovascular, Musculoskeletal, Neurological, Allergic/Immunologic systems)",
+      "Chief Complaint section header",
+      "History of Present Illness section header",
+      "Review of Systems (ROS) section",
+      "Vital Signs section header",
       "Physical Examination section header",
-      "Differential Diagnosis section header",
-      "Differential Diagnoses: Viral upper respiratory infection, Asthma exacerbation, GERD-related cough",
-      "Clarithromycin quantity (14 tablets)",
-      "Albuterol Inhaler dosage (90 mcg)",
-      "Albuterol Inhaler quantity (1 inhaler)",
-      "Discussion of potential side effects of medications and importance of adherence",
+      "Diagnosis section header",
+      "Differential Diagnosis section",
+      "Pharmacological Treatment section header",
+      "Lifestyle and Supportive Care section header",
+      "Follow-Up Recommendations section header",
+      "Educational Points section header",
+      "Advice on Lifestyle Changes section header",
+      "Patient Education and Counseling section header",
       "Investigations Ordered section header",
-      "Explicit 'Investigations Ordered: Sputum culture to rule out bacterial infection' as a distinct section in Plan"
+      "\"Unspecified\" for Acute Bronchitis",
+      "Denies sputum production",
+      "Constitutional: feeling generally tired",
+      "Gastrointestinal: No nausea, vomiting, or diarrhea",
+      "Cardiovascular: No chest pain, palpitations",
+      "Musculoskeletal: No joint pain or muscle aches",
+      "Neurological: No headaches, dizziness, or changes in mental status",
+      "Allergic/Immunologic: No recent exposure to known allergens, denies new medication use other than prescribed",
+      "Heart: Regular rate and rhythm",
+      "Viral upper respiratory infection (from Differential Diagnosis)",
+      "Asthma exacerbation (from Differential Diagnosis)",
+      "GERD-related cough (from Differential Diagnosis)",
+      "Clarithromycin quantity: 14 tablets",
+      "Albuterol Inhaler dosage strength: 90 mcg",
+      "Albuterol Inhaler quantity: 1 inhaler",
+      "Avoid strenuous activities",
+      "Discussed potential side effects of medications prescribed and the importance of adherence",
+      "Sputum culture to rule out bacterial infection (as an item under Plan/Investigations Ordered)"
     ],
     "additions": [
-      "\"No signs of strep throat\" in Assessment",
-      "\"Pending sputum culture results to rule out bacterial infection\" in Assessment"
+      "Heart sounds are normal (in Objective)",
+      "Pending sputum culture results to rule out bacterial infection (in Assessment)",
+      "No signs of strep throat (in Assessment)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section accurately summarizes the patient's chief complaint and history of present illness. However, it omits the structured Chief Complaint, HPI, and ROS section headers, and critically, the detailed Review of Systems breakdown, which means negative findings for several systems are not documented. This is a moderate omission affecting completeness.",
+        "grade": "C",
+        "summary": "The Subjective section omits the entire Review of Systems, which includes important negative findings across multiple body systems. It also misses the explicit statement \"denies sputum production\" and section headers for Chief Complaint and History of Present Illness. These omissions make the section meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "History of Present Illness (HPI) section header",
-          "Patient presents to urgent care center",
-          "Review of Systems (ROS) section header",
-          "Detailed Review of Systems breakdown (Constitutional, Respiratory, Gastrointestinal, Cardiovascular, Musculoskeletal, Neurological, Allergic/Immunologic systems)"
+          "Chief Complaint section header",
+          "History of Present Illness section header",
+          "Denies sputum production",
+          "Review of Systems (ROS) section (including all its sub-points: Constitutional: feeling generally tired; Gastrointestinal: No nausea, vomiting, or diarrhea; Cardiovascular: No chest pain, palpitations; Musculoskeletal: No joint pain or muscle aches; Neurological: No headaches, dizziness, or changes in mental status; Allergic/Immunologic: No recent exposure to known allergens, denies new medication use other than prescribed)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures all vital signs and physical examination findings. The only omissions are the Vital Signs and Physical Examination section headers, which are minor structural issues and do not impact clinical content.",
+        "summary": "The Objective section is well-aligned with the Ground Truth. Omissions are limited to section headers for Vital Signs and Physical Examination, and the specific phrase \"Regular rate and rhythm\" for heart sounds, which is adequately covered by the supported addition \"Heart sounds are normal\". There are no unsupported or unknown additions.",
         "omissions": [
           "Vital Signs section header",
-          "Physical Examination section header"
+          "Physical Examination section header",
+          "Heart: Regular rate and rhythm"
         ],
-        "additions": []
+        "additions": [
+          "Heart sounds are normal"
+        ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section correctly identifies Acute Bronchitis as the diagnosis and includes the pending sputum culture results, which was a supported addition. However, it completely omits the Differential Diagnosis section header and the list of differential diagnoses (Viral upper respiratory infection, Asthma exacerbation, GERD-related cough), which is a moderate clinical omission.",
+        "grade": "C",
+        "summary": "The Assessment section omits the entire Differential Diagnosis list, which is a significant gap in clinical reasoning. It also misses the \"Unspecified\" qualifier for Acute Bronchitis and the Diagnosis section header. There are no unsupported or unknown additions.",
         "omissions": [
-          "Differential Diagnosis section header",
-          "Differential Diagnoses: Viral upper respiratory infection, Asthma exacerbation, GERD-related cough"
+          "Diagnosis section header",
+          "\"Unspecified\" for Acute Bronchitis",
+          "Differential Diagnosis section (including: Viral upper respiratory infection, Asthma exacerbation, GERD-related cough)"
         ],
         "additions": [
-          "\"Pending sputum culture results to rule out bacterial infection\"",
-          "\"No signs of strep throat\""
+          "Pending sputum culture results to rule out bacterial infection",
+          "No signs of strep throat"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section includes all major treatment components, lifestyle advice, follow-up recommendations, and educational points. However, it omits specific medication details such as the quantity of Clarithromycin (14 tablets) and the dosage (90 mcg) and quantity (1 inhaler) for Albuterol. It also misses the explicit discussion of potential medication side effects and the importance of adherence. Numerous section headers are also omitted. These omissions represent multiple moderate issues that reduce the note's completeness and detail.",
+        "grade": "B",
+        "summary": "The Plan section omits several minor details such as specific medication quantities (e.g., 14 tablets for Clarithromycin, 90 mcg strength and 1 inhaler for Albuterol), the instruction to \"avoid strenuous activities,\" and explicit documentation of discussing medication side effects and adherence. It also misses the formal listing of \"Sputum culture to rule out bacterial infection\" as an ordered investigation within the Plan, although the pending status is mentioned in the Assessment. Numerous section headers are also omitted. There are no unsupported or unknown additions.",
         "omissions": [
           "Pharmacological Treatment section header",
-          "Clarithromycin quantity (14 tablets)",
-          "Albuterol Inhaler dosage (90 mcg)",
-          "Albuterol Inhaler quantity (1 inhaler)",
+          "Clarithromycin quantity: 14 tablets",
+          "Albuterol Inhaler dosage strength: 90 mcg",
+          "Albuterol Inhaler quantity: 1 inhaler",
           "Lifestyle and Supportive Care section header",
+          "Avoid strenuous activities",
           "Follow-Up Recommendations section header",
           "Educational Points section header",
           "Advice on Lifestyle Changes section header",
           "Patient Education and Counseling section header",
-          "Discussion of potential side effects of medications prescribed and the importance of adherence",
+          "Discussed potential side effects of medications prescribed and the importance of adherence",
           "Investigations Ordered section header",
-          "Explicit 'Sputum culture to rule out bacterial infection' as a distinct section"
+          "Sputum culture to rule out bacterial infection (as an item under Plan/Investigations Ordered)"
         ],
         "additions": []
       }
@@ -363,32 +386,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"No signs of strep throat\" in Assessment",
+      "addition_text": "Heart sounds are normal (in Objective)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "it doesn't look like a strep throat.",
+      "transcript_evidence": "Your heart sounds are good—regular rate and rhythm, no murmurs.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No signs of strep throat."
+      "matched_claim_text": "Heart sounds are normal with no murmurs.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Pending sputum culture results to rule out bacterial infection\" in Assessment",
+      "addition_text": "Pending sputum culture results to rule out bacterial infection (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We're still waiting on the sputum culture results to rule out a bacterial infection",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending sputum culture results to rule out bacterial infection."
+      "matched_claim_text": "Pending sputum culture results to rule out bacterial infection.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Pending sputum culture results to rule out bacterial infection\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We're still waiting on the sputum culture results to rule out a bacterial infection",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending sputum culture results to rule out bacterial infection."
-    },
-    {
-      "addition_text": "\"No signs of strep throat\"",
+      "addition_text": "No signs of strep throat (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "it doesn't look like a strep throat.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No signs of strep throat."
+      "matched_claim_text": "No signs of strep throat.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Heart sounds are normal",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your heart sounds are good—regular rate and rhythm, no murmurs.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Heart sounds are normal with no murmurs.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pending sputum culture results to rule out bacterial infection",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We're still waiting on the sputum culture results to rule out a bacterial infection",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pending sputum culture results to rule out bacterial infection.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "No signs of strep throat",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "it doesn't look like a strep throat.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No signs of strep throat.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

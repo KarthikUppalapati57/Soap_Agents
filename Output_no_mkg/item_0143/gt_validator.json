@@ -264,9 +264,9 @@
     "plan_alignment_score": 0.6454545454545455
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical-documentation-reviewer-expert",
     "overall_grade": "D",
-    "overall_summary": "The generated note has major omissions that materially reduce its clinical usefulness. Most notably, the 'Tobacco Use Disorder' diagnosis and its medical reasoning are entirely absent from the Assessment section, despite being a critical component of the patient's health. The detailed smoking history was also omitted from the Subjective HPI. Additionally, important physical examination findings and specific details in the medical reasoning for other diagnoses and patient education in the plan were missed, making the note meaningfully incomplete.",
+    "overall_summary": "The generated note has major omissions that significantly reduce its clinical usefulness and completeness. Most critically, the entire diagnosis of 'Tobacco Use Disorder' and its medical reasoning are absent from the Assessment section, despite the patient's extensive smoking history. The patient's 40-pack-year smoking history is also omitted from the HPI. Additionally, there are multiple moderate omissions across all sections, including specific clinical findings in the Objective section, detailed medical reasoning in the Assessment, and comprehensive patient education and a specific referral in the Plan.",
     "omissions": [
       "Patient's smoking history (one pack per day for 40 years)",
       "Tobacco Use Disorder diagnosis and its medical reasoning",
@@ -301,7 +301,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of the patient's detailed smoking history (one pack per day for 40 years) from the HPI, which is a crucial piece of clinical context. Several denials from the Review of Systems were also omitted, making the section less comprehensive. The addition of 'Weakness' is supported by the transcript and does not impact the grade.",
+        "summary": "The Subjective section has a major omission of the patient's 40-year, one-pack-per-day smoking history, which is critical for context. It also omits the specific duration of the cough (5 months) and several minor denials from the Review of Systems.",
         "omissions": [
           "HPI: Severe cough",
           "HPI: Cough duration of 5 months",
@@ -319,8 +319,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned but has several moderate omissions. Key physical examination findings such as the patient's general appearance ('thin, cachectic woman appearing older than stated age') and the observation of 'use of accessory muscles' were missed. A minor detail regarding organomegaly was also omitted.",
+        "grade": "C",
+        "summary": "The Objective section omits important descriptive details about the patient's general appearance ('thin, cachectic woman appearing older than stated age') and a key respiratory finding ('use of accessory muscles observed'), which is clinically relevant for COPD. A minor abdominal finding ('no organomegaly') is also missing.",
         "omissions": [
           "General Appearance: Thin, cachectic woman appearing older than stated age",
           "Respiratory: Use of accessory muscles observed",
@@ -331,7 +331,7 @@
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "This section contains a major issue that materially reduces its clinical usefulness: the complete omission of the 'Tobacco Use Disorder' diagnosis and its associated medical reasoning. This is a primary diagnosis directly relevant to the patient's condition. Additionally, specific details in the medical reasoning for COPD (dyspnea, use of accessory muscles) and Poor Nutritional Status (irregular diet, food desert) were omitted, further impacting the completeness of the diagnostic rationale.",
+        "summary": "The Assessment section critically omits the entire diagnosis of 'Tobacco Use Disorder' and its supporting medical reasoning, despite the patient's significant smoking history. It also misses specific details in the medical reasoning for COPD (dyspnea, use of accessory muscles) and Poor Nutritional Status (irregular diet, food desert area).",
         "omissions": [
           "Tobacco Use Disorder diagnosis",
           "Medical reasoning for Tobacco Use Disorder (current heavy smoker with 40 pack-year history, contributed to respiratory symptoms and poor health)",
@@ -344,8 +344,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned and usable, capturing the core treatments and referrals. However, it has several minor omissions related to patient education for COPD and Tobacco Use Disorder (e.g., explaining diagnosis, importance of adherence, health benefits of quitting). A specific referral to Dr. John Smith, a Pulmonology specialist for smoking cessation, was also omitted, which is a moderate issue.",
+        "grade": "C",
+        "summary": "The Plan section omits several important details regarding patient education for COPD (explained diagnosis, chronic nature, medication adherence, lifestyle changes) and Tobacco Use Disorder (strongly advised to quit, discussed health benefits/risks). A specific referral to Dr. John Smith, a Pulmonology specialist, for smoking cessation is also missing, along with specific advice for nutritional status.",
         "omissions": [
           "COPD Patient Education: Explained diagnosis and chronic nature",
           "COPD Patient Education: Discussed importance of medication adherence and lifestyle changes",
@@ -367,14 +367,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "I feel so weak.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Weakness (as a separate bullet point)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I feel so weak.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

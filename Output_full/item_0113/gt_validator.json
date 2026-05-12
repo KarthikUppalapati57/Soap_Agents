@@ -267,89 +267,83 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the primary diagnosis, treatment plan, and key objective findings. However, it has several minor omissions, particularly in the Subjective section regarding HPI details and ROS denials, and in the Objective section regarding specific physical exam findings. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_grade": "A",
+    "overall_summary": "The generated SOAP note is highly accurate and clinically usable, capturing all major clinically important content from the Ground Truth. While there are several minor to moderate omissions, particularly in the detailed description of the History of Present Illness, these do not significantly detract from the note's overall utility. Crucially, there are no unsupported or unknown additions, indicating excellent alignment with the transcript and preventing the introduction of misleading clinical information.",
     "omissions": [
-      "Patient's symptoms duration (past 2 weeks)",
-      "Patient occasionally needing to sit or lie down during palpitations",
-      "Patient's symptoms rated as 'moderate severity'",
-      "Denial of fever, chills, and weight loss (ROS General)",
-      "Denial of nausea or vomiting (ROS Gastrointestinal)",
-      "Denial of chest pain or discomfort (ROS Musculoskeletal)",
-      "Physical exam finding: General appearance 'Alert and oriented, no acute distress'",
-      "Physical exam finding: Cardiovascular 'Apical impulse not displaced'",
-      "Physical exam finding: Cardiovascular 'S1 and S2 present'",
-      "Physical exam finding: Cardiovascular 'no murmurs, gallops, or rubs'",
-      "Physical exam finding: Respiratory 'Clear to auscultation bilaterally'",
-      "Physical exam finding: Respiratory 'no wheezes, rales, or rhonchi'",
-      "Physical exam finding: Abdomen 'no hepatosplenomegaly'",
-      "Assessment detail for Hyperthyroidism: '(less likely given no other suggestive features)'",
-      "Medication detail: 'oral' route",
-      "Medication detail: '30 tablets' quantity",
-      "Medication detail: 'with one refill'"
+      "HPI: duration of palpitations (past 2 weeks)",
+      "HPI: needing to sit or lie down during palpitations episodes",
+      "HPI: moderate severity of symptoms",
+      "ROS: Denies fever, chills, and weight loss",
+      "ROS: No nausea or vomiting",
+      "ROS: Denies chest pain or discomfort",
+      "Objective Vitals: Heart rate described as 'regular'",
+      "Objective Physical Exam: General appearance 'Alert and oriented, no acute distress'",
+      "Objective Physical Exam: Cardiovascular finding 'Apical impulse not displaced'",
+      "Objective Physical Exam: Abdomen finding 'no hepatosplenomegaly'",
+      "Assessment: Differential diagnosis detail for Hyperthyroidism ('less likely given no other suggestive features')",
+      "Plan Medication: Route of administration 'oral'",
+      "Plan Medication: Quantity '30 tablets'",
+      "Plan Medication: Refill information 'with one refill'"
     ],
     "additions": [
-      "Subjective mention of patient being treated for hypertension and hyperlipidemia",
-      "Assessment statement: 'Given the patient's known hypertension and hyperlipidemia, these conditions should be considered in the treatment plan.'",
-      "Medication reason: 'to manage symptoms and regulate heart rate'",
-      "Lifestyle modification examples: 'like yoga or meditation' for stress management"
+      "Subjective: Patient is currently being treated for hypertension and hyperlipidemia",
+      "Assessment: Statement about considering hypertension and hyperlipidemia in the treatment plan",
+      "Plan Medication: Purpose of Metoprolol ('to manage symptoms and regulate heart rate')",
+      "Plan Lifestyle Modifications: Specific examples for stress management techniques ('like yoga or meditation')"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main HPI details but omits the duration of symptoms (past 2 weeks), the patient occasionally needing to sit or lie down, and the moderate severity rating. It also omits several denials from the Review of Systems (fever, chills, weight loss; nausea, vomiting; chest pain, discomfort). These are minor to moderate omissions that reduce the completeness of the HPI and ROS.",
+        "summary": "The Subjective section is mostly accurate but has several omissions. Key details regarding the duration of palpitations ('past 2 weeks'), the patient needing to sit or lie down during episodes, and the moderate severity rating of symptoms were omitted from the HPI. Additionally, several negative Review of Systems findings (denial of fever, chills, weight loss, nausea, vomiting, chest pain) were not included. However, the core chief complaint and associated symptoms are well-captured, and there are no unsupported additions.",
         "omissions": [
-          "Patient's symptoms duration (past 2 weeks)",
-          "Patient occasionally needing to sit or lie down during palpitations",
-          "Patient's symptoms rated as 'moderate severity'",
-          "Denial of fever, chills, and weight loss (ROS General)",
-          "Denial of nausea or vomiting (ROS Gastrointestinal)",
-          "Denial of chest pain or discomfort (ROS Musculoskeletal)"
+          "HPI: duration of palpitations (past 2 weeks)",
+          "HPI: needing to sit or lie down during palpitations episodes",
+          "HPI: moderate severity of symptoms",
+          "ROS: Denies fever, chills, and weight loss",
+          "ROS: No nausea or vomiting",
+          "ROS: Denies chest pain or discomfort"
         ],
         "additions": [
-          "Mention of patient being treated for hypertension and hyperlipidemia"
+          "Patient is currently being treated for hypertension and hyperlipidemia"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section accurately reports vital signs and general physical exam findings. However, it omits several specific physical exam details, including the general appearance ('Alert and oriented, no acute distress'), specific cardiovascular findings ('Apical impulse not displaced', 'S1 and S2 present', 'no murmurs, gallops, or rubs'), respiratory findings ('Clear to auscultation bilaterally', 'no wheezes, rales, or rhonchi'), and an abdominal finding ('no hepatosplenomegaly'). While numerous, these are mostly minor details that do not fundamentally alter the overall objective picture.",
+        "grade": "A",
+        "summary": "The Objective section is well-represented with only minor omissions. Specific details such as the heart rate being described as 'regular', the general appearance being 'Alert and oriented, no acute distress', and specific physical exam findings like 'Apical impulse not displaced' and 'no hepatosplenomegaly' were not included. The main vital signs and physical exam findings are accurately reported, and there are no unsupported additions.",
         "omissions": [
-          "Physical exam finding: General appearance 'Alert and oriented, no acute distress'",
-          "Physical exam finding: Cardiovascular 'Apical impulse not displaced'",
-          "Physical exam finding: Cardiovascular 'S1 and S2 present'",
-          "Physical exam finding: Cardiovascular 'no murmurs, gallops, or rubs'",
-          "Physical exam finding: Respiratory 'Clear to auscultation bilaterally'",
-          "Physical exam finding: Respiratory 'no wheezes, rales, or rhonchi'",
-          "Physical exam finding: Abdomen 'no hepatosplenomegaly'"
+          "Vitals: Heart rate described as 'regular'",
+          "Physical Exam: General appearance 'Alert and oriented, no acute distress'",
+          "Physical Exam: Cardiovascular finding 'Apical impulse not displaced'",
+          "Physical Exam: Abdomen finding 'no hepatosplenomegaly'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is strong, accurately identifying the primary diagnosis and differential diagnoses. The only omission is a minor detail regarding hyperthyroidism being 'less likely given no other suggestive features.' All additions were supported by the transcript.",
+        "summary": "The Assessment section is highly accurate with only one minor omission: the clarifying detail that hyperthyroidism was 'less likely given no other suggestive features' was not included in the differential diagnoses. The primary diagnosis and other differential diagnoses are correctly identified, and there are no unsupported additions.",
         "omissions": [
-          "Differential Diagnosis detail for Hyperthyroidism: '(less likely given no other suggestive features)'"
+          "Differential diagnosis detail for Hyperthyroidism ('less likely given no other suggestive features')"
         ],
         "additions": [
-          "Statement: 'Given the patient's known hypertension and hyperlipidemia, these conditions should be considered in the treatment plan.'"
+          "Statement about considering hypertension and hyperlipidemia in the treatment plan"
         ]
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is comprehensive, covering investigations, medication, lifestyle modifications, follow-up, and patient education. The only omissions are minor administrative details for the medication: the 'oral' route, '30 tablets' quantity, and 'one refill'. All additions were supported by the transcript.",
+        "summary": "The Plan section is comprehensive and accurate. The omissions are minor prescription-related details, specifically the route of administration ('oral'), quantity ('30 tablets'), and refill information ('with one refill') for Metoprolol. All major components of the plan, including investigations, medication, lifestyle modifications, follow-up, and patient education, are correctly captured. There are no unsupported additions.",
         "omissions": [
-          "Medication detail: 'oral' route",
-          "Medication detail: '30 tablets' quantity",
-          "Medication detail: 'with one refill'"
+          "Medication: Route of administration 'oral'",
+          "Medication: Quantity '30 tablets'",
+          "Medication: Refill information 'with one refill'"
         ],
         "additions": [
-          "Medication reason: 'to manage symptoms and regulate heart rate'",
-          "Lifestyle modification examples: 'like yoga or meditation' for stress management"
+          "Medication: Purpose of Metoprolol ('to manage symptoms and regulate heart rate')",
+          "Lifestyle Modifications: Specific examples for stress management techniques ('like yoga or meditation')"
         ]
       }
     ],
@@ -358,46 +352,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective mention of patient being treated for hypertension and hyperlipidemia",
+      "addition_text": "Subjective: Patient is currently being treated for hypertension and hyperlipidemia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Well, I do have hypertension and hyperlipidemia. I've been on medication for those. ... [patient] I think they're under control. I take my medications as prescribed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has known hypertension and hyperlipidemia, for which they take medication and believe are under control."
+      "matched_claim_text": "Patient has known hypertension and hyperlipidemia, for which they take medication and believe are under control.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment statement: 'Given the patient's known hypertension and hyperlipidemia, these conditions should be considered in the treatment plan.'",
+      "addition_text": "Assessment: Statement about considering hypertension and hyperlipidemia in the treatment plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We also need to consider your hypertension and hyperlipidemia in our treatment plan.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension and hyperlipidemia should be considered in the treatment plan."
+      "matched_claim_text": "Hypertension and hyperlipidemia should be considered in the treatment plan.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Medication reason: 'to manage symptoms and regulate heart rate'",
+      "addition_text": "Plan Medication: Purpose of Metoprolol ('to manage symptoms and regulate heart rate')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] For now, I'll prescribe Metoprolol 50 mg twice daily to help manage your symptoms. It should help regulate your heart rate.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Medication prescribed: Metoprolol 50 mg twice daily to manage symptoms and regulate heart rate."
+      "matched_claim_text": "Medication prescribed: Metoprolol 50 mg twice daily to manage symptoms and regulate heart rate.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Lifestyle modification examples: 'like yoga or meditation' for stress management",
+      "addition_text": "Plan Lifestyle Modifications: Specific examples for stress management techniques ('like yoga or meditation')",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Stress management techniques like yoga or meditation can also help.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] In addition, I recommend some lifestyle modifications. Regular, moderate exercise can be beneficial. Stress management techniques like yoga or meditation can also help. A balanced diet low in sodium and saturated fats is important, as well as staying hydrated and getting proper sleep.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Lifestyle modifications recommended: regular moderate exercise, stress management (yoga/meditation), balanced diet (low sodium/saturated fats), hydration, and proper sleep.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Mention of patient being treated for hypertension and hyperlipidemia",
+      "addition_text": "Patient is currently being treated for hypertension and hyperlipidemia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Well, I do have hypertension and hyperlipidemia. I've been on medication for those. ... [patient] I think they're under control. I take my medications as prescribed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has known hypertension and hyperlipidemia, for which they take medication and believe are under control."
+      "matched_claim_text": "Patient has known hypertension and hyperlipidemia, for which they take medication and believe are under control.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement: 'Given the patient's known hypertension and hyperlipidemia, these conditions should be considered in the treatment plan.'",
+      "addition_text": "Statement about considering hypertension and hyperlipidemia in the treatment plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We also need to consider your hypertension and hyperlipidemia in our treatment plan.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension and hyperlipidemia should be considered in the treatment plan."
+      "matched_claim_text": "Hypertension and hyperlipidemia should be considered in the treatment plan.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Medication: Purpose of Metoprolol ('to manage symptoms and regulate heart rate')",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] For now, I'll prescribe Metoprolol 50 mg twice daily to help manage your symptoms. It should help regulate your heart rate.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Medication prescribed: Metoprolol 50 mg twice daily to manage symptoms and regulate heart rate.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle Modifications: Specific examples for stress management techniques ('like yoga or meditation')",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] In addition, I recommend some lifestyle modifications. Regular, moderate exercise can be beneficial. Stress management techniques like yoga or meditation can also help. A balanced diet low in sodium and saturated fats is important, as well as staying hydrated and getting proper sleep.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Lifestyle modifications recommended: regular moderate exercise, stress management (yoga/meditation), balanced diet (low sodium/saturated fats), hydration, and proper sleep.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

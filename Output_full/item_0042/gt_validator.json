@@ -205,9 +205,9 @@
     "plan_alignment_score": 0.5053763440860214
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Subjective section. Key omissions include the Chief Complaint, specific details regarding diet, exercise, social history, and a structured Review of Systems. While other sections are stronger, the incompleteness of the Subjective section makes the note meaningfully incomplete, requiring careful review. There are no unsupported or unknown additions that would lower the grade.",
+    "overall_summary": "The generated note provides a clinically usable summary but has noticeable gaps, particularly in the Subjective section. Multiple moderate omissions include details on symptom severity, diet, exercise habits, sleep quality, and social history. The Assessment section also omits the formal diagnosis of \"Obesity, unspecified.\" However, there are no penalizable unsupported or unknown additions.",
     "omissions": [
       "Chief Complaint: Obesity and associated symptoms",
       "HPI detail: moderate severity, with daily occurrences of symptoms",
@@ -240,7 +240,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has noticeable gaps. It omits the Chief Complaint, several important HPI details such as the moderate severity and daily occurrence of symptoms, the patient's ability to manage desk job tasks, specific diet and exercise habits, sleep quality (unrefreshed upon waking), and comprehensive social history (tobacco, alcohol, drug use, gardening limitations). Additionally, the ROS section header and specific denials for respiratory and gastrointestinal systems are missing. These omissions make the Subjective section meaningfully incomplete.",
+        "summary": "The Subjective section has several moderate omissions, including specific details about symptom severity and daily occurrence, the patient's irregular diet high in starchy foods, infrequent exercise habits, unrefreshing sleep despite 8 hours, and a complete social history (tobacco, alcohol, drug use). Minor omissions include the ability to manage desk job tasks, enjoyment of gardening, and specific negative ROS findings for respiratory and gastrointestinal systems.",
         "omissions": [
           "Chief Complaint: Obesity and associated symptoms",
           "HPI detail: moderate severity, with daily occurrences of symptoms",
@@ -259,7 +259,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is strong, with only one minor omission: the general appearance details (No acute distress, overweight, alert). All other clinically important objective findings are captured.",
+        "summary": "The Objective section is largely complete, with only a minor omission of the \"General Appearance\" details (no acute distress, overweight, alert).",
         "omissions": [
           "General Appearance: No acute distress, overweight, alert"
         ],
@@ -268,7 +268,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned but omits the formal diagnosis of \"Obesity, unspecified.\" The generated note describes the patient's obesity contributing to symptoms, but lacks the specific diagnostic phrasing. There are no unsupported or unknown additions.",
+        "summary": "The Assessment section omits the formal diagnosis of \"Obesity, unspecified.\" However, the core assessment linking obesity to fatigue and lower extremity edema is present. There are no penalizable additions.",
         "omissions": [
           "formal diagnosis \"Obesity, unspecified\""
         ],
@@ -279,7 +279,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section captures all major plan items but has several minor omissions. These include the specific reason for the physical therapy referral, the specialist's title, and the referring doctor's name. It also omits the explicit purpose of the biochemistry panel (to assess metabolic status) and important patient context regarding motivation, residence, health literacy, and the pending status of follow-up results. There are no unsupported or unknown additions.",
+        "summary": "The Plan section is comprehensive regarding the main interventions. Omissions are minor and include specific details about the reason for the physical therapy referral, the specialist's name (Dr. Emily Johnson), the explicit purpose of the biochemistry panel (to assess metabolic status), and patient contextual information such as motivation, living environment, and health literacy. There are no penalizable additions.",
         "omissions": [
           "Reason for PT referral: To improve physical capacity and manage obesity",
           "Specialist for PT referral: Physical Therapist",
@@ -304,28 +304,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you experience any shortness of breath or cough?\n[Patient]: No, I haven't had any issues with my breathing.\n[Doctor]: How about any changes in your bowel habits or any nausea and vomiting?\n[Patient]: No, my bowel habits are normal, and I haven't had any nausea or vomiting.\n[Doctor]: Any other musculoskeletal issues?\n[Patient]: Not really, just the difficulty with activities because of my weight.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No other significant medical issues were reported during the conversation."
+      "matched_claim_text": "No other significant medical issues were reported during the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"Follow-up appointment in two weeks to discuss progress and review biochemistry panel results.\" (specific timing for follow-up to review results)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Let's set up a follow-up appointment in two weeks to discuss your progress and review the results of the biochemistry panel.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "A follow-up appointment is scheduled in two weeks to discuss progress and review biochemistry panel results."
+      "matched_claim_text": "A follow-up appointment is scheduled in two weeks to discuss progress and review biochemistry panel results.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"No other significant medical issues were reported during the conversation.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you experience any shortness of breath or cough?\n[Patient]: No, I haven't had any issues with my breathing.\n[Doctor]: How about any changes in your bowel habits or any nausea and vomiting?\n[Patient]: No, my bowel habits are normal, and I haven't had any nausea or vomiting.\n[Doctor]: Any other musculoskeletal issues?\n[Patient]: Not really, just the difficulty with activities because of my weight.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No other significant medical issues were reported during the conversation."
+      "matched_claim_text": "No other significant medical issues were reported during the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Follow-up appointment in two weeks to discuss progress and review biochemistry panel results.\" (specific timing for follow-up to review results)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Let's set up a follow-up appointment in two weeks to discuss your progress and review the results of the biochemistry panel.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "A follow-up appointment is scheduled in two weeks to discuss progress and review biochemistry panel results."
+      "matched_claim_text": "A follow-up appointment is scheduled in two weeks to discuss progress and review biochemistry panel results.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

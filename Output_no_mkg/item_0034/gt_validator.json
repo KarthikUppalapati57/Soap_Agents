@@ -259,9 +259,9 @@
     "plan_alignment_score": 0.6666666666666666
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a mostly accurate summary of the patient's condition and treatment plan. However, it suffers from significant omissions, particularly the complete absence of reasoning for all diagnoses in the Assessment section, which materially reduces its clinical usefulness. Several minor to moderate details regarding the patient's history, affect, and comprehensive patient education/resources are also missing across other sections. All identified additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned, and all additions are supported by the transcript, thus incurring no penalties. However, the note has several omissions that reduce its completeness and clinical usefulness. Notably, the detailed reasoning for all three diagnoses (severe obesity, hypertension, pre-diabetes) is missing from the Assessment section. Key patient education points and specific advice regarding weight loss targets and goals are also omitted from the Plan section, along with some structural elements and comprehensive resource details. These moderate omissions make the note meaningfully incomplete.",
     "omissions": [
       "Patient's daily difficulties with physical activity, impacting job performance and social interactions",
       "Patient expresses frustration with past failed weight loss attempts",
@@ -288,7 +288,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main aspects of the HPI and ROS. However, it omits important contextual details such as the impact of obesity on the patient's job and social interactions, and specific details like 'feels tired throughout the day' and 'shortness of breath with exertion.' The section headers for CC, HPI, and ROS are also missing.",
+        "summary": "The Subjective section is mostly complete. All additions are supported by the transcript. However, there is a moderate omission regarding the patient's daily difficulties with physical activity impacting job performance and social interactions. Several minor omissions include specific ROS details (e.g., 'feels tired throughout the day', 'with exertion', 'No changes in bowel habits', explicit musculoskeletal entry) and section headers.",
         "omissions": [
           "Chief Complaint section header",
           "History of Present Illness section header",
@@ -307,7 +307,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports the key physical examination findings and vital signs. However, it omits the patient's affect ('Alert, cooperative but expresses frustration with past failed weight loss attempts') and some minor descriptive details from the physical exam, such as 'markedly elevated' for BMI and 'no edema' in extremities.",
+        "summary": "The Objective section is largely accurate. There are no additions. However, several minor omissions include specific descriptive details such as the patient expressing frustration with past failed weight loss attempts, BMI being 'markedly elevated', specific respiratory and cardiovascular exam details ('to auscultation bilaterally', 'no murmurs'), and the absence of edema in extremities. The section header is also omitted.",
         "omissions": [
           "Physical Examination section header",
           "\"Alert, cooperative but expresses frustration with past failed weight loss attempts\"",
@@ -320,8 +320,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section correctly lists the diagnoses of severe obesity, hypertension, and pre-diabetes. However, it critically omits all reasoning for each of these diagnoses, which significantly reduces the clinical usefulness and completeness of the section. This is a major gap in clinical documentation.",
+        "grade": "C",
+        "summary": "The Assessment section identifies the correct diagnoses, but it has significant omissions. The detailed reasoning for severe obesity, hypertension, and pre-diabetes is entirely missing. This constitutes multiple moderate omissions that make the diagnostic rationale unclear and the note meaningfully incomplete for clinical review.",
         "omissions": [
           "\"due to excess calories\" for severe obesity",
           "Reasoning for Severe obesity",
@@ -332,8 +332,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section outlines the core treatment strategy, including lifestyle modifications, medication, blood work, and follow-up. However, it omits important details regarding patient education (importance of balanced diet/exercise, gradual weight loss targets) and specific community resources (fresh produce, gym financial assistance). Structural sections like 'Laboratory Tests' and 'Patient Agreements' are also missing.",
+        "grade": "C",
+        "summary": "The Plan section includes the main treatment components, and all additions are supported by the transcript. However, it has several moderate omissions related to patient education, specifically the importance of a balanced diet, regular exercise, aiming for gradual weight loss targets, and setting realistic goals. Minor omissions include the purpose of blood work, the 'Laboratory Tests' and 'Patient Agreements' sections, and encouragement for accessing community resources for fresh produce and local gyms offering financial assistance programs. These omissions reduce the comprehensiveness of the patient's care plan.",
         "omissions": [
           "Patient education on the importance of a balanced diet and regular exercise",
           "Advice to aim for gradual weight loss targets and set realistic goals",
@@ -356,37 +356,47 @@
     {
       "addition_text": "\"worsening symptoms over time\" for obesity",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "It's been a few years, but it's gotten worse lately. Every day feels like a struggle.",
+      "transcript_evidence": "It's been a few years, but it's gotten worse lately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Known family history of diabetes\" in Subjective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, my parents both have type 2 diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has a known family history of diabetes (parents have type 2)."
+      "matched_claim_text": "Patient has a known family history of diabetes (parents have type 2).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Discuss strategies for weight loss journey\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Let’s discuss some strategies for your weight loss journey. ... I’ll provide you with resources for local support groups. Also, consider accessing community resources for fresh produce and local gyms offering financial assistance programs.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss weight loss strategies and provide resources for local support groups and community resources."
+      "matched_claim_text": "Discuss weight loss strategies and provide resources for local support groups and community resources.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "drug rash with eosinophilia and systemic symptoms — disease_phenotype_positive — Weight loss"
     },
     {
       "addition_text": "\"bring it to the next visit\" for blood pressure log",
       "supported_by_transcript": "supported",
       "transcript_evidence": "keep a log of your blood pressure at home and bring it with you to the next visit.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to keep a log of home blood pressure and bring it to the next visit."
+      "matched_claim_text": "Advise patient to keep a log of home blood pressure and bring it to the next visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Known family history of diabetes\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, my parents both have type 2 diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has a known family history of diabetes (parents have type 2)."
+      "matched_claim_text": "Patient has a known family history of diabetes (parents have type 2).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

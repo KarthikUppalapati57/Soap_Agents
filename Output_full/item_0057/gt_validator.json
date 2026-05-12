@@ -296,83 +296,85 @@
     "plan_alignment_score": 0.5970149253731343
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally usable clinical summary but contains several moderate omissions, particularly in the Assessment and Plan sections. Key details regarding the severity and impact of constipation, the explicit diagnostic plan for secondary causes, and the specific gastroenterology referral plan are missing. While there are no unsupported or unknown additions, these omissions reduce the overall completeness and clinical usefulness of the note, requiring careful review.",
+    "overall_summary": "The generated note is mostly clinically aligned but contains multiple moderate omissions across the Subjective, Assessment, and Plan sections. Key details regarding the impact of constipation on daily activities, specific bowel movement frequency, the severity of the condition in the assessment, and crucial safety instructions in the plan are missing. While no unsupported additions were identified, these omissions create noticeable gaps, making the note meaningfully incomplete and requiring careful review.",
     "omissions": [
-      "Patient's constipation significantly impacting daily activities, often calling in sick due to severe cramps.",
-      "Musculoskeletal ROS: No significant findings.",
-      "Denies dysuria, hematuria (specific Genitourinary ROS details).",
-      "Abdominal exam finding: tympanic with percussive sounds.",
-      "Rectal exam finding: Normal anal tone.",
-      "Assessment detail: Moderate severity with significant impact on daily activities.",
-      "Assessment detail: Possible secondary causes to be ruled out pending lab results.",
-      "Enema administration detail: one dose rectally.",
-      "Fiber supplement administration detail: in water.",
-      "Specific Gastroenterology referral plan (to Dr. John Smith if symptoms persist or worsen, to evaluate for potential underlying gastrointestinal issues).",
-      "Plan for additional blood work (CBC and CMP) to rule out secondary causes.",
-      "Patient understands and agrees with the recommended medical treatment plan.",
-      "Instruction to contact office if no bowel movements after using the enema."
+      "Patient's constipation significantly impacting daily activities, often calling in sick due to severe cramps",
+      "Specific bowel movement frequency: once a week or less",
+      "Musculoskeletal: No significant findings",
+      "Specific genitourinary denials: dysuria, hematuria",
+      "Abdominal exam finding: tympanic with percussive sounds",
+      "Rectal exam finding: normal anal tone",
+      "Assessment detail: Moderate severity with significant impact on daily activities",
+      "Assessment detail: Possible secondary causes to be ruled out pending lab results",
+      "Sodium Phosphate Enema instruction: one dose rectally",
+      "Psyllium fiber supplement instruction: in water",
+      "Rationale for Gastroenterology referral: to evaluate for potential underlying gastrointestinal issues",
+      "Explicit plan for additional blood work (CBC and CMP) to rule out secondary causes",
+      "Statement: Patient understands and agrees with the recommended medical treatment plan",
+      "Specific instruction to contact office if no bowel movements after using the enema"
     ],
     "additions": [
-      "Assessment detail: Potential causes of constipation (possibly due to decreased fiber intake or reduced bowel motility).",
-      "Plan detail: Enema instruction to provide guidance on usage.",
-      "Plan detail: Purpose of bowel diary (to track symptoms and bowel movements).",
-      "Plan detail: Instruction phrasing (advise the patient to contact the office immediately for further evaluation).",
-      "Plan detail: Referral statement (No immediate referral to a gastroenterologist needed, but may be considered if symptoms continue)."
+      "Assessment qualifier: Probable constipation",
+      "Assessment etiology: possibly due to decreased fiber intake or reduced bowel motility",
+      "Sodium Phosphate Enema instruction: provide guidance on usage",
+      "Purpose for bowel diary: to track symptoms and bowel movements",
+      "Referral status: No immediate referral to a gastroenterologist needed, but may be considered if symptoms continue"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly complete but omits the significant impact of constipation on daily activities, including calling in sick due to severe cramps. It also misses minor negative findings from the Musculoskeletal and specific Genitourinary Review of Systems.",
+        "summary": "The section omits important details about the impact of constipation on daily activities and the specific frequency of bowel movements, which are key aspects of the HPI. Minor ROS details are also missing.",
         "omissions": [
-          "Patient's constipation significantly impacting daily activities, often calling in sick due to severe cramps.",
-          "Musculoskeletal ROS: No significant findings.",
-          "Denies dysuria, hematuria (specific Genitourinary ROS details)."
+          "Patient's constipation significantly impacting daily activities, often calling in sick due to severe cramps",
+          "Specific bowel movement frequency: once a week or less",
+          "Musculoskeletal: No significant findings",
+          "Specific genitourinary denials: dysuria, hematuria"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely accurate, with only minor omissions regarding specific physical exam findings such as \"tympanic with percussive sounds\" during the abdominal exam and \"Normal anal tone\" during the rectal exam. These do not significantly impact the clinical utility of the section.",
+        "summary": "This section is largely complete, with only minor omissions of specific physical examination findings (tympanic sounds, normal anal tone).",
         "omissions": [
-          "Abdominal exam finding: tympanic with percussive sounds.",
-          "Rectal exam finding: Normal anal tone."
+          "Abdominal exam finding: tympanic with percussive sounds",
+          "Rectal exam finding: normal anal tone"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has noticeable gaps. It omits crucial details about the moderate severity of constipation and its significant impact on daily activities, as well as the explicit mention of ruling out possible secondary causes pending lab results. All additions in this section were supported by the transcript and do not lower the grade.",
+        "grade": "B",
+        "summary": "The assessment omits crucial details regarding the moderate severity of the constipation and its significant impact on daily activities, as well as the explicit mention of ruling out possible secondary causes pending lab results.",
         "omissions": [
-          "Assessment detail: Moderate severity with significant impact on daily activities.",
-          "Assessment detail: Possible secondary causes to be ruled out pending lab results."
+          "Moderate severity with significant impact on daily activities",
+          "Possible secondary causes to be ruled out pending lab results"
         ],
         "additions": [
-          "Potential causes of constipation: possibly due to decreased fiber intake or reduced bowel motility."
+          "Qualifier: Probable constipation",
+          "Etiology: possibly due to decreased fiber intake or reduced bowel motility"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains several moderate omissions. It lacks the specific gastroenterology referral plan, including the named physician and the rationale for referral. It also omits the explicit plan for additional blood work (CBC and CMP) to rule out secondary causes. Minor omissions include specific administration details for the enema and fiber supplement, and the patient's agreement with the plan. All additions in this section were supported by the transcript.",
+        "summary": "The plan has several omissions, including specific medication instructions (e.g., 'one dose rectally', 'in water'), the rationale for potential referral, the explicit plan for additional blood work, and a critical safety instruction to contact the office if the enema is ineffective.",
         "omissions": [
-          "Enema administration detail: one dose rectally.",
-          "Fiber supplement administration detail: in water.",
-          "Specific Gastroenterology referral plan (to Dr. John Smith if symptoms persist or worsen, to evaluate for potential underlying gastrointestinal issues).",
-          "Plan for additional blood work (CBC and CMP) to rule out secondary causes.",
-          "Patient understands and agrees with the recommended medical treatment plan.",
-          "Instruction to contact office if no bowel movements after using the enema."
+          "Sodium Phosphate Enema instruction: one dose rectally",
+          "Psyllium fiber supplement instruction: in water",
+          "Rationale for Gastroenterology referral: to evaluate for potential underlying gastrointestinal issues",
+          "Explicit plan for additional blood work (CBC and CMP) to rule out secondary causes",
+          "Statement: Patient understands and agrees with the recommended medical treatment plan",
+          "Specific instruction to contact office if no bowel movements after using the enema"
         ],
         "additions": [
-          "Enema instruction: provide guidance on usage.",
-          "Purpose of bowel diary: to track symptoms and bowel movements.",
-          "Instruction phrasing: advise the patient to contact the office immediately for further evaluation.",
-          "Referral statement: No immediate referral to a gastroenterologist needed, but may be considered if symptoms continue."
+          "Sodium Phosphate Enema instruction: provide guidance on usage",
+          "Purpose for bowel diary: to track symptoms and bowel movements",
+          "Referral status: No immediate referral to a gastroenterologist needed, but may be considered if symptoms continue"
         ]
       }
     ],
@@ -381,74 +383,67 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment detail: Potential causes of constipation (possibly due to decreased fiber intake or reduced bowel motility).",
+      "addition_text": "Assessment qualifier: Probable constipation",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I understand you’ve been having some trouble with constipation. ... For your constipation, I’m recommending...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Probable constipation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment etiology: possibly due to decreased fiber intake or reduced bowel motility",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In addition, I’m going to prescribe a fiber supplement, Psyllium. ... I also recommend that you continue engaging in regular physical activity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Constipation possibly due to decreased fiber intake or reduced bowel motility."
+      "matched_claim_text": "Constipation possibly due to decreased fiber intake or reduced bowel motility.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan detail: Enema instruction to provide guidance on usage.",
+      "addition_text": "Sodium Phosphate Enema instruction: provide guidance on usage",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You’ll need to follow the instructions on the package, but essentially, you’ll insert the enema rectally and hold it in until you feel the urge to have a bowel movement. If you’re unsure, you can always call the office for guidance.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Guidance on Sodium Phosphate Enema usage was provided."
+      "matched_claim_text": "Guidance on Sodium Phosphate Enema usage was provided.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan detail: Purpose of bowel diary (to track symptoms and bowel movements).",
+      "addition_text": "Purpose for bowel diary: to track symptoms and bowel movements",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Additionally, I’d like you to maintain a bowel diary. Note down the frequency and consistency of your bowel movements and any other symptoms you experience.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to maintain a bowel diary to track symptoms and bowel movements."
+      "matched_claim_text": "Advise patient to maintain a bowel diary to track symptoms and bowel movements.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan detail: Instruction phrasing (advise the patient to contact the office immediately for further evaluation).",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If your symptoms persist or worsen, especially if you don’t have any bowel movements after using the enema, please contact the office immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms persist or worsen, advise the patient to contact the office immediately for further evaluation."
-    },
-    {
-      "addition_text": "Plan detail: Referral statement (No immediate referral to a gastroenterologist needed, but may be considered if symptoms continue).",
+      "addition_text": "Referral status: No immediate referral to a gastroenterologist needed, but may be considered if symptoms continue",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: ...but if your symptoms continue, we may consider it.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to a gastroenterologist may be considered if symptoms continue."
+      "matched_claim_text": "Referral to a gastroenterologist may be considered if symptoms continue.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Potential causes of constipation: possibly due to decreased fiber intake or reduced bowel motility.",
+      "addition_text": "Qualifier: Probable constipation",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I understand you’ve been having some trouble with constipation. ... For your constipation, I’m recommending...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Probable constipation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Etiology: possibly due to decreased fiber intake or reduced bowel motility",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In addition, I’m going to prescribe a fiber supplement, Psyllium. ... I also recommend that you continue engaging in regular physical activity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Constipation possibly due to decreased fiber intake or reduced bowel motility."
-    },
-    {
-      "addition_text": "Enema instruction: provide guidance on usage.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You’ll need to follow the instructions on the package, but essentially, you’ll insert the enema rectally and hold it in until you feel the urge to have a bowel movement. If you’re unsure, you can always call the office for guidance.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Guidance on Sodium Phosphate Enema usage was provided."
-    },
-    {
-      "addition_text": "Purpose of bowel diary: to track symptoms and bowel movements.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Additionally, I’d like you to maintain a bowel diary. Note down the frequency and consistency of your bowel movements and any other symptoms you experience.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to maintain a bowel diary to track symptoms and bowel movements."
-    },
-    {
-      "addition_text": "Instruction phrasing: advise the patient to contact the office immediately for further evaluation.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If your symptoms persist or worsen, especially if you don’t have any bowel movements after using the enema, please contact the office immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms persist or worsen, advise the patient to contact the office immediately for further evaluation."
-    },
-    {
-      "addition_text": "Referral statement: No immediate referral to a gastroenterologist needed, but may be considered if symptoms continue.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: ...but if your symptoms continue, we may consider it.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to a gastroenterologist may be considered if symptoms continue."
+      "matched_claim_text": "Constipation possibly due to decreased fiber intake or reduced bowel motility.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -205,8 +205,8 @@
   },
   "expert_judge": {
     "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note suffers from significant omissions, particularly in the Plan section, which includes critical clinical context such as past medical history, family history, current medications, and allergies. The absence of these details, along with patient agreements and lifestyle context, materially reduces the note's clinical usefulness and completeness. While there are no unsupported or unknown additions, the extensive and clinically material omissions justify a low overall grade.",
+    "overall_grade": "F",
+    "overall_summary": "The generated note suffers from severe omissions, particularly in the Plan section, where critical patient information such as past medical history (IBS, headaches), family history (ovarian cancer, alcoholism), current medications (probiotics), and known allergies are entirely absent. Key lifestyle factors and patient agreements are also missing. While other sections are mostly accurate, the absence of this essential clinical data renders the note unsafe and unreliable for comprehensive patient care. All additions were supported by the transcript and did not impact the grade.",
     "omissions": [
       "Specific impact on daily activities: unable to attend school or focus on studies",
       "Objective abdomen finding: 'Soft'",
@@ -230,8 +230,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section is well-captured, with only a minor omission regarding the specific impact of symptoms on daily activities. The addition of 'Tenderness in lower abdomen' is supported by the transcript and does not reduce the grade, despite being an objective finding in the GroundTruth.",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete, but it omits the specific impact of symptoms on daily activities, such as the patient being unable to attend school or focus on studies, which is a moderate gap in the History of Present Illness. The addition of 'Tenderness in lower abdomen' was supported by the transcript.",
         "omissions": [
           "Specific impact on daily activities: unable to attend school or focus on studies"
         ],
@@ -242,7 +242,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete, with only minor omissions of 'Soft' for abdominal findings and 'and rhythm' for cardiovascular findings. These do not significantly impact the clinical utility of the section.",
+        "summary": "This section is well-captured, with only minor omissions of descriptive details like 'soft' for the abdomen and 'and rhythm' for cardiovascular findings. The core objective findings are accurately presented.",
         "omissions": [
           "Abdomen finding: 'Soft'",
           "Cardiovascular finding: 'and rhythm'"
@@ -251,8 +251,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits the explicit 'Diagnosis: Illness, unspecified' and its heading, focusing only on the differential diagnoses. While the differential is present, the omission of the primary diagnosis is a moderate issue. The added phrase is supported by the transcript and does not affect the grade.",
+        "grade": "A",
+        "summary": "The Assessment accurately reflects the differential diagnoses. The omissions are limited to the explicit 'Diagnosis' and 'Differential Diagnosis' headings, which are structural rather than clinical content. The addition of the phrase 'are possibilities to consider based on symptoms and examination' was supported by the transcript.",
         "omissions": [
           "Explicit 'Diagnosis' heading",
           "Explicit 'Differential Diagnosis' heading"
@@ -263,8 +263,8 @@
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has major omissions that severely impact its clinical utility. It entirely omits the 'Patient Agreements,' 'Additional Notes' (which includes critical past medical history, family history, current medications, and allergies), and 'Lifestyle and Context' sections. These omissions represent a significant loss of vital patient information, making the note materially incomplete and potentially unsafe. Minor omissions of acetaminophen details also exist. All additions in this section are supported by the transcript and do not reduce the grade.",
+        "grade": "F",
+        "summary": "This section has severe omissions of critical clinical content. It entirely misses the patient's past medical history, family history, current medications, and known allergies, which are essential for safe and comprehensive care. Additionally, specific details about acetaminophen (indication, quantity), patient agreements, and lifestyle context are omitted, significantly reducing the note's clinical usefulness and reliability. All additions in this section were supported by the transcript.",
         "omissions": [
           "Acetaminophen indication: 'for fever'",
           "Acetaminophen quantity: 'quantity 21 tablets'",
@@ -288,42 +288,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's a bit tender in the lower area.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tenderness in lower abdomen"
+      "matched_claim_text": "Tenderness in lower abdomen",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment phrase: 'are possibilities to consider based on symptoms and examination'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and examination, we have a few possibilities to consider. It might be viral gastroenteritis, dehydration, or possibly vertigo.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Viral gastroenteritis, dehydration, or vertigo are possibilities to consider based on symptoms and examination"
+      "matched_claim_text": "Viral gastroenteritis, dehydration, or vertigo are possibilities to consider based on symptoms and examination",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Dietary advice: 'avoidance of heavy or greasy foods that might upset the stomach further'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In addition, I'd like you to focus on a balanced diet. Avoid any heavy or greasy foods that might upset your stomach further.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise balanced diet avoidance of heavy or greasy foods that might upset the stomach further"
+      "matched_claim_text": "Advise balanced diet avoidance of heavy or greasy foods that might upset the stomach further",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan statement: 'No referrals to specialists or further tests at the moment, will reassess based on patient's response to treatment.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I don’t think we need any referrals to specialists or further tests at the moment. Let's see how you respond to the treatment first.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No referrals to specialists or further tests at the moment, will reassess based on patient's response to treatment."
+      "matched_claim_text": "No referrals to specialists or further tests at the moment, will reassess based on patient's response to treatment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Phrase: 'are possibilities to consider based on symptoms and examination'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and examination, we have a few possibilities to consider. It might be viral gastroenteritis, dehydration, or possibly vertigo.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Viral gastroenteritis, dehydration, or vertigo are possibilities to consider based on symptoms and examination"
+      "matched_claim_text": "Viral gastroenteritis, dehydration, or vertigo are possibilities to consider based on symptoms and examination",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement: 'No referrals to specialists or further tests at the moment, will reassess based on patient's response to treatment.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I don’t think we need any referrals to specialists or further tests at the moment. Let's see how you respond to the treatment first.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No referrals to specialists or further tests at the moment, will reassess based on patient's response to treatment."
+      "matched_claim_text": "No referrals to specialists or further tests at the moment, will reassess based on patient's response to treatment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

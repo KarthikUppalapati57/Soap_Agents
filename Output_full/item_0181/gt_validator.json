@@ -216,79 +216,79 @@
     "plan_alignment_score": 0.6666666666666666
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The GeneratedSOAP note provides a generally accurate overview but suffers from several noticeable omissions across the Subjective, Assessment, and Plan sections. Key missing details include the patient's full lifestyle and social history in Subjective, a clinically relevant known condition (history of genital herpes) in Assessment, and an important safety instruction regarding worsening symptoms in the Plan. While the core clinical picture and treatment plan are present, these gaps make the note meaningfully incomplete and require careful review.",
+    "overall_summary": "The generated note provides a generally accurate overview of the patient's presentation, physical exam, and initial plan. However, it has several noticeable omissions. Key missing information includes the patient's history of asymptomatic genital herpes in the Assessment, specific patient education points (e.g., discussing sexual history openly), and crucial safety instructions in the Plan (e.g., contact clinic if symptoms worsen). While the note is usable, these gaps reduce its completeness and require careful review.",
     "omissions": [
-      "Anxiety affecting daily activities and expressing concern",
-      "No night sweats",
-      "No hematuria",
-      "No urgency or increased frequency",
-      "Anxiety related to symptoms and potential diagnosis (as a specific ROS point)",
-      "Limited alcohol use (social)",
-      "Exercises three times a week, mainly running",
-      "Eats a balanced diet, mostly home-cooked meals",
-      "No tobacco use",
-      "Well-appearing, no acute distress",
-      "Other sexually transmitted infections (awaiting test results) as a distinct differential",
-      "History of genital herpes, currently asymptomatic",
-      "Await results of STI screening and urinalysis",
-      "Discussing sexual history openly with healthcare providers",
-      "Encourage continued exercise and balanced diet",
-      "Instruction to take doxycycline as prescribed",
-      "Instruction to return for follow-up visit in one week",
-      "Contact clinic if symptoms worsen or new symptoms develop"
+      "HPI: Denial of additional symptoms (beyond discharge)",
+      "ROS: No night sweats",
+      "ROS: No hematuria",
+      "ROS: No urgency or increased frequency",
+      "ROS: Anxiety related to potential diagnosis",
+      "Patient's lifestyle: Limited alcohol use (social)",
+      "Patient's lifestyle: Exercises three times a week, mainly running",
+      "Patient's lifestyle: Eats a balanced diet, mostly home-cooked meals",
+      "Patient's lifestyle: No tobacco use",
+      "Physical Exam: General appearance (well-appearing, no acute distress)",
+      "Assessment: 'Other sexually transmitted infections (awaiting test results)' as a distinct differential diagnosis",
+      "Assessment: History of genital herpes, currently asymptomatic",
+      "Plan: Await results of STI screening and urinalysis (as a distinct plan item)",
+      "Plan: Patient education on discussing sexual history openly with healthcare providers",
+      "Plan: Encourage continued exercise and balanced diet",
+      "Plan: Instructions for taking doxycycline as prescribed",
+      "Plan: Instructions for returning for follow-up visit in one week",
+      "Plan: Instructions to contact clinic if symptoms worsen or new symptoms develop"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits several minor ROS details and the complete 'Patient’s self-reported habits and lifestyle' section, which includes important social history regarding alcohol, exercise, diet, and tobacco use. It also misses the detail about anxiety affecting daily activities. These omissions create noticeable gaps in the patient's history.",
+        "grade": "B",
+        "summary": "The Subjective section captures the chief complaint and key HPI elements well, including the burning sensation, anxiety, and sexual history. However, it omits several minor details from the Review of Systems (e.g., no night sweats, hematuria, urgency/frequency) and specific lifestyle habits (e.g., detailed alcohol use, exercise, diet, tobacco use). The core clinical picture is present, but the section is less comprehensive than the Ground Truth.",
         "omissions": [
-          "Anxiety affecting daily activities and expressing concern",
-          "No night sweats",
-          "No hematuria",
-          "No urgency or increased frequency",
-          "Anxiety related to symptoms and potential diagnosis (as a specific ROS point)",
-          "Limited alcohol use (social)",
-          "Exercises three times a week, mainly running",
-          "Eats a balanced diet, mostly home-cooked meals",
-          "No tobacco use"
+          "HPI: Denial of additional symptoms (beyond discharge)",
+          "ROS - General: No night sweats",
+          "ROS - Genitourinary: No hematuria",
+          "ROS - Genitourinary: No urgency or increased frequency",
+          "ROS - Psychological: Anxiety related to potential diagnosis",
+          "Patient’s self-reported habits and lifestyle: Limited alcohol use (social)",
+          "Patient’s self-reported habits and lifestyle: Exercises three times a week, mainly running",
+          "Patient’s self-reported habits and lifestyle: Eats a balanced diet, mostly home-cooked meals",
+          "Patient’s self-reported habits and lifestyle: No tobacco use"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete and accurate, capturing all vital signs and key physical exam findings. The only omission is the minor general observation 'Well-appearing, no acute distress'.",
+        "summary": "The Objective section accurately reports all vital signs and key physical exam findings. The only omission is a minor descriptive phrase about the patient's general appearance ('Well-appearing, no acute distress'), which does not materially impact the clinical usefulness of the section.",
         "omissions": [
-          "Well-appearing, no acute distress"
+          "Physical Exam - General: Well-appearing, no acute distress"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section correctly identifies UTI and Chlamydia as differentials but critically omits the 'History of genital herpes, currently asymptomatic,' which is a clinically material known condition. This represents a significant gap in the patient's medical history within the assessment.",
+        "summary": "The Assessment section correctly identifies the primary differential diagnoses (UTI, STI/chlamydia). However, it critically omits the patient's known history of asymptomatic genital herpes. This is a moderate to major clinical omission that makes the note meaningfully incomplete, as a known chronic condition is vital for comprehensive patient care.",
         "omissions": [
-          "Other sexually transmitted infections (awaiting test results) as a distinct differential",
-          "History of genital herpes, currently asymptomatic"
+          "Differential Diagnosis: 'Other sexually transmitted infections (awaiting test results)' as a distinct item",
+          "Known Condition: History of genital herpes, currently asymptomatic"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section captures the core treatment and follow-up but omits several minor instructions and advice points. Most notably, it misses the important safety instruction to 'Contact clinic if symptoms worsen or new symptoms develop,' which is a moderate omission that reduces the completeness of patient guidance.",
+        "summary": "The Plan section covers the empirical treatment, follow-up, and some patient education. However, it omits several important details, including specific patient education regarding discussing sexual history openly with healthcare providers, encouraging continued exercise and a balanced diet, and crucial safety instructions to contact the clinic if symptoms worsen or new symptoms develop. The explicit instructions for taking medication and returning for follow-up are also missing. These omissions, particularly the safety instruction, make the plan less comprehensive and potentially less safe.",
         "omissions": [
-          "Await results of STI screening and urinalysis",
-          "Discussing sexual history openly with healthcare providers",
+          "Await results of STI screening and urinalysis (as a distinct plan item)",
+          "Patient Education: Discussing sexual history openly with healthcare providers",
           "Encourage continued exercise and balanced diet",
-          "Instruction to take doxycycline as prescribed",
-          "Instruction to return for follow-up visit in one week",
-          "Contact clinic if symptoms worsen or new symptoms develop"
+          "Instructions section: Take doxycycline as prescribed",
+          "Instructions section: Return for follow-up visit in one week",
+          "Instructions section: Contact clinic if symptoms worsen or new symptoms develop"
         ],
         "additions": []
       }

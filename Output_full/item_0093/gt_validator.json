@@ -293,9 +293,9 @@
     "plan_alignment_score": 0.6293706293706294
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has multiple moderate omissions across all sections. Key missing information includes important medical and family history details, the impact of symptoms on daily activities, specific medication details, a crucial negative physical exam finding, and the patient agreement section. There are no unsupported or unknown additions that would negatively impact the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. All additions were supported by the transcript and therefore did not reduce the grade. However, the note contains numerous omissions, particularly in the Subjective section, where structural elements (headers, detailed ROS breakdown) and several HPI details (e.g., impact on daily activities, initial mention of hypertension/allergies) are missing. Key objective details like the patient's medication for hypertension and the absence of consolidation on lung exam are also omitted. While the core clinical picture and treatment plan are captured, these omissions reduce the overall completeness and detail of the note.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -331,7 +331,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section captures the main symptoms but omits important medical history (hypertension, seasonal allergies), family history (asthma), and the significant impact of symptoms on daily activities. Additionally, it lacks the detailed structure of the Review of Systems and several negative findings, making it meaningfully incomplete.",
+        "summary": "The Subjective section omits several structural headers (CC, HPI, ROS) and the detailed, system-by-system breakdown of the ROS. It also misses important HPI details such as the constant nature of the cough, the significant impact of symptoms on daily activities, and the patient's history of hypertension and seasonal allergies in the HPI context. Numerous negative findings from the ROS are also omitted. While the core positive symptoms are captured, the lack of structure and specific details makes it meaningfully incomplete.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -353,7 +353,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports vital signs and key positive physical exam findings. However, it omits the specific medication the patient is taking for hypertension (Lisinopril 10 mg daily) and the clinically important negative finding of 'no signs of consolidation' in the respiratory exam. The addition of '(not specified)' for blood pressure is supported by the transcript and does not reduce the grade.",
+        "summary": "This section omits the crucial detail about the patient's medication for hypertension (Lisinopril 10 mg daily) in relation to the elevated blood pressure. More significantly, it misses the negative finding of \"no signs of consolidation\" on respiratory exam, which is important for the differential diagnosis of pneumonia. The addition of \"(not specified)\" for elevated blood pressure was supported by the transcript and did not reduce the grade.",
         "omissions": [
           "Patient on Lisinopril 10 mg daily for hypertension (detail about elevated BP)",
           "No signs of consolidation (from Physical Exam - Respiratory)",
@@ -366,7 +366,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment correctly identifies acute bronchitis with pneumonia as a differential diagnosis. However, it omits the patient's history of seasonal allergies, which is a relevant comorbidity. The addition of 'history of smoking' is supported by the transcript and does not reduce the grade.",
+        "summary": "The Assessment section omits the patient's history of seasonal allergies and the explicit statement that further imaging is needed to confirm or rule out pneumonia. The addition of \"history of smoking\" was supported by the transcript and did not reduce the grade.",
         "omissions": [
           "Patient's history of seasonal allergies",
           "\"which necessitates further imaging to confirm\" (regarding pneumonia differential)"
@@ -378,7 +378,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section outlines appropriate medical treatment, additional testing, lifestyle recommendations, and health education. However, it omits the specific context of the patient's smoking history ('20-year history of smoking 10 cigarettes per day') and the crucial Patient Agreement section, which documents patient understanding and consent. The addition of 'or worsen' for follow-up conditions is supported by the transcript and does not reduce the grade.",
+        "summary": "The Plan section omits minor details such as the \"oral\" route for Azithromycin and the status of the Chest X-ray (\"Awaiting results\"). A more significant omission is the specific detail of the patient's smoking history (\"20-year history of smoking 10 cigarettes per day\") when emphasizing smoking cessation. The patient agreement section is also omitted. The addition of \"or worsen\" for follow-up conditions was supported by the transcript and did not reduce the grade.",
         "omissions": [
           "\"oral\" route for Azithromycin",
           "\"Awaiting results\" for Chest X-ray",
@@ -399,42 +399,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is elevated, and your heart rate is 88 bpm.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure: elevated (not specified)"
+      "matched_claim_text": "Blood pressure: elevated (not specified)",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "creatine phosphokinase, elevated serum — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "\"history of smoking\" (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let's review your medical history. You mentioned you have hypertension. ... [Patient]: Yes, I'm on Lisinopril 10 mg daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "history of hypertension"
+      "matched_claim_text": "history of hypertension",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"or worsen\" (for follow-up conditions in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll follow up in 2 weeks to see how you're doing. If your symptoms persist or worsen, please come back sooner.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up in 2 weeks if symptoms persist or worsen"
+      "matched_claim_text": "Follow-up in 2 weeks if symptoms persist or worsen",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"(not specified)\" for elevated blood pressure",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is elevated, and your heart rate is 88 bpm.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure: elevated (not specified)"
+      "matched_claim_text": "Blood pressure: elevated (not specified)",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "creatine phosphokinase, elevated serum — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "\"history of smoking\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let's review your medical history. You mentioned you have hypertension. ... [Patient]: Yes, I'm on Lisinopril 10 mg daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "history of hypertension"
+      "matched_claim_text": "history of hypertension",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"or worsen\" (for follow-up conditions)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll follow up in 2 weeks to see how you're doing. If your symptoms persist or worsen, please come back sooner.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up in 2 weeks if symptoms persist or worsen"
+      "matched_claim_text": "Follow-up in 2 weeks if symptoms persist or worsen",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

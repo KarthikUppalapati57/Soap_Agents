@@ -276,9 +276,9 @@
     "plan_alignment_score": 0.5
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides the core clinical information but has noticeable gaps due to multiple omissions across all sections. Key missing details include specific medical history (Metformin dosage), important ROS denials (hematuria), the deferred genitourinary exam, differential diagnoses, and crucial patient education regarding specific signs of worsening infection. Documentation of patient understanding and agreement with the plan is also omitted. These omissions make the note meaningfully incomplete, requiring caution and review.",
+    "model": "expert-clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately capturing the patient's chief complaint, present illness, and the core treatment plan. However, it has several omissions across all sections. Key moderate omissions include the detailed history of Type 2 Diabetes and Metformin dosage from the Subjective section, and the differential diagnoses from the Assessment section. Additionally, numerous minor details regarding physical examination findings, specific patient education points, and patient agreements are missing. There are no unsupported or unknown additions.",
     "omissions": [
       "Patient's difficulty completing work tasks due to frequent bathroom trips and discomfort",
       "Denial of hematuria (blood in urine)",
@@ -299,8 +299,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits important details from the History of Present Illness regarding the impact on work tasks, a key denial from the Review of Systems (hematuria), and specific medication details for the patient's Type 2 Diabetes. These omissions reduce the completeness of the patient's subjective report and medical history.",
+        "grade": "B",
+        "summary": "The Subjective section omits the patient's specific difficulty completing work tasks due to frequent bathroom trips, the denial of hematuria, and the detailed history of Type 2 Diabetes including Metformin dosage. The omission of the diabetes history is a moderate issue, while the others are minor.",
         "omissions": [
           "Patient's difficulty completing work tasks due to frequent bathroom trips and discomfort",
           "Denial of hematuria (blood in urine)",
@@ -310,8 +310,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section omits standard physical examination findings such as general appearance and specific abdominal inspection details. Crucially, it also omits the documentation that the Genitourinary Examination was deferred, which is important for a complete record given the chief complaint.",
+        "grade": "A",
+        "summary": "The Objective section is largely complete, accurately reporting vital signs and key abdominal findings. Minor omissions include the patient's general appearance (well-nourished, no acute distress), specific abdominal inspection findings (flat, no visible scars or lesions), and the fact that a genitourinary examination was deferred.",
         "omissions": [
           "General appearance (patient appears well-nourished and in no acute distress)",
           "Abdominal inspection findings (abdomen is flat, no visible scars or lesions)",
@@ -322,7 +322,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits the differential diagnoses, which are important for demonstrating the clinical thought process and completeness of the assessment.",
+        "summary": "The Assessment section accurately identifies the primary diagnosis of UTI. However, it omits the differential diagnoses (Acute cystitis, pyelonephritis, interstitial cystitis), which is a moderate omission for a comprehensive clinical assessment.",
         "omissions": [
           "Differential diagnoses (Acute cystitis, pyelonephritis, interstitial cystitis)"
         ],
@@ -330,8 +330,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several omissions, including the total number of antibiotic tablets and advice to maintain a balanced diet. More significantly, it omits specific signs and symptoms of worsening infection (e.g., fever, chills, flank pain) that the patient should seek immediate medical attention for, which is a critical safety omission. Furthermore, it lacks documentation of the patient's understanding, agreement, and confidence in adhering to the treatment plan, as well as confirmation that all questions were answered.",
+        "grade": "B",
+        "summary": "The Plan section outlines the main treatment and follow-up. However, it omits several minor details, including the total number of Ciprofloxacin tablets, specific examples of worsening infection symptoms (e.g., fever, chills, flank pain), advice to maintain a balanced diet, and documentation of patient understanding, agreement, and confidence in the plan, as well as confirmation that all questions were answered.",
         "omissions": [
           "Total number of Ciprofloxacin tablets (14 tablets)",
           "Specific signs and symptoms of worsening infection (e.g., fever, chills, flank pain)",

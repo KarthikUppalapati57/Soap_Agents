@@ -303,9 +303,9 @@
     "plan_alignment_score": 0.689922480620155
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a mostly accurate overview but contains several notable issues. The Subjective section has moderate omissions regarding the detailed HPI of the patient's chronic conditions and the hyperlipidemia diagnosis. The Plan section also suffers from multiple moderate omissions, particularly concerning patient education on medication adherence, routine screenings, implications of unmanaged lipid levels, and environmental considerations. Most critically, the Assessment section includes an unsupported addition stating that chronic conditions \"are managed appropriately,\" which is not explicitly supported by the transcript and introduces a potentially misleading clinical judgment. While the Objective section is strong, these combined issues make the note meaningfully incomplete and require careful review.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant issues that materially reduce its clinical usefulness. The Subjective section omits crucial details from the Chief Complaint and History of Present Illness, making the patient's presenting story incomplete. Most critically, the Assessment section includes an unsupported addition stating that chronic conditions \"are managed appropriately,\" which is a misleading clinical claim not supported by the transcript. Additionally, the Plan section has several moderate omissions regarding important patient education points and environmental considerations, making it less comprehensive.",
     "omissions": [
       "Chief Complaint: \"Routine check-up and follow-up for managing chronic conditions.\"",
       "HPI: Patient presenting for a routine check-up.",
@@ -333,8 +333,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has several moderate omissions from the HPI, specifically the patient's known history of hypertension and Type 2 Diabetes, and the details about the lipid panel leading to the hyperlipidemia diagnosis. While these conditions are mentioned elsewhere in the note, their absence from the HPI narrative makes the Subjective section less complete. The Chief Complaint omission is minor. There are no unsupported or unknown additions.",
+        "grade": "C",
+        "summary": "The Subjective section has noticeable gaps due to the complete omission of the Chief Complaint and key elements of the History of Present Illness, including the patient's chronic conditions and the diagnosis of hyperlipidemia. While the Review of Systems is well-captured, the missing HPI context makes the narrative meaningfully incomplete.",
         "omissions": [
           "Chief Complaint section: \"Routine check-up and follow-up for managing chronic conditions.\"",
           "History of Present Illness (HPI) section, including:",
@@ -349,7 +349,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is very well-aligned with the Ground Truth, with only a minor omission regarding the absence of murmurs during the cardiovascular exam. There are no unsupported or unknown additions.",
+        "summary": "The Objective section is largely complete and accurate. The only minor omission is the explicit mention of \"no murmurs detected\" in the cardiovascular exam, which is implicitly covered by the statement \"normal heart sounds.\"",
         "omissions": [
           "\"no murmurs detected\" (as part of Cardiovascular exam)."
         ],
@@ -357,8 +357,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has minor omissions related to the explicit categorization of diagnoses and the 'unspecified' detail for hyperlipidemia. However, it includes one significant unsupported addition: the statement that chronic conditions 'are managed appropriately.' This claim is not supported by the transcript and introduces a potentially misleading clinical judgment, significantly impacting the grade for this section.",
+        "grade": "D",
+        "summary": "The Assessment section contains a high-severity unsupported addition stating that chronic conditions \"are managed appropriately.\" This is a clinical claim not supported by the transcript and introduces misleading content. Minor omissions include the lack of explicit categorization of diagnoses and the \"Unspecified\" detail for hyperlipidemia.",
         "omissions": [
           "Explicit categorization of diagnoses as \"Primary Diagnosis\" and \"Secondary Diagnoses\".",
           "\"Unspecified\" for Hyperlipidemia."
@@ -371,7 +371,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions related to patient education, specifically the importance of medication adherence, routine health screenings, and the implications of unmanaged lipid levels. It also omits the acknowledgment of challenges posed by living in a food desert, which is a relevant environmental consideration. There are no unsupported or unknown additions, but the omissions make the plan less comprehensive.",
+        "summary": "The Plan section has multiple moderate omissions, including the discussion of the importance of medication adherence, routine health screenings, education on the implications of unmanaged lipid levels, and the acknowledgment of challenges posed by living in a food desert. These omissions make the patient education and support aspects of the plan noticeably incomplete.",
         "omissions": [
           "\"ongoing\" for Atorvastatin prescription.",
           "Discussion of the importance of medication adherence and routine health screenings.",
@@ -391,58 +391,74 @@
     {
       "addition_text": "Subjective: \"Patient reports feeling alright overall\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I'm feeling alright, thank you.",
+      "transcript_evidence": "[patient] Hi, Doctor. I'm feeling alright, thank you.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: \"are managed appropriately\" (regarding chronic conditions).",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: \"however, there is a need to address the hyperlipidemia due to elevated cholesterol levels\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your routine blood work, your lipid panel showed elevated cholesterol levels, and we've diagnosed you with hyperlipidemia... However, we need to address your hyperlipidemia.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"immediately\" when advising patient to contact clinic for new symptoms/side effects.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you experience any new symptoms or side effects from the medication, please contact the clinic immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Patient reports feeling alright overall\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm feeling alright, thank you.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"are managed appropriately\" (regarding chronic conditions).",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"however, there is a need to address the hyperlipidemia due to elevated cholesterol levels\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your routine blood work, your lipid panel showed elevated cholesterol levels, and we've diagnosed you with hyperlipidemia. ... However, we need to address your hyperlipidemia.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"immediately\" when advising patient to contact clinic for new symptoms/side effects.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you experience any new symptoms or side effects from the medication, please contact the clinic immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

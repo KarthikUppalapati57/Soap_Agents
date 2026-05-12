@@ -234,67 +234,93 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but contains noticeable gaps, particularly in the Subjective and Assessment sections. The Subjective section omits important past medical history and details regarding the severity and impact of the patient's symptoms. The Assessment section misses the core multifactorial assessment statement and two key differential diagnoses. While the Objective and Plan sections are largely complete, they still contain several minor omissions. No unsupported or unknown additions were identified that would negatively impact the grade.",
-    "omissions": [],
-    "additions": [],
+    "overall_summary": "The generated note is generally aligned with the transcript but contains several omissions. The Subjective section omits the patient's past medical history of migraine and IBS, as well as significant details regarding the severity and impact of the syncope episodes on daily activities. The Assessment section notably omits two important differential diagnoses: Orthostatic hypotension and Cardiac arrhythmias. While there are numerous minor omissions across other sections, all identified additions are supported by the transcript and do not negatively impact the grade. The note is usable but requires careful review due to the missing clinical context and differential diagnoses.",
+    "omissions": [
+      "Patient's past medical history of migraine and IBS",
+      "HPI detail: multiple instances each month",
+      "HPI detail: moderate severity, causing significant disruption to daily activities, including inability to drive and frequent absences from work",
+      "ROS Constitutional: Denies fever or weight loss",
+      "ROS Neurological: Denies focal deficits",
+      "ROS Gastrointestinal: Low-fiber diet due to IBS; denies abdominal pain or changes in bowel habits",
+      "ROS Musculoskeletal: Denies muscle weakness or joint pain",
+      "Physical Examination: General Examination: Patient is alert and oriented, in no apparent distress",
+      "Physical Examination: Cardiovascular: Heart sounds regular with no murmurs, rubs, or gallops",
+      "Physical Examination: Neurological: Normal reflexes and motor strength. Cranial nerves II-XII intact. No focal neurological deficits",
+      "Physical Examination: Gastrointestinal: Abdomen soft, non-tender, no hepatosplenomegaly",
+      "Physical Examination: Musculoskeletal: Full range of motion in all extremities, no edema",
+      "Assessment: Differential Diagnosis: Orthostatic hypotension",
+      "Assessment: Differential Diagnosis: Cardiac arrhythmias",
+      "Assessment: Main assessment detail: 'likely multifactorial'",
+      "Plan: Medications: Quantity of Fludrocortisone acetate (30 tablets)",
+      "Plan: Lifestyle and Patient Education: 'rise slowly from sitting or lying positions'",
+      "Plan: Lifestyle and Patient Education: 'for overall health benefits' (related to yoga)",
+      "Plan: Follow-up: 'Patient agrees with the treatment plan'",
+      "Plan: Patient Agreements section: 'The patient understands and agrees with the recommended medical treatment plan'"
+    ],
+    "additions": [
+      "Objective: 'no other abnormalities noted' in physical examination summary",
+      "Assessment: Linking specific diagnostic tests (EEG, Tilt-Table Test, CBC, BMP) directly into the assessment summary",
+      "Plan: 'immediately' in the instruction to call if symptoms worsen"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the patient's past medical history of migraine and IBS, as well as the moderate severity of the syncope episodes and their significant disruption to daily activities. Several denials from the Review of Systems (fever, weight loss, focal deficits, abdominal pain, changes in bowel habits, muscle weakness, joint pain) are also omitted, making the section less comprehensive.",
+        "summary": "The Subjective section has several omissions, including the patient's past medical history of migraine and IBS, and important details regarding the severity and impact of the syncope episodes on daily activities (inability to drive, frequent absences from work). Several ROS denials are also omitted, making the HPI and overall subjective picture less complete.",
         "omissions": [
           "Patient's past medical history of migraine and IBS",
-          "Severity of episodes (moderate) and significant disruption to daily activities (inability to drive, frequent absences from work)",
-          "Denial of fever or weight loss (Constitutional ROS)",
-          "Denial of focal deficits (Neurological ROS)",
-          "Low-fiber diet due to IBS and denial of abdominal pain or changes in bowel habits (Gastrointestinal ROS)",
-          "Denial of muscle weakness or joint pain (Musculoskeletal ROS)"
+          "HPI detail: multiple instances each month",
+          "HPI detail: moderate severity, causing significant disruption to daily activities, including inability to drive and frequent absences from work",
+          "ROS Constitutional: Denies fever or weight loss",
+          "ROS Neurological: Denies focal deficits",
+          "ROS Gastrointestinal: Low-fiber diet due to IBS; denies abdominal pain or changes in bowel habits",
+          "ROS Musculoskeletal: Denies muscle weakness or joint pain"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately captures vital signs. However, it omits several specific physical examination findings, including details from the general, cardiovascular, neurological, gastrointestinal, and musculoskeletal exams. The addition of 'no other abnormalities noted' is supported by the transcript and does not impact the grade.",
+        "summary": "The Objective section omits several details from the physical examination, such as the patient being alert and oriented, specific findings for cardiovascular (regular heart sounds, no murmurs), neurological (normal reflexes, intact cranial nerves), gastrointestinal (soft, non-tender abdomen), and musculoskeletal (full range of motion, no edema) systems. All additions are supported by the transcript.",
         "omissions": [
-          "General examination findings: patient is alert and oriented, in no apparent distress",
-          "Cardiovascular examination findings: heart sounds regular with no murmurs, rubs, or gallops",
-          "Neurological examination findings: normal reflexes and motor strength, cranial nerves II-XII intact, no focal neurological deficits",
-          "Gastrointestinal examination findings: abdomen soft, non-tender, no hepatosplenomegaly",
-          "Musculoskeletal examination findings: full range of motion in all extremities, no edema"
+          "Physical Examination: General Examination: Patient is alert and oriented, in no apparent distress",
+          "Physical Examination: Cardiovascular: Heart sounds regular with no murmurs, rubs, or gallops",
+          "Physical Examination: Neurological: Normal reflexes and motor strength. Cranial nerves II-XII intact. No focal neurological deficits",
+          "Physical Examination: Gastrointestinal: Abdomen soft, non-tender, no hepatosplenomegaly",
+          "Physical Examination: Musculoskeletal: Full range of motion in all extremities, no edema"
         ],
         "additions": [
-          "General statement 'no other abnormalities noted' in physical examination"
+          "'no other abnormalities noted' in physical examination summary"
         ]
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section omits the main assessment statement that the syncope is 'likely multifactorial but needs further evaluation to rule out potential neurological and cardiovascular causes.' It also misses two important differential diagnoses: Orthostatic hypotension and Cardiac arrhythmias. The additions of diagnostic tests and neurologist referral are supported by the transcript and do not affect the grade, but their placement in the Assessment section rather than solely in the Plan is a structural difference from the Ground Truth.",
+        "summary": "The Assessment section omits two key differential diagnoses: Orthostatic hypotension and Cardiac arrhythmias. It also omits the nuance that the condition is 'likely multifactorial.' All additions are supported by the transcript.",
         "omissions": [
-          "Main assessment statement: 'likely multifactorial but needs further evaluation to rule out potential neurological and cardiovascular causes'",
-          "Differential diagnosis: Orthostatic hypotension",
-          "Differential diagnosis: Cardiac arrhythmias",
-          "Differential diagnosis: Neurological causes (e.g., seizures)"
+          "Differential Diagnosis: Orthostatic hypotension",
+          "Differential Diagnosis: Cardiac arrhythmias",
+          "Main assessment detail: 'likely multifactorial'"
         ],
         "additions": [
-          "Listing of specific diagnostic tests (EEG, Tilt-Table Test, CBC, BMP) in the Assessment section",
-          "Mention of neurologist referral in the Assessment section"
+          "Linking specific diagnostic tests (EEG, Tilt-Table Test, CBC, BMP) directly into the assessment summary"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is largely complete, capturing all major components including diagnostic orders, medication, referral, lifestyle advice, and follow-up. Minor omissions include the specific reasons for ordering each diagnostic test, the quantity of Fludrocortisone acetate, the specific lifestyle advice to 'rise slowly from sitting or lying positions,' the detail that yoga is for 'overall health benefits,' and the patient's agreement with the treatment plan.",
+        "summary": "The Plan section omits the quantity of the prescribed medication (30 tablets) and a specific lifestyle recommendation to 'rise slowly from sitting or lying positions.' It also omits details about patient agreement with the treatment plan. All additions are supported by the transcript.",
         "omissions": [
-          "Specific reasons for ordering diagnostic tests (e.g., EEG to evaluate for potential seizures, Tilt-Table Test to assess for neurocardiogenic syncope, CBC to evaluate for anemia or other hematologic conditions, BMP to check for electrolyte imbalances)",
-          "Quantity of Fludrocortisone acetate (30 tablets)",
-          "Lifestyle advice: 'rise slowly from sitting or lying positions'",
-          "Patient education detail: yoga practice for 'overall health benefits'",
-          "Patient agreement: 'The patient understands and agrees with the recommended medical treatment plan'"
+          "Medications: Quantity of Fludrocortisone acetate (30 tablets)",
+          "Lifestyle and Patient Education: 'rise slowly from sitting or lying positions'",
+          "Lifestyle and Patient Education: 'for overall health benefits' (related to yoga)",
+          "Follow-up: 'Patient agrees with the treatment plan'",
+          "Patient Agreements section: 'The patient understands and agrees with the recommended medical treatment plan'"
         ],
-        "additions": []
+        "additions": [
+          "'immediately' in the instruction to call if symptoms worsen"
+        ]
       }
     ],
     "rubric_notes": null
@@ -302,25 +328,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "General statement 'no other abnormalities noted' in physical examination",
+      "addition_text": "Objective: 'no other abnormalities noted' in physical examination summary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Everything looks within normal limits, though you do have mild tachycardia. ... Your neurological exam shows normal reflexes and motor strength, cranial nerves II-XII are intact, and there are no focal neurological deficits. Your abdomen is soft and non-tender with no hepatosplenomegaly, and you have full range of motion in all extremities with no edema.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "no other abnormalities noted."
+      "matched_claim_text": "no other abnormalities noted.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Listing of specific diagnostic tests (EEG, Tilt-Table Test, CBC, BMP) in the Assessment section",
+      "addition_text": "Assessment: Linking specific diagnostic tests (EEG, Tilt-Table Test, CBC, BMP) directly into the assessment summary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: and a Tilt-Table Test to assess for neurocardiogenic syncope.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tilt-Table Test"
+      "matched_claim_text": "Tilt-Table Test",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Mention of neurologist referral in the Assessment section",
+      "addition_text": "Plan: 'immediately' in the instruction to call if symptoms worsen",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I want to refer you to a neurologist, Dr. Alice Brown, for further evaluation of any potential neurological causes.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: If your symptoms worsen or if you develop any new symptoms, please call us immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Instruct the patient to call the clinic immediately if symptoms worsen or new symptoms develop.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'no other abnormalities noted' in physical examination summary",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Everything looks within normal limits, though you do have mild tachycardia. ... Your neurological exam shows normal reflexes and motor strength, cranial nerves II-XII are intact, and there are no focal neurological deficits. Your abdomen is soft and non-tender with no hepatosplenomegaly, and you have full range of motion in all extremities with no edema.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "no other abnormalities noted.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Linking specific diagnostic tests (EEG, Tilt-Table Test, CBC, BMP) directly into the assessment summary",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: and a Tilt-Table Test to assess for neurocardiogenic syncope.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Tilt-Table Test",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'immediately' in the instruction to call if symptoms worsen",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: If your symptoms worsen or if you develop any new symptoms, please call us immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Instruct the patient to call the clinic immediately if symptoms worsen or new symptoms develop.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

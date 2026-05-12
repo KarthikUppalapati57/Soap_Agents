@@ -258,9 +258,9 @@
     "plan_alignment_score": 0.649746192893401
   },
   "expert_judge": {
-    "model": "model_name_placeholder",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned, but it has several moderate to high-severity omissions, particularly in the Plan section. Key missing elements include medical reasoning for diagnoses, specific prescription details (quantity), and a critical safety instruction to seek immediate medical attention if symptoms worsen. While other sections are strong, the significant gaps in the Plan reduce the overall completeness and safety of the documentation, making it usable only with caution and review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note is mostly accurate in the Subjective, Objective, and Assessment sections. However, the Plan section contains several significant omissions, including critical medical reasoning for both diagnoses and a crucial safety instruction to seek immediate medical attention if symptoms worsen. These omissions materially reduce the clinical usefulness and completeness of the treatment plan, leading to a lower overall grade. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "\"intermittent\" from the chief complaint/pain description",
       "Difficulty fulfilling job duties (specific impact on daily activities)",
@@ -282,8 +282,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has two omissions: the 'intermittent' nature of the pain from the chief complaint and the specific impact of 'difficulty fulfilling job duties'. While a supported addition is present, it does not affect the grade. The omissions are minor to moderate, making the section mostly complete but with some missing details.",
+        "grade": "A",
+        "summary": "The Subjective section is largely complete and clinically accurate. Minor omissions include the 'intermittent' nature of the pain from the chief complaint and the specific impact of 'difficulty fulfilling job duties' on daily activities. These are minor details that do not significantly detract from the overall clinical picture.",
         "omissions": [
           "\"intermittent\" from the chief complaint/pain description",
           "Difficulty fulfilling job duties (specific impact on daily activities)"
@@ -295,14 +295,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, with no omissions or unsupported/unknown additions. All clinically important Ground Truth content is captured accurately.",
+        "summary": "The Objective section is fully aligned with the Ground Truth, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, with no omissions or unsupported/unknown additions. All additions in this section were supported by the transcript and therefore did not impact the grade.",
+        "summary": "The Assessment section is fully aligned with the Ground Truth, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": [
           "Description of kidney stones diagnosis: causing severe pain, nausea, and occasional blood in urine",
@@ -311,8 +311,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple significant omissions. These include the medical reasoning for both Calculus of Kidney and Hypertension, the quantity of Tamsulosin prescribed, the reasoning for Tamsulosin (to help pass stones), patient agreements, and critically, the instruction to seek immediate medical attention if symptoms worsen. These omissions represent several moderate to high-severity issues that make the plan meaningfully incomplete and potentially less safe, requiring careful review.",
+        "grade": "D",
+        "summary": "The Plan section contains several significant omissions. It lacks the medical reasoning for both the Calculus of Kidney and Hypertension diagnoses, which are important for clinical justification. Crucially, it omits the instruction to seek immediate medical attention if symptoms worsen, which is a critical safety instruction. Other minor omissions include the specific quantity of Tamsulosin (30 capsules), the reasoning for Tamsulosin (to help pass the stones), and documentation of patient agreements. These issues make the Plan meaningfully incomplete and potentially unsafe.",
         "omissions": [
           "Medical Reasoning for Calculus of Kidney: The patient's symptoms and physical findings are consistent with kidney stones.",
           "Quantity of Tamsulosin: 30 capsules",
@@ -336,42 +336,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "patient: No changes there either. ... patient: No, just the blood sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No changes in bowel habits or other issues with urination, aside from occasional blood."
+      "matched_claim_text": "No changes in bowel habits or other issues with urination, aside from occasional blood.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Description of kidney stones diagnosis: causing severe pain, nausea, and occasional blood in urine",
       "supported_by_transcript": "supported",
       "transcript_evidence": "doctor: Based on your symptoms and physical findings, it sounds like you might have kidney stones. This could explain the severe pain, nausea, and occasional blood in your urine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely kidney stones causing severe pain, nausea, and occasional blood in urine."
+      "matched_claim_text": "Likely kidney stones causing severe pain, nausea, and occasional blood in urine.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Context for hypertension diagnosis: as the patient is currently on Lisinopril 20 mg daily",
       "supported_by_transcript": "supported",
       "transcript_evidence": "doctor: Lastly, let’s talk about your hypertension. You are currently on Lisinopril 20 mg daily",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension as the patient is currently on Lisinopril 20 mg daily."
+      "matched_claim_text": "Hypertension as the patient is currently on Lisinopril 20 mg daily.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"one capsule\" in Tamsulosin prescription details",
       "supported_by_transcript": "supported",
       "transcript_evidence": "You'll take one capsule orally once daily for 30 days.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for hypertension management\" added to Lisinopril continuation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "doctor: You are currently on Lisinopril 20 mg daily, and you should continue this medication.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue Lisinopril 20 mg daily for hypertension management."
+      "matched_claim_text": "Continue Lisinopril 20 mg daily for hypertension management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No other issues with urination, aside from occasional blood",
       "supported_by_transcript": "supported",
       "transcript_evidence": "patient: No changes there either. ... patient: No, just the blood sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No changes in bowel habits or other issues with urination, aside from occasional blood."
+      "matched_claim_text": "No changes in bowel habits or other issues with urination, aside from occasional blood.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

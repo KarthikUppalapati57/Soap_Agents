@@ -250,7 +250,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. The Subjective, Objective, and Assessment sections are complete and accurate. The Plan section, however, has a moderate omission regarding the instruction to await full lipid panel and subsequent blood pressure readings for chronic conditions, along with two minor omissions. No unsupported or unknown additions were found.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. The Subjective, Objective, and Assessment sections are accurately captured without any omissions or unsupported additions. The Plan section, however, contains a moderate omission regarding the instruction to await full lipid panel and subsequent blood pressure readings for hypertension and hyperlipidemia, along with minor omissions of the specific timing for nicotine patch application and the patient's agreement to the plan. There are no unsupported or unknown additions in the note.",
     "omissions": [
       "Instruction to await full lipid panel and subsequent blood pressure readings",
       "Instruction to apply nicotine patch in the morning",
@@ -264,21 +264,21 @@
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section is complete and accurate, with no omissions or unsupported/unknown additions.",
+        "summary": "The Subjective section accurately captures all clinically important content from the GroundTruthSOAP without any omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurate, with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section accurately captures all clinically important content from the GroundTruthSOAP without any omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate. The addition of 'concurrent' is supported by the transcript and does not impact the grade.",
+        "summary": "The Assessment section accurately captures all clinically important content from the GroundTruthSOAP. The addition of 'concurrent' to describe hypertension and hyperlipidemia is supported by the transcript and does not impact the grade.",
         "omissions": [],
         "additions": [
           "Use of 'concurrent' to describe hypertension and hyperlipidemia"
@@ -286,8 +286,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has several omissions. The instruction to await full lipid panel and subsequent blood pressure readings is a moderate omission, impacting the completeness of the chronic condition management plan. Minor omissions include the specific timing for applying the nicotine patch and the patient's agreement to the plan.",
+        "grade": "C",
+        "summary": "The Plan section has several omissions. A moderate omission is the instruction to await full lipid panel and subsequent blood pressure readings for hypertension and hyperlipidemia. Minor omissions include the specific instruction to apply the nicotine patch in the morning and the patient's agreement to the plan. These omissions make the plan meaningfully incomplete regarding the management of chronic conditions and specific patient instructions.",
         "omissions": [
           "Instruction to await full lipid panel and subsequent blood pressure readings",
           "Instruction to apply nicotine patch in the morning",
@@ -305,7 +305,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your history and symptoms, my assessment is that you have uncomplicated nicotine dependence, along with hypertension and hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment is uncomplicated nicotine dependence with concurrent hypertension and hyperlipidemia."
+      "matched_claim_text": "Assessment is uncomplicated nicotine dependence with concurrent hypertension and hyperlipidemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

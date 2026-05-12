@@ -191,9 +191,9 @@
     "plan_alignment_score": 0.72
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_model",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate clinical summary but suffers from several significant omissions, primarily in the Subjective section. Critical information such as drug allergies, specific medication dosage, and family history of skin cancer are missing. A key patient education point about the malignancy potential of actinic keratosis was also omitted from the Plan. While all additions were supported by the transcript, these omissions make the note meaningfully incomplete and necessitate careful review.",
+    "overall_summary": "The generated SOAP note is generally aligned but has noticeable gaps, particularly in the Subjective section. Multiple moderate omissions, including specific medication details for hypertension, family history of non-melanoma skin cancer, and allergy information, make the Subjective section meaningfully incomplete. The Plan section also omits important patient education regarding the potential for malignancy of actinic keratosis. All identified additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "HPI detail: Lesions do not significantly impact daily activities.",
       "HPI detail: Patient enjoys outdoor activities such as gardening.",
@@ -216,7 +216,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has several omissions, including critical details like the patient's known drug allergies, specific medication dosage (Lisinopril 10 mg once daily), and family history of non-melanoma skin cancer. Minor HPI details and a ROS entry were also omitted. These omissions significantly reduce the completeness and safety of this section.",
+        "summary": "This section has multiple moderate omissions, including the patient's specific Lisinopril dosage for hypertension, family history of non-melanoma skin cancer, and the absence of known drug allergies. Several minor HPI details (impact on daily activities, enjoyment of gardening, concern about sun damage) and a redundant ROS detail were also omitted. These omissions make the section noticeably incomplete.",
         "omissions": [
           "HPI detail: Lesions do not significantly impact daily activities.",
           "HPI detail: Patient enjoys outdoor activities such as gardening.",
@@ -231,8 +231,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is mostly complete, accurately capturing vital signs and dermatological findings. It omits the explicit statement about 'no signs of infection or systemic disease' and the 'Inspection and Palpation' summary, but these are minor issues. All additions were supported by the transcript.",
+        "grade": "A",
+        "summary": "This section is well-aligned. The omission of 'No signs of infection or systemic disease' is mitigated as this information was moved to the Assessment section in the generated note. The 'Inspection and Palpation' finding is implied by the dermatological exam. All additions were supported by the transcript.",
         "omissions": [
           "Physical Examination detail: No signs of infection or systemic disease.",
           "Inspection and Palpation findings: Skin lesions consistent with actinic keratosis."
@@ -244,7 +244,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately reflecting the ground truth with no omissions or unsupported/unknown additions.",
+        "summary": "This section is excellent with no omissions or unsupported/unknown additions. The addition of 'No signs of infection or systemic disease' was supported by the transcript.",
         "omissions": [],
         "additions": [
           "Finding moved from Objective: No signs of infection or systemic disease."
@@ -253,7 +253,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is largely comprehensive but omits an important piece of patient education regarding the nature and potential for malignancy of actinic keratosis if left untreated. All additions were supported by the transcript.",
+        "summary": "This section has one moderate omission: the patient education detail regarding the nature and potential for malignancy of actinic keratosis if left untreated. This is an important piece of clinical information for patient understanding. All additions were supported by the transcript.",
         "omissions": [
           "Patient education on the nature and potential for malignancy of actinic keratosis if left untreated."
         ],
@@ -272,49 +272,63 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 130/85 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. Everything looks normal there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs within normal limits (130/85 mmHg BP, 72 bpm HR, 16 breaths/min RR, 98.6°F temperature)"
+      "matched_claim_text": "Vital signs within normal limits (130/85 mmHg BP, 72 bpm HR, 16 breaths/min RR, 98.6°F temperature)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan detail (Cryotherapy): \"to remove abnormal cells\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, I’d like to administer cryotherapy with liquid nitrogen to the lesions. This will help to freeze and remove the abnormal cells.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cryotherapy with liquid nitrogen to remove abnormal cells on affected areas"
+      "matched_claim_text": "Cryotherapy with liquid nitrogen to remove abnormal cells on affected areas",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan detail (Instructions): \"immediately\" (in \"contact the clinic immediately\").",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any issues with the medication or if new lesions develop, please contact the clinic immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Interpretation: Vital signs within normal limits.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 130/85 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. Everything looks normal there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs within normal limits (130/85 mmHg BP, 72 bpm HR, 16 breaths/min RR, 98.6°F temperature)"
+      "matched_claim_text": "Vital signs within normal limits (130/85 mmHg BP, 72 bpm HR, 16 breaths/min RR, 98.6°F temperature)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Finding moved from Objective: No signs of infection or systemic disease.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: No signs of infection or systemic disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No signs of infection or systemic disease"
+      "matched_claim_text": "No signs of infection or systemic disease",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Cryotherapy detail: \"to remove abnormal cells\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, I’d like to administer cryotherapy with liquid nitrogen to the lesions. This will help to freeze and remove the abnormal cells.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cryotherapy with liquid nitrogen to remove abnormal cells on affected areas"
+      "matched_claim_text": "Cryotherapy with liquid nitrogen to remove abnormal cells on affected areas",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instruction detail: \"immediately\" (in \"contact the clinic immediately\").",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any issues with the medication or if new lesions develop, please contact the clinic immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

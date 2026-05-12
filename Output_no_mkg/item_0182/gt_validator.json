@@ -229,76 +229,36 @@
     "plan_alignment_score": 0.4054054054054055
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Plan section, which materially reduce its clinical usefulness. While there are no unsupported or unknown additions, the absence of a detailed Review of Systems, specific vital sign documentation, and entire sections like 'Preventive Care' and 'INSTRUCTIONS' in the Plan makes the note incomplete and less reliable for comprehensive patient management and follow-up.",
-    "omissions": [
-      "Initial consultation at the community health center",
-      "Patient is cooperative",
-      "Denies fever, chills, or weight loss (Review of Systems)",
-      "Denies chest pain or palpitations (Review of Systems)",
-      "Denies cough or shortness of breath (Review of Systems)",
-      "Denies nausea, vomiting, or changes in bowel habits (Review of Systems)",
-      "Denies dysuria, discharge, or pelvic pain (Review of Systems)",
-      "Denies headaches, dizziness, or changes in vision (Review of Systems)",
-      "Denies alcohol consumption",
-      "Denies drug use",
-      "Recreational activities: Enjoys gardening and reading",
-      "Heart Rate: Not measured during this visit",
-      "Respiratory Rate: Not measured during this visit",
-      "Temperature: Not measured during this visit",
-      "Physical Exam: N/A as this initial consultation focused on history and lab work orders",
-      "Patient is asymptomatic, anxious, and seeks testing to confirm her health status (from Assessment)",
-      "Differential Diagnoses heading",
-      "No current symptoms (related to STI exposure in Assessment)",
-      "Awaiting test results (related to STI exposure in Assessment)",
-      "Diagnostic Tests heading",
-      "Type of test: swab tests for Chlamydia and Gonorrhea",
-      "Type of test: blood work for HIV, Syphilis, and Hepatitis C",
-      "Medications heading",
-      "Lisinopril dosage: 10 mg daily (in Plan)",
-      "Reason for Lisinopril: for hypertension (in Plan)",
-      "Lifestyle Modifications heading",
-      "Smoking cessation resources available at the community health center",
-      "Details for diet improvement: creating a balanced diet and managing meal schedules despite shift work",
-      "Details for exercise: light physical activities that can be incorporated into her daily routine, considering her job's physical demands",
-      "Follow-up heading",
-      "Phone call to discuss test results and potential management options",
-      "Preventive Care section (entirely missing)",
-      "INSTRUCTIONS section (entirely missing)"
-    ],
-    "additions": [
-      "Blood pressure stable (presumably, as patient states it's under control with Lisinopril) (in Objective)",
-      "No explicit objective measurements or direct observations from the transcript (in Objective)",
-      "Specific STIs listed in Assessment: Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C",
-      "Lisinopril dosage: 10 mg daily (in Assessment)",
-      "Qualifier 'current' for hypertension medication (in Plan)"
-    ],
+    "overall_summary": "The generated note demonstrates significant omissions, particularly in the Plan section, where entire critical sections like 'Preventive Care' and 'INSTRUCTIONS' are missing. Additionally, important details such as medication dosage and specific follow-up steps are omitted. While other sections are generally well-captured, these major gaps in the Plan materially reduce the clinical usefulness and completeness of the documentation. All additions were supported by the transcript and did not negatively impact the grade.",
+    "omissions": [],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly aligned but omits the detailed Review of Systems (denials for fever, chills, weight loss, chest pain, etc.), as well as denials for alcohol and drug use, and recreational activities. These are moderate omissions that reduce the completeness of the patient's history.",
+        "summary": "The Subjective section captures the chief complaint, patient's anxiety, and key self-reported habits. However, it omits the detailed Review of Systems, specific sleep duration, reasons for irregular diet and infrequent exercise, and recreational activities, leading to a less comprehensive picture compared to the Ground Truth.",
         "omissions": [
           "Initial consultation at the community health center",
           "Patient is cooperative",
-          "Denies fever, chills, or weight loss (Review of Systems)",
-          "Denies chest pain or palpitations (Review of Systems)",
-          "Denies cough or shortness of breath (Review of Systems)",
-          "Denies nausea, vomiting, or changes in bowel habits (Review of Systems)",
-          "Denies dysuria, discharge, or pelvic pain (Review of Systems)",
-          "Denies headaches, dizziness, or changes in vision (Review of Systems)",
-          "Denies alcohol consumption",
-          "Denies drug use",
-          "Recreational activities: Enjoys gardening and reading"
+          "Noticeable anxiety about the possible outcomes of her tests",
+          "Patient did not detail further about recent exposure",
+          "Comprehensive Review of Systems section (including denials for General, Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Neurological symptoms)",
+          "Specific sleep duration (4-5 hours per night)",
+          "Reason for irregular meals (due to shift work)",
+          "Reason for rarely exercising (physically demanding job)",
+          "Denial of alcohol consumption",
+          "Denial of drug use",
+          "Recreational activities (gardening and reading)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section omits explicit statements that Heart Rate, Respiratory Rate, and Temperature were 'Not measured during this visit,' and that a 'Physical Exam' was 'N/A.' While the generated note correctly implies no measurements were taken, the lack of explicit documentation is a factual omission. All additions in this section were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Objective section accurately reflects the absence of explicit objective measurements or direct observations from the transcript. The minor omissions of specific vital signs not being measured do not detract from the overall accuracy of this section. All additions were supported by the transcript.",
         "omissions": [
           "Heart Rate: Not measured during this visit",
           "Respiratory Rate: Not measured during this visit",
@@ -306,48 +266,44 @@
           "Physical Exam: N/A as this initial consultation focused on history and lab work orders"
         ],
         "additions": [
-          "Blood pressure stable (presumably, as patient states it's under control with Lisinopril)",
-          "No explicit objective measurements or direct observations from the transcript"
+          "Assumption about blood pressure stability ('presumably, as patient states it's under control with Lisinopril')",
+          "General statement about no explicit objective measurements or direct observations from the transcript"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits key details about the patient's current state, specifically that she is 'asymptomatic, anxious, and seeks testing to confirm her health status,' and that she is 'awaiting test results.' It also omits the 'Differential Diagnoses heading.' While the generated note includes specific STIs and Lisinopril dosage (which were supported additions), these omissions reduce the completeness of the clinical picture.",
+        "grade": "A",
+        "summary": "The Assessment section correctly identifies the potential STI exposures and managed hypertension. While it omits some introductory phrasing and the explicit listing of hypertension as a differential diagnosis, the core clinical assessment is present. The addition of specific STIs is supported by the transcript.",
         "omissions": [
-          "Patient is asymptomatic, anxious, and seeks testing to confirm her health status",
+          "Introductory summary sentence of patient's presentation and history",
+          "Statement: 'Despite being asymptomatic, she is anxious and seeks testing to confirm her health status.'",
           "Differential Diagnoses heading",
-          "No current symptoms (related to STI exposure)",
-          "Awaiting test results (related to STI exposure)"
+          "Specific phrasing for STI exposure: 'Possible STI exposure with no current symptoms (awaiting test results)'",
+          "Hypertension listed as a differential diagnosis"
         ],
         "additions": [
-          "Specific STIs listed: Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C",
-          "Lisinopril dosage: 10 mg daily"
+          "Listing specific STIs (Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C) as potential exposures"
         ]
       },
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section has major omissions, including the entire 'Preventive Care' and 'INSTRUCTIONS' sections. It also omits specific details for lifestyle modifications (e.g., smoking cessation resources, balanced diet details, light physical activities), the Lisinopril dosage (even though it was added to Assessment), and the specific follow-up action of a 'phone call to discuss test results.' These significant gaps materially reduce the clinical usefulness and completeness of the plan.",
+        "summary": "The Plan section has significant omissions, including the specific types of diagnostic tests (swab vs. blood), the dosage of Lisinopril, and the crucial 'Phone call to discuss test results' follow-up. Most notably, the entire 'Preventive Care' and 'INSTRUCTIONS' sections are missing, which are major gaps that materially reduce the clinical usefulness and completeness of the plan.",
         "omissions": [
           "Diagnostic Tests heading",
-          "Type of test: swab tests for Chlamydia and Gonorrhea",
-          "Type of test: blood work for HIV, Syphilis, and Hepatitis C",
+          "Specific test types (swab tests for Chlamydia and Gonorrhea, blood work for HIV, Syphilis, and Hepatitis C)",
           "Medications heading",
-          "Lisinopril dosage: 10 mg daily",
-          "Reason for Lisinopril: for hypertension",
+          "Lisinopril dosage (10 mg daily) and condition (for hypertension)",
           "Lifestyle Modifications heading",
-          "Smoking cessation resources available at the community health center",
-          "Details for diet improvement: creating a balanced diet and managing meal schedules despite shift work",
-          "Details for exercise: light physical activities that can be incorporated into her daily routine, considering her job's physical demands",
+          "Detail about smoking cessation resources being 'available at the community health center'",
+          "Detail about diet plan including 'managing meal schedules despite shift work'",
+          "Details about physical activity: 'light physical activities', 'incorporated into her daily routine', 'considering her job's physical demands'",
           "Follow-up heading",
-          "Phone call to discuss test results and potential management options",
-          "Preventive Care section (entirely missing)",
-          "INSTRUCTIONS section (entirely missing)"
+          "Specific follow-up item: 'Phone call to discuss test results and potential management options'",
+          "Entire 'Preventive Care' section (including education on regular STI screenings and blood pressure monitoring)",
+          "Entire 'INSTRUCTIONS' section (including return for follow-up, awaiting phone call, and calling with concerns)"
         ],
-        "additions": [
-          "Qualifier 'current' for hypertension medication"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -355,74 +311,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Blood pressure stable (presumably, as patient states it's under control with Lisinopril) (in Objective)",
+      "addition_text": "Assumption about blood pressure stability ('presumably, as patient states it's under control with Lisinopril')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have hypertension, but it’s under control with Lisinopril 10 mg daily. ... [Patient]: No, it’s been stable.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure stable (presumably, as patient states it's under control with Lisinopril)"
+      "matched_claim_text": "Blood pressure stable (presumably, as patient states it's under control with Lisinopril)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "No explicit objective measurements or direct observations from the transcript (in Objective)",
+      "addition_text": "General statement about no explicit objective measurements or direct observations from the transcript",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No explicit objective measurements or direct observations from the transcript"
+      "matched_claim_text": "No explicit objective measurements or direct observations from the transcript",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific STIs listed in Assessment: Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C",
+      "addition_text": "Listing specific STIs (Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C) as potential exposures",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Now, we’ll need to get some tests done. We’ll do swabs for Chlamydia and Gonorrhea and blood tests for HIV, Syphilis, and Hepatitis C. ... [Patient]: Yes, that’s fine.",
+      "transcript_evidence": "[Patient]: Well, I’m worried about a potential exposure to sexually transmitted infections. ... [Doctor]: We’ll do swabs for Chlamydia and Gonorrhea and blood tests for HIV, Syphilis, and Hepatitis C.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Testing for Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C"
-    },
-    {
-      "addition_text": "Lisinopril dosage: 10 mg daily (in Assessment)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I have hypertension, but it’s under control with Lisinopril 10 mg daily.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension managed with Lisinopril 10 mg daily"
-    },
-    {
-      "addition_text": "Qualifier 'current' for hypertension medication (in Plan)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Got it. We’ll continue with your current medication for hypertension.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continuation of current hypertension medication (Lisinopril)"
-    },
-    {
-      "addition_text": "Blood pressure stable (presumably, as patient states it's under control with Lisinopril)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I have hypertension, but it’s under control with Lisinopril 10 mg daily. ... [Patient]: No, it’s been stable.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure stable (presumably, as patient states it's under control with Lisinopril)"
-    },
-    {
-      "addition_text": "No explicit objective measurements or direct observations from the transcript",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": null,
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "No explicit objective measurements or direct observations from the transcript"
-    },
-    {
-      "addition_text": "Specific STIs listed: Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Now, we’ll need to get some tests done. We’ll do swabs for Chlamydia and Gonorrhea and blood tests for HIV, Syphilis, and Hepatitis C. ... [Patient]: Yes, that’s fine.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Testing for Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C"
-    },
-    {
-      "addition_text": "Lisinopril dosage: 10 mg daily",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I have hypertension, but it’s under control with Lisinopril 10 mg daily.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension managed with Lisinopril 10 mg daily"
-    },
-    {
-      "addition_text": "Qualifier 'current' for hypertension medication",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Got it. We’ll continue with your current medication for hypertension.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continuation of current hypertension medication (Lisinopril)"
+      "matched_claim_text": "Potential exposure to Chlamydia, Gonorrhea, HIV, Syphilis, and Hepatitis C",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

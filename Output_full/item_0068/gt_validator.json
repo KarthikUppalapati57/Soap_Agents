@@ -238,9 +238,9 @@
     "plan_alignment_score": 0.7105263157894737
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The overall note has noticeable gaps and multiple moderate issues, particularly in the Assessment section where the primary diagnosis of Acute Respiratory Failure with Hypoxia is omitted as a distinct entity. Several important contextual details, such as the patient's full medical history in Subjective and specific referrals in Plan, are also missing. While the note is still usable, it requires careful review due to these omissions.",
+    "overall_summary": "The generated note is broadly usable but has several moderate to major omissions that reduce its clinical completeness and usefulness. Key historical diagnoses (CHF, T2DM) are missing from the Subjective section. The Assessment section omits 'Acute Respiratory Failure with Hypoxia' as a distinct primary diagnosis and 'Type 2 diabetes mellitus' as a secondary condition. The Plan section notably omits crucial referrals to Respiratory Therapy and a Cardiologist. While all additions were supported by the transcript and did not reduce the grade, these omissions collectively make the note meaningfully incomplete and necessitate careful review.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -283,7 +283,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section omits the patient's known history of congestive heart failure and type 2 diabetes mellitus, which are important contextual details for the HPI. It also misses the specific detail that the patient requires assistance with basic daily activities due to breathlessness. Omissions of section headers are minor formatting issues.",
+        "summary": "The Subjective section captures the patient's chief complaint and HPI details well. However, it omits the patient's known history of congestive heart failure (CHF) and type 2 diabetes mellitus (T2DM), which are important contextual details. Minor formatting headers and less critical ROS details were also omitted. No unsupported or unknown additions were present.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -299,7 +299,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section accurately captures all clinically important objective findings from the Ground Truth. Omissions are limited to formatting headers and sub-headers, which do not impact clinical content.",
+        "summary": "The Objective section is excellent, capturing all major clinically important content including vital signs, physical examination findings, and investigation results. The only omissions were minor formatting headers, which do not impact clinical usefulness. No unsupported or unknown additions were present.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination Findings section header",
@@ -312,7 +312,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "This section has a major omission by not listing \"Acute Respiratory Failure with Hypoxia\" as a distinct primary diagnosis, instead combining elements into a single diagnosis of \"Acute decompensated heart failure with respiratory distress and hypoxemia.\" This significantly alters the clinical framing of the patient's primary issue. Additionally, Type 2 diabetes mellitus is omitted as a secondary condition.",
+        "summary": "The Assessment section has significant clinical omissions. It fails to list 'Acute Respiratory Failure with Hypoxia' as a distinct primary diagnosis, instead merging it with acute decompensated heart failure. Additionally, 'Type 2 diabetes mellitus' is omitted as a secondary condition. These are moderate to major issues that make the assessment meaningfully incomplete. The single addition was supported by the transcript.",
         "omissions": [
           "Primary Diagnosis section header",
           "Secondary Conditions section header",
@@ -325,8 +325,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section omits important specific referrals, including to Respiratory Therapy for ventilator management and to Dr. John Smith, Cardiologist, for management of acute decompensated heart failure. Minor details regarding medication duration (Levofloxacin) and context (Furosemide), as well as specific patient education points and patient agreement, are also missing.",
+        "grade": "C",
+        "summary": "The Plan section contains several moderate clinical omissions, most notably the referrals to Respiratory Therapy for ventilator management and to Dr. John Smith, Cardiologist, for management of acute decompensated heart failure. These are critical components of a comprehensive care plan. Minor details regarding medication duration/indication and specific patient education/agreement were also omitted. All additions were supported by the transcript.",
         "omissions": [
           "Treatment section header",
           "Medication sub-section header",
@@ -357,28 +357,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It shows a reduced ejection fraction of 35%, suggesting acute decompensated heart failure. ... [Doctor]: I see noticeable respiratory distress and cyanosis. ... [Doctor]: Your SpO2 is 75% on room air, ... [Doctor]: It means your skin has a bluish tint, indicating low oxygen levels.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute decompensated heart failure with respiratory distress and hypoxemia."
+      "matched_claim_text": "Acute decompensated heart failure with respiratory distress and hypoxemia.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Transfer to\" the Intensive Care Unit (instead of just \"ICU monitoring\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You’ll be moved to the Intensive Care Unit (ICU) for close monitoring, and a pulmonologist will assess you daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Transfer to the Intensive Care Unit (ICU) for close monitoring and daily assessment by a pulmonologist."
+      "matched_claim_text": "Transfer to the Intensive Care Unit (ICU) for close monitoring and daily assessment by a pulmonologist.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Perform\" further tests (as an action verb)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll need to perform further tests, including blood culture, sputum culture, D-dimer, and B-type natriuretic peptide (BNP).",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"with respiratory distress and hypoxemia\" appended to acute decompensated heart failure diagnosis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It shows a reduced ejection fraction of 35%, suggesting acute decompensated heart failure. ... [Doctor]: I see noticeable respiratory distress and cyanosis. ... [Doctor]: Your SpO2 is 75% on room air, ... [Doctor]: It means your skin has a bluish tint, indicating low oxygen levels.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute decompensated heart failure with respiratory distress and hypoxemia."
+      "matched_claim_text": "Acute decompensated heart failure with respiratory distress and hypoxemia.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

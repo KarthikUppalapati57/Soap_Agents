@@ -277,7 +277,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note contains significant omissions, primarily in the Plan section, where critical diagnostic orders for blood work (Liver function tests) and an Upper GI endoscopy are entirely absent. These omissions materially reduce the clinical usefulness and completeness of the note. Additionally, the Subjective section has several minor omissions, including details about symptoms and denials from the Review of Systems, and the Assessment section omits important differential diagnoses. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note has significant omissions that materially reduce its clinical usefulness. Critically, the Plan section entirely omits orders for essential diagnostic tests, including blood work (LFTs) and an Upper GI endoscopy, which are crucial for further evaluation and management. The Assessment section also lacks differential diagnoses, indicating incomplete clinical reasoning. Additionally, the Subjective section misses important details such as bloating and several negative review of systems findings. While the primary diagnosis and initial treatment are present, these major gaps make the note incomplete and less reliable for comprehensive patient care.",
     "omissions": [
       "Bloating (from HPI and ROS GI)",
       "Symptoms occur nearly daily (from HPI)",
@@ -313,7 +313,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor omissions, such as the frequency of symptoms ('nearly daily'), impact on concentration at work, and multiple denials from the Review of Systems (nausea/vomiting, shortness of breath, palpitations, radiation of chest pain, headaches/dizziness/syncope). The omission of 'bloating' is a moderate issue. While the core complaint and some key characteristics are present, the missing details reduce the comprehensiveness of the patient's history. All additions were supported by the transcript.",
+        "summary": "The Subjective section captures the chief complaint and main aspects of the HPI, but it omits several clinically relevant details. These include the patient's reported bloating, the daily frequency of symptoms, the impact on concentration at work, and several negative findings from the Review of Systems (e.g., denies nausea/vomiting, shortness of breath, palpitations, radiation of chest pain, headaches, dizziness, or syncope).",
         "omissions": [
           "Bloating",
           "Symptoms occur nearly daily",
@@ -330,8 +330,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-captured, with only minor omissions regarding specific physical exam findings such as 'Bowel sounds: Normal' and 'No hepatosplenomegaly noted'. These do not significantly impact the clinical utility of the section. There were no unsupported or unknown additions.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports all vital signs and the key positive physical exam finding of mild epigastric tenderness. However, it omits two minor negative findings from the physical exam: normal bowel sounds and no hepatosplenomegaly noted.",
         "omissions": [
           "Bowel sounds: Normal",
           "No hepatosplenomegaly noted"
@@ -340,8 +340,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section correctly identifies the likely diagnosis of GERD. However, it omits the differential diagnoses of 'peptic ulcer disease' and 'non-cardiac chest pain', which are important for a comprehensive clinical assessment. These are considered moderate omissions. All additions were supported by the transcript.",
+        "grade": "C",
+        "summary": "The Assessment section correctly identifies the likely diagnosis of GERD. However, it critically omits the differential diagnoses of peptic ulcer disease and non-cardiac chest pain, which are important for comprehensive clinical reasoning and completeness of the assessment.",
         "omissions": [
           "Differential diagnosis includes peptic ulcer disease",
           "Differential diagnosis includes non-cardiac chest pain"
@@ -354,7 +354,7 @@
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section has major omissions, most notably the complete absence of orders for 'blood work (Liver function tests including ALT, AST, and bilirubin levels)' and an 'Upper GI endoscopy'. These are critical diagnostic steps that are essential for the patient's management. Additionally, several minor details regarding medication (route, total tablets), lifestyle modifications (avoiding food triggers, specific sleep goal), patient education, and the 'Patient Agreements' section are missing. The absence of key diagnostic orders materially reduces the clinical usefulness of this section. All additions were supported by the transcript.",
+        "summary": "The Plan section has major omissions that significantly reduce its clinical usefulness. It entirely misses orders for crucial diagnostic tests, specifically blood work (Liver function tests) and an Upper GI endoscopy. Additionally, several minor details are omitted, including specific prescription details (oral route, total tablets), a broader mention of avoiding food triggers, the specific sleep hygiene goal of 7-8 hours, and several patient education and counseling points, as well as the patient agreements section.",
         "omissions": [
           "Omeprazole prescription details: \"oral\" route",
           "Omeprazole prescription details: \"Total: 56 tablets\"",
@@ -381,56 +381,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Mostly after meals, especially when I eat something spicy or fried.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is more pronounced after meals, especially when consuming spicy or fried food."
+      "matched_claim_text": "The pain is more pronounced after meals, especially when consuming spicy or fried food.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Explicit mention of symptoms (chest pain, acid reflux, difficulty sleeping) as reasoning for GERD",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms, I think you might have gastroesophageal reflux disease, or GERD. It's a condition where stomach acid frequently flows back into the tube connecting your mouth and stomach, causing that burning sensation and acidic taste.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible gastroesophageal reflux disease (GERD) due to symptoms such as chest pain, acid reflux, and difficulty sleeping."
+      "matched_claim_text": "Possible gastroesophageal reflux disease (GERD) due to symptoms such as chest pain, acid reflux, and difficulty sleeping.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Inclusion of patient's asthma and anxiety medication in the assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have asthma, so I sometimes wheeze, but it's not that often. [Doctor]: And how has your anxiety been? You’re on Sertraline for that, right? [Patient]: Yes, I take Sertraline...",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Explicit purpose of Omeprazole: \"to reduce stomach acid production\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m prescribing Omeprazole 20 mg, to take once daily for 8 weeks. It will help reduce the amount of acid your stomach makes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Omeprazole 20 mg once daily for 8 weeks to reduce stomach acid production."
+      "matched_claim_text": "Prescribe Omeprazole 20 mg once daily for 8 weeks to reduce stomach acid production.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Pain is more pronounced after meals, especially when consuming spicy or fried food",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Mostly after meals, especially when I eat something spicy or fried.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is more pronounced after meals, especially when consuming spicy or fried food."
+      "matched_claim_text": "The pain is more pronounced after meals, especially when consuming spicy or fried food.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Explicit mention of symptoms (chest pain, acid reflux, difficulty sleeping) as reasoning for GERD",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms, I think you might have gastroesophageal reflux disease, or GERD. It's a condition where stomach acid frequently flows back into the tube connecting your mouth and stomach, causing that burning sensation and acidic taste.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible gastroesophageal reflux disease (GERD) due to symptoms such as chest pain, acid reflux, and difficulty sleeping."
+      "matched_claim_text": "Possible gastroesophageal reflux disease (GERD) due to symptoms such as chest pain, acid reflux, and difficulty sleeping.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Inclusion of patient's asthma and anxiety medication in the assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I have asthma, so I sometimes wheeze... You’re on Sertraline for that, right? Yes, I take Sertraline...",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Explicit purpose of Omeprazole: \"to reduce stomach acid production\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m prescribing Omeprazole 20 mg, to take once daily for 8 weeks. It will help reduce the amount of acid your stomach makes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Omeprazole 20 mg once daily for 8 weeks to reduce stomach acid production."
+      "matched_claim_text": "Prescribe Omeprazole 20 mg once daily for 8 weeks to reduce stomach acid production.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

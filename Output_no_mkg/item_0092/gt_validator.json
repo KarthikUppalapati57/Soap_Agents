@@ -276,108 +276,90 @@
     "plan_alignment_score": 0.6341463414634146
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The note suffers from numerous omissions across the Subjective, Objective, and Plan sections. Key historical details, social history, current medications, and family history are missing from the Subjective section. The Objective section is severely incomplete, omitting all detailed physical exam findings. The Plan section also lacks specific medication details and important conditions for follow-up and test orders. While no unsupported additions were found, the extensive omissions significantly reduce the completeness and clinical utility of the note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note suffers from significant omissions across multiple sections. Entire sections such as Review of Systems, Social History, Medications, Family History, and detailed Physical Exam findings are missing. Additionally, the Plan section omits crucial details regarding medication strengths, quantities, route, specific follow-up conditions, and the order for a Chest X-ray to rule out pneumonia. While the core diagnosis and basic treatment are present, these extensive omissions materially reduce the clinical usefulness and completeness of the documentation. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Patient's occupation (accountant)",
-      "Cough worse at night, disturbing sleep",
+      "Patient occupation (accountant) in HPI context",
+      "Cough disturbing sleep",
       "Difficulty completing work tasks due to symptoms",
-      "Wheezing especially worse at night (from ROS)",
-      "Denies shortness of breath and chest pain (from ROS)",
-      "Denies nasal congestion or ear pain (from ROS)",
-      "Other Systems Negative (from ROS)",
-      "Tobacco use (10 cigarettes per day)",
-      "Alcohol consumption (social drinker, 2-3 drinks per week)",
-      "Recreational activities (reading and gardening)",
-      "Current medication (Loratadine 10 mg daily for allergies)",
-      "Family history (Mother has COPD, father has hypertension)",
-      "General physical exam finding: Patient in mild distress due to cough but no acute distress",
-      "HEENT physical exam finding: Mildly erythematous throat, no exudates",
-      "Respiratory physical exam finding: Wheezing and rhonchi noted on auscultation, no signs of respiratory distress",
-      "Cardiovascular physical exam finding: Regular rate and rhythm, no murmurs",
-      "Albuterol inhaler dosage (90 mcg)",
+      "Review of Systems (ROS) section details (e.g., denies shortness of breath and chest pain, denies nasal congestion or ear pain, other systems negative)",
+      "Social History section details (e.g., tobacco use 10 cigarettes per day, alcohol consumption 2-3 drinks per week, recreation reading and gardening, job status accountant)",
+      "Medications section (Loratadine 10 mg daily for allergies)",
+      "Family History section (Mother has COPD, father has hypertension)",
+      "Physical Exam section details (e.g., General: Patient in mild distress due to cough but no acute distress; HEENT: Mildly erythematous throat, no exudates; Respiratory: Wheezing and rhonchi noted on auscultation, no signs of respiratory distress; Cardiovascular: Regular rate and rhythm, no murmurs)",
+      "Albuterol inhaler strength (90 mcg)",
       "Albuterol inhaler quantity (1 inhaler)",
-      "Dextromethorphan dosage (20 mg/10 mL)",
-      "Dextromethorphan volume (10 mL)",
+      "Dextromethorphan strength/concentration (20 mg/10 mL)",
       "Dextromethorphan quantity (240 mL)",
-      "Paracetamol quantity (24 tablets, oral)",
-      "Strong recommendation to cease smoking (direct instruction)",
-      "Follow-up condition: 'if symptoms persist or worsen'",
+      "Paracetamol quantity (24 tablets)",
+      "Paracetamol route (oral)",
+      "Follow-up condition: \"if symptoms persist or worsen\"",
       "Referral to Specialists: None at this time",
-      "Chest X-ray: Ordered, awaiting results to rule out pneumonia"
+      "Referral for Further Tests/Imaging section (Chest X-ray ordered, awaiting results to rule out pneumonia)",
+      "Instruction: \"Educated about the benefits of smoking cessation and provided resources for support\""
     ],
     "additions": [
-      "Cough is mostly dry but occasionally productive",
-      "Wheezing and rhonchi detected during physical exam",
-      "Mildly erythematous throat without exudates",
-      "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs",
-      "Emphasize the importance of quitting smoking for overall health improvement"
+      "Cough is mostly dry but occasionally productive (in Subjective section)",
+      "Objective findings (wheezing, rhonchi, erythematous throat, no exudates, no respiratory distress, normal heart sounds, regular rate and rhythm, no murmurs) placed in Subjective section",
+      "Specific phrasing \"overall health improvement\" related to quitting smoking"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section has multiple omissions, including the patient's occupation, detailed aspects of the cough (worse at night, disturbing sleep, impact on work), several negative findings from the Review of Systems, comprehensive social history (tobacco use, alcohol consumption, recreational activities), current medications, and family history. These omissions represent noticeable gaps in the patient's clinical picture.",
+        "grade": "D",
+        "summary": "The Subjective section has major omissions, including the complete absence of the Review of Systems, Social History, Medications, and Family History sections. Key HPI details such as cough disturbing sleep and difficulty completing work tasks are also omitted. While some objective findings were inappropriately placed here, all additions were supported by the transcript. The extensive missing structured data significantly reduces the completeness of this section.",
         "omissions": [
-          "Patient's occupation (accountant)",
-          "Cough worse at night, disturbing sleep",
+          "Patient occupation (accountant) in HPI context",
+          "Cough disturbing sleep",
           "Difficulty completing work tasks due to symptoms",
-          "Wheezing especially worse at night (from ROS)",
-          "Denies shortness of breath and chest pain (from ROS)",
-          "Denies nasal congestion or ear pain (from ROS)",
-          "Other Systems Negative (from ROS)",
-          "Tobacco use (10 cigarettes per day)",
-          "Alcohol consumption (social drinker, 2-3 drinks per week)",
-          "Recreational activities (reading and gardening)",
-          "Current medication (Loratadine 10 mg daily for allergies)",
-          "Family history (Mother has COPD, father has hypertension)"
+          "Review of Systems (ROS) section (including details like denies shortness of breath and chest pain, denies nasal congestion or ear pain, other systems negative)",
+          "Social History section (including details like tobacco use 10 cigarettes per day, alcohol consumption 2-3 drinks per week, recreation reading and gardening, job status accountant)",
+          "Medications section (Loratadine 10 mg daily for allergies)",
+          "Family History section (Mother has COPD, father has hypertension)"
         ],
         "additions": [
           "Cough is mostly dry but occasionally productive",
-          "Wheezing and rhonchi detected during physical exam (Objective finding placed in Subjective section)",
-          "Mildly erythematous throat without exudates (Objective finding placed in Subjective section)",
-          "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs (Objective findings placed in Subjective section)"
+          "Wheezing and rhonchi detected during physical exam (Objective finding)",
+          "Mildly erythematous throat without exudates (Objective finding)",
+          "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs (Objective findings)"
         ]
       },
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "The Objective section is significantly incomplete, omitting all detailed physical exam findings such as the general appearance, HEENT, respiratory, and cardiovascular exam results. This leaves the section with only vital signs, materially reducing its clinical usefulness and making it a major gap in the documentation.",
+        "summary": "The Objective section is missing the entire detailed Physical Exam, including general appearance, HEENT, respiratory, and cardiovascular findings. While vital signs are present, the absence of the comprehensive physical exam constitutes a major gap in the documentation.",
         "omissions": [
-          "General physical exam finding: Patient in mild distress due to cough but no acute distress",
-          "HEENT physical exam finding: Mildly erythematous throat, no exudates",
-          "Respiratory physical exam finding: Wheezing and rhonchi noted on auscultation, no signs of respiratory distress",
-          "Cardiovascular physical exam finding: Regular rate and rhythm, no murmurs"
+          "Physical Exam section (including General: Patient in mild distress due to cough but no acute distress; HEENT: Mildly erythematous throat, no exudates; Respiratory: Wheezing and rhonchi noted on auscultation, no signs of respiratory distress; Cardiovascular: Regular rate and rhythm, no murmurs)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately captures the diagnosis without any omissions or unsupported additions.",
+        "summary": "The Assessment section accurately captures the diagnosis of Acute Bronchitis and has no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has several omissions, including specific dosages and quantities for prescribed medications (Albuterol, Dextromethorphan, Paracetamol), the specific condition for follow-up ('if symptoms persist or worsen'), the explicit statement of 'no referral to specialists', and detailed information regarding the Chest X-ray order (purpose and awaiting results). These omissions represent several minor to moderate gaps in the treatment plan details.",
+        "grade": "C",
+        "summary": "The Plan section has multiple omissions, including specific medication details (strength, quantity, route for Albuterol, Dextromethorphan, and Paracetamol), the specific condition for follow-up (\"if symptoms persist or worsen\"), the negative finding for \"Referral to Specialists\", and the entire \"Referral for Further Tests/Imaging\" section which included the Chest X-ray order and its purpose. These omissions reduce the completeness and actionable detail of the plan. All additions were supported by the transcript.",
         "omissions": [
-          "Albuterol inhaler dosage (90 mcg)",
+          "Albuterol inhaler strength (90 mcg)",
           "Albuterol inhaler quantity (1 inhaler)",
-          "Dextromethorphan dosage (20 mg/10 mL)",
-          "Dextromethorphan volume (10 mL)",
+          "Dextromethorphan strength/concentration (20 mg/10 mL)",
           "Dextromethorphan quantity (240 mL)",
-          "Paracetamol quantity (24 tablets, oral)",
-          "Strong recommendation to cease smoking (direct instruction)",
-          "Follow-up condition: 'if symptoms persist or worsen'",
+          "Paracetamol quantity (24 tablets)",
+          "Paracetamol route (oral)",
+          "Follow-up condition: \"if symptoms persist or worsen\"",
           "Referral to Specialists: None at this time",
-          "Chest X-ray: Ordered, awaiting results to rule out pneumonia (specific details)"
+          "Referral for Further Tests/Imaging section (Chest X-ray ordered, awaiting results to rule out pneumonia)",
+          "Instruction: \"Educated about the benefits of smoking cessation and provided resources for support\""
         ],
         "additions": [
-          "Emphasize the importance of quitting smoking for overall health improvement"
+          "Specific phrasing \"overall health improvement\" related to quitting smoking"
         ]
       }
     ],
@@ -386,60 +368,67 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
+      "addition_text": "Cough is mostly dry but occasionally productive (in Subjective section)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "It's mostly dry, but sometimes it feels like there's a bit of phlegm in there.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Cough is mostly dry but occasionally productive",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Objective findings (wheezing, rhonchi, erythematous throat, no exudates, no respiratory distress, normal heart sounds, regular rate and rhythm, no murmurs) placed in Subjective section",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your respiratory exam revealed wheezing and rhonchi, but you don't appear to be in respiratory distress. Your heart sounds are normal with a regular rate and rhythm, and there are no murmurs.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specific phrasing \"overall health improvement\" related to quitting smoking",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Don't forget to follow the prescribed treatment regimen and avoid irritants. And remember, quitting smoking will greatly benefit your health.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Emphasize the importance of adhering to treatment regimen and quitting smoking for overall health improvement",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
       "addition_text": "Cough is mostly dry but occasionally productive",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's mostly dry, but sometimes it feels like there's a bit of phlegm in there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cough is mostly dry but occasionally productive"
+      "matched_claim_text": "Cough is mostly dry but occasionally productive",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Wheezing and rhonchi detected during physical exam",
+      "addition_text": "Wheezing and rhonchi detected during physical exam (Objective finding)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your respiratory exam revealed wheezing and rhonchi",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Wheezing and rhonchi detected during physical exam"
+      "matched_claim_text": "Wheezing and rhonchi detected during physical exam",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Mildly erythematous throat without exudates",
+      "addition_text": "Mildly erythematous throat without exudates (Objective finding)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "During the physical exam, I noticed your throat is mildly erythematous but without exudates.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mildly erythematous throat without exudates"
+      "matched_claim_text": "Mildly erythematous throat without exudates",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs",
+      "addition_text": "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs (Objective findings)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your respiratory exam revealed wheezing and rhonchi, but you don't appear to be in respiratory distress. Your heart sounds are normal with a regular rate and rhythm, and there are no murmurs.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs"
-    },
-    {
-      "addition_text": "Emphasize the importance of quitting smoking for overall health improvement",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Don't forget to follow the prescribed treatment regimen and avoid irritants. And remember, quitting smoking will greatly benefit your health.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the importance of adhering to treatment regimen and quitting smoking for overall health improvement"
-    },
-    {
-      "addition_text": "Wheezing and rhonchi detected during physical exam (Objective finding placed in Subjective section)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your respiratory exam revealed wheezing and rhonchi",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Wheezing and rhonchi detected during physical exam"
-    },
-    {
-      "addition_text": "Mildly erythematous throat without exudates (Objective finding placed in Subjective section)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "During the physical exam, I noticed your throat is mildly erythematous but without exudates.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mildly erythematous throat without exudates"
-    },
-    {
-      "addition_text": "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs (Objective findings placed in Subjective section)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your respiratory exam revealed wheezing and rhonchi, but you don't appear to be in respiratory distress. Your heart sounds are normal with a regular rate and rhythm, and there are no murmurs.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs"
+      "matched_claim_text": "No respiratory distress, normal heart sounds with a regular rate and rhythm, no murmurs",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

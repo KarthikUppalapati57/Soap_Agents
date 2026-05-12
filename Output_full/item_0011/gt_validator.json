@@ -266,9 +266,9 @@
     "plan_alignment_score": 0.6336633663366336
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the majority of the Ground Truth content. However, it omits several minor details and two moderate clinical points: the impact of symptoms on daily activities in the HPI and the socio-economic considerations influencing patient management in the Plan. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the core clinical picture and plan. However, it has several minor omissions and two moderate omissions: the impact of symptoms on the patient's daily life in the HPI, and crucial environmental and socio-economic considerations in the Plan. There are no unsupported or unknown additions, which significantly contributes to its usability.",
     "omissions": [
       "The patient understands and agrees with the recommended medical treatment plan."
     ],
@@ -278,7 +278,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly accurate but omits the detail about the symptoms causing significant difficulty in completing daily chores and work from home. It also misses specific ROS denials for hemoptysis and changes in bowel habits. These omissions, while not critical, reduce the completeness of the section.",
+        "summary": "This section omits a moderate detail regarding the severity and constant nature of the symptoms, specifically their significant difficulty in completing daily chores and work from home. Minor ROS denials for hemoptysis and changes in bowel habits were also omitted.",
         "omissions": [
           "HPI: Symptoms moderate in severity and constant, causing significant difficulty in completing daily chores and work from home.",
           "ROS: No hemoptysis.",
@@ -289,7 +289,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-aligned with the Ground Truth. The only omission is a minor detail regarding the musculoskeletal exam (no joint swelling or tenderness, normal range of motion). The addition 'on lung auscultation' was supported by the transcript and did not affect the grade.",
+        "summary": "This section is largely complete, with only a minor omission regarding the specific details of the musculoskeletal exam (no joint swelling or tenderness, normal range of motion). The addition present was supported by the transcript and did not reduce the grade.",
         "omissions": [
           "Physical Exam: Musculoskeletal: No joint swelling or tenderness, normal range of motion."
         ],
@@ -300,14 +300,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the Ground Truth, with no omissions or unsupported/unknown additions.",
+        "summary": "This section is complete with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is largely complete but omits the specific quantity of ibuprofen dispensed (20 tablets) and, more significantly, the environmental and socio-economic considerations that may influence the patient's management and follow-up. The additions 'monitor symptoms closely' and 'contact the clinic immediately' were supported by the transcript and did not affect the grade.",
+        "summary": "This section omits a minor detail about the specific quantity of ibuprofen dispensed (20 tablets) and a moderate omission regarding the important environmental and socio-economic considerations that may influence management and follow-up. All additions present were supported by the transcript and did not reduce the grade.",
         "omissions": [
           "Medications: Ibuprofen dispensed with 20 tablets.",
           "Environmental and Socio-economic Considerations: The patient's lower socio-economic status and living in a neighborhood with moderate pollution may influence the management and follow-up of his condition."
@@ -327,21 +327,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I hear some mild wheezing on expiration and scattered rhonchi.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "mild wheezing on expiration and scattered rhonchi on lung auscultation"
+      "matched_claim_text": "mild wheezing on expiration and scattered rhonchi on lung auscultation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "monitor symptoms closely",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I want you to monitor your symptoms closely. If you experience any worsening or new symptoms like chest pain or high fever, contact us immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "monitor symptoms closely, contact the clinic immediately if experiencing worsening or new symptoms like chest pain or high fever"
+      "matched_claim_text": "monitor symptoms closely, contact the clinic immediately if experiencing worsening or new symptoms like chest pain or high fever",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Chest pain — phenotype_phenotype — Precordial pain, familial Mediterranean fever — disease_phenotype_positive — Chest pain"
     },
     {
       "addition_text": "contact the clinic immediately",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I want you to monitor your symptoms closely. If you experience any worsening or new symptoms like chest pain or high fever, contact us immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "monitor symptoms closely, contact the clinic immediately if experiencing worsening or new symptoms like chest pain or high fever"
+      "matched_claim_text": "monitor symptoms closely, contact the clinic immediately if experiencing worsening or new symptoms like chest pain or high fever",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Chest pain — phenotype_phenotype — Precordial pain, familial Mediterranean fever — disease_phenotype_positive — Chest pain"
     }
   ]
 }

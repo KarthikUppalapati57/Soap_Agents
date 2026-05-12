@@ -295,9 +295,9 @@
     "plan_alignment_score": 0.6712328767123289
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary of the encounter, accurately capturing the core HPI, objective findings, diagnosis, and treatment plan. However, the Subjective section has significant omissions, including most of the detailed Review of Systems, the entire Social History, and a current medication (Folic acid). The Plan section also omits specific medication quantity and full referral details. All additions in the note are supported by the transcript, preventing any issues with misleading content.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. It accurately captures the patient's chief complaint, key history, physical exam findings, diagnosis, and treatment plan. However, it omits a significant portion of the detailed Review of Systems from the Subjective section, making that part of the note meaningfully incomplete. Minor details regarding medication quantity and full referral information are also missing from the Plan. No unsupported or unknown additions were identified.",
     "omissions": [
       "Chief Complaint: Routine check-up aspect",
       "HPI: Patient's attribution of fatigue to potential anemia",
@@ -333,7 +333,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has numerous omissions that make it meaningfully incomplete. Key missing elements include the 'routine check-up' aspect of the chief complaint, the patient's attribution of fatigue to potential anemia, and the detail about maintaining an active lifestyle with difficulty. More significantly, almost all detailed Review of Systems findings (General, Skin, HEENT, Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Neurological) are omitted, as are all details from the Family Medical History, Social History, and the current medication Folic acid. These omissions represent noticeable gaps in clinically important content.",
+        "summary": "This section has noticeable gaps, primarily due to the extensive omission of detailed negative Review of Systems findings. Additionally, specific details from the History of Present Illness, Past Medical History (diagnosis date), Family Medical History, Social History, and current medications (Folic acid) are missing, making the section meaningfully incomplete.",
         "omissions": [
           "Chief Complaint: Routine check-up aspect",
           "HPI: Patient's attribution of fatigue to potential anemia",
@@ -362,7 +362,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete and accurate. The only omissions are minor details regarding the patient's general appearance ('Generally well-appearing') and the full description of the extremities exam ('Normal range of motion, no swelling'). These do not materially reduce the clinical usefulness of the section.",
+        "summary": "This section is well-captured with only minor omissions, such as the general appearance (\"Generally well-appearing\") and specific details of the extremities exam (\"Normal range of motion, no swelling\"). The clinically important findings are present.",
         "omissions": [
           "General: \"Generally well-appearing\"",
           "Extremities exam: \"Normal range of motion, no swelling\""
@@ -372,7 +372,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately capturing the diagnosis and differential diagnoses. The omissions are minor, relating to the explicit labeling of sub-sections and the 'unspecified' qualifier for anemia. All additions in this section are fully supported by the transcript and enhance clarity without introducing unsupported information.",
+        "summary": "This section accurately captures the diagnosis and differential diagnosis. The omissions are minor, limited to the \"unspecified\" qualifier for anemia and the explicit sub-section labeling. All additions were supported by the transcript.",
         "omissions": [
           "Explicit labeling of \"Diagnosis\" and \"Differential Diagnoses\" sub-sections",
           "\"unspecified\" qualifier for iron deficiency anemia"
@@ -385,7 +385,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures all major components of the treatment plan. However, there are moderate omissions, specifically the quantity of the prescribed medication (240 tablets) and the full referral details for the colonoscopy (Gastroenterology, Dr. Linda Johnson). While these are clinically useful details, the core plan is present and actionable. All additions in this section are supported by the transcript.",
+        "summary": "This section is mostly complete but has a few moderate omissions, including the specific quantity of medication (240 tablets) and the full referral details for the colonoscopy (Gastroenterology, Dr. Linda Johnson). A minor instruction regarding adherence to treatment was also omitted.",
         "omissions": [
           "Medication quantity (240 tablets)",
           "Referral details for colonoscopy (Gastroenterology, Dr. Linda Johnson)",
@@ -408,84 +408,108 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms, I suspect you might have iron deficiency anemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms suggest possible iron deficiency anemia"
+      "matched_claim_text": "The patient's symptoms suggest possible iron deficiency anemia",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: \"The pale conjunctiva supports this diagnosis.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Pale conjunctiva can be a sign of anemia, which matches your symptoms of fatigue and pale skin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pale conjunctiva supports this diagnosis."
+      "matched_claim_text": "The pale conjunctiva supports this diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"Initiate\" for medication",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll be starting you on Ferrous fumarate 324 mg tablets, oral, twice daily for 4 months.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"Recommend\" for colonoscopy",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also recommend a colonoscopy to rule out gastrointestinal bleeding.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"Encourage\" for lifestyle changes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also encourage you to cut down on smoking and alcohol consumption.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"Schedule\" for follow-up",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Okay, I’ll make sure to schedule that.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"The patient's symptoms suggest possible\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms, I suspect you might have iron deficiency anemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms suggest possible iron deficiency anemia"
+      "matched_claim_text": "The patient's symptoms suggest possible iron deficiency anemia",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"The pale conjunctiva supports this diagnosis.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Pale conjunctiva can be a sign of anemia, which matches your symptoms of fatigue and pale skin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pale conjunctiva supports this diagnosis."
+      "matched_claim_text": "The pale conjunctiva supports this diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Initiate\" for medication",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll be starting you on Ferrous fumarate 324 mg tablets, oral, twice daily for 4 months.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Recommend\" for colonoscopy",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also recommend a colonoscopy to rule out gastrointestinal bleeding.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend a colonoscopy to rule out gastrointestinal bleeding."
+      "matched_claim_text": "Recommend a colonoscopy to rule out gastrointestinal bleeding.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Encourage\" for lifestyle changes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also encourage you to cut down on smoking and alcohol consumption.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Schedule\" for follow-up",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Okay, I’ll make sure to schedule that.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

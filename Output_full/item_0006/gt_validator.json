@@ -296,83 +296,102 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions across all sections, particularly in the Subjective, Objective, and Plan. Key missing elements include the patient's comorbidities, the entire Review of Systems, all laboratory test details, and critical patient safety instructions regarding when to return to the emergency department or contact the clinic for medication side effects. These omissions materially reduce the clinical usefulness and completeness of the note.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a generally accurate summary of the patient's visit. However, it has noticeable gaps, particularly in the Subjective section where crucial patient history (age, race, sex, hypertension, Type 2 diabetes) is omitted. The Plan section also suffers from multiple moderate omissions, including the clinical rationale for medication choice (penicillin allergy) and detailed patient safety instructions for worsening symptoms. While the Objective and Assessment sections are strong, these significant omissions make the note meaningfully incomplete and require careful review.",
     "omissions": [
+      "Patient's age (52-year-old)",
+      "Patient's race (African American)",
+      "Patient's sex (male)",
       "Patient's history of hypertension and Type 2 diabetes",
-      "Patient's pain described as \"constant\"",
-      "Symptoms severely limited daily activities, patient bedridden for past two days",
-      "Patient's overall poor sleep pattern, exacerbated by pain",
-      "Entire Review of Systems (ROS) section",
-      "Denial of nausea, vomiting, diarrhea",
-      "General appearance in Physical Exam: \"Patient appears uncomfortable and in distress due to pain\"",
-      "Abdominal exam detail: \"no rebound tenderness or guarding\"",
-      "Entire Laboratory Tests section (Urinalysis, CBC, BMP ordered/pending)",
-      "Specific diagnosis term: \"pyelonephritis\"",
-      "Medical treatment detail: \"due to the patient’s penicillin allergy\"",
-      "Specific urologist name: \"Dr. John Smith\"",
-      "Lifestyle/Patient Education: Dietary changes (recommended more fruits and vegetables, discussed impact of unbalanced diet)",
-      "Lifestyle/Patient Education: Hydration (emphasized importance of increasing fluid intake)",
-      "Lifestyle/Patient Education: Information on recognizing symptoms of worsening infection",
-      "Patient Education and Counseling: Importance of adherence to medication and follow-up appointments",
-      "Entire Patient Agreements section",
-      "Entire Instructions section (return to ED if symptoms worsen, contact clinic for side effects)"
+      "Patient's symptoms severely limited daily activities",
+      "Patient has been bedridden for the past two days",
+      "Patient expresses frustration regarding healthcare access (beyond just mentioning issues)",
+      "Patient reports an overall poor sleep pattern, exacerbated by pain",
+      "Denial of nausea, vomiting, diarrhea in ROS",
+      "General appearance: Patient appears uncomfortable and in distress due to pain",
+      "No rebound tenderness or guarding in abdomen exam",
+      "Urinalysis awaiting results",
+      "CBC and BMP ordered, results pending",
+      "Primary diagnosis site not specified",
+      "Secondary consideration: further evaluation needed based on lab results",
+      "Reason for Ciprofloxacin: due to the patient’s penicillin allergy",
+      "Referral to Urologist: Dr. John Smith",
+      "Referral if complications arise",
+      "Dietary changes: Recommended more fruits and vegetables, discussed impact of unbalanced diet",
+      "Hydration: Emphasized importance of increasing fluid intake",
+      "Patient education on recognizing symptoms of worsening infection",
+      "Discussion about importance of adherence to medication and follow-up appointments (beyond just scheduling)",
+      "Patient Agreements: Patient understands and agrees with the recommended medical treatment plan and follow-up recommendations",
+      "Instructions: Return to the emergency department if symptoms worsen (increased fever, severe pain, unable to urinate)",
+      "Instructions: Contact clinic immediately if experiencing side effects from medication"
     ],
     "additions": [
-      "In Plan, condition for urologist referral: \"worsen\" (instead of \"complications arise\")"
+      "Assessment: Possible urinary tract infection involving kidneys (as part of primary diagnosis statement)",
+      "Assessment: confirmed with pending lab tests (as part of primary diagnosis statement)",
+      "Plan: If symptoms worsen (as a condition for urologist referral)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has noticeable gaps, including the omission of the patient's history of hypertension and Type 2 diabetes, the detailed impact of symptoms on daily activities (bedridden for two days), and the entire Review of Systems section. While some chief complaint details are present, the lack of comprehensive HPI and ROS makes the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section omits crucial patient history, including age, race, sex, and significant medical conditions like hypertension and Type 2 diabetes. While it captures the chief complaint and main symptoms, these omissions reduce its completeness and clinical context, making it less comprehensive than the Ground Truth.",
         "omissions": [
+          "Patient's age (52-year-old)",
+          "Patient's race (African American)",
+          "Patient's sex (male)",
           "Patient's history of hypertension and Type 2 diabetes",
-          "Patient's pain described as \"constant\"",
-          "Symptoms severely limited daily activities, patient bedridden for past two days",
-          "Patient's overall poor sleep pattern, exacerbated by pain",
-          "Entire Review of Systems (ROS) section",
-          "Denial of nausea, vomiting, diarrhea"
+          "Patient's symptoms severely limited daily activities",
+          "Patient has been bedridden for the past two days",
+          "Patient expresses frustration regarding healthcare access (beyond just mentioning issues)",
+          "Patient reports an overall poor sleep pattern, exacerbated by pain",
+          "Denial of nausea, vomiting, diarrhea in ROS"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section is missing important physical exam details such as the patient's general appearance (uncomfortable and in distress) and the absence of rebound tenderness or guarding in the abdominal exam. Critically, the entire Laboratory Tests section, including ordered tests and pending results, is omitted, which significantly impacts the understanding of the diagnostic workup.",
+        "grade": "A",
+        "summary": "The Objective section is largely complete, accurately reporting vital signs and key physical exam findings. The omissions are minor details regarding general appearance and pending lab statuses, which do not significantly detract from the clinical utility of the section.",
         "omissions": [
-          "General appearance in Physical Exam: \"Patient appears uncomfortable and in distress due to pain\"",
-          "Abdominal exam detail: \"no rebound tenderness or guarding\"",
-          "Entire Laboratory Tests section (Urinalysis, CBC, BMP ordered/pending)"
+          "General appearance: Patient appears uncomfortable and in distress due to pain",
+          "No rebound tenderness or guarding in abdomen exam",
+          "Urinalysis awaiting results",
+          "CBC and BMP ordered, results pending"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "This section is mostly aligned, but it omits the specific secondary consideration of 'Possible pyelonephritis given the lower back pain and fever, further evaluation needed based on lab results.' While the generated note mentions 'involving kidneys,' the explicit term and the need for further evaluation are important details that were missed.",
+        "grade": "A",
+        "summary": "The Assessment section accurately captures the primary diagnosis and the need for lab confirmation. All additions are supported by the transcript. While the Ground Truth explicitly stated 'site not specified' and a secondary consideration, the generated note provides a more specific and transcript-supported assessment of 'involving kidneys,' which is clinically appropriate.",
         "omissions": [
-          "Specific diagnosis term: \"pyelonephritis\""
+          "Primary diagnosis site not specified",
+          "Secondary consideration: further evaluation needed based on lab results"
         ],
-        "additions": []
+        "additions": [
+          "Possible urinary tract infection involving kidneys (as part of primary diagnosis statement)",
+          "confirmed with pending lab tests (as part of primary diagnosis statement)"
+        ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section contains major omissions that materially reduce its clinical usefulness and patient safety. Key missing elements include the reason for Ciprofloxacin (penicillin allergy), specific patient education points (dietary changes, hydration, recognizing worsening infection, adherence to medication/follow-up), the entire Patient Agreements section, and critically, the entire Instructions section which details when to return to the emergency department or contact the clinic for medication side effects.",
+        "grade": "C",
+        "summary": "The Plan section omits several important details, including the crucial reason for prescribing Ciprofloxacin (penicillin allergy) and specific instructions for returning to the emergency department if symptoms worsen. While it covers medication, follow-up, and some lifestyle advice, the absence of these moderate clinical and safety details makes it meaningfully incomplete.",
         "omissions": [
-          "Medical treatment detail: \"due to the patient’s penicillin allergy\"",
-          "Specific urologist name: \"Dr. John Smith\"",
-          "Lifestyle/Patient Education: Dietary changes (recommended more fruits and vegetables, discussed impact of unbalanced diet)",
-          "Lifestyle/Patient Education: Hydration (emphasized importance of increasing fluid intake)",
-          "Lifestyle/Patient Education: Information on recognizing symptoms of worsening infection",
-          "Patient Education and Counseling: Importance of adherence to medication and follow-up appointments",
-          "Entire Patient Agreements section",
-          "Entire Instructions section (return to ED if symptoms worsen, contact clinic for side effects)"
+          "Reason for Ciprofloxacin: due to the patient’s penicillin allergy",
+          "Referral to Urologist: Dr. John Smith",
+          "Referral if complications arise",
+          "Dietary changes: Recommended more fruits and vegetables, discussed impact of unbalanced diet",
+          "Hydration: Emphasized importance of increasing fluid intake",
+          "Patient education on recognizing symptoms of worsening infection",
+          "Discussion about importance of adherence to medication and follow-up appointments (beyond just scheduling)",
+          "Patient Agreements: Patient understands and agrees with the recommended medical treatment plan and follow-up recommendations",
+          "Instructions: Return to the emergency department if symptoms worsen (increased fever, severe pain, unable to urinate)",
+          "Instructions: Contact clinic immediately if experiencing side effects from medication"
         ],
         "additions": [
-          "Condition for urologist referral: \"worsen\" (instead of \"complications arise\")"
+          "If symptoms worsen (as a condition for urologist referral)"
         ]
       }
     ],
@@ -381,18 +400,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "In Plan, condition for urologist referral: \"worsen\" (instead of \"complications arise\")",
+      "addition_text": "Assessment: Possible urinary tract infection involving kidneys (as part of primary diagnosis statement)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: It suggests you might have a urinary tract infection, possibly involving your kidneys given your back pain and fever.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Possible urinary tract infection involving kidneys.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Condition for urologist referral: \"worsen\" (instead of \"complications arise\")",
+      "addition_text": "Assessment: confirmed with pending lab tests (as part of primary diagnosis statement)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: We'll need to confirm this with lab tests. ... We're waiting for the results.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Confirmed with pending lab tests.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: If symptoms worsen (as a condition for urologist referral)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "If symptoms persist or worsen, refer to a urologist.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Possible urinary tract infection involving kidneys (as part of primary diagnosis statement)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It suggests you might have a urinary tract infection, possibly involving your kidneys given your back pain and fever.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Possible urinary tract infection involving kidneys.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "confirmed with pending lab tests (as part of primary diagnosis statement)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We'll need to confirm this with lab tests. ... We're waiting for the results.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Confirmed with pending lab tests.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "If symptoms worsen (as a condition for urologist referral)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: If your symptoms persist or get worse, I'll refer you to a urologist, Dr. John Smith.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "If symptoms persist or worsen, refer to a urologist.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

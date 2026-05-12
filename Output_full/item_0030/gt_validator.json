@@ -221,7 +221,143 @@
     "assessment_alignment_score": 0.736842105263158,
     "plan_alignment_score": 0.7023809523809524
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Subjective'; got ['Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The note provides a mostly clinically aligned and usable summary of the patient's encounter. The Assessment and Objective sections are strong, with only minor omissions in Objective and no discrepancies in Assessment. However, the Subjective section has noticeable gaps due to numerous omissions of specific HPI details and negative ROS findings, making it meaningfully incomplete. The Plan section also has several moderate omissions regarding specific referral details and the explicit listing of tests. There are no unsupported or unknown additions, which is a significant positive.",
+    "omissions": [
+      "Chief Complaint: Severe obesity and associated symptoms affecting daily activities.",
+      "HPI detail: initial consultation regarding her weight issues.",
+      "HPI detail: severe obesity (BMI 42) in the HPI section.",
+      "HPI detail: Challenging to perform daily tasks and has limited mobility.",
+      "HPI detail: Despite previous attempts to lose weight through various diets, she has been unable to maintain any significant weight loss.",
+      "HPI detail: Sleeps around 6 hours per night, though her sleep is often interrupted.",
+      "HPI detail: Acknowledges a high calorie, high fat, and high sugar diet.",
+      "HPI detail: Sedentary lifestyle with no regular exercise.",
+      "HPI detail: Denies tobacco and drug use.",
+      "HPI detail: Consumes alcohol occasionally (1-2 drinks per week).",
+      "HPI detail: Her recreational activities mainly include watching TV and playing video games.",
+      "ROS detail: Constitutional: denies fever or chills.",
+      "ROS detail: Cardiovascular: denies chest pain or palpitations.",
+      "ROS detail: Respiratory: denies cough or wheezing.",
+      "ROS detail: Musculoskeletal: denies muscle weakness.",
+      "ROS detail: Endocrine: denies thyroid issues.",
+      "Objective detail: General Appearance: Obese, alert, and oriented.",
+      "Objective detail: Cardiovascular: Regular rate and rhythm (as a separate physical exam finding).",
+      "Plan detail: Specific names of referred doctors: Dr. Sarah Mitchell (endocrinologist) and Dr. Robert Kingston (psychologist).",
+      "Plan detail: Specific reason for endocrinologist referral: for hormonal evaluation.",
+      "Plan detail: Specific reason for psychologist referral: for behavioral therapy.",
+      "Plan detail: Additional Tests: Comprehensive metabolic panel (CMP), fasting lipid panel, HbA1c (from the Plan section).",
+      "Plan detail: Additional Tests: Abdominal ultrasound to assess for possible fatty liver disease (from the Plan section).",
+      "Plan detail: Patient Education: to improve overall well-being (related to sleep routine).",
+      "Plan detail: Patient expressed understanding and agreed to the proposed treatment plans and follow-up schedules."
+    ],
+    "additions": [
+      "Objective section: Pending results for comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "Plan section: follow up on pending tests."
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "C",
+        "summary": "The Subjective section has numerous omissions, including the Chief Complaint, many specific details from the History of Present Illness (e.g., mobility limitations, prior weight loss attempts, detailed diet/lifestyle, substance use), and several negative findings from the Review of Systems (e.g., denies fever/chills, chest pain, cough, muscle weakness, thyroid issues). These omissions make the section noticeably incomplete.",
+        "omissions": [
+          "Chief Complaint: Severe obesity and associated symptoms affecting daily activities.",
+          "HPI detail: initial consultation regarding her weight issues.",
+          "HPI detail: severe obesity (BMI 42) in the HPI section.",
+          "HPI detail: Challenging to perform daily tasks and has limited mobility.",
+          "HPI detail: Despite previous attempts to lose weight through various diets, she has been unable to maintain any significant weight loss.",
+          "HPI detail: Sleeps around 6 hours per night, though her sleep is often interrupted.",
+          "HPI detail: Acknowledges a high calorie, high fat, and high sugar diet.",
+          "HPI detail: Sedentary lifestyle with no regular exercise.",
+          "HPI detail: Denies tobacco and drug use.",
+          "HPI detail: Consumes alcohol occasionally (1-2 drinks per week).",
+          "HPI detail: Her recreational activities mainly include watching TV and playing video games.",
+          "ROS detail: Constitutional: denies fever or chills.",
+          "ROS detail: Cardiovascular: denies chest pain or palpitations.",
+          "ROS detail: Respiratory: denies cough or wheezing.",
+          "ROS detail: Musculoskeletal: denies muscle weakness.",
+          "ROS detail: Endocrine: denies thyroid issues."
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is well-aligned with the Ground Truth. It has only minor omissions regarding general appearance details ('Obese, alert, and oriented') and a redundant cardiovascular finding. The addition of 'Pending results for comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound' is fully supported by the transcript and does not reduce the grade.",
+        "omissions": [
+          "Physical Examination: General Appearance: Obese, alert, and oriented.",
+          "Physical Examination: Cardiovascular: Regular rate and rhythm (as a separate physical exam finding)."
+        ],
+        "additions": [
+          "Pending results for comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound."
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is perfectly aligned with the Ground Truth, with no omissions or additions.",
+        "omissions": [],
+        "additions": []
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section has several moderate omissions, including the specific names of the referred doctors (Dr. Sarah Mitchell, Dr. Robert Kingston), the explicit reasons for their referrals (hormonal evaluation, behavioral therapy), and the full listing of additional tests (CMP, fasting lipid panel, HbA1c, abdominal ultrasound) within the Plan section itself. A minor omission is the detail about patient education for sleep routine ('to improve overall well-being') and patient agreement. The addition of 'follow up on pending tests' is supported by the transcript and does not reduce the grade.",
+        "omissions": [
+          "Referral detail: Specific names of referred doctors: Dr. Sarah Mitchell (endocrinologist) and Dr. Robert Kingston (psychologist).",
+          "Referral detail: Specific reason for endocrinologist referral: for hormonal evaluation.",
+          "Referral detail: Specific reason for psychologist referral: for behavioral therapy.",
+          "Additional Tests: Comprehensive metabolic panel (CMP), fasting lipid panel, HbA1c (from the Plan section).",
+          "Additional Tests: Abdominal ultrasound to assess for possible fatty liver disease (from the Plan section).",
+          "Patient Education: to improve overall well-being (related to sleep routine).",
+          "Patient expressed understanding and agreed to the proposed treatment plans and follow-up schedules."
+        ],
+        "additions": [
+          "follow up on pending tests."
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Objective section: Pending results for comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’re awaiting the results of your comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pending results for comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan section: follow up on pending tests.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We need to follow up on the additional tests, including the comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound to assess for possible fatty liver disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "follow up on pending tests.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pending results for comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’re awaiting the results of your comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pending results for comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "follow up on pending tests.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We need to follow up on the additional tests, including the comprehensive metabolic panel, fasting lipid panel, HbA1c, and abdominal ultrasound to assess for possible fatty liver disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "follow up on pending tests.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

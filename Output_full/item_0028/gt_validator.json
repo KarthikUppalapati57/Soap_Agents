@@ -258,9 +258,9 @@
     "plan_alignment_score": 0.6880733944954129
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions in the Subjective and Objective sections. The Chief Complaint and the entire Review of Systems are missing from Subjective, and most detailed physical exam findings and specific lab values are omitted from Objective. While the Assessment and Plan sections are mostly aligned and clinically usable, these substantial gaps in the foundational subjective and objective data make the note meaningfully incomplete and necessitate careful review. There are no unsupported or unknown additions.",
+    "overall_summary": "The generated SOAP note has noticeable gaps, particularly in the Subjective and Objective sections. It omitted the entire Chief Complaint, most of the detailed Review of Systems, and the majority of the physical exam findings. Key laboratory values were also missing from the Objective section. The Assessment section lacked important qualifying details for diagnoses and a complete assessment of lower extremity edema. While the Plan section was mostly comprehensive, it missed several minor specific details. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint section",
       "Review of Systems section",
@@ -288,7 +288,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has significant omissions, including the complete absence of the Chief Complaint and the entire Review of Systems. Several important HPI details, such as the frequency of symptoms and the patient's chronic kidney disease status, are also missing. These omissions represent noticeable gaps that make the section meaningfully incomplete.",
+        "summary": "The Chief Complaint was entirely omitted. Additionally, several details from the History of Present Illness, including the frequency of symptoms and the patient's stable chronic kidney disease status, were missing. The Review of Systems was also incomplete, with multiple denials of symptoms across various systems not captured.",
         "omissions": [
           "Chief Complaint: \"Follow-up visit for hypertension management and general adult medical examination.\"",
           "HPI: \"These symptoms occur a few times a week\"",
@@ -306,7 +306,7 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section is missing most of the detailed physical exam findings (e.g., HEENT, Neck, Cardiovascular, Respiratory, Abdomen, Neurological, Skin). Additionally, specific laboratory values for creatinine and GFR are omitted. While vital signs and the presence of edema are noted, the extensive absence of other exam details and lab results makes this section meaningfully incomplete.",
+        "summary": "The Objective section omitted nearly all detailed physical exam findings, including general appearance, HEENT, neck, cardiovascular, respiratory, abdomen, neurological, and skin assessments. Additionally, the specific laboratory values for creatinine (1.4 mg/dL) and GFR (58 mL/min) were not included, which are important for clinical context.",
         "omissions": [
           "Physical Exam: General: Well-developed, well-nourished male in no acute distress.",
           "Physical Exam: HEENT: Normocephalic, atraumatic, PERRLA, no nasal or oral abnormalities.",
@@ -322,8 +322,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section is mostly clinically aligned. However, it omits important details such as the hypertension being 'newly diagnosed,' the chronic kidney disease being 'stable with slight elevation in creatinine,' and a specific assessment for 'Bilateral lower extremity edema: Likely secondary to hypertension and reduced renal function.' These are moderate omissions that reduce the completeness of the assessment.",
+        "grade": "C",
+        "summary": "The Assessment section omitted important qualifying details for the diagnoses, specifically \"Newly diagnosed\" for hypertension and \"Stable, slight elevation in creatinine\" for chronic kidney disease. Furthermore, the assessment of bilateral lower extremity edema, including its likely etiology, was entirely missing. All additions were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "\"Newly diagnosed\" for hypertension",
           "\"Stable, slight elevation in creatinine\" for chronic kidney disease",
@@ -336,7 +336,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures all major clinically important content. The omissions are primarily minor details, such as specific examples for lifestyle modifications (e.g., avoiding fast food, aiming for 30 minutes of exercise), mention of 'available support for tobacco use,' 'limited health literacy' for education, and 'results pending' for the ultrasound. The explicit 'Instructions' section is also omitted, but its content is largely integrated. All additions in this section are supported by the transcript and do not reduce the grade.",
+        "summary": "The Plan section omitted several minor but useful details, such as specific examples for sodium reduction (avoiding fast food and high-sodium snacks), the target duration for physical activity (30 minutes most days), and the mention of available support for tobacco use. It also missed the context of \"limited health literacy\" for patient education and the \"results pending\" status for the abdominal ultrasound. The explicit \"Instructions\" section was also not included. All additions were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "Specifics for lifestyle modifications: \"avoiding fast food and high-sodium snacks\"",
           "Specifics for lifestyle modifications: \"aiming for at least 30 minutes of moderate exercise most days\"",
@@ -360,42 +360,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'm also referring you to Dr. Emily Turner, a nephrologist, for a thorough evaluation of your kidney function.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "There is a potential need for nephrologist consultation due to kidney function concerns."
+      "matched_claim_text": "There is a potential need for nephrologist consultation due to kidney function concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"Schedule an appointment with the nephrologist (Dr. Emily Turner)\" (redundant with referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Don't forget to schedule your appointment with Dr. Turner as well.\n[patient] I will.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient should schedule an appointment with the nephrologist (Dr. Emily Turner)."
+      "matched_claim_text": "Patient should schedule an appointment with the nephrologist (Dr. Emily Turner).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"in subsequent visits\" (for monitoring kidney function and ultrasound review)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Please continue monitoring your kidney function, and we'll discuss the ultrasound results once they are available.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitor kidney function and review ultrasound results once available."
+      "matched_claim_text": "Monitor kidney function and review ultrasound results once available.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Potential need for nephrologist consultation due to kidney function concerns\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'm also referring you to Dr. Emily Turner, a nephrologist, for a thorough evaluation of your kidney function.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "There is a potential need for nephrologist consultation due to kidney function concerns."
+      "matched_claim_text": "There is a potential need for nephrologist consultation due to kidney function concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Schedule an appointment with the nephrologist (Dr. Emily Turner)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Don't forget to schedule your appointment with Dr. Turner as well.\n[patient] I will.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient should schedule an appointment with the nephrologist (Dr. Emily Turner)."
+      "matched_claim_text": "Patient should schedule an appointment with the nephrologist (Dr. Emily Turner).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"in subsequent visits\" (for monitoring kidney function and ultrasound review)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Please continue monitoring your kidney function, and we'll discuss the ultrasound results once they are available.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitor kidney function and review ultrasound results once available."
+      "matched_claim_text": "Monitor kidney function and review ultrasound results once available.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

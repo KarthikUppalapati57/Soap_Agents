@@ -294,64 +294,90 @@
     "plan_alignment_score": 0.4482758620689655
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a good overview of the patient's chief complaint, present illness, and physical exam findings. All identified additions were supported by the transcript and thus did not impact the grade. However, the note has several omissions, particularly in the Review of Systems, where important negative findings and the patient's anxiety diagnosis and management were missed. The Assessment section omitted the differential diagnoses. Most significantly, the Plan section had major omissions, including specific orders for blood work (LFTs) and an Upper GI endoscopy, as well as the entire Patient Education and Counseling and Patient Agreements sections, which are crucial for comprehensive clinical documentation and patient care. These gaps make the note meaningfully incomplete and require careful review.",
+    "overall_summary": "The generated note provides a mostly accurate summary of the patient's visit. However, it has several omissions, most notably the critical order for an Upper GI endoscopy in the Plan section. Other significant omissions include the patient's anxiety disorder diagnosis and management in the Subjective section, and the differential diagnoses in the Assessment section. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "HPI: Symptoms occur nearly daily",
-      "HPI: Chest pain interferes with concentration at work",
-      "ROS: Specific sleep duration (4-5 hours per night)",
-      "ROS: Denial of nausea or vomiting",
-      "ROS: Denial of shortness of breath",
-      "ROS: Denial of headaches, dizziness, or syncope",
-      "ROS: Diagnosis of Anxiety Disorder managed with Sertraline",
-      "Objective: 'on palpation' for epigastric tenderness",
-      "Assessment: 'Other chest pain' as a primary diagnosis/problem",
-      "Assessment: Differential diagnosis including peptic ulcer disease and non-cardiac chest pain",
-      "Plan: Prescription detail 'oral'",
-      "Plan: Prescription detail 'Total: 56 tablets'",
-      "Plan: Specific name of gastroenterologist 'Dr. Alice Martinez'",
-      "Plan: Specific reason for referral 'for evaluation of potential GERD contributing to chest pain'",
-      "Plan: Orders for blood work (LFTs including ALT, AST, and bilirubin levels)",
-      "Plan: Orders for Upper GI endoscopy",
-      "Plan: Lifestyle modification 'avoiding food triggers for GERD'",
-      "Plan: Lifestyle modification 'aiming for 7-8 hours per night' for sleep",
-      "Plan: Patient Education and Counseling section (and its contents)",
-      "Plan: Patient Agreements section (and its contents)"
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Chest pain described as \"moderate\"",
+      "Symptoms occur \"nearly daily\"",
+      "Chest pain interferes with \"concentration at work\"",
+      "Specific sleep duration (4-5 hours/night)",
+      "Denial of nausea or vomiting (GI ROS)",
+      "Denial of shortness of breath (Respiratory ROS)",
+      "Denial of headaches, dizziness, or syncope (Neurological ROS)",
+      "Anxiety Disorder diagnosis",
+      "Anxiety managed with Sertraline",
+      "Physical Exam section header",
+      "Vital Signs section header",
+      "\"on palpation\" for epigastric tenderness",
+      "\"Other chest pain\" as a primary diagnosis/problem",
+      "Differential diagnosis including peptic ulcer disease",
+      "Differential diagnosis including non-cardiac chest pain",
+      "Prescription detail: \"oral\"",
+      "Prescription detail: \"Total: 56 tablets\"",
+      "Specific gastroenterologist name: \"Dr. Alice Martinez\"",
+      "Reason for referral: \"for evaluation of potential GERD contributing to chest pain\"",
+      "Orders section header",
+      "Specific blood work details: \"including ALT, AST, and bilirubin levels\"",
+      "Order for \"Upper GI endoscopy to investigate signs of esophagitis or other gastrointestinal issues\"",
+      "Lifestyle modification: \"avoiding food triggers for GERD\"",
+      "Lifestyle modification: \"aiming for 7-8 hours per night\" for sleep",
+      "Patient Education and Counseling section header",
+      "Patient education: \"Explained the likely association between symptoms and GERD\"",
+      "Patient education: \"Advised on the importance of medication adherence and lifestyle changes\"",
+      "Patient education: \"Discussed the need for follow-up and monitoring symptoms\"",
+      "Follow-up detail: \"and response to treatment\"",
+      "Patient Agreements section"
     ],
     "additions": [
-      "Subjective: Chest pain intensity (6-7/10)",
-      "Objective: Temperature in Celsius (37°C)",
-      "Assessment: Justification for GERD suspicion 'given patient's symptoms and physical examination findings'",
-      "Assessment: 'LFT results are pending'",
-      "Plan: Reason for Omeprazole 'to reduce stomach acid production'",
-      "Plan: Follow-up detail 'before the follow-up appointment' for contacting clinic"
+      "Chest pain intensity (6-7/10)",
+      "\"frequent nighttime awakenings\" as a reason for difficulty sleeping",
+      "\"Anxiety is increased due to chest pain\"",
+      "Temperature in Celsius (37°C)",
+      "\"given patient's symptoms and physical examination findings\" as reasoning for GERD suspicion",
+      "\"LFT results are pending\"",
+      "Reason for Omeprazole: \"to reduce stomach acid production\"",
+      "Lifestyle modification: \"eating smaller meals more frequently\"",
+      "Follow-up detail: \"and assess treatment effectiveness\"",
+      "Follow-up detail: \"before the follow-up appointment\" for contacting clinic"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The section captures the core chief complaint and present illness details, including the burning chest pain, acidic taste, bloating, and sleep difficulties. However, it omits several negative findings from the Review of Systems (e.g., denial of nausea/vomiting, shortness of breath, headaches) and the patient's diagnosed Anxiety Disorder managed with Sertraline, which provides important clinical context.",
+        "summary": "The Subjective section captures the main complaints but omits important details such as the patient's Anxiety Disorder diagnosis and its management with Sertraline. Several minor ROS denials and specific HPI details like 'moderate' chest pain and interference with 'concentration at work' were also omitted.",
         "omissions": [
-          "HPI: Symptoms occur nearly daily",
-          "HPI: Chest pain interferes with concentration at work",
-          "ROS: Specific sleep duration (4-5 hours per night)",
-          "ROS: Denial of nausea or vomiting",
-          "ROS: Denial of shortness of breath",
-          "ROS: Denial of headaches, dizziness, or syncope",
-          "ROS: Diagnosis of Anxiety Disorder managed with Sertraline"
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Chest pain described as \"moderate\"",
+          "Symptoms occur \"nearly daily\"",
+          "Chest pain interferes with \"concentration at work\"",
+          "Specific sleep duration (4-5 hours/night)",
+          "Denial of nausea or vomiting (GI ROS)",
+          "Denial of shortness of breath (Respiratory ROS)",
+          "Denial of headaches, dizziness, or syncope (Neurological ROS)",
+          "Anxiety Disorder diagnosis",
+          "Anxiety managed with Sertraline"
         ],
         "additions": [
-          "Chest pain intensity (6-7/10)"
+          "Chest pain intensity (6-7/10)",
+          "\"frequent nighttime awakenings\" as a reason for difficulty sleeping",
+          "\"Anxiety is increased due to chest pain\""
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-captured with only a minor omission regarding the specific phrasing 'on palpation' for epigastric tenderness. All vital signs and physical exam findings are accurately reflected.",
+        "summary": "The Objective section is highly accurate, capturing all vital signs and physical exam findings. The only omissions were minor structural headers and the descriptive phrase 'on palpation' for epigastric tenderness.",
         "omissions": [
-          "'on palpation' for epigastric tenderness"
+          "Physical Exam section header",
+          "Vital Signs section header",
+          "\"on palpation\" for epigastric tenderness"
         ],
         "additions": [
           "Temperature in Celsius (37°C)"
@@ -360,35 +386,43 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The note correctly identifies GERD as suspected based on symptoms and physical exam. However, it omits the differential diagnoses of peptic ulcer disease and non-cardiac chest pain, which are important for demonstrating comprehensive clinical reasoning.",
+        "summary": "The Assessment section correctly identifies GERD as suspected. However, it omits the initial 'Other chest pain' diagnosis and the crucial differential diagnoses of peptic ulcer disease and non-cardiac chest pain, which are important for comprehensive clinical reasoning.",
         "omissions": [
-          "'Other chest pain' as a primary diagnosis/problem",
-          "Differential diagnosis including peptic ulcer disease and non-cardiac chest pain"
+          "\"Other chest pain\" as a primary diagnosis/problem",
+          "Differential diagnosis including peptic ulcer disease",
+          "Differential diagnosis including non-cardiac chest pain"
         ],
         "additions": [
-          "Justification for GERD suspicion 'given patient's symptoms and physical examination findings'",
-          "'LFT results are pending'"
+          "\"given patient's symptoms and physical examination findings\" as reasoning for GERD suspicion",
+          "\"LFT results are pending\""
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has significant omissions. While the prescription for Omeprazole, referral to a gastroenterologist, and some lifestyle modifications are present, the note entirely misses the specific orders for blood work (LFTs) and an Upper GI endoscopy. Furthermore, the entire Patient Education and Counseling and Patient Agreements sections are absent, which are critical for documenting patient understanding, adherence, and shared decision-making. These omissions make the plan meaningfully incomplete.",
+        "summary": "The Plan section has a major omission: the order for an 'Upper GI endoscopy to investigate signs of esophagitis or other gastrointestinal issues.' This significantly impacts the completeness of the diagnostic plan. Other omissions include specific details for blood work (ALT, AST, bilirubin levels), the specific gastroenterologist's name, and various minor prescription and patient education details.",
         "omissions": [
-          "Prescription detail 'oral'",
-          "Prescription detail 'Total: 56 tablets'",
-          "Specific name of gastroenterologist 'Dr. Alice Martinez'",
-          "Specific reason for referral 'for evaluation of potential GERD contributing to chest pain'",
-          "Orders for blood work (LFTs including ALT, AST, and bilirubin levels)",
-          "Orders for Upper GI endoscopy",
-          "Lifestyle modification 'avoiding food triggers for GERD'",
-          "Lifestyle modification 'aiming for 7-8 hours per night' for sleep",
-          "Patient Education and Counseling section (and its contents)",
-          "Patient Agreements section (and its contents)"
+          "Prescription detail: \"oral\"",
+          "Prescription detail: \"Total: 56 tablets\"",
+          "Specific gastroenterologist name: \"Dr. Alice Martinez\"",
+          "Reason for referral: \"for evaluation of potential GERD contributing to chest pain\"",
+          "Orders section header",
+          "Specific blood work details: \"including ALT, AST, and bilirubin levels\"",
+          "Order for \"Upper GI endoscopy to investigate signs of esophagitis or other gastrointestinal issues\"",
+          "Lifestyle modification: \"avoiding food triggers for GERD\"",
+          "Lifestyle modification: \"aiming for 7-8 hours per night\" for sleep",
+          "Patient Education and Counseling section header",
+          "Patient education: \"Explained the likely association between symptoms and GERD\"",
+          "Patient education: \"Advised on the importance of medication adherence and lifestyle changes\"",
+          "Patient education: \"Discussed the need for follow-up and monitoring symptoms\"",
+          "Follow-up detail: \"and response to treatment\"",
+          "Patient Agreements section"
         ],
         "additions": [
-          "Reason for Omeprazole 'to reduce stomach acid production'",
-          "Follow-up detail 'before the follow-up appointment' for contacting clinic"
+          "Reason for Omeprazole: \"to reduce stomach acid production\"",
+          "Lifestyle modification: \"eating smaller meals more frequently\"",
+          "Follow-up detail: \"and assess treatment effectiveness\"",
+          "Follow-up detail: \"before the follow-up appointment\" for contacting clinic"
         ]
       }
     ],
@@ -397,88 +431,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Chest pain intensity (6-7/10)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: It's about a 6 or 7. It’s pretty bad, especially at night.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "chest pain (6-7/10 intensity)"
-    },
-    {
-      "addition_text": "Objective: Temperature in Celsius (37°C)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your temperature is 98.6°F.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: Justification for GERD suspicion 'given patient's symptoms and physical examination findings'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Based on your symptoms, I think you might have gastroesophageal reflux disease, or GERD. It's a condition where stomach acid frequently flows back into the tube connecting your mouth and stomach, causing that burning sensation and acidic taste.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Gastroesophageal reflux disease (GERD) is suspected, given patient's symptoms and physical examination findings"
-    },
-    {
-      "addition_text": "Assessment: 'LFT results are pending'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re awaiting results from your liver function tests...",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "LFT results are pending"
-    },
-    {
-      "addition_text": "Plan: Reason for Omeprazole 'to reduce stomach acid production'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’m prescribing Omeprazole 20 mg, to take once daily for 8 weeks. It will help reduce the amount of acid your stomach makes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Omeprazole 20 mg once daily for 8 weeks to reduce stomach acid production"
-    },
-    {
-      "addition_text": "Plan: Follow-up detail 'before the follow-up appointment' for contacting clinic",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Yes, if your symptoms worsen or if you develop new symptoms, please contact the clinic right away.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to contact the clinic if symptoms worsen or new symptoms develop before the follow-up appointment"
-    },
-    {
       "addition_text": "Chest pain intensity (6-7/10)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's about a 6 or 7. It’s pretty bad, especially at night.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "chest pain (6-7/10 intensity)"
+      "matched_claim_text": "chest pain (6-7/10 intensity)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"frequent nighttime awakenings\" as a reason for difficulty sleeping",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I have trouble sleeping. I wake up frequently and usually only get 4 to 5 hours of sleep a night.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "difficulty sleeping due to frequent nighttime awakenings",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Anxiety is increased due to chest pain\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I take Sertraline, but the chest pain is making me more stressed and anxious.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Anxiety is increased due to chest pain",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Temperature in Celsius (37°C)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your temperature is 98.6°F.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Justification for GERD suspicion 'given patient's symptoms and physical examination findings'",
+      "addition_text": "\"given patient's symptoms and physical examination findings\" as reasoning for GERD suspicion",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms, I think you might have gastroesophageal reflux disease, or GERD. It's a condition where stomach acid frequently flows back into the tube connecting your mouth and stomach, causing that burning sensation and acidic taste.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Gastroesophageal reflux disease (GERD) is suspected, given patient's symptoms and physical examination findings"
+      "matched_claim_text": "Gastroesophageal reflux disease (GERD) is suspected, given patient's symptoms and physical examination findings",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'LFT results are pending'",
+      "addition_text": "\"LFT results are pending\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re awaiting results from your liver function tests...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "LFT results are pending"
+      "matched_claim_text": "LFT results are pending",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Reason for Omeprazole 'to reduce stomach acid production'",
+      "addition_text": "Reason for Omeprazole: \"to reduce stomach acid production\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m prescribing Omeprazole 20 mg, to take once daily for 8 weeks. It will help reduce the amount of acid your stomach makes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Omeprazole 20 mg once daily for 8 weeks to reduce stomach acid production"
+      "matched_claim_text": "Prescribe Omeprazole 20 mg once daily for 8 weeks to reduce stomach acid production",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Follow-up detail 'before the follow-up appointment' for contacting clinic",
+      "addition_text": "Lifestyle modification: \"eating smaller meals more frequently\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We also need to make some lifestyle changes. Avoid spicy and fried foods, eat smaller meals more frequently, and try to identify and avoid foods that trigger your symptoms. ... Improving your sleep hygiene is also important. Aim for 7-8 hours of sleep each night by establishing a regular bedtime routine and creating a comfortable sleep environment.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Advise lifestyle modifications, including avoiding spicy and fried foods, eating smaller meals more frequently, and improving sleep hygiene",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Follow-up detail: \"and assess treatment effectiveness\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’ll follow up in 4 weeks to see how you're doing and review the results of your tests.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up in 4 weeks to review test results and assess treatment effectiveness",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Follow-up detail: \"before the follow-up appointment\" for contacting clinic",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, if your symptoms worsen or if you develop new symptoms, please contact the clinic right away.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to contact the clinic if symptoms worsen or new symptoms develop before the follow-up appointment"
+      "matched_claim_text": "Instruct the patient to contact the clinic if symptoms worsen or new symptoms develop before the follow-up appointment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

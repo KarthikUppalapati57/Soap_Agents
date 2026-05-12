@@ -273,34 +273,30 @@
     "plan_alignment_score": 0.6310160427807486
   },
   "expert_judge": {
-    "model": "expert-clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is broadly usable but contains noticeable gaps across all sections. Key omissions include detailed HPI elements such as the severity, timing, and impact of syncope episodes in the Subjective section. The Objective section is missing several vital signs and specific physical examination findings. In the Assessment, the need to rule out electrolyte abnormalities is omitted from the diagnosis. The Plan section notably lacks specific blood work tests and crucial patient education regarding potential side effects of Midodrine, which are moderate clinical issues. These multiple moderate and minor omissions make the note meaningfully incomplete, requiring careful review.",
+    "overall_summary": "The generated note provides a generally accurate overview but suffers from multiple omissions across the Subjective and Plan sections. Key details regarding the severity, timeline, and impact of the syncope are missing from the HPI, along with important ROS elements. In the Plan, specific blood tests and crucial patient education on medication side effects are omitted. While no unsupported additions were identified, these omissions reduce the overall completeness and clinical utility of the note.",
     "omissions": [
-      "Patient's chief complaint includes 'recurrent episodes of syncope and collapse'",
-      "HPI details: severity of episodes ('severe enough to cause loss of consciousness')",
-      "HPI details: timing of episodes (first 2 weeks ago, second 6 days ago)",
-      "HPI details: impact on daily activities (unable to drive, missed work)",
-      "ROS details: Neurological - no focal neurological deficits reported",
-      "ROS details: Diet - high in carbohydrates, low in protein",
-      "ROS details: Exercise - rarely exercises",
-      "ROS details: Substance Use - no tobacco or drug use, social alcohol consumption (1-2 glasses of wine on weekends)",
+      "Chief Complaint detail: 'collapse'",
+      "HPI detail: 'severe enough to cause loss of consciousness'",
+      "HPI detail: 'first episode occurred two weeks ago, and the second episode occurred six days ago'",
+      "HPI detail: 'episodes have significantly impacted his daily activities, rendering him unable to drive and causing him to miss work'",
+      "ROS detail: Diet: 'High in carbohydrates, low in protein.'",
+      "ROS detail: Exercise: 'Rarely exercises.'",
+      "ROS detail: Substance Use: 'No tobacco or drug use, social alcohol consumption (1-2 glasses of wine on weekends).'",
       "Vital Signs: Heart Rate (72 bpm)",
       "Vital Signs: Respiratory Rate (16 breaths per minute)",
       "Vital Signs: Temperature (98.7°F)",
       "Vital Signs: Oxygen Saturation (98% on room air)",
-      "Physical Examination: General - Alert, no acute distress",
-      "Physical Examination: Cardiovascular - no rubs",
-      "Physical Examination: Musculoskeletal - normal muscle strength and tone, no tenderness or deformities",
-      "Physical Examination: Respiratory - no wheezes, rales, or rhonchi",
-      "Assessment Diagnosis: need to rule out underlying electrolyte abnormalities",
-      "Assessment Differential Diagnosis: Neurological disorders (awaiting MRI results)",
-      "Plan Testing: specific blood work tests (TFTs and Serum Electrolytes)",
-      "Plan Referral: appointment scheduled with Dr. Emily Brown",
-      "Plan Follow-Up: adjust the treatment plan as necessary",
-      "Plan Patient Education and Counseling: medication adherence despite busy work schedule",
-      "Plan Patient Education and Counseling: potential side effects of Midodrine and signs and symptoms to monitor",
-      "Plan Patient Agreement: The patient understands and agrees with the recommended medical treatment plan"
+      "Physical Exam: General: 'Alert, no acute distress.'",
+      "Physical Exam: Cardiovascular: 'No rubs'",
+      "Physical Exam: Musculoskeletal: 'Normal muscle strength and tone. No tenderness or deformities.'",
+      "Assessment: Differential Diagnosis detail: '(awaiting MRI results)' for Neurological disorders",
+      "Plan: Testing: Blood Work: 'TFTs and Serum Electrolytes'",
+      "Plan: Referral: 'Appointment scheduled with Dr. Emily Brown.'",
+      "Plan: Follow-Up: 'adjust the treatment plan as necessary.'",
+      "Plan: Patient Education: 'Discuss potential side effects of Midodrine and signs and symptoms to monitor.'",
+      "Plan: Patient Agreement: 'The patient understands and agrees with the recommended medical treatment plan.'"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -308,56 +304,52 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has several omissions, including important HPI details like the severity ('severe enough to cause loss of consciousness'), timing (first 2 weeks ago, second 6 days ago), and impact on daily activities (unable to drive, missed work) of the syncope episodes. While some ROS elements are present, specific details about diet, exercise, and substance use are missing, making the HPI meaningfully incomplete.",
+        "summary": "This section has several moderate omissions, including details about the severity of syncope, the specific timeline of episodes, and the impact on daily activities. Important ROS details regarding diet, exercise, and substance use are also missing, reducing the completeness of the patient's history.",
         "omissions": [
-          "Chief Complaint details: 'recurrent episodes of syncope and collapse'",
-          "HPI details: severity of episodes ('severe enough to cause loss of consciousness')",
-          "HPI details: timing of episodes (first 2 weeks ago, second 6 days ago)",
-          "HPI details: impact on daily activities (unable to drive, missed work)",
-          "ROS details: Neurological - no focal neurological deficits reported",
-          "ROS details: Diet - high in carbohydrates, low in protein",
-          "ROS details: Exercise - rarely exercises",
-          "ROS details: Substance Use - no tobacco or drug use, social alcohol consumption (1-2 glasses of wine on weekends)"
+          "Chief Complaint detail: 'collapse'",
+          "HPI detail: 'severe enough to cause loss of consciousness'",
+          "HPI detail: 'first episode occurred two weeks ago, and the second episode occurred six days ago'",
+          "HPI detail: 'episodes have significantly impacted his daily activities, rendering him unable to drive and causing him to miss work'",
+          "ROS detail: Diet: 'High in carbohydrates, low in protein.'",
+          "ROS detail: Exercise: 'Rarely exercises.'",
+          "ROS detail: Substance Use: 'No tobacco or drug use, social alcohol consumption (1-2 glasses of wine on weekends).'"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits several vital signs (heart rate, respiratory rate, temperature, oxygen saturation) and various details from the physical examination, including the general appearance, specific cardiovascular findings (no rubs), musculoskeletal findings, and detailed respiratory findings. While the key finding of orthostatic hypotension is present, the overall completeness of the objective data is reduced by these minor omissions.",
+        "summary": "This section is mostly aligned, capturing the critical findings such as orthostatic hypotension and normal cardiovascular/neurological exams. However, it omits several minor details from vital signs (heart rate, respiratory rate, temperature, O2 sat) and physical examination (general appearance, absence of rubs, musculoskeletal findings).",
         "omissions": [
           "Vital Signs: Heart Rate (72 bpm)",
           "Vital Signs: Respiratory Rate (16 breaths per minute)",
           "Vital Signs: Temperature (98.7°F)",
           "Vital Signs: Oxygen Saturation (98% on room air)",
-          "Physical Examination: General - Alert, no acute distress",
-          "Physical Examination: Cardiovascular - no rubs",
-          "Physical Examination: Musculoskeletal - normal muscle strength and tone, no tenderness or deformities",
-          "Physical Examination: Respiratory - no wheezes, rales, or rhonchi"
+          "Physical Exam: General: 'Alert, no acute distress.'",
+          "Physical Exam: Cardiovascular: 'No rubs'",
+          "Physical Exam: Musculoskeletal: 'Normal muscle strength and tone. No tenderness or deformities.'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits the need to rule out underlying electrolyte abnormalities from the diagnosis, which is a moderate issue. It also misses the specific context for neurological disorders in the differential diagnosis ('awaiting MRI results'). Despite these omissions, the core diagnosis and most of the differential are present, making it mostly clinically aligned.",
+        "grade": "A",
+        "summary": "This section is well-aligned, accurately capturing the primary diagnosis and differential diagnoses. The only omission is a minor contextual detail about neurological disorders awaiting MRI results, which does not impact the clinical substance of the assessment.",
         "omissions": [
-          "Diagnosis: need to rule out underlying electrolyte abnormalities",
-          "Differential Diagnosis: Neurological disorders (awaiting MRI results)"
+          "Differential Diagnosis detail: '(awaiting MRI results)' for Neurological disorders"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several omissions, including specific details for blood work tests ('TFTs and Serum Electrolytes') and the name of the neurologist for referral. Crucially, it omits patient education regarding potential side effects of Midodrine and signs/symptoms to monitor, which is a moderate and safety-related omission. Other minor omissions include the purpose of adjusting the treatment plan and the patient's agreement.",
+        "summary": "This section has moderate omissions, specifically the lack of detail for blood work (missing 'TFTs and Serum Electrolytes') and the crucial patient education on potential side effects of Midodrine and signs/symptoms to monitor. Other minor omissions include the specific referral appointment detail, the explicit mention of adjusting the treatment plan, and the patient agreement statement.",
         "omissions": [
-          "Testing: specific blood work tests (TFTs and Serum Electrolytes)",
-          "Referral: appointment scheduled with Dr. Emily Brown",
-          "Follow-Up: adjust the treatment plan as necessary",
-          "Patient Education and Counseling: medication adherence despite busy work schedule",
-          "Patient Education and Counseling: potential side effects of Midodrine and signs and symptoms to monitor",
-          "Patient Agreement: The patient understands and agrees with the recommended medical treatment plan"
+          "Testing: Blood Work: 'TFTs and Serum Electrolytes'",
+          "Referral: 'Appointment scheduled with Dr. Emily Brown.'",
+          "Follow-Up: 'adjust the treatment plan as necessary.'",
+          "Patient Education: 'Discuss potential side effects of Midodrine and signs and symptoms to monitor.'",
+          "Patient Agreement: 'The patient understands and agrees with the recommended medical treatment plan.'"
         ],
         "additions": []
       }

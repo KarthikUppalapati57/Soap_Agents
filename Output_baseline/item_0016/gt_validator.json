@@ -2,7 +2,7 @@
   "item": "item_0016",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0016",
   "ground_truth_soap": "#\nSubjective\n\nChief Complaint (CC):\nSevere nausea and vomiting.\n\nHistory of Present Illness (HPI):\nJohn Doe is a 60-year-old African American male who presents to the clinic with severe nausea and vomiting persisting for the past 5 days. He reports vomiting 4-5 times a day and a constant feeling of nausea. There is occasional diarrhea and diffuse abdominal pain associated with these symptoms. His nausea disrupts his sleep, causing frequent awakenings. Due to his symptoms, he has not been able to perform daily chores and has missed several days of work.\n\nReview of Systems (ROS):\n- General: Fatigued, unable to perform usual activities.\n- Gastrointestinal: Severe nausea, vomiting 4-5 times/day, occasional diarrhea, abdominal pain.\n- Other Systems: No fever, chills, or recent weight loss reported.\n\nObjective\n\nVital Signs:\n- Blood Pressure: 130/85 mmHg\n- Pulse: 78 bpm\n- Temperature: 98.6°F\n- Respiratory Rate: 16 breaths/min\n\nPhysical Exam:\n- General: Appears anxious and uncomfortable.\n- Abdomen: Diffuse tenderness to palpation, mild guarding, no rebound tenderness.\n- Other Systems: Unremarkable\n\nAssessment:\n\nDiagnosis:\n- Nausea with vomiting, unspecified (ICD-10 R11.2)\n- Consider contributing factors from his chronic conditions: Irritable Bowel Syndrome (IBS) and Type 2 Diabetes.\n\nPlan:\n\nMedications:\n- Prescribe Promethazine 25 mg orally every 6 hours as needed for nausea, dispense 30 tablets.\n- Encourage hydration with electrolyte solutions to prevent dehydration.\n\nInvestigations:\n- Order an Abdominal CT Scan to rule out any obstructions or abnormalities.\n- Basic Metabolic Panel to monitor kidney function and electrolyte levels.\n\nFollow-up Recommendations:\n- Follow-up appointment in 1 week to reassess symptoms and review test results.\n\nLifestyle and Dietary Recommendations:\n- Advise on maintaining a balanced diet, avoiding high-carbohydrate foods that may exacerbate symptoms.\n- Counsel on smoking cessation to improve overall health and potentially reduce gastrointestinal symptoms.\n\nPatient Education:\n- Discuss the importance of medication adherence despite concerns about side effects, emphasizing the benefits of symptom relief and preventing complications.\n- Inform the patient about signs of dehydration and when to seek immediate medical care.\n\nSocial and Economic Considerations:\n- Discuss potential assistance programs to help with medication costs.\n- Provide information on local community resources for obtaining nutritious food despite limited access.\n\nInstructions:\n- Schedule a follow-up visit in the clinic in 1 week.\n- Instruct the patient to go to the emergency room if symptoms worsen or if there are new alarming symptoms such as severe abdominal pain, blood in vomit, or signs of severe dehydration.\n\n#",
-  "generated_soap": "Subjective:\n- Patient presents with severe nausea, vomiting, occasional diarrhea, and diffuse abdominal pain for 5 days\n- Fatigue and inability to perform usual activities\n- No fever, chills, or recent weight loss reported\n\nObjective:\n- Blood pressure: 130/85 mmHg\n- Pulse: 78 bpm\n- Temperature: 98.6°F (37°C)\n- Respiratory rate: 16 breaths/min\n- Diffuse abdominal tenderness and mild guarding with no rebound tenderness noted\n\nAssessment:\n- Suspected nausea and vomiting related to chronic conditions such as Irritable Bowel Syndrome (IBS) and Type 2 Diabetes\n\nPlan:\n- Prescribe Promethazine 25 mg every 6 hours PRN for nausea (30 tablets)\n- Advise patient to stay hydrated with electrolyte solutions\n- Order Abdominal CT Scan and Basic Metabolic Panel\n- Follow-up in 1 week to reassess symptoms and review test results\n- Advise patient to maintain a balanced diet, avoid high-carbohydrate foods, and consider smoking cessation\n- Inform patient about available assistance programs for medication costs and local community resources for obtaining nutritious food\n- Request follow-up visit in 1 week; advise patient to seek emergency care if severe symptoms occur",
+  "generated_soap": "Subjective:\n- Patient presents with severe nausea, vomiting, and occasional diarrhea for the past 5 days\n- Frequent vomiting (4-5 times a day) and persistent nausea\n- Diffuse abdominal pain occurring with diarrhea\n- Fatigue and inability to perform daily activities\n\nObjective:\n- Blood pressure: 130/85 mmHg\n- Pulse: 78 bpm\n- Temperature: 98.6°F\n- Respiratory rate: 16 breaths/min\n- Diffuse abdominal tenderness and mild guarding, no rebound tenderness\n\nAssessment:\n- Possible exacerbation of chronic conditions (IBS and Type 2 Diabetes) causing nausea and vomiting\n- Dehydration risk due to persistent vomiting\n\nPlan:\n- Prescribe Promethazine 25 mg every 6 hours PRN for nausea (30 tablets provided)\n- Advise patient to stay hydrated with electrolyte solutions\n- Order Abdominal CT Scan and Basic Metabolic Panel\n- Follow-up in 1 week to reassess symptoms and review test results\n- Encourage a balanced diet and avoid high-carbohydrate foods that may worsen symptoms\n- Discuss smoking cessation as it can aggravate gastrointestinal issues\n- Inform patient about available assistance programs for medication costs and local community resources for nutritious food.\n- Advise patient to seek emergency care if experiencing severe abdominal pain, blood in vomit, or signs of severe dehydration.",
   "entities_gt": {
     "all_entities": [
       "nausea",
@@ -73,13 +73,15 @@
       "respiratory rate",
       "diffuse abdominal tenderness",
       "mild guarding",
-      "irritable bowel syndrome",
+      "ibs",
       "type 2 diabetes",
       "promethazine",
       "prn",
       "abdominal ct scan",
       "basic metabolic panel",
-      "smoking cessation"
+      "smoking cessation",
+      "severe abdominal pain",
+      "blood in vomit"
     ],
     "symptoms": [
       "nausea",
@@ -87,9 +89,11 @@
       "occasional diarrhea",
       "diffuse abdominal pain",
       "fatigue",
-      "inability to perform usual activities",
       "diffuse abdominal tenderness",
-      "mild guarding"
+      "no rebound tenderness",
+      "severe abdominal pain",
+      "blood in vomit",
+      "signs of severe dehydration"
     ],
     "medications": [
       "promethazine",
@@ -97,7 +101,6 @@
     ],
     "labs": [
       "blood pressure",
-      "130/85 mmhg",
       "pulse",
       "temperature",
       "respiratory rate",
@@ -107,20 +110,19 @@
   },
   "clinical_recall_all": {
     "gt_count": 27,
-    "gen_count": 18,
-    "overlap_count": 14,
-    "recall": 0.5185185185185185,
+    "gen_count": 20,
+    "overlap_count": 15,
+    "recall": 0.5555555555555556,
     "gt_only": [
       "abdomen",
       "abdominal pain",
-      "blood in vomit",
       "diffuse tenderness to palpation",
       "fatigued",
       "follow-up appointment",
       "follow-up visit",
+      "irritable bowel syndrome",
       "nausea with vomiting",
       "no rebound tenderness",
-      "severe abdominal pain",
       "severe nausea",
       "signs of severe dehydration",
       "symptoms"
@@ -128,20 +130,22 @@
     "gen_only": [
       "diffuse abdominal tenderness",
       "fatigue",
+      "ibs",
       "prn",
       "respiratory rate"
     ],
     "overlap": [
       "abdominal ct scan",
       "basic metabolic panel",
+      "blood in vomit",
       "blood pressure",
       "diffuse abdominal pain",
-      "irritable bowel syndrome",
       "mild guarding",
       "nausea",
       "occasional diarrhea",
       "promethazine",
       "pulse",
+      "severe abdominal pain",
       "smoking cessation",
       "temperature",
       "type 2 diabetes",
@@ -150,28 +154,27 @@
   },
   "clinical_recall_symptoms": {
     "gt_count": 12,
-    "gen_count": 8,
-    "overlap_count": 5,
-    "recall": 0.4166666666666667,
+    "gen_count": 10,
+    "overlap_count": 8,
+    "recall": 0.6666666666666666,
     "gt_only": [
       "abdominal pain",
-      "blood in vomit",
       "fatigued",
-      "no rebound tenderness",
-      "severe abdominal pain",
-      "severe nausea",
-      "signs of severe dehydration"
+      "mild guarding",
+      "severe nausea"
     ],
     "gen_only": [
       "diffuse abdominal tenderness",
-      "fatigue",
-      "inability to perform usual activities"
+      "fatigue"
     ],
     "overlap": [
+      "blood in vomit",
       "diffuse abdominal pain",
-      "mild guarding",
       "nausea",
+      "no rebound tenderness",
       "occasional diarrhea",
+      "severe abdominal pain",
+      "signs of severe dehydration",
       "vomiting"
     ]
   },
@@ -190,7 +193,7 @@
   },
   "clinical_recall_labs": {
     "gt_count": 7,
-    "gen_count": 7,
+    "gen_count": 6,
     "overlap_count": 5,
     "recall": 0.7142857142857143,
     "gt_only": [
@@ -198,7 +201,6 @@
       "signs of severe dehydration"
     ],
     "gen_only": [
-      "130/85 mmhg",
       "respiratory rate"
     ],
     "overlap": [
@@ -210,116 +212,107 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5873412136624616,
-    "overall_rouge_l_f1": 0.5101064961914145,
+    "overall_token_f1": 0.5706743623860339,
+    "overall_rouge_l_f1": 0.4668909742175961,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.46017699115044247,
-        "rouge_l_f1": 0.3096774193548387
+        "token_f1": 0.4385964912280702,
+        "rouge_l_f1": 0.32098765432098764
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.716417910447761,
-        "rouge_l_f1": 0.6956521739130435
+        "token_f1": 0.7619047619047619,
+        "rouge_l_f1": 0.7384615384615384
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.6,
-        "rouge_l_f1": 0.5714285714285715
+        "token_f1": 0.4390243902439025,
+        "rouge_l_f1": 0.31818181818181823
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5727699530516431,
-        "rouge_l_f1": 0.46366782006920415
+        "token_f1": 0.643171806167401,
+        "rouge_l_f1": 0.4899328859060403
       }
     ],
-    "assessment_alignment_score": 0.6,
-    "plan_alignment_score": 0.5727699530516431
+    "assessment_alignment_score": 0.4390243902439025,
+    "plan_alignment_score": 0.643171806167401
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "D",
-    "overall_summary": "The generated note is mostly clinically aligned but contains several omissions, particularly in the Plan section. While minor omissions are present in Subjective, Objective, and Assessment, the Plan section is missing crucial details such as rationales for investigations, important patient education on medication adherence and dehydration signs, and critically, specific alarming symptoms that warrant an emergency room visit. This high-severity omission in the Plan section significantly reduces the clinical usefulness and safety of the note, leading to an overall lower grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a mostly accurate overview but contains several moderate omissions that reduce its completeness and clinical usefulness. Key issues include the absence of the primary diagnosis in the Assessment and the omission of important patient education regarding medication adherence, signs of dehydration, and critical emergency room instructions in the Plan. Minor details are also missing from the Subjective and Objective sections.",
     "omissions": [
-      "HPI detail: Nausea disrupts sleep, causing frequent awakenings.",
-      "HPI detail: Unable to perform daily chores and missed several days of work due to symptoms.",
-      "Physical Exam - General: Appears anxious and uncomfortable.",
-      "Physical Exam - Other Systems: Unremarkable.",
-      "Specific diagnosis: Nausea with vomiting, unspecified.",
-      "Plan - Medications detail: 'orally' for Promethazine.",
-      "Plan - Medications detail: 'to prevent dehydration' for hydration advice.",
-      "Plan - Investigations detail: 'to rule out any obstructions or abnormalities' for Abdominal CT Scan.",
-      "Plan - Investigations detail: 'to monitor kidney function and electrolyte levels' for Basic Metabolic Panel.",
-      "Plan - Lifestyle/Dietary detail: 'that may exacerbate symptoms' for avoiding high-carbohydrate foods.",
-      "Plan - Lifestyle/Dietary detail: 'to improve overall health and potentially reduce gastrointestinal symptoms' for smoking cessation.",
-      "Plan - Patient Education: Importance of medication adherence despite concerns about side effects, emphasizing benefits of symptom relief and preventing complications.",
-      "Plan - Patient Education: Inform patient about signs of dehydration.",
-      "Plan - Social/Economic detail: 'despite limited access' for obtaining nutritious food.",
-      "Plan - Instructions detail: Specific examples of alarming symptoms for emergency room visit (severe abdominal pain, blood in vomit, signs of severe dehydration)."
+      "Nausea disrupts sleep, causing frequent awakenings",
+      "Missed several days of work",
+      "No fever, chills, or recent weight loss reported (ROS)",
+      "Patient appears anxious and uncomfortable (Physical Exam)",
+      "Other systems unremarkable (Physical Exam)",
+      "Diagnosis: Nausea with vomiting, unspecified",
+      "Purpose of Abdominal CT Scan: to rule out any obstructions or abnormalities",
+      "Purpose of Basic Metabolic Panel: to monitor kidney function and electrolyte levels",
+      "Purpose of smoking cessation: to improve overall health and potentially reduce gastrointestinal symptoms",
+      "Patient education on importance of medication adherence despite concerns about side effects, emphasizing benefits of symptom relief and preventing complications",
+      "Patient education on signs of dehydration",
+      "Instruction to go to the emergency room if symptoms worsen or if there are new alarming symptoms"
     ],
     "additions": [
-      "Objective - Temperature: '(37°C)'",
-      "Assessment: 'Suspected' qualifier for nausea and vomiting."
+      "Dehydration risk due to persistent vomiting"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits two moderate details regarding the impact of the patient's symptoms on their sleep and ability to perform daily activities, which are clinically relevant for understanding the severity and functional impairment.",
+        "summary": "The Subjective section is missing minor details regarding the impact of symptoms on sleep and work, and a specific ROS detail about the absence of fever, chills, or weight loss. However, the core HPI and ROS are well-captured.",
         "omissions": [
-          "HPI detail: Nausea disrupts sleep, causing frequent awakenings.",
-          "HPI detail: Unable to perform daily chores and missed several days of work due to symptoms."
+          "Nausea disrupts sleep, causing frequent awakenings",
+          "Missed several days of work",
+          "No fever, chills, or recent weight loss reported"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-captured, with only minor omissions of the patient appearing anxious/uncomfortable and other systems being unremarkable. All additions were supported by the transcript and did not impact the grade.",
+        "grade": "B",
+        "summary": "The Objective section accurately captures vital signs and key abdominal findings. It omits minor physical exam details such as the patient appearing anxious and uncomfortable, and that other systems were unremarkable.",
         "omissions": [
-          "Physical Exam - General: Appears anxious and uncomfortable.",
-          "Physical Exam - Other Systems: Unremarkable."
+          "General: Appears anxious and uncomfortable",
+          "Other Systems: Unremarkable"
         ],
-        "additions": [
-          "Temperature: '(37°C)'"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits the specific ICD-10 diagnosis of 'Nausea with vomiting, unspecified,' which is a moderate gap in documentation. The addition of 'suspected' was supported by the transcript and did not impact the grade.",
+        "grade": "C",
+        "summary": "The Assessment section is missing the primary diagnosis of 'Nausea with vomiting, unspecified,' which is a moderate omission. The addition of 'Dehydration risk due to persistent vomiting' is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Specific diagnosis: Nausea with vomiting, unspecified."
+          "Diagnosis: Nausea with vomiting, unspecified"
         ],
         "additions": [
-          "'Suspected' qualifier for nausea and vomiting."
+          "Dehydration risk due to persistent vomiting"
         ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has numerous omissions, including rationales for ordered investigations (CT scan, BMP), important patient education points (medication adherence, signs of dehydration), and specific context for social considerations. Most critically, it omits specific examples of alarming symptoms (severe abdominal pain, blood in vomit, signs of severe dehydration) that would necessitate an emergency room visit, which is a significant safety concern and materially reduces the clinical usefulness of this section.",
+        "grade": "C",
+        "summary": "The Plan section has several moderate omissions. It lacks the specific purposes for ordering the Abdominal CT Scan and Basic Metabolic Panel, and the full rationale for smoking cessation. More significantly, it omits crucial patient education on medication adherence, signs of dehydration, and critical instructions for when to seek immediate emergency care.",
         "omissions": [
-          "Medications detail: 'orally' for Promethazine.",
-          "Medications detail: 'to prevent dehydration' for hydration advice.",
-          "Investigations detail: 'to rule out any obstructions or abnormalities' for Abdominal CT Scan.",
-          "Investigations detail: 'to monitor kidney function and electrolyte levels' for Basic Metabolic Panel.",
-          "Lifestyle/Dietary detail: 'that may exacerbate symptoms' for avoiding high-carbohydrate foods.",
-          "Lifestyle/Dietary detail: 'to improve overall health and potentially reduce gastrointestinal symptoms' for smoking cessation.",
-          "Patient Education: Importance of medication adherence despite concerns about side effects, emphasizing benefits of symptom relief and preventing complications.",
-          "Patient Education: Inform patient about signs of dehydration.",
-          "Social/Economic detail: 'despite limited access' for obtaining nutritious food.",
-          "Instructions detail: Specific examples of alarming symptoms for emergency room visit (severe abdominal pain, blood in vomit, signs of severe dehydration)."
+          "Purpose of Abdominal CT Scan: to rule out any obstructions or abnormalities",
+          "Purpose of Basic Metabolic Panel: to monitor kidney function and electrolyte levels",
+          "Purpose of smoking cessation: to improve overall health and potentially reduce gastrointestinal symptoms",
+          "Patient education on importance of medication adherence despite concerns about side effects, emphasizing benefits of symptom relief and preventing complications",
+          "Patient education on signs of dehydration",
+          "Instruction to go to the emergency room if symptoms worsen or if there are new alarming symptoms"
         ],
         "additions": []
       }
@@ -329,32 +322,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective - Temperature: '(37°C)'",
+      "addition_text": "Dehydration risk due to persistent vomiting",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "temperature is 98.6°F",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: 'Suspected' qualifier for nausea and vomiting.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I suspect the nausea and vomiting could be related to your chronic conditions",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Temperature: '(37°C)'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "temperature is 98.6°F",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'Suspected' qualifier for nausea and vomiting.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I suspect the nausea and vomiting could be related to your chronic conditions",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "Make sure to stay hydrated with electrolyte solutions to prevent dehydration. Watch for signs of dehydration like dry mouth, dark urine, or dizziness.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Dehydration risk due to persistent vomiting",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

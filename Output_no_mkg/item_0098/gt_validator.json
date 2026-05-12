@@ -279,98 +279,91 @@
     "plan_alignment_score": 0.6388888888888888
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "model",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps in clinically important information, particularly in the Subjective and Objective sections. Key details such as the chief complaint, specific smoking history (duration, quantity), frequency of COPD exacerbations, and the precise pulmonary function test results are omitted. While there are no unsupported or unknown additions, the numerous omissions make the note meaningfully incomplete and require careful review.",
+    "overall_summary": "The generated note has noticeable gaps due to numerous omissions, including the entire Chief Complaint section, which is a major structural and content omission. Several clinically important details from the History of Present Illness, specific diagnostic data (FEV1/FVC ratio), and actionable elements from the Plan (e.g., specific lifestyle advice, referral details, and the 'Further Tests or Imaging' section) are also missing. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete, requiring careful review for clinical usefulness.",
     "omissions": [
-      "Chief Complaint: Follow-up visit for smoking cessation and COPD management",
-      "HPI: 30-year smoking history",
-      "HPI: Smokes 20-25 cigarettes per day",
-      "HPI: Significantly reduced physical exertion",
-      "HPI: Frequent hospital visits due to COPD exacerbations",
-      "HPI: Patient's determination to quit smoking despite previous failed attempts",
-      "ROS: Sleep duration (4-5 hours per night)",
-      "ROS: Diffuse wheezing (in Respiratory ROS)",
-      "ROS: Denies chest pain or palpitations",
-      "ROS: No abdominal pain or changes in bowel habits",
-      "ROS: Dry skin, no rashes or lesions (in Skin ROS)",
-      "Objective Physical Exam: No murmurs (Cardiovascular)",
-      "Objective Physical Exam: Abdomen soft, non-tender, no hepatosplenomegaly (GI/GU)",
-      "Objective Physical Exam: Dry skin, no rashes or lesions (Skin)",
-      "Objective Test Results: Pulmonary Function Test details (FEV1/FVC ratio of 55%, indicating moderate COPD)",
-      "Assessment Diagnosis: 'Cigarettes, Uncomplicated' for Nicotine Dependence",
-      "Plan Lifestyle Modifications: Specific examples of gentle exercises suitable for COPD (e.g., stationary cycling, seated exercises)",
-      "Plan Follow-up: Purpose of follow-ups (to monitor smoking cessation and COPD management)",
-      "Plan Follow-up: Reason for telehealth (due to transportation issues)",
-      "Plan Referrals: Smoking cessation counselor's name (Maria Gonzalez)",
-      "Plan Referrals: Smoking cessation counselor's location (community health service center)",
-      "Plan Referrals: Purpose of referral (for additional support)",
-      "Plan Further Tests: No immediate tests ordered, reassess lung function in 6 months",
-      "Plan Concluding statement: Patient understands and agrees with the recommended medical treatment plan"
+      "Chief Complaint section and its content (Follow-up visit for smoking cessation and COPD management)",
+      "Patient's 30-year smoking history",
+      "Patient smokes 20-25 cigarettes per day",
+      "Significantly reduced physical exertion",
+      "Frequent hospital visits due to COPD exacerbations",
+      "Patient's determination to quit smoking despite previous failed attempts",
+      "Specific sleep duration (4-5 hours per night)",
+      "Denial of chest pain or palpitations (Cardiovascular ROS)",
+      "Denial of abdominal pain or changes in bowel habits (Gastrointestinal ROS)",
+      "Report of dry skin, no rashes or lesions (Skin ROS)",
+      "Cardiovascular exam finding: no murmurs",
+      "Gastrointestinal exam findings: Abdomen soft, non-tender, no hepatosplenomegaly",
+      "Skin exam findings: Dry skin, no rashes or lesions",
+      "Pulmonary Function Test results: FEV1/FVC ratio of 55%",
+      "Diagnosis detail: Cigarettes, Uncomplicated for Nicotine Dependence",
+      "Lifestyle modification: Collaborate with local food banks and community resources for better access to nutritious foods",
+      "Lifestyle modification: Advise gentle exercises suitable for COPD (e.g., stationary cycling, seated exercises) to improve overall health",
+      "Follow-up reason: due to transportation issues",
+      "Referral details: Maria Gonzalez, at the community health service center for additional support",
+      "Further Tests or Imaging section and its content (No immediate tests ordered. Will reassess lung function in 6 months.)",
+      "Patient instruction detail: through community resources for increasing access to nutritious foods",
+      "Final statement: The patient understands and agrees with the recommended medical treatment plan"
     ],
     "additions": [
-      "Subjective: 'that affect his daily activities' (describing impact of cough, fatigue, chest tightness)",
-      "Assessment: Justification for diagnosis ('based on the patient's smoking history, symptoms, and pulmonary function test results')"
+      "Assessment justification: based on the patient's smoking history, symptoms, and pulmonary function test results"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several moderate omissions, including the Chief Complaint, the patient's 30-year smoking history, the quantity of cigarettes smoked daily (20-25), the impact of COPD on physical exertion, frequent hospital visits due to exacerbations, and the patient's determination to quit. Multiple minor ROS details are also missing. These omissions create noticeable gaps in the patient's history and context.",
+        "summary": "The Subjective section receives a 'C' due to the omission of the entire Chief Complaint section, which is a major structural issue. Additionally, it omits several moderate clinical details from the HPI, such as significantly reduced physical exertion and frequent hospital visits due to COPD exacerbations, along with multiple minor ROS details.",
         "omissions": [
-          "Chief Complaint: Follow-up visit for smoking cessation and COPD management",
-          "HPI: 30-year smoking history",
-          "HPI: Smokes 20-25 cigarettes per day",
-          "HPI: Significantly reduced physical exertion",
-          "HPI: Frequent hospital visits due to COPD exacerbations",
-          "HPI: Patient's determination to quit smoking despite previous failed attempts",
-          "ROS: Sleep duration (4-5 hours per night)",
-          "ROS: Diffuse wheezing (in Respiratory ROS)",
-          "ROS: Denies chest pain or palpitations",
-          "ROS: No abdominal pain or changes in bowel habits",
-          "ROS: Dry skin, no rashes or lesions (in Skin ROS)"
+          "Chief Complaint section and its content (Follow-up visit for smoking cessation and COPD management)",
+          "Patient's 30-year smoking history",
+          "Patient smokes 20-25 cigarettes per day",
+          "Significantly reduced physical exertion",
+          "Frequent hospital visits due to COPD exacerbations",
+          "Patient's determination to quit smoking despite previous failed attempts",
+          "Specific sleep duration (4-5 hours per night)",
+          "Denial of chest pain or palpitations (Cardiovascular ROS)",
+          "Denial of abdominal pain or changes in bowel habits (Gastrointestinal ROS)",
+          "Report of dry skin, no rashes or lesions (Skin ROS)"
         ],
-        "additions": [
-          "'that affect his daily activities' (describing impact of cough, fatigue, chest tightness)"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits crucial details regarding the Pulmonary Function Test, specifically the FEV1/FVC ratio of 55% and its indication of moderate COPD. While the diagnosis mentions moderate COPD, the objective evidence supporting it is missing. Several minor negative findings from the physical examination (e.g., no murmurs, normal GI/GU and skin exams) are also omitted.",
+        "grade": "B",
+        "summary": "The Objective section receives a 'B'. It omits the specific FEV1/FVC ratio of 55% from the Pulmonary Function Test results, which is a moderate omission of diagnostic data. Several minor negative findings from the cardiovascular, gastrointestinal, and skin exams are also missing, but the core objective findings are present.",
         "omissions": [
-          "Physical Exam: No murmurs (Cardiovascular)",
-          "Physical Exam: Abdomen soft, non-tender, no hepatosplenomegaly (GI/GU)",
-          "Physical Exam: Dry skin, no rashes or lesions (Skin)",
-          "Test Results: Pulmonary Function Test details (FEV1/FVC ratio of 55%, indicating moderate COPD)"
+          "Cardiovascular exam finding: no murmurs",
+          "Gastrointestinal exam findings: Abdomen soft, non-tender, no hepatosplenomegaly",
+          "Skin exam findings: Dry skin, no rashes or lesions",
+          "Pulmonary Function Test results: FEV1/FVC ratio of 55%"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is largely complete and accurate. The core diagnoses are present, and the only omission is a minor descriptor ('Cigarettes, Uncomplicated') for Nicotine Dependence. There are no unsupported or unknown additions.",
+        "summary": "The Assessment section receives an 'A'. It has only one minor omission regarding the specific detail 'Cigarettes, Uncomplicated' for Nicotine Dependence. The single addition in this section is supported by the transcript and therefore does not impact the grade.",
         "omissions": [
-          "Diagnosis: 'Cigarettes, Uncomplicated' for Nicotine Dependence"
+          "Diagnosis detail: Cigarettes, Uncomplicated for Nicotine Dependence"
         ],
         "additions": [
-          "Justification for diagnosis ('based on the patient's smoking history, symptoms, and pulmonary function test results')"
+          "Assessment justification: based on the patient's smoking history, symptoms, and pulmonary function test results"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section captures the main treatment strategies but has several minor and one moderate omission. Missing details include specific examples of gentle exercises, the explicit purpose of follow-ups, the reason for telehealth visits (transportation issues), the smoking cessation counselor's name and location, and the explicit purpose of the referral. The omission of the plan for 'No immediate tests ordered, reassess lung function in 6 months' is a moderate gap in future planning. The concluding statement about patient agreement is also missing.",
+        "grade": "C",
+        "summary": "The Plan section receives a 'C' due to multiple moderate omissions. These include specific lifestyle modifications (collaboration with food banks, examples of gentle exercises), the name of the smoking cessation counselor, and the entire 'Further Tests or Imaging' section. These omissions reduce the completeness and actionability of the patient's care plan.",
         "omissions": [
-          "Lifestyle Modifications: Specific examples of gentle exercises suitable for COPD (e.g., stationary cycling, seated exercises)",
-          "Follow-up: Purpose of follow-ups (to monitor smoking cessation and COPD management)",
-          "Follow-up: Reason for telehealth (due to transportation issues)",
-          "Referrals: Smoking cessation counselor's name (Maria Gonzalez)",
-          "Referrals: Smoking cessation counselor's location (community health service center)",
-          "Referrals: Purpose of referral (for additional support)",
-          "Further Tests: No immediate tests ordered, reassess lung function in 6 months",
-          "Concluding statement: Patient understands and agrees with the recommended medical treatment plan"
+          "Lifestyle modification: Collaborate with local food banks and community resources for better access to nutritious foods",
+          "Lifestyle modification: Advise gentle exercises suitable for COPD (e.g., stationary cycling, seated exercises) to improve overall health",
+          "Follow-up reason: due to transportation issues",
+          "Referral details: Maria Gonzalez, at the community health service center for additional support",
+          "Further Tests or Imaging section and its content (No immediate tests ordered. Will reassess lung function in 6 months.)",
+          "Patient instruction detail: through community resources for increasing access to nutritious foods",
+          "Final statement: The patient understands and agrees with the recommended medical treatment plan"
         ],
         "additions": []
       }
@@ -380,32 +373,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'that affect his daily activities' (describing impact of cough, fatigue, chest tightness)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It’s really hard to do much physical activity. I get tired quickly",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: Justification for diagnosis ('based on the patient's smoking history, symptoms, and pulmonary function test results')",
+      "addition_text": "Assessment justification: based on the patient's smoking history, symptoms, and pulmonary function test results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] So, you're here for a follow-up visit for smoking cessation and COPD management, right?\n\n[patient] I've been smoking for 30 years, and I smoke about 20-25 cigarettes a day.\n\n[doctor] Your pulmonary function test shows an FEV1/FVC ratio of 55%, which indicates moderate COPD. ... This helps explain your symptoms of cough, fatigue, and chest tightness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "These diagnoses are based on the patient's smoking history, symptoms, and pulmonary function test results."
-    },
-    {
-      "addition_text": "'that affect his daily activities' (describing impact of cough, fatigue, chest tightness)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I have a chronic cough, I get fatigued easily, and sometimes I feel a tightness in my chest.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "He also experiences a chronic cough, fatigue, and chest tightness."
-    },
-    {
-      "addition_text": "Justification for diagnosis ('based on the patient's smoking history, symptoms, and pulmonary function test results')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] So, you're here for a follow-up visit for smoking cessation and COPD management, right?\n\n[patient] I've been smoking for 30 years, and I smoke about 20-25 cigarettes a day.\n\n[doctor] Your pulmonary function test shows an FEV1/FVC ratio of 55%, which indicates moderate COPD. ... This helps explain your symptoms of cough, fatigue, and chest tightness.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "These diagnoses are based on the patient's smoking history, symptoms, and pulmonary function test results."
+      "matched_claim_text": "These diagnoses are based on the patient's smoking history, symptoms, and pulmonary function test results.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

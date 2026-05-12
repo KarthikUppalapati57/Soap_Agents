@@ -2,7 +2,7 @@
   "item": "item_0008",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0008",
   "ground_truth_soap": "#\nSubjective:\n   Chief Complaint (CC): \n   Patient, named Emily Johnson, presents with moderate to severe pain during urination, increased frequency of urination, and presence of blood in urine for the past 3 days. \n\n   History of Present Illness (HPI):\n   - Duration: 3 days\n   - Severity: Moderate to severe pain\n   - Associated Symptoms: Dysuria, increased frequency of urination (every 30 minutes), hematuria\n   - Impact on Daily Activities: Difficulty concentrating at work, disrupted sleep\n\n   Review of Systems (ROS):\n   - Genitourinary: Reports dysuria, increased urinary frequency, and hematuria. Denies flank pain.\n   - Constitutional: Reports chills, denies fever.\n   - Gastrointestinal: Denies nausea, vomiting, and abdominal pain.\n   - Cardiovascular: Denies chest pain and palpitations.\n   - Musculoskeletal: Denies muscle aches and joint pain.\n\nObjective:\n   Vital Signs:\n   - Blood pressure: 128/80 mmHg\n   - Heart rate: 78 bpm\n   - Temperature: 37.8°C (100°F)\n\n   Physical Exam:\n   - Abdominal palpation: Tenderness in the suprapubic region\n   - Costovertebral angle (CVA) tenderness: Negative\n\n   Test Results:\n   - Urine dipstick: Positive for leukocytes and nitrites\n\nAssessment:\n   - Diagnosis: Urinary Tract Infection, site not specified (ICD-10 N39.0)\n   - Differential Diagnosis: None\n\nPlan:\n   - Medical Treatment:\n     - Prescribed Ciprofloxacin 500 mg tablets, oral, twice daily for 7 days (Quantity: 14 tablets).\n   - Follow-up Recommendations:\n     - Return visit in 7 days for reassessment.\n   - Investigations:\n     - Urine culture and sensitivity test to confirm bacterial etiology and antibiotic resistance pattern.\n   - Patient Education and Counseling:\n     - Advised to complete the full course of antibiotics.\n     - Encourage fluid intake to assist with flushing the urinary system.\n     - Instructed to avoid caffeine and alcohol until symptoms resolve.\n   - Lifestyle and Preventative Care:\n     - Discussed the importance of regular follow-ups due to recurrent UTIs and monitoring of chronic hypertension.\n     - Suggested maintaining a balanced diet and regular moderate exercise.\n\nPatient Agreements: The patient understands and agrees with the recommended medical treatment plan, including the follow-up visit and urine culture test. She was reminded of the importance of adhering to the prescribed medication regimen and returning for the follow-up appointment in 7 days.",
-  "generated_soap": "Subjective:\n- Chief Complaint: Severe pain during urination for the past 3 days, accompanied by frequent urination and blood in urine\n- Associated Symptoms: Chills but no fever, flank pain, nausea, vomiting, abdominal pain, chest pain, palpitations, muscle aches or joint pain\n\nObjective:\n- Vital Signs: Blood pressure 128/80 mmHg, heart rate 78 bpm, temperature 37.8°C (100°F)\n- Physical Exam Findings: Tenderness in the suprapubic region during abdominal palpation; no costovertebral angle tenderness\n\nAssessment:\n- Probable Urinary Tract Infection, confirmed by positive urine dipstick test for leukocytes and nitrites\n\nPlan:\n- Antibiotic Therapy: Start Ciprofloxacin 500 mg twice daily for 7 days\n- Lab Testing: Urine culture and sensitivity test to identify causative bacteria and antibiotic resistance\n- Follow-up Appointment: In 7 days for reassessment and results of laboratory tests\n- Patient Education: Importance of completing full course of antibiotics, maintaining hydration by drinking plenty of fluids, avoiding caffeine and alcohol until symptoms resolve, regular follow-ups, and managing chronic hypertension through balanced diet and regular exercise.",
+  "generated_soap": "Subjective:\n- The patient reports experiencing severe pain during urination for the past three days with increased frequency. Additionally, there is blood in the urine.\n- The patient also mentions experiencing chills but denies fever, nausea, vomiting, abdominal pain, chest pain, palpitations, muscle aches, or joint pain.\n\nObjective:\n- Blood pressure: 128/80 mmHg\n- Heart rate: 78 bpm\n- Temperature: 37.8°C (100°F)\n- Suprapubic tenderness noted on abdominal palpation, no costovertebral angle tenderness.\n- Urine dipstick test positive for leukocytes and nitrites.\n\nAssessment:\n- Likely urinary tract infection (UTI).\n- Recurrent UTIs.\n- Chronic hypertension.\n\nPlan:\n- Initiate antibiotic treatment with Ciprofloxacin 500 mg twice daily for 7 days.\n- Reassessment in 7 days, including urine culture and sensitivity test.\n- Complete the full course of antibiotics regardless of symptom improvement.\n- Drink plenty of fluids to help flush out the urinary system.\n- Avoid caffeine and alcohol until symptoms resolve.\n- Discuss importance of regular follow-ups for chronic hypertension management and prevention of recurrent UTIs.\n- Emphasize the importance of balanced diet and regular exercise.\n- Schedule a follow-up appointment in 7 days and inform the patient to contact if worsening symptoms or concerns arise before then.",
   "entities_gt": {
     "all_entities": [
       "moderate to severe pain",
@@ -68,11 +68,9 @@
   },
   "entities_generated": {
     "all_entities": [
-      "chief complaint",
       "severe pain",
-      "associated symptoms",
       "chills",
-      "flank pain",
+      "fever",
       "nausea",
       "vomiting",
       "abdominal pain",
@@ -82,18 +80,20 @@
       "joint pain",
       "blood pressure",
       "heart rate",
-      "suprapubic region",
+      "temperature",
+      "suprapubic tenderness",
       "no costovertebral angle tenderness",
-      "antibiotic therapy",
+      "urine dipstick test",
+      "recurrent utis",
+      "chronic hypertension",
+      "antibiotic treatment",
       "ciprofloxacin 500 mg",
-      "lab testing",
       "urine culture and sensitivity test"
     ],
     "symptoms": [
-      "chief complaint",
       "severe pain",
       "chills",
-      "flank pain",
+      "fever",
       "nausea",
       "vomiting",
       "abdominal pain",
@@ -101,28 +101,32 @@
       "palpitations",
       "muscle aches",
       "joint pain",
-      "tenderness in the suprapubic region"
+      "suprapubic tenderness",
+      "costovertebral angle tenderness"
     ],
     "medications": [
       "ciprofloxacin 500 mg"
     ],
     "labs": [
       "blood pressure",
+      "128/80 mmhg",
       "heart rate",
       "temperature",
+      "urine dipstick test",
       "urine culture and sensitivity test"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 29,
-    "gen_count": 20,
-    "overlap_count": 13,
-    "recall": 0.4482758620689655,
+    "gen_count": 21,
+    "overlap_count": 12,
+    "recall": 0.41379310344827586,
     "gt_only": [
       "abdominal palpation",
       "ciprofloxacin 500 mg tablets",
       "disrupted sleep",
       "dysuria",
+      "flank pain",
       "hematuria",
       "increased frequency of urination",
       "increased urinary frequency",
@@ -130,33 +134,34 @@
       "moderate to severe pain",
       "musculoskeletal",
       "physical exam",
-      "temperature",
+      "suprapubic region",
       "tenderness",
       "urinary tract infection",
       "urine dipstick",
       "vital signs"
     ],
     "gen_only": [
-      "antibiotic therapy",
-      "associated symptoms",
-      "chief complaint",
+      "antibiotic treatment",
+      "chronic hypertension",
       "ciprofloxacin 500 mg",
-      "lab testing",
+      "fever",
       "no costovertebral angle tenderness",
-      "severe pain"
+      "recurrent utis",
+      "severe pain",
+      "suprapubic tenderness",
+      "urine dipstick test"
     ],
     "overlap": [
       "abdominal pain",
       "blood pressure",
       "chest pain",
       "chills",
-      "flank pain",
       "heart rate",
       "joint pain",
       "muscle aches",
       "nausea",
       "palpitations",
-      "suprapubic region",
+      "temperature",
       "urine culture and sensitivity test",
       "vomiting"
     ]
@@ -164,31 +169,32 @@
   "clinical_recall_symptoms": {
     "gt_count": 17,
     "gen_count": 12,
-    "overlap_count": 10,
-    "recall": 0.5882352941176471,
+    "overlap_count": 9,
+    "recall": 0.5294117647058824,
     "gt_only": [
       "disrupted sleep",
       "dysuria",
-      "fever",
+      "flank pain",
       "hematuria",
       "increased frequency of urination",
       "increased urinary frequency",
-      "moderate to severe pain"
+      "moderate to severe pain",
+      "tenderness in the suprapubic region"
     ],
     "gen_only": [
-      "chief complaint",
-      "severe pain"
+      "costovertebral angle tenderness",
+      "severe pain",
+      "suprapubic tenderness"
     ],
     "overlap": [
       "abdominal pain",
       "chest pain",
       "chills",
-      "flank pain",
+      "fever",
       "joint pain",
       "muscle aches",
       "nausea",
       "palpitations",
-      "tenderness in the suprapubic region",
       "vomiting"
     ]
   },
@@ -207,14 +213,17 @@
   },
   "clinical_recall_labs": {
     "gt_count": 6,
-    "gen_count": 4,
+    "gen_count": 6,
     "overlap_count": 4,
     "recall": 0.6666666666666666,
     "gt_only": [
       "urine dipstick",
       "vital signs"
     ],
-    "gen_only": [],
+    "gen_only": [
+      "128/80 mmhg",
+      "urine dipstick test"
+    ],
     "overlap": [
       "blood pressure",
       "heart rate",
@@ -223,99 +232,102 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5195135601677658,
-    "overall_rouge_l_f1": 0.4233047203937615,
+    "overall_token_f1": 0.5429669681300159,
+    "overall_rouge_l_f1": 0.4445668638371888,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5233644859813084,
-        "rouge_l_f1": 0.36363636363636365
+        "token_f1": 0.4954128440366973,
+        "rouge_l_f1": 0.33783783783783783
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.8,
-        "rouge_l_f1": 0.75
+        "token_f1": 0.8169014084507042,
+        "rouge_l_f1": 0.7397260273972603
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.22222222222222224,
-        "rouge_l_f1": 0.21428571428571427
+        "token_f1": 0.27272727272727276,
+        "rouge_l_f1": 0.2608695652173913
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5324675324675325,
-        "rouge_l_f1": 0.36529680365296807
+        "token_f1": 0.5868263473053892,
+        "rouge_l_f1": 0.4398340248962656
       }
     ],
-    "assessment_alignment_score": 0.22222222222222224,
-    "plan_alignment_score": 0.5324675324675325
+    "assessment_alignment_score": 0.27272727272727276,
+    "plan_alignment_score": 0.5868263473053892
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the core clinical information. However, it has several minor omissions, including specific details about the HPI, the oral route and quantity of medication, and the explicit 'Differential Diagnosis: None'. A moderate omission is the absence of the 'Patient Agreements' section, which confirms patient understanding and agreement with the plan. Additionally, there is one minor unsupported addition regarding the purpose of the follow-up appointment.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately capturing the main clinical findings, assessment, and plan. However, it omits several minor details from the HPI and ROS, such as the specific frequency of urination and the impact on daily activities. A moderate omission is the entire \"Patient Agreements\" section. All additions made by the model are supported by the transcript and do not negatively impact the grade.",
     "omissions": [
+      "Specific frequency of urination (every 30 minutes)",
+      "Impact on daily activities (difficulty concentrating at work, disrupted sleep)",
+      "Denial of flank pain",
       "Differential Diagnosis: None",
-      "Quantity of Ciprofloxacin tablets (14 tablets)",
+      "Ciprofloxacin quantity (14 tablets)",
+      "Purpose of urine culture and sensitivity test (to confirm bacterial etiology and antibiotic resistance pattern)",
       "Patient Agreements section"
     ],
-    "additions": [],
-    "hallucinations_or_unjustified_inferences": [
-      "Follow-up Appointment: 'and results of laboratory tests' as a purpose for the follow-up"
+    "additions": [
+      "Recurrent UTIs listed as a diagnosis in Assessment",
+      "Chronic hypertension listed as a diagnosis in Assessment",
+      "Instruction to contact if worsening symptoms or concerns arise before follow-up"
     ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section is well-aligned with the GroundTruth. It has two minor omissions: the specific frequency of urination ('every 30 minutes') and the detailed impact on daily activities ('difficulty concentrating at work, disrupted sleep'). There are no unsupported or unknown additions.",
+        "summary": "The Subjective section is largely accurate, capturing the chief complaint and main HPI details. However, it omits minor specific details regarding the frequency of urination (every 30 minutes), the impact on daily activities (difficulty concentrating at work, disrupted sleep), and the explicit denial of flank pain in the ROS.",
         "omissions": [
-          "HPI: Increased frequency of urination specified as 'every 30 minutes'",
-          "HPI: Impact on Daily Activities: 'Difficulty concentrating at work, disrupted sleep'"
+          "Specific frequency of urination (every 30 minutes)",
+          "Impact on daily activities (difficulty concentrating at work, disrupted sleep)",
+          "Denial of flank pain"
         ],
-        "additions": [
-          "Chief Complaint: Severity specified as 'Severe pain' (GroundTruth states 'moderate to severe')"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is perfectly aligned with the GroundTruth, with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is complete and accurate, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is well-aligned. The only omission is the explicit mention of 'Differential Diagnosis: None,' which is a minor detail. There are no unsupported or unknown additions.",
+        "summary": "The Assessment section is accurate. It omits the explicit statement of \"Differential Diagnosis: None\" but includes additional diagnoses (Recurrent UTIs, Chronic hypertension) that are fully supported by the transcript and thus do not count against the grade.",
         "omissions": [
           "Differential Diagnosis: None"
         ],
         "additions": [
-          "'Probable' before Urinary Tract Infection",
-          "Confirmation of diagnosis with positive urine dipstick test for leukocytes and nitrites (information moved from Objective in GroundTruth)"
+          "Recurrent UTIs listed as a diagnosis",
+          "Chronic hypertension listed as a diagnosis"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section has several minor omissions, including the 'oral' route for Ciprofloxacin, the quantity of tablets (14), and the general suggestion for 'maintaining a balanced diet and regular moderate exercise' as a separate point. A moderate omission is the absence of the 'Patient Agreements' section, which confirms patient understanding and agreement with the treatment plan. There is also one minor unsupported addition stating that the follow-up is for 'results of laboratory tests'.",
+        "summary": "The Plan section is mostly comprehensive but has several minor omissions, including the specific quantity of Ciprofloxacin (14 tablets) and the detailed purpose of the urine culture and sensitivity test. A moderate omission is the entire \"Patient Agreements\" section, which details patient understanding and agreement. The addition regarding contacting the clinic for worsening symptoms is supported by the transcript.",
         "omissions": [
-          "Medical Treatment: 'oral' route for Ciprofloxacin",
-          "Medical Treatment: Quantity of Ciprofloxacin tablets (14 tablets)",
-          "Lifestyle and Preventative Care: General suggestion for 'maintaining a balanced diet and regular moderate exercise'",
+          "Ciprofloxacin quantity (14 tablets)",
+          "Purpose of urine culture and sensitivity test (to confirm bacterial etiology and antibiotic resistance pattern)",
           "Patient Agreements section"
         ],
         "additions": [
-          "Follow-up Appointment: 'and results of laboratory tests' as a purpose for the follow-up",
-          "Patient Education: 'managing chronic hypertension through balanced diet and regular exercise' (GroundTruth lists these as separate points)"
+          "Instruction to contact if worsening symptoms or concerns arise before follow-up"
         ]
       }
     ],
@@ -324,39 +336,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Chief Complaint: Severity specified as 'Severe pain' (GroundTruth states 'moderate to severe')",
+      "addition_text": "Recurrent UTIs listed as a diagnosis in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I’d say it’s around a 7 or 8. ... Okay, so that's quite severe.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recurrent UTIs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'Probable' before Urinary Tract Infection",
+      "addition_text": "Chronic hypertension listed as a diagnosis in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] ...and monitoring your chronic hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Chronic hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Confirmation of diagnosis with positive urine dipstick test for leukocytes and nitrites (information moved from Objective in GroundTruth)",
+      "addition_text": "Instruction to contact if worsening symptoms or concerns arise before follow-up",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] Please remember to follow the medication regimen and return for your follow-up appointment in 7 days. If you experience any worsening symptoms or have any concerns before then, don't hesitate to contact us.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule a follow-up appointment in 7 days and inform the patient to contact if worsening symptoms or concerns arise before then.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Follow-up Appointment: 'and results of laboratory tests' as a purpose for the follow-up",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "addition_text": "Recurrent UTIs listed as a diagnosis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recurrent UTIs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient Education: 'managing chronic hypertension through balanced diet and regular exercise' (GroundTruth lists these as separate points)",
+      "addition_text": "Chronic hypertension listed as a diagnosis",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension. Keeping a balanced diet and regular exercise can also help.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] ...and monitoring your chronic hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Chronic hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -263,110 +263,102 @@
     "plan_alignment_score": 0.6690909090909092
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective and Plan sections. The entire Review of Systems, Blood Work, and Imaging sections are missing, which are major gaps. Several important details from the History of Present Illness and specific medication/follow-up details in the Plan are also omitted. While there are no unsupported or unknown additions, the extensive omissions make the note meaningfully incomplete, requiring careful review and additional information to be clinically useful.",
+    "overall_summary": "The note demonstrates good alignment in the Objective and Assessment sections, with all clinical content accurately captured. However, the Subjective section has noticeable gaps, omitting crucial HPI details regarding the patient's functional status, social determinants of health, and dietary adherence. The Plan section also suffers from multiple moderate omissions, lacking specific dosages for new medications and detailed components of ordered lab work and imaging. While there are no unsupported or unknown additions, these omissions collectively reduce the overall completeness and clinical usefulness of the note, requiring caution and further review.",
     "omissions": [
-      "HPI: Reason for visit: management of chronic kidney disease (CKD) which has worsened significantly.",
-      "HPI: \"on exertion\" qualifier for shortness of breath.",
-      "HPI: Occasional nausea.",
-      "HPI: Impact of symptoms on daily activities (severely impacted, heavily dependent on family for basic tasks).",
-      "HPI: Patient's history of hypertension, hyperlipidemia, and type 2 diabetes mellitus (as part of HPI context).",
-      "HPI: Dietary habits (continues to consume a diet high in sodium and processed foods despite recommendations).",
-      "HPI: Patient's limited English proficiency and potential confusion about medical instructions.",
-      "HPI: Patient's living situation (rural, underserved community with limited access to specialized healthcare facilities).",
-      "Review of Systems (ROS) section.",
-      "ROS: Constitutional: weight stable.",
-      "ROS: Cardiovascular: Elevated blood pressure, no chest pain.",
-      "ROS: Gastrointestinal: no vomiting.",
-      "ROS: Neurological: No dizziness or headaches.",
-      "ROS: Musculoskeletal: No joint pain or muscle cramps.",
-      "ROS: Skin: No rashes.",
-      "Objective: Abdomen: \"Non-tender\" finding.",
-      "Plan: Medications: Enalapril \"orally\" route.",
-      "Plan: Medications: Atorvastatin \"orally\" route.",
-      "Plan: Medications: Erythropoietin \"10,000 units subcutaneously\" dosage/route.",
-      "Plan: Medications: Erythropoietin \"secondary to CKD\" reason.",
-      "Plan: Blood Work section (including CMP, CBC, Vitamin D levels, Urinalysis).",
-      "Plan: Imaging section (including Doppler Ultrasound).",
-      "Plan: Follow-up: Vascular surgeon's name: Dr. Jameson.",
-      "Plan: Lifestyle Modifications: \"Discuss potential options for\" related to increasing physical activity.",
-      "Plan: Patient Education: Educational materials purpose: \"to ensure understanding of disease process and treatment plan\".",
-      "Plan: Patient Education: Medical interpreter services context: \"for future visits\".",
-      "Plan: Monitoring: Blood pressure monitoring detail: \"with a log to bring to follow-up appointments\".",
-      "Plan: Concluding statement: \"The patient has been educated on the importance of adherence to medications, lifestyle modifications, and the need for regular follow-up visits to manage his chronic conditions effectively.\""
+      "HPI detail: symptoms severely impacting daily activities, rendering him heavily dependent on family for basic tasks",
+      "HPI detail: patient continues to consume a diet high in sodium and processed foods despite dietary recommendations",
+      "HPI detail: native Spanish speaker with limited English proficiency, which occasionally leads to confusion about medical instructions",
+      "HPI detail: lives in a rural, underserved community with limited access to specialized healthcare facilities",
+      "Review of Systems (ROS) section as a distinct structured component",
+      "Specific ROS findings: weight stable",
+      "Specific ROS findings: no chest pain",
+      "Specific ROS findings: no vomiting",
+      "Specific ROS findings: no dizziness or headaches",
+      "Specific ROS findings: no joint pain or muscle cramps",
+      "Specific ROS findings: no rashes",
+      "Specific dosage for Erythropoietin (Procrit 10,000 units subcutaneously weekly)",
+      "Specific blood work items: Comprehensive Metabolic Panel (CMP) including serum creatinine, BUN, glomerular filtration rate",
+      "Specific blood work items: Complete Blood Count (CBC) to monitor for anemia",
+      "Specific blood work items: Vitamin D levels",
+      "Specific blood work items: Urinalysis: Microscopic analysis and protein quantification",
+      "Specific imaging details: Doppler Ultrasound to assess renal blood flow and any structural anomalies",
+      "Name of vascular surgeon (Dr. Jameson)",
+      "The concluding statement in GT about patient education on adherence to medications, lifestyle modifications, and the need for regular follow-up visits to manage his chronic conditions effectively"
     ],
     "additions": [
-      "Assessment: \"Suspected\" qualifier for hypertensive chronic kidney disease.",
-      "Assessment: \"possibly\" qualifier for Stage 4 Chronic Kidney Disease.",
-      "Assessment: \"likely\" qualifier for anemia due to chronic kidney disease.",
-      "Plan: Enalapril: \"for blood pressure control\" (explicit purpose)."
+      "\"for blood pressure control\" after Enalapril",
+      "\"for cholesterol management\" after Atorvastatin",
+      "\"for effective communication\" after medical interpreter services",
+      "\"Adhere to medications, follow lifestyle modifications, and keep follow-up appointments to manage chronic conditions effectively\" as a separate plan item"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has numerous omissions. The entire Review of Systems section is missing, which is a major gap. Additionally, several key details from the History of Present Illness are omitted, including the reason for the visit (worsening CKD), the impact of symptoms on daily activities, the patient's full medical history context, dietary habits, language barriers, and living situation. These omissions significantly reduce the completeness and clinical usefulness of the section.",
+        "summary": "This section omits significant HPI details regarding the patient's severe impact on daily activities, dependence on family, non-adherence to diet, limited English proficiency, and rural underserved community context. It also completely omits the structured Review of Systems section and several negative ROS findings (e.g., weight stable, no chest pain, no vomiting, no dizziness or headaches, no joint pain or muscle cramps, no rashes). These omissions create noticeable gaps in the patient's clinical and social context.",
         "omissions": [
-          "HPI: Reason for visit: management of chronic kidney disease (CKD) which has worsened significantly.",
-          "HPI: \"on exertion\" qualifier for shortness of breath.",
-          "HPI: Occasional nausea.",
-          "HPI: Impact of symptoms on daily activities (severely impacted, heavily dependent on family for basic tasks).",
-          "HPI: Patient's history of hypertension, hyperlipidemia, and type 2 diabetes mellitus (as part of HPI context).",
-          "HPI: Dietary habits (continues to consume a diet high in sodium and processed foods despite recommendations).",
-          "HPI: Patient's limited English proficiency and potential confusion about medical instructions.",
-          "HPI: Patient's living situation (rural, underserved community with limited access to specialized healthcare facilities).",
-          "Review of Systems (ROS) section.",
-          "ROS: Constitutional: weight stable.",
-          "ROS: Cardiovascular: Elevated blood pressure, no chest pain.",
-          "ROS: Gastrointestinal: no vomiting.",
-          "ROS: Neurological: No dizziness or headaches.",
-          "ROS: Musculoskeletal: No joint pain or muscle cramps.",
-          "ROS: Skin: No rashes."
+          "Chief Complaint (CC) as a distinct heading",
+          "History of Present Illness (HPI) as a distinct heading",
+          "HPI detail: symptoms severely impacted daily activities, rendering him heavily dependent on family for basic tasks",
+          "HPI detail: history of hypertension, hyperlipidemia, and type 2 diabetes mellitus (these are mentioned in Assessment, but not in the HPI narrative)",
+          "HPI detail: patient continues to consume a diet high in sodium and processed foods despite dietary recommendations",
+          "HPI detail: native Spanish speaker with limited English proficiency, which occasionally leads to confusion about medical instructions",
+          "HPI detail: lives in a rural, underserved community with limited access to specialized healthcare facilities",
+          "Review of Systems (ROS) section as a distinct structured component",
+          "Specific ROS findings: weight stable",
+          "Specific ROS findings: no chest pain",
+          "Specific ROS findings: no vomiting",
+          "Specific ROS findings: no dizziness or headaches",
+          "Specific ROS findings: no joint pain or muscle cramps",
+          "Specific ROS findings: no rashes"
         ],
-        "additions": []
+        "additions": [
+          "\"with less frequent and reduced volume\" for decreased urine output",
+          "\"Swollen legs\" as a separate bullet point (GT has \"edema in lower extremities\" under ROS Skin)"
+        ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-aligned with the GroundTruth. There is only one minor omission regarding the 'non-tender' finding for the abdomen, which does not materially impact the clinical usefulness of the section.",
+        "summary": "This section accurately captures all vital signs and physical exam findings from the Ground Truth. The only discrepancies are minor structural omissions of the 'Vital Signs' and 'Physical Exam' subheadings, which do not impact clinical content.",
         "omissions": [
-          "Abdomen: \"Non-tender\" finding."
+          "Vital Signs as a distinct heading",
+          "Physical Exam as a distinct heading"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent. There are no omissions, and all additions (qualifiers like 'suspected', 'possibly', 'likely') are fully supported by the transcript and therefore do not reduce the grade.",
+        "summary": "This section is complete and accurate, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": [
-          "\"Suspected\" qualifier for hypertensive chronic kidney disease.",
-          "\"possibly\" qualifier for Stage 4 Chronic Kidney Disease.",
-          "\"likely\" qualifier for anemia due to chronic kidney disease."
+          "\"Suspected\" before hypertensive chronic kidney disease",
+          "\"likely\" before due to chronic kidney disease"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has significant omissions. The entire Blood Work and Imaging sections are missing, which are major gaps in a comprehensive plan. Several specific details regarding medication dosage/route (e.g., Erythropoietin '10,000 units subcutaneously'), the vascular surgeon's name, and specific contexts for patient education and monitoring are also omitted. While the additions are supported, the numerous and material omissions make the plan meaningfully incomplete.",
+        "summary": "The plan omits critical details such as the specific dosage for Erythropoietin (Procrit 10,000 units subcutaneously weekly), the full list of blood work (Comprehensive Metabolic Panel including serum creatinine, BUN, glomerular filtration rate; Complete Blood Count; Vitamin D levels; Urinalysis with microscopic analysis and protein quantification), and the specific details for the Doppler Ultrasound (to assess renal blood flow and any structural anomalies). It also omits the name of the vascular surgeon (Dr. Jameson). These omissions reduce the completeness and actionability of the treatment plan.",
         "omissions": [
-          "Medications: Enalapril \"orally\" route.",
-          "Medications: Atorvastatin \"orally\" route.",
-          "Medications: Erythropoietin \"10,000 units subcutaneously\" dosage/route.",
-          "Medications: Erythropoietin \"secondary to CKD\" reason.",
-          "Blood Work section (including CMP, CBC, Vitamin D levels, Urinalysis).",
-          "Imaging section (including Doppler Ultrasound).",
-          "Follow-up: Vascular surgeon's name: Dr. Jameson.",
-          "Lifestyle Modifications: \"Discuss potential options for\" related to increasing physical activity.",
-          "Patient Education: Educational materials purpose: \"to ensure understanding of disease process and treatment plan\".",
-          "Patient Education: Medical interpreter services context: \"for future visits\".",
-          "Monitoring: Blood pressure monitoring detail: \"with a log to bring to follow-up appointments\".",
-          "Concluding statement: \"The patient has been educated on the importance of adherence to medications, lifestyle modifications, and the need for regular follow-up visits to manage his chronic conditions effectively.\""
+          "Specific dosage for Erythropoietin (Procrit 10,000 units subcutaneously weekly)",
+          "Specific blood work items: Comprehensive Metabolic Panel (CMP) including serum creatinine, BUN, glomerular filtration rate",
+          "Specific blood work items: Complete Blood Count (CBC) to monitor for anemia",
+          "Specific blood work items: Vitamin D levels",
+          "Specific blood work items: Urinalysis: Microscopic analysis and protein quantification",
+          "Specific imaging details: Doppler Ultrasound to assess renal blood flow and any structural anomalies",
+          "Name of vascular surgeon (Dr. Jameson)",
+          "The concluding statement in GT about patient education on adherence to medications, lifestyle modifications, and the need for regular follow-up visits to manage his chronic conditions effectively"
         ],
         "additions": [
-          "Enalapril: \"for blood pressure control\" (explicit purpose)."
+          "\"for blood pressure control\" after Enalapril 10 mg twice daily",
+          "\"for cholesterol management\" after Atorvastatin 20 mg once daily",
+          "\"for effective communication\" after medical interpreter services",
+          "\"Adhere to medications, follow lifestyle modifications, and keep follow-up appointments to manage chronic conditions effectively\" as a separate plan item"
         ]
       }
     ],
@@ -375,60 +367,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: \"Suspected\" qualifier for hypertensive chronic kidney disease.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Based on your symptoms and history, we suspect hypertensive chronic kidney disease, possibly stage 4.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4."
-    },
-    {
-      "addition_text": "Assessment: \"possibly\" qualifier for Stage 4 Chronic Kidney Disease.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Based on your symptoms and history, we suspect hypertensive chronic kidney disease, possibly stage 4.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4."
-    },
-    {
-      "addition_text": "Assessment: \"likely\" qualifier for anemia due to chronic kidney disease.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You also have anemia likely due to chronic kidney disease...",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anemia likely due to chronic kidney disease."
-    },
-    {
-      "addition_text": "Plan: Enalapril: \"for blood pressure control\" (explicit purpose).",
+      "addition_text": "\"for blood pressure control\" after Enalapril",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll start you on Enalapril 10 mg twice daily to help control your blood pressure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Enalapril 10 mg twice daily for blood pressure control."
+      "matched_claim_text": "Initiate Enalapril 10 mg twice daily for blood pressure control.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Suspected\" qualifier for hypertensive chronic kidney disease.",
+      "addition_text": "\"for cholesterol management\" after Atorvastatin",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You’ll continue Atorvastatin 20 mg once daily for your cholesterol.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue Atorvastatin 20 mg once daily for cholesterol management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"for effective communication\" after medical interpreter services",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’ll provide educational materials in Spanish to ensure you understand your condition and treatment plan. We’ll also use medical interpreter services for future visits to ensure effective communication.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Provide educational materials in Spanish, along with medical interpreter services for effective communication.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Adhere to medications, follow lifestyle modifications, and keep follow-up appointments to manage chronic conditions effectively\" as a separate plan item",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Remember, it’s important to adhere to your medications, follow the lifestyle modifications, and keep your follow-up appointments to manage your chronic conditions effectively.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Adhere to medications, follow lifestyle modifications, and keep follow-up appointments to manage chronic conditions effectively.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"with less frequent and reduced volume\" for decreased urine output",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I’m not going to the bathroom as much as I used to. It’s less frequent and less in amount.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Decreased urine output with less frequent and reduced volume.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Abnormal urine output — phenotype_phenotype — Decreased urine output"
+    },
+    {
+      "addition_text": "\"Swollen legs\" as a separate bullet point (GT has \"edema in lower extremities\" under ROS Skin)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, but my legs are swollen.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Suspected\" before hypertensive chronic kidney disease",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and history, we suspect hypertensive chronic kidney disease, possibly stage 4.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4."
+      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"possibly\" qualifier for Stage 4 Chronic Kidney Disease.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Based on your symptoms and history, we suspect hypertensive chronic kidney disease, possibly stage 4.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected hypertensive chronic kidney disease, possibly stage 4."
-    },
-    {
-      "addition_text": "\"likely\" qualifier for anemia due to chronic kidney disease.",
+      "addition_text": "\"likely\" before due to chronic kidney disease",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You also have anemia likely due to chronic kidney disease...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anemia likely due to chronic kidney disease."
+      "matched_claim_text": "Anemia likely due to chronic kidney disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Enalapril: \"for blood pressure control\" (explicit purpose).",
+      "addition_text": "\"for blood pressure control\" after Enalapril 10 mg twice daily",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll start you on Enalapril 10 mg twice daily to help control your blood pressure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Enalapril 10 mg twice daily for blood pressure control."
+      "matched_claim_text": "Initiate Enalapril 10 mg twice daily for blood pressure control.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"for cholesterol management\" after Atorvastatin 20 mg once daily",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You’ll continue Atorvastatin 20 mg once daily for your cholesterol.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue Atorvastatin 20 mg once daily for cholesterol management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

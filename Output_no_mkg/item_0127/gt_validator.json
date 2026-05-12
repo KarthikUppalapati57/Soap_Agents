@@ -229,9 +229,9 @@
     "plan_alignment_score": 0.7909604519774011
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains noticeable gaps and multiple moderate omissions across several sections, particularly in the Objective section where key physical examination findings are missing. While no unsupported additions were identified, the cumulative effect of the omissions makes the note meaningfully incomplete and requires careful review.",
+    "model": "Agent-3",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. A significant strength is the absence of any unsupported or unknown additions, ensuring all included content is grounded in the transcript. However, the note has several minor omissions across all sections and a few moderate omissions, particularly in the Subjective section, which impact the completeness of the patient's history of present illness and review of systems.",
     "omissions": [
       "initial consultation (type of visit)",
       "moderate to severe cravings for opioids (severity of cravings)",
@@ -260,8 +260,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section omits several specific details regarding the severity and duration of cravings, the impact of opioid use on daily life, and specific descriptions within the Review of Systems (e.g., frequent awakenings, skipping meals, reasons for lack of exercise, specific quantities/reasons for substance use). However, the core complaints and positive ROS findings are present, and the additions are supported by the transcript.",
+        "grade": "C",
+        "summary": "This section has several minor and moderate omissions. Key details such as the severity and duration of opioid cravings, the significant impact on job performance and daily responsibilities, and specific details about sleep quality, dietary intake, and substance use quantities are missing. While the core information is present, these omissions make the section noticeably incomplete.",
         "omissions": [
           "initial consultation (type of visit)",
           "moderate to severe cravings for opioids (severity of cravings)",
@@ -281,8 +281,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section has noticeable gaps, as it omits key physical examination findings including the general appearance (anxious but cooperative), cardiac findings (regular rate and rhythm, no murmurs), and lung findings (clear to auscultation bilaterally). This makes the physical examination meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Objective section accurately captures all vital signs and some physical examination findings. However, it omits several minor details from the physical exam, including the patient appearing anxious but cooperative, and specific findings for cardiac (regular rate and rhythm, no murmurs) and lungs (clear to auscultation bilaterally).",
         "omissions": [
           "Physical Examination - General: Appears anxious but cooperative",
           "Physical Examination - Cardiac: Regular rate and rhythm, no murmurs",
@@ -293,7 +293,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits \"mild hypertension\" as a contributing factor to opioid dependence and the detail that chronic back pain was \"previously prescribed Oxycodone.\" These are moderate omissions that reduce the completeness of the assessment.",
+        "summary": "The Assessment section is well-aligned, accurately stating the diagnosis and primary contributing factors. It has two minor omissions: 'mild hypertension' as a contributing factor and 'previously prescribed Oxycodone' providing context for chronic back pain. These omissions do not significantly detract from the overall clinical usefulness of the assessment.",
         "omissions": [
           "mild hypertension (as a contributing factor)",
           "previously prescribed Oxycodone (detail about chronic back pain)"
@@ -303,7 +303,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section omits the specific specialization of Dr. Susan Brooks as a \"Psychotherapist specializing in substance abuse disorders\" and the clinical reasons for ordering the comprehensive drug screen (to monitor for other substance use) and liver function tests (due to history of substance use). These are minor to moderate omissions of important details.",
+        "summary": "The Plan section is comprehensive and accurately reflects the treatment strategy. It has three minor omissions related to specific details: the psychotherapist specializing in substance abuse disorders, and the reasons for ordering the comprehensive drug screen (to monitor for other substance use) and liver function tests (due to history of substance use). The core actions of the plan are fully captured.",
         "omissions": [
           "Psychotherapist specializing in substance abuse disorders (detail about Dr. Brooks)",
           "reason for comprehensive drug screen: to monitor for other substance use",
@@ -321,14 +321,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] There are several contributing factors, including chronic back pain...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient presents with chronic back pain."
+      "matched_claim_text": "Patient presents with chronic back pain.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "anxiety disorder (listed in Subjective, GroundTruth has it in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "There are several contributing factors, including chronic back pain, anxiety disorder, and mild hypertension.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

@@ -241,9 +241,9 @@
     "plan_alignment_score": 0.5934065934065934
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Subjective and Plan sections. Several moderate omissions in the Subjective section include details about the progression of shortness of breath, specific triggers for chest tightness, and the impact on daily life. The Plan section also has multiple moderate omissions, such as specific medication dosages and frequencies, detailed justifications for referrals and investigations, and crucial patient education and agreement details. All additions were supported by the transcript and did not impact the grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, with no unsupported or unknown additions. However, it has several omissions, particularly in the Subjective and Plan sections. The Subjective section lacks specific details regarding the patient's occupation, the precise characterization of symptoms, their impact on daily life, and a comprehensive review of systems. The Plan section omits important specifics for medication dosages, rationales for referrals and investigations, and detailed patient education and agreement points. While the core information is present, these omissions reduce the overall completeness and clarity of the note.",
     "omissions": [
       "Patient's occupation (construction worker)",
       "Detail: 'initial consultation'",
@@ -274,8 +274,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section receives a C due to several moderate omissions. These include the lack of detail regarding the patient's occupation, the absence of 'no significant improvement' for shortness of breath, the specific trigger for chest tightness ('particularly after physical exertion'), the impact of symptoms on job tasks and daily routines, and reduced exercise tolerance. Several negative ROS findings were also omitted.",
+        "grade": "B",
+        "summary": "The Subjective section has several omissions, including the patient's occupation, the 'initial consultation' detail, specific characterizations of shortness of breath and chest tightness, the impact of symptoms on daily routines, and several 'denies' statements from the Review of Systems. These omissions, while not critical, reduce the completeness and detail of the patient's history.",
         "omissions": [
           "Patient's occupation (construction worker)",
           "Detail: 'initial consultation'",
@@ -295,7 +295,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section receives an A. It accurately captures all major clinically important findings from the Ground Truth. The only omissions were minor details regarding 'normal heart sounds' and 'no additional heart sounds'.",
+        "summary": "The Objective section is well-aligned with only minor omissions regarding 'Normal heart sounds' and 'No additional heart sounds' in the physical exam. These do not materially impact the clinical usefulness of the section.",
         "omissions": [
           "Physical Exam: Normal heart sounds",
           "Physical Exam: No additional heart sounds"
@@ -305,7 +305,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A. It perfectly aligns with the Ground Truth, with no omissions. All additions in this section were supported by the transcript and did not negatively impact the grade.",
+        "summary": "The Assessment section is excellent, with no omissions and no unsupported or unknown additions. The content is fully aligned with the Ground Truth.",
         "omissions": [],
         "additions": [
           "'Chest tightness and potential cardiac issues need evaluation'"
@@ -313,8 +313,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section receives a C due to multiple moderate omissions. Key missing details include the specific dosage and frequency for Albuterol, the specific reason for the Cardiology referral, the purpose of the Pulmonary Function Test, the specific blood work ordered (CBC and BMP), and crucial patient education and agreement details regarding compliance and understanding of the treatment plan.",
+        "grade": "B",
+        "summary": "The Plan section has several moderate omissions. While the medications, referrals, and investigations are listed, specific details such as Albuterol dosage (90 mcg, 2 puffs every 4-6 hours), Prednisone route ('1 tablet orally'), the specific reasons for the Cardiology referral and PFT, the exact blood work ordered (CBC and BMP), and detailed patient education and agreement points are missing. These omissions affect the precision and comprehensiveness of the plan.",
         "omissions": [
           "Medication detail: Albuterol 90 mcg inhaler, 2 puffs every 4-6 hours",
           "Medication detail: Prednisone '1 tablet orally'",
@@ -337,42 +337,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "It started about two weeks ago. It's been getting worse, and now it's moderate to severe. I feel really out of breath, especially after doing any physical work.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports feeling short of breath for two weeks, worsening over time with moderate to severe intensity."
+      "matched_claim_text": "Patient reports feeling short of breath for two weeks, worsening over time with moderate to severe intensity.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: 'No known allergies'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, I don't have any allergies that I know of.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No known allergies."
+      "matched_claim_text": "No known allergies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'Chest tightness and potential cardiac issues need evaluation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m referring you to a Cardiologist, Dr. Smith, to evaluate your chest tightness and rule out any cardiac issues.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chest tightness and potential cardiac issues need evaluation."
+      "matched_claim_text": "Chest tightness and potential cardiac issues need evaluation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient reports SOB 'worsening over time'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It started about two weeks ago. It's been getting worse, and now it's moderate to severe. I feel really out of breath, especially after doing any physical work.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports feeling short of breath for two weeks, worsening over time with moderate to severe intensity."
+      "matched_claim_text": "Patient reports feeling short of breath for two weeks, worsening over time with moderate to severe intensity.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'No known allergies'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, I don't have any allergies that I know of.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No known allergies."
+      "matched_claim_text": "No known allergies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Chest tightness and potential cardiac issues need evaluation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m referring you to a Cardiologist, Dr. Smith, to evaluate your chest tightness and rule out any cardiac issues.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chest tightness and potential cardiac issues need evaluation."
+      "matched_claim_text": "Chest tightness and potential cardiac issues need evaluation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

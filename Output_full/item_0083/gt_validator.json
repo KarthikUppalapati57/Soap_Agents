@@ -219,105 +219,87 @@
     "plan_alignment_score": 0.41379310344827586
   },
   "expert_judge": {
-    "model": "expert-clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has numerous omissions across all sections, particularly in the Subjective and Plan sections. Key details regarding the severity and impact of the patient's illness are missing from the Subjective section. The Plan section is significantly incomplete due to the absence of crucial past medical history (IBS, frequent headaches), family history (ovarian cancer, alcoholism), current medications (probiotics), and allergies. While all additions are supported by the transcript, the extensive omissions, especially those impacting the completeness of the patient's clinical background, materially reduce the note's overall clinical usefulness.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note captures the core clinical presentation, objective findings, and immediate treatment plan. All additions are supported by the transcript, which is a strong positive. However, the note has several omissions that reduce its overall completeness and usefulness. Key missing details include the impact of symptoms on daily activities in the Subjective section, and more significantly, crucial historical information such as past medical history (IBS, headaches), family history, current medications (probiotics), and known allergies, which were present in the Ground Truth's 'Additional Notes' within the Plan section. The absence of these important contextual and safety details makes the note meaningfully incomplete and necessitates caution and further review.",
     "omissions": [
-      "Chief Complaint (CC) section heading",
-      "History of Present Illness (HPI) section heading",
-      "Review of Systems (ROS) section heading",
-      "Impact on Daily Activities: unable to attend school or focus on studies",
-      "Frequent naps during the day",
-      "Persistent duration of symptoms",
-      "Objective: Patient appears fatigued",
-      "Objective: Abdomen soft",
-      "Objective: Dizziness noted upon standing",
-      "Assessment: Diagnosis 'Illness, unspecified'",
-      "Plan: Acetaminophen quantity (21 tablets)",
-      "Plan: Acetaminophen indication (for fever)",
-      "Plan: Patient education on the importance of proper hydration",
-      "Plan: Patient understands and agrees with the treatment plan",
-      "Plan: Patient is highly cooperative and follows medical advice diligently",
-      "Plan: History of irritable bowel syndrome (IBS)",
-      "Plan: History of frequent headaches",
-      "Plan: Family history of mother with ovarian cancer",
-      "Plan: Family history of father with alcoholism",
-      "Plan: Currently on daily probiotics",
-      "Plan: No known allergies",
-      "Plan: Demographic details (college student, part-time barista, lower-middle class)",
-      "Plan: Lifestyle details (non-smoker, does not consume alcohol or drugs, engages in regular exercise, enjoys hiking and painting)",
-      "Plan: Clinical setting details (University Health Services in a small city with low pollution levels and a generally healthy environment)",
-      "Plan: Patient is native English speaking and highly cooperative",
-      "Plan: Instruction to monitor symptoms closely and adhere strictly to prescribed treatment and lifestyle modifications"
+      "Patient's inability to attend school or focus on studies due to symptoms",
+      "HPI detail: Persistent symptoms",
+      "HPI detail: Severity - Severe, impacting daily activities",
+      "ROS detail: Frequent naps during the day",
+      "Objective finding: Patient appears fatigued",
+      "Objective finding: Abdomen is soft",
+      "Objective finding: Dizziness noted upon standing (neurological exam)",
+      "Objective finding: Cardiovascular regular rhythm",
+      "Acetaminophen quantity (21 tablets)",
+      "Acetaminophen prescribed for fever",
+      "Patient agreements (understands/agrees with treatment plan, cooperative, follows medical advice diligently)",
+      "History of irritable bowel syndrome (IBS) and frequent headaches",
+      "Family history (mother with ovarian cancer, father with alcoholism)",
+      "Patient is currently on daily probiotics",
+      "Patient has no known allergies",
+      "Patient's lifestyle details (non-smoker, no alcohol/drugs, regular exercise, enjoys hiking and painting)",
+      "Concluding statement about monitoring symptoms closely and adhering strictly to prescribed treatment and lifestyle modifications",
+      "Patient education detail: Emphasize the importance of proper hydration"
     ],
     "additions": [
-      "Subjective: Mild lower abdominal tenderness",
-      "Subjective: Orthostatic dizziness",
-      "Subjective: No diarrhea or constipation reported",
+      "Subjective report of mild lower abdominal tenderness",
+      "Subjective report of orthostatic dizziness",
+      "Subjective report of no diarrhea or constipation",
       "Plan: No referrals or further tests needed at the moment, depending on response to treatment"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section omits several important details, including the severity of symptoms, their impact on daily activities (unable to attend school or focus on studies), frequent naps, and the persistent duration of symptoms. While the core complaints are present, these omissions create noticeable gaps in the History of Present Illness and Review of Systems. All additions are supported by the transcript.",
+        "grade": "B",
+        "summary": "The Subjective section captures the chief complaint and main associated symptoms well. However, it omits important details regarding the impact of symptoms on daily activities (unable to attend school or focus on studies) and the specific mention of frequent naps due to fatigue. The severity detail is also slightly less explicit than the Ground Truth. All additions in this section are supported by the transcript and do not detract from the grade.",
         "omissions": [
-          "Chief Complaint (CC) section heading",
-          "History of Present Illness (HPI) section heading",
-          "Review of Systems (ROS) section heading",
-          "Severity: Severe, impacting daily activities",
-          "Impact on Daily Activities: unable to attend school or focus on studies due",
-          "Frequent naps during the day",
-          "Persistent duration of symptoms"
+          "Impact on daily activities (unable to attend school or focus on studies)",
+          "Persistent symptoms (duration detail in HPI)",
+          "Severity: Severe, impacting daily activities (detail of severity in HPI)",
+          "Frequent naps during the day (detail of fatigue in ROS Constitutional)"
         ],
         "additions": [
-          "Mild lower abdominal tenderness",
-          "Orthostatic dizziness",
-          "No diarrhea or constipation reported"
+          "Mild lower abdominal tenderness reported subjectively",
+          "Orthostatic dizziness reported subjectively",
+          "No diarrhea, or constipation reported"
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section has a few minor omissions, such as the patient appearing fatigued, the abdomen being soft, and the objective observation of dizziness upon standing. However, the key physical exam findings are largely captured, and there are no unsupported or unknown additions.",
+        "summary": "The Objective section has several minor omissions, including the patient appearing fatigued, the abdomen being soft, and the cardiovascular rhythm being regular. While 'dizziness noted upon standing' is omitted from this section, the information about orthostatic dizziness is captured in the Generated Subjective section, mitigating its impact. The core objective findings are largely present and accurate.",
         "omissions": [
-          "General: The patient appears fatigued",
-          "Abdomen: Soft",
-          "Neurological: dizziness noted upon standing"
+          "Fatigued (from General appearance)",
+          "Soft (from Abdomen description)",
+          "Dizziness noted upon standing (from Neurological exam)",
+          "Regular rhythm (from Cardiovascular description)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The specific diagnosis of 'Illness, unspecified (ICD-10 description)' is omitted from this section. While the differential diagnoses are included, the absence of the primary diagnosis is a moderate issue that makes the assessment less complete.",
-        "omissions": [
-          "Diagnosis: Illness, unspecified (ICD-10 description)"
-        ],
+        "grade": "A",
+        "summary": "The Assessment section is excellent, perfectly aligning with the Ground Truth by capturing the differential diagnoses without any omissions or unsupported additions.",
+        "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "This section suffers from extensive and clinically significant omissions. Crucial information such as the patient's history of irritable bowel syndrome and frequent headaches, family history of ovarian cancer and alcoholism, current use of daily probiotics, and no known allergies are all missing. Additionally, details like the acetaminophen quantity and specific indication, patient agreements, and comprehensive lifestyle context are omitted. These numerous gaps, particularly regarding medical history and safety information, materially reduce the clinical usefulness of this section. All additions are supported by the transcript.",
+        "grade": "C",
+        "summary": "The Plan section suffers from multiple moderate omissions. While the core treatment plan (medication, rest, fluids, diet, stress reduction, follow-up) is present, the note omits crucial historical and safety information that was included in the Ground Truth's 'Additional Notes' within this section. These include the patient's history of IBS and frequent headaches, family history, current probiotics, and critically, the absence of known allergies. The omission of acetaminophen quantity and the specific reason for PRN (fever) are minor. The absence of patient agreements and the concluding statement also contribute to the incompleteness. All additions in this section are supported by the transcript.",
         "omissions": [
           "Acetaminophen quantity (21 tablets)",
-          "Acetaminophen indication (for fever)",
-          "Patient Education: Emphasize the importance of proper hydration",
-          "Patient Agreements: The patient understands and agrees with the treatment plan",
-          "Patient Agreements: She is highly cooperative and follows medical advice diligently",
-          "Additional Notes: The patient has a history of irritable bowel syndrome (IBS)",
-          "Additional Notes: frequent headaches",
-          "Additional Notes: Family history includes a mother with ovarian cancer",
-          "Additional Notes: a father with alcoholism",
-          "Additional Notes: The patient is currently on daily probiotics",
-          "Additional Notes: has no known allergies",
-          "Lifestyle and Context: Demographic (23-year-old female, college student, part-time barista, lower-middle class)",
-          "Lifestyle and Context: Lifestyle (Non-smoker, does not consume alcohol or drugs, engages in regular exercise, enjoys hiking and painting)",
-          "Lifestyle and Context: Clinical Setting (University Health Services in a small city with low pollution levels and a generally healthy environment)",
-          "Lifestyle and Context: Patient is native English speaking and highly cooperative",
-          "The patient has been instructed to monitor her symptoms closely and adhere strictly to the prescribed treatment and lifestyle modifications"
+          "Acetaminophen prescribed for fever",
+          "Patient agreements (understands/agrees with treatment plan, cooperative, follows medical advice diligently)",
+          "History of irritable bowel syndrome (IBS) and frequent headaches",
+          "Family history (mother with ovarian cancer, father with alcoholism)",
+          "Currently on daily probiotics",
+          "No known allergies",
+          "Lifestyle details (non-smoker, no alcohol/drugs, regular exercise, enjoys hiking and painting)",
+          "Concluding statement about monitoring symptoms closely and adhering strictly to prescribed treatment and lifestyle modifications",
+          "Emphasize the importance of proper hydration (from Patient Education)"
         ],
         "additions": [
           "No referrals or further tests needed at the moment, depending on response to treatment"
@@ -329,60 +311,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Mild lower abdominal tenderness",
+      "addition_text": "Subjective report of mild lower abdominal tenderness",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I feel a bit of mild tenderness in your lower abdomen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild lower abdominal tenderness."
+      "matched_claim_text": "Mild lower abdominal tenderness.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective: Orthostatic dizziness",
+      "addition_text": "Subjective report of orthostatic dizziness",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, especially when I stand up.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective: No diarrhea or constipation reported",
+      "addition_text": "Subjective report of no diarrhea or constipation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Got it. What about any gastrointestinal symptoms like diarrhea or constipation?\n\n[Patient]: No, just the nausea and the occasional vomiting.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No diarrhea reported."
+      "matched_claim_text": "No diarrhea reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: No referrals or further tests needed at the moment, depending on response to treatment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I don’t think we need any referrals to specialists or further tests at the moment. Let's see how you respond to the treatment first.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No referrals or further tests needed at the moment, depending on response to treatment."
+      "matched_claim_text": "No referrals or further tests needed at the moment, depending on response to treatment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Mild lower abdominal tenderness",
+      "addition_text": "Mild lower abdominal tenderness reported subjectively",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I've been having severe nausea, dizziness, and sometimes I even throw up. ... I've been feeling really tired and taking frequent naps during the day. ... [Patient]: It's a bit tender in the lower area. ... [Patient]: Yes, especially when I stand up.",
+      "transcript_evidence": "[Doctor]: I feel a bit of mild tenderness in your lower abdomen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports severe nausea, dizziness, occasional vomiting, fatigue, mild lower abdominal tenderness, and orthostatic dizziness."
+      "matched_claim_text": "Mild lower abdominal tenderness.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Orthostatic dizziness",
+      "addition_text": "Orthostatic dizziness reported subjectively",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I've been having severe nausea, dizziness, and sometimes I even throw up. ... I've been feeling really tired and taking frequent naps during the day. ... [Patient]: It's a bit tender in the lower area. ... [Patient]: Yes, especially when I stand up.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports severe nausea, dizziness, occasional vomiting, fatigue, mild lower abdominal tenderness, and orthostatic dizziness."
+      "transcript_evidence": "Yes, especially when I stand up.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "No diarrhea or constipation reported",
+      "addition_text": "No diarrhea, or constipation reported",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Got it. What about any gastrointestinal symptoms like diarrhea or constipation?\n\n[Patient]: No, just the nausea and the occasional vomiting.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No diarrhea reported."
+      "matched_claim_text": "No diarrhea reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No referrals or further tests needed at the moment, depending on response to treatment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I don’t think we need any referrals to specialists or further tests at the moment. Let's see how you respond to the treatment first.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No referrals or further tests needed at the moment, depending on response to treatment."
+      "matched_claim_text": "No referrals or further tests needed at the moment, depending on response to treatment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

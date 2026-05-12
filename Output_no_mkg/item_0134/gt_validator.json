@@ -239,8 +239,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The overall note receives a C grade due to multiple noticeable omissions across the Subjective, Objective, and Plan sections. Key missing information includes the Chief Complaint, the patient's history of hypertension and hyperlipidemia and current medications within the HPI, the entire Review of Systems section, and the Recent Investigations section with echocardiogram findings. Additionally, important advice regarding strenuous activities was omitted from the Plan. While the Assessment section is complete, these gaps make the note meaningfully incomplete and require careful review.",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions, primarily in the Subjective section, where the Chief Complaint, the patient's history of hypertension and hyperlipidemia, current medications, and the entire Review of Systems are absent. The Objective section also misses important details regarding general physical exam findings and recent investigations. While the Assessment and Plan sections are mostly accurate, the extensive gaps in the foundational Subjective and Objective data materially reduce the overall clinical usefulness and completeness of the note.",
     "omissions": [
       "Chief Complaint section and its content: 'Follow-up for cardiovascular health management'",
       "Patient is a 'retired accountant'",
@@ -268,8 +268,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section receives a C grade due to significant omissions. It fails to include the Chief Complaint section, the patient's history of hypertension and hyperlipidemia, and current medications within the HPI. The entire Review of Systems section is also missing, along with minor details like the patient being a 'retired accountant' and enjoying 'gardening and reading'. These omissions result in a meaningfully incomplete subjective account.",
+        "grade": "D",
+        "summary": "This section has numerous major omissions, including the Chief Complaint, the full HPI introductory context, the patient's history of hypertension and hyperlipidemia, their current medications, and the entire Review of Systems section with its content. These significant gaps make the Subjective section severely incomplete.",
         "omissions": [
           "Chief Complaint section and its content: 'Follow-up for cardiovascular health management'",
           "Patient is a 'retired accountant'",
@@ -288,7 +288,7 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section receives a C grade due to the omission of the entire 'Recent Investigations' section, including the status of the lipid panel and the findings from the previous echocardiogram (mild left ventricular hypertrophy, normal systolic and diastolic function). Minor general physical exam findings were also omitted. These represent noticeable gaps in the objective clinical picture.",
+        "summary": "While vital signs and core physical exam findings are present, this section omits the general physical exam findings ('Alert, oriented, appears healthy, no signs of distress') and, more importantly, the entire 'Recent Investigations' section, including the pending lipid panel and the previous echocardiogram results. These are moderate omissions that reduce the completeness of the objective data.",
         "omissions": [
           "Physical Exam: General findings: 'Alert, oriented, appears healthy, no signs of distress'",
           "Recent Investigations section",
@@ -300,7 +300,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A grade as it accurately captures all Ground Truth content. The additions of qualifiers '(history and physical exam)' and '(blood pressure reading)' are supported by the transcript and do not reduce the grade.",
+        "summary": "The Assessment section is accurate and complete, with no omissions. The additions present are supported by the transcript and therefore do not incur any penalties.",
         "omissions": [],
         "additions": [
           "Qualifier '(history and physical exam)' for atherosclerotic heart disease",
@@ -310,7 +310,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section receives a B grade. The primary omission is the important advice against new strenuous activities without medical clearance, which is a moderate issue. The specific name of the dietitian, 'Ms. Sarah Thompson', was also omitted, which is a minor detail. The rest of the plan is well-captured.",
+        "summary": "The Plan section is largely complete, but it omits a key piece of advice regarding 'new strenuous activities without medical clearance,' which is a moderate clinical omission. The specific name of the dietitian is a minor omission. The rest of the plan is well-captured.",
         "omissions": [
           "Advice against new strenuous activities without medical clearance",
           "Specific dietitian name: 'Ms. Sarah Thompson'"
@@ -327,14 +327,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Now, based on your assessment today, you have atherosclerotic heart disease of native coronary artery without angina pectoris",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Atherosclerotic heart disease of native coronary artery without angina pectoris (history and physical exam)"
+      "matched_claim_text": "Atherosclerotic heart disease of native coronary artery without angina pectoris (history and physical exam)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier '(blood pressure reading)' for well-controlled hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "well-controlled hypertension",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Well-controlled hypertension (blood pressure reading)"
+      "matched_claim_text": "Well-controlled hypertension (blood pressure reading)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

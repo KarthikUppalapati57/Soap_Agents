@@ -249,64 +249,82 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate overview but suffers from several moderate and numerous minor omissions across the Subjective, Assessment, and Plan sections. Key missing details include the impact of symptoms on the patient's life, her motivation and barriers to exercise, the definitive nature of the PCOS diagnosis, specific follow-up blood work, and important patient care considerations regarding access to specialty care. While no unsupported or unknown additions were found, these omissions collectively reduce the completeness and clinical usefulness of the note, making it meaningfully incomplete.",
-    "omissions": [],
-    "additions": [],
+    "overall_summary": "The note provides a generally accurate overview of the patient's condition and treatment plan. However, it has noticeable gaps, particularly in the Subjective section, where important details about the impact of symptoms and patient's specific motivations are omitted. The Plan section also lacks crucial specifics regarding follow-up diagnostic blood work and strategies to address patient-specific barriers to care. All identified additions were supported by the transcript.",
+    "omissions": [
+      "Impact of symptoms on work schedule and social activities",
+      "Patient's motivation for dietary changes and reluctance for exercise due to pain and fatigue",
+      "Specific mention of 'weight gain' in constitutional ROS",
+      "Denials for gastrointestinal symptoms (abdominal pain, changes in bowel habits)",
+      "Denials for respiratory symptoms (shortness of breath, cough)",
+      "Denials for cardiovascular symptoms (chest pain, palpitations)",
+      "Normal heart sounds and no murmurs",
+      "Clear lung sounds bilaterally",
+      "Phentermine re-evaluation at follow-up",
+      "Specific name of endocrinologist (Dr. Sarah Thompson)",
+      "Blood work (immunology panel including cortisol, insulin levels, and thyroid function tests)",
+      "Discussion of importance of lifestyle changes in managing obesity and comorbidities",
+      "Explanation of need for periodic monitoring and follow-up",
+      "Answering questions regarding medication use and potential side effects",
+      "Addressing potential barriers to accessing specialty care due to rural location",
+      "Patient understanding and agreement with the treatment plan"
+    ],
+    "additions": [
+      "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS)",
+      "\"for weight management\" for Phentermine",
+      "\"in a rural area\" for resources and support systems"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has several moderate omissions, including details about the progressive worsening of symptoms, their impact on the patient's work and social life, and her motivation for diet versus reluctance for exercise due to pain and fatigue. Additionally, multiple minor omissions of negative Review of Systems findings were noted. These omissions reduce the richness and clinical context of the patient's history.",
+        "grade": "C",
+        "summary": "The section omits important details regarding the impact of the patient's symptoms on her work and social life, as well as her specific motivation for dietary changes and reluctance towards exercise due to pain and fatigue. Several denials from the Review of Systems are also missing.",
         "omissions": [
-          "Symptoms have progressively worsened.",
-          "Symptoms significantly impacted her ability to maintain a regular work schedule and partake in social activities.",
-          "Patient is highly motivated to pursue dietary changes but reluctant to continue previous exercise routines due to pain and fatigue.",
-          "Weight gain (from Constitutional ROS).",
-          "Denial of abdominal pain or changes in bowel habits (Gastrointestinal ROS).",
-          "Denial of shortness of breath or cough (Respiratory ROS).",
-          "Denial of chest pain or palpitations (Cardiovascular ROS)."
+          "Impact of symptoms on work schedule and social activities",
+          "Patient's motivation for dietary changes and reluctance for exercise due to pain and fatigue",
+          "Specific mention of 'weight gain' in constitutional ROS",
+          "Denials for gastrointestinal symptoms (abdominal pain, changes in bowel habits)",
+          "Denials for respiratory symptoms (shortness of breath, cough)",
+          "Denials for cardiovascular symptoms (chest pain, palpitations)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is strong, with only two minor omissions of normal physical exam findings (normal heart sounds and clear lung sounds). These omissions do not significantly impact the clinical utility of the section.",
+        "summary": "The section is largely complete, with only minor omissions of normal findings such as normal heart and lung sounds.",
         "omissions": [
-          "Normal heart sounds, no murmurs (Cardiovascular exam finding).",
-          "Clear lung sounds bilaterally (Respiratory exam finding)."
+          "Normal heart sounds and no murmurs",
+          "Clear lung sounds bilaterally"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section has a moderate omission regarding the certainty of the Polycystic Ovary Syndrome (PCOS) diagnosis, as the Ground Truth listed it definitively while the Generated note stated it as 'suspected'. There was also a minor omission of the 'Morbid' qualifier for obesity. The addition of 'suspected' for PCOS was supported by the transcript and thus did not lower the grade.",
-        "omissions": [
-          "\"Morbid\" qualifier for obesity.",
-          "Polycystic Ovary Syndrome (PCOS) as a definitive diagnosis (Generated states \"suspected\")."
-        ],
+        "grade": "A",
+        "summary": "This section is complete and accurate, with all additions being supported by the transcript.",
+        "omissions": [],
         "additions": [
-          "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS)."
+          "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS)"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains numerous omissions, including moderate issues such as the specific details for follow-up blood work (immunology panel, cortisol, insulin, thyroid tests) and the consideration to address barriers to accessing specialty care due to the patient's rural location. Several minor omissions were also present, including Phentermine re-evaluation instructions, the specific endocrinologist's name, all patient education points, and the patient agreement statement. These omissions collectively make the plan less comprehensive and clinically useful.",
+        "summary": "The section omits critical details such as specific follow-up blood work (immunology panel including cortisol, insulin levels, and thyroid function tests) and the strategy to address potential barriers to accessing specialty care due to the patient's rural location. Several aspects of patient education and the specific name of the endocrinologist are also missing.",
         "omissions": [
-          "Phentermine instruction: \"Re-evaluation at follow-up.\"",
-          "Specific endocrinologist name: \"Dr. Sarah Thompson.\"",
-          "Follow-up blood work: \"Conduct an immunology panel including cortisol, insulin levels, and thyroid function tests.\"",
-          "Patient education and counseling point: \"Discussed the importance of lifestyle changes, including diet and exercise, in managing obesity and associated comorbidities.\"",
-          "Patient education and counseling point: \"Explained the need for periodic monitoring and follow-up to closely track progress.\"",
-          "Patient education and counseling point: \"Answered questions regarding medication use and potential side effects.\"",
-          "Additional consideration: \"Address any potential barriers to accessing specialty care due to patient's rural location.\"",
-          "Patient agreement statement: \"Patient understands and agrees with the outlined treatment plan and follow-up strategy.\""
+          "Phentermine re-evaluation at follow-up",
+          "Specific name of endocrinologist (Dr. Sarah Thompson)",
+          "Blood work (immunology panel including cortisol, insulin levels, and thyroid function tests)",
+          "Discussion of importance of lifestyle changes in managing obesity and comorbidities",
+          "Explanation of need for periodic monitoring and follow-up",
+          "Answering questions regarding medication use and potential side effects",
+          "Addressing potential barriers to accessing specialty care due to rural location",
+          "Patient understanding and agreement with the treatment plan"
         ],
         "additions": [
-          "Phentermine detail: \"for weight management.\""
+          "\"for weight management\" for Phentermine",
+          "\"in a rural area\" for resources and support systems"
         ]
       }
     ],
@@ -315,18 +333,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS).",
+      "addition_text": "\"suspected\" qualifier for Polycystic Ovary Syndrome (PCOS)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and physical examination, I suspect you might have severe obesity due to excess calories, polycystic ovary syndrome (PCOS), and hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "suspected polycystic ovary syndrome (PCOS)"
+      "matched_claim_text": "suspected polycystic ovary syndrome (PCOS)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Phentermine detail: \"for weight management.\"",
+      "addition_text": "\"for weight management\" for Phentermine",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll also start you on Phentermine, 15 mg orally once daily, with a 3-month supply.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Phentermine, 15 mg orally once daily for weight management, with a 3-month supply."
+      "matched_claim_text": "Prescribe Phentermine, 15 mg orally once daily for weight management, with a 3-month supply.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"in a rural area\" for resources and support systems",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We’ll explore local resources and support systems that might help you maintain these lifestyle modifications.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Provide resources and support systems to help the patient maintain lifestyle modifications in a rural area.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

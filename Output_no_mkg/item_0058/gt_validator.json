@@ -258,9 +258,9 @@
     "plan_alignment_score": 0.5747126436781609
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned, but it has noticeable gaps in the Subjective and Plan sections. Key omissions include detailed descriptions of the patient's constipation symptoms (severity, frequency, incomplete evacuation) and their impact on daily life. In the Plan, specific lifestyle recommendations, the rationale for dietitian referral, and the patient's response to the treatment plan (including resistance to lifestyle changes) were omitted. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note contains numerous omissions, particularly in the Subjective and Plan sections. Key details regarding the severity, frequency, and impact of the patient's constipation are missing from the HPI. In the Plan, specific lifestyle recommendations, the reason for the dietitian referral, and the patient's crucial response to the proposed treatment (resistance to lifestyle changes) are omitted. While there are no unsupported or unknown additions, the volume and clinical materiality of these omissions make the note meaningfully incomplete and would require careful review for clinical utility.",
     "omissions": [
       "patient is a 68-year-old retired teacher",
       "patient presents for a routine check-up",
@@ -294,8 +294,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is mostly clinically aligned but has several moderate omissions. It misses key details about the constipation's severity, frequency, the feeling of incomplete evacuation, and its significant impact on daily activities. Minor omissions include the patient's age, occupation, and the routine check-up context. No unsupported or unknown additions were present.",
+        "grade": "C",
+        "summary": "The section omits several clinically important details from the HPI, including the severity and frequency of constipation, the feeling of incomplete evacuation, and the significant impact on daily activities. While some information is present, these omissions make the history meaningfully incomplete.",
         "omissions": [
           "patient is a 68-year-old retired teacher",
           "patient presents for a routine check-up",
@@ -311,8 +311,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is strong, capturing all major clinically important Ground Truth content. The omissions are minor, such as general appearance details ('well-nourished, appears her stated age') and specific negative findings ('no palpable masses', 'Normal S1, S2', 'clear to auscultation bilaterally'). No unsupported or unknown additions were present.",
+        "grade": "B",
+        "summary": "This section omits several specific physical exam findings, such as the patient appearing her stated age, the absence of palpable abdominal masses, normal heart sounds (S1, S2), and clear lung sounds without adventitious noises. These are minor but collectively reduce the completeness of the physical exam documentation.",
         "omissions": [
           "well-nourished, appears her stated age (General Physical Exam)",
           "no palpable masses (Abdominal Exam)",
@@ -326,7 +326,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent. It accurately captures the primary diagnosis. The only omission, 'unspecified' from the ICD-10 code, is minor. The additions 'chronic constipation' and 'with possible underlying metabolic causes' were both supported by the transcript and enhance the clinical context without reducing the grade.",
+        "summary": "The section has only one minor omission regarding the specificity of the constipation diagnosis ('unspecified'). The additions are supported by the transcript and do not negatively impact the grade.",
         "omissions": [
           "unspecified (Assessment detail)"
         ],
@@ -338,7 +338,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions that make it meaningfully incomplete. Specific details for lifestyle changes (e.g., 'diet rich in fruits, vegetables, and whole grains', 'aim for at least 30 minutes of physical activity daily'), the specific dietitian's name, the rationale for referral ('due to persistent symptoms and poor dietary habits'), and the importance of compliance with the treatment plan were all omitted. Most notably, the entire 'Patient's Response' section, detailing Mrs. Park's resistance to lifestyle changes but openness to treatment, was missing, which is a significant gap for continuity of care. No unsupported or unknown additions were present.",
+        "summary": "This section has numerous omissions, including specific details of the recommended diet and physical activity, the full name of the dietitian, the crucial reason for the dietitian referral (persistent symptoms and poor dietary habits), and the patient's response to the treatment plan, particularly her resistance to lifestyle changes. The omission of the patient's response is a significant gap in the plan for future care.",
         "omissions": [
           "psyllium husk taken orally",
           "diet rich in fruits, vegetables, and whole grains (Lifestyle Changes)",
@@ -362,56 +362,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I do get occasional headaches, and my knee pain from osteoarthritis has been acting up, but that's been ongoing for a while.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient experiences worsening knee pain from osteoarthritis."
+      "matched_claim_text": "Patient experiences worsening knee pain from osteoarthritis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "vital signs within normal limits (Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your blood pressure is 132/78 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F, with an oxygen saturation of 98% on room air. Everything looks within normal limits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal limits."
+      "matched_claim_text": "Vital signs are within normal limits.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "chronic constipation (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see you're here for a routine check-up, but you mentioned having some issues with constipation. Can you tell me more about that?\n\n[patient] Yes, I've been having constipation for the past 4 months.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports chronic constipation."
+      "matched_claim_text": "Patient reports chronic constipation.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "turnpenny-fry syndrome — disease_phenotype_positive — Chronic constipation"
     },
     {
       "addition_text": "with possible underlying metabolic causes (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’m also ordering a comprehensive metabolic panel and serum calcium levels to rule out any potential metabolic causes for your constipation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible underlying metabolic causes for constipation."
+      "matched_claim_text": "Possible underlying metabolic causes for constipation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "worsening knee pain from osteoarthritis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I do get occasional headaches, and my knee pain from osteoarthritis has been acting up, but that's been ongoing for a while.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient experiences worsening knee pain from osteoarthritis."
+      "matched_claim_text": "Patient experiences worsening knee pain from osteoarthritis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "vital signs within normal limits",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your blood pressure is 132/78 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F, with an oxygen saturation of 98% on room air. Everything looks within normal limits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal limits."
+      "matched_claim_text": "Vital signs are within normal limits.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "chronic constipation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see you're here for a routine check-up, but you mentioned having some issues with constipation. Can you tell me more about that?\n\n[patient] Yes, I've been having constipation for the past 4 months.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports chronic constipation."
+      "matched_claim_text": "Patient reports chronic constipation.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "turnpenny-fry syndrome — disease_phenotype_positive — Chronic constipation"
     },
     {
       "addition_text": "with possible underlying metabolic causes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’m also ordering a comprehensive metabolic panel and serum calcium levels to rule out any potential metabolic causes for your constipation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible underlying metabolic causes for constipation."
+      "matched_claim_text": "Possible underlying metabolic causes for constipation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -264,8 +264,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The generated note exhibits severe deficiencies, primarily due to the complete omission of critical sections such as History of Present Illness, Review of Systems, and Social History from the Subjective section. Furthermore, the Plan section critically lacks specific dosage, frequency, duration, and quantity details for all prescribed medications, rendering it unusable and potentially unsafe for clinical action. These major omissions of foundational patient information and actionable treatment details significantly compromise the note's clinical usefulness and reliability.",
+    "overall_grade": "D",
+    "overall_summary": "The generated SOAP note receives a grade of D due to significant omissions and a minor unsupported addition. The Subjective section is notably incomplete, lacking the full History of Present Illness, Review of Systems, and Social History sections. The Plan section critically omits specific dosage, frequency, duration, and quantity details for both prescribed medications, which are essential for safe and effective treatment. These major gaps in clinical detail and completeness materially reduce the note's overall usefulness. Additionally, the Assessment section omits the exacerbation of GERD. A minor unsupported addition of a \"Symptoms\" sub-heading is present in the Subjective section.",
     "omissions": [
       "History of Present Illness (HPI) section",
       "Review of Systems (ROS) section",
@@ -300,8 +300,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section has major omissions, including the complete absence of the History of Present Illness, Review of Systems, and Social History sections. Key details like the severity of symptoms, their impact on daily life, ongoing GERD management, and sedentary lifestyle are also missing. There is one minor unsupported addition of a 'Symptoms' sub-heading, but the primary issue is the extensive missing content.",
+        "grade": "C",
+        "summary": "This section omits the entire History of Present Illness, Review of Systems, and Social History sections, which are major structural and content gaps. While some key facts are present, the comprehensive narrative and detailed context are missing, making the section meaningfully incomplete. There is one minor unsupported addition of a \"Symptoms\" sub-heading.",
         "omissions": [
           "History of Present Illness (HPI) section",
           "Review of Systems (ROS) section",
@@ -319,7 +319,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured. All vital signs and major physical examination findings are present. The only omissions are minor negative findings such as 'in no acute distress,' 'no hepatosplenomegaly,' and 'no exudates,' which do not materially impact clinical usefulness. There are no unsupported or unknown additions.",
+        "summary": "The Objective section is well-aligned with the GroundTruth, capturing all vital signs and major physical exam findings. The few omissions are minor descriptive details that do not impact the clinical usefulness of the section.",
         "omissions": [
           "General appearance: in no acute distress",
           "Abdomen: no hepatosplenomegaly",
@@ -330,7 +330,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned. The primary diagnosis of acute bronchitis and the contributing smoking history are present. The main omission is 'Exacerbation of GERD due to coughing,' which is a moderate issue as it represents a relevant co-morbidity. There are no unsupported or unknown additions.",
+        "summary": "This section accurately identifies acute bronchitis and the contribution of smoking history. However, it omits the assessment of \"Exacerbation of GERD due to coughing,\" which is a moderate clinical issue.",
         "omissions": [
           "Exacerbation of GERD due to coughing"
         ],
@@ -340,8 +340,8 @@
       },
       {
         "section": "Plan",
-        "grade": "F",
-        "summary": "The Plan section contains severe omissions that render it unsafe and unreliable. Crucially, all specific dosage, frequency, duration, and quantity details for both the antibiotic and albuterol inhaler are missing. This makes the medication plan non-actionable. Other moderate omissions include the specific condition for follow-up ('if no improvement or if symptoms worsen') and minor omissions like 'smoking cessation advice' and the purpose of the Chest X-ray. There are no unsupported or unknown additions.",
+        "grade": "D",
+        "summary": "The Plan section suffers from major omissions of critical medication details, including specific dosage, frequency, duration, and quantity for both the antibiotic and the albuterol inhaler. This lack of actionable prescribing information significantly reduces the clinical usefulness and safety of the plan. Additionally, the condition for follow-up (if no improvement or worsening symptoms) is a moderate omission.",
         "omissions": [
           "Amoxicillin specific dosage, frequency, duration, and quantity (500 mg oral, twice daily for 7 days, 14 capsules)",
           "Albuterol Inhaler specific dosage, puffs, frequency, and quantity (90 mcg/actuation, 2 puffs every 4-6 hours, 1 inhaler)",
@@ -366,77 +366,99 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for 5 days\" in Chief Complaint (detail from HPI in GroundTruth)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I've had this cough for about 5 days now, and it's really bad. I'm coughing up yellowish stuff and sometimes I wheeze. [Doctor]: The medical assistant mentioned that you're experiencing a productive cough with yellowish sputum.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chief Complaint (CC): Productive cough with yellowish sputum for 5 days"
+      "matched_claim_text": "Chief Complaint (CC): Productive cough with yellowish sputum for 5 days",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific details of smoking history (1 pack/day for 15 years) in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yeah, I smoke about a pack a day. I've been doing that for about 15 years. [Doctor]: Your history of smoking is likely contributing to your respiratory symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Active smoking history (1 pack/day for 15 years) contributing to respiratory symptoms"
+      "matched_claim_text": "Active smoking history (1 pack/day for 15 years) contributing to respiratory symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Prescribe antibiotic\" phrasing in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'll prescribe an antibiotic since you've had these symptoms for a few days and to cover any potential bacterial infection.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Prescribe albuterol inhaler\" phrasing in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'll also prescribe an albuterol inhaler to help with the wheezing. You can use 2 puffs every 4-6 hours as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe albuterol inhaler as needed for wheezing"
+      "matched_claim_text": "Prescribe albuterol inhaler as needed for wheezing",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Prescribe educational materials\" phrasing in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'll give you some educational materials on smoking cessation and the risks of continued smoking.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe educational materials on smoking cessation and risks of continued smoking"
+      "matched_claim_text": "Prescribe educational materials on smoking cessation and risks of continued smoking",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Symptoms\" sub-heading",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific details of smoking history (1 pack/day for 15 years)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yeah, I smoke about a pack a day. I've been doing that for about 15 years. [Doctor]: Your history of smoking is likely contributing to your respiratory symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Active smoking history (1 pack/day for 15 years) contributing to respiratory symptoms"
+      "matched_claim_text": "Active smoking history (1 pack/day for 15 years) contributing to respiratory symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Prescribe antibiotic\" phrasing",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'll prescribe an antibiotic since you've had these symptoms for a few days and to cover any potential bacterial infection. We'll use an alternative to penicillin since you have an allergy.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe antibiotic (alternative to penicillin due to allergy)"
+      "matched_claim_text": "Prescribe antibiotic (alternative to penicillin due to allergy)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Prescribe albuterol inhaler\" phrasing",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'll also prescribe an albuterol inhaler to help with the wheezing. You can use 2 puffs every 4-6 hours as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe albuterol inhaler as needed for wheezing"
+      "matched_claim_text": "Prescribe albuterol inhaler as needed for wheezing",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Prescribe educational materials\" phrasing",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'll give you some educational materials on smoking cessation and the risks of continued smoking.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe educational materials on smoking cessation and risks of continued smoking"
+      "matched_claim_text": "Prescribe educational materials on smoking cessation and risks of continued smoking",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

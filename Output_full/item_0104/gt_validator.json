@@ -191,9 +191,9 @@
     "plan_alignment_score": 0.5290322580645161
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary of the patient's presentation and treatment plan. However, it receives a C grade due to multiple moderate omissions, particularly in the Subjective and Plan sections. The Subjective section omits crucial details regarding the severity of the patient's depressive symptoms and their impact on daily functioning, including appetite, work performance, social interactions, and personal hygiene. The Plan section omits important patient education points regarding medication adherence and potential side effects, which are critical for patient safety and treatment efficacy. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note provides a clinically usable summary of the patient's visit, capturing the chief complaint, core depressive symptoms, diagnosis, and main treatment strategies. However, it has multiple moderate omissions across the Subjective and Plan sections. Key details regarding the extent of the patient's impairment, a complete review of systems, specific medication details (quantity), and crucial patient education on medication adherence and potential side effects are missing. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Substantial reduction in appetite",
       "Considerable impairment in daily activities",
@@ -221,8 +221,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section captures the core depressive symptoms but omits several important details regarding the severity and functional impairment, such as the substantial reduction in appetite, considerable impairment in daily activities, inability to perform at work, avoidance of social interactions, and neglect of personal hygiene. Additionally, the negative review of systems findings were omitted. These omissions make the clinical picture less complete.",
+        "grade": "B",
+        "summary": "The Subjective section captures the core depressive symptoms and duration. However, it omits important details regarding the substantial reduction in appetite, the considerable impairment in daily activities (inability to perform at work, avoidance of social interactions, neglect of personal hygiene), and the full negative review of systems findings (no unexplained weight loss/fever, no headaches/neurological symptoms, no GI symptoms). These omissions make the HPI and ROS less comprehensive.",
         "omissions": [
           "Substantial reduction in appetite",
           "Considerable impairment in daily activities",
@@ -238,7 +238,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately reflects that no objective findings were noted. The omission of the specific reason ('No physical examinations or vital signs performed') is minor and does not significantly detract from the clinical usefulness of the section.",
+        "summary": "The Objective section accurately reflects the absence of physical examinations or vital signs, which is consistent with an initial psychiatric consultation. The minor difference in phrasing ('No mention of objective findings during conversation' vs. 'No physical examinations or vital signs performed') does not impact clinical utility. The addition was supported by the transcript.",
         "omissions": [
           "No physical examinations or vital signs performed"
         ],
@@ -249,7 +249,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section correctly identifies the primary diagnosis of Major Depressive Disorder. The omission of the specific diagnostic detail 'Single Episode, Unspecified' is minor and does not impact the overall clinical accuracy or usefulness of the diagnosis provided.",
+        "summary": "The Assessment section correctly identifies the primary diagnosis of Major Depressive Disorder. The omission of the specific diagnosis detail 'Single Episode, Unspecified' is minor and does not detract from the clinical usefulness of the diagnosis. The addition was supported by the transcript.",
         "omissions": [
           "Diagnosis detail: Single Episode, Unspecified"
         ],
@@ -260,7 +260,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section outlines the key treatment strategies, including medication, therapy referral, and general lifestyle recommendations. However, it omits critical patient education regarding the importance of medication adherence and potential side effects of Sertraline, which are essential for patient safety and understanding. Minor omissions include the medication quantity, oral route, specific support recommendation, and patient's agreement to the plan.",
+        "summary": "The Plan section outlines the main treatment components (medication, therapy, follow-up, lifestyle recommendations, support). However, it has several moderate to significant omissions, including the medication quantity (90 tablets), the oral route, crucial patient education points about the importance of medication adherence and potential side effects of Sertraline, a specific support recommendation to reach out to family/trusted individuals, and documentation of the patient's agreement to the treatment plan. These omissions reduce the completeness and safety aspects of the plan. The addition was supported by the transcript.",
         "omissions": [
           "Medication detail: oral route",
           "Medication quantity: 90 tablets",
@@ -283,42 +283,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No mention of objective findings during conversation"
+      "matched_claim_text": "No mention of objective findings during conversation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'likely requiring pharmacotherapy and psychotherapy'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: based on what you've told me, it sounds like you're experiencing severe depressive symptoms. I'd like to start you on a medication called Sertraline. ... I'd like to refer you to a Cognitive Behavioral Therapist named Dr. Susan Miller.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major depressive disorder, likely requiring pharmacotherapy and psychotherapy"
+      "matched_claim_text": "Major depressive disorder, likely requiring pharmacotherapy and psychotherapy",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'with reassessment' for Sertraline",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'd like to start you on a medication called Sertraline. ... I'll start you on a dose of 50 mg once daily. ... We'll start with a 3-month course and reassess after that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Sertraline 50mg daily for a 3-month trial period with reassessment"
+      "matched_claim_text": "Initiate Sertraline 50mg daily for a 3-month trial period with reassessment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'during conversation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No mention of objective findings during conversation"
+      "matched_claim_text": "No mention of objective findings during conversation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'likely requiring pharmacotherapy and psychotherapy'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: based on what you've told me, it sounds like you're experiencing severe depressive symptoms. I'd like to start you on a medication called Sertraline. ... I'd like to refer you to a Cognitive Behavioral Therapist named Dr. Susan Miller.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major depressive disorder, likely requiring pharmacotherapy and psychotherapy"
+      "matched_claim_text": "Major depressive disorder, likely requiring pharmacotherapy and psychotherapy",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'with reassessment' for Sertraline",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'd like to start you on a medication called Sertraline. ... I'll start you on a dose of 50 mg once daily. ... We'll start with a 3-month course and reassess after that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Sertraline 50mg daily for a 3-month trial period with reassessment"
+      "matched_claim_text": "Initiate Sertraline 50mg daily for a 3-month trial period with reassessment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

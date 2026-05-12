@@ -203,7 +203,118 @@
     "assessment_alignment_score": 0.3,
     "plan_alignment_score": 0.5241379310344828
   },
-  "expert_judge": null,
-  "expert_judge_error": "Judge returned non-JSON output: Expecting property name enclosed in double quotes: line 11 column 5 (char 1077)",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is missing several key sections present in the GroundTruthSOAP, including Review of Systems, Current Medications, Past Medical History, Family History, and Additional Notes. The Subjective section omits critical past medical history (Degenerative Disc Disease) and specific details about the impact of pain and previous medication issues. The Plan section also has moderate omissions regarding patient education on Gabapentin's benefits, risks, and side effect monitoring, as well as the rationale for MRI and lifestyle recommendations. All additions were supported by the transcript. While the note captures the core clinical picture, these omissions make it meaningfully incomplete and require careful review.",
+    "omissions": [
+      "Review of Systems (ROS) section",
+      "Current Medications section",
+      "Past Medical History section",
+      "Family History section",
+      "Additional Notes section",
+      "Specific daily activities impacted by pain: climbing stairs and carrying groceries",
+      "Family history of mother having rheumatoid arthritis",
+      "Gabapentin quantity: 30 capsules",
+      "Purpose of MRI: to evaluate possible underlying pathological causes",
+      "Purpose of lifestyle recommendations: to improve physical activity levels without exacerbating pain",
+      "Note about patient being highly cooperative with medical advice and willing to try new treatments",
+      "Discussion of potential benefits and risks associated with the use of Gabapentin",
+      "Instruction to monitor for any side effects of Gabapentin",
+      "Gabapentin dosage detail: 1 capsule orally"
+    ],
+    "additions": [
+      "Assessment includes 'possibly related to degenerative disc disease'",
+      "Assessment includes 'with neurological involvement suggested'"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "C",
+        "summary": "The Subjective section omits the patient's Past Medical History of Degenerative Disc Disease, Family History of rheumatoid arthritis, and specific daily activities impacted by pain (climbing stairs, carrying groceries). It also misses details from the ROS and Current Medications sections regarding previous NSAID use and associated gastrointestinal discomfort, and musculoskeletal findings. These omissions represent noticeable gaps in the patient's history.",
+        "omissions": [
+          "Specific daily activities impacted by pain: climbing stairs and carrying groceries",
+          "Previous gastrointestinal discomfort from NSAIDs (from ROS)",
+          "Pain and tenderness in the lumbar spine, limited range of motion (from ROS)",
+          "Previous NSAID use discontinued due to gastrointestinal discomfort (from Current Medications)",
+          "Past Medical History: Degenerative Disc Disease",
+          "Family History: Mother had rheumatoid arthritis"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is complete and accurately reflects the GroundTruthSOAP, with no omissions or unsupported/unknown additions.",
+        "omissions": [],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is complete and accurate. All additions, such as 'possibly related to degenerative disc disease' and 'with neurological involvement suggested,' are fully supported by the transcript and do not negatively impact the grade.",
+        "omissions": [],
+        "additions": [
+          "possibly related to degenerative disc disease",
+          "with neurological involvement suggested"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "C",
+        "summary": "The Plan section has several omissions, including specific details about Gabapentin dosage and quantity. More significantly, it omits crucial patient education points such as the discussion of potential benefits and risks of Gabapentin and the instruction to monitor for side effects. It also misses the clinical rationale for the MRI and lifestyle recommendations. These are moderate omissions impacting patient safety and completeness.",
+        "omissions": [
+          "Gabapentin dosage detail: 1 capsule orally",
+          "Gabapentin quantity: 30 capsules",
+          "Purpose of MRI: to evaluate possible underlying pathological causes",
+          "Purpose of lifestyle recommendations: to improve physical activity levels without exacerbating pain",
+          "Note about patient being highly cooperative with medical advice and willing to try new treatments",
+          "Discussion of potential benefits and risks associated with the use of Gabapentin",
+          "Instruction to monitor for any side effects of Gabapentin"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Assessment includes 'possibly related to degenerative disc disease'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor] It suggests some nerve involvement, which could be related to your degenerative disc disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "possibly related to degenerative disc disease",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment includes 'with neurological involvement suggested'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor] It suggests some nerve involvement",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "with neurological involvement suggested.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "possibly related to degenerative disc disease",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor] It suggests some nerve involvement, which could be related to your degenerative disc disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "possibly related to degenerative disc disease",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "with neurological involvement suggested",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor] It suggests some nerve involvement",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "with neurological involvement suggested.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

@@ -241,88 +241,66 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. All additions are well-supported by the transcript, meaning no grade reductions are attributed to additions. However, the note has several omissions, primarily in the Subjective and Objective sections, which reduce its completeness. The detailed Review of Systems and the explicit documentation of 'Vitals Reviewed' (even if not recorded) are missing. The Assessment section also omits the patient's seasonal allergies and the explicit mention of SARS-CoV-2 RT-PCR testing. Despite these moderate omissions, the core clinical information, patient status, and plan are accurately captured, making the note usable.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaint, asymptomatic status, and a comprehensive plan. While there are several omissions regarding detailed Review of Systems, explicit vitals documentation, and the specific mention of SARS-CoV-2 testing in the assessment, these do not significantly detract from the note's overall clinical utility or introduce misleading information. There are no unsupported or unknown additions, which is a strong positive.",
     "omissions": [
-      "initial consultation",
-      "informed about a recent contact with a confirmed COVID-19 case",
-      "concerned due to her history of mild asthma",
-      "Detailed Review of Systems (ROS) denials (Constitutional, Respiratory, Gastrointestinal, Neurological, Musculoskeletal, Allergic/Immunologic)",
-      "Detailed Vitals Reviewed (Temperature, Heart Rate, Respiratory Rate, Blood Pressure, Oxygen Saturation, all noted as \"Not recorded, patient asymptomatic\")",
-      "past medical history significant for seasonal allergies",
       "Patient understands and agrees with the recommended plan. Patient is compliant and cooperative with medical advice."
     ],
-    "additions": [
-      "three days prior (regarding exposure)",
-      "currently well-controlled (regarding asthma, in Subjective)",
-      "under control (regarding asthma, in Assessment)"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly accurate but omits the detailed Review of Systems (ROS) denials for constitutional, respiratory, gastrointestinal, neurological, musculoskeletal, and allergic/immunologic systems. It also omits the patient's concern due to her history of mild asthma and the specific context of being 'informed about a recent contact with a confirmed COVID-19 case.' The section headers for Chief Complaint, HPI, and ROS are also omitted. All additions in this section are supported by the transcript.",
+        "summary": "The section captures the patient's potential COVID-19 exposure and asymptomatic status. However, it omits the detailed Review of Systems (e.g., denials for chills, fatigue, chest tightness, GI symptoms, headaches, muscle aches, new allergies) and the patient's stated concern due to asthma. These omissions reduce the completeness of the subjective documentation.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "History of Present Illness (HPI) section header",
-          "initial consultation",
-          "informed about a recent contact with a confirmed COVID-19 case",
-          "concerned due to her history of mild asthma",
-          "Review of Systems (ROS) section header",
-          "Constitutional: Denies fever, chills, fatigue.",
-          "Respiratory: Denies cough, shortness of breath, chest tightness.",
-          "Gastrointestinal: Denies nausea, vomiting, diarrhea.",
-          "Neurological: Denies headache, loss of taste or smell.",
-          "Musculoskeletal: Denies muscle aches or pains.",
-          "Allergic/Immunologic: Denies any new allergies or immune-related symptoms."
+          "Patient reports being informed about a recent contact with a confirmed COVID-19 case.",
+          "Denial of specific symptoms: fever, cough, shortness of breath, or loss of taste/smell (as a list).",
+          "Patient concern due to her history of mild asthma.",
+          "Review of Systems (ROS) details: Constitutional (denies chills, fatigue), Respiratory (denies chest tightness), Gastrointestinal (denies nausea, vomiting, diarrhea), Neurological (denies headache), Musculoskeletal (denies muscle aches or pains), Allergic/Immunologic (denies any new allergies or immune-related symptoms)."
         ],
         "additions": [
-          "three days prior (regarding exposure)",
-          "currently well-controlled (regarding asthma)"
+          "Exposure occurred 'three days prior'.",
+          "Asthma is 'currently well-controlled'."
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately states no physical examination was performed due to asymptomatic status. However, it omits the detailed documentation of 'Vitals Reviewed,' specifically noting that Temperature, Heart Rate, Respiratory Rate, Blood Pressure, and Oxygen Saturation were 'Not recorded, patient asymptomatic.' It also uses the less specific 'COVID-19 test results' instead of 'RT-PCR test for SARS-CoV-2.'",
+        "summary": "The section correctly states that no physical examination was performed and that test results are pending. However, it omits the detailed documentation of vitals reviewed (Temperature, Heart Rate, Respiratory Rate, Blood Pressure, Oxygen Saturation) and their status as 'Not recorded, patient asymptomatic'.",
         "omissions": [
-          "due to the nature of the consultation (reason for no PE)",
-          "Vitals Reviewed section header",
-          "Temperature: Not recorded, patient asymptomatic.",
-          "Heart Rate: Not recorded, patient asymptomatic.",
-          "Respiratory Rate: Not recorded, patient asymptomatic.",
-          "Blood Pressure: Not recorded, patient asymptomatic.",
-          "Oxygen Saturation: Not recorded, patient asymptomatic.",
-          "RT-PCR test for SARS-CoV-2 (Generated has \"COVID-19 test results\", which is less specific)"
+          "Reason for no physical examination: 'due to the nature of the consultation'.",
+          "Vitals Reviewed section, including specific vitals (Temperature, Heart Rate, Respiratory Rate, Blood Pressure, Oxygen Saturation) and their status ('Not recorded, patient asymptomatic').",
+          "Specific test type 'RT-PCR test for SARS-CoV-2' (Generated has 'COVID-19 test results')."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section is largely accurate but omits the patient's 'past medical history significant for seasonal allergies.' It also does not explicitly state that 'Due to the exposure, the patient has been tested for SARS-CoV-2 via RT-PCR,' which was present in the Ground Truth. The addition in this section is supported by the transcript.",
+        "summary": "The section provides a concise assessment of potential COVID-19 exposure and asymptomatic status with controlled asthma. However, it omits the patient's past medical history of seasonal allergies and, more significantly, the explicit statement that the patient has been tested for SARS-CoV-2 via RT-PCR.",
         "omissions": [
-          "past medical history significant for seasonal allergies",
-          "Due to the exposure, the patient has been tested for SARS-CoV-2 via RT-PCR"
+          "Past medical history significant for seasonal allergies.",
+          "Patient has been tested for SARS-CoV-2 via RT-PCR."
         ],
         "additions": [
-          "under control (regarding asthma)"
+          "Asthma is 'under control'."
         ]
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is comprehensive and accurately captures all major elements of the Ground Truth plan. Minor omissions include the specific reason for self-isolation ('to prevent potential spread'), the route of administration for Acetaminophen ('orally'), and the specific indication ('as needed for fever or pain'). The closing statement about patient understanding and compliance is also omitted, as are some section headers. These are minor details that do not impact the clinical utility or safety of the plan.",
+        "summary": "The plan section is comprehensive and accurately captures all major recommendations, including self-isolation, symptom monitoring with specific medication advice, follow-up scheduling, patient education, and preventive measures. The omissions are minor details such as the reason for self-isolation, the route of acetaminophen, and the specific indication for acetaminophen, which do not impact the clinical utility or safety of the plan.",
         "omissions": [
-          "to prevent potential spread (reason for self-isolation)",
-          "orally (for Acetaminophen administration)",
-          "as needed for fever or pain (for Acetaminophen indication)",
-          "Patient Education section header",
-          "Given information on when to seek urgent care (context for urgent care instruction)",
-          "Preventive Measures section header",
-          "Patient understands and agrees with the recommended plan. Patient is compliant and cooperative with medical advice."
+          "Reason for self-isolation: 'to prevent potential spread'.",
+          "Acetaminophen route: 'orally'.",
+          "Acetaminophen indication: 'for fever or pain'.",
+          "'Reinforced the importance' of preventive measures."
         ],
-        "additions": []
+        "additions": [
+          "'proper nutrition'.",
+          "'severe symptoms' (for urgent care).",
+          "'Continue preventive measures'."
+        ]
       }
     ],
     "rubric_notes": null
@@ -330,39 +308,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "three days prior (regarding exposure)",
+      "addition_text": "Exposure occurred 'three days prior'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I was informed that I had been in contact with someone who tested positive for COVID-19 recently. So, I wanted to get checked out. ... [Patient]: It was about three days ago.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports potential exposure to COVID-19 three days prior"
+      "matched_claim_text": "Patient reports potential exposure to COVID-19 three days prior",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Orthocoronavirinae infectious disease — disease_disease — COVID-19"
     },
     {
-      "addition_text": "currently well-controlled (regarding asthma, in Subjective)",
+      "addition_text": "Asthma is 'currently well-controlled'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see from your records that you have a history of mild asthma. Is that correct?\n\n[Patient]: Yes, I have mild asthma. It’s usually well-controlled.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Known history of mild asthma, currently well-controlled"
+      "matched_claim_text": "Known history of mild asthma, currently well-controlled",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "under control (regarding asthma, in Assessment)",
+      "addition_text": "Asthma is 'under control'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I have mild asthma. It’s usually well-controlled.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Known history of mild asthma under control"
+      "matched_claim_text": "Known history of mild asthma under control",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "currently well-controlled (regarding asthma)",
+      "addition_text": "'proper nutrition'.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I see from your records that you have a history of mild asthma. Is that correct?\n\n[Patient]: Yes, I have mild asthma. It’s usually well-controlled.",
+      "transcript_evidence": "[Doctor]: In the meantime, maintain good hydration, proper nutrition, and get plenty of rest.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Known history of mild asthma, currently well-controlled"
+      "matched_claim_text": "Maintain good hydration, proper nutrition, and rest",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "under control (regarding asthma)",
+      "addition_text": "'severe symptoms' (for urgent care).",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I have mild asthma. It’s usually well-controlled.",
+      "transcript_evidence": "[Doctor]: Also, if you experience any severe symptoms like difficulty breathing or persistent chest pain, seek urgent care immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Known history of mild asthma under control"
+      "matched_claim_text": "Seek urgent care if experiencing severe symptoms like difficulty breathing or persistent chest pain",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'Continue preventive measures'.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Lastly, continue practicing preventive measures such as wearing a mask, hand hygiene, and social distancing, especially if you need to be around others.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue preventive measures (wearing a mask, hand hygiene, social distancing)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

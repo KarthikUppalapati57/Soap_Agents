@@ -259,113 +259,120 @@
     "plan_alignment_score": 0.6903553299492386
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "Clinical Documentation Reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has numerous omissions across all sections, significantly impacting its completeness and clinical usefulness. While all additions were supported by the transcript and thus did not lower the grade, the cumulative effect of missing key historical details, physical exam findings, specific assessment diagnoses, and critically, existing medication instructions and essential patient safety education, results in a note that is materially incomplete and could lead to gaps in care.",
+    "overall_summary": "The generated note has numerous omissions across all sections, particularly in the Subjective (detailed HPI and comprehensive ROS) and Objective (specific lab results and physical exam findings). The most critical issue is in the Plan, where instructions to continue existing medications (Lisinopril and Furosemide) are entirely absent, posing a significant safety risk and materially reducing clinical usefulness. Additionally, important patient education regarding hypoglycemia/hyperglycemia symptoms is missing. All additions were supported by the transcript and did not impact the grade.",
     "omissions": [
-      "Patient presenting to the community health clinic for the first time",
-      "Type 2 Diabetes Mellitus for 10 years",
-      "Chronic Kidney Disease Stage 3",
-      "Difficulty reading and performing daily tasks due to blurry vision",
-      "Sedentary lifestyle and rarely exercises",
-      "Dietary habits include frequent consumption of fast food, with low intake of fruits and vegetables",
-      "Previously a smoker for 15 years, quit smoking 2 years ago",
-      "Occasionally consumes alcohol (1-2 drinks per month)",
-      "ROS: Respiratory - No complaints",
-      "ROS: Gastrointestinal - No complaints",
-      "ROS: Genitourinary - No complaints",
-      "ROS: Musculoskeletal - No complaints",
-      "ROS: Endocrine - Reports recent changes in weight and vision",
-      "ROS: Psychiatric - No complaints",
-      "Physical Examination: General Appearance (Elderly, slightly overweight)",
-      "Physical Examination: Cardiovascular (no murmurs)",
-      "Physical Examination: Abdomen (Soft, non-tender, no organomegaly)",
-      "Physical Examination: Extremities (no cyanosis)",
-      "Physical Examination: Neurological (Mild diabetic neuropathy noted in feet) from Objective section",
-      "Results: Fasting Glucose: 200 mg/dL",
-      "Assessment: Type 2 Diabetes Mellitus without complications",
-      "Assessment: Mild diabetic neuropathy",
-      "Plan: Route of administration for Metformin (oral)",
-      "Plan: Route of administration for Insulin Glargine (subcutaneous)",
-      "Plan: Patient Education about recognizing symptoms of hypoglycemia and hyperglycemia",
-      "Plan: Patient Education about answering all patient questions and providing educational resources for better diabetes and kidney disease management",
-      "Plan: Instructions to continue current medications: Lisinopril 20 mg, oral, once daily; Furosemide 40 mg, oral, once daily",
+      "HPI: Patient presenting to the community health clinic for the first time",
+      "HPI: Difficulty reading and performing daily tasks due to blurry vision",
+      "HPI: Type 2 Diabetes Mellitus for 10 years (duration)",
+      "HPI: Chronic kidney disease (CKD) Stage 3 (stage)",
+      "HPI: Sedentary lifestyle and rarely exercises",
+      "HPI: Dietary habits include frequent consumption of fast food, with low intake of fruits and vegetables",
+      "HPI: Previously a smoker for 15 years, she quit smoking 2 years ago",
+      "HPI: Occasionally consumes alcohol (1-2 drinks per month)",
+      "ROS: Respiratory: No complaints",
+      "ROS: Gastrointestinal: No complaints",
+      "ROS: Genitourinary: No complaints",
+      "ROS: Musculoskeletal: No complaints",
+      "ROS: Endocrine: Reports recent changes in weight and vision",
+      "ROS: Psychiatric: No complaints",
+      "ROS: Sleep: Reports 7-8 hours of restful sleep",
+      "Physical Examination: General Appearance: Elderly, slightly overweight",
+      "Physical Examination: Cardiovascular: no murmurs",
+      "Physical Examination: Abdomen: Soft, non-tender, no organomegaly",
+      "Physical Examination: Extremities: no cyanosis",
+      "Physical Examination: Neurological: Mild diabetic neuropathy noted in feet (as an objective finding)",
+      "Results: Fasting Glucose: 200 mg/dL (reviewed during this visit)",
+      "Assessment: Type 2 Diabetes Mellitus without complications (specifically 'without complications')",
+      "Assessment: Chronic Kidney Disease Stage 3 (specifically 'Stage 3')",
+      "Assessment: Mild diabetic neuropathy (as a distinct diagnosis)",
+      "Plan: Medication detail: 'oral' for Metformin",
+      "Plan: Medication detail: 'subcutaneous' for Insulin Glargine",
+      "Plan: Lifestyle Changes: Consult with a nutritionist",
+      "Plan: Referrals: Specific name 'Dr. Jane Smith' for endocrinologist",
+      "Plan: Patient Education: Educated about recognizing symptoms of hypoglycemia and hyperglycemia",
+      "Plan: Patient Education: Answered all patient questions and provided educational resources for better diabetes and kidney disease management",
+      "Plan: Instructions: Continue current medications: Lisinopril 20 mg, oral, once daily; Furosemide 40 mg, oral, once daily",
       "Plan: Patient expressed understanding and demonstrated motivation to make the necessary lifestyle changes"
     ],
     "additions": [
-      "Subjective: 'self-reported history' qualifier for Type 2 Diabetes, chronic kidney disease, and hypertension",
-      "Objective: '(high)' qualifier for Blood pressure: 160/90 mmHg",
-      "Assessment: 'appears to be uncontrolled' for Type 2 Diabetes",
-      "Assessment: 'potentially contributing to blurry vision and weight loss' for Type 2 Diabetes",
-      "Assessment: 'are also concerns' for Chronic kidney disease and hypertension"
+      "Subjective: 'self-reported history' for Type 2 Diabetes, chronic kidney disease, and hypertension",
+      "Objective: '(high)' qualifier for blood pressure",
+      "Assessment: Type 2 Diabetes 'appears to be uncontrolled'",
+      "Assessment: Type 2 Diabetes 'potentially contributing to blurry vision and weight loss'",
+      "Assessment: Chronic kidney disease and hypertension 'are also concerns'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits many important details from the Ground Truth, including the patient's first visit status, duration of Type 2 Diabetes and CKD, specific impact of blurry vision on daily tasks, detailed social history (sedentary lifestyle, diet, smoking history, alcohol use), and several 'no complaints' from the Review of Systems. While the chief complaint and main diagnoses are present, the lack of comprehensive history makes this section noticeably incomplete.",
+        "summary": "The Subjective section omits several important details from the HPI, including the patient's first visit status, duration of Type 2 Diabetes, CKD stage, and comprehensive lifestyle factors (sedentary lifestyle, diet, smoking history, alcohol use). Additionally, most of the Review of Systems (ROS) items, even those with 'no complaints,' are missing, making the section noticeably incomplete. All additions were supported by the transcript.",
         "omissions": [
-          "Patient presenting to the community health clinic for the first time",
-          "Type 2 Diabetes Mellitus for 10 years",
-          "Chronic Kidney Disease Stage 3",
-          "Difficulty reading and performing daily tasks due to blurry vision",
-          "Sedentary lifestyle and rarely exercises",
-          "Dietary habits include frequent consumption of fast food, with low intake of fruits and vegetables",
-          "Previously a smoker for 15 years, quit smoking 2 years ago",
-          "Occasionally consumes alcohol (1-2 drinks per month)",
-          "ROS: Respiratory - No complaints",
-          "ROS: Gastrointestinal - No complaints",
-          "ROS: Genitourinary - No complaints",
-          "ROS: Musculoskeletal - No complaints",
-          "ROS: Endocrine - Reports recent changes in weight and vision",
-          "ROS: Psychiatric - No complaints"
+          "HPI: Patient presenting to the community health clinic for the first time",
+          "HPI: Difficulty reading and performing daily tasks due to blurry vision",
+          "HPI: Type 2 Diabetes Mellitus for 10 years (duration)",
+          "HPI: Chronic kidney disease (CKD) Stage 3 (stage)",
+          "HPI: Sedentary lifestyle and rarely exercises",
+          "HPI: Dietary habits include frequent consumption of fast food, with low intake of fruits and vegetables",
+          "HPI: Previously a smoker for 15 years, she quit smoking 2 years ago",
+          "HPI: Occasionally consumes alcohol (1-2 drinks per month)",
+          "ROS: Respiratory: No complaints",
+          "ROS: Gastrointestinal: No complaints",
+          "ROS: Genitourinary: No complaints",
+          "ROS: Musculoskeletal: No complaints",
+          "ROS: Endocrine: Reports recent changes in weight and vision",
+          "ROS: Psychiatric: No complaints",
+          "ROS: Sleep: Reports 7-8 hours of restful sleep"
         ],
         "additions": [
-          "'self-reported history' qualifier for Type 2 Diabetes, chronic kidney disease, and hypertension"
+          "'self-reported history' for Type 2 Diabetes, chronic kidney disease, and hypertension"
         ]
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits several physical examination findings such as general appearance, cardiovascular murmurs, abdominal findings, and the absence of cyanosis in extremities. Crucially, it also omits the fasting glucose result of 200 mg/dL, which is a key clinical finding for diabetes management. The mild diabetic neuropathy, noted in the Ground Truth's Objective, is also omitted from this section in the generated note.",
+        "grade": "B",
+        "summary": "The Objective section captures vital signs and mild pedal edema but omits several physical examination findings (general appearance, cardiovascular murmurs, abdominal findings, absence of cyanosis). Crucially, the specific fasting glucose result of 200 mg/dL and the objective finding of mild diabetic neuropathy are also omitted. All additions were supported by the transcript.",
         "omissions": [
-          "Physical Examination: General Appearance (Elderly, slightly overweight)",
-          "Physical Examination: Cardiovascular (no murmurs)",
-          "Physical Examination: Abdomen (Soft, non-tender, no organomegaly)",
-          "Physical Examination: Extremities (no cyanosis)",
-          "Physical Examination: Neurological (Mild diabetic neuropathy noted in feet)",
-          "Results: Fasting Glucose: 200 mg/dL"
+          "Physical Examination: General Appearance: Elderly, slightly overweight",
+          "Physical Examination: Cardiovascular: no murmurs",
+          "Physical Examination: Abdomen: Soft, non-tender, no organomegaly",
+          "Physical Examination: Extremities: no cyanosis",
+          "Physical Examination: Neurological: Mild diabetic neuropathy noted in feet",
+          "Results: Fasting Glucose: 200 mg/dL (reviewed during this visit)"
         ],
         "additions": [
-          "'(high)' qualifier for Blood pressure: 160/90 mmHg"
+          "'(high)' qualifier for blood pressure"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section omits specific details for the diagnoses, such as 'without complications' for Type 2 Diabetes Mellitus, the specific 'Stage 3' for Chronic Kidney Disease, and the diagnosis of 'Mild diabetic neuropathy'. While the generated note provides a reasonable summary, these omissions reduce the precision and completeness of the assessment.",
+        "grade": "B",
+        "summary": "The Assessment section correctly identifies the primary diagnoses but omits the specific stage of Chronic Kidney Disease (Stage 3) and 'without complications' for Type 2 Diabetes. It also fails to list 'Mild diabetic neuropathy' as a distinct diagnosis. While these are moderate omissions, the core diagnostic statements are present. All additions were supported by the transcript.",
         "omissions": [
-          "Type 2 Diabetes Mellitus without complications",
-          "Chronic Kidney Disease Stage 3",
-          "Mild diabetic neuropathy"
+          "Type 2 Diabetes Mellitus without complications (specifically 'without complications')",
+          "Chronic Kidney Disease Stage 3 (specifically 'Stage 3')",
+          "Mild diabetic neuropathy (as a distinct diagnosis)"
         ],
         "additions": [
-          "'appears to be uncontrolled' for Type 2 Diabetes",
-          "'potentially contributing to blurry vision and weight loss' for Type 2 Diabetes",
-          "'are also concerns' for Chronic kidney disease and hypertension"
+          "Type 2 Diabetes 'appears to be uncontrolled'",
+          "Type 2 Diabetes 'potentially contributing to blurry vision and weight loss'",
+          "Chronic kidney disease and hypertension 'are also concerns'"
         ]
       },
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section has several significant omissions. It misses the routes of administration for prescribed medications (Metformin 'oral', Insulin Glargine 'subcutaneous'). More critically, it omits essential patient education regarding recognizing symptoms of hypoglycemia and hyperglycemia, which is vital for patient safety in diabetes management. Most importantly, it fails to include instructions to continue current medications (Lisinopril 20 mg, Furosemide 40 mg), which is a major omission that materially reduces the clinical usefulness and safety of the plan.",
+        "summary": "The Plan section has major omissions that significantly impact clinical usefulness and safety. Most critically, instructions to continue current medications (Lisinopril and Furosemide) are entirely missing. Important patient education regarding recognizing symptoms of hypoglycemia and hyperglycemia is also omitted. Other omissions include the specific name of the endocrinologist and the recommendation to consult with a nutritionist. There were no unsupported or unknown additions.",
         "omissions": [
-          "Route of administration for Metformin (oral)",
-          "Route of administration for Insulin Glargine (subcutaneous)",
-          "Patient Education about recognizing symptoms of hypoglycemia and hyperglycemia",
-          "Patient Education about answering all patient questions and providing educational resources for better diabetes and kidney disease management",
-          "Instructions to continue current medications: Lisinopril 20 mg, oral, once daily; Furosemide 40 mg, oral, once daily",
+          "Medication detail: 'oral' for Metformin",
+          "Medication detail: 'subcutaneous' for Insulin Glargine",
+          "Lifestyle Changes: Consult with a nutritionist",
+          "Referrals: Specific name 'Dr. Jane Smith' for endocrinologist",
+          "Patient Education: Educated about recognizing symptoms of hypoglycemia and hyperglycemia",
+          "Patient Education: Answered all patient questions and provided educational resources for better diabetes and kidney disease management",
+          "Instructions: Continue current medications: Lisinopril 20 mg, oral, once daily; Furosemide 40 mg, oral, once daily",
           "Patient expressed understanding and demonstrated motivation to make the necessary lifestyle changes"
         ],
         "additions": []
@@ -376,74 +383,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'self-reported history' qualifier for Type 2 Diabetes, chronic kidney disease, and hypertension",
+      "addition_text": "Subjective: 'self-reported history' for Type 2 Diabetes, chronic kidney disease, and hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yeah, I've had Type 2 Diabetes for about 10 years. I also have chronic kidney disease and high blood pressure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has a self-reported history of Type 2 Diabetes, chronic kidney disease, and hypertension."
+      "matched_claim_text": "The patient has a self-reported history of Type 2 Diabetes, chronic kidney disease, and hypertension.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective: '(high)' qualifier for Blood pressure: 160/90 mmHg",
+      "addition_text": "Objective: '(high)' qualifier for blood pressure",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 160/90 mmHg, which is a bit high.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure: 160/90 mmHg (high)"
+      "matched_claim_text": "Blood pressure: 160/90 mmHg (high)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: 'appears to be uncontrolled' for Type 2 Diabetes",
+      "addition_text": "Assessment: Type 2 Diabetes 'appears to be uncontrolled'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your Type 2 Diabetes seems to be uncontrolled",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Type 2 Diabetes appears to be uncontrolled"
+      "matched_claim_text": "Type 2 Diabetes appears to be uncontrolled",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Troglitazone — indication — type 2 diabetes mellitus"
     },
     {
-      "addition_text": "Assessment: 'potentially contributing to blurry vision and weight loss' for Type 2 Diabetes",
+      "addition_text": "Assessment: Type 2 Diabetes 'potentially contributing to blurry vision and weight loss'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: which could be contributing to your blurry vision and weight loss.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "potentially contributing to blurry vision and weight loss."
+      "matched_claim_text": "potentially contributing to blurry vision and weight loss.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: 'are also concerns' for Chronic kidney disease and hypertension",
+      "addition_text": "Assessment: Chronic kidney disease and hypertension 'are also concerns'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your chronic kidney disease and hypertension are also concerns.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic kidney disease and hypertension are also concerns."
+      "matched_claim_text": "Chronic kidney disease and hypertension are also concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'self-reported history' qualifier for Type 2 Diabetes, chronic kidney disease, and hypertension",
+      "addition_text": "'self-reported history' for Type 2 Diabetes, chronic kidney disease, and hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yeah, I've had Type 2 Diabetes for about 10 years. I also have chronic kidney disease and high blood pressure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has a self-reported history of Type 2 Diabetes, chronic kidney disease, and hypertension."
+      "matched_claim_text": "The patient has a self-reported history of Type 2 Diabetes, chronic kidney disease, and hypertension.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'(high)' qualifier for Blood pressure: 160/90 mmHg",
+      "addition_text": "'(high)' qualifier for blood pressure",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 160/90 mmHg, which is a bit high.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure: 160/90 mmHg (high)"
+      "matched_claim_text": "Blood pressure: 160/90 mmHg (high)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'appears to be uncontrolled' for Type 2 Diabetes",
+      "addition_text": "Type 2 Diabetes 'appears to be uncontrolled'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your Type 2 Diabetes seems to be uncontrolled",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Type 2 Diabetes appears to be uncontrolled"
+      "matched_claim_text": "Type 2 Diabetes appears to be uncontrolled",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Troglitazone — indication — type 2 diabetes mellitus"
     },
     {
-      "addition_text": "'potentially contributing to blurry vision and weight loss' for Type 2 Diabetes",
+      "addition_text": "Type 2 Diabetes 'potentially contributing to blurry vision and weight loss'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: which could be contributing to your blurry vision and weight loss.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "potentially contributing to blurry vision and weight loss."
+      "matched_claim_text": "potentially contributing to blurry vision and weight loss.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'are also concerns' for Chronic kidney disease and hypertension",
+      "addition_text": "Chronic kidney disease and hypertension 'are also concerns'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your chronic kidney disease and hypertension are also concerns.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic kidney disease and hypertension are also concerns."
+      "matched_claim_text": "Chronic kidney disease and hypertension are also concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

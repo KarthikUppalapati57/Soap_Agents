@@ -262,86 +262,70 @@
     "plan_alignment_score": 0.4673913043478261
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note suffers from numerous omissions across all sections. Key details regarding the HPI, a comprehensive Review of Systems, and specific physical examination findings are missing. The Assessment lacks detailed medical reasoning and two important differential diagnoses. Most critically, the Plan omits a specialist referral to an Electrophysiologist and significant patient education details, materially reducing the note's clinical usefulness and completeness.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is broadly usable but contains numerous omissions across all sections, making it meaningfully incomplete. While there are no unsupported or unknown additions, the absence of key details in the HPI, physical examination findings, differential diagnoses, and a critical referral in the plan significantly reduces the note's completeness and clinical utility. The note requires careful review and additional documentation to capture all clinically important information.",
     "omissions": [
-      "Patient's age (52-year-old)",
-      "Patient's race/ethnicity (Caucasian)",
       "HPI: Palpitations described as intermittent episodes occurring several times a day",
-      "HPI: Palpitations often accompanied by occasional shortness of breath",
-      "HPI: Symptoms are moderate in severity",
-      "HPI: Symptoms have been disruptive to daily activities",
-      "HPI: Symptoms causing significant anxiety",
+      "HPI: Palpitations described as moderate in severity",
+      "HPI: Palpitations described as disruptive to daily activities",
       "ROS: Constitutional: Endorses fatigue",
       "ROS: Constitutional: Denies fever, chills, or weight loss",
-      "ROS: Cardiovascular: Endorses palpitations and occasional dizziness",
-      "ROS: Cardiovascular: Denies syncope",
       "ROS: Respiratory: Endorses shortness of breath with palpitations",
       "ROS: Neurological: Denies focal neurologic deficits",
-      "ROS: Psychiatric: Endorses anxiety related to symptoms",
       "ROS: Psychiatric: Denies depression",
-      "Physical Examination: Cardiovascular: Regular rate and rhythm with intermittent irregular beats; no murmurs, rubs, or gallops",
-      "Physical Examination: Respiratory: Lungs clear to auscultation bilaterally",
-      "Physical Examination: General: Alert, oriented, and in no acute distress",
-      "Assessment: Medical Reasoning: The patient’s palpitations and associated symptoms of dizziness and shortness of breath require further evaluation to rule out arrhythmias and other cardiac issues",
-      "Assessment: Differential Diagnosis: Electrolyte imbalance",
-      "Assessment: Differential Diagnosis: Ischemic heart disease",
-      "Plan: Medical Treatment: Metoprolol prescribed as 'oral'",
-      "Plan: Medical Treatment: Metoprolol prescribed as '30 tablets'",
-      "Plan: Referrals: Referral to Dr. Emily Carter, Electrophysiologist, for further evaluation if symptoms persist",
-      "Plan: Additional Testing: Blood Work: Order for biochemistry, including electrolyte panel to check for imbalances",
-      "Plan: Additional Testing: Imaging: Order an Echocardiogram to assess heart structure and function",
-      "Plan: Additional Testing: Monitoring: Holter monitor for 24 hours to detect arrhythmias",
-      "Plan: Lifestyle Modifications: Encourage the patient to reduce high salt intake in the diet",
-      "Plan: Lifestyle Modifications: Discuss smoking cessation strategies",
-      "Plan: Patient Education and Counseling: Provided information on the use of Metoprolol, potential side effects, and the importance of adherence to medication",
-      "Plan: Patient Education and Counseling: Discussed the potential impact of stress on heart health",
-      "Plan: Patient Education and Counseling: Educated the patient about the importance of follow-up appointments and test results",
-      "Plan: Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up logistics"
+      "Objective Vital Signs: Temperature in Celsius (37°C)",
+      "Objective Physical Exam: Cardiovascular: Regular rate and rhythm; no murmurs, rubs, or gallops",
+      "Objective Physical Exam: Respiratory: Lungs clear to auscultation bilaterally",
+      "Objective Physical Exam: General: Alert, oriented, and in no acute distress",
+      "Assessment Medical Reasoning: Associated symptom of shortness of breath",
+      "Assessment Differential Diagnosis: Electrolyte imbalance",
+      "Assessment Differential Diagnosis: Ischemic heart disease",
+      "Plan Medical Treatment: Metoprolol route 'oral'",
+      "Plan Medical Treatment: Metoprolol quantity '30 tablets'",
+      "Plan Referrals: Referral to Dr. Emily Carter, Electrophysiologist, for further evaluation if symptoms persist",
+      "Plan Additional Testing: Blood work specifically for biochemistry and to check for imbalances",
+      "Plan Additional Testing: Echocardiogram purpose 'to assess heart structure and function'",
+      "Plan Additional Testing: Holter monitor purpose 'to detect arrhythmias'",
+      "Plan Lifestyle Modifications: Smoking cessation strategies specifically 'discuss'",
+      "Plan Patient Education: Provided information on Metoprolol potential side effects",
+      "Plan Patient Education: Provided information on Metoprolol importance of adherence to medication",
+      "Plan Patient Education: Discussed the potential impact of stress on heart health",
+      "Plan Patient Education: Educated the patient about the importance of follow-up appointments and test results",
+      "Plan Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up logistics"
     ],
     "additions": [
-      "ROS: Denies issues with vision or speech",
-      "Assessment: 'irregular heart rate' as a basis for assessment",
-      "Assessment: 'Anxiety is a contributing factor to heart health'",
-      "Plan: Follow-up appointment in 2 weeks 'to review test results and progress'",
-      "Plan: Lifestyle Modifications: 'quitting smoking (if applicable)'",
-      "Plan: Patient Education and Counseling: Manage anxiety through meditation, deep breathing exercises, or yoga",
-      "Plan: Patient Education and Counseling: Encourage patient to seek assistance for any new symptoms or questions that may arise"
+      "Subjective ROS: Neurological: Denies issues with vision or speech",
+      "Plan Lifestyle Modifications: Smoking cessation 'if applicable'",
+      "Plan Patient Education/Counseling: Encourage patient to seek assistance for any new symptoms or questions that may arise"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits crucial details from the History of Present Illness, such as the frequency, severity, and impact of palpitations, as well as a comprehensive Review of Systems, including fatigue, syncope, and specific psychiatric details. This results in a less detailed and incomplete clinical picture.",
+        "summary": "The Subjective section has several minor to moderate omissions. Key details regarding the palpitations, such as their severity and disruptive impact on daily activities, are missing from the HPI. Additionally, several ROS elements, including fatigue, specific respiratory symptoms (shortness of breath with palpitations), and denials for focal neurological deficits and depression, are omitted. While the core complaint is present, the lack of these details makes the section less comprehensive.",
         "omissions": [
-          "Patient's age (52-year-old)",
-          "Patient's race/ethnicity (Caucasian)",
           "HPI: Palpitations described as intermittent episodes occurring several times a day",
-          "HPI: Palpitations often accompanied by occasional shortness of breath",
-          "HPI: Symptoms are moderate in severity",
-          "HPI: Symptoms have been disruptive to daily activities",
-          "HPI: Symptoms causing significant anxiety",
+          "HPI: Palpitations described as moderate in severity",
+          "HPI: Palpitations described as disruptive to daily activities",
           "ROS: Constitutional: Endorses fatigue",
           "ROS: Constitutional: Denies fever, chills, or weight loss",
-          "ROS: Cardiovascular: Endorses palpitations and occasional dizziness",
-          "ROS: Cardiovascular: Denies syncope",
           "ROS: Respiratory: Endorses shortness of breath with palpitations",
           "ROS: Neurological: Denies focal neurologic deficits",
-          "ROS: Psychiatric: Endorses anxiety related to symptoms",
           "ROS: Psychiatric: Denies depression"
         ],
         "additions": [
-          "ROS: Denies issues with vision or speech"
+          "ROS: Neurological: Denies issues with vision or speech"
         ]
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "While vital signs are accurately captured, the Objective section significantly omits detailed physical examination findings for the cardiovascular, respiratory, and general appearance systems, making the physical exam documentation sparse and incomplete.",
+        "summary": "The Objective section omits several important physical examination findings. Specifically, the detailed cardiovascular findings (no murmurs, rubs, or gallops), respiratory findings (lungs clear to auscultation bilaterally), and general appearance (alert, oriented, and in no acute distress) are missing. These are clinically significant details for a patient presenting with palpitations.",
         "omissions": [
-          "Physical Examination: Cardiovascular: Regular rate and rhythm with intermittent irregular beats; no murmurs, rubs, or gallops",
+          "Vital Signs: Temperature in Celsius (37°C)",
+          "Physical Examination: Cardiovascular: Regular rate and rhythm; no murmurs, rubs, or gallops",
           "Physical Examination: Respiratory: Lungs clear to auscultation bilaterally",
           "Physical Examination: General: Alert, oriented, and in no acute distress"
         ],
@@ -350,40 +334,35 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section is incomplete due to the omission of detailed medical reasoning for the diagnosis and the absence of two important differential diagnoses: electrolyte imbalance and ischemic heart disease.",
+        "summary": "The Assessment section has moderate omissions. The medical reasoning fails to explicitly mention shortness of breath as an associated symptom. More critically, two important differential diagnoses, 'Electrolyte imbalance' and 'Ischemic heart disease,' are omitted, which are crucial considerations for palpitations.",
         "omissions": [
-          "Medical Reasoning: The patient’s palpitations and associated symptoms of dizziness and shortness of breath require further evaluation to rule out arrhythmias and other cardiac issues",
+          "Medical Reasoning: Associated symptom of shortness of breath",
           "Differential Diagnosis: Electrolyte imbalance",
           "Differential Diagnosis: Ischemic heart disease"
         ],
-        "additions": [
-          "'irregular heart rate' as a basis for assessment",
-          "'Anxiety is a contributing factor to heart health'"
-        ]
+        "additions": []
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has several significant omissions, most notably the complete absence of a referral to an Electrophysiologist. Additionally, specific details for ordered tests, lifestyle modifications, and crucial patient education regarding medication use, potential side effects, and the importance of follow-up appointments are missing, materially reducing the clinical usefulness and completeness of the care plan.",
+        "grade": "C",
+        "summary": "The Plan section contains numerous omissions, including a major one and several moderate issues. The specific referral to Dr. Emily Carter, Electrophysiologist, for further evaluation if symptoms persist is a critical omission. Additionally, important patient education points regarding Metoprolol's potential side effects and adherence, the impact of stress on heart health, and the importance of follow-up and test results are missing. The patient's agreement with the plan is also omitted. These gaps significantly impact the completeness and safety aspects of the care plan.",
         "omissions": [
-          "Medical Treatment: Metoprolol prescribed as 'oral'",
-          "Medical Treatment: Metoprolol prescribed as '30 tablets'",
+          "Medical Treatment: Metoprolol route 'oral'",
+          "Medical Treatment: Metoprolol quantity '30 tablets'",
           "Referrals: Referral to Dr. Emily Carter, Electrophysiologist, for further evaluation if symptoms persist",
-          "Additional Testing: Blood Work: Order for biochemistry, including electrolyte panel to check for imbalances",
-          "Additional Testing: Imaging: Order an Echocardiogram to assess heart structure and function",
-          "Additional Testing: Monitoring: Holter monitor for 24 hours to detect arrhythmias",
-          "Lifestyle Modifications: Encourage the patient to reduce high salt intake in the diet",
-          "Lifestyle Modifications: Discuss smoking cessation strategies",
-          "Patient Education and Counseling: Provided information on the use of Metoprolol, potential side effects, and the importance of adherence to medication",
-          "Patient Education and Counseling: Discussed the potential impact of stress on heart health",
-          "Patient Education and Counseling: Educated the patient about the importance of follow-up appointments and test results",
+          "Additional Testing: Blood work specifically for biochemistry and to check for imbalances",
+          "Additional Testing: Echocardiogram purpose 'to assess heart structure and function'",
+          "Additional Testing: Holter monitor purpose 'to detect arrhythmias'",
+          "Lifestyle Modifications: Smoking cessation strategies specifically 'discuss'",
+          "Patient Education: Provided information on Metoprolol potential side effects",
+          "Patient Education: Provided information on Metoprolol importance of adherence to medication",
+          "Patient Education: Discussed the potential impact of stress on heart health",
+          "Patient Education: Educated the patient about the importance of follow-up appointments and test results",
           "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up logistics"
         ],
         "additions": [
-          "Follow-up appointment in 2 weeks 'to review test results and progress'",
-          "Lifestyle Modifications: 'quitting smoking (if applicable)'",
-          "Patient Education and Counseling: Manage anxiety through meditation, deep breathing exercises, or yoga",
-          "Patient Education and Counseling: Encourage patient to seek assistance for any new symptoms or questions that may arise"
+          "Lifestyle Modifications: Smoking cessation 'if applicable'",
+          "Patient Education/Counseling: Encourage patient to seek assistance for any new symptoms or questions that may arise"
         ]
       }
     ],
@@ -392,95 +371,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "ROS: Denies issues with vision or speech",
+      "addition_text": "Subjective ROS: Neurological: Denies issues with vision or speech",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No chest pain or passing out... No, I haven't had any cough or wheezing... None of those either. [Patient]: Nope, no problems there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient denies any chest pain, passing out, cough, wheezing, nausea, vomiting, diarrhea, constipation, headaches, seizures, or issues with vision or speech."
+      "matched_claim_text": "The patient denies any chest pain, passing out, cough, wheezing, nausea, vomiting, diarrhea, constipation, headaches, seizures, or issues with vision or speech.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: 'irregular heart rate' as a basis for assessment",
+      "addition_text": "Plan Lifestyle Modifications: Smoking cessation 'if applicable'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your heart rate is 84 beats per minute with some irregularity.",
+      "transcript_evidence": "I also recommend some lifestyle changes. Try to reduce your salt intake, quit smoking if you smoke, and incorporate moderate exercise into your daily routine.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: 'Anxiety is a contributing factor to heart health'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Stress can significantly impact your heart health.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anxiety is a contributing factor to heart health."
-    },
-    {
-      "addition_text": "Plan: Follow-up appointment in 2 weeks 'to review test results and progress'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I would also like you to come back for a follow-up appointment in 2 weeks... We'll see you in two weeks, and we'll review your test results and progress at that time.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 2 weeks to review test results and progress."
-    },
-    {
-      "addition_text": "Plan: Lifestyle Modifications: 'quitting smoking (if applicable)'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I also recommend some lifestyle changes. Try to reduce your salt intake, quit smoking if you smoke, and incorporate moderate exercise into your daily routine.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend lifestyle changes such as reducing salt intake, quitting smoking (if applicable), and incorporating moderate exercise into the daily routine."
-    },
-    {
-      "addition_text": "Plan: Patient Education and Counseling: Manage anxiety through meditation, deep breathing exercises, or yoga",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Consider practices like meditation, deep breathing exercises, or even yoga.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Manage anxiety through meditation, deep breathing exercises, or yoga."
-    },
-    {
-      "addition_text": "Plan: Patient Education and Counseling: Encourage patient to seek assistance for any new symptoms or questions that may arise",
+      "addition_text": "Plan Patient Education/Counseling: Encourage patient to seek assistance for any new symptoms or questions that may arise",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: keep us updated on any changes or new symptoms... If any questions come up, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to seek assistance for any new symptoms or questions that may arise."
+      "matched_claim_text": "Encourage patient to seek assistance for any new symptoms or questions that may arise.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'irregular heart rate' as a basis for assessment",
+      "addition_text": "ROS: Neurological: Denies issues with vision or speech",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your heart rate is 84 beats per minute with some irregularity... Your heart has a regular rate and rhythm with some intermittent irregular beats.",
+      "transcript_evidence": "[Patient]: No chest pain or passing out... No, I haven't had any cough or wheezing... None of those either. [Patient]: Nope, no problems there.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient denies any chest pain, passing out, cough, wheezing, nausea, vomiting, diarrhea, constipation, headaches, seizures, or issues with vision or speech.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle Modifications: Smoking cessation 'if applicable'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "quit smoking if you smoke",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'Anxiety is a contributing factor to heart health'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Stress can significantly impact your heart health.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anxiety is a contributing factor to heart health."
-    },
-    {
-      "addition_text": "Follow-up appointment in 2 weeks 'to review test results and progress'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I would also like you to come back for a follow-up appointment in 2 weeks... We'll see you in two weeks, and we'll review your test results and progress at that time.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 2 weeks to review test results and progress."
-    },
-    {
-      "addition_text": "Lifestyle Modifications: 'quitting smoking (if applicable)'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I also recommend some lifestyle changes. Try to reduce your salt intake, quit smoking if you smoke, and incorporate moderate exercise into your daily routine.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend lifestyle changes such as reducing salt intake, quitting smoking (if applicable), and incorporating moderate exercise into the daily routine."
-    },
-    {
-      "addition_text": "Patient Education and Counseling: Manage anxiety through meditation, deep breathing exercises, or yoga",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Consider practices like meditation, deep breathing exercises, or even yoga.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Manage anxiety through meditation, deep breathing exercises, or yoga."
-    },
-    {
-      "addition_text": "Patient Education and Counseling: Encourage patient to seek assistance for any new symptoms or questions that may arise",
+      "addition_text": "Patient Education/Counseling: Encourage patient to seek assistance for any new symptoms or questions that may arise",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: keep us updated on any changes or new symptoms... If any questions come up, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to seek assistance for any new symptoms or questions that may arise."
+      "matched_claim_text": "Encourage patient to seek assistance for any new symptoms or questions that may arise.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

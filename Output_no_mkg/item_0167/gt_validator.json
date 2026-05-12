@@ -244,51 +244,32 @@
     "plan_alignment_score": 0.5700000000000001
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note suffers from significant omissions across all sections. Key issues include the absence of detailed Review of Systems and Physical Examination findings, and critically, the omission of formal diagnoses for Hyperlipidemia, Hypertension, and Type 2 Diabetes Mellitus in the Assessment section. Additionally, important patient education points, such as potential side effects of Atorvastatin and the importance of medication adherence, are missing from the Plan. These omissions materially reduce the clinical usefulness and completeness of the note.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "F",
+    "overall_summary": "The note receives an overall grade of F primarily due to the critical omission of all three primary diagnoses (Hyperlipidemia, Hypertension, and Type 2 Diabetes Mellitus) in the Assessment section. This significantly compromises the clinical utility and safety of the note. Additionally, there are numerous omissions of detailed findings in the Review of Systems and Physical Examination, as well as important patient education and counseling points in the Plan, further reducing the note's completeness and usefulness. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Chief Complaint: Routine check-up",
-      "HPI detail: lipid panel revealed hyperlipidemia during routine screening",
-      "Detailed Review of Systems (ROS) findings (General, Cardiovascular, Endocrine, Musculoskeletal, Neurological, Respiratory)",
-      "Detailed Physical Examination findings (General, HEENT, Neck, Cardiovascular, Respiratory, Abdomen, Extremities, Neurological)",
-      "Formal diagnosis: Hyperlipidemia, unspecified",
-      "Formal diagnosis: Hypertension",
-      "Formal diagnosis: Type 2 Diabetes Mellitus",
-      "Medication detail: Atorvastatin route 'oral' and frequency 'once daily'",
-      "Lifestyle Changes - Diet: Provided educational handouts with dietary recommendations",
-      "Lifestyle Changes - Exercise: Suggested starting with walking or light jogging",
-      "Patient Education: Importance of medication adherence and lifestyle modifications for managing hyperlipidemia",
-      "Patient Education: Potential side effects of Atorvastatin (muscle pain, liver enzyme abnormalities)",
-      "Patient Education: Reinforced importance of maintaining good control of blood pressure and blood glucose levels",
-      "Follow-Up: Assessment of medication efficacy",
-      "Referral: Specific name of dietitian 'Dr. Maria Gonzalez'",
-      "Concluding patient interaction summary (patient's cooperativeness, challenges, receptiveness, agreement to follow-up)"
+      "Detailed Review of Systems (ROS) findings",
+      "Detailed Physical Examination findings",
+      "Specific patient education and counseling points (medication adherence, side effects, BP/glucose control)",
+      "Concluding statement about patient's cooperation, understanding, challenges, and receptiveness to the plan"
     ],
     "additions": [
-      "Subjective: 'No mention of control status for chronic conditions'",
-      "Subjective: 'Patient is on medication for hypertension and Type 2 Diabetes, and is attempting to manage these conditions through medication and diet'",
-      "Assessment: 'Patient is generally well, with no acute concerns or signs of complications from hypertension or diabetes'",
-      "Plan: 'report any issues or side effects immediately' (added to monitoring instructions)"
+      "Summary statements about patient status or note content (e.g., 'no mention of control status', 'no significant findings', 'patient is generally well')",
+      "Additional details about the purpose of interventions (e.g., 'to manage high cholesterol levels', 'for support and guidance')"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section is significantly incomplete due to the omission of the Chief Complaint ('Routine check-up'), the detailed HPI context regarding the lipid panel finding, and the entire detailed Review of Systems. While some general patient status is captured, the lack of specific symptom review makes this section less comprehensive.",
+        "summary": "The Subjective section receives a grade of C. It omits the Chief Complaint and the detailed Review of Systems findings, which are significant gaps in comprehensive documentation. While some general patient status information is captured, the lack of specific ROS details makes the section less thorough. All additions in this section were supported by the transcript.",
         "omissions": [
           "Chief Complaint: Routine check-up",
-          "HPI detail: During a routine screening, his lipid panel revealed hyperlipidemia",
-          "Review of Systems (ROS) details: General (denies weight loss, fever, fatigue)",
-          "Review of Systems (ROS) details: Cardiovascular (no chest pain, palpitations, dyspnea)",
-          "Review of Systems (ROS) details: Endocrine (no polydipsia, polyuria, blurry vision)",
-          "Review of Systems (ROS) details: Musculoskeletal (no muscle aches or weakness)",
-          "Review of Systems (ROS) details: Neurological (no dizziness or headaches)",
-          "Review of Systems (ROS) details: Respiratory (no cough or shortness of breath)"
+          "Statement in HPI that hyperlipidemia was revealed during a routine screening",
+          "Review of Systems (ROS) details: General (denies weight loss, fever, fatigue), Cardiovascular (no chest pain, palpitations, dyspnea), Endocrine (no polydipsia, polyuria, blurry vision), Musculoskeletal (no muscle aches or weakness), Neurological (no dizziness or headaches), Respiratory (no cough or shortness of breath)"
         ],
         "additions": [
-          "Patient reports no specific complaints or new symptoms since the last visit",
+          "Mention of no new symptoms since last visit",
           "Patient is on medication for hypertension and Type 2 Diabetes, and is attempting to manage these conditions through medication and diet",
           "No mention of control status for chronic conditions"
         ]
@@ -296,27 +277,22 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section accurately captures vital signs but omits all detailed findings from the Physical Examination, summarizing them generally as 'no significant findings.' This lack of specific documentation for HEENT, Neck, Cardiovascular, Respiratory, Abdomen, Extremities, and Neurological systems represents a major gap in the objective clinical data.",
+        "summary": "The Objective section receives a grade of C. It accurately captures vital signs but omits all detailed findings from the Physical Examination. While a summary statement indicating 'no significant findings' is present and supported by the transcript, the absence of specific examination details represents a moderate gap in the clinical record.",
         "omissions": [
-          "Physical Examination: General (Well-nourished, appears stated age)",
-          "Physical Examination: HEENT (Normocephalic, atraumatic, pupils equal, round, and reactive to light)",
-          "Physical Examination: Neck (No lymphadenopathy, no carotid bruits)",
-          "Physical Examination: Cardiovascular (Regular rate and rhythm, no murmurs, gallops, or rubs)",
-          "Physical Examination: Respiratory (Clear to auscultation bilaterally, no wheezes, rales, or ronchi)",
-          "Physical Examination: Abdomen (Soft, non-tender, no hepatosplenomegaly)",
-          "Physical Examination: Extremities (No edema, peripheral pulses intact)",
-          "Physical Examination: Neurological (Alert and oriented, no focal deficits)"
+          "Detailed Physical Examination findings: General (well-nourished, appears stated age), HEENT (normocephalic, atraumatic, pupils equal, round, and reactive to light), Neck (no lymphadenopathy, no carotid bruits), Cardiovascular (regular rate and rhythm, no murmurs, gallops, or rubs), Respiratory (clear to auscultation bilaterally, no wheezes, rales, or ronchi), Abdomen (soft, non-tender, no hepatosplenomegaly), Extremities (no edema, peripheral pulses intact), Neurological (alert and oriented, no focal deficits)"
         ],
-        "additions": []
+        "additions": [
+          "Physical examination shows no significant findings"
+        ]
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section is critically incomplete as it omits the formal diagnoses for Hyperlipidemia, Hypertension, and Type 2 Diabetes Mellitus. While 'High cholesterol level' is mentioned, it lacks the specificity and formal diagnostic coding present in the Ground Truth, and the other two chronic conditions are entirely absent as diagnoses. This significantly reduces the clinical utility of this section.",
+        "grade": "F",
+        "summary": "The Assessment section receives a grade of F due to the critical omission of all three primary diagnoses: Hyperlipidemia, Hypertension, and Type 2 Diabetes Mellitus. The generated note only includes a finding related to hyperlipidemia ('High cholesterol level noted in the last screening') and completely misses the other two chronic conditions. This constitutes a severe failure to capture critical Ground Truth content, rendering the section unreliable and potentially unsafe.",
         "omissions": [
-          "Hyperlipidemia, unspecified",
-          "Hypertension",
-          "Type 2 Diabetes Mellitus"
+          "Diagnosis: Hypertension",
+          "Diagnosis: Type 2 Diabetes Mellitus",
+          "Diagnosis: Hyperlipidemia, unspecified"
         ],
         "additions": [
           "Patient is generally well, with no acute concerns or signs of complications from hypertension or diabetes"
@@ -325,20 +301,23 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section outlines the core treatment strategy but omits several important details. These include the route and frequency of Atorvastatin, specific examples for exercise, the provision of educational handouts, and crucial patient education points such as the importance of medication adherence, potential side effects of Atorvastatin (muscle pain, liver enzyme abnormalities), and reinforcement of blood pressure and glucose control. The concluding patient interaction summary is also missing.",
+        "summary": "The Plan section receives a grade of C. It omits several important details, including specific medication instructions ('oral, once daily'), details about educational handouts, specific exercise suggestions, and the full scope of patient education and counseling (e.g., medication adherence, potential side effects of Atorvastatin, and the importance of BP/glucose control). The concluding statement about patient cooperation and challenges is also missing, reducing the context of patient engagement. While the core plan is present, these omissions make the section meaningfully incomplete.",
         "omissions": [
-          "Medication: Atorvastatin route 'oral' and frequency 'once daily'",
-          "Lifestyle Changes - Diet: Provided educational handouts with dietary recommendations",
-          "Lifestyle Changes - Exercise: Suggested starting with walking or light jogging",
-          "Patient Education & Counseling: Explained the importance of medication adherence and lifestyle modifications for managing hyperlipidemia",
+          "Medication details: 'oral, once daily'",
+          "Lifestyle Changes - Diet: 'Provided educational handouts with dietary recommendations'",
+          "Lifestyle Changes - Exercise: 'Suggested starting with walking or light jogging'",
+          "Monitoring: 'to assess response to Atorvastatin'",
+          "Patient Education & Counseling: Explained importance of medication adherence and lifestyle modifications for managing hyperlipidemia",
           "Patient Education & Counseling: Discussed potential side effects of Atorvastatin, including muscle pain and liver enzyme abnormalities",
           "Patient Education & Counseling: Reinforced the importance of maintaining good control of blood pressure and blood glucose levels",
-          "Follow-Up: Assess medication efficacy",
+          "Follow-Up: 'assess medication efficacy'",
           "Referral: Specific name of dietitian 'Dr. Maria Gonzalez'",
-          "Concluding patient interaction summary: Mr. Martínez was moderately cooperative and expressed understanding of the need for dietary and exercise changes but acknowledged finding these challenging in the past. Encouraged him to set realistic, attainable goals and offered support resources. He was receptive to the plan and agreed to return for follow-up."
+          "Concluding statement about patient cooperation, understanding, challenges, setting goals, support resources, and receptiveness to the plan"
         ],
         "additions": [
-          "Advise patient to continue monitoring blood pressure and HbA1c levels, report any issues or side effects immediately"
+          "Medication: 'to manage high cholesterol levels'",
+          "Follow-Up: 'report any issues or side effects immediately'",
+          "Referral: 'for support and guidance in making lifestyle changes'"
         ]
       }
     ],
@@ -347,67 +326,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'No mention of control status for chronic conditions'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": null,
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "No mention of control status for chronic conditions"
-    },
-    {
-      "addition_text": "Subjective: 'Patient is on medication for hypertension and Type 2 Diabetes, and is attempting to manage these conditions through medication and diet'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Sure, I have high blood pressure and Type 2 Diabetes. [Patient]: I’ve been taking my meds as prescribed and trying to watch my diet, but it’s not always easy.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is on medication for hypertension and Type 2 Diabetes"
-    },
-    {
-      "addition_text": "Assessment: 'Patient is generally well, with no acute concerns or signs of complications from hypertension or diabetes'",
+      "addition_text": "Summary statements about patient status or note content (e.g., 'no mention of control status', 'no significant findings', 'patient is generally well')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Nope, no specific complaints. [Patient]: No, nothing new. I feel pretty much the same. [Doctor]: Good to hear. Have you experienced any symptoms like chest pain, palpitations, or shortness of breath? [Patient]: Nope, none of those symptoms. [Doctor]: Any problems with your endocrine system? For example, have you noticed excessive thirst, frequent urination, or blurry vision? [Patient]: No, nothing like that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is generally well, with no acute concerns or signs of complications from hypertension or diabetes"
+      "matched_claim_text": "Patient is generally well, with no acute concerns or signs of complications from hypertension or diabetes",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: 'report any issues or side effects immediately' (added to monitoring instructions)",
+      "addition_text": "Additional details about the purpose of interventions (e.g., 'to manage high cholesterol levels', 'for support and guidance')",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If you have any issues with the medication or experience any side effects, please reach out to me immediately.",
+      "transcript_evidence": "[Doctor]: Based on our findings today, I’m going to start you on Atorvastatin 40 mg, to be taken orally once daily for the next 3 months.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to report any issues or side effects immediately"
+      "matched_claim_text": "Initiate Atorvastatin 40 mg daily for 3 months to manage high cholesterol levels",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient reports no specific complaints or new symptoms since the last visit",
+      "addition_text": "Mention of no new symptoms since last visit",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Nope, no specific complaints. [Patient]: No, nothing new. I feel pretty much the same.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports no specific complaints or new symptoms since the last visit"
+      "matched_claim_text": "Patient reports no specific complaints or new symptoms since the last visit",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient is on medication for hypertension and Type 2 Diabetes, and is attempting to manage these conditions through medication and diet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Sure, I have high blood pressure and Type 2 Diabetes. [Patient]: I’ve been taking my meds as prescribed and trying to watch my diet, but it’s not always easy.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is on medication for hypertension and Type 2 Diabetes"
+      "matched_claim_text": "Patient is on medication for hypertension and Type 2 Diabetes",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No mention of control status for chronic conditions",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No mention of control status for chronic conditions"
+      "matched_claim_text": "No mention of control status for chronic conditions",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Physical examination shows no significant findings",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Your head and neck exam shows that you are normocephalic and atraumatic, with pupils equal, round, and reactive to light. There are no signs of lymphadenopathy or carotid bruits. Your cardiovascular exam shows a regular rate and rhythm, with no murmurs, gallops, or rubs. Respiratory exam reveals that your lungs are clear to auscultation bilaterally, with no wheezes, rales, or ronchi. Your abdomen is soft, non-tender, and there are no signs of hepatosplenomegaly. Your extremities show no edema, and peripheral pulses are intact. Neurologically, you are alert and oriented with no focal deficits.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Physical examination shows no significant findings",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient is generally well, with no acute concerns or signs of complications from hypertension or diabetes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Nope, no specific complaints. [Patient]: No, nothing new. I feel pretty much the same. [Doctor]: Good to hear. Have you experienced any symptoms like chest pain, palpitations, or shortness of breath? [Patient]: Nope, none of those symptoms. [Doctor]: Any problems with your endocrine system? For example, have you noticed excessive thirst, frequent urination, or blurry vision? [Patient]: No, nothing like that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is generally well, with no acute concerns or signs of complications from hypertension or diabetes"
+      "matched_claim_text": "Patient is generally well, with no acute concerns or signs of complications from hypertension or diabetes",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Advise patient to continue monitoring blood pressure and HbA1c levels, report any issues or side effects immediately",
+      "addition_text": "Medication: 'to manage high cholesterol levels'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on our findings today, I’m going to start you on Atorvastatin 40 mg, to be taken orally once daily for the next 3 months.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Initiate Atorvastatin 40 mg daily for 3 months to manage high cholesterol levels",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Follow-Up: 'report any issues or side effects immediately'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you have any issues with the medication or experience any side effects, please reach out to me immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to report any issues or side effects immediately"
+      "matched_claim_text": "Advise patient to report any issues or side effects immediately",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Referral: 'for support and guidance in making lifestyle changes'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’m here to support you, and I can refer you to a dietitian and an exercise program if you think it would help. [Patient]: That would be helpful. I could use some guidance. [Doctor]: Great, I’ll make those referrals for you.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Refer patient to a dietitian for support and guidance in making lifestyle changes",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

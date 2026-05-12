@@ -249,7 +249,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note is mostly clinically aligned and usable, but suffers from significant omissions in the Subjective section, including the entire Review of Systems and patient's self-reported habits and lifestyle. The Assessment section also omits a key diagnosis of 'Tobacco use disorder' and several contextual details. While the Objective and Plan sections are well-captured, the substantial gaps in Subjective make the note meaningfully incomplete, requiring careful review.",
+    "overall_summary": "The generated note provides a good summary of the chief complaint, history of present illness, objective findings, and a comprehensive plan. However, it has significant omissions in the Subjective section, notably the detailed Review of Systems and the entire patient's self-reported habits and lifestyle, including critical information like tobacco use. The Assessment section also omits the diagnosis of \"Tobacco use disorder\" and several qualifiers for other diagnoses. While the note is clinically usable, these gaps make it meaningfully incomplete and require careful review.",
     "omissions": [
       "Detailed Review of Systems (ROS)",
       "Patient's self-reported habits and lifestyle (Sleep, Diet, Exercise, Tobacco Use, Alcohol Consumption, Drug Use, Recreational Activities)"
@@ -259,8 +259,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section has major omissions, including the complete absence of the detailed Review of Systems and the patient's self-reported habits and lifestyle. These are critical components for a general adult medical examination and significantly reduce the clinical usefulness of the Subjective information.",
+        "grade": "C",
+        "summary": "This section has significant omissions, including the entire detailed Review of Systems and the patient's self-reported habits and lifestyle (e.g., sleep, diet, exercise, tobacco use, alcohol consumption). These omissions represent noticeable gaps that make the subjective history meaningfully incomplete, despite the chief complaint and HPI being well-captured.",
         "omissions": [
           "Patient presenting for a general adult medical examination",
           "\"moderate\" impact of symptoms on work and daily activities",
@@ -272,14 +272,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is accurately and completely captured, with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is excellent, capturing all vital signs and physical examination findings accurately with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section has a moderate omission of 'Tobacco use disorder' as a diagnosis. Additionally, several minor contextual details such as 'previously diagnosed' and 'pending/requiring further evaluation' were omitted, making the section less precise than the Ground Truth.",
+        "summary": "This section has a moderate omission of the \"Tobacco use disorder\" diagnosis, which is clinically significant given the patient's reported habit. Additionally, several minor qualifiers (e.g., \"previously diagnosed,\" \"pending further evaluation\") for other diagnoses are omitted. The core diagnoses are present, but these issues prevent an 'A' grade.",
         "omissions": [
           "Encounter for general adult medical examination with abnormal findings",
           "\"previously diagnosed\" for mild hypertension",
@@ -293,7 +293,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is well-captured. Minor omissions include specific diet and exercise details, the '1 tablet' dosage for Metformin, and the specific endocrinologist's name. The single addition, 'Qualifier \"possible\" for counseling and nicotine replacement therapy', was supported by the transcript and therefore does not reduce the grade.",
+        "summary": "The Plan section is comprehensive and well-aligned with the Ground Truth. Any omissions are minor details (e.g., specific diet/exercise details, medication tablet count, specific doctor's name) that do not detract from the clinical utility of the plan. The single addition was supported by the transcript and thus did not reduce the grade.",
         "omissions": [
           "Specific diet details: \"rich in vegetables and lean proteins, low in refined sugars and fats\"",
           "Specific exercise goal: \"aim for at least 30 minutes of moderate exercise 5 days a week\"",
@@ -314,7 +314,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, let's talk about lifestyle changes. I recommend starting a balanced diet rich in vegetables and lean proteins, and low in refined sugars and fats. Engage in regular physical activity, aiming for at least 30 minutes of moderate exercise 5 days a week. Also, we need to support you in quitting tobacco. This may include counseling and nicotine replacement therapy.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate lifestyle changes such as a balanced diet, regular physical activity, and smoking cessation with possible counseling and nicotine replacement therapy."
+      "matched_claim_text": "Initiate lifestyle changes such as a balanced diet, regular physical activity, and smoking cessation with possible counseling and nicotine replacement therapy.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

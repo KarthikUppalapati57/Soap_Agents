@@ -228,38 +228,25 @@
     "plan_alignment_score": 0.8256880733944955
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The note has significant omissions, particularly in the Subjective and Assessment sections. The Subjective section misses important past medical history and the full impact of the condition on the patient's daily life. The Assessment section is severely incomplete, omitting crucial clinical reasoning and most of the key differential diagnoses. While the Objective and Plan sections are largely accurate, the major deficiencies in the Assessment section materially reduce the clinical usefulness of the entire note.",
+    "overall_summary": "The note suffers from significant omissions, particularly in the Assessment section, where the comprehensive clinical reasoning statement and three key differential diagnoses are missing. The Subjective section also omits important patient context, including past medical history and the full impact of symptoms on daily life. These gaps materially reduce the clinical usefulness and completeness of the note.",
     "omissions": [
-      "Chief Complaint (CC) section header",
-      "Past medical history of migraine and Irritable Bowel Syndrome (IBS)",
-      "Episodes occurring 'multiple instances each month'",
-      "Moderate severity of episodes",
-      "Episodes causing significant disruption to daily activities",
-      "Inability to drive due to episodes",
-      "Frequent absences from work due to episodes",
-      "ROS: Neurological: denies focal deficits",
-      "ROS: Gastrointestinal: Low-fiber diet due to IBS; denies abdominal pain or changes in bowel habits",
-      "ROS: Musculoskeletal: Denies muscle weakness or joint pain",
-      "Physical Exam: General Examination: 'in no apparent distress'",
-      "Physical Exam: Cardiovascular: 'Heart sounds regular with no murmurs, rubs, or gallops'",
-      "Physical Exam: Cardiovascular: 'Mild tachycardia noted' (as a specific exam finding)",
-      "Assessment: 'likely multifactorial but needs further evaluation to rule out potential neurological and cardiovascular causes'",
-      "Differential Diagnoses section header",
+      "Past medical history (migraine and IBS)",
+      "Severity of episodes (moderate severity)",
+      "Impact of syncope on daily activities (inability to drive, frequent absences from work)",
+      "Specific frequency of episodes (\"multiple instances each month\")",
+      "Gastrointestinal ROS: low-fiber diet due to IBS; denies abdominal pain or changes in bowel habits",
+      "Musculoskeletal ROS: denies muscle weakness or joint pain",
+      "General PE: patient in no apparent distress",
+      "Cardiovascular PE: heart sounds regular with no murmurs, rubs, or gallops",
+      "Cardiovascular PE: mild tachycardia noted (as a PE finding, distinct from vital sign)",
+      "Assessment statement: \"likely multifactorial but needs further evaluation to rule out potential neurological and cardiovascular causes\"",
       "Differential Diagnosis: Orthostatic hypotension",
       "Differential Diagnosis: Cardiac arrhythmias",
       "Differential Diagnosis: Neurological causes (e.g., seizures)",
-      "Diagnostics section header",
-      "Referral section header",
-      "Medications section header",
-      "Medication: 'Quantity: 30 tablets' for Fludrocortisone",
-      "Lifestyle and Patient Education section header",
-      "Lifestyle: 'for overall health benefits' regarding yoga practice",
-      "Follow-up section header",
-      "Follow-up: 'Patient agrees with the treatment plan'",
-      "Patient Agreements section header",
-      "Patient Agreements: 'The patient understands and agrees with the recommended medical treatment plan'"
+      "Medication quantity (30 tablets for Fludrocortisone)",
+      "Patient agreement with the treatment plan"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -267,39 +254,34 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the patient's past medical history of migraine and IBS, which is important context. It also misses specific, clinically relevant details about the impact of syncope on daily life, such as the inability to drive and frequent work absences. Additionally, details from the Review of Systems, like the low-fiber diet due to IBS, are missing. These omissions make the section meaningfully incomplete.",
+        "summary": "The Subjective section omits important patient context, including the past medical history of migraine and IBS, the moderate severity of episodes, their impact on daily activities (inability to drive, frequent absences from work), and the specific frequency of \"multiple instances each month.\" Additionally, detailed gastrointestinal and musculoskeletal review of systems findings were omitted.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "Past medical history of migraine and Irritable Bowol Syndrome (IBS)",
-          "Episodes occurring 'multiple instances each month'",
-          "Moderate severity of episodes",
-          "Episodes causing significant disruption to daily activities",
-          "Inability to drive due to episodes",
-          "Frequent absences from work due to episodes",
-          "ROS: Neurological: denies focal deficits",
-          "ROS: Gastrointestinal: Low-fiber diet due to IBS; denies abdominal pain or changes in bowel habits",
-          "ROS: Musculoskeletal: Denies muscle weakness or joint pain"
+          "Past medical history (migraine and IBS)",
+          "Severity of episodes (moderate severity)",
+          "Impact on daily activities (inability to drive, frequent absences from work)",
+          "Specific frequency of episodes (\"multiple instances each month\")",
+          "Gastrointestinal ROS: low-fiber diet due to IBS; denies abdominal pain or changes in bowel habits",
+          "Musculoskeletal ROS: denies muscle weakness or joint pain"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly complete, accurately capturing vital signs and most physical examination findings. Minor omissions include the patient being 'in no apparent distress' and specific heart sound findings ('no murmurs, rubs, or gallops'). However, these do not significantly detract from the overall clinical usability of the section.",
+        "summary": "The Objective section has several minor omissions, including the patient being \"in no apparent distress\" in the general examination, and specific details of the cardiovascular examination such as \"heart sounds regular with no murmurs, rubs, or gallops.\" The mention of mild tachycardia as a PE finding was also omitted, though it was captured in vital signs.",
         "omissions": [
-          "Physical Exam: General Examination: 'in no apparent distress'",
-          "Physical Exam: Cardiovascular: 'Heart sounds regular with no murmurs, rubs, or gallops'",
-          "Physical Exam: Cardiovascular: 'Mild tachycardia noted' (as a specific exam finding)"
+          "General PE: patient in no apparent distress",
+          "Cardiovascular PE: heart sounds regular with no murmurs, rubs, or gallops",
+          "Cardiovascular PE: mild tachycardia noted (as a PE finding, distinct from vital sign)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section is critically incomplete. It omits the comprehensive clinical reasoning that the syncope is 'likely multifactorial but needs further evaluation to rule out potential neurological and cardiovascular causes.' Furthermore, it fails to include three out of four key differential diagnoses (Orthostatic hypotension, Cardiac arrhythmias, Neurological causes), only implicitly retaining neurocardiogenic syncope. These are major omissions that materially reduce the clinical usefulness and completeness of the assessment.",
+        "summary": "The Assessment section has major omissions. It lacks the comprehensive assessment statement indicating the multifactorial nature and need for further evaluation to rule out neurological and cardiovascular causes. Crucially, three out of four key differential diagnoses (Orthostatic hypotension, Cardiac arrhythmias, and Neurological causes) were omitted, significantly reducing the clinical completeness and usefulness of this section.",
         "omissions": [
-          "Assessment: 'likely multifactorial but needs further evaluation to rule out potential neurological and cardiovascular causes'",
-          "Differential Diagnoses section header",
+          "Assessment statement: \"likely multifactorial but needs further evaluation to rule out potential neurological and cardiovascular causes\"",
           "Differential Diagnosis: Orthostatic hypotension",
           "Differential Diagnosis: Cardiac arrhythmias",
           "Differential Diagnosis: Neurological causes (e.g., seizures)"
@@ -308,19 +290,11 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section effectively captures all the core actions, including diagnostics, referral, medication, lifestyle advice, and follow-up instructions. The omissions are primarily minor formatting headers, the specific quantity of medication (30 tablets), the rationale for yoga ('for overall health benefits'), and explicit statements about patient agreement. These minor issues do not impede the clinical actionability or usefulness of the plan.",
+        "grade": "A",
+        "summary": "The Plan section is largely complete, with only minor omissions. These include the specific medication quantity (30 tablets) for Fludrocortisone acetate and the patient's agreement with the treatment plan.",
         "omissions": [
-          "Diagnostics section header",
-          "Referral section header",
-          "Medications section header",
-          "Medication: 'Quantity: 30 tablets' for Fludrocortisone",
-          "Lifestyle and Patient Education section header",
-          "Lifestyle: 'for overall health benefits' regarding yoga practice",
-          "Follow-up section header",
-          "Follow-up: 'Patient agrees with the treatment plan'",
-          "Patient Agreements section header",
-          "Patient Agreements: 'The patient understands and agrees with the recommended medical treatment plan'"
+          "Medication quantity (30 tablets for Fludrocortisone)",
+          "Patient agreement with the treatment plan"
         ],
         "additions": []
       }

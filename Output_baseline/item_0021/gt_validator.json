@@ -2,7 +2,7 @@
   "item": "item_0021",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0021",
   "ground_truth_soap": "#\nSubjective:\n\nChief Complaint (CC):\nSevere lower back pain with associated tingling and numbness down the left leg, lasting for 4 weeks.\n\nHistory of Present Illness (HPI):\nMr. Jones is a 52-year-old African American male presenting with a 4-week history of severe lower back pain that radiates down his left leg. The pain is constant and worsens with walking and sitting for extended periods. He reports tingling and numbness down the left leg and occasional muscle weakness in the left foot. The pain significantly limits his ability to walk, stand, and perform his job-related tasks as an Information Technology Consultant. Mr. Jones has difficulty sleeping due to the intense pain.\n\nReview of Systems (ROS):\n\n- General: No fever or weight loss.\n- Neurological: Tingling and numbness in the left leg, muscle weakness in the left foot.\n- Musculoskeletal: Severe lower back pain, palpable muscle spasm in the lower lumbar region.\n- Sleep: Difficulty sleeping due to pain.\n\nObjective:\n\nNeurological Exam:\n- Positive straight leg raise test on the left side.\n- Decreased sensation in the L4-L5 dermatome.\n\nBack Exam:\n- Palpable muscle spasm in the lower lumbar region.\n- Decreased lumbar spine flexibility.\n\nAssessment:\n\n- Primary Diagnosis: Lumbar Radiculopathy (ICD-10: M54.16)\n  - The patient’s symptoms and physical examination findings are consistent with lumbar radiculopathy, likely due to nerve impingement or disc herniation.\n  \nPlan:\n\n- Medications:\n  - Naproxen 500 mg, oral, twice a day for 14 days. Quantity: 28 tablets.\n  \n- Referrals:\n  - Referral to physical therapy for nerve root mobilization and stabilizing exercises.\n  - Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy.\n\n- Imaging:\n  - Order Lumbar spine MRI to evaluate for nerve impingement or disc herniation.\n\n- Laboratory Tests:\n  - Order basic biochemistry panel to rule out secondary causes of radiculopathy.\n\n- Follow-Up:\n  - Re-evaluate in 6 weeks to assess response to treatment and determine further management steps.\n\nPatient Instructions:\n- Advised to follow the prescribed medication and physical therapy regimen strictly.\n- Educated on proper back care and ergonomic adjustments to reduce pain during work.\n- Advised to avoid activities that exacerbate symptoms.\n- Encouraged to maintain a balanced diet, manage diabetes effectively, and avoid indulging in foods that could affect blood sugar levels.\n\nReturn Instructions:\n- Return in 6 weeks for follow-up.\n- Call the clinic if symptoms worsen or new symptoms develop.\n\nEnvironmental and Lifestyle Considerations:\n- The patient lives in an affluent suburban area with excellent access to healthcare services and low environmental health risks.\n- Has a high level of health literacy and is very cooperative and motivated to follow medical advice.",
-  "generated_soap": "Subjective:\n- Lower back pain for 4 weeks, constant, sharp, radiating down the left leg\n- Tingling and numbness in the left leg and foot\n- Muscle spasms in lower lumbar area\n- Difficulty sleeping due to pain\n\nObjective:\n- Positive straight leg raise test on the left side\n- Decreased sensation in L4-L5 dermatome\n- Palpable muscle spasm in lower lumbar region\n- Reduced lumbar spine flexibility\n\nAssessment:\n- Lumbar radiculopathy, possibly due to nerve impingement or disc herniation\n\nPlan:\n- Prescribe Naproxen 500mg orally twice daily for 14 days (28 tablets)\n- Referral to physical therapy for nerve root mobilization and stabilizing exercises\n- Order MRI of the lumbar spine\n- Basic biochemistry panel to rule out secondary causes of radiculopathy\n- Follow medication and physical therapy regimen strictly\n- Ergonomic adjustments at work to reduce pain\n- Maintain balanced diet and manage diabetes effectively\n- Re-evaluate condition in 6 weeks to assess treatment progress\n- Call the clinic immediately if symptoms worsen or new symptoms develop",
+  "generated_soap": "Subjective:\nThe patient complains of a constant, sharp lower back pain that radiates down the left leg for 4 weeks. The pain is exacerbated by walking and sitting for long periods and affects sleep. The patient also reports tingling and numbness in the left leg and left foot weakness. Muscle spasms in the lower lumbar area are present, and the pain makes it difficult to get a good night's sleep.\n\nObjective:\nPhysical exam reveals positive straight leg raise test on the left side, decreased sensation in the L4-L5 dermatome, palpable muscle spasm in the lower lumbar region, and reduced lumbar spine flexibility.\n\nAssessment:\nThe patient likely has lumbar radiculopathy due to nerve impingement or disc herniation.\n\nPlan:\nPrescribe Naproxen 500mg orally twice a day for 14 days. Refer the patient to physical therapy for nerve root mobilization and stabilizing exercises. Order an MRI of the lumbar spine and a basic biochemistry panel. The patient should strictly follow the prescribed medication and physical therapy regimen, make ergonomic adjustments at work, avoid activities that worsen symptoms, maintain a balanced diet, manage diabetes effectively, and return in 6 weeks for re-evaluation. If symptoms worsen or new symptoms develop, call the clinic immediately.",
   "entities_gt": {
     "all_entities": [
       "severe lower back pain",
@@ -46,12 +46,13 @@
   },
   "entities_generated": {
     "all_entities": [
-      "lower back pain",
+      "pain",
       "tingling and numbness",
       "muscle spasms",
-      "difficulty sleeping",
+      "physical exam",
       "decreased sensation",
       "l4-l5 dermatome",
+      "palpable muscle spasm",
       "lumbar spine",
       "lumbar radiculopathy",
       "nerve impingement",
@@ -60,18 +61,15 @@
       "physical therapy",
       "mri",
       "basic biochemistry panel",
-      "ergonomic adjustments",
-      "pain",
       "symptoms"
     ],
     "symptoms": [
-      "lower back pain",
+      "pain",
       "tingling and numbness",
+      "left foot weakness",
       "muscle spasms",
-      "difficulty sleeping due to pain",
-      "decreased sensation in l4-l5 dermatome",
-      "reduced lumbar spine flexibility",
-      "symptoms"
+      "decreased sensation in the l4-l5 dermatome",
+      "reduced lumbar spine flexibility"
     ],
     "medications": [
       "naproxen 500mg"
@@ -83,9 +81,9 @@
   },
   "clinical_recall_all": {
     "gt_count": 19,
-    "gen_count": 17,
-    "overlap_count": 9,
-    "recall": 0.47368421052631576,
+    "gen_count": 16,
+    "overlap_count": 10,
+    "recall": 0.5263157894736842,
     "gt_only": [
       "back exam",
       "decreased lumbar spine flexibility",
@@ -94,19 +92,16 @@
       "naproxen 500 mg",
       "nerve root mobilization",
       "neurological exam",
-      "palpable muscle spasm",
       "response to treatment",
       "severe lower back pain"
     ],
     "gen_only": [
-      "difficulty sleeping",
-      "ergonomic adjustments",
-      "lower back pain",
       "lumbar spine",
       "mri",
       "muscle spasms",
       "naproxen 500mg",
-      "pain"
+      "pain",
+      "physical exam"
     ],
     "overlap": [
       "basic biochemistry panel",
@@ -115,6 +110,7 @@
       "l4-l5 dermatome",
       "lumbar radiculopathy",
       "nerve impingement",
+      "palpable muscle spasm",
       "physical therapy",
       "symptoms",
       "tingling and numbness"
@@ -122,24 +118,24 @@
   },
   "clinical_recall_symptoms": {
     "gt_count": 6,
-    "gen_count": 7,
-    "overlap_count": 2,
-    "recall": 0.3333333333333333,
+    "gen_count": 6,
+    "overlap_count": 1,
+    "recall": 0.16666666666666666,
     "gt_only": [
       "decreased lumbar spine flexibility",
       "muscle weakness",
       "palpable muscle spasm",
-      "severe lower back pain"
+      "severe lower back pain",
+      "symptoms"
     ],
     "gen_only": [
-      "decreased sensation in l4-l5 dermatome",
-      "difficulty sleeping due to pain",
-      "lower back pain",
+      "decreased sensation in the l4-l5 dermatome",
+      "left foot weakness",
       "muscle spasms",
+      "pain",
       "reduced lumbar spine flexibility"
     ],
     "overlap": [
-      "symptoms",
       "tingling and numbness"
     ]
   },
@@ -175,120 +171,91 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5960542833395431,
-    "overall_rouge_l_f1": 0.5176887824500188,
+    "overall_token_f1": 0.6281054192375759,
+    "overall_rouge_l_f1": 0.537229262672811,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.38260869565217387,
-        "rouge_l_f1": 0.2978723404255319
+        "token_f1": 0.44927536231884063,
+        "rouge_l_f1": 0.32
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.9199999999999999,
-        "rouge_l_f1": 0.8620689655172413
+        "token_f1": 0.888888888888889,
+        "rouge_l_f1": 0.875
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.48648648648648646,
-        "rouge_l_f1": 0.4615384615384615
+        "token_f1": 0.6,
+        "rouge_l_f1": 0.5238095238095238
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5951219512195122,
-        "rouge_l_f1": 0.44927536231884063
+        "token_f1": 0.5742574257425742,
+        "rouge_l_f1": 0.43010752688172044
       }
     ],
-    "assessment_alignment_score": 0.48648648648648646,
-    "plan_alignment_score": 0.5951219512195122
+    "assessment_alignment_score": 0.6,
+    "plan_alignment_score": 0.5742574257425742
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. The Objective and Assessment sections are excellent with minimal omissions. However, the Subjective section omits several important HPI details such as specific exacerbating activities, the 'occasional' nature of muscle weakness, and the full Review of Systems structure. The Plan section also has several omissions, including a specific specialist referral and the entire 'Environmental and Lifestyle Considerations' section. No unsupported or unknown additions were found.",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the objective findings and assessment. However, it omits the patient's job-related limitations in the Subjective section, which is a moderate omission impacting the functional status. In the Plan section, it misses the specific quantity for Naproxen, the referral to an Orthopedic Specialist, education on proper back care, and details regarding environmental/lifestyle considerations and patient health literacy/motivation. The missing specialist referral is a moderate omission. There are no unsupported or unknown additions.",
     "omissions": [
-      "Patient's age (52-year-old)",
-      "Patient's race (African American)",
-      "Patient's occupation (Information Technology Consultant)",
-      "Specific activities worsening pain (walking and sitting for extended periods)",
-      "Occasional muscle weakness in the left foot (in HPI/ROS)",
-      "Impact on job-related tasks",
-      "Review of Systems (ROS) section",
-      "General ROS (no fever or weight loss)",
-      "Musculoskeletal ROS (severe lower back pain)",
-      "Neurological ROS (muscle weakness in left foot)",
-      "Explanation that patient's symptoms and physical examination findings are consistent with diagnosis",
+      "Patient's job-related limitations (ability to walk, stand, perform job as Information Technology Consultant)",
+      "No fever or weight loss (from ROS General)",
+      "Naproxen quantity: 28 tablets",
       "Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy",
-      "Purpose of Lumbar spine MRI (to evaluate for nerve impingement or disc herniation)",
-      "Further management steps in follow-up",
       "Education on proper back care",
-      "Advice to avoid activities that exacerbate symptoms",
-      "Advice to avoid indulging in foods that could affect blood sugar levels",
-      "Return instruction: \"Return in 6 weeks for follow-up\"",
-      "Entire \"Environmental and Lifestyle Considerations\" section"
+      "Environmental and lifestyle considerations (patient lives in an affluent suburban area with excellent access to healthcare services and low environmental health risks)",
+      "Patient's health literacy, cooperation, and motivation (high level of health literacy and is very cooperative and motivated to follow medical advice)"
     ],
-    "additions": [
-      "\"sharp\" pain descriptor in Subjective"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and core HPI elements but omits several important details. These include the patient's age, race, occupation, specific activities worsening pain (walking and sitting for extended periods), the 'occasional' nature of muscle weakness in the left foot, and the impact on job-related tasks. Additionally, the entire Review of Systems (ROS) section structure is omitted, along with specific ROS details for General, Musculoskeletal, and Neurological systems. The single addition of 'sharp' pain descriptor was supported by the transcript and does not impact the grade.",
+        "summary": "The Subjective section is missing the patient's job-related limitations (ability to walk, stand, perform job as Information Technology Consultant), which is a moderate omission impacting the functional status. It also omits the negative finding of no fever or weight loss, which is a minor omission.",
         "omissions": [
-          "Patient's age (52-year-old)",
-          "Patient's race (African American)",
-          "Patient's occupation (Information Technology Consultant)",
-          "Specific activities worsening pain (walking and sitting for extended periods)",
-          "Occasional muscle weakness in the left foot (in HPI/ROS)",
-          "Impact on job-related tasks",
-          "Review of Systems (ROS) section",
-          "General ROS (no fever or weight loss)",
-          "Musculoskeletal ROS (severe lower back pain)",
-          "Neurological ROS (muscle weakness in left foot)"
+          "Patient's job-related limitations (ability to walk, stand, perform job as Information Technology Consultant)",
+          "No fever or weight loss (from ROS General)"
         ],
-        "additions": [
-          "\"sharp\" pain descriptor"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurate, with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section accurately reflects all objective findings from the Ground Truth with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is nearly complete, accurately stating the primary diagnosis. The only omission is the explanatory detail that the patient's symptoms and physical examination findings are consistent with the diagnosis, which is a minor detail and does not significantly impact clinical usefulness.",
-        "omissions": [
-          "Explanation that patient's symptoms and physical examination findings are consistent with diagnosis"
-        ],
+        "summary": "The Assessment section accurately reflects the primary diagnosis and its likely cause with no omissions or additions.",
+        "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section includes all major treatment components but has several omissions. These include the specific referral to Dr. Emily Carter, Orthopedic Specialist, the explicit purpose of the Lumbar spine MRI, details about further management steps in follow-up, specific patient education points (proper back care, avoiding activities that exacerbate symptoms, avoiding foods affecting blood sugar levels), and the entire 'Environmental and Lifestyle Considerations' section. While the core plan is present, these omissions reduce its comprehensiveness.",
+        "summary": "The Plan section omits the specific quantity of Naproxen (28 tablets) and education on proper back care, which are minor omissions. It also misses the referral to Dr. Emily Carter, Orthopedic Specialist, which is a moderate omission. Additionally, the environmental and lifestyle considerations and the patient's health literacy/motivation are omitted, both considered minor omissions.",
         "omissions": [
+          "Naproxen quantity: 28 tablets",
           "Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy",
-          "Purpose of Lumbar spine MRI (to evaluate for nerve impingement or disc herniation)",
-          "Further management steps in follow-up",
           "Education on proper back care",
-          "Advice to avoid activities that exacerbate symptoms",
-          "Advice to avoid indulging in foods that could affect blood sugar levels",
-          "Return instruction: \"Return in 6 weeks for follow-up\"",
-          "Entire \"Environmental and Lifestyle Considerations\" section"
+          "Environmental and lifestyle considerations (patient lives in an affluent suburban area with excellent access to healthcare services and low environmental health risks)",
+          "Patient's health literacy, cooperation, and motivation (high level of health literacy and is very cooperative and motivated to follow medical advice)"
         ],
         "additions": []
       }
@@ -296,20 +263,5 @@
     "rubric_notes": null
   },
   "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "\"sharp\" pain descriptor in Subjective",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Sure, it’s a constant, sharp pain that radiates down my left leg.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"sharp\" pain descriptor",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Sure, it’s a constant, sharp pain that radiates down my left leg.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    }
-  ]
+  "addition_evidence": []
 }

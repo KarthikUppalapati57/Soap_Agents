@@ -249,9 +249,9 @@
     "plan_alignment_score": 0.7142857142857143
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-expert",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has a significant omission of the entire Review of Systems (ROS) section, which is a major component of the Subjective section and makes the note meaningfully incomplete. Additionally, the specific stage of chronic kidney disease (stage 1) is omitted from the Assessment. While other sections are well-captured and all additions are supported by the transcript, these omissions reduce the overall clinical completeness and precision, making the note usable with caution and review.",
+    "overall_summary": "The generated note has a significant omission in the Subjective section, completely missing the Review of Systems, which is a major clinical gap. Additionally, the specific stage of chronic kidney disease (stage 1) was omitted from the Assessment. Other omissions are minor, and all additions were supported by the transcript, but these key omissions reduce the overall completeness and clinical utility of the note.",
     "omissions": [
       "Patient's profession (software engineer) in HPI",
       "Frequency of dizziness and elevated blood pressure (weekly) in HPI",
@@ -275,7 +275,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section receives a C due to the major omission of the entire Review of Systems (ROS) section, which is a critical part of a comprehensive subjective history. Minor omissions include the patient's profession, the weekly frequency of dizziness and elevated blood pressure, and the detail about the patient actively managing health through diet and exercise. The absence of the structured ROS significantly impacts the completeness of this section.",
+        "summary": "The Subjective section has a major omission, completely missing the entire Review of Systems, which is a critical component for comprehensive clinical documentation. Other omissions, such as the patient's profession, frequency of symptoms, and active health management, are minor.",
         "omissions": [
           "Patient's profession (software engineer)",
           "Dizziness and elevated BP occurring weekly",
@@ -286,8 +286,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned and usable. Minor omissions include specific details from the physical examination such as the patient being 'oriented,' 'in no acute distress,' and 'no organomegaly.' The pending lab and imaging headers were also omitted but their content is present in the Plan. All additions in this section were supported by the transcript and did not negatively impact the grade.",
+        "grade": "A",
+        "summary": "The Objective section is well-aligned. The omissions are minor details from the physical examination (e.g., 'oriented,' 'in no acute distress,' 'no organomegaly') and structural elements (pending section headers). All additions in this section were supported by the transcript.",
         "omissions": [
           "General Appearance: 'oriented'",
           "General Appearance: 'in no acute distress'",
@@ -304,7 +304,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section receives a B due to a moderate omission of the specific stage of chronic kidney disease ('stage 1 chronic kidney disease'). While the diagnosis of hypertensive chronic kidney disease is present, the lack of staging reduces precision. The omission of the statement about awaiting laboratory results and imaging is minor, as this information is clearly conveyed in the Plan section.",
+        "summary": "The Assessment section has a moderate omission by not specifying the 'stage 1' of chronic kidney disease, which is a clinically important detail. The omission of the statement about awaiting laboratory results and imaging is minor. There were no unsupported or unknown additions.",
         "omissions": [
           "Specific stage of CKD: 'stage 1 chronic kidney disease'",
           "Statement about awaiting laboratory results and imaging for further evaluation"
@@ -314,7 +314,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is excellent, capturing all major clinically important Ground Truth content. Minor omissions include the specific detail of 'jogging 3 times a week' for exercise and the concluding statement about the patient's high compliance and proactive health management. All additions in this section were supported by the transcript and did not negatively impact the grade, ensuring the plan is comprehensive and actionable.",
+        "summary": "The Plan section is strong, with only minor omissions regarding specific lifestyle details (e.g., 'jogging 3 times a week') and a concluding statement about patient compliance. All core plan elements are present, and all additions were supported by the transcript.",
         "omissions": [
           "Lifestyle Recommendations: Specific exercise detail '(jogging 3 times a week)'",
           "Concluding statement about patient's high compliance and proactive health management"
@@ -331,37 +331,47 @@
     {
       "addition_text": "Vital signs are within normal limits (summary statement)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your blood pressure today is 128/78 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. Your weight is 65 kg, and your height is 165 cm. All of these are within normal limits.",
+      "transcript_evidence": "All of these are within normal limits.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Physical exam finding: no neurological deficits (summary statement)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Neurologically, you are alert and oriented with no focal deficits",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "no neurological deficits."
+      "matched_claim_text": "no neurological deficits.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient expresses understanding and gratitude for the care provided",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I understand. ... I appreciate that. ... Thank you, Doctor. That means a lot.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient expresses understanding and gratitude for the care provided."
+      "matched_claim_text": "The patient expresses understanding and gratitude for the care provided.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Vital signs are within normal limits",
       "supported_by_transcript": "supported",
       "transcript_evidence": "All of these are within normal limits.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Physical exam finding: no neurological deficits",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Neurologically, you are alert and oriented with no focal deficits",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "no neurological deficits."
+      "matched_claim_text": "no neurological deficits.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

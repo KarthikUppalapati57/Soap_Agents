@@ -263,59 +263,75 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions across all clinical sections. Key patient medical history and detailed ROS denials are missing from Subjective. Important physical exam findings are absent from Objective. The Assessment critically lacks a differential diagnosis, and the Plan omits the crucial step of awaiting lab results. These major gaps materially reduce the clinical usefulness and completeness of the note.",
+    "overall_summary": "The generated note contains several significant omissions that materially reduce its clinical usefulness and completeness. Key missing information includes the patient's full medical history in the HPI, the entire Review of Systems section, specific physical exam findings (cardiovascular, respiratory, general appearance), the differential diagnosis in the Assessment, and crucial details about pending laboratory tests in the Plan. While there are no unsupported or unknown additions, these omissions create substantial gaps in the clinical documentation.",
     "omissions": [
-      "Signature section (Dr. [Your Name], MD, General Physician, Private Practice)"
+      "Medical history of prediabetes and hypertension (from HPI)",
+      "Symptoms occur daily",
+      "Symptoms significantly affecting ability to perform daily tasks at home",
+      "Denial of recreational drug use",
+      "Minimal recreational activities due to symptoms",
+      "Frustration with lack of improvement despite current treatment regimen",
+      "Patient is cooperative but clearly distressed about his ongoing condition",
+      "Review of Systems (ROS) section",
+      "General Appearance: Appears tired, no acute distress",
+      "Cardiovascular physical exam: Regular rate and rhythm, no murmurs",
+      "Respiratory physical exam: Clear to auscultation bilaterally",
+      "Differential diagnosis including dehydration, electrolyte imbalance, or possible endocrine/metabolic disorder",
+      "Awaiting results of biochemistry panel, including glucose, electrolytes, renal, and liver function tests",
+      "Patient understands and agrees with the plan",
+      "Reminder to follow up sooner if symptoms worsen"
     ],
-    "additions": [],
+    "additions": [
+      "Lack of exercise, poor diet, smoking may contribute to symptoms (in Assessment)",
+      "Anxiety and frustration reported by patient (in Assessment)",
+      "'(neurological exam)' qualifier (in Objective)",
+      "'(musculoskeletal exam)' qualifier (in Objective)"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the patient's medical history of prediabetes and hypertension from the HPI. It also lacks detailed denials for several Review of Systems categories (Cardiovascular, Respiratory, Neurological, Musculoskeletal), making the section less comprehensive. Minor omissions include section headers and some contextual details.",
+        "summary": "The Subjective section is meaningfully incomplete due to the omission of the patient's medical history from the HPI, the impact of symptoms on daily tasks at home, and the complete absence of the structured Review of Systems section, which includes several important denials.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
           "Medical history of prediabetes and hypertension (from HPI)",
-          "Symptoms occur daily (from HPI)",
-          "Denial of recreational drug use (from HPI)",
-          "Minimal recreational activities due to symptoms (from HPI)",
-          "Frustration with lack of improvement despite current treatment regimen (from HPI)",
-          "Cooperative but clearly distressed about ongoing condition (from HPI)",
-          "Detailed Cardiovascular ROS (denies chest pain, palpitations, edema)",
-          "Detailed Respiratory ROS (denies shortness of breath, cough, wheezing)",
-          "Detailed Gastrointestinal ROS (denies vomiting, diarrhea, constipation)",
-          "Detailed Neurological ROS (denies headaches, seizures, focal neurological deficits)",
-          "Detailed Musculoskeletal ROS (no joint pain or swelling)"
+          "Symptoms occur daily",
+          "Symptoms significantly affecting ability to perform daily tasks at home",
+          "Denial of recreational drug use",
+          "Minimal recreational activities due to symptoms",
+          "Frustration with lack of improvement despite current treatment regimen",
+          "Patient is cooperative but clearly distressed about his ongoing condition",
+          "Review of Systems (ROS) section, including:",
+          "Denial of chest pain, palpitations, or edema",
+          "Denial of shortness of breath, cough, or wheezing",
+          "Denial of vomiting, diarrhea, or constipation",
+          "Denial of headaches, seizures, or focal neurological deficits",
+          "Denial of joint pain or swelling"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits important physical examination findings for the Cardiovascular (regular rate and rhythm, no murmurs) and Respiratory (clear to auscultation bilaterally) systems, reducing its completeness. Minor omissions include section headers and general appearance findings. Supported additions do not impact the grade.",
+        "grade": "B",
+        "summary": "The Objective section is mostly aligned but has several moderate omissions, including the patient's general appearance, and key physical exam findings for the cardiovascular (regular rate and rhythm, no murmurs) and respiratory (clear to auscultation bilaterally) systems.",
         "omissions": [
-          "General Appearance section header",
-          "Vital Signs section header",
-          "Physical Examination section header",
-          "General Appearance findings: Appears tired, no acute distress",
-          "Cardiovascular exam findings: Regular rate and rhythm, no murmurs",
-          "Respiratory exam findings: Clear to auscultation bilaterally"
+          "General Appearance: Appears tired, no acute distress",
+          "Cardiovascular physical exam: Regular rate and rhythm, no murmurs",
+          "Respiratory physical exam: Clear to auscultation bilaterally"
         ],
         "additions": [
-          "\"(neurological exam)\" qualifier for neurological findings",
-          "\"(musculoskeletal exam)\" qualifier for musculoskeletal findings"
+          "'(neurological exam)' qualifier",
+          "'(musculoskeletal exam)' qualifier"
         ]
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section has a major omission by completely lacking a differential diagnosis, which is crucial for demonstrating clinical reasoning and guiding further investigation. Minor details like the \"moderate\" qualifier for fatigue and symptom duration are also omitted. Supported additions do not impact the grade.",
+        "summary": "The Assessment section has a major omission: the differential diagnosis, which is a critical component for outlining the clinician's thought process and potential causes for the patient's symptoms. This significantly reduces the clinical usefulness of the section.",
         "omissions": [
-          "\"moderate\" qualifier for fatigue",
-          "\"over the past three weeks\" duration for symptoms",
+          "'moderate' fatigue",
+          "'occasional nausea' in assessment",
+          "'over the past three weeks' in assessment",
           "Differential diagnosis including dehydration, electrolyte imbalance, or possible endocrine/metabolic disorder"
         ],
         "additions": [
@@ -326,10 +342,12 @@
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section has a major omission by not including the crucial step of awaiting results for the biochemistry panel, which is a key diagnostic component. It also omits the patient's agreement with the plan and the instruction to follow up sooner if symptoms worsen.",
+        "summary": "The Plan section contains a major omission regarding the pending laboratory testing, including glucose, electrolytes, renal, and liver function tests. This is a crucial diagnostic step that is not documented, materially reducing the completeness and utility of the plan.",
         "omissions": [
-          "Laboratory Testing: Await results of the biochemistry panel, including glucose, electrolytes, renal, and liver function tests",
-          "Statement: Patient understands and agrees with the plan",
+          "Instruction to monitor for any changes (regarding symptom diary)",
+          "Laboratory Testing: Await results of biochemistry panel, including glucose, electrolytes, renal, and liver function tests",
+          "'for further evaluation of potential underlying endocrine or metabolic causes' (from endocrinology referral)",
+          "Patient understands and agrees with the plan",
           "Reminder to follow up sooner if symptoms worsen"
         ],
         "additions": []
@@ -340,32 +358,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"(neurological exam)\" qualifier for neurological findings",
+      "addition_text": "Lack of exercise, poor diet, smoking may contribute to symptoms (in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "My diet isn't great... I eat a lot of processed foods and not many fruits or vegetables. No, not really [exercise]. I smoke about 5 cigarettes a day... I want to educate you on the importance of a balanced diet, regular exercise, and smoking cessation. These changes can significantly improve your health and well-being.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Lack of exercise, poor diet, smoking may contribute to symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Anxiety and frustration reported by patient (in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I'm really frustrated and anxious because of all this.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Anxiety and frustration reported by patient",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'(neurological exam)' qualifier (in Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Let's check your neurological status. [Performs neurological exam] You are alert and oriented, no focal deficits.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"(musculoskeletal exam)\" qualifier for musculoskeletal findings",
+      "addition_text": "'(musculoskeletal exam)' qualifier (in Objective)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Performs musculoskeletal exam] Normal range of motion, no tenderness.",
+      "transcript_evidence": "And lastly, I'll check your musculoskeletal system. [Performs musculoskeletal exam] Normal range of motion, no tenderness.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'(neurological exam)' qualifier",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "You are alert and oriented, no focal deficits.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Alert and oriented, no focal deficits (neurological exam)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'(musculoskeletal exam)' qualifier",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Normal range of motion, no tenderness.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Normal range of motion, no tenderness (musculoskeletal exam)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Lack of exercise, poor diet, smoking may contribute to symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "My diet isn't great... I eat a lot of processed foods and not many fruits or vegetables. No, not really [exercise]. I smoke about 5 cigarettes a day... I want to educate you on the importance of a balanced diet, regular exercise, and smoking cessation. These changes can significantly improve your health and well-being.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lack of exercise, poor diet, smoking may contribute to symptoms"
+      "matched_claim_text": "Lack of exercise, poor diet, smoking may contribute to symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Anxiety and frustration reported by patient",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm really frustrated and anxious because of all this.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anxiety and frustration reported by patient"
+      "matched_claim_text": "Anxiety and frustration reported by patient",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

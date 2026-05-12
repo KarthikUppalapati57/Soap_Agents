@@ -264,9 +264,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains noticeable gaps, particularly in the Subjective and Assessment sections. The Subjective section omits crucial HPI details like the patient's extensive smoking history and shortness of breath on exertion, as well as numerous ROS denials. The Assessment section omits a primary diagnosis of hyperlipidemia. While the Objective and Plan sections are largely complete with only minor omissions, the cumulative effect of these issues, especially the missing clinical context in Subjective and a primary diagnosis in Assessment, makes the note meaningfully incomplete and warrants caution during review. There are no unsupported or unknown additions.",
+    "overall_summary": "The note has several moderate omissions, particularly in the Subjective and Assessment sections. The Subjective section omits crucial details about the patient's smoking history (duration and amount) and shortness of breath on exertion, which are vital for understanding the chief complaint and HPI. The Assessment section notably omits the primary diagnosis of \"Hyperlipidemia, controlled on current medication.\" While there are no unsupported or unknown additions, these omissions represent noticeable gaps that make the note meaningfully incomplete, requiring careful review to ensure all relevant clinical information is captured. The Objective and Plan sections are well-documented with only minor omissions.",
     "omissions": [
       "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and referrals."
     ],
@@ -276,7 +276,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The section omits significant details from the HPI, including the patient's extensive smoking history (1 pack per day for 30 years), shortness of breath on exertion, the impact of smoking on physical activities, and previous unsuccessful attempts to quit. Additionally, all denials from the Review of Systems (fever, chills, chest pain, nausea, vomiting, muscle pain, headaches, dizziness, anxiety, depression) are omitted. These omissions create noticeable gaps in the patient's history.",
+        "summary": "This section has several omissions, including the patient's full smoking history (duration and amount) and shortness of breath on exertion from both HPI and ROS. While some ROS denials are minor, the missing HPI elements are clinically significant, making the history less complete and detailed.",
         "omissions": [
           "Patient's smoking history (1 pack per day for the past 30 years)",
           "Shortness of breath on exertion (from HPI and ROS)",
@@ -294,7 +294,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The section is largely complete, with only a minor omission of the general observation that the 'Patient appears in no acute distress'.",
+        "summary": "This section is well-documented with only one minor omission regarding the patient appearing in no acute distress. All other vital signs and key physical examination findings are accurately captured.",
         "omissions": [
           "General: Patient appears in no acute distress"
         ],
@@ -302,8 +302,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The section omits the primary diagnosis of 'Hyperlipidemia, controlled on current medication'. It also omits the specific qualifier '(to be confirmed with imaging and spirometry)' for early signs of emphysema, though it does include a 'Possible' qualifier which mitigates this slightly. The omission of a primary diagnosis is a moderate issue.",
+        "grade": "C",
+        "summary": "The primary diagnosis of \"Hyperlipidemia, controlled on current medication\" is omitted, which is a significant clinical gap. The omission of the qualifier for early signs of emphysema is minor. The addition of 'Possible' before the differential diagnoses is supported by the transcript and does not reduce the grade.",
         "omissions": [
           "Hyperlipidemia, controlled on current medication",
           "Qualifier '(to be confirmed with imaging and spirometry)' for early signs of emphysema"
@@ -315,7 +315,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The section omits several minor details, such as the specific application site for the nicotine patch, an example of light exercise, the full purpose of the follow-up, the specific name of the pulmonologist, the specific views for the chest X-ray, and the detailed purposes for spirometry and chest X-ray. However, all major components of the plan are present.",
+        "summary": "This section is comprehensive and actionable. All omissions are minor details, such as specific application instructions for the nicotine patch, examples for exercise, or the specific name of the pulmonologist, and do not detract from the overall clinical usefulness of the plan.",
         "omissions": [
           "Nicotine patch application detail: 'applied once daily to the upper body'",
           "Exercise example: 'such as walking'",
@@ -337,7 +337,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We also have some differential diagnoses to consider: Chronic Obstructive Pulmonary Disease (COPD)",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible Chronic Obstructive Pulmonary Disease (COPD)"
+      "matched_claim_text": "Possible Chronic Obstructive Pulmonary Disease (COPD)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

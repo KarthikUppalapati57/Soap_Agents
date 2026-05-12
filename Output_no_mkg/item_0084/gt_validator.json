@@ -281,9 +281,9 @@
     "plan_alignment_score": 0.47692307692307695
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps, particularly in the Subjective section, where crucial patient history, medications, and detailed review of systems are omitted. While the Assessment is complete, and Objective and Plan sections capture the main points, the missing clinical context in Subjective makes the note meaningfully incomplete and requires careful review to ensure full understanding of the patient's background.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The overall note receives a D due to major omissions in the Subjective section, specifically the complete absence of the patient's medical history (hypertension, seasonal allergies) and current medications. This significantly reduces the clinical usefulness and completeness of the note. Additionally, several denials from the Review of Systems and important patient education details in the Plan were omitted. While other sections are better, the foundational gaps in the Subjective section warrant a lower overall grade.",
     "omissions": [
       "Patient's history of hypertension and seasonal allergies",
       "Medications: Lisinopril 20 mg daily and Cetirizine 10 mg daily",
@@ -308,8 +308,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has significant omissions, including the patient's history of hypertension and seasonal allergies, their specific medications (Lisinopril 20 mg daily and Cetirizine 10 mg daily), and their concern about medication side effects. Additionally, a large portion of the detailed Review of Systems (Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Neurological) and specific sleep quality details are missing, making the section meaningfully incomplete.",
+        "grade": "D",
+        "summary": "The Subjective section has major omissions, including the patient's complete medical history (hypertension, seasonal allergies) and current medications (Lisinopril, Cetirizine). It also omits the patient's concern about medication side effects and numerous denials from the Review of Systems (Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Neurological), making the HPI and ROS significantly incomplete and reducing clinical usefulness.",
         "omissions": [
           "Patient's history of hypertension and seasonal allergies",
           "Medications: Lisinopril 20 mg daily and Cetirizine 10 mg daily",
@@ -327,7 +327,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately captures vital signs but omits several minor details from the physical examination. Specifically, 'General Appearance: Appears tired, no acute distress,' 'HEENT: No signs of infection,' 'Heart: no murmurs,' and 'Extremities: No edema, normal range of motion' are missing. While the core findings are present, these omissions represent several minor gaps.",
+        "summary": "The Objective section is mostly aligned and usable. It accurately captures vital signs and provides a good summary of examination findings. However, it omits some specific details from the Ground Truth, such as 'Appears tired, no acute distress' from General Appearance, 'No signs of infection' in HEENT, 'no murmurs' from Heart, and 'No edema, normal range of motion' from Extremities.",
         "omissions": [
           "General Appearance: Appears tired, no acute distress",
           "HEENT: No signs of infection",
@@ -339,14 +339,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete with no omissions or unsupported/unknown additions.",
+        "summary": "The Assessment section is complete and accurately reflects the Ground Truth, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures the main recommendations but omits several useful details. Missing items include specific pain relief options (acetaminophen or ibuprofen), the explicit purpose of blood work (to check for underlying causes), and important patient education regarding common side effects of over-the-counter medications and what to expect. The patient's agreement with the plan and advice for new concerns are also omitted.",
+        "summary": "The Plan section is mostly complete and usable, covering all major recommendations. However, it omits specific pain relief options (acetaminophen or ibuprofen), the explicit purpose of blood work ('to check for underlying causes'), and important patient education regarding common side effects of over-the-counter medications and what to expect. It also misses the patient's agreement/understanding of the plan.",
         "omissions": [
           "Specific pain relief options: acetaminophen or ibuprofen",
           "Purpose of blood work: to check for underlying causes",

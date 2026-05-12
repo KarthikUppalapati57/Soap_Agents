@@ -2,7 +2,7 @@
   "item": "item_0084",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0084",
   "ground_truth_soap": "Subjective:\n\nChief Complaint (CC):\nModerate fatigue, fever, body aches, and headaches lasting for 5 days.\n\nHistory of Present Illness (HPI):\nThe patient, Mr. John Smith, is a 45-year-old Caucasian male who presents with symptoms of fatigue, mild fever, generalized body aches, and headaches that have persisted for the past 5 days. He reports that these symptoms have been continuous since onset and have significantly impacted his ability to perform daily tasks and go to work. The patient has a history of hypertension and seasonal allergies, managed with Lisinopril 20 mg daily and Cetirizine 10 mg daily, respectively. He is concerned about the potential side effects of medications.\n\nReview of Systems (ROS):\n- General: Endorses fatigue, mild fever.\n- HEENT: Endorses headaches, nasal congestion. No signs of infection.\n- Musculoskeletal: Endorses generalized body aches.\n- Cardiovascular: Denies chest pain, palpitations.\n- Respiratory: Denies shortness of breath.\n- Gastrointestinal: Denies nausea, vomiting, diarrhea.\n- Genitourinary: Denies dysuria, frequency.\n- Neurological: Denies dizziness, tingling, or numbness.\n- Psychiatric: Reports poor sleep quality, averaging 5-6 hours due to discomfort.\n\nObjective:\n\nVital Signs:\n- Temperature: 100.5°F\n- Blood Pressure: 130/85 mmHg\n- Heart Rate: 88 bpm\n- Respiratory Rate: 18 breaths per minute\n\nGeneral Appearance:\n- Appears tired, no acute distress.\n\nHEENT:\n- No signs of infection, nasal congestion noted.\n\nLungs:\n- Clear to auscultation bilaterally.\n\nHeart:\n- Regular rhythm, no murmurs.\n\nAbdomen:\n- Soft, non-tender.\n\nExtremities:\n- No edema, normal range of motion.\n\nAssessment:\n\nIllness, unspecified:\n- The patient presents with non-specific symptoms that suggest a viral or other self-limiting illness. Given the patient’s history of hypertension and seasonal allergies, there is no immediate indication of a more serious underlying condition, but further testing is warranted to rule out other causes.\n\nPlan:\n\n- Medical Treatment:\n  - Rest and hydration.\n  - Over-the-counter pain relief with acetaminophen or ibuprofen as needed for fever and body aches.\n\n- Investigations:\n  - Ordered blood work, including Complete Blood Count (CBC) and Basic Metabolic Panel (BMP), to check for underlying causes.\n\n- Patient Education and Counseling:\n  - Advised the patient about the importance of rest and fluid intake. Discussed common side effects of over-the-counter medications and what to expect over the next few days.\n\n- Follow-up Recommendations:\n  - Follow-up visit in one week if symptoms persist or worsen.\n\n- Lifestyle Recommendations:\n  - Encouraged regular sleep hygiene practices to improve sleep quality.\n  - Suggested moderate physical activity as tolerated.\n\nPatient Agreements: \n- The patient understands and agrees with the recommended medical treatment plan. He is advised to return for follow-up if symptoms persist or if there are any new concerns.",
-  "generated_soap": "Subjective:\n- The patient reports moderate fatigue, mild fever, body aches, headaches for the past 5 days, making it hard to work or sleep well\n\nObjective:\n- Temperature: 100.5°F\n- Blood pressure: 130/85 mmHg\n- Heart rate: 88 bpm\n- Respiratory rate: 18 breaths per minute\n- No signs of infection in ears, nose, or throat; lungs clear to auscultation bilaterally; heart has regular rhythm with no murmurs; abdomen soft and non-tender; extremities show no edema with normal range of motion\n\nAssessment:\n- Possible viral or self-limiting illness. Further testing, including CBC and BMP, will be done to rule out underlying causes.\n\nPlan:\n- Over-the-counter pain relief (acetaminophen or ibuprofen) as needed for fever and body aches\n- Encourage good sleep hygiene, moderate physical activity, and rest\n- Follow-up visit in one week if symptoms persist or worsen",
+  "generated_soap": "Subjective:\nThe patient reports moderate fatigue, mild fever, body aches, headaches for the past 5 days, difficulty sleeping, and general malaise.\n\nObjective:\nTemperature: 100.5°F, Blood pressure: 130/85 mmHg, Heart rate: 88 bpm, Respiratory rate: 18 breaths per minute. The patient appears tired but not in acute distress. Nasal passages are congested, lungs are clear to auscultation bilaterally, heart has a regular rhythm with no murmurs, abdomen is soft and non-tender, and there is no edema or other abnormalities detected in the extremities.\n\nAssessment:\nPossible viral or self-limiting illness given the patient's symptoms and examination findings. The patient has a history of hypertension and seasonal allergies, but no signs suggest a more serious condition at this time. Further testing (CBC, BMP) is recommended to rule out any underlying causes.\n\nPlan:\nRecommend plenty of rest, staying hydrated, and taking over-the-counter pain relief as needed for fever and body aches. Encourage good sleep hygiene, moderate physical activity, and a follow-up visit in one week if symptoms persist or worsen.",
   "entities_gt": {
     "all_entities": [
       "fatigue",
@@ -75,39 +75,47 @@
   "entities_generated": {
     "all_entities": [
       "moderate fatigue",
-      "mild fever",
+      "fever",
       "body aches",
       "headaches",
+      "difficulty sleeping",
+      "general malaise",
       "temperature",
       "blood pressure",
       "heart rate",
       "respiratory rate",
-      "ears",
-      "throat",
+      "nasal passages",
+      "congested",
       "lungs",
       "heart",
       "abdomen",
-      "extremities",
+      "symptoms",
+      "examination findings",
+      "hypertension",
+      "seasonal allergies",
+      "further testing",
       "cbc",
       "bmp",
+      "staying hydrated",
       "over-the-counter pain relief",
-      "acetaminophen",
-      "ibuprofen",
-      "fever",
-      "encourage good sleep hygiene",
-      "moderate physical activity"
+      "good sleep hygiene",
+      "moderate physical activity",
+      "follow-up visit"
     ],
     "symptoms": [
       "moderate fatigue",
       "mild fever",
       "body aches",
       "headaches",
-      "no signs of infection"
+      "difficulty sleeping",
+      "general malaise",
+      "nasal passages are congested",
+      "abdomen is soft and non-tender",
+      "fever",
+      "symptoms"
     ],
     "medications": [
-      "over-the-counter pain relief",
-      "acetaminophen",
-      "ibuprofen"
+      "over-the-counter pain relief"
     ],
     "labs": [
       "temperature",
@@ -121,96 +129,103 @@
   },
   "clinical_recall_all": {
     "gt_count": 32,
-    "gen_count": 22,
-    "overlap_count": 10,
-    "recall": 0.3125,
+    "gen_count": 27,
+    "overlap_count": 12,
+    "recall": 0.375,
     "gt_only": [
       "cetirizine 10 mg daily",
       "chest pain",
       "diarrhea",
       "dizziness",
       "dysuria",
+      "extremities",
       "fatigue",
       "follow-up",
-      "follow-up visit",
-      "further testing",
       "generalized body aches",
       "lisinopril 20 mg daily",
       "medical treatment",
+      "mild fever",
       "nasal congestion",
       "nausea",
       "palpitations",
       "poor sleep quality",
       "recommended medical treatment plan",
-      "seasonal allergies",
       "shortness of breath",
-      "symptoms",
       "vital signs",
       "vomiting"
     ],
     "gen_only": [
-      "acetaminophen",
       "bmp",
       "cbc",
-      "ears",
-      "encourage good sleep hygiene",
+      "congested",
+      "difficulty sleeping",
+      "examination findings",
+      "general malaise",
+      "good sleep hygiene",
       "heart",
-      "ibuprofen",
+      "hypertension",
       "moderate fatigue",
       "moderate physical activity",
+      "nasal passages",
       "over-the-counter pain relief",
       "respiratory rate",
-      "throat"
+      "staying hydrated"
     ],
     "overlap": [
       "abdomen",
       "blood pressure",
       "body aches",
-      "extremities",
       "fever",
+      "follow-up visit",
+      "further testing",
       "headaches",
       "heart rate",
       "lungs",
-      "mild fever",
+      "seasonal allergies",
+      "symptoms",
       "temperature"
     ]
   },
   "clinical_recall_symptoms": {
     "gt_count": 19,
-    "gen_count": 5,
-    "overlap_count": 3,
-    "recall": 0.15789473684210525,
+    "gen_count": 10,
+    "overlap_count": 4,
+    "recall": 0.21052631578947367,
     "gt_only": [
       "diarrhea",
       "dizziness",
       "dysuria",
       "fatigue",
-      "fever",
       "generalized body aches",
       "nasal congestion",
       "nausea",
+      "no signs of infection",
       "numbness",
       "palpitations",
       "poor sleep quality",
       "shortness of breath",
-      "symptoms",
       "tingling",
       "vital signs",
       "vomiting"
     ],
     "gen_only": [
+      "abdomen is soft and non-tender",
+      "difficulty sleeping",
+      "general malaise",
       "mild fever",
-      "moderate fatigue"
+      "moderate fatigue",
+      "nasal passages are congested"
     ],
     "overlap": [
       "body aches",
+      "fever",
       "headaches",
-      "no signs of infection"
+      "symptoms"
     ]
   },
   "clinical_recall_medications": {
     "gt_count": 2,
-    "gen_count": 3,
+    "gen_count": 1,
     "overlap_count": 0,
     "recall": 0.0,
     "gt_only": [
@@ -218,8 +233,6 @@
       "lisinopril 20 mg daily"
     ],
     "gen_only": [
-      "acetaminophen",
-      "ibuprofen",
       "over-the-counter pain relief"
     ],
     "overlap": []
@@ -246,126 +259,129 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.4930356928185019,
-    "overall_rouge_l_f1": 0.40476390210325214,
+    "overall_token_f1": 0.5362420988392131,
+    "overall_rouge_l_f1": 0.420093587505338,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.26086956521739135,
-        "rouge_l_f1": 0.17801047120418848
+        "token_f1": 0.23703703703703702,
+        "rouge_l_f1": 0.15957446808510636
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.7959183673469388,
-        "rouge_l_f1": 0.7927927927927928
+        "token_f1": 0.7169811320754718,
+        "rouge_l_f1": 0.6611570247933884
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.41935483870967744,
-        "rouge_l_f1": 0.3188405797101449
+        "token_f1": 0.7294117647058824,
+        "rouge_l_f1": 0.5625
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.49600000000000005,
-        "rouge_l_f1": 0.3294117647058823
+        "token_f1": 0.46153846153846156,
+        "rouge_l_f1": 0.29714285714285715
       }
     ],
-    "assessment_alignment_score": 0.41935483870967744,
-    "plan_alignment_score": 0.49600000000000005
+    "assessment_alignment_score": 0.7294117647058824,
+    "plan_alignment_score": 0.46153846153846156
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note is meaningfully incomplete due to significant omissions across the Subjective, Assessment, and Plan sections. Key patient history, including hypertension and associated medication, is missing from the Subjective. The Assessment lacks crucial clinical reasoning by omitting consideration of the patient's history and a statement regarding the absence of immediate serious conditions. Furthermore, the Plan section fails to document the ordered investigations (CBC and BMP). While the Objective section is well-captured, these substantial gaps in other sections reduce the overall clinical usefulness and completeness of the note.",
+    "overall_summary": "The generated note provides a generally accurate overview but contains numerous omissions, particularly regarding specific medication details, the impact of symptoms on daily life, and explicit instructions for investigations and patient education in the plan. A significant concern is an unsupported addition in the Objective section, \"or other abnormalities detected,\" which introduces misleading clinical information about the patient's extremities.",
     "omissions": [
-      "Patient's symptoms being continuous since onset",
-      "Patient's history of hypertension",
-      "Patient's history of seasonal allergies",
-      "Medication: Lisinopril 20 mg daily",
-      "Medication: Cetirizine 10 mg daily",
+      "Impact of symptoms on daily tasks and ability to go to work",
+      "Specific medications for hypertension and allergies (Lisinopril 20 mg daily, Cetirizine 10 mg daily)",
       "Patient concern about potential side effects of medications",
-      "Denial of chest pain or palpitations",
+      "Denial of chest pain, palpitations",
       "Denial of shortness of breath",
-      "Denial of nausea, vomiting, or diarrhea",
-      "Denial of dysuria or frequency",
+      "Denial of nausea, vomiting, diarrhea",
+      "Denial of dysuria, frequency",
       "Denial of dizziness, tingling, or numbness",
-      "Specific sleep duration (5-6 hours) due to discomfort",
-      "General Appearance: Appears tired, no acute distress",
-      "HEENT: Nasal congestion noted",
-      "Consideration of patient's history of hypertension and seasonal allergies in the assessment",
-      "Statement in assessment that there is \"no immediate indication of a more serious underlying condition\"",
-      "Hydration as a medical treatment",
-      "Discussion of common side effects of over-the-counter medications",
-      "Discussion of what to expect over the next few days",
-      "Patient understanding and agreement with the recommended medical treatment plan",
-      "Patient advised to return for follow-up if there are any new concerns"
+      "Specific sleep duration (averaging 5-6 hours) due to discomfort",
+      "No signs of infection in HEENT",
+      "Normal range of motion in extremities",
+      "Specific OTC pain relief medications (acetaminophen or ibuprofen)",
+      "Explicit instruction to order blood work (CBC, BMP) and its purpose",
+      "Patient education on common side effects of over-the-counter medications",
+      "Patient education on what to expect over the next few days",
+      "Purpose of sleep hygiene (to improve sleep quality)",
+      "Qualifier for physical activity (as tolerated)",
+      "Patient understanding and agreement with the treatment plan",
+      "Advice to return for follow-up if new concerns arise"
     ],
     "additions": [
-      "Specificity of \"in ears, nose, or throat\" for no signs of infection in HEENT exam"
+      "General malaise in Subjective section",
+      "Mention of specific tests (CBC, BMP) within the Assessment section",
+      "\"or other abnormalities detected\" in Objective extremities description"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "\"or other abnormalities detected\" in Objective extremities description",
+      "\"or other abnormalities detected\" in extremities description"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has numerous omissions, including the patient's significant medical history of hypertension and seasonal allergies, along with their daily medications (Lisinopril 20 mg daily, Cetirizine 10 mg daily). Many Review of Systems denials and the specific duration of poor sleep are also missing. These omissions make the HPI and ROS meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section omits several details, including the impact of symptoms on daily tasks, specific medication dosages (Lisinopril 20 mg, Cetirizine 10 mg), and patient concerns about medication side effects. Additionally, several denials from the Review of Systems and the specific sleep duration are missing.",
         "omissions": [
-          "Symptoms continuous since onset",
-          "History of hypertension",
-          "History of seasonal allergies",
-          "Medication: Lisinopril 20 mg daily",
-          "Medication: Cetirizine 10 mg daily",
+          "Impact of symptoms on daily tasks and ability to go to work",
+          "Specific medications for hypertension and allergies (Lisinopril 20 mg daily, Cetirizine 10 mg daily)",
           "Patient concern about potential side effects of medications",
-          "Denial of chest pain or palpitations",
+          "Denial of chest pain, palpitations",
           "Denial of shortness of breath",
-          "Denial of nausea, vomiting, or diarrhea",
-          "Denial of dysuria or frequency",
+          "Denial of nausea, vomiting, diarrhea",
+          "Denial of dysuria, frequency",
           "Denial of dizziness, tingling, or numbness",
-          "Specific sleep duration (5-6 hours) due to discomfort"
+          "Specific sleep duration (averaging 5-6 hours) due to discomfort"
         ],
-        "additions": []
+        "additions": [
+          "General malaise"
+        ]
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-captured. The only omissions are minor details regarding general appearance ('Appears tired, no acute distress') and a specific HEENT finding ('Nasal congestion noted'). The single addition identified ('Specificity of \"in ears, nose, or throat\" for no signs of infection in HEENT exam') was supported by the transcript and therefore did not impact the grade.",
+        "grade": "C",
+        "summary": "The Objective section has minor omissions regarding the absence of infection in HEENT and normal range of motion in extremities. Critically, it includes an unsupported addition, \"or other abnormalities detected\" in the extremities description, which is misleading as the GroundTruth and Transcript indicate normal findings.",
         "omissions": [
-          "General Appearance: Appears tired, no acute distress",
-          "HEENT: Nasal congestion noted"
+          "No signs of infection in HEENT",
+          "Normal range of motion in extremities"
         ],
         "additions": [
-          "Specificity of \"in ears, nose, or throat\" for no signs of infection in HEENT exam"
+          "\"or other abnormalities detected\" in extremities description"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section is noticeably incomplete. It omits the crucial consideration of the patient's history of hypertension and seasonal allergies in the diagnostic reasoning. Additionally, the statement that there is 'no immediate indication of a more serious underlying condition' is missing, which impacts the overall clinical context and reassurance provided.",
-        "omissions": [
-          "Consideration of patient's history of hypertension and seasonal allergies",
-          "Statement that there is \"no immediate indication of a more serious underlying condition\""
-        ],
-        "additions": []
+        "grade": "A",
+        "summary": "The Assessment section is accurate and complete, with no omissions or unsupported additions.",
+        "omissions": [],
+        "additions": [
+          "Mention of specific tests (CBC, BMP) within the Assessment section"
+        ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has a major omission: the ordered investigations, specifically the Complete Blood Count (CBC) and Basic Metabolic Panel (BMP), are not documented. While some treatment and lifestyle recommendations are present, the absence of these key diagnostic steps makes the plan meaningfully incomplete. Several minor omissions related to patient education and agreements are also noted.",
+        "grade": "B",
+        "summary": "The Plan section omits specific over-the-counter pain relief medications (acetaminophen or ibuprofen), the explicit instruction to order blood work (CBC, BMP) and its purpose, and several patient education points, such as common side effects of OTC medications and what to expect. It also misses the qualifier \"as tolerated\" for physical activity and documentation of patient agreement.",
         "omissions": [
-          "Hydration as a medical treatment",
-          "Investigations: Ordered blood work, including Complete Blood Count (CBC) and Basic Metabolic Panel (BMP), to check for underlying causes",
-          "Discussion of common side effects of over-the-counter medications",
-          "Discussion of what to expect over the next few days",
-          "Patient understanding and agreement with the recommended medical treatment plan",
-          "Patient advised to return for follow-up if there are any new concerns"
+          "Specific OTC pain relief medications (acetaminophen or ibuprofen)",
+          "Explicit instruction to order blood work (CBC, BMP) and its purpose",
+          "Patient education on common side effects of over-the-counter medications",
+          "Patient education on what to expect over the next few days",
+          "Purpose of sleep hygiene (to improve sleep quality)",
+          "Qualifier for physical activity (as tolerated)",
+          "Patient understanding and agreement with the treatment plan",
+          "Advice to return for follow-up if new concerns arise"
         ],
         "additions": []
       }
@@ -375,11 +391,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Specificity of \"in ears, nose, or throat\" for no signs of infection in HEENT exam",
+      "addition_text": "General malaise in Subjective section",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "no signs of infection in your ears, nose, or throat.",
+      "transcript_evidence": "Not too great, doctor. I've been really tired and just feeling off for the past few days.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Mention of specific tests (CBC, BMP) within the Assessment section",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We'll order some blood work, including a Complete Blood Count (CBC) and a Basic Metabolic Panel (BMP), to check for any underlying causes.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"or other abnormalities detected\" in Objective extremities description",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "General malaise",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: For the past 5 days, I've been dealing with moderate fatigue, a mild fever, body aches, and headaches. It's been making it really hard to do anything, even go to work.\n[Patient]: Not really. I've been getting only about 5-6 hours of sleep because of the discomfort.\n[Patient]: Not too great, doctor. I've been really tired and just feeling off for the past few days.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient reports moderate fatigue, mild fever, body aches, and headaches for the past 5 days, along with difficulty sleeping and general malaise.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"or other abnormalities detected\" in extremities description",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

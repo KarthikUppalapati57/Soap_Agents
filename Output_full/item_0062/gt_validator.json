@@ -314,108 +314,138 @@
     "plan_alignment_score": 0.608187134502924
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, capturing all major clinically important Ground Truth content. There are no unsupported or unknown additions, which is a significant strength. However, the note has several minor omissions, particularly in the Subjective section's ROS details, and a few moderate omissions, including the complete absence of differential diagnoses in the Assessment section and the specific instruction for immediate follow-up with the specialist in the Plan. Despite these, the core clinical information and treatment plan are accurately represented.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The note provides a usable summary of the patient's encounter but suffers from several moderate omissions and one significant structural unsupported addition. Key details regarding the impact of symptoms, past medical history (seasonal flu), general appearance (dehydration), and all differential diagnoses are missing. Additionally, important specifics in the plan, such as the reason for referral, a key patient education point, and an urgent follow-up instruction, are omitted. The inclusion of an \"Additional Notes\" section is an unsupported structural deviation, even though the content within it is largely supported by the transcript.",
     "omissions": [
-      "Symptoms significantly impacting ability to work and perform daily activities",
+      "Impact of symptoms on ability to work and perform daily activities",
       "History of seasonal influenza (last episode 2 years ago)",
       "Malaise",
       "Denies joint pain",
-      "Balanced diet, high in fruits and vegetables",
-      "Regularly jogs 3 times per week",
+      "Diet: Balanced diet, high in fruits and vegetables",
+      "Exercise: Regularly jogs 3 times per week",
       "Tobacco Use: None",
-      "Alcohol Consumption: approximately 2 beers per week (specific quantity)",
       "Drug Use: None",
-      "Slight dehydration noted",
+      "Febrile, slight dehydration noted",
       "No signs of acute respiratory distress",
-      "Viral upper respiratory infection (as a differential diagnosis)",
-      "Asthma exacerbation secondary to viral infection (as a differential diagnosis)",
-      "Bacterial pharyngitis (less likely due to clear discharge and viral presentation) (as a differential diagnosis)",
-      "Blood work to be ordered \"in virology and immunology\"",
-      "Reason for referral: \"for further management due to suspected complications from viral exposure\"",
-      "Patient education point: \"Discussed nature of influenza infection and the importance of completing the antiviral medication regimen\"",
-      "Follow-up instruction: \"Immediate follow-up with Dr. Anna Lee as soon as possible\""
+      "Differential Diagnoses: Viral upper respiratory infection",
+      "Differential Diagnoses: Asthma exacerbation secondary to viral infection",
+      "Differential Diagnoses: Bacterial pharyngitis (less likely due to clear discharge and viral presentation)",
+      "Blood work in virology and immunology",
+      "Reason for referral: for further management due to suspected complications from viral exposure",
+      "Patient education: Discussed nature of influenza infection and the importance of completing the antiviral medication regimen",
+      "Follow-up: Immediate follow-up with Dr. Anna Lee as soon as possible"
     ],
     "additions": [
-      "\"Waiting for complete blood work results.\" (in Additional Notes section)",
-      "\"with upper respiratory symptoms and history of asthma\" added to the primary diagnosis statement"
+      "\"Additional Notes\" section",
+      "\"Waiting for complete blood work results\" in Additional Notes"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "\"Additional Notes\" section"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "This section has numerous omissions, including the patient's history of seasonal influenza, the impact of symptoms on daily activities, and many minor details from the Review of Systems (e.g., diet, exercise, specific alcohol quantity, tobacco/drug use, malaise, joint pain). While some information like asthma history and drug allergies is captured elsewhere in the note, its omission from the Subjective section reduces its completeness. Despite these, the core HPI symptoms are well-captured.",
+        "grade": "C",
+        "summary": "The Subjective section is noticeably incomplete due to the omission of the impact of symptoms on daily activities and the patient's history of seasonal influenza. Furthermore, important past medical history (mild asthma, antihistamine use, drug allergies) and social history (alcohol consumption frequency, tobacco, drug use, diet, exercise) are either omitted or relocated to an unsupported \"Additional Notes\" section, making the Subjective section less comprehensive than the ground truth.",
         "omissions": [
-          "Symptoms significantly impacting ability to work and perform daily activities",
+          "Chief Complaint section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Specific fever temperature (38.5°C) in HPI",
+          "Impact of symptoms on ability to work and perform daily activities",
           "History of seasonal influenza (last episode 2 years ago)",
-          "Mild asthma (omitted from Subjective section, but present in 'Additional Notes')",
-          "Occasionally uses antihistamines for seasonal allergies (omitted from Subjective section, but present in 'Additional Notes')",
-          "Denies drug allergies (omitted from Subjective section, but present in 'Additional Notes')",
-          "Malaise",
-          "Denies joint pain",
-          "Balanced diet, high in fruits and vegetables",
-          "Regularly jogs 3 times per week",
+          "Mild asthma history (moved to Additional Notes)",
+          "Occasional antihistamine use for seasonal allergies (moved to Additional Notes)",
+          "Denies any drug allergies (moved to Additional Notes)",
+          "Malaise (from Constitutional ROS)",
+          "Swollen throat (from ENT ROS)",
+          "Denies joint pain (from Musculoskeletal ROS)",
+          "Diet: Balanced diet, high in fruits and vegetables",
+          "Exercise: Regularly jogs 3 times per week",
           "Tobacco Use: None",
-          "Alcohol Consumption: approximately 2 beers per week (specific quantity)",
+          "Alcohol Consumption: Social drinker, approximately 2 beers per week (partially moved to Additional Notes)",
           "Drug Use: None"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "This section is excellent, with only two minor omissions: 'slight dehydration noted' and 'no signs of acute respiratory distress'. All major vitals, physical exam findings, and investigation results are accurately captured, making the section clinically complete and useful.",
+        "grade": "B",
+        "summary": "The Objective section is mostly complete, accurately capturing vitals, key physical exam findings, and the rapid flu test result. However, it omits the clinically relevant observation of \"slight dehydration noted\" from the general appearance.",
         "omissions": [
-          "Slight dehydration noted",
-          "No signs of acute respiratory distress"
+          "General section header",
+          "Vitals section header",
+          "Physical Exam section header",
+          "Investigations section header",
+          "\"Febrile, slight dehydration noted\" (from General)",
+          "\"no signs of acute respiratory distress\" (from Respiratory Physical Exam)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The primary diagnosis of Influenza A is correctly identified. However, all three differential diagnoses ('Viral upper respiratory infection', 'Asthma exacerbation secondary to viral infection', and 'Bacterial pharyngitis') are omitted. These are moderate omissions as they represent important clinical considerations and the diagnostic thought process, making the assessment less comprehensive.",
+        "grade": "C",
+        "summary": "The Assessment section correctly identifies the primary diagnosis but completely omits all three differential diagnoses (viral upper respiratory infection, asthma exacerbation secondary to viral infection, and bacterial pharyngitis). This significantly reduces the clinical completeness and reasoning demonstrated in the section. The addition of \"with upper respiratory symptoms and history of asthma\" is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Viral upper respiratory infection (as a differential diagnosis)",
-          "Asthma exacerbation secondary to viral infection (as a differential diagnosis)",
-          "Bacterial pharyngitis (less likely due to clear discharge and viral presentation) (as a differential diagnosis)"
+          "Primary Diagnosis section header",
+          "Differential Diagnoses section header",
+          "\"Viral upper respiratory infection\" (as a differential)",
+          "\"Asthma exacerbation secondary to viral infection\" (as a differential)",
+          "\"Bacterial pharyngitis (less likely due to clear discharge and viral presentation)\" (as a differential)"
         ],
         "additions": [
-          "\"with upper respiratory symptoms and history of asthma\" added to the primary diagnosis statement"
+          "\"with upper respiratory symptoms and history of asthma\" (as part of primary diagnosis)"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The core components of the plan, including medication, referral, investigations, and patient education, are present. However, there are several minor omissions regarding specific details (e.g., blood work ordered 'in virology and immunology', specific reason for referral, one patient education point). A moderate omission is the instruction for 'Immediate follow-up with Dr. Anna Lee as soon as possible', which loses the urgency of the specialist follow-up.",
+        "grade": "C",
+        "summary": "The Plan section outlines the core treatment, investigations, and follow-up, but it omits several important details. Specifically, the reason for the referral to the respiratory specialist, a key patient education point about completing the antiviral regimen, and the urgency of the immediate follow-up with Dr. Anna Lee are missing.",
         "omissions": [
-          "Blood work to be ordered \"in virology and immunology\"",
-          "Reason for referral: \"for further management due to suspected complications from viral exposure\"",
-          "Patient education point: \"Discussed nature of influenza infection and the importance of completing the antiviral medication regimen\"",
-          "Follow-up instruction: \"Immediate follow-up with Dr. Anna Lee as soon as possible\""
+          "Medical Treatment section header",
+          "Investigations section header",
+          "Referrals section header",
+          "Patient Education and Counseling section header",
+          "Follow-Up section header",
+          "\"in virology and immunology\" (for blood work)",
+          "\"for further management due to suspected complications from viral exposure\" (reason for referral)",
+          "\"Discussed nature of influenza infection and the importance of completing the antiviral medication regimen\" (patient education)",
+          "\"Immediate follow-up with Dr. Anna Lee as soon as possible\" (follow-up instruction)"
         ],
         "additions": []
       }
     ],
-    "rubric_notes": null
+    "rubric_notes": "The GeneratedSOAP includes an \"Additional Notes\" section which is not present in the GroundTruthSOAP. This section contains some information moved from the GroundTruthSOAP's Subjective section (mild asthma, antihistamine use, drug allergies, social drinker) and one new piece of information (\"Waiting for complete blood work results\")."
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"Waiting for complete blood work results.\" (in Additional Notes section)",
+      "addition_text": "\"Additional Notes\" section",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Waiting for complete blood work results\" in Additional Notes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We are still waiting for blood work results to identify specific viral markers and assess your immune response.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"with upper respiratory symptoms and history of asthma\" added to the primary diagnosis statement",
+      "addition_text": "\"with upper respiratory symptoms and history of asthma\" (as part of primary diagnosis)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I have a sore throat, cough, runny nose, and headache. Your throat looks red and swollen, and you have a clear nasal discharge. I have mild asthma.",
+      "transcript_evidence": "Patient reported 'sore throat, cough, runny nose, and headache' and stated 'I have mild asthma.'",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

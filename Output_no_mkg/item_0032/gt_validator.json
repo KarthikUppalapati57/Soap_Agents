@@ -249,103 +249,88 @@
     "plan_alignment_score": 0.6470588235294117
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical-documentation-reviewer-expert",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness. Key missing information includes the Chief Complaint, detailed Review of Systems, the patient's past medical history with specific medications, family history, and crucial patient education regarding Orlistat side effects. While the Objective section is strong, the substantial gaps in Subjective, Assessment, and Plan make the note incomplete and potentially misleading for comprehensive patient care. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note has significant omissions, particularly in the Subjective and Assessment sections. The Subjective section is missing the Chief Complaint and most of the Review of Systems, while the Assessment section lacks critical details such as past medical history, current medications, family history, and specific associated symptoms. These major gaps in foundational clinical information materially reduce the note's usefulness and completeness, despite a well-captured Objective section and a mostly aligned Plan.",
     "omissions": [
-      "Chief Complaint: Severe obesity and associated symptoms",
-      "HPI: Severe obesity with a BMI of 40 (as part of HPI narrative)",
-      "HPI: Symptoms have been continuous",
-      "HPI: Impacted daily activities, such as walking up stairs and overall mobility, leading to a decreased quality of life (specific examples and explicit statement in HPI)",
-      "ROS: Cardiovascular: Denies chest pain or palpitations, but history of hypertension",
-      "ROS: Gastrointestinal: Frequent consumption of fast food and sugary drinks",
-      "ROS: Neurological: No headaches, dizziness, or seizures reported",
-      "ROS: Psychiatric: Denies depression or anxiety, but feels frustrated about weight and mobility issues",
-      "ROS: Endocrine: No history of thyroid disorders, but increased appetite",
-      "ROS: Hematologic/Lymphatic: No easy bruising or bleeding",
-      "ROS: Allergic/Immunologic: No allergies",
-      "Objective PE: Musculoskeletal: No swelling, redness, or deformities",
-      "Objective PE: Abdomen: No hepatosplenomegaly",
-      "Objective PE: Neurological: Alert and oriented x3",
-      "Assessment: Due to excess calorie intake",
-      "Assessment: Associated symptoms of shortness of breath, difficulty with physical exertion, and joint pain (explicitly listed in GT Assessment)",
-      "Assessment: Past medical history of hypertension and hyperlipidemia, controlled with Amlodipine and Simvastatin, respectively",
-      "Assessment: Family history is significant for Type 2 Diabetes in her father and Hyperlipidemia in her mother",
-      "Plan: Lifestyle Changes: 'considering her joint pain' (context for exercise recommendation)",
-      "Plan: Referrals: Specific physical therapist name (Dr. Emily Carter) and detailed purpose ('to address concerns about joint pain and to develop a safe exercise regimen')",
-      "Plan: Additional Tests: Specific components of liver function tests (ALT, AST) and thyroid function tests (TSH, Free T4)",
-      "Plan: Patient Education: Explain potential side effects of Orlistat and what to do if they occur",
-      "Plan: Concluding paragraph about patient's interest, willingness, and concerns regarding exercise adherence"
+      "Chief Complaint section",
+      "Review of Systems section (Cardiovascular, Gastrointestinal, Neurological, Psychiatric, Endocrine, Hematologic/Lymphatic, Allergic/Immunologic)",
+      "HPI detail: 'Symptoms have been continuous'",
+      "Objective Physical Exam detail: Musculoskeletal 'No swelling, redness, or deformities'",
+      "Objective Physical Exam detail: Abdomen 'no hepatosplenomegaly'",
+      "Objective Physical Exam detail: Neurological 'Alert and oriented x3'",
+      "Assessment detail: 'due to excess calorie intake'",
+      "Assessment detail: specific associated symptoms (shortness of breath, difficulty with physical exertion, and joint pain)",
+      "Assessment detail: past medical history of hypertension and hyperlipidemia, controlled with Amlodipine and Simvastatin",
+      "Assessment detail: family history of Type 2 Diabetes in father and Hyperlipidemia in mother",
+      "Plan detail: 'considering her joint pain' (in context of exercise recommendations)",
+      "Plan detail: specific purpose of physical therapy referral ('to address concerns about joint pain and to develop a safe exercise regimen')",
+      "Plan detail: specific liver function tests (ALT, AST)",
+      "Plan detail: specific thyroid function tests (TSH, Free T4)",
+      "Plan detail: Patient Education on potential side effects of Orlistat and what to do if they occur",
+      "Plan concluding paragraph regarding patient's interest, concerns about exercise adherence, and need for further guidance/PT referral"
     ],
     "additions": [
-      "Assessment: 'leading to physical impairments and reduced quality of life' (as a consequence in Assessment section)",
-      "Plan: Lifestyle Changes: 'with low-impact activities' (specific type of activity)",
-      "Plan: Follow-up: 'and adjust treatment plan as necessary'",
-      "Plan: Additional Tests: 'for further evaluation'",
-      "Plan: Patient Education: 'for achieving and maintaining weight loss' (specific goal for adherence)"
+      "Plan detail: Follow-up purpose 'and adjust treatment plan as necessary'",
+      "Plan detail: Additional Tests purpose 'for further evaluation'",
+      "Plan detail: Patient Education purpose 'for achieving and maintaining weight loss'",
+      "Plan detail: Exercise recommendation 'with low-impact activities'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has numerous omissions, including the Chief Complaint, specific details from the HPI regarding the impact on daily life, and a significant portion of the Review of Systems (ROS). The ROS omissions include important negatives (e.g., no chest pain) and relevant positives (e.g., history of hypertension, increased appetite, frustration about weight), making this section noticeably incomplete.",
+        "summary": "This section has noticeable gaps due to the complete omission of the Chief Complaint section and most of the Review of Systems (Cardiovascular, Gastrointestinal, Neurological, Psychiatric, Endocrine, Hematologic/Lymphatic, Allergic/Immunologic). While some HPI details are present, these omissions make the section meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint: Severe obesity and associated symptoms",
-          "HPI: Severe obesity with a BMI of 40 (as part of HPI narrative)",
-          "HPI: Symptoms have been continuous",
-          "HPI: Impacted daily activities, such as walking up stairs and overall mobility, leading to a decreased quality of life (specific examples and explicit statement in HPI)",
-          "ROS: Cardiovascular: Denies chest pain or palpitations, but history of hypertension",
-          "ROS: Gastrointestinal: Frequent consumption of fast food and sugary drinks",
-          "ROS: Neurological: No headaches, dizziness, or seizures reported",
-          "ROS: Psychiatric: Denies depression or anxiety, but feels frustrated about weight and mobility issues",
-          "ROS: Endocrine: No history of thyroid disorders, but increased appetite",
-          "ROS: Hematologic/Lymphatic: No easy bruising or bleeding",
-          "ROS: Allergic/Immunologic: No allergies"
+          "Chief Complaint section",
+          "HPI detail: 'BMI of 40'",
+          "HPI detail: 'Symptoms have been continuous'",
+          "Review of Systems section (Cardiovascular, Gastrointestinal, Neurological, Psychiatric, Endocrine, Hematologic/Lymphatic, Allergic/Immunologic)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete, with only minor omissions of negative physical exam findings (no swelling/redness/deformities in musculoskeletal, no hepatosplenomegaly in abdomen) and a standard neurological finding (alert and oriented x3). These omissions do not significantly impact the clinical usefulness of the section.",
+        "summary": "The Objective section is well-captured. The only omissions are minor details regarding negative findings in the physical examination (e.g., 'No swelling, redness, or deformities' in musculoskeletal, 'no hepatosplenomegaly' in abdomen, and 'Alert and oriented x3' in neurological), which do not significantly impact clinical usefulness.",
         "omissions": [
-          "Physical Examination: Musculoskeletal: No swelling, redness, or deformities",
-          "Physical Examination: Abdomen: No hepatosplenomegaly",
-          "Physical Examination: Neurological: Alert and oriented x3"
+          "Physical Examination detail: Musculoskeletal 'No swelling, redness, or deformities'",
+          "Physical Examination detail: Abdomen 'no hepatosplenomegaly'",
+          "Physical Examination detail: Neurological 'Alert and oriented x3'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section has significant omissions. It fails to state the etiology of obesity (excess calorie intake), omits a detailed list of associated symptoms, and critically misses the patient's past medical history of hypertension and hyperlipidemia with their controlling medications. The family history of Type 2 Diabetes and Hyperlipidemia is also omitted. These are major gaps that materially reduce the clinical completeness and usefulness of the assessment.",
+        "summary": "This section has major omissions that materially reduce its clinical usefulness. Critical details such as the patient's BMI, the etiology of obesity ('due to excess calorie intake'), specific associated symptoms, past medical history (hypertension, hyperlipidemia, medications), and family history are all missing. This makes the assessment incomplete and difficult to interpret without external context.",
         "omissions": [
-          "Due to excess calorie intake",
-          "Associated symptoms of shortness of breath, difficulty with physical exertion, and joint pain (explicitly listed in GT Assessment)",
-          "Past medical history of hypertension and hyperlipidemia, controlled with Amlodipine and Simvastatin, respectively",
-          "Family history is significant for Type 2 Diabetes in her father and Hyperlipidemia in her mother"
+          "Assessment detail: 'BMI 40'",
+          "Assessment detail: 'due to excess calorie intake'",
+          "Assessment detail: specific associated symptoms (shortness of breath, difficulty with physical exertion, and joint pain)",
+          "Assessment detail: past medical history of hypertension and hyperlipidemia, controlled with Amlodipine and Simvastatin",
+          "Assessment detail: family history of Type 2 Diabetes in father and Hyperlipidemia in mother"
         ],
-        "additions": [
-          "'leading to physical impairments and reduced quality of life' (as a consequence in Assessment section)"
-        ]
+        "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several omissions. It lacks the specific name of the physical therapist and the detailed purpose of the referral. More importantly, it omits the crucial patient education regarding potential side effects of Orlistat and how to manage them, which is a significant safety and adherence concern. Minor omissions include the context for exercise and specific components of lab tests.",
+        "grade": "B",
+        "summary": "The Plan section is mostly clinically aligned and usable. It has several minor to moderate omissions, including specific details for liver and thyroid function tests, the specific purpose of the physical therapy referral, and important patient education regarding Orlistat side effects. The concluding paragraph about patient concerns and adherence is also omitted. All additions in this section were supported by the transcript and therefore did not reduce the grade.",
         "omissions": [
-          "Lifestyle Changes: 'considering her joint pain' (context for exercise recommendation)",
-          "Referrals: Specific physical therapist name (Dr. Emily Carter) and detailed purpose ('to address concerns about joint pain and to develop a safe exercise regimen')",
-          "Additional Tests: Specific components of liver function tests (ALT, AST) and thyroid function tests (TSH, Free T4)",
-          "Patient Education: Explain potential side effects of Orlistat and what to do if they occur",
-          "Concluding paragraph about patient's interest, willingness, and concerns regarding exercise adherence"
+          "Plan detail: 'considering her joint pain' (in context of exercise recommendations)",
+          "Plan detail: specific purpose of physical therapy referral ('to address concerns about joint pain and to develop a safe exercise regimen')",
+          "Plan detail: specific liver function tests (ALT, AST)",
+          "Plan detail: specific thyroid function tests (TSH, Free T4)",
+          "Plan detail: Patient Education on potential side effects of Orlistat and what to do if they occur",
+          "Plan concluding paragraph regarding patient's interest, concerns about exercise adherence, and need for further guidance/PT referral"
         ],
         "additions": [
-          "Lifestyle Changes: 'with low-impact activities' (specific type of activity)",
-          "Follow-up: 'and adjust treatment plan as necessary'",
-          "Additional Tests: 'for further evaluation'",
-          "Patient Education: 'for achieving and maintaining weight loss' (specific goal for adherence)"
+          "Plan detail: Follow-up purpose 'and adjust treatment plan as necessary'",
+          "Plan detail: Additional Tests purpose 'for further evaluation'",
+          "Plan detail: Patient Education purpose 'for achieving and maintaining weight loss'",
+          "Plan detail: Exercise recommendation 'with low-impact activities'"
         ]
       }
     ],
@@ -354,74 +339,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: 'leading to physical impairments and reduced quality of life' (as a consequence in Assessment section)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Your BMI is 40. On physical examination, I noted that you are obese and have difficulty ambulating. [Patient]: It's gotten to the point where it's really affecting my daily life. It's frustrating and has really lowered my quality of life.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Severe obesity leading to physical impairments and reduced quality of life."
-    },
-    {
-      "addition_text": "Plan: Lifestyle Changes: 'with low-impact activities' (specific type of activity)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Given your joint pain, it might be best to start with low-impact activities like swimming or cycling.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: Follow-up: 'and adjust treatment plan as necessary'",
+      "addition_text": "Plan detail: Follow-up purpose 'and adjust treatment plan as necessary'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It's important to follow up in 3 months to monitor your weight loss progress and make any necessary adjustments to your treatment plan.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and schedule follow-up appointment in 3 months to monitor weight loss progress and adjust treatment plan as necessary."
+      "matched_claim_text": "and schedule follow-up appointment in 3 months to monitor weight loss progress and adjust treatment plan as necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Additional Tests: 'for further evaluation'",
+      "addition_text": "Plan detail: Additional Tests purpose 'for further evaluation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Once we have those results, we can make more informed decisions about your treatment plan.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Patient Education: 'for achieving and maintaining weight loss' (specific goal for adherence)",
+      "addition_text": "Plan detail: Patient Education purpose 'for achieving and maintaining weight loss'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Before you go, I'd like to stress the importance of adhering to the prescribed medication and lifestyle changes. Consistency is key to achieving and maintaining weight loss.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Stress the importance of adherence to prescribed medication and lifestyle changes for achieving and maintaining weight loss."
+      "matched_claim_text": "Stress the importance of adherence to prescribed medication and lifestyle changes for achieving and maintaining weight loss.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'leading to physical impairments and reduced quality of life' (as a consequence in Assessment section)",
+      "addition_text": "Plan detail: Exercise recommendation 'with low-impact activities'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Your BMI is 40. On physical examination, I noted that you are obese and have difficulty ambulating. [Patient]: It's gotten to the point where it's really affecting my daily life. It's frustrating and has really lowered my quality of life.",
+      "transcript_evidence": "[Doctor]: As for physical activity, aim for 150 minutes of moderate-intensity exercise per week. Given your joint pain, it might be best to start with low-impact activities like swimming or cycling.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Severe obesity leading to physical impairments and reduced quality of life."
-    },
-    {
-      "addition_text": "Lifestyle Changes: 'with low-impact activities' (specific type of activity)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Given your joint pain, it might be best to start with low-impact activities like swimming or cycling.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Follow-up: 'and adjust treatment plan as necessary'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: It's important to follow up in 3 months to monitor your weight loss progress and make any necessary adjustments to your treatment plan.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and schedule follow-up appointment in 3 months to monitor weight loss progress and adjust treatment plan as necessary."
-    },
-    {
-      "addition_text": "Additional Tests: 'for further evaluation'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I'll also order a biochemistry panel including fasting glucose, lipid profile, liver function tests, and thyroid function tests.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Also, order biochemistry panel including fasting glucose, lipid profile, liver function tests, and thyroid function tests for further evaluation."
-    },
-    {
-      "addition_text": "Patient Education: 'for achieving and maintaining weight loss' (specific goal for adherence)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Before you go, I'd like to stress the importance of adhering to the prescribed medication and lifestyle changes. Consistency is key to achieving and maintaining weight loss.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Stress the importance of adherence to prescribed medication and lifestyle changes for achieving and maintaining weight loss."
+      "matched_claim_text": "recommend moderate-intensity exercise for 150 minutes per week with low-impact activities",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

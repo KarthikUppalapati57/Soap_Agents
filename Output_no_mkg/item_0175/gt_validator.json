@@ -234,81 +234,71 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's symptoms, physical exam findings, and the core treatment plan. The primary issues are several minor omissions of specific details and phrasing, particularly in the Subjective and Plan sections, and the absence of a formal Chief Complaint and structured Review of Systems. However, all additions are supported by the transcript and do not detract from the note's quality.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's subjective complaints, objective findings, and a comprehensive plan. All additions made by the model are well-supported by the transcript and do not negatively impact the grade. However, the note has several omissions, including the Chief Complaint header, the structured Review of Systems, and critically, the explicit primary diagnosis of 'Hypothyroidism, unspecified' in the Assessment section. Additionally, several minor details and standard instructions were omitted from the Plan.",
     "omissions": [
-      "Chief Complaint: Follow-up for hypothyroidism management",
-      "\"moderate\" qualifier for fatigue",
-      "\"These symptoms occur daily\"",
-      "\"necessitating frequent rest periods\"",
-      "Structured Review of Systems (ROS) section with categories (General, Integumentary, Gastrointestinal, Endocrine)",
-      "Laboratory Results section in Objective",
-      "\"Primary Diagnosis:\" heading in Assessment",
-      "\"unspecified\" qualifier for Hypothyroidism diagnosis",
-      "\"orally\" for Levothyroxine administration",
-      "Specific exercise recommendation: \"aiming for at least 30 minutes of moderate exercise most days of the week\"",
-      "Patient education point: \"Discuss the importance of medication adherence and lifestyle modifications in managing hypothyroidism.\"",
-      "Specific follow-up goal: \"evaluate symptom improvement\"",
-      "Instruction: \"Call with any questions or concerns.\"",
-      "Instruction: \"Advised to monitor symptoms and report any significant changes.\""
+      "Chief Complaint section header and content: 'Follow-up for hypothyroidism management.'",
+      "Review of Systems (ROS) section header and its structured content (General, Integumentary, Gastrointestinal, Endocrine breakdown)",
+      "HPI detail: 'necessitating frequent rest periods'",
+      "Objective section detail: 'Laboratory Results: Awaiting results: Complete Thyroid Panel (TSH, Free T4, T3)'",
+      "Assessment section header and content: 'Primary Diagnosis: Hypothyroidism, unspecified.'",
+      "Medication administration route: 'orally' for Levothyroxine",
+      "Specific exercise recommendation: 'aiming for at least 30 minutes of moderate exercise most days of the week'",
+      "Patient Education detail: 'Discuss the importance of medication adherence and lifestyle modifications in managing hypothyroidism.'",
+      "Instruction: 'Call with any questions or concerns.'",
+      "Instruction: 'Advised to monitor symptoms and report any significant changes.'"
     ],
     "additions": [
-      "Assessment statement: \"The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.\"",
-      "Laboratory results information (Complete Thyroid Panel) in the Assessment section (moved from Objective)",
-      "\"to evaluate response to the new dose\" for rechecking TSH and Free T4 levels",
-      "\"and patient's progress\" for the follow-up appointment"
+      "Assessment statement: 'The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.'",
+      "Mention of pending complete thyroid panel results (TSH, Free T4, T3) in the Assessment section (was in Objective in GroundTruthSOAP)",
+      "Plan detail: 'to evaluate response to the new dose' for lab recheck"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the core HPI symptoms and patient context but omits the formal Chief Complaint and the structured Review of Systems section. Several minor details regarding the severity, frequency, and impact of symptoms are also missing.",
+        "summary": "The Subjective section captures the core History of Present Illness well but omits the Chief Complaint header and content, and the structured Review of Systems, which are important for comprehensive documentation. The detail about 'necessitating frequent rest periods' was also missed. No unsupported or unknown additions were present.",
         "omissions": [
-          "Chief Complaint: Follow-up for hypothyroidism management",
-          "\"moderate\" qualifier for fatigue",
-          "\"These symptoms occur daily\"",
-          "\"necessitating frequent rest periods\"",
-          "Structured Review of Systems (ROS) section with categories (General, Integumentary, Gastrointestinal, Endocrine)"
+          "Chief Complaint (CC) section header and content: 'Follow-up for hypothyroidism management.'",
+          "HPI detail: 'necessitating frequent rest periods.'",
+          "Review of Systems (ROS) section header and its structured content (General, Integumentary, Gastrointestinal, Endocrine breakdown)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete and accurate. The only omission is the structured 'Laboratory Results' section, as this information was appropriately moved to the Assessment section in the generated note.",
+        "summary": "The Objective section is well-documented, accurately reflecting vital signs and physical exam findings. The only omission is the structured 'Laboratory Results' section, but the information about pending labs is correctly moved to the Assessment section in the generated note. No unsupported or unknown additions were present.",
         "omissions": [
-          "Laboratory Results: Awaiting results: Complete Thyroid Panel (TSH, Free T4, T3)"
+          "Structured reporting of 'Laboratory Results: Awaiting results: Complete Thyroid Panel (TSH, Free T4, T3)'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section accurately captures the primary diagnosis. The omissions are minor structural elements (heading) and a minor qualifier. The additions provide clinically relevant context regarding the patient's condition and pending labs, and are fully supported by the transcript.",
+        "grade": "B",
+        "summary": "The Assessment section correctly identifies the patient's condition and the need for further evaluation. However, it omits the explicit primary diagnosis of 'Hypothyroidism, unspecified,' which is a significant gap in a formal assessment. All additions in this section were supported by the transcript and did not reduce the grade.",
         "omissions": [
-          "\"Primary Diagnosis:\" heading",
-          "\"unspecified\" qualifier for Hypothyroidism"
+          "Primary Diagnosis section header and content: 'Hypothyroidism, unspecified.'"
         ],
         "additions": [
-          "\"The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.\"",
-          "\"The complete thyroid panel results, including TSH, Free T4, and T3, are still pending.\" (information moved from Objective)"
+          "Statement: 'The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.'",
+          "Mention of pending complete thyroid panel results (TSH, Free T4, and T3) in the Assessment section"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures all major components of the treatment plan, including medication adjustment, follow-up labs, and lifestyle recommendations. It has several minor omissions related to specific phrasing, detailed instructions, and a specific exercise target, but the core recommendations are present. Supported additions enhance clarity.",
+        "summary": "The Plan section covers all major aspects of medical management, follow-up, and lifestyle recommendations. However, it omits several minor details such as the medication administration route ('orally'), specific exercise duration ('aiming for at least 30 minutes of moderate exercise most days of the week'), explicit patient education phrasing regarding adherence and lifestyle, and standard instructions for questions and symptom monitoring. All additions in this section were supported by the transcript and did not reduce the grade.",
         "omissions": [
-          "\"orally\" for Levothyroxine administration",
-          "Specific exercise recommendation: \"aiming for at least 30 minutes of moderate exercise most days of the week\"",
-          "Patient education point: \"Discuss the importance of medication adherence and lifestyle modifications in managing hypothyroidism.\"",
-          "Specific follow-up goal: \"evaluate symptom improvement\"",
-          "Instruction: \"Call with any questions or concerns.\"",
-          "Instruction: \"Advised to monitor symptoms and report any significant changes.\""
+          "Medication administration route: 'orally' for Levothyroxine",
+          "Specific exercise recommendation: 'aiming for at least 30 minutes of moderate exercise most days of the week.'",
+          "Patient Education detail: 'Discuss the importance of medication adherence and lifestyle modifications in managing hypothyroidism.'",
+          "Instruction: 'Call with any questions or concerns.'",
+          "Instruction: 'Advised to monitor symptoms and report any significant changes.'"
         ],
         "additions": [
-          "\"to evaluate response to the new dose\" for rechecking TSH and Free T4 levels",
-          "\"and patient's progress\" for the follow-up appointment"
+          "Detail added to lab recheck instruction: 'to evaluate response to the new dose'"
         ]
       }
     ],
@@ -317,46 +307,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment statement: \"The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.\"",
+      "addition_text": "Assessment statement: 'The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems your hypothyroidism might not be well controlled.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings."
+      "matched_claim_text": "The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Laboratory results information (Complete Thyroid Panel) in the Assessment section (moved from Objective)",
+      "addition_text": "Mention of pending complete thyroid panel results (TSH, Free T4, T3) in the Assessment section (was in Objective in GroundTruthSOAP)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We're still waiting for the complete thyroid panel results, which include TSH, Free T4, and T3.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The complete thyroid panel results, including TSH, Free T4, and T3, are still pending."
+      "matched_claim_text": "The complete thyroid panel results, including TSH, Free T4, and T3, are still pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"to evaluate response to the new dose\" for rechecking TSH and Free T4 levels",
+      "addition_text": "Plan detail: 'to evaluate response to the new dose' for lab recheck",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll recheck your TSH and Free T4 levels in 6 weeks to see how you’re responding to the new dose.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recheck TSH and Free T4 levels in 6 weeks to evaluate response to the new dose."
+      "matched_claim_text": "Recheck TSH and Free T4 levels in 6 weeks to evaluate response to the new dose.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"and patient's progress\" for the follow-up appointment",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] We’ll schedule a follow-up appointment in 6 weeks to review your lab results and evaluate how you’re feeling.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks to review lab results and patient's progress."
-    },
-    {
-      "addition_text": "\"The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.\"",
+      "addition_text": "Statement: 'The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems your hypothyroidism might not be well controlled.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings."
+      "matched_claim_text": "The patient's hypothyroidism might not be well controlled based on symptoms and physical exam findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"The complete thyroid panel results, including TSH, Free T4, and T3, are still pending.\" (information moved from Objective)",
+      "addition_text": "Mention of pending complete thyroid panel results (TSH, Free T4, and T3) in the Assessment section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We're still waiting for the complete thyroid panel results, which include TSH, Free T4, and T3.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The complete thyroid panel results, including TSH, Free T4, and T3, are still pending."
+      "matched_claim_text": "The complete thyroid panel results, including TSH, Free T4, and T3, are still pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Detail added to lab recheck instruction: 'to evaluate response to the new dose'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We’ll recheck your TSH and Free T4 levels in 6 weeks to see how you’re responding to the new dose.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recheck TSH and Free T4 levels in 6 weeks to evaluate response to the new dose.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

@@ -190,7 +190,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned in its Objective, Assessment, and Plan sections, which are well-documented and accurate. However, the Subjective section contains numerous omissions, including critical details such as the patient's current medication history (Hydrochlorothiazide), duration of present illness, family medical history, and significant lifestyle factors like tobacco and alcohol use. While there are no unsupported or unknown additions, the extensive gaps in the Subjective section make the overall note meaningfully incomplete and require caution and review to ensure all necessary background information is captured.",
+    "overall_summary": "The generated note demonstrates significant omissions in the Subjective section, including critical details such as medication history, allergies, duration of present illness, and comprehensive social/family history. While the Objective, Assessment, and Plan sections are well-aligned and contain no unsupported additions, the extensive gaps in the Subjective section materially reduce the overall clinical usefulness and completeness of the note, requiring careful review and additional information gathering.",
     "omissions": [
       "HPI: Duration of pain (2 months)",
       "Patient’s self-reported habits and lifestyle: Tobacco use history (smoked for 10 years, quit 5 years ago)",
@@ -220,8 +220,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section has significant omissions. Key missing information includes the duration of the HPI (2 months), the patient's tobacco and alcohol use history, family medical history, and critically, their current medication (Hydrochlorothiazide). Additionally, details regarding allergies, socio-economic status, health literacy, job status, patient motivation, and geographical context are absent. These numerous omissions, particularly the medication history, make this section meaningfully incomplete.",
+        "grade": "D",
+        "summary": "The Subjective section has numerous omissions, including the duration of the present illness, complete tobacco and alcohol use history, recreational drug use, recreational activities, family medical history, current medication (Hydrochlorothiazide), and allergies. Additionally, demographic details like socio-economic status, education, health literacy, job status, patient motivation, and geographical location information are missing. These omissions represent significant gaps in the patient's clinical and social history.",
         "omissions": [
           "HPI: Duration of pain (2 months)",
           "Patient’s self-reported habits and lifestyle: Tobacco use history (smoked for 10 years, quit 5 years ago)",
@@ -246,7 +246,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is accurate, correctly stating that no physical examination was performed due to the telemedicine visit. The addition regarding patient self-reported symptoms is supported by the transcript and does not negatively impact the grade.",
+        "summary": "The Objective section is accurate and complete. The addition regarding patient self-reported symptoms is supported by the transcript and does not negatively impact the grade.",
         "omissions": [],
         "additions": [
           "Patient self-reported symptoms related to knee pain"
@@ -255,7 +255,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is comprehensive and accurate, correctly identifying knee pain and its contributing factors. The additions regarding poor diet as a contributing factor and the chronic conditions of obesity and hypertension are all supported by the transcript and enhance the clinical picture without introducing unsupported information.",
+        "summary": "The Assessment section is accurate and complete. The additions regarding poor diet as a contributing factor and the mention of obesity and hypertension as chronic conditions are supported by the transcript and do not negatively impact the grade.",
         "omissions": [],
         "additions": [
           "Poor diet as a contributing factor to knee pain",
@@ -265,7 +265,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is well-structured and includes all necessary components from the GroundTruth, such as medical treatment, lifestyle modifications, follow-up recommendations, and further investigations. The addition of patient education on lifestyle modifications is supported by the transcript and is a valuable inclusion.",
+        "summary": "The Plan section is accurate and complete. The addition of patient education on lifestyle modifications is supported by the transcript and does not negatively impact the grade.",
         "omissions": [],
         "additions": [
           "Patient Education on lifestyle modifications (incorporating more vegetables, fruits, and physical activity)"
@@ -281,56 +281,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I've been having some pain in my left knee. ... [patient] It's moderate, I'd say. ... [patient] It’s intermittent. ... [patient] Yes, occasionally my knee locks up, and it’s moderately swollen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient self-reported symptoms related to the knee pain."
+      "matched_claim_text": "The patient self-reported symptoms related to the knee pain.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Poor diet as a contributing factor to knee pain",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits. ... [doctor] And remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Knee Pain is likely associated with a poor diet."
+      "matched_claim_text": "Knee Pain is likely associated with a poor diet.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Obesity and Hypertension are chronic conditions in the patient's medical history",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I have obesity and hypertension. ... [doctor] How about chronic conditions? You mentioned obesity and hypertension? [patient] Yes, those are the two main ones.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Obesity is a chronic condition in the patient's medical history."
+      "matched_claim_text": "Obesity is a chronic condition in the patient's medical history.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Patient Education on lifestyle modifications (incorporating more vegetables, fruits, and physical activity)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] And remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle modifications, including incorporating more vegetables, fruits, and physical activity, are emphasized."
+      "matched_claim_text": "Lifestyle modifications, including incorporating more vegetables, fruits, and physical activity, are emphasized.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient self-reported symptoms related to knee pain",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I've been having some pain in my left knee. ... [patient] It's moderate, I'd say. ... [patient] It’s intermittent. ... [patient] Yes, occasionally my knee locks up, and it’s moderately swollen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient self-reported symptoms related to the knee pain."
+      "matched_claim_text": "The patient self-reported symptoms related to the knee pain.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Poor diet as a contributing factor to knee pain",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Honestly, it’s not great. I eat a lot of saturated fats and sugars, not many vegetables or fruits. ... [doctor] And remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Knee Pain is likely associated with a poor diet."
+      "matched_claim_text": "Knee Pain is likely associated with a poor diet.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Obesity and Hypertension are chronic conditions in the patient's medical history",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I have obesity and hypertension. ... [doctor] How about chronic conditions? You mentioned obesity and hypertension? [patient] Yes, those are the two main ones.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Obesity is a chronic condition in the patient's medical history."
+      "matched_claim_text": "Obesity is a chronic condition in the patient's medical history.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient Education on lifestyle modifications (incorporating more vegetables, fruits, and physical activity)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] And remember, lifestyle modifications will be crucial. Try to incorporate more vegetables and fruits into your diet and aim to gradually increase your physical activity as your knee allows.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle modifications, including incorporating more vegetables, fruits, and physical activity, are emphasized."
+      "matched_claim_text": "Lifestyle modifications, including incorporating more vegetables, fruits, and physical activity, are emphasized.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

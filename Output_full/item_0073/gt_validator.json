@@ -206,9 +206,9 @@
     "plan_alignment_score": 0.5925925925925926
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The note has significant omissions, particularly in the Assessment section where several major chronic diagnoses (Chronic Kidney Disease Stage 2, Hypothyroidism, and Peripheral Neuropathy) are entirely missing. The Subjective section also lacks a comprehensive Review of Systems and specific details regarding the impact of symptoms. While the Objective and core Plan elements are mostly present, the substantial gaps in the Assessment and Subjective sections materially reduce the clinical usefulness and completeness of the note. There are no unsupported or unknown additions to penalize.",
+    "overall_summary": "The generated SOAP note effectively captures the patient's chief complaints and most objective findings. However, it suffers from significant omissions in the Assessment section, failing to include several key chronic diagnoses (Chronic Kidney Disease Stage 2, Hypothyroidism, and Peripheral Neuropathy with its etiology). Additionally, the Subjective section omits important details regarding symptom impact and a comprehensive Review of Systems, including psychosocial context. The Plan section also lacks crucial patient education details, patient agreement, and translator notes, which are vital for patient understanding and adherence. The presence of major diagnostic omissions materially reduces the clinical usefulness of the note.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -260,8 +260,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section captures the chief complaint and main HPI elements but omits specific details about the impact of symptoms (e.g., numbness affecting standing, polyuria disrupting sleep). Crucially, it lacks a comprehensive Review of Systems, which represents multiple moderate omissions of structured clinical data.",
+        "grade": "B",
+        "summary": "The Subjective section captures the core HPI elements but omits specific impacts of symptoms like difficulty standing and sleep disruption. It also has extensive omissions in the Review of Systems, including the patient's feeling of being overwhelmed, which are moderate issues. Minor negative ROS items are also omitted.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -285,8 +285,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section accurately reports vital signs and the key finding of decreased sensation in feet. However, it omits general appearance and normal cardiovascular and respiratory exam findings, which are minor clinical details.",
+        "grade": "A",
+        "summary": "The Objective section is well-captured, including all vital signs and the key positive finding of decreased sensation in feet. Minor omissions include general appearance and some negative physical exam findings, but these do not detract from the overall clinical usefulness.",
         "omissions": [
           "Vital Signs section header",
           "General: Appears well-nourished but fatigued",
@@ -298,7 +298,7 @@
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section has major omissions, failing to include Chronic Kidney Disease Stage 2, Hypothyroidism, and Peripheral Neuropathy (with its etiology) as distinct diagnoses. It also omits the medical reasoning for Type 2 Diabetes Mellitus. These are critical gaps that significantly reduce the clinical usefulness and completeness of the assessment.",
+        "summary": "The Assessment section has major omissions, failing to include Chronic Kidney Disease Stage 2, Hypothyroidism, and Peripheral Neuropathy with its likely etiology as separate diagnoses. The medical reasoning for Type 2 Diabetes Mellitus is also omitted. These significant gaps materially reduce the clinical usefulness of this section.",
         "omissions": [
           "\"without complications\" for Type 2 Diabetes Mellitus",
           "Medical Reasoning for Type 2 Diabetes Mellitus",
@@ -311,7 +311,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section includes the primary medical treatment, referrals, follow-up tests, and lifestyle modifications. However, it omits several important patient education points, such as the importance of regular glucose monitoring, medication adherence, and potential complications of diabetes. It also misses details about patient agreement and translator notes. These are moderate omissions that impact the comprehensiveness of patient counseling.",
+        "summary": "The Plan section includes the main medical treatment, referral, follow-up tests, and lifestyle modifications. However, it omits several moderate issues, including detailed patient education points (importance of monitoring, potential complications, local resources), patient agreement, and crucial translator notes, which are important for patient adherence and understanding.",
         "omissions": [
           "Medical Treatment section header",
           "Referrals section header",
@@ -345,63 +345,81 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes. My fasting blood glucose levels have been high, and I've had numbness in my feet for the past four months. ... The last time I checked, it was around 160 mg/dL.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports high fasting blood glucose levels (160 mg/dL) for several months"
+      "matched_claim_text": "Patient reports high fasting blood glucose levels (160 mg/dL) for several months",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for several months\" regarding high fasting blood glucose levels in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes. My fasting blood glucose levels have been high, and I've had numbness in my feet for the past four months. ... The last time I checked, it was around 160 mg/dL.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports high fasting blood glucose levels (160 mg/dL) for several months"
+      "matched_claim_text": "Patient reports high fasting blood glucose levels (160 mg/dL) for several months",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"affecting daily life\" regarding decreased sensation in feet in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: ...I've had numbness in my feet for the past four months. ... It makes it difficult to stand for long periods. I feel fatigued all the time.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports decreased sensation in feet for four months, affecting daily life and causing fatigue"
+      "matched_claim_text": "Reports decreased sensation in feet for four months, affecting daily life and causing fatigue",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Provide resources for understanding the treatment plan\" in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: The translator here will help ensure you understand everything we've discussed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide resources for understanding the treatment plan"
+      "matched_claim_text": "Provide resources for understanding the treatment plan",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Encourage patient to ask questions and seek help if needed\" in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you have any questions about this? ... Do you have any other questions or concerns? ... don’t hesitate to reach out if you have any questions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to ask questions and seek help if needed"
+      "matched_claim_text": "Encourage patient to ask questions and seek help if needed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for several months\" regarding high fasting blood glucose levels",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes. My fasting blood glucose levels have been high, and I've had numbness in my feet for the past four months. ... The last time I checked, it was around 160 mg/dL.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports high fasting blood glucose levels (160 mg/dL) for several months"
+      "matched_claim_text": "Patient reports high fasting blood glucose levels (160 mg/dL) for several months",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"affecting daily life\" regarding decreased sensation in feet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: ...I've had numbness in my feet for the past four months. ... It makes it difficult to stand for long periods. I feel fatigued all the time.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports decreased sensation in feet for four months, affecting daily life and causing fatigue"
+      "matched_claim_text": "Reports decreased sensation in feet for four months, affecting daily life and causing fatigue",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Provide resources for understanding the treatment plan\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: The translator here will help ensure you understand everything we've discussed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide resources for understanding the treatment plan"
+      "matched_claim_text": "Provide resources for understanding the treatment plan",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Encourage patient to ask questions and seek help if needed\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you have any questions about this? ... Do you have any other questions or concerns? ... don’t hesitate to reach out if you have any questions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to ask questions and seek help if needed"
+      "matched_claim_text": "Encourage patient to ask questions and seek help if needed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -225,7 +225,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary but has noticeable gaps and multiple moderate omissions, particularly in the Subjective and Plan sections. Key details regarding the history of present illness, the entire Review of Systems, specific lifestyle recommendations, and the Patient Agreements section are missing, making the note meaningfully incomplete despite the absence of unsupported additions.",
+    "overall_summary": "The generated note is broadly clinically usable but contains noticeable gaps, particularly in the Subjective and Plan sections. Key omissions include the entire Review of Systems, specific details about the patient's symptoms and their impact, and several important specifics within the treatment plan, such as medication instructions, detailed lifestyle modifications, and patient agreements. There are no unsupported or unknown additions that would negatively impact the grade.",
     "omissions": [
       "Severity of depressive symptoms: 'moderate to severe'",
       "Difficulty concentrating",
@@ -261,7 +261,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the entire Review of Systems (ROS) section, which is a major structural omission. Additionally, several moderate omissions include the severity of depressive symptoms ('moderate to severe'), specific details of appetite and sleep disruptions, and the full impact on job duties and social interaction. While the core symptoms are present, the lack of detail and missing ROS reduce the completeness of this section.",
+        "summary": "This section omits the severity of depressive symptoms ('moderate to severe'), specific details about appetite and sleep disruptions, the full impact on job duties and social interaction, and the entire Review of Systems section, including specific negative findings. While the core symptoms are captured, the lack of detail and the missing ROS significantly reduce its completeness.",
         "omissions": [
           "Severity of depressive symptoms: 'moderate to severe'",
           "Difficulty concentrating",
@@ -279,8 +279,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-aligned with the Ground Truth. The only omissions are minor statements about vital signs and investigation/test results not being applicable, which do not significantly impact clinical usefulness.",
+        "grade": "B",
+        "summary": "The section correctly states that no physical examination was performed. However, it omits the explicit statements that vital signs and investigation/test results were not applicable for this initial consultation, which are minor administrative omissions.",
         "omissions": [
           "Vital Signs: 'Not measured during this visit'",
           "Investigation/Test Results: 'Not applicable for this initial consultation'"
@@ -290,7 +290,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is strong. It accurately captures the diagnosis, and the addition regarding it being a 'likely first episode based on patient's history' is supported by the transcript and therefore does not lower the grade. The only omission is the minor detail 'Unspecified' for Major Depressive Disorder.",
+        "summary": "This section accurately captures the primary diagnosis. The omission of 'Unspecified' for Major Depressive Disorder is a minor detail that does not materially impact clinical usefulness. The addition regarding 'likely first episode' is supported by the transcript and therefore does not reduce the grade.",
         "omissions": [
           "Diagnosis detail: 'Unspecified' for Major Depressive Disorder"
         ],
@@ -301,7 +301,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions and a major structural omission. Key details such as the medication duration ('for 8 weeks'), specific elements of the sleep routine, diet plan, and physical activity recommendations, and specific potential side effects discussed are missing. The entire 'Patient Agreements' section is also omitted, which significantly reduces the completeness and detail of the plan.",
+        "summary": "This section omits several important details regarding medication (oral route, duration of 8 weeks, reason for taking with food), the specific type of specialist for referral ('psychologist'), the patient's motivation for therapy, and specific instructions for lifestyle modifications (e.g., consistent sleep schedule including weekends, detailed diet planning, specific physical activity progression). The entire Patient Agreements section is also missing, reducing the comprehensiveness and clarity of the plan.",
         "omissions": [
           "Medication detail: 'oral' route for Sertraline",
           "Medication duration: 'for 8 weeks' for Sertraline",
@@ -327,14 +327,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on what you've told me, it sounds like you might be experiencing a Major Depressive Disorder. Have you ever been diagnosed with depression before?\n[Patient]: No, this is the first time I've felt this way.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major Depressive Disorder, likely first episode"
+      "matched_claim_text": "Major Depressive Disorder, likely first episode",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Levomilnacipran — indication — major depressive disorder"
     },
     {
       "addition_text": "Diagnosis detail: 'likely first episode based on patient's history' for Major Depressive Disorder",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on what you've told me, it sounds like you might be experiencing a Major Depressive Disorder. Have you ever been diagnosed with depression before?\n[Patient]: No, this is the first time I've felt this way.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major Depressive Disorder, likely first episode"
+      "matched_claim_text": "Major Depressive Disorder, likely first episode",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

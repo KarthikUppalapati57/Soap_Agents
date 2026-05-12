@@ -266,97 +266,80 @@
     "plan_alignment_score": 0.5128205128205129
   },
   "expert_judge": {
-    "model": "expert-clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable overview but contains multiple moderate omissions that reduce its completeness and precision. Key details are missing in the Assessment, such as the specific diagnosis and the explicit need to rule out cardiac etiology. The Plan section also has several moderate omissions, including the quantity for prescribed medication and the discussion of adherence to existing chronic medications, making it less comprehensive and requiring careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, capturing the core clinical picture, assessment, and plan. However, it has several moderate omissions that reduce its completeness and detail. These include the entire Review of Systems section, the status of initial investigations in the Objective section, and important patient education regarding existing medications. Additionally, the crucial 'Patient Agreements' section, detailing patient understanding and potential financial barriers, is entirely missing from the plan. Despite these gaps, no unsupported or unknown additions were found to introduce misleading clinical content.",
     "omissions": [
-      "Chief Complaint section header",
-      "History of Present Illness (HPI) section header",
-      "Review of Systems (ROS) section header",
-      "Chest pain occurring daily",
-      "Average sleep around 6 hours per night",
-      "General appearance: Alert and oriented, appearing in mild distress due to discomfort",
-      "Objective Investigations section header",
-      "Blood samples drawn for Biochemistry panel, CBC, and cardiac enzymes (as an action in Objective)",
-      "Diagnosis \"Other chest pain\"",
-      "Mention of patient's symptoms contributing to clinical suspicion (in Assessment)",
-      "Mention of poor diet contributing to clinical suspicion (in Assessment)",
-      "Statement \"a cardiac etiology needs to be ruled out\" (in Assessment)",
-      "Pharmacological Management section header",
-      "Nitroglycerin quantity: 30 tablets",
-      "Referrals section header",
-      "Diagnostic Tests section header",
-      "Purpose of diagnostic tests: \"to investigate the cardiac and non-cardiac causes of the chest pain\"",
-      "Lifestyle and Risk Factor Management section header",
-      "Providing resources for smoking cessation programs",
-      "Encouraging moderate exercise with \"gradual increments as tolerated\"",
-      "Discussion of adherence to Lisinopril 10 mg daily and Atorvastatin 20 mg daily",
-      "Advice on monitoring and managing risk factors vigilantly, including regular follow-up appointments",
-      "Follow-up section header",
-      "Patient understanding and agreement with treatment plan and lifestyle modifications",
-      "Concerns regarding financial barriers to accessing specialist care"
+      "\"Chief Complaint (CC):\" header",
+      "\"occurring daily\" (frequency of chest pain)",
+      "\"averages around 6 hours per night\" (sleep detail)",
+      "\"Review of Systems (ROS):\" section and its specific breakdown (Cardiovascular, Respiratory, Musculoskeletal denials)",
+      "\"General: Alert and oriented, appearing in mild distress due to discomfort.\" (Physical Exam finding)",
+      "\"Investigations: Blood samples drawn for Biochemistry panel, CBC, and cardiac enzymes.\" (as a finding in Objective)",
+      "\"Other chest pain\" (diagnosis/problem statement)",
+      "\"poor diet\" as a contributing factor to clinical suspicion in Assessment",
+      "\"quantity: 30 tablets\" for Nitroglycerin",
+      "\"to investigate the cardiac and non-cardiac causes of the chest pain\" (reason for diagnostic tests)",
+      "\"provided resources for smoking cessation programs.\"",
+      "\"with gradual increments as tolerated\" (for moderate exercise)",
+      "\"Discussed the significance of adhering to prescribed medications for hypertension and hyperlipidemia (Lisinopril 10 mg daily and Atorvastatin 20 mg daily).\"",
+      "\"Advised monitoring and managing risk factors vigilantly, including regular follow-up appointments.\"",
+      "\"Patient Agreements\" section content, including patient understanding/agreement and financial barriers"
     ],
     "additions": [
-      "Temperature in Celsius (37°C)"
+      "\"Temperature: 37°C\" (Celsius equivalent)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly complete, capturing the main complaints and associated symptoms. However, it omits the detail that chest pain occurs daily and the specific duration of average sleep, which are minor to moderate omissions.",
+        "summary": "The Subjective section accurately captures the chief complaint and most of the history of present illness. However, it omits the specific detail that the chest pain is 'occurring daily' and entirely misses the structured 'Review of Systems' section, including specific denials for musculoskeletal pain, which are moderate omissions.",
         "omissions": [
-          "Chief Complaint section header",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
-          "Chest pain occurring daily",
-          "Average sleep around 6 hours per night"
+          "\"Chief Complaint (CC):\" header",
+          "\"occurring daily\" (frequency of chest pain)",
+          "\"averages around 6 hours per night\" (sleep detail)",
+          "\"Review of Systems (ROS):\" section and its specific breakdown (Cardiovascular, Respiratory, Musculoskeletal denials)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately presents vital signs and key physical examination findings. The primary omission is the patient's general appearance ('Alert and oriented, appearing in mild distress due to discomfort'), which is a moderate detail. The mention of blood samples drawn for investigations was omitted from this section but included in the Plan, mitigating its impact.",
+        "summary": "The Objective section accurately presents vital signs and key physical examination findings. The addition of 'Temperature: 37°C' is supported by the transcript and does not impact the grade. However, the note omits the 'Investigations' section as an objective finding, failing to document that blood samples were already drawn, which is a moderate omission regarding the status of initial workup.",
         "omissions": [
-          "General appearance: Alert and oriented, appearing in mild distress due to discomfort",
-          "Investigations section header",
-          "Blood samples drawn for Biochemistry panel, CBC, and cardiac enzymes"
+          "\"Vital Signs:\" header",
+          "\"Physical Examination:\" header",
+          "\"General: Alert and oriented, appearing in mild distress due to discomfort.\"",
+          "\"Investigations: Blood samples drawn for Biochemistry panel, CBC, and cardiac enzymes.\" (as a finding in Objective)"
         ],
         "additions": [
-          "Temperature in Celsius (37°C)"
+          "\"Temperature: 37°C\" (Celsius equivalent)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section identifies the possible cardiac issue and relevant risk factors. However, it omits the specific diagnosis 'Other chest pain' and the crucial statement that 'a cardiac etiology needs to be ruled out.' These are moderate omissions that reduce the diagnostic clarity and completeness of the assessment.",
+        "grade": "A",
+        "summary": "The Assessment section is well-aligned with the ground truth, accurately identifying a 'Possible cardiac issue' and listing the major contributing factors. The omissions of the specific diagnosis 'Other chest pain' and 'poor diet' as a contributing factor are minor and do not significantly impact the clinical usefulness of the assessment.",
         "omissions": [
-          "Diagnosis \"Other chest pain\"",
-          "Mention of patient's symptoms contributing to clinical suspicion",
-          "Mention of poor diet contributing to clinical suspicion",
-          "Statement \"a cardiac etiology needs to be ruled out\""
+          "\"Other chest pain\" (diagnosis/problem statement)",
+          "\"poor diet\" as a contributing factor to clinical suspicion"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section outlines the main diagnostic tests, medication, lifestyle changes, and referrals. However, it has multiple moderate omissions, including the quantity for Nitroglycerin and the discussion of adherence to existing medications (Lisinopril and Atorvastatin). Numerous minor omissions, such as specific instructions for exercise ('gradual increments as tolerated'), providing resources for smoking cessation, and details about patient agreement and financial concerns, further reduce the plan's comprehensiveness and actionable detail.",
+        "grade": "B",
+        "summary": "The Plan section outlines the main components of care, including diagnostic tests, pharmacological management, lifestyle modifications, referrals, and follow-up. However, it has several moderate omissions, including the discussion of adherence to prescribed medications for hypertension and hyperlipidemia, and the entire 'Patient Agreements' section, which includes critical information about patient understanding and potential financial barriers to care. These omissions reduce the comprehensiveness of the plan.",
         "omissions": [
-          "Pharmacological Management section header",
-          "Nitroglycerin quantity: 30 tablets",
-          "Referrals section header",
-          "Diagnostic Tests section header",
-          "Purpose of diagnostic tests: \"to investigate the cardiac and non-cardiac causes of the chest pain\"",
-          "Lifestyle and Risk Factor Management section header",
-          "Providing resources for smoking cessation programs",
-          "Encouraging moderate exercise with \"gradual increments as tolerated\"",
-          "Discussion of adherence to Lisinopril 10 mg daily and Atorvastatin 20 mg daily",
-          "Advice on monitoring and managing risk factors vigilantly, including regular follow-up appointments",
-          "Follow-up section header",
-          "Patient understanding and agreement with treatment plan and lifestyle modifications",
-          "Concerns regarding financial barriers to accessing specialist care"
+          "\"quantity: 30 tablets\" for Nitroglycerin",
+          "\"to investigate the cardiac and non-cardiac causes of the chest pain\" (reason for diagnostic tests)",
+          "\"provided resources for smoking cessation programs.\"",
+          "\"with gradual increments as tolerated\" (for moderate exercise)",
+          "\"Discussed the significance of adhering to prescribed medications for hypertension and hyperlipidemia (Lisinopril 10 mg daily and Atorvastatin 20 mg daily).\"",
+          "\"Advised monitoring and managing risk factors vigilantly, including regular follow-up appointments.\"",
+          "\"Patient Agreements\" section content, including patient understanding/agreement and financial barriers",
+          "Specific sub-headers (e.g., \"Pharmacological Management\", \"Referrals\", \"Diagnostic Tests\", \"Lifestyle and Risk Factor Management\", \"Patient Education and Counseling\", \"Follow-up\", \"Patient Agreements\")"
         ],
         "additions": []
       }
@@ -366,11 +349,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Temperature in Celsius (37°C)",
+      "addition_text": "\"Temperature: 37°C\" (Celsius equivalent)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "your temperature is 98.6 degrees Fahrenheit",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Temperature: 37°C (98.6°F)."
+      "matched_claim_text": "Temperature: 37°C (98.6°F).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

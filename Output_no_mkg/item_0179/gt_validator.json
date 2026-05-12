@@ -250,87 +250,136 @@
     "plan_alignment_score": 0.5609756097560976
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "Agent-3",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has noticeable gaps that make it meaningfully incomplete. The most significant issue is the complete omission of the Differential Diagnosis section and its content in the Assessment, which is a key component of clinical reasoning. Additionally, the Subjective section omits the impact of symptoms on the patient's daily tasks and work responsibilities. While all additions were supported by the transcript and therefore did not lower the grade, the cumulative effect of moderate and minor omissions prevents a higher grade.",
+    "overall_summary": "The generated SOAP note provides a clinically usable summary of the patient's encounter, capturing the chief complaint, key subjective symptoms, objective findings, primary assessment, and treatment plan. However, it receives a 'C' grade due to several omissions, most notably the complete absence of the differential diagnosis section in the Assessment, which significantly reduces the completeness of the clinical reasoning. Additionally, there are moderate omissions in the Subjective section regarding the impact of symptoms and in the Plan section concerning specific test details and comprehensive patient education/agreement. There are no unsupported or unknown additions to penalize.",
     "omissions": [
-      "Chief Complaint section",
-      "History of Present Illness section",
-      "Review of Systems section",
-      "Differential Diagnosis section",
-      "Tests Ordered section",
-      "Patient Agreements section"
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Constitutional ROS entry (Fatigue, weight gain)",
+      "Endocrine ROS entry (Cold intolerance, dry skin, hair thinning)",
+      "Integumentary ROS entry (Dry skin, hair thinning)",
+      "Patient height (5'5\")",
+      "Patient weight (180 lbs)",
+      "BMI (30)",
+      "Physical Examination section header",
+      "Differential Diagnosis section header",
+      "Primary hypothyroidism (as a differential diagnosis)",
+      "Subclinical hypothyroidism (as a differential diagnosis)",
+      "Depression (considering fatigue but less likely without mood disturbances) (as a differential diagnosis)",
+      "Anemia (less likely given the clinical presentation) (as a differential diagnosis)",
+      "Medical Treatment section header",
+      "Follow-Up section header",
+      "Tests Ordered section header",
+      "Lifestyle and Self-Care Recommendations section header",
+      "Patient Education section header",
+      "Patient Agreements section header",
+      "\"moderate\" qualifier for fatigue",
+      "Statement that symptoms occur daily",
+      "Statement that symptoms significantly impacted ability to perform daily tasks and work responsibilities as an office manager",
+      "General exam finding: \"slightly overweight\"",
+      "Neck exam finding: \"no lymphadenopathy\"",
+      "Respiratory exam finding: \"to auscultation bilaterally\"",
+      "Abdomen exam finding: \"no organomegaly\"",
+      "Musculoskeletal exam findings: \"Normal tone and strength\"",
+      "Specific list of symptoms consistent with hypothyroidism (fatigue, weight gain, cold intolerance, dry skin, and hair thinning) in the main assessment statement",
+      "\"for thyroid dysfunction\" in the risk factor statement",
+      "Levothyroxine route \"oral\"",
+      "Levothyroxine duration \"indefinitely\"",
+      "Levothyroxine initial quantity \"30 tablets\"",
+      "Specific thyroid function tests (TSH, Free T4, and Free T3 levels) in the follow-up instruction",
+      "\"Blood work:\" qualifier for tests ordered",
+      "Purpose of tests \"to confirm diagnosis\"",
+      "Education on \"symptoms of thyroid dysfunction and the importance of follow-up appointments\"",
+      "Patient understanding and agreement with the proposed treatment plan, including medication adherence and lifestyle modifications",
+      "Patient willingness to follow up in 6 weeks for reassessment and repeat thyroid function tests"
     ],
     "additions": [
-      "\"chronic\" as a descriptor for fatigue",
-      "\"therapy for thyroid hormone replacement\" as a description for Levothyroxine",
-      "\"to adjust dosage if necessary\" as a purpose for reassessment",
-      "\"Schedule a follow-up appointment in 6 weeks for reevaluation and repeat thyroid function tests\" as a distinct bullet point in Plan"
+      "\"chronic\" qualifier for fatigue",
+      "\"based on symptoms and physical exam findings\" in the main assessment statement",
+      "\"therapy for thyroid hormone replacement\" (for Levothyroxine)",
+      "\"to adjust dosage if necessary\" (for follow-up)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the core complaints and their duration. However, it omits the impact of symptoms on the patient's daily tasks and work responsibilities, which is a moderate omission. Minor omissions include the 'moderate' qualifier for fatigue, the 'daily' occurrence of symptoms, and the structured ROS categories. All additions were supported by the transcript.",
+        "summary": "The Subjective section captures the core symptoms and their duration. However, it omits the specific impact of the symptoms on daily tasks and work responsibilities, and the explicit 'daily' frequency, which are moderate omissions. Several ROS entries and section headers are also omitted, though the content is largely covered elsewhere.",
         "omissions": [
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
           "\"moderate\" qualifier for fatigue",
-          "Impact of symptoms on daily tasks and work responsibilities as a full-time office manager",
-          "Structured ROS categories (Constitutional, Endocrine, Integumentary)",
-          "\"daily\" occurrence of symptoms"
+          "Statement that symptoms occur daily",
+          "Statement that symptoms significantly impacted ability to perform daily tasks and work responsibilities as an office manager",
+          "Constitutional ROS entry (Fatigue, weight gain)",
+          "Endocrine ROS entry (Cold intolerance, dry skin, hair thinning)",
+          "Integumentary ROS entry (Dry skin, hair thinning)"
         ],
         "additions": [
-          "\"chronic\" as a descriptor for fatigue"
+          "\"chronic\" qualifier for fatigue"
         ]
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is strong, capturing all vital signs and key physical exam findings. The omissions are minor details such as specific measurements (height, weight, BMI) and negative findings (no lymphadenopathy, no organomegaly, no focal deficits, musculoskeletal exam details). These do not materially reduce the clinical usefulness of the section. There were no unsupported or unknown additions.",
+        "grade": "B",
+        "summary": "The Objective section accurately presents the vital signs (excluding height, weight, and BMI) and summarizes the key positive physical examination findings. Omissions are primarily minor details such as height, weight, BMI, and specific negative findings (e.g., no lymphadenopathy, no organomegaly, normal tone and strength), which do not significantly detract from the clinical utility.",
         "omissions": [
-          "Height measurement (5'5\")",
-          "Weight measurement (180 lbs)",
+          "Patient height (5'5\")",
+          "Patient weight (180 lbs)",
           "BMI (30)",
-          "\"slightly overweight\" finding in General appearance",
-          "\"no lymphadenopathy\" finding in Neck exam",
-          "\"to auscultation bilaterally\" detail in Respiratory exam",
-          "\"no organomegaly\" finding in Abdomen exam",
-          "\"No focal deficits\" finding in Neurological exam",
-          "Musculoskeletal exam findings (Normal tone and strength)"
+          "Physical Examination section header",
+          "General exam finding: \"slightly overweight\"",
+          "Neck exam finding: \"no lymphadenopathy\"",
+          "Respiratory exam finding: \"to auscultation bilaterally\"",
+          "Abdomen exam finding: \"no organomegaly\"",
+          "Musculoskeletal exam findings: \"Normal tone and strength\""
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section correctly identifies possible hypothyroidism and relevant risk factors. However, it omits the explicit listing of specific symptoms supporting the diagnosis within the primary assessment. Critically, it completely omits the Differential Diagnosis section and its content, which is a major gap in clinical reasoning and makes the note meaningfully incomplete. All additions were supported by the transcript.",
+        "summary": "The Assessment section correctly identifies possible hypothyroidism and relevant risk factors. However, it completely omits the differential diagnosis section, which is a major gap in clinical documentation and reasoning. The explicit listing of symptoms consistent with hypothyroidism is also omitted from the main assessment statement, representing a moderate issue. These omissions make the section meaningfully incomplete.",
         "omissions": [
-          "Specific symptoms listed in the primary assessment (fatigue, weight gain, cold intolerance, dry skin, and hair thinning)",
-          "Differential Diagnosis section",
-          "Specific differential diagnoses (Primary hypothyroidism, Subclinical hypothyroidism, Depression, Anemia)"
+          "Specific list of symptoms consistent with hypothyroidism (fatigue, weight gain, cold intolerance, dry skin, and hair thinning) in the main assessment statement",
+          "\"for thyroid dysfunction\" in the risk factor statement",
+          "Differential Diagnosis section header",
+          "Differential diagnosis: Primary hypothyroidism",
+          "Differential diagnosis: Subclinical hypothyroidism",
+          "Differential diagnosis: Depression (considering fatigue but less likely without mood disturbances)",
+          "Differential diagnosis: Anemia (less likely given the clinical presentation)"
         ],
         "additions": [
-          "Explicit mention of assessment being \"based on symptoms and physical exam findings\""
+          "\"based on symptoms and physical exam findings\" in the main assessment statement"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned and clearly usable, outlining the medication, follow-up, lifestyle recommendations, and patient education. Minor omissions include specific prescription details (oral route, indefinite duration, initial quantity of 30 tablets), the explicit 'Tests Ordered' section (though the tests are mentioned within follow-up), and the 'Patient Agreements' section. All additions were supported by the transcript.",
+        "summary": "The Plan section outlines the essential treatment, follow-up, lifestyle recommendations, and patient education. However, it omits specific details about the Levothyroxine prescription (route, duration, quantity), the explicit list of thyroid function tests for follow-up, and detailed statements regarding patient education on symptoms of thyroid dysfunction and patient agreement with the plan. These are moderate omissions that reduce the granularity of the plan.",
         "omissions": [
-          "\"oral\" route for Levothyroxine",
-          "\"indefinitely\" duration for Levothyroxine",
-          "\"initial quantity of 30 tablets\" for Levothyroxine",
-          "\"Tests Ordered\" section",
-          "Purpose of tests: \"to confirm diagnosis\"",
+          "Medical Treatment section header",
+          "Levothyroxine route \"oral\"",
+          "Levothyroxine duration \"indefinitely\"",
+          "Levothyroxine initial quantity \"30 tablets\"",
+          "Follow-Up section header",
+          "Specific thyroid function tests (TSH, Free T4, and Free T3 levels) in the follow-up instruction",
+          "Tests Ordered section header",
+          "\"Blood work:\" qualifier for tests ordered",
+          "Purpose of tests \"to confirm diagnosis\"",
+          "Lifestyle and Self-Care Recommendations section header",
+          "Patient Education section header",
           "Education on \"symptoms of thyroid dysfunction and the importance of follow-up appointments\"",
-          "Patient Agreements section",
-          "Content of Patient Agreements (patient understanding and agreement with plan, willingness to follow up)"
+          "Patient Agreements section header",
+          "Patient understanding and agreement with the proposed treatment plan, including medication adherence and lifestyle modifications",
+          "Patient willingness to follow up in 6 weeks for reassessment and repeat thyroid function tests"
         ],
         "additions": [
-          "\"therapy for thyroid hormone replacement\" as a description for Levothyroxine",
-          "\"to adjust dosage if necessary\" as a purpose for reassessment",
-          "\"Schedule a follow-up appointment in 6 weeks for reevaluation and repeat thyroid function tests\" as a distinct bullet point"
+          "\"therapy for thyroid hormone replacement\" (for Levothyroxine)",
+          "\"to adjust dosage if necessary\" (for follow-up)"
         ]
       }
     ],
@@ -339,46 +388,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"chronic\" as a descriptor for fatigue",
+      "addition_text": "\"chronic\" qualifier for fatigue",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, it's been going on for about 6 months now. I'm always tired...",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue — phenotype_phenotype — Chronic fatigue"
     },
     {
-      "addition_text": "\"therapy for thyroid hormone replacement\" as a description for Levothyroxine",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I would like to start you on Levothyroxine 50 mcg, which is a thyroid hormone replacement. You'll need to take it daily",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Levothyroxine 50 mcg daily therapy for thyroid hormone replacement."
-    },
-    {
-      "addition_text": "\"to adjust dosage if necessary\" as a purpose for reassessment",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You'll need to take it daily, and we'll reassess in 6 weeks with repeat thyroid function tests to see if the dosage needs adjustment.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reassess in 6 weeks with repeat thyroid function tests to adjust dosage if necessary."
-    },
-    {
-      "addition_text": "\"Schedule a follow-up appointment in 6 weeks for reevaluation and repeat thyroid function tests\" as a distinct bullet point in Plan",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Remember to come back in 6 weeks for a follow-up and repeat thyroid function tests. This will help us adjust the medication if needed.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks for reevaluation and repeat thyroid function tests."
-    },
-    {
-      "addition_text": "Explicit mention of assessment being \"based on symptoms and physical exam findings\"",
+      "addition_text": "\"based on symptoms and physical exam findings\" in the main assessment statement",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical exam findings, it seems like you might have hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible hypothyroidism based on symptoms and physical exam findings."
+      "matched_claim_text": "Possible hypothyroidism based on symptoms and physical exam findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Schedule a follow-up appointment in 6 weeks for reevaluation and repeat thyroid function tests\" as a distinct bullet point",
+      "addition_text": "\"therapy for thyroid hormone replacement\" (for Levothyroxine)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Remember to come back in 6 weeks for a follow-up and repeat thyroid function tests. This will help us adjust the medication if needed.",
+      "transcript_evidence": "[Doctor]: I would like to start you on Levothyroxine 50 mcg, which is a thyroid hormone replacement. You'll need to take it daily",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks for reevaluation and repeat thyroid function tests."
+      "matched_claim_text": "Initiate Levothyroxine 50 mcg daily therapy for thyroid hormone replacement.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"to adjust dosage if necessary\" (for follow-up)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You'll need to take it daily, and we'll reassess in 6 weeks with repeat thyroid function tests to see if the dosage needs adjustment.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Reassess in 6 weeks with repeat thyroid function tests to adjust dosage if necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

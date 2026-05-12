@@ -2,7 +2,7 @@
   "item": "item_0121",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0121",
   "ground_truth_soap": "#\nSubjective:\n   Chief Complaint (CC):\n   - Persistent fatigue and difficulty concentrating.\n   \n   History of Present Illness (HPI):\n   - The patient is a 38-year-old Hispanic female presenting via telemedicine for an initial consultation. She reports moderate fatigue that has been ongoing for the past 3 months. The fatigue is described as persistent and daily, significantly impacting her ability to concentrate at work as a Marketing Manager and disrupting her daily routine.\n   - The patient also reports associated symptoms of nausea and occasional headaches. She has noticed these symptoms have increased in frequency and severity over the past month.\n   - She has no previous diagnoses and is generally healthy, except for the over-the-counter pain relievers she occasionally takes for headaches. She denies any new medications or changes in her routine that could explain these symptoms.\n   \n   Review of Systems (ROS):\n   - Constitutional: Reports moderate fatigue, difficulty sleeping.\n   - HEENT: Occasional headaches.\n   - Gastrointestinal: Reports nausea.\n   - Neurological: Reports difficulty concentrating.\n   - Musculoskeletal: No muscle pain or weakness.\n   - Skin: No rashes or changes in skin color.\n\nObjective:\n   - Due to the nature of the telemedicine visit, no physical examination was performed.\n   - Vitals: Not available.\n\nAssessment:\n   - Differential diagnoses include potential sleep disorder or thyroid dysfunction pending the results of CMP and thyroid function tests.\n   - Consideration of other differential diagnoses such as anemia, chronic fatigue syndrome, or depression/anxiety based on the patient's history and reported symptoms.\n\nPlan:\n   - Follow-Up Recommendations:\n     - Schedule a follow-up consultation in 1 month to review test results and discuss further management.\n   - Lifestyle Change:\n     - Advise the patient on sleep hygiene practices, including maintaining a consistent sleep schedule, reducing caffeine intake especially in the afternoon and evening, and creating a relaxing bedtime routine.\n     - Encourage mild physical activity such as evening walks to improve overall well-being and potentially aid in better sleep quality.\n   - Referral to Specialists:\n     - Possible referral to an endocrinologist or sleep specialist pending test results.\n   - Tests Ordered:\n     - Comprehensive metabolic panel (CMP) and thyroid function tests to investigate symptoms of fatigue and difficulty sleeping.\n    \n   Instructions:\n   - The patient should monitor her symptoms and note any changes or new symptoms that may arise.\n   - If symptoms worsen or new concerning symptoms develop before the follow-up appointment, she should seek medical attention.\n   - The patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes.\n#",
-  "generated_soap": "Subjective:\n- Patient reports persistent fatigue and difficulty concentrating for the past three months\n- Patient also experiences nausea and occasional headaches\n- Fatigue and headaches have been increasing in frequency over the last month\n- Patient mentions trouble falling asleep and staying asleep\n\nObjective:\n- Not explicitly stated in the conversation, but likely includes patient's vitals as they were not mentioned to be abnormal\n\nAssessment:\n- Persistent fatigue may indicate a metabolic or endocrine disorder, sleep disorder, chronic fatigue syndrome, depression/anxiety, or other causes\n- Headaches and nausea could suggest migraines, gastrointestinal issues, or medication side effects\n- Difficulty sleeping could be related to the fatigue or a separate sleep disorder\n\nPlan:\n- Order comprehensive metabolic panel and thyroid function tests to investigate cause of fatigue and difficulty sleeping\n- Recommend lifestyle changes such as maintaining consistent sleep schedule, reducing caffeine intake, creating relaxing bedtime routine, and engaging in mild physical activity\n- Schedule a follow-up consultation in about a month to review test results and discuss next steps\n- If necessary, refer patient to an endocrinologist or sleep specialist for further evaluation",
+  "generated_soap": "Subjective:\n- The patient reports persistent fatigue, difficulty concentrating, occasional headaches, and nausea for the past three months.\n- The patient also mentions trouble sleeping and struggle with maintaining focus at work.\n\nObjective:\n- No physical examination is performed during the conversation.\n\nAssessment:\n- Fatigue could be due to sleep disorder, thyroid dysfunction, anemia, chronic fatigue syndrome, depression, or anxiety.\n- Headaches and nausea could be related to the fatigue or may have their own underlying causes.\n- Sleep disturbances are evident based on the patient's report of difficulty sleeping.\n\nPlan:\n- Order comprehensive metabolic panel and thyroid function tests for further investigation.\n- Recommend maintaining a consistent sleep schedule, reducing caffeine intake, creating a relaxing bedtime routine, and engaging in mild physical activity to potentially improve sleep and well-being.\n- Schedule a follow-up consultation in about a month to review test results and discuss next steps.\n- Advise the patient to seek medical attention if symptoms worsen or new concerning symptoms develop before the next appointment.\n- Prepare for potential referrals to an endocrinologist or sleep specialist, if necessary.",
   "entities_gt": {
     "all_entities": [
       "persistent fatigue",
@@ -51,43 +51,50 @@
     "all_entities": [
       "fatigue",
       "difficulty concentrating",
-      "nausea",
       "headaches",
-      "vitals",
-      "metabolic or endocrine disorder",
+      "nausea",
       "sleep disorder",
+      "thyroid dysfunction",
+      "anemia",
       "chronic fatigue syndrome",
-      "depression/anxiety",
-      "migraines",
+      "depression",
+      "anxiety",
+      "sleep disturbances",
       "difficulty sleeping",
       "comprehensive metabolic panel",
       "thyroid function tests",
-      "lifestyle changes"
+      "maintaining a consistent sleep schedule",
+      "creating a relaxing bedtime routine",
+      "engaging in mild physical activity",
+      "symptoms"
     ],
     "symptoms": [
       "fatigue",
       "difficulty concentrating",
-      "nausea",
       "headaches",
-      "migraines",
-      "gastrointestinal issues",
+      "nausea",
+      "trouble sleeping",
+      "depression",
+      "anxiety",
+      "sleep disturbances",
       "difficulty sleeping"
     ],
     "medications": [],
     "labs": [
+      "anemia",
       "comprehensive metabolic panel",
       "thyroid function tests"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 23,
-    "gen_count": 14,
-    "overlap_count": 9,
-    "recall": 0.391304347826087,
+    "gen_count": 18,
+    "overlap_count": 10,
+    "recall": 0.43478260869565216,
     "gt_only": [
-      "anemia",
       "cmp",
       "constitutional",
+      "depression/anxiety",
       "follow-up appointment",
       "lifestyle change",
       "moderate fatigue",
@@ -97,31 +104,34 @@
       "persistent fatigue",
       "recommended lifestyle changes",
       "skin",
-      "symptoms",
-      "thyroid dysfunction"
+      "vitals"
     ],
     "gen_only": [
+      "anxiety",
       "comprehensive metabolic panel",
+      "creating a relaxing bedtime routine",
+      "depression",
+      "engaging in mild physical activity",
       "fatigue",
-      "lifestyle changes",
-      "metabolic or endocrine disorder",
-      "migraines"
+      "maintaining a consistent sleep schedule",
+      "sleep disturbances"
     ],
     "overlap": [
+      "anemia",
       "chronic fatigue syndrome",
-      "depression/anxiety",
       "difficulty concentrating",
       "difficulty sleeping",
       "headaches",
       "nausea",
       "sleep disorder",
-      "thyroid function tests",
-      "vitals"
+      "symptoms",
+      "thyroid dysfunction",
+      "thyroid function tests"
     ]
   },
   "clinical_recall_symptoms": {
     "gt_count": 7,
-    "gen_count": 7,
+    "gen_count": 9,
     "overlap_count": 3,
     "recall": 0.42857142857142855,
     "gt_only": [
@@ -131,10 +141,12 @@
       "symptoms"
     ],
     "gen_only": [
+      "anxiety",
+      "depression",
       "fatigue",
-      "gastrointestinal issues",
       "headaches",
-      "migraines"
+      "sleep disturbances",
+      "trouble sleeping"
     ],
     "overlap": [
       "difficulty concentrating",
@@ -155,7 +167,7 @@
   },
   "clinical_recall_labs": {
     "gt_count": 3,
-    "gen_count": 2,
+    "gen_count": 3,
     "overlap_count": 1,
     "recall": 0.3333333333333333,
     "gt_only": [
@@ -163,6 +175,7 @@
       "vitals"
     ],
     "gen_only": [
+      "anemia",
       "comprehensive metabolic panel"
     ],
     "overlap": [
@@ -170,119 +183,150 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.36649060070207673,
-    "overall_rouge_l_f1": 0.19973086413248686,
+    "overall_token_f1": 0.46714107073677064,
+    "overall_rouge_l_f1": 0.2877651723419817,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3181818181818182,
-        "rouge_l_f1": 0.21674876847290642
+        "token_f1": 0.2834645669291339,
+        "rouge_l_f1": 0.1243523316062176
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.23529411764705882,
-        "rouge_l_f1": 0.16666666666666663
+        "token_f1": 0.43478260869565216,
+        "rouge_l_f1": 0.3333333333333333
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3235294117647059,
-        "rouge_l_f1": 0.18823529411764706
+        "token_f1": 0.5070422535211269,
+        "rouge_l_f1": 0.34883720930232553
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.588957055214724,
-        "rouge_l_f1": 0.2272727272727273
+        "token_f1": 0.6432748538011696,
+        "rouge_l_f1": 0.34453781512605036
       }
     ],
-    "assessment_alignment_score": 0.3235294117647059,
-    "plan_alignment_score": 0.588957055214724
+    "assessment_alignment_score": 0.5070422535211269,
+    "plan_alignment_score": 0.6432748538011696
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant issues, including multiple moderate to major omissions and two high-severity unsupported additions that introduce misleading clinical content. Specifically, the Objective section contains an unsupported speculation about vitals that contradicts the GroundTruth, and the Assessment section includes unsupported differential diagnoses. Critical safety instructions are also omitted from the Plan. These issues materially reduce the clinical usefulness and reliability of the note.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is broadly clinically usable but has noticeable gaps and multiple moderate omissions across the Subjective, Assessment, and Plan sections. While all additions were supported by the transcript and did not penalize the grade, the note lacks important contextual details, specific patient demographics, and comprehensive documentation of the history of present illness and review of systems. The clinical usefulness is reduced by these omissions, requiring careful review.",
     "omissions": [
-      "Patient's occupation (Marketing Manager)",
-      "Patient has no previous diagnoses and is generally healthy",
-      "Patient denies any new medications or changes in routine",
-      "No muscle pain or weakness (ROS)",
-      "No rashes or changes in skin color (ROS)",
-      "No physical examination performed due to telemedicine visit",
+      "Patient's age (38-year-old)",
+      "Patient's sex/gender (female)",
+      "Description of fatigue as 'moderate' and 'daily'",
+      "Specific impact of fatigue on work as a 'Marketing Manager'",
+      "Increased frequency and severity of nausea and headaches over the past month",
+      "Patient's general health status ('no previous diagnoses and generally healthy')",
+      "Use of 'over-the-counter pain relievers' for headaches",
+      "Denial of 'new medications or changes in her routine'",
+      "ROS: Musculoskeletal: No muscle pain or weakness",
+      "ROS: Skin: No rashes or changes in skin color",
       "Vitals not available",
-      "Anemia as a differential diagnosis",
-      "Instructions to monitor symptoms and note changes",
-      "Instruction to seek medical attention if symptoms worsen or new concerning symptoms develop before follow-up",
-      "Patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes"
+      "Reason for no physical exam ('Due to the nature of the telemedicine visit')",
+      "Context for differential diagnoses (sleep disorder/thyroid dysfunction) being 'pending the results of CMP and thyroid function tests'",
+      "Context for other differential diagnoses (anemia, chronic fatigue syndrome, depression/anxiety) being 'based on the patient's history and reported symptoms'",
+      "Specific purpose of follow-up: 'discuss further management'",
+      "Specific detail for caffeine reduction: 'especially in the afternoon and evening'",
+      "Specific example for mild physical activity: 'such as evening walks'",
+      "Context for specialist referral: 'pending test results'",
+      "Specific purpose of ordered tests: 'to investigate symptoms of fatigue and difficulty sleeping'",
+      "Instruction to 'monitor her symptoms and note any changes or new symptoms that may arise'",
+      "Patient's expressed motivation and eagerness to follow advice and make lifestyle changes",
+      "Chief Complaint section header",
+      "HPI section header",
+      "ROS section header",
+      "Follow-Up Recommendations section header",
+      "Lifestyle Change section header",
+      "Referral to Specialists section header",
+      "Tests Ordered section header",
+      "Instructions section header"
     ],
     "additions": [
-      "Speculation about patient's vitals (likely includes patient's vitals as they were not mentioned to be abnormal)",
-      "Headaches and nausea could suggest migraines, gastrointestinal issues, or medication side effects (Assessment)",
-      "Difficulty sleeping could be related to the fatigue or a separate sleep disorder (Assessment)",
-      "Persistent fatigue may indicate 'other causes' (Assessment)"
+      "Assessment: Statement that 'Headaches and nausea could be related to the fatigue or may have their own underlying causes.'",
+      "Assessment: Statement that 'Sleep disturbances are evident based on the patient's report of difficulty sleeping.'",
+      "Plan: Qualifier 'for further investigation' for ordered tests (CMP and thyroid function tests)",
+      "Plan: Qualifier 'if necessary' for potential referrals"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Speculation about patient's vitals (likely includes patient's vitals as they were not mentioned to be abnormal)",
-      "Headaches and nausea could suggest migraines, gastrointestinal issues, or medication side effects (Assessment)",
-      "Not explicitly stated in the conversation, but likely includes patient's vitals as they were not mentioned to be abnormal",
-      "Headaches and nausea could suggest migraines, gastrointestinal issues, or medication side effects"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has several omissions, including the patient's occupation, the absence of previous diagnoses, and the denial of new medications or routine changes, as well as some ROS details. While these are noticeable, they do not critically impair the section's usability, and there are no unsupported additions.",
+        "grade": "C",
+        "summary": "The Subjective section has several moderate omissions, including the patient's age and sex, specific descriptors for fatigue (moderate, daily), the detailed impact on work as a Marketing Manager, and the increased frequency/severity of nausea and headaches over the past month. Additionally, details about the patient's general health, use of OTC pain relievers, and specific ROS findings for musculoskeletal and skin were omitted. These omissions reduce the completeness and richness of the patient's history.",
         "omissions": [
-          "Patient's occupation (Marketing Manager)",
-          "Patient has no previous diagnoses and is generally healthy",
-          "Patient denies any new medications or changes in routine",
-          "Musculoskeletal: No muscle pain or weakness",
-          "Skin: No rashes or changes in skin color"
+          "Chief Complaint section header",
+          "HPI section header",
+          "ROS section header",
+          "Patient's age (38-year-old)",
+          "Patient's sex/gender (female)",
+          "Description of fatigue as 'moderate' and 'daily'",
+          "Specific impact of fatigue on work as a 'Marketing Manager'",
+          "Increased frequency and severity of nausea and headaches over the past month",
+          "Patient's general health status ('no previous diagnoses and generally healthy')",
+          "Use of 'over-the-counter pain relievers' for headaches",
+          "Denial of 'new medications or changes in her routine'",
+          "ROS: Musculoskeletal: No muscle pain or weakness",
+          "ROS: Skin: No rashes or changes in skin color"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "D",
-        "summary": "The Objective section receives a low grade due to a major unsupported addition that speculates about the patient's vitals, directly contradicting the GroundTruth that vitals were 'Not available.' This introduces misleading information. Additionally, important omissions include the lack of physical examination due to telemedicine and the explicit statement that vitals were not available.",
+        "grade": "B",
+        "summary": "The Objective section is mostly aligned, with only minor omissions regarding the specific reason for no physical examination ('Due to the nature of the telemedicine visit') and the explicit mention of 'Vitals not available'. The core information that no physical exam was performed is present.",
         "omissions": [
-          "No physical examination was performed due to the nature of the telemedicine visit",
-          "Vitals: Not available"
+          "Reason for no physical exam ('Due to the nature of the telemedicine visit')",
+          "Vitals not available"
         ],
-        "additions": [
-          "Not explicitly stated in the conversation, but likely includes patient's vitals as they were not mentioned to be abnormal"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section contains a high-severity unsupported addition that suggests migraines, gastrointestinal issues, or medication side effects as potential causes for headaches and nausea, which is not supported by the transcript. This introduces ungrounded clinical possibilities. The omission of anemia as a differential diagnosis is a minor issue in comparison to the unsupported content.",
+        "grade": "C",
+        "summary": "The Assessment section received a C due to moderate omissions of crucial context for the differential diagnoses. The note failed to specify that the initial differential diagnoses (sleep disorder, thyroid dysfunction) were 'pending the results of CMP and thyroid function tests' and that other diagnoses (anemia, chronic fatigue syndrome, depression/anxiety) were 'based on the patient's history and reported symptoms'. While all additions in this section were supported by the transcript, the missing context reduces the precision and clinical utility of the assessment.",
         "omissions": [
-          "Anemia as a differential diagnosis"
+          "Context for differential diagnoses (sleep disorder/thyroid dysfunction) being 'pending the results of CMP and thyroid function tests'",
+          "Context for other differential diagnoses (anemia, chronic fatigue syndrome, depression/anxiety) being 'based on the patient's history and reported symptoms'"
         ],
         "additions": [
-          "Headaches and nausea could suggest migraines, gastrointestinal issues, or medication side effects",
-          "Difficulty sleeping could be related to the fatigue or a separate sleep disorder",
-          "Persistent fatigue may indicate 'other causes'"
+          "Statement that 'Headaches and nausea could be related to the fatigue or may have their own underlying causes.'",
+          "Statement that 'Sleep disturbances are evident based on the patient's report of difficulty sleeping.'"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several moderate to major omissions, including critical instructions for the patient to monitor symptoms and seek medical attention if symptoms worsen before the follow-up. The omission of the patient's expressed eagerness to follow medical advice is also noted. These omissions reduce the completeness and safety of the plan.",
+        "summary": "The Plan section contains multiple minor and moderate omissions. Moderate omissions include the specific purpose of the follow-up ('discuss further management'), the context for specialist referral ('pending test results'), the specific purpose of ordered tests ('to investigate symptoms of fatigue and difficulty sleeping'), and the important instruction to 'monitor her symptoms and note any changes or new symptoms that may arise'. Minor omissions include specific details for lifestyle changes (caffeine timing, example of physical activity) and the patient's expressed motivation. All additions in this section were supported by the transcript.",
         "omissions": [
-          "The patient should monitor her symptoms and note any changes or new symptoms that may arise",
-          "If symptoms worsen or new concerning symptoms develop before the follow-up appointment, she should seek medical attention",
-          "The patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes"
+          "Follow-Up Recommendations section header",
+          "Lifestyle Change section header",
+          "Referral to Specialists section header",
+          "Tests Ordered section header",
+          "Instructions section header",
+          "Specific purpose of follow-up: 'discuss further management'",
+          "Specific detail for caffeine reduction: 'especially in the afternoon and evening'",
+          "Specific example for mild physical activity: 'such as evening walks'",
+          "Context for specialist referral: 'pending test results'",
+          "Specific purpose of ordered tests: 'to investigate symptoms of fatigue and difficulty sleeping'",
+          "Instruction to 'monitor her symptoms and note any changes or new symptoms that may arise'",
+          "Patient's expressed motivation and eagerness to follow advice and make lifestyle changes"
         ],
-        "additions": []
+        "additions": [
+          "Qualifier 'for further investigation' for ordered tests (CMP and thyroid function tests)",
+          "Qualifier 'if necessary' for potential referrals"
+        ]
       }
     ],
     "rubric_notes": null
@@ -290,60 +334,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Speculation about patient's vitals (likely includes patient's vitals as they were not mentioned to be abnormal)",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Headaches and nausea could suggest migraines, gastrointestinal issues, or medication side effects (Assessment)",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Difficulty sleeping could be related to the fatigue or a separate sleep disorder (Assessment)",
+      "addition_text": "Assessment: Statement that 'Headaches and nausea could be related to the fatigue or may have their own underlying causes.'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping. Based on what you’ve described, we need to consider several possibilities, like a sleep disorder or thyroid dysfunction.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Patient]: It started around the same time as the fatigue, but the headaches and nausea have definitely gotten worse recently. [Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Headaches and nausea could be related to the fatigue or may have their own underlying causes.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Persistent fatigue may indicate 'other causes' (Assessment)",
+      "addition_text": "Assessment: Statement that 'Sleep disturbances are evident based on the patient's report of difficulty sleeping.'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on what you’ve described, we need to consider several possibilities, like a sleep disorder or thyroid dysfunction. There are also other potential causes like anemia, chronic fatigue syndrome, or even depression and anxiety.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Patient]: Yes, I do. I have trouble falling asleep and staying asleep.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Sleep disturbances are evident based on the patient's report of difficulty sleeping.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Not explicitly stated in the conversation, but likely includes patient's vitals as they were not mentioned to be abnormal",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Headaches and nausea could suggest migraines, gastrointestinal issues, or medication side effects",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Difficulty sleeping could be related to the fatigue or a separate sleep disorder",
+      "addition_text": "Plan: Qualifier 'for further investigation' for ordered tests (CMP and thyroid function tests)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping. Based on what you’ve described, we need to consider several possibilities, like a sleep disorder or thyroid dysfunction.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Order comprehensive metabolic panel and thyroid function tests for further investigation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Persistent fatigue may indicate 'other causes'",
+      "addition_text": "Plan: Qualifier 'if necessary' for potential referrals",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "There are also other potential causes like anemia, chronic fatigue syndrome, or even depression and anxiety.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: One last thing, if the test results suggest the need, we may refer you to an endocrinologist or a sleep specialist for further evaluation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prepare for potential referrals to an endocrinologist or sleep specialist, if necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement that 'Headaches and nausea could be related to the fatigue or may have their own underlying causes.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: It started around the same time as the fatigue, but the headaches and nausea have definitely gotten worse recently. [Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Headaches and nausea could be related to the fatigue or may have their own underlying causes.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement that 'Sleep disturbances are evident based on the patient's report of difficulty sleeping.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I do. I have trouble falling asleep and staying asleep.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Sleep disturbances are evident based on the patient's report of difficulty sleeping.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Qualifier 'for further investigation' for ordered tests (CMP and thyroid function tests)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Order comprehensive metabolic panel and thyroid function tests for further investigation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Qualifier 'if necessary' for potential referrals",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: One last thing, if the test results suggest the need, we may refer you to an endocrinologist or a sleep specialist for further evaluation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prepare for potential referrals to an endocrinologist or sleep specialist, if necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

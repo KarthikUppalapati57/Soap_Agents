@@ -1,5 +1,6 @@
 from Agent_1.V1.generate import generate_soap_v1
 from Agent_2.v2.OpenAI_health_Benchmark.agent2 import evaluate_soap, parse_output
+from Agent_2.v2.MKG.mkg_validation import extract_terms, validate_terms
 from Agent_3.MKG import PrimeKGExplorer, extract_medical_terms
 from Agent_3.agent3 import _process_one
 from google.genai import Client, types
@@ -112,6 +113,13 @@ class AgentInterface:
         parsed_output = self.agent_2[1](evaluation)
         parsed_output["transcript"] = transcript
         parsed_output["generated"] = generated
+
+        terms = extract_terms(generated)
+        valid_terms, invalid_terms = validate_terms(terms)
+        parsed_output["UMLS_valid_terms"] = valid_terms
+        parsed_output["UMLS_invalid_terms"] = invalid_terms
+        parsed_output["UMLS_accuracy_score"] = len(valid_terms) / (len(valid_terms) + len(invalid_terms))
+
         return parsed_output
 
     def run_agent_3(self, parsed_output: dict, mkg_terms: str, client: Client) -> str:
@@ -120,8 +128,6 @@ class AgentInterface:
     def run(self, transcript: str, prompt_optimizations_list: list, only_generate: bool = False, no_mkg: bool = False) -> str:
         print("Running Agent 1")
         generated_soap = self.run_agent_1(transcript, prompt_optimizations_list)
-        if only_generate:
-            return {"transcript": transcript, "generated_soap": generated_soap}
         print("Running Agent 2")
         parsed_output = self.run_agent_2(transcript, generated_soap)
         print("Running Agent 3")

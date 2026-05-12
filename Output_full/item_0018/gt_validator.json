@@ -225,9 +225,9 @@
     "plan_alignment_score": 0.4146341463414634
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is missing several clinically relevant details, including the primary diagnosis in the Assessment section, specific medication quantity and route, the explicit ordering of the electrolyte panel and its full rationale, and a significant block of patient context and adherence information in the Plan. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete, requiring careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The note is significantly impacted by a major omission of the primary diagnosis in the Assessment section, which materially reduces its clinical usefulness. While other sections are mostly aligned, the Plan section also has several moderate omissions regarding medication details, lab ordering, and patient education specifics. There are no unsupported or unknown additions, which is a positive aspect.",
     "omissions": [
       "Severity of nausea/vomiting (moderate)",
       "Ability to perform light activities but not strenuous tasks",
@@ -247,7 +247,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor omissions, such as the frequency and severity of nausea/vomiting, and some ROS details. A moderate omission is the patient's ability to perform light activities but not strenuous tasks. However, the core chief complaint and HPI details are present.",
+        "summary": "The Subjective section is mostly aligned, capturing the chief complaint and key aspects of the history of present illness. However, it omits several minor details regarding the frequency and severity of symptoms, specific activity limitations, and some elements from the Review of Systems. All additions in this section are supported by the transcript.",
         "omissions": [
           "HPI: Frequency of N/V (3-4 times per day)",
           "HPI: Severity of N/V (moderate)",
@@ -265,14 +265,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is accurate and complete, correctly stating that vital signs and physical examination could not be determined due to the telemedicine consultation. There are no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has a significant omission: the primary diagnosis of 'Nausea and vomiting, unspecified'. While it correctly identifies the suspicion of dehydration and electrolyte imbalance, the absence of the main diagnosis is a noticeable gap.",
+        "grade": "D",
+        "summary": "This section has a major omission: the primary diagnosis of \"Nausea and vomiting, unspecified\" is entirely missing. Instead, it only includes a suspected condition (dehydration and potential electrolyte imbalance) which is the reason for further testing. While this addition is supported by the transcript, its presence without the core diagnosis makes the assessment incomplete and potentially misleading.",
         "omissions": [
           "Primary diagnosis of \"Nausea and vomiting, unspecified\""
         ],
@@ -283,7 +283,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains multiple omissions, including specific medication details (oral route, quantity of 20 tablets), the explicit ordering of the electrolyte panel, and the full rationale for the test. Additionally, a substantial block of patient context regarding cooperation, adherence, and social determinants of health is missing, which reduces the comprehensiveness of the plan.",
+        "summary": "The Plan section outlines the main treatment and follow-up, but it has several moderate omissions. These include the specific quantity and route of the prescribed Ondansetron, the explicit ordering of the electrolyte panel, and the full reason for this testing. Minor omissions include specific dietary advice (reducing processed foods) and the continuation of light physical activity. Additionally, the comprehensive patient context details from the Ground Truth are omitted. All additions in this section are supported by the transcript.",
         "omissions": [
           "Specific instruction for Ondansetron (oral)",
           "Quantity of Ondansetron prescribed (20 tablets)",
@@ -307,35 +307,45 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, this is the first time I've had it this bad.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "History of Present Illness (HPI): First episode of nausea and vomiting"
+      "matched_claim_text": "History of Present Illness (HPI): First episode of nausea and vomiting",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Nausea and vomiting — phenotype_phenotype — Vomiting"
     },
     {
       "addition_text": "Assessment: \"Dehydration and potential electrolyte imbalance suspected; awaiting test results\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I have ordered an electrolyte panel to assess for potential dehydration and electrolyte imbalance.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: potential electrolyte imbalance suspected"
+      "matched_claim_text": "Assessment: potential electrolyte imbalance suspected",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "CC: \"for 2 days, accompanied by fatigue, dizziness, and occasional headaches\" (details from HPI moved to CC)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also get occasional headaches.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chief Complaint: accompanied by occasional headaches."
+      "matched_claim_text": "Chief Complaint: accompanied by occasional headaches.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Dehydration and potential electrolyte imbalance suspected; awaiting test results\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I have ordered an electrolyte panel to assess for potential dehydration and electrolyte imbalance.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: potential electrolyte imbalance suspected"
+      "matched_claim_text": "Assessment: potential electrolyte imbalance suspected",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"to maintain hydration\" (added to ORS/fruits/veg instruction)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Avoid processed foods and try to eat more fruits and vegetables.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Encourage fruits and vegetables to maintain hydration"
+      "matched_claim_text": "Plan: Encourage fruits and vegetables to maintain hydration",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

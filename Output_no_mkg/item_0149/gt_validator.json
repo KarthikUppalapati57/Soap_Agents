@@ -263,17 +263,17 @@
     "plan_alignment_score": 0.5534591194968553
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and contains no unsupported or unknown additions. However, it has noticeable omissions, particularly in the Subjective section where the Chief Complaint and key historical context for hypercholesterolemia are missing. The Plan also omits the immediate lipid panel order and a detailed patient education discussion, making the note meaningfully incomplete in these areas.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately capturing the patient's chief complaint, general history, physical findings, assessment, and plan. However, it exhibits several minor to moderate omissions across all sections. Key missing details include the specific context of the visit (follow-up for hypercholesterolemia), detailed dietary habits, specific physical exam findings, explicit counseling on medication adherence and risk reduction, and the order for the initial lipid panel today. No unsupported or unknown additions were identified that would negatively impact the grade.",
     "omissions": [],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits the Chief Complaint, the historical context of the hypercholesterolemia diagnosis from the previous visit, and the patient's admission of frequent consumption of high-fat and high-cholesterol foods. Minor omissions include details about sleep, exercise routine, recreational activities, and a specific ROS detail (edema).",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete, capturing the patient's general well-being and denial of symptoms. However, it omits the Chief Complaint, the specific HPI context regarding the follow-up for hypercholesterolemia, details about sleep habits, specific dietary admissions (frequent high-fat/cholesterol foods), and recreational activities. These omissions, particularly the HPI context and specific diet, represent moderate gaps in the patient's self-reported history.",
         "omissions": [
           "Chief Complaint: Routine check-up and follow-up on lipid levels",
           "History of Present Illness: Patient was diagnosed with hypercholesterolemia during last visit and returned for further evaluation and management",
@@ -288,7 +288,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits key cardiovascular physical exam findings such as \"no murmurs, gallops, or rubs\" and the neurological detail of the patient being \"oriented.\" The remaining objective data is accurately captured.",
+        "summary": "The Objective section accurately reports all vital signs and general physical appearance. However, it omits specific cardiovascular exam findings (no murmurs, gallops, or rubs) and the patient's 'oriented' status from the neurological exam. These are minor omissions that slightly reduce the completeness of the physical examination documentation.",
         "omissions": [
           "Physical Examination: Cardiovascular: Regular rate and rhythm, no murmurs, gallops, or rubs",
           "Physical Examination: Neurological: oriented"
@@ -298,7 +298,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits the explicit mention of hypercholesterolemia as a \"new diagnosis,\" \"poor dietary habits\" as a contributing factor, and the specific parents for the family history of coronary artery disease (father) and hypercholesterolemia (mother). Despite these, the core assessment is present.",
+        "summary": "The Assessment section correctly identifies pure hypercholesterolemia, sedentary lifestyle, diet, and family history. It also notes well-controlled hypertension and type 2 diabetes. However, it omits the specific phrasing 'new diagnosis' for hypercholesterolemia, the explicit mention of 'poor dietary habits' as a contributing factor, and the specific parentage for the family history of coronary artery disease (father) and hypercholesterolemia (mother). These are minor to moderate omissions that reduce the specificity of the assessment.",
         "omissions": [
           "\"new diagnosis\" of pure hypercholesterolemia",
           "\"poor dietary habits\" as a contributing factor",
@@ -308,8 +308,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits several details, including the \"oral\" route and \"Quantity: 30 tablets\" for Atorvastatin, specific examples for increasing physical activity, the discussion about adhering to medication and lifestyle changes to reduce cardiovascular risk, and the order for a lipid panel today to evaluate current cholesterol levels. It also omits the concluding statement about patient cooperation and resources.",
+        "grade": "B",
+        "summary": "The Plan section outlines the prescribed medication, follow-up, and general lifestyle changes. However, it omits minor details such as the 'oral' route and 'quantity: 30 tablets' for Atorvastatin, and specific examples for aerobic exercises. More significantly, it omits the explicit counseling on the importance of adhering to medication and lifestyle changes to reduce cardiovascular risk, and the order for the 'Lipid panel (biochemistry) ordered today to evaluate current cholesterol levels.' The concluding statement about patient cooperation and access to resources is also omitted. The additions in this section were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "Medication: \"oral\" route of administration for Atorvastatin",
           "Medication: \"Quantity: 30 tablets\" for Atorvastatin",
@@ -333,14 +333,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Adhering to your medication regimen and making these lifestyle changes will help reduce your cardiovascular risk.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The medication is prescribed to reduce cardiovascular risk."
+      "matched_claim_text": "The medication is prescribed to reduce cardiovascular risk.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Schedule a follow-up appointment in 3 months\" (redundant with repeat lipid panel/follow-up)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll see you again in 3 months for a follow-up.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 3 months."
+      "matched_claim_text": "Schedule a follow-up appointment in 3 months.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

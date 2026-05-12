@@ -223,94 +223,92 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a usable summary but suffers from numerous omissions, particularly in the Subjective and Plan sections. Key details regarding the patient's history, functional limitations, and important patient education points are missing. While there are no unsupported or unknown additions, the significant gaps in documentation reduce the overall completeness and clinical usefulness of the note, requiring careful review.",
+    "overall_summary": "The generated SOAP note contains several clinically significant omissions, particularly in the Subjective and Plan sections. Key missing information includes the patient's history of hypertension and its medication (Losartan 50 mg daily), the detailed impact of the pain on mobility, household chores, and sleep, and important patient education points such as avoiding high-sodium foods and smoking cessation strategies. While all additions were supported by the transcript, the cumulative effect of these omissions makes the note meaningfully incomplete and necessitates careful review.",
     "omissions": [
-      "Patient's pain is intermittent.",
-      "Severe limitation in mobility due to pain.",
-      "Pain significantly affected ability to perform household chores.",
-      "Sleep frequently disrupted by pain.",
-      "Overall feeling of fatigue.",
-      "Patient reported decreased range of motion in right hip (from ROS).",
-      "History of chronic back pain.",
-      "History of hypertension managed with Losartan 50 mg daily.",
-      "No gastrointestinal abnormalities reported.",
-      "No respiratory abnormalities reported.",
-      "Patient appears in mild distress due to pain (General appearance in Objective).",
-      "Pain elicited on movement of the right hip.",
-      "Specific detail: decreased range of motion particularly on internal and external rotation.",
-      "Specific detail: muscle strength 5/5 in all major muscle groups of the lower extremities.",
-      "Primary diagnosis: Pain in the right hip.",
-      "Patient education: importance of avoiding high-sodium foods given hypertension.",
-      "Patient education: smoking cessation strategies and benefits of quitting smoking.",
-      "Discussion of potential need for specialist referral if symptoms do not improve or if significant findings are noted on the X-ray.",
-      "Discussion of limitations in access to advanced medical facilities.",
-      "Statement: Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications.",
-      "Detail: Tramadol route \"oral\".",
-      "Detail: X-ray purpose \"to rule out osteoarthritis or other structural abnormalities\".",
-      "Detail: Follow-up to reassess \"physical therapy outcomes\"."
+      "HPI: Pain is intermittent",
+      "HPI: Pain causes severe limitation in mobility",
+      "HPI: Pain significantly affected his ability to perform household chores",
+      "HPI: Pain disrupted his sleep",
+      "ROS: Chronic back pain present",
+      "ROS: History of hypertension managed with Losartan 50 mg daily",
+      "ROS: Neurological: No symptoms reported other than occasional numbness in the right leg",
+      "ROS: Gastrointestinal: No abnormalities reported",
+      "ROS: Respiratory: No abnormalities reported",
+      "ROS: Constitutional: Reports overall feeling of fatigue",
+      "Objective - General: Appears in mild distress due to pain",
+      "Objective - Musculoskeletal: Decreased range of motion particularly on internal and external rotation",
+      "Objective - Musculoskeletal: Pain elicited on movement",
+      "Assessment - Primary Diagnosis: Pain in the right hip",
+      "Plan - Medical Treatment: \"oral\" route for Tramadol",
+      "Plan - Investigations: Reason for X-ray (\"to rule out osteoarthritis or other structural abnormalities\")",
+      "Plan - Patient Education: Importance of avoiding high-sodium foods given his hypertension",
+      "Plan - Patient Education: Discussed smoking cessation strategies and the benefits of quitting smoking",
+      "Plan - Follow-up: Reassess physical therapy outcomes",
+      "Plan - Additional Notes: Discussed the potential need for specialist referral if symptoms do not improve or if significant findings are noted on the X-ray",
+      "Plan - Additional Notes: Addressed limitations in access to advanced medical facilities",
+      "Plan - Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications"
     ],
     "additions": [
-      "Patient reports pain causing mild distress (in Subjective section).",
-      "Statement: \"based on the patient's symptoms and exam findings\" for diagnoses (in Assessment section)."
+      "Subjective: \"causing mild distress\" (as part of HPI description)",
+      "Assessment: \"based on the patient's symptoms and exam findings\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has multiple moderate omissions, including the intermittent nature of the pain, severe limitation in mobility, sleep disruption, chronic back pain, and hypertension management with medication. These omissions significantly reduce the completeness of the patient's history and impact assessment.",
+        "summary": "The Subjective section has numerous omissions, including critical medical history such as chronic back pain and, most notably, hypertension managed with Losartan 50 mg daily. Important details about the pain's character (intermittent) and its significant impact on the patient's mobility, ability to perform household chores, and sleep were also omitted. These represent multiple moderate to major gaps in the patient's history.",
         "omissions": [
-          "Patient's pain is intermittent.",
-          "Severe limitation in mobility due to pain.",
-          "Pain significantly affected ability to perform household chores.",
-          "Sleep frequently disrupted by pain.",
-          "Overall feeling of fatigue.",
-          "Patient reported decreased range of motion in right hip.",
-          "History of chronic back pain.",
-          "History of hypertension managed with Losartan 50 mg daily.",
-          "No gastrointestinal abnormalities reported.",
-          "No respiratory abnormalities reported."
+          "HPI: Pain is intermittent",
+          "HPI: Pain causes severe limitation in mobility",
+          "HPI: Pain significantly affected his ability to perform household chores",
+          "HPI: Pain disrupted his sleep",
+          "ROS: Chronic back pain present",
+          "ROS: History of hypertension managed with Losartan 50 mg daily",
+          "ROS: Neurological: No symptoms reported other than occasional numbness in the right leg",
+          "ROS: Gastrointestinal: No abnormalities reported",
+          "ROS: Respiratory: No abnormalities reported",
+          "ROS: Constitutional: Reports overall feeling of fatigue"
         ],
         "additions": [
-          "Patient reports pain causing mild distress."
+          "\"causing mild distress\" (as part of HPI description)"
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly aligned, capturing vital signs and key physical exam findings. It has several minor omissions, such as the patient appearing in mild distress, pain elicited on movement, specific details of decreased range of motion, and muscle strength findings. These do not fundamentally alter the clinical picture but reduce completeness.",
+        "summary": "The Objective section is mostly aligned but omits some specific physical exam findings. These include the general observation that the patient appears in mild distress due to pain, the specific detail of decreased range of motion particularly on internal and external rotation of the hip, and that pain was elicited on movement. These are moderate omissions but the core findings are present.",
         "omissions": [
-          "Patient appears in mild distress due to pain (General appearance).",
-          "Pain elicited on movement of the right hip.",
-          "Specific detail: decreased range of motion particularly on internal and external rotation.",
-          "Specific detail: muscle strength 5/5 in all major muscle groups of the lower extremities."
+          "Physical Exam - General: Appears in mild distress due to pain",
+          "Physical Exam - Musculoskeletal: Decreased range of motion, particularly on internal and external rotation",
+          "Physical Exam - Musculoskeletal: Pain elicited on movement"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The differential diagnoses are well-captured. However, the primary diagnosis of 'Pain in the right hip' is omitted, which is a moderate issue. The addition of 'based on the patient's symptoms and exam findings' is supported by the transcript and does not affect the grade.",
+        "summary": "The Assessment section omits the explicit primary diagnosis of 'Pain in the right hip'. While the differential diagnoses are correctly listed, the absence of the primary diagnosis is a moderate omission. The addition in this section was supported by the transcript and did not impact the grade.",
         "omissions": [
-          "Primary diagnosis: Pain in the right hip."
+          "Primary Diagnosis: Pain in the right hip"
         ],
         "additions": [
-          "Statement: \"based on the patient's symptoms and exam findings\" for diagnoses."
+          "\"based on the patient's symptoms and exam findings\""
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has several moderate omissions, including important patient education regarding avoiding high-sodium foods and smoking cessation strategies. Discussions about potential specialist referral and limitations in access to advanced medical facilities are also missing. Several minor details about medication route, X-ray purpose, and follow-up specifics are also omitted, making the plan less comprehensive.",
+        "summary": "The Plan section contains several moderate omissions, particularly in patient education and contingency planning. It misses the importance of avoiding high-sodium foods given the patient's hypertension and the discussion of smoking cessation strategies. Additionally, the potential need for specialist referral if symptoms do not improve and the reason for the X-ray were omitted. These gaps make the plan less comprehensive.",
         "omissions": [
-          "Patient education: importance of avoiding high-sodium foods given hypertension.",
-          "Patient education: smoking cessation strategies and benefits of quitting smoking.",
-          "Discussion of potential need for specialist referral if symptoms do not improve or if significant findings are noted on the X-ray.",
-          "Discussion of limitations in access to advanced medical facilities.",
-          "Statement: Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications.",
-          "Detail: Tramadol route \"oral\".",
-          "Detail: X-ray purpose \"to rule out osteoarthritis or other structural abnormalities\".",
-          "Detail: Follow-up to reassess \"physical therapy outcomes\"."
+          "Medical Treatment: \"oral\" route for Tramadol",
+          "Investigations: Reason for X-ray (\"to rule out osteoarthritis or other structural abnormalities\")",
+          "Patient Education and Counseling: Importance of avoiding high-sodium foods given his hypertension",
+          "Patient Education and Counseling: Discussed smoking cessation strategies and the benefits of quitting smoking",
+          "Follow-up: Reassess physical therapy outcomes",
+          "Additional Notes: Discussed the potential need for specialist referral if symptoms do not improve or if significant findings are noted on the X-ray",
+          "Additional Notes: Addressed limitations in access to advanced medical facilities",
+          "Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications"
         ],
         "additions": []
       }
@@ -320,32 +318,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Patient reports pain causing mild distress (in Subjective section).",
+      "addition_text": "Subjective: \"causing mild distress\" (as part of HPI description)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You appear to be in mild distress due to the pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and causing mild distress."
+      "matched_claim_text": "and causing mild distress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement: \"based on the patient's symptoms and exam findings\" for diagnoses (in Assessment section).",
+      "addition_text": "Assessment: \"based on the patient's symptoms and exam findings\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and examination, it seems like the primary issue is the pain in your right hip. We need to consider a few possibilities like osteoarthritis, trochanteric bursitis, or lumbar radiculopathy.",
+      "transcript_evidence": "Based on your symptoms and examination, it seems like the primary issue is the pain in your right hip.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient reports pain causing mild distress.",
+      "addition_text": "\"causing mild distress\" (as part of HPI description)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You appear to be in mild distress due to the pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and causing mild distress."
+      "matched_claim_text": "and causing mild distress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement: \"based on the patient's symptoms and exam findings\" for diagnoses.",
+      "addition_text": "\"based on the patient's symptoms and exam findings\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and examination, it seems like the primary issue is the pain in your right hip. We need to consider a few possibilities like osteoarthritis, trochanteric bursitis, or lumbar radiculopathy.",
+      "transcript_evidence": "Based on your symptoms and examination, it seems like the primary issue is the pain in your right hip.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

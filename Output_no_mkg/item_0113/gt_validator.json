@@ -272,9 +272,9 @@
     "plan_alignment_score": 0.641304347826087
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Assessment section where the patient's known secondary diagnoses of hypertension and hyperlipidemia are omitted. Additionally, important details regarding HPI severity and several minor physical exam findings are missing. All identified additions were supported by the transcript and therefore did not impact the grade.",
+    "overall_summary": "The generated SOAP note is broadly usable but has noticeable gaps, particularly in the Assessment section where secondary diagnoses for hypertension and hyperlipidemia are omitted. Several minor details are also missing across all sections, including specific HPI descriptors, negative ROS findings, and physical exam details. All additions were supported by the transcript and therefore did not reduce the grade.",
     "omissions": [
       "Chief Complaint section header",
       "Review of Systems section header",
@@ -308,7 +308,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor omissions, including specific descriptions of palpitations and negative ROS findings. A moderate omission is the lack of detail regarding the severity of symptoms as 'moderate' and 'impacting daily activities'. All additions in this section were supported by the transcript.",
+        "summary": "The Subjective section has several minor omissions, including specific descriptions of palpitations (e.g., 'rapid, fluttering sensation') and the severity/impact ('moderate severity, impacting daily activities'). Additionally, several negative findings from the Review of Systems (denial of fever, chills, weight loss, nausea, vomiting, chest pain) are missing. All additions in this section were supported by the transcript.",
         "omissions": [
           "HPI detail: description of palpitations as 'rapid, fluttering sensation in the chest'",
           "HPI detail: severity of symptoms as 'moderate' and 'impacting daily activities'",
@@ -324,7 +324,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section contains numerous minor omissions related to specific physical exam findings (e.g., 'Apical impulse not displaced', 'S1 and S2 present', 'Clear to auscultation bilaterally') and a vital sign descriptor ('Heart rate described as 'regular''). While these are numerous, they are individually minor and do not fundamentally alter the overall positive findings presented.",
+        "summary": "The Objective section is missing several minor but useful details from the physical examination, such as the heart rate being 'regular' in vitals, the general appearance being 'Alert and oriented, no acute distress', specific CV findings like 'Apical impulse not displaced' and 'S1 and S2 present', and detailed respiratory findings like 'Clear to auscultation bilaterally, no wheezes, rales, or rhonchi'. No penalizable additions were found.",
         "omissions": [
           "Vitals: Heart rate described as 'regular'",
           "Physical Exam: General appearance 'Alert and oriented, no acute distress'",
@@ -339,7 +339,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has significant omissions, specifically failing to list hypertension and hyperlipidemia as secondary diagnoses. This represents multiple moderate issues that make the assessment meaningfully incomplete. The qualifier for hyperthyroidism as 'less likely' was also omitted, which is a minor issue.",
+        "summary": "The Assessment section has moderate omissions, specifically failing to list 'Hypertension' and 'Hyperlipidemia' as secondary diagnoses. While these conditions were mentioned in the Subjective, their absence from the formal Assessment section represents a significant gap in the clinical assessment. The qualifier for Hyperthyroidism ('less likely given no other suggestive features') was also omitted, reducing the clarity of clinical reasoning. No penalizable additions were found.",
         "omissions": [
           "Secondary Diagnosis 'Hypertension'",
           "Secondary Diagnosis 'Hyperlipidemia'",
@@ -350,7 +350,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section has several minor omissions, including specific medication details like the 'oral' route, '30 tablets' quantity, and 'one refill' for Metoprolol. A minor patient education point about 'monitoring of symptoms' was also omitted. All additions in this section were supported by the transcript.",
+        "summary": "The Plan section has several minor omissions related to medication details (e.g., 'oral' route, '30 tablets' quantity, 'one refill' for Metoprolol) and patient education ('monitoring of symptoms'). These are practical details that enhance the completeness of the plan. All additions in this section were supported by the transcript.",
         "omissions": [
           "Medication: 'oral' route for Metoprolol",
           "Medication: '30 tablets' quantity for Metoprolol",
@@ -371,42 +371,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Not really. They seem to come out of nowhere, no matter what I'm doing.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No known triggers for the palpitations have been identified."
+      "matched_claim_text": "No known triggers for the palpitations have been identified.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: 'Known medical history includes hypertension and hyperlipidemia, which are reported to be under control with current medications.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I think they're under control. I take my medications as prescribed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension and hyperlipidemia are reported to be under control with current medications."
+      "matched_claim_text": "Hypertension and hyperlipidemia are reported to be under control with current medications.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan Lifestyle Modifications: specific examples for stress management ('yoga or meditation')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Stress management techniques like yoga or meditation can also help.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'No known triggers for the palpitations have been identified.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Not really. They seem to come out of nowhere, no matter what I'm doing.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No known triggers for the palpitations have been identified."
+      "matched_claim_text": "No known triggers for the palpitations have been identified.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Known medical history includes hypertension and hyperlipidemia, which are reported to be under control with current medications.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I think they're under control. I take my medications as prescribed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension and hyperlipidemia are reported to be under control with current medications."
+      "matched_claim_text": "Hypertension and hyperlipidemia are reported to be under control with current medications.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Lifestyle Modifications: specific examples for stress management ('yoga or meditation')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Stress management techniques like yoga or meditation can also help.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

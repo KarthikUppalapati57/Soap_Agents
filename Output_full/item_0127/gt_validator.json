@@ -239,9 +239,9 @@
     "plan_alignment_score": 0.8324324324324325
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer_agent",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately capturing the patient's chief complaint, vital signs, diagnosis, and a comprehensive plan. However, it contains several minor omissions across all sections and three moderate omissions: the severity of opioid cravings, the significant impact of opioid use on job performance and daily responsibilities in the Subjective section, and the history of Oxycodone prescription for chronic back pain in the Assessment. There are no unsupported or unknown additions that would negatively impact the grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. The Subjective section has several minor omissions and two moderate omissions regarding the severity of opioid cravings and the impact on the patient's job performance and daily responsibilities. However, the Objective, Assessment, and Plan sections are strong, with only minor omissions of specific details or rationales. There are no unsupported or unknown additions that would negatively impact the grade, as the single identified addition is supported by the transcript.",
     "omissions": [
       "initial consultation (for opioid dependence)",
       "moderate to severe cravings for opioids",
@@ -270,7 +270,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is missing several specific details regarding the severity of opioid cravings, the impact on job performance and daily responsibilities, and specific quantities/reasons for substance use and lifestyle habits. While the general issues are captured, the lack of these details makes the section less comprehensive.",
+        "summary": "This section captures the main points of the patient's history but omits several details. Moderate omissions include the specific severity of opioid cravings ('moderate to severe') and the significant impact on job performance and daily responsibilities. Minor omissions include details about sleep quality ('frequent awakenings'), dietary intake ('skips meals frequently'), exercise limitations ('due to discomfort and fatigue'), specific quantities for smoking ('1 pack per day'), and details for alcohol and cannabis use ('1-2 drinks on weekends', 'for relaxation').",
         "omissions": [
           "initial consultation (for opioid dependence)",
           "moderate to severe cravings for opioids",
@@ -287,7 +287,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures vital signs and key physical examination findings. Minor details such as the patient appearing anxious, the absence of cardiac murmurs, and specific abdominal and neurological findings were omitted, but these do not significantly detract from the clinical utility of the section.",
+        "summary": "The Objective section is comprehensive, accurately reporting all vital signs and key physical examination findings. Minor omissions include descriptive details such as the patient appearing 'anxious but cooperative,' the absence of murmurs in the cardiac exam, the lungs being clear 'bilaterally,' the absence of hepatomegaly or masses in the abdomen, and the patient being 'alert and oriented' in the neurological exam. These omissions do not significantly detract from the clinical usefulness of the section.",
         "omissions": [
           "General: Appears anxious but cooperative.",
           "Cardiac: Regular rate and rhythm, no murmurs.",
@@ -299,8 +299,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section correctly identifies the diagnosis and contributing factors. However, it omits the important detail that chronic back pain was previously managed with Oxycodone, which provides crucial context for the patient's opioid dependence. The addition of poor diet, lack of exercise, and cigarette smoking as associated factors is supported by the transcript and does not impact the grade.",
+        "grade": "A",
+        "summary": "The Assessment section is highly accurate and complete. It correctly identifies the diagnosis and all contributing factors. The only omission is the specific detail that Oxycodone was 'previously prescribed' for chronic back pain, which is a minor detail. The addition of 'poor diet, lack of exercise, and cigarette smoking' as associated factors is supported by the transcript and therefore does not reduce the grade.",
         "omissions": [
           "previously prescribed Oxycodone (for chronic back pain)"
         ],
@@ -311,7 +311,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is comprehensive, detailing medication, follow-up, referrals, investigations, and lifestyle recommendations. Minor omissions include the specific reasons for ordering the drug screen and liver function tests, and the explicit recommendation to \"consider smoking cessation programs\" in addition to reducing tobacco use. These omissions are minor and do not detract from the overall clinical utility of the plan.",
+        "summary": "The Plan section is well-structured and includes all major components of the treatment plan. Minor omissions include the specific reasons for ordering the comprehensive drug screen ('to monitor for other substance use') and liver function tests ('due to history of substance use'), as well as the specific recommendation to 'consider smoking cessation programs.' These are minor details that do not diminish the overall clarity or completeness of the plan.",
         "omissions": [
           "to monitor for other substance use (reason for drug screen)",
           "due to history of substance use (reason for liver function tests)",
@@ -329,14 +329,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Patient states, \"my diet is pretty poor,\" \"I feel too uncomfortable and fatigued to do much physical activity,\" and \"I smoke about a pack a day.\" The doctor later provides lifestyle recommendations including a balanced diet, structured exercise, and reducing tobacco use.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "poor diet, lack of exercise, and cigarette smoking (listed as associated with opioid dependence)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] As for lifestyle recommendations, I encourage you to participate in a structured exercise program. A balanced diet and good sleep hygiene are also very important. Try to reduce your tobacco use and consider smoking cessation programs.",
+      "transcript_evidence": "patient: \"No, I often skip meals and my diet is pretty poor.\" patient: \"Not really. I feel too uncomfortable and fatigued to do much physical activity.\" patient: \"Yes, I smoke about a pack a day.\"",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -233,72 +233,60 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the chief complaint, objective findings, diagnosis, and core treatment plan. However, it has several minor omissions, including patient demographics and specific pain descriptors, and a moderate omission of the structured Review of Systems. The medical reasoning for the diagnosis in the Assessment section is also moderately incomplete. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note provides a mostly accurate and clinically usable summary of the patient encounter. It accurately captures the chief complaint, history of present illness, objective findings, diagnosis, and the majority of the treatment plan. However, it omits several specific denials from the Review of Systems in the Subjective section and lacks the concluding statement regarding the patient's understanding and agreement with the treatment plan. There are no unsupported or unknown additions.",
     "omissions": [
-      "Patient's age (33-year-old)",
-      "Patient's race/ethnicity (Caucasian)",
-      "Patient's sex (female)",
-      "Description of throat pain as 'moderate'",
-      "Description of 'continuous discomfort with swallowing'",
-      "Specific Review of Systems (ROS) sections (Constitutional, ENT, Respiratory, Gastrointestinal, Musculoskeletal, Neurological)",
-      "Denial of nausea or vomiting (from GI ROS)",
-      "Denial of joint pain or muscle aches (from Musculoskeletal ROS)",
-      "Denial of changes in vision or hearing (from Neurological ROS)",
-      "Medical reasoning detail: 'Given her symptoms and lack of chronic conditions, bacterial pharyngitis (e.g., streptococcal infection) is considered.'",
-      "Route of administration for Amoxicillin ('oral')",
-      "Number of tablets for Amoxicillin (20 tablets)",
-      "Statement: 'The patient understands and agrees with the recommended medical treatment plan.'"
+      "missed work for 2 days",
+      "pain exacerbates at night",
+      "Denies nausea or vomiting",
+      "Denies joint pain or muscle aches",
+      "No changes in vision or hearing",
+      "classic symptoms of acute pharyngitis, including sore throat, fever, and tonsillar exudates (as part of medical reasoning)",
+      "lack of chronic conditions (as part of medical reasoning)",
+      "bacterial pharyngitis (e.g., streptococcal infection) is considered (as part of medical reasoning)",
+      "Patient understands and agrees with the recommended medical treatment plan"
     ],
-    "additions": [
-      "Description of sore throat as 'progressively worsening'"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The section accurately captures the chief complaint and most of the HPI. However, it omits patient demographics (age, race, sex), specific pain descriptors ('moderate', 'continuous discomfort with swallowing'), and the structured Review of Systems, including several denials. The single addition was supported by the transcript.",
+        "summary": "The Subjective section effectively summarizes the patient's chief complaint and history of present illness, including key symptoms, duration, and impact on daily life. However, it omits specific denials from the Review of Systems, such as 'Denies nausea or vomiting,' 'Denies joint pain or muscle aches,' and 'No changes in vision or hearing,' which are present in the GroundTruth. Minor details like 'missed work for 2 days' and 'pain exacerbates at night' were also slightly less specific than the GroundTruth.",
         "omissions": [
-          "Patient's age (33-year-old)",
-          "Patient's race/ethnicity (Caucasian)",
-          "Patient's sex (female)",
-          "Description of throat pain as 'moderate'",
-          "Description of 'continuous discomfort with swallowing'",
-          "Specific Review of Systems (ROS) sections (Constitutional, ENT, Respiratory, Gastrointestinal, Musculoskeletal, Neurological)",
-          "Denial of nausea or vomiting (from GI ROS)",
-          "Denial of joint pain or muscle aches (from Musculoskeletal ROS)",
-          "Denial of changes in vision or hearing (from Neurological ROS)"
+          "missed work for 2 days",
+          "pain exacerbates at night",
+          "Denies nausea or vomiting",
+          "Denies joint pain or muscle aches",
+          "No changes in vision or hearing"
         ],
-        "additions": [
-          "Description of sore throat as 'progressively worsening'"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is complete and accurately reflects all GroundTruth content with no omissions or additions.",
+        "summary": "The Objective section is complete and accurate, capturing all vital signs and physical examination findings as presented in the GroundTruth.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The diagnosis is correctly identified. However, the detailed medical reasoning explaining the consideration of bacterial pharyngitis based on symptoms and lack of chronic conditions is omitted, representing a moderate gap in the clinical rationale.",
+        "grade": "A",
+        "summary": "The Assessment section correctly identifies the diagnosis of acute pharyngitis and the ordering of a throat culture. It provides a concise medical reasoning but omits some of the more detailed justifications found in the GroundTruth, such as specific classic symptoms, lack of chronic conditions, and explicit consideration of bacterial pharyngitis. These are minor omissions in the depth of reasoning.",
         "omissions": [
-          "Medical reasoning detail: 'Given her symptoms and lack of chronic conditions, bacterial pharyngitis (e.g., streptococcal infection) is considered.'"
+          "classic symptoms of acute pharyngitis, including sore throat, fever, and tonsillar exudates",
+          "lack of chronic conditions",
+          "bacterial pharyngitis (e.g., streptococcal infection) is considered"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The core treatment plan, patient education, and follow-up instructions are present. Minor omissions include the route of administration and number of tablets for the prescribed medication, and the statement confirming patient understanding and agreement.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive, detailing the prescribed medication, patient education, lifestyle recommendations, follow-up instructions, and additional testing. The only omission is the concluding statement about the patient's understanding and agreement with the recommended medical treatment plan.",
         "omissions": [
-          "Route of administration for Amoxicillin ('oral')",
-          "Number of tablets for Amoxicillin (20 tablets)",
-          "Statement: 'The patient understands and agrees with the recommended medical treatment plan.'"
+          "Patient understands and agrees with the recommended medical treatment plan"
         ],
         "additions": []
       }
@@ -306,13 +294,5 @@
     "rubric_notes": null
   },
   "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "Description of sore throat as 'progressively worsening'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It started about three days ago. It's been getting worse, and now it's pretty painful.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    }
-  ]
+  "addition_evidence": []
 }

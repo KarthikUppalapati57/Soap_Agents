@@ -337,9 +337,9 @@
     "plan_alignment_score": 0.7394957983193278
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "D",
-    "overall_summary": "The generated note suffers from significant omissions, particularly in the Subjective and Assessment sections. Key established diagnoses such as Type 2 Diabetes Mellitus and Stage 3 Chronic Kidney Disease are either entirely omitted or misrepresented as \"possible\" in the Assessment, which materially reduces the clinical usefulness and accuracy of the note. Many specific details regarding the patient's history, symptoms, and lifestyle are also missing from the Subjective section. All additions were supported by the transcript and did not negatively impact the grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note has several significant omissions, particularly in the Subjective and Assessment sections, where key diagnoses like Type 2 Diabetes Mellitus and Stage 3 Chronic Kidney Disease are either missing or not explicitly stated as established conditions. Important details regarding the history of present illness, functional impact of symptoms, and the full scope of the presenting problems are also omitted. While there are no unsupported or unknown additions that would lower the grade, the substantial omissions make the note meaningfully incomplete, requiring careful review and additional information to be clinically useful.",
     "omissions": [
       "Difficulty managing kidney function (from Chief Complaint)",
       "History of Type 2 diabetes mellitus (as a stated history item in HPI)",
@@ -381,7 +381,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has noticeable gaps, including the omission of the patient's history of Type 2 Diabetes Mellitus and Stage 3 Chronic Kidney Disease from the HPI. Numerous other specific details regarding symptom severity, impact on daily life, sleep, diet, exercise, patient cooperation, and specific ROS findings are also missing, making the section less comprehensive.",
+        "summary": "This section has multiple moderate to major omissions. Key historical diagnoses such as Type 2 Diabetes Mellitus and Stage 3 Chronic Kidney Disease are missing from the HPI. Other significant omissions include the patient's current Metformin dosage, the full impact of symptoms on daily activities, and details about diet, exercise, and patient cooperation. These gaps make the HPI meaningfully incomplete.",
         "omissions": [
           "Difficulty managing kidney function (from Chief Complaint)",
           "History of Type 2 diabetes mellitus (as a stated history item)",
@@ -404,7 +404,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly aligned, with minor omissions such as the patient's general appearance, the absence of murmurs on cardiovascular exam, and the dedicated \"Investigations/Test Results\" section. The core physical exam findings and vital signs are accurately captured.",
+        "summary": "This section is mostly aligned, with a few minor omissions such as the general appearance description ('Well-nourished, well-developed, in no acute distress') and the absence of 'no murmurs' from the cardiovascular exam. The dedicated 'Investigations/Test Results' section from the GroundTruth is also omitted. All additions in this section were supported by the transcript and therefore did not impact the grade.",
         "omissions": [
           "General appearance: Well-nourished, well-developed, in no acute distress",
           "Cardiovascular exam finding: No murmurs",
@@ -419,7 +419,7 @@
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section contains major issues, notably the complete omission of Type 2 Diabetes Mellitus as an established diagnosis and the misrepresentation of Stage 3 Chronic Kidney Disease as merely \"possible\" rather than an established condition. This materially reduces the clinical usefulness and accuracy of the patient's problem list.",
+        "summary": "This section has major omissions of critical clinical information. The established diagnoses of Type 2 Diabetes Mellitus and Hypertensive Chronic Kidney Disease (Stage 3) are missing. The generated note only mentions 'Hypertension' and 'possible chronic kidney disease,' which significantly understates the patient's known conditions. The specific presenting problems and the detailed impact of symptoms are also omitted, materially reducing the clinical usefulness of this section. All additions in this section were supported by the transcript and therefore did not impact the grade.",
         "omissions": [
           "Diagnosis of Type 2 diabetes mellitus",
           "Diagnosis of Hypertensive chronic kidney disease (Stage 3)",
@@ -434,8 +434,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section accurately captures all major medical interventions and referrals. Minor omissions include the specific purpose of the renal ultrasound and the documentation of patient understanding, agreement, and instructions for continued monitoring and adherence to lifestyle modifications.",
+        "grade": "A",
+        "summary": "This section is largely complete and accurate. The omissions are minor, including the specific purpose of the renal ultrasound ('to assess kidney size and structure') and the patient's understanding/agreement with the plan, as well as instructions for continued monitoring and adherence to lifestyle modifications. All additions in this section were supported by the transcript and therefore did not impact the grade.",
         "omissions": [
           "Purpose of renal ultrasound: \"to assess kidney size and structure\"",
           "Patient understanding and agreement: \"Patient understands and agrees with the proposed treatment plan.\"",
@@ -455,84 +455,108 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] On physical examination, your blood pressure is 150/95 mmHg.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure: 150/95 mmHg (elevated)."
+      "matched_claim_text": "Blood pressure: 150/95 mmHg (elevated).",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Increased blood pressure, Elevated systolic blood pressure, Elevated diastolic blood pressure"
     },
     {
       "addition_text": "Objective: Heart rate and rhythm described as \"regular with no abnormalities\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your heart rate and rhythm are regular, and your lungs are clear.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Heart rate and rhythm are regular; lungs are clear to auscultation."
+      "matched_claim_text": "Heart rate and rhythm are regular; lungs are clear to auscultation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Hypertension described as \"(ongoing for 5 years)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] My legs also swell up occasionally, and it’s been going on for about five years now.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lower extremity edema has been ongoing for about 5 years."
+      "matched_claim_text": "Lower extremity edema has been ongoing for about 5 years.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Chronic kidney disease described as \"possible\" and \"(pending renal function tests and ultrasound)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We have some blood work and a renal ultrasound pending. Once we have those results, we can get a clearer picture of your condition. ... We’ll need to do some further tests, including blood work to check your creatinine, estimated glomerular filtration rate, blood urea nitrogen, and electrolytes. We’ll also do a complete blood count. ... We’ll also conduct a renal ultrasound to assess the size and structure of your kidneys.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible chronic kidney disease is being investigated, pending renal function tests and ultrasound."
+      "matched_claim_text": "Possible chronic kidney disease is being investigated, pending renal function tests and ultrasound.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Patient is \"Adherent to prescribed medications and diet recommendations\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I take Amlodipine 10 mg daily and Metformin 500 mg twice daily. I follow all the advice I get. ... I eat a lot of vegetables and lean proteins. I try to keep my sodium intake moderate.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is adherent to prescribed medications and diet recommendations."
+      "matched_claim_text": "Patient is adherent to prescribed medications and diet recommendations.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Rationale for Metformin increase: \"for better glycemic control\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’m going to increase your Metformin to 1000 mg twice daily to help manage your diabetes better.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increase Metformin to 1000 mg twice daily for better glycemic control."
+      "matched_claim_text": "Increase Metformin to 1000 mg twice daily for better glycemic control.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Blood pressure described as \"(elevated)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] On physical examination, your blood pressure is 150/95 mmHg.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure: 150/95 mmHg (elevated)."
+      "matched_claim_text": "Blood pressure: 150/95 mmHg (elevated).",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Increased blood pressure, Elevated systolic blood pressure, Elevated diastolic blood pressure"
     },
     {
       "addition_text": "Heart rate and rhythm described as \"regular with no abnormalities\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your heart rate and rhythm are regular, and your lungs are clear.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Heart rate and rhythm are regular; lungs are clear to auscultation."
+      "matched_claim_text": "Heart rate and rhythm are regular; lungs are clear to auscultation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Hypertension described as \"(ongoing for 5 years)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] My legs also swell up occasionally, and it’s been going on for about five years now.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lower extremity edema has been ongoing for about 5 years."
+      "matched_claim_text": "Lower extremity edema has been ongoing for about 5 years.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Chronic kidney disease described as \"possible\" and \"(pending renal function tests and ultrasound)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We have some blood work and a renal ultrasound pending. Once we have those results, we can get a clearer picture of your condition. ... We’ll need to do some further tests, including blood work to check your creatinine, estimated glomerular filtration rate, blood urea nitrogen, and electrolytes. We’ll also do a complete blood count. ... We’ll also conduct a renal ultrasound to assess the size and structure of your kidneys.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible chronic kidney disease is being investigated, pending renal function tests and ultrasound."
+      "matched_claim_text": "Possible chronic kidney disease is being investigated, pending renal function tests and ultrasound.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient is \"Adherent to prescribed medications and diet recommendations\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I take Amlodipine 10 mg daily and Metformin 500 mg twice daily. I follow all the advice I get. ... I eat a lot of vegetables and lean proteins. I try to keep my sodium intake moderate.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is adherent to prescribed medications and diet recommendations."
+      "matched_claim_text": "Patient is adherent to prescribed medications and diet recommendations.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Rationale for Metformin increase: \"for better glycemic control\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’m going to increase your Metformin to 1000 mg twice daily to help manage your diabetes better.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increase Metformin to 1000 mg twice daily for better glycemic control."
+      "matched_claim_text": "Increase Metformin to 1000 mg twice daily for better glycemic control.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

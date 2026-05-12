@@ -235,44 +235,52 @@
     "plan_alignment_score": 0.5571428571428572
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, but contains noticeable gaps in the Subjective section. While the core diagnosis, objective findings, and treatment plan are well-captured, the Subjective section omits important details regarding the cough's specific severity and its significant impact on the patient's sleep and daily activities. These omissions make the patient's history meaningfully incomplete. All additions are supported by the transcript and do not negatively impact the grade. Minor omissions are also present in other sections but do not significantly detract from the note's overall clinical utility.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. All additions are supported by the transcript, preventing any high-severity penalties. The primary area for improvement is the Subjective section, which has several minor and moderate omissions regarding the detailed history of present illness, including the impact of the cough on daily life and the patient's response to prior self-treatment. Other sections are well-captured with only minor or structural omissions.",
     "omissions": [
-      "Cough severity (moderate)",
-      "Cough disrupting sleep",
-      "Cough impacting ability to perform routine activities",
-      "Lack of improvement despite resting",
-      "Lack of improvement despite taking over-the-counter allergy medications",
-      "Patient's occasional use of allergy medications for seasonal allergies",
-      "Subjective complaint of mild wheezing (in ROS)",
-      "General appearance: appears fatigued but in no apparent distress",
+      "Subjective: Chief Complaint (CC) section header",
+      "Subjective: History of Present Illness (HPI) section header",
+      "Subjective: Review of Systems (ROS) section header",
+      "Subjective: Cough severity (moderate)",
+      "Subjective: Cough disrupting sleep",
+      "Subjective: Cough impacting ability to perform routine activities",
+      "Subjective: No significant improvement despite resting",
+      "Subjective: No significant improvement despite taking over-the-counter allergy medications",
+      "Subjective: Patient occasionally uses OTC allergy medications for seasonal allergies",
+      "Subjective: ROS: Other systems: No significant complaints noted",
+      "Objective: General appearance: appears fatigued but in no apparent distress",
       "Objective: Other Systems: No significant findings",
-      "Diagnosis detail: unspecified (for Acute Bronchitis)",
-      "Medication detail: oral (for Amoxicillin)",
-      "Medication detail: Quantity: 21 tablets (for Amoxicillin)",
-      "Documentation of patient agreement and commitment to treatment",
-      "General advice to monitor symptoms and reach out immediately if concerns or symptoms exacerbate"
+      "Plan: Medication detail: oral",
+      "Plan: Medication detail: Quantity: 21 tablets",
+      "Plan: Lifestyle and Home Care header",
+      "Plan: Follow-Up header",
+      "Plan: Referrals and Additional Tests header",
+      "Plan: Statement that the plan was discussed in detail with the patient, who is in agreement and committed to the treatment",
+      "Plan: General advice to monitor symptoms and reach out immediately if there are any concerns or if symptoms exacerbate"
     ],
     "additions": [
-      "Negative ROS: No history of chest pain, shortness of breath, or significant weight loss",
-      "Negative ROS: No recent travel or exposure to sick individuals",
-      "Specific advice for immediate return: Advise patient to come back immediately if experiencing increased difficulty breathing, persistent high fever, or severe chest pain"
+      "Subjective: No history of chest pain, shortness of breath, or significant weight loss",
+      "Subjective: No recent travel or exposure to sick individuals",
+      "Plan: Specific advice to come back immediately if experiencing increased difficulty breathing, persistent high fever, or severe chest pain"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The section accurately captures the chief complaint, duration, phlegm, fever, and fatigue. However, it omits important details regarding the cough's severity (moderate), its impact on sleep and routine activities, and the lack of improvement despite resting and over-the-counter medications. These omissions create noticeable gaps in the patient's history, making it meaningfully incomplete. All additions are supported by the transcript and do not detract from the grade.",
+        "grade": "B",
+        "summary": "This section accurately captures the chief complaint and main symptoms. However, it omits several details from the History of Present Illness, such as the moderate severity of the cough, its impact on sleep and routine activities, and the lack of improvement despite resting and taking over-the-counter medications. These omissions, while not critical, make the HPI less comprehensive. All additions in this section are supported by the transcript.",
         "omissions": [
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
           "Cough severity (moderate)",
           "Cough disrupting sleep",
           "Cough impacting ability to perform routine activities",
-          "Lack of improvement despite resting",
-          "Lack of improvement despite taking over-the-counter allergy medications",
-          "Patient's occasional use of allergy medications for seasonal allergies",
-          "Subjective complaint of mild wheezing (in ROS)"
+          "No significant improvement despite resting",
+          "No significant improvement despite taking over-the-counter allergy medications",
+          "Patient occasionally uses OTC allergy medications for seasonal allergies",
+          "ROS: Other systems: No significant complaints noted"
         ],
         "additions": [
           "No history of chest pain, shortness of breath, or significant weight loss",
@@ -282,7 +290,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-documented, accurately reflecting vital signs and key respiratory findings. It omits minor details such as the general appearance ('appears fatigued but in no apparent distress') and the 'no significant findings' for other systems, but these do not impact the overall clinical usefulness.",
+        "summary": "This section is well-documented, accurately reflecting vital signs and key physical exam findings. The only omissions are minor details regarding general appearance and the absence of other significant findings. There are no unsupported or unknown additions.",
         "omissions": [
           "General appearance: appears fatigued but in no apparent distress",
           "Other Systems: No significant findings"
@@ -292,24 +300,25 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The diagnosis of 'Acute Bronchitis' is correctly identified. The only omission is the ICD-10 detail 'unspecified,' which is a minor detail and does not affect the clinical accuracy or usefulness of the diagnosis.",
-        "omissions": [
-          "Diagnosis detail: unspecified (for Acute Bronchitis)"
-        ],
+        "summary": "The assessment is perfectly aligned with the Ground Truth, with no omissions or additions.",
+        "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The core treatment plan, including medication, lifestyle advice, and follow-up instructions, is accurately captured. Minor omissions include the 'oral' route and 'quantity' for Amoxicillin, and documentation of patient agreement. The specific advice for immediate return is a supported and clinically useful addition, enhancing the plan.",
+        "summary": "The plan effectively captures all critical treatment components, including medication, lifestyle advice, and follow-up instructions. Omissions are limited to minor details like medication quantity, structural headers, and an administrative statement. The specific advice for worsening symptoms is a supported addition from the transcript, enhancing the clinical usefulness.",
         "omissions": [
-          "Medication detail: oral (for Amoxicillin)",
-          "Medication detail: Quantity: 21 tablets (for Amoxicillin)",
-          "Documentation of patient agreement and commitment to treatment",
-          "General advice to monitor symptoms and reach out immediately if concerns or symptoms exacerbate"
+          "Medication detail: oral",
+          "Medication detail: Quantity: 21 tablets",
+          "Lifestyle and Home Care header",
+          "Follow-Up header",
+          "Referrals and Additional Tests header",
+          "Statement that the plan was discussed in detail with the patient, who is in agreement and committed to the treatment",
+          "General advice to monitor symptoms and reach out immediately if there are any concerns or if symptoms exacerbate"
         ],
         "additions": [
-          "Specific advice for immediate return: Advise patient to come back immediately if experiencing increased difficulty breathing, persistent high fever, or severe chest pain"
+          "Specific advice to come back immediately if experiencing increased difficulty breathing, persistent high fever, or severe chest pain"
         ]
       }
     ],
@@ -318,39 +327,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Negative ROS: No history of chest pain, shortness of breath, or significant weight loss",
+      "addition_text": "Subjective: No history of chest pain, shortness of breath, or significant weight loss",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you had any chest pain...? [patient] No, none of those.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of chest pain"
+      "matched_claim_text": "No history of chest pain",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Negative ROS: No recent travel or exposure to sick individuals",
+      "addition_text": "Subjective: No recent travel or exposure to sick individuals",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Any recent travel...? [patient] No, I haven't traveled recently",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No recent travel"
+      "matched_claim_text": "No recent travel",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific advice for immediate return: Advise patient to come back immediately if experiencing increased difficulty breathing, persistent high fever, or severe chest pain",
+      "addition_text": "Plan: Specific advice to come back immediately if experiencing increased difficulty breathing, persistent high fever, or severe chest pain",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] If you experience increased difficulty breathing... please come back immediately.",
+      "transcript_evidence": "[doctor] If you experience... persistent high fever, or severe chest pain, please come back immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to come back immediately if experiencing increased difficulty breathing"
+      "matched_claim_text": "persistent high fever, or severe chest pain",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No history of chest pain, shortness of breath, or significant weight loss",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you had any chest pain...? [patient] No, none of those.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of chest pain"
+      "matched_claim_text": "No history of chest pain",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No recent travel or exposure to sick individuals",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Any recent travel...? [patient] No, I haven't traveled recently",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No recent travel"
+      "matched_claim_text": "No recent travel",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specific advice to come back immediately if experiencing increased difficulty breathing, persistent high fever, or severe chest pain",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] If you experience... persistent high fever, or severe chest pain, please come back immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "persistent high fever, or severe chest pain",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

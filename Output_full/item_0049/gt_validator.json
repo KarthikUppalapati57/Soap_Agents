@@ -263,94 +263,93 @@
     "plan_alignment_score": 0.6293103448275861
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical_reviewer_model",
     "overall_grade": "C",
-    "overall_summary": "The generated note has multiple moderate omissions across the Subjective, Assessment, and Plan sections, making it meaningfully incomplete. Key omissions include details about the patient's functional status, a complete Review of Systems, the entire Differential Diagnoses section, and several important laboratory tests. Additionally, the Subjective section includes an unsupported addition regarding 'easy bruising' in the initial summary, which, despite the fact being mentioned elsewhere in the GT ROS, is flagged as an unsupported addition in this context and contributes to the lower grade.",
+    "overall_summary": "The generated note has significant omissions across multiple sections, particularly the complete absence of the Review of Systems, Differential Diagnoses, and Laboratory Tests Ordered sections. While the primary diagnosis and core treatment plan are present, these missing sections represent major gaps in clinical documentation, making the note meaningfully incomplete and requiring careful review.",
     "omissions": [
-      "Patient's inability to perform routine tasks and being mostly bedridden (HPI)",
-      "Patient not on any regular medications for peptic ulcer disease (HPI)",
-      "Denial of new stressors or lifestyle changes (HPI)",
-      "Decreased appetite; denies nausea, vomiting, or abdominal pain (ROS Gastrointestinal)",
-      "Denial of headaches or visual changes (ROS Neurological)",
-      "No murmurs (Objective Cardiovascular)",
-      "No wheezes or crackles (Objective Respiratory)",
-      "Without guarding or rebound tenderness (Objective Abdomen)",
+      "Patient's significant inability to perform routine tasks and being mostly bedridden (HPI)",
+      "Patient denies any new stressors or lifestyle changes (HPI)",
+      "Review of Systems (ROS) section",
+      "General ROS: significant decrease in daily activities",
+      "Cardiovascular ROS: endorses tachycardia",
+      "Respiratory ROS: endorses shortness of breath",
+      "Gastrointestinal ROS: decreased appetite; denies nausea, vomiting, or abdominal pain",
+      "Neurological ROS: endorses dizziness; denies headaches or visual changes",
+      "Hematologic ROS: pale skin, reports bruising easily",
+      "No murmurs detected (Cardiovascular Physical Exam)",
+      "No wheezes or crackles (Respiratory Physical Exam)",
       "Differential Diagnoses section",
       "Chronic blood loss anemia (Differential Diagnosis)",
       "Iron deficiency anemia (Differential Diagnosis)",
       "Vitamin B12 or folate deficiency anemia (Differential Diagnosis)",
-      "Comprehensive Metabolic Panel (CMP) (Laboratory Tests Ordered)",
-      "Iron studies, Vitamin B12, Folate levels (Laboratory Tests Ordered)",
-      "Examples of iron-rich foods (e.g., leafy green vegetables, red meat, beans) (Lifestyle Modifications)",
+      "Laboratory Tests Ordered section",
+      "Comprehensive Metabolic Panel (CMP) ordered",
+      "Iron studies ordered",
+      "Vitamin B12 levels ordered",
+      "Folate levels ordered",
       "Recommended light activities as tolerated (Lifestyle Modifications)",
-      "Conclusion section (patient expressed understanding and willingness to adhere, initial consultation concluded with scheduling follow-up to reassess and review lab results)"
+      "Conclusion section"
     ],
     "additions": [
-      "\"easy bruising\" included in the initial summary of symptoms (Subjective)",
-      "Explanation for suspected diagnosis: \"is suspected due to the patient's symptoms and history of peptic ulcer disease.\" (Assessment)",
-      "\"taken with food to avoid gastrointestinal upset\" integrated into the iron supplementation instruction (Plan)",
-      "\"severe\" before shortness of breath in the list of complications (Plan)"
+      "Acute posthemorrhagic anemia is suspected due to the patient's symptoms and history of peptic ulcer disease (Assessment)"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "\"easy bruising\" included in the initial summary of symptoms (Subjective)",
-      "\"easy bruising\" included in the initial summary of symptoms"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several moderate omissions, including the patient's inability to perform routine tasks, being mostly bedridden, and specific denials from the Review of Systems (e.g., no new stressors, no headaches/visual changes). A significant concern is the unsupported addition of 'easy bruising' in the initial summary of symptoms, which, as an unsupported clinical detail, lowers the grade.",
+        "summary": "The Subjective section omits the entire Review of Systems, which is a significant structural and content gap. Additionally, the History of Present Illness misses details about the patient's significant inability to perform routine tasks and being mostly bedridden, as well as the denial of new stressors or lifestyle changes.",
         "omissions": [
-          "\"Significant inability to perform routine tasks and has been mostly bedridden.\"",
-          "\"Has not been on any regular medications\" (regarding PUD)",
-          "\"Denies any new stressors or lifestyle changes preceding the onset of symptoms.\"",
-          "\"Decreased appetite; denies nausea, vomiting, or abdominal pain.\" (ROS Gastrointestinal)",
-          "\"denies headaches or visual changes.\" (ROS Neurological)"
+          "Patient's significant inability to perform routine tasks and being mostly bedridden (HPI)",
+          "Patient denies any new stressors or lifestyle changes (HPI)",
+          "Review of Systems (ROS) section",
+          "General ROS: significant decrease in daily activities",
+          "Cardiovascular ROS: endorses tachycardia",
+          "Respiratory ROS: endorses shortness of breath",
+          "Gastrointestinal ROS: decreased appetite; denies nausea, vomiting, or abdominal pain",
+          "Neurological ROS: endorses dizziness; denies headaches or visual changes",
+          "Hematologic ROS: pale skin, reports bruising easily"
         ],
-        "additions": [
-          "\"easy bruising\" included in the initial summary of symptoms"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-aligned with the Ground Truth. The only discrepancies are minor omissions of negative findings such as 'no murmurs,' 'no wheezes or crackles,' and 'without guarding or rebound tenderness,' which do not significantly impact clinical usefulness.",
+        "summary": "The Objective section is well-aligned with the GroundTruth, with only minor omissions of negative findings regarding heart murmurs and lung sounds (no wheezes or crackles).",
         "omissions": [
-          "\"no murmurs\" (Cardiovascular)",
-          "\"no wheezes or crackles\" (Respiratory)",
-          "\"without guarding or rebound tenderness\" (Abdomen)"
+          "No murmurs detected (Cardiovascular Physical Exam)",
+          "No wheezes or crackles (Respiratory Physical Exam)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "This section has a major omission: the entire Differential Diagnoses section, including 'Chronic blood loss anemia,' 'Iron deficiency anemia,' and 'Vitamin B12 or folate deficiency anemia.' This significantly reduces the clinical completeness and usefulness of the assessment by omitting crucial diagnostic considerations.",
+        "summary": "The Assessment section has a major omission of the entire Differential Diagnoses section, including chronic blood loss anemia, iron deficiency anemia, and vitamin B12 or folate deficiency anemia. This significantly reduces the clinical completeness of the assessment. The addition in this section was supported by the transcript and did not reduce the grade.",
         "omissions": [
           "Differential Diagnoses section",
-          "\"Chronic blood loss anemia\" (Differential Diagnosis)",
-          "\"Iron deficiency anemia\" (Differential Diagnosis)",
-          "\"Vitamin B12 or folate deficiency anemia\" (Differential Diagnosis)"
+          "Chronic blood loss anemia (Differential Diagnosis)",
+          "Iron deficiency anemia (Differential Diagnosis)",
+          "Vitamin B12 or folate deficiency anemia (Differential Diagnosis)"
         ],
         "additions": [
-          "\"is suspected due to the patient's symptoms and history of peptic ulcer disease.\""
+          "Acute posthemorrhagic anemia is suspected due to the patient's symptoms and history of peptic ulcer disease"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has multiple moderate omissions, notably the absence of 'Comprehensive Metabolic Panel (CMP)' and 'Iron studies, Vitamin B12, Folate levels' from the ordered laboratory tests. The entire 'Conclusion section' regarding patient understanding and follow-up scheduling context is also omitted, which impacts the completeness of the plan.",
+        "summary": "The Plan section suffers from a major omission of the entire Laboratory Tests Ordered section, including critical tests like Comprehensive Metabolic Panel (CMP), iron studies, Vitamin B12, and Folate levels. It also omits the recommendation for light activities as tolerated and the conclusion section.",
         "omissions": [
-          "\"Comprehensive Metabolic Panel (CMP)\" (Laboratory Tests Ordered)",
-          "\"Iron studies, Vitamin B12, Folate levels\" (Laboratory Tests Ordered)",
-          "Examples of iron-rich foods (e.g., leafy green vegetables, red meat, beans)",
-          "\"Recommended light activities as tolerated\" (Lifestyle Modifications)",
-          "Conclusion section (patient expressed understanding and willingness to adhere, initial consultation concluded with scheduling follow-up to reassess and review lab results)"
+          "Laboratory Tests Ordered section",
+          "Comprehensive Metabolic Panel (CMP) ordered",
+          "Iron studies ordered",
+          "Vitamin B12 levels ordered",
+          "Folate levels ordered",
+          "Recommended light activities as tolerated (Lifestyle Modifications)",
+          "Conclusion section"
         ],
-        "additions": [
-          "\"taken with food to avoid gastrointestinal upset\" integrated into the iron supplementation instruction",
-          "\"severe\" before shortness of breath in the list of complications"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -358,60 +357,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"easy bruising\" included in the initial summary of symptoms (Subjective)",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explanation for suspected diagnosis: \"is suspected due to the patient's symptoms and history of peptic ulcer disease.\" (Assessment)",
+      "addition_text": "Acute posthemorrhagic anemia is suspected due to the patient's symptoms and history of peptic ulcer disease (Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have acute posthemorrhagic anemia. ... I’m also referring you to a gastroenterologist... given your history of peptic ulcer disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute posthemorrhagic anemia is suspected due to the patient's symptoms and history of peptic ulcer disease."
+      "matched_claim_text": "Acute posthemorrhagic anemia is suspected due to the patient's symptoms and history of peptic ulcer disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"taken with food to avoid gastrointestinal upset\" integrated into the iron supplementation instruction (Plan)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll start with iron supplementation. I’m prescribing Ferrous sulfate 325 mg orally three times daily for three months. You should take it with food to avoid gastrointestinal upset.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start iron supplementation with Ferrous sulfate 325 mg orally three times daily for three months, taken with food to avoid gastrointestinal upset."
-    },
-    {
-      "addition_text": "\"severe\" before shortness of breath in the list of complications (Plan)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I also feel dizzy, short of breath... [Patient]: Yes, I get short of breath quite easily.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient presented with shortness of breath for the past week."
-    },
-    {
-      "addition_text": "\"easy bruising\" included in the initial summary of symptoms",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"is suspected due to the patient's symptoms and history of peptic ulcer disease.\"",
+      "addition_text": "Acute posthemorrhagic anemia is suspected due to the patient's symptoms and history of peptic ulcer disease",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have acute posthemorrhagic anemia. ... I’m also referring you to a gastroenterologist... given your history of peptic ulcer disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute posthemorrhagic anemia is suspected due to the patient's symptoms and history of peptic ulcer disease."
-    },
-    {
-      "addition_text": "\"taken with food to avoid gastrointestinal upset\" integrated into the iron supplementation instruction",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll start with iron supplementation. I’m prescribing Ferrous sulfate 325 mg orally three times daily for three months. You should take it with food to avoid gastrointestinal upset.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start iron supplementation with Ferrous sulfate 325 mg orally three times daily for three months, taken with food to avoid gastrointestinal upset."
-    },
-    {
-      "addition_text": "\"severe\" before shortness of breath in the list of complications",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I also feel dizzy, short of breath... [Patient]: Yes, I get short of breath quite easily.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient presented with shortness of breath for the past week."
+      "matched_claim_text": "Acute posthemorrhagic anemia is suspected due to the patient's symptoms and history of peptic ulcer disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

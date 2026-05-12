@@ -274,9 +274,9 @@
     "plan_alignment_score": 0.6146341463414634
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "gemini-clinical-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note provides a generally accurate overview but suffers from multiple moderate omissions, particularly in the Objective and Plan sections. Key clinical findings like the patient appearing slightly dehydrated and pending lab results are missing from the Objective section. In the Plan, crucial patient education regarding the link between stress and GI symptoms, and especially advice on recognizing warning signs for urgent follow-up, are omitted. While no unsupported additions were found, these omissions reduce the note's completeness and clinical usefulness, requiring careful review.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and contains no unsupported or unknown additions, which is a strong positive. However, it suffers from multiple moderate omissions across several sections, particularly in the Objective and Plan. Key missing information includes the patient's appearance of dehydration, pending lab results, the explicit rationale for gastroenterology referral in the assessment, and crucial patient education regarding warning signs for urgent follow-up and the link between stress and GI symptoms. These omissions make the note meaningfully incomplete and necessitate careful review.",
     "omissions": [
       "HPI detail: intermittent nature of abdominal cramping",
       "HPI detail: daily occurrence of abdominal cramping",
@@ -305,7 +305,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly complete, capturing the chief complaint and core HPI. However, it omits several minor HPI details, such as the intermittent and daily nature of cramping, the impact on work focus, and the patient's belief about stress. A moderate omission is the absence of the negative review of systems for cardiovascular, respiratory, musculoskeletal, neurological, and genitourinary symptoms, which reduces the comprehensiveness of the review.",
+        "summary": "The Subjective section is mostly complete, capturing the chief complaint and core HPI details. However, it omits several minor descriptive details from the HPI, such as the intermittent and daily nature of cramping, difficulty focusing at work, and the patient's belief about stress contribution. A standard negative review of systems for other body systems was also omitted.",
         "omissions": [
           "HPI detail: intermittent nature of abdominal cramping",
           "HPI detail: daily occurrence of abdominal cramping",
@@ -318,7 +318,7 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section has noticeable gaps due to several moderate omissions. It fails to include the important physical examination finding that the patient 'appears slightly dehydrated' and omits the negative findings for cardiovascular, respiratory, and musculoskeletal examinations. Crucially, the section also omits the pending Complete Blood Count (CBC) and Electrolyte panel results, which are vital for understanding the ongoing diagnostic process. The addition of 'Vital signs within normal limits' is supported by the transcript and does not affect the grade.",
+        "summary": "The Objective section has moderate omissions. It fails to explicitly state that the patient 'appears slightly dehydrated' (though dry mucous membranes are mentioned) and omits the crucial information about awaiting results for Complete Blood Count (CBC) and Electrolyte panel. These omissions remove important clinical context for the patient's condition and ongoing diagnostic process. Minor omissions include the specific location of abdominal tenderness and negative findings for other system examinations. There were no unsupported additions.",
         "omissions": [
           "Physical Examination detail: 'Appears slightly dehydrated'",
           "Physical Examination detail: 'in the lower abdomen' for tenderness location",
@@ -331,8 +331,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section is well-aligned with the Ground Truth. The only omission is the explicit statement that 'Further evaluation by gastroenterology is warranted,' which is implicitly covered by the referral in the Plan. The addition regarding dehydration requiring further evaluation is supported by the transcript and does not negatively impact the grade.",
+        "grade": "B",
+        "summary": "The Assessment section is largely accurate, correctly identifying possible functional and organic causes. However, it omits the explicit statement that 'Further evaluation by gastroenterology is warranted,' which is a key part of the diagnostic reasoning. The addition regarding dehydration requiring further evaluation was supported by the transcript and did not impact the grade.",
         "omissions": [
           "Statement that 'Further evaluation by gastroenterology is warranted'"
         ],
@@ -343,7 +343,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions, primarily in patient education. It omits the detailed review of the potential link between stress and gastrointestinal symptoms, emphasizing managing work-related stress, and critically, the advice on recognizing warning signs that would necessitate an urgent follow-up (e.g., severe pain, vomiting, signs of dehydration). Minor omissions include the specific name of the gastroenterologist, the detailed reason for the abdominal ultrasound, and the patient's positive engagement notes. These omissions reduce the clinical usefulness and safety aspects of the plan.",
+        "summary": "The Plan section contains several moderate to major omissions, significantly impacting its completeness and safety. Crucially, it omits advice on recognizing warning signs that would necessitate an urgent follow-up (e.g., severe pain, vomiting, signs of dehydration), which is safety-critical patient education. It also omits the detailed review of the potential link between stress and gastrointestinal symptoms, emphasizing managing work-related stress, and the importance of maintaining a regular meal schedule. Minor omissions include the specific name of the gastroenterologist and details about the reason for the abdominal ultrasound, as well as patient notes on understanding and motivation.",
         "omissions": [
           "Specific name of gastroenterologist (Dr. Lisa Warren)",
           "Imaging detail: 'persistent abdominal' discomfort for ultrasound reason",
@@ -365,28 +365,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "All of these are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'Dehydration noted during examination requires further evaluation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I noticed that you appear slightly dehydrated with dry mucous membranes. ... [Doctor]: We’re still waiting on the results of your Complete Blood Count and Electrolyte panel to get a clearer picture.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Dehydration noted during examination requires further evaluation."
+      "matched_claim_text": "Dehydration noted during examination requires further evaluation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Interpretive statement 'Vital signs within normal limits'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "All of these are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Dehydration noted during examination requires further evaluation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I noticed that you appear slightly dehydrated with dry mucous membranes. ... [Doctor]: We’re still waiting on the results of your Complete Blood Count and Electrolyte panel to get a clearer picture.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Dehydration noted during examination requires further evaluation."
+      "matched_claim_text": "Dehydration noted during examination requires further evaluation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

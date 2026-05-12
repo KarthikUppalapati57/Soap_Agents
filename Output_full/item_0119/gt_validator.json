@@ -292,9 +292,9 @@
     "plan_alignment_score": 0.6012269938650306
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note contains significant omissions and a high-severity unsupported addition. Key omissions include the entire Review of Systems and the primary problem statement in the Assessment. A clinically misleading unsupported addition places an objective finding ('causes antalgic gait') within the subjective section. While the core plan is outlined, it lacks important details such as specific medication dosages and the reason for referral. These issues materially reduce the clinical usefulness and completeness of the documentation.",
+    "overall_summary": "The note contains significant issues, primarily in the Subjective section, which includes numerous omissions of clinically important HPI and ROS details, and a high-severity unsupported addition of an objective finding. While the Objective section is strong, the Assessment omits the primary problem statement, and the Plan lacks specific medication details and structural completeness. These issues, especially the unsupported and miscategorized content in the Subjective section, materially reduce the clinical usefulness and reliability of the note.",
     "omissions": [
       "Chief Complaint (CC) section header and specific phrasing",
       "Severity of pain (moderate to severe) in HPI",
@@ -341,7 +341,7 @@
       {
         "section": "Subjective",
         "grade": "D",
-        "summary": "This section has major omissions, notably the entire Review of Systems, which is a significant gap in patient history. It also omits important details regarding the severity of pain and its impact on daily activities. Furthermore, a high-severity unsupported addition incorrectly includes an objective finding ('causes antalgic gait') within the subjective section, which is clinically misleading.",
+        "summary": "The Subjective section has numerous omissions, including critical details about the pain's severity, daily occurrence, impact on daily activities, and a complete Review of Systems, notably the patient's well-managed Type 2 Diabetes. Furthermore, it includes an unsupported addition of an objective finding ('causes antalgic gait') within the subjective narrative, which is a significant miscategorization and a high-severity alignment issue.",
         "omissions": [
           "Chief Complaint (CC) section header and specific phrasing",
           "Severity of pain (moderate to severe) in HPI",
@@ -361,8 +361,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section is mostly accurate, capturing all vital signs and key physical examination findings. It has several minor omissions, such as general appearance details ('Well-nourished, alert, and in no apparent distress') and normal reflexes, as well as specific headings for Gait Assessment and Spine exam. However, these do not significantly detract from the overall clinical utility of the objective findings.",
+        "grade": "A",
+        "summary": "The Objective section is strong, accurately capturing vital signs and key physical examination findings. Omissions are limited to minor structural headings and specific descriptive details, such as general appearance and normal reflexes, which do not significantly detract from the clinical utility.",
         "omissions": [
           "General appearance findings: 'Well-nourished, alert, and in no apparent distress'",
           "Neurological Exam finding: 'Reflexes normal in both lower limbs'",
@@ -376,8 +376,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "This section has a major omission: the primary problem statement, 'Chronic lower back pain with right leg numbness,' is entirely missing. While the differential diagnoses are correctly listed, the absence of the patient's established problem makes the assessment meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Assessment section correctly identifies the differential diagnoses. However, it omits the primary problem statement, 'Chronic lower back pain with right leg numbness,' which is a moderate clinical omission, making the assessment less complete than the ground truth.",
         "omissions": [
           "Primary diagnosis/problem statement: 'Chronic lower back pain with right leg numbness'",
           "'Differential Diagnosis' heading"
@@ -386,8 +386,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The plan outlines all major interventions (MRI, referral, physical therapy, medication continuation, patient education, follow-up). However, it omits several moderate clinical details, including the specific reason for referral ('due to suspected lumbar radiculopathy') and the names and dosages of current medications. Several minor patient education points are also missing. The unsupported addition of a numbered list format is a minor issue.",
+        "grade": "B",
+        "summary": "The Plan section outlines all necessary actions, including diagnostic evaluation, referral, physical therapy, medication continuation, patient education, and follow-up. However, it omits specific medication details (names and dosages for hypertension and diabetes) and several structural headings, along with minor details regarding the reason for referral and specific patient education points. A minor unsupported addition of a numbered list format is also present.",
         "omissions": [
           "'Diagnostic Evaluation' heading",
           "'Referrals' heading",
@@ -417,42 +417,54 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Interpretive statement 'Vital signs are within normal limits' in Objective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, those are normal ranges.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal limits."
+      "matched_claim_text": "Vital signs are within normal limits.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Numbered list format for Plan items",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Phrase 'hypertension and diabetes management' in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For now, continue your current medications for hypertension and diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient to continue current medications for hypertension and diabetes management."
+      "matched_claim_text": "Patient to continue current medications for hypertension and diabetes management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Interpretive statement 'Vital signs are within normal limits'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, those are normal ranges.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal limits."
+      "matched_claim_text": "Vital signs are within normal limits.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Phrase 'hypertension and diabetes management'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For now, continue your current medications for hypertension and diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient to continue current medications for hypertension and diabetes management."
+      "matched_claim_text": "Patient to continue current medications for hypertension and diabetes management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

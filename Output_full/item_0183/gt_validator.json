@@ -223,96 +223,86 @@
     "plan_alignment_score": 0.6012269938650306
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical_documentation_reviewer_agent",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps that make it meaningfully incomplete. The most significant issue is the complete omission of the Review of Systems section, which is a major component of a comprehensive clinical note. Additionally, several minor details from the Subjective section, such as specific sleep duration, tobacco and alcohol consumption details, and recreational activities, are missing. In the Assessment, the crucial statement that a formal diagnosis cannot yet be made until test results are received is omitted. While the Plan section integrates most instructions, it omits the specific listing of investigations under its own sub-section. All additions in the note are supported by the transcript and do not negatively impact the grade.",
+    "overall_summary": "The note receives a C due to significant omissions in the Subjective section, including the patient's past medical history, current medications, known allergies, and a detailed Review of Systems, which are crucial for a complete clinical picture. The Assessment section also has moderate omissions regarding the patient's concern about affordability and the explicit statement that a formal diagnosis is pending. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Review of Systems section (all details: General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Musculoskeletal, Neuropsychiatric findings)",
-      "Instructions section (as a distinct section)",
-      "Patient's past medical history (no significant PMH)",
-      "Current medications (none)",
-      "Known allergies (none)",
+      "Presenting for initial consultation via telemedicine",
+      "No significant past medical history",
+      "Not currently on any medications",
+      "No known allergies",
+      "Detailed Review of Systems (General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Musculoskeletal)",
       "Sleep duration (6-7 hours per night)",
-      "Specific detail of tobacco use (half a pack per day)",
-      "Specific detail of alcohol consumption (2-3 drinks each time)",
       "Denial of illicit drug use",
-      "Recreational activities (watches TV and plays video games)",
+      "Recreational activities (watching TV and playing video games)",
       "Vital Signs: Not applicable (telemedicine consultation)",
       "Physical Exam: Not applicable (telemedicine consultation)",
+      "Concern regarding affordability of follow-up care (from Assessment section)",
       "Statement that a formal diagnosis cannot yet be made until test results are received",
-      "Specific investigations listed under Plan (blood work for HIV, Syphilis (VDRL/RPR), Hepatitis B and C)",
-      "Specific investigations listed under Plan (urine test for Gonorrhea and Chlamydia)",
-      "Instruction phrasing: \"The patient is advised to attend the follow-up consultation to discuss results and treatment plans.\"",
-      "Instruction phrasing: \"She should start the prescribed treatment only if the test results indicate an infection.\"",
-      "Instruction phrasing: \"The patient should be reassured that affordable care options will be explored and provided as needed.\""
+      "Specific syphilis tests (VDRL/RPR)",
+      "Reassurance that affordable care options will be explored and provided as needed"
     ],
     "additions": [
-      "\"No specific physical symptoms reported\" in Objective section",
-      "Statement in Assessment: \"Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues\"",
-      "Statement in Assessment: \"no clear physical symptoms are present\"",
-      "General statement in Plan: \"Pending test results for STI screening\""
+      "\"No specific physical symptoms reported\" (in Objective section)",
+      "\"Pending blood work for HIV, Syphilis, Hepatitis B and C, and urine test for Gonorrhea and Chlamydia\" (in Objective section)",
+      "\"Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues\" (in Assessment section)",
+      "\"no clear physical symptoms are present\" (in Assessment section)",
+      "\"Pending test results for STI screening\" (in Plan section)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section is meaningfully incomplete due to the complete omission of the Review of Systems section. Additionally, several minor details such as the patient's past medical history, current medications, known allergies, specific sleep duration, detailed tobacco and alcohol use, denial of illicit drug use, and recreational activities are omitted.",
+        "summary": "The Subjective section has noticeable gaps, omitting several important clinical details such as the patient's past medical history, current medications, known allergies, and a comprehensive Review of Systems. Minor omissions include details about sleep duration, denial of illicit drug use, and recreational activities.",
         "omissions": [
-          "Initial consultation via telemedicine",
+          "Presenting for initial consultation via telemedicine",
           "No significant past medical history",
           "Not currently on any medications",
           "No known allergies",
-          "Review of Systems (all details: General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Musculoskeletal, Neuropsychiatric findings)",
+          "Detailed Review of Systems (General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Musculoskeletal)",
           "Sleep duration (6-7 hours per night)",
-          "Specific detail of tobacco use (half a pack per day)",
-          "Specific detail of alcohol consumption (2-3 drinks each time)",
           "Denial of illicit drug use",
-          "Recreational activities (watches TV and plays video games)"
+          "Recreational activities (watching TV and playing video games)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent. The only omissions are the 'Not applicable' statements for Vital Signs and Physical Exam, which are minor. All additions, such as 'No specific physical symptoms reported' and the listing of specific investigations, are supported by the transcript and enhance the clarity of the section.",
+        "summary": "The Objective section is well-aligned. The only omissions are minor contextual notes regarding the explicit mention that vital signs and physical exam were 'Not applicable' due to telemedicine.",
         "omissions": [
           "Vital Signs: Not applicable (telemedicine consultation)",
           "Physical Exam: Not applicable (telemedicine consultation)"
         ],
         "additions": [
           "\"No specific physical symptoms reported\"",
-          "Listing specific investigations (blood work for HIV, Syphilis, Hepatitis B and C; urine test for Gonorrhea and Chlamydia)"
+          "\"Pending blood work for HIV, Syphilis, Hepatitis B and C, and urine test for Gonorrhea and Chlamydia\""
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section is mostly clinically aligned and usable. However, it omits the important statement that a formal diagnosis cannot yet be made until test results are received, which is a moderate issue. The minor omission of 'affordability of follow-up care' as a presenting concern is also noted. All additions in this section are supported by the transcript.",
+        "summary": "The Assessment section has moderate omissions, specifically missing the patient's concern regarding the affordability of follow-up care and the explicit statement that a formal diagnosis cannot yet be made until test results are received.",
         "omissions": [
-          "Affordability of follow-up care (as part of the presenting concerns)",
+          "Concern regarding affordability of follow-up care",
           "Statement that a formal diagnosis cannot yet be made until test results are received"
         ],
         "additions": [
-          "Statement: \"Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues\"",
-          "Statement: \"no clear physical symptoms are present\""
+          "\"Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues\"",
+          "\"no clear physical symptoms are present\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned and clearly usable. The main issues are the moderate omissions of specific investigations (blood work for HIV, Syphilis (VDRL/RPR), Hepatitis B and C; urine test for Gonorrhea and Chlamydia) from the Plan's 'Investigations' sub-section, although this information is present in the Objective section. The content of the GT 'Instructions' section is effectively integrated into the Plan, which is a structural change rather than a content omission. All additions are supported by the transcript.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive. The omission of specific syphilis tests (VDRL/RPR) is minor, as syphilis screening is still clearly indicated. The core action of discussing affordable care options is present, even if the explicit 'reassurance' phrasing from the GT's instructions is not.",
         "omissions": [
-          "Specific investigations listed under Plan (blood work for HIV, Syphilis (VDRL/RPR), Hepatitis B and C)",
-          "Specific investigations listed under Plan (urine test for Gonorrhea and Chlamydia)",
-          "Instruction phrasing: \"The patient is advised to attend the follow-up consultation to discuss results and treatment plans.\"",
-          "Instruction phrasing: \"She should start the prescribed treatment only if the test results indicate an infection.\"",
-          "Instruction phrasing: \"The patient should be reassured that affordable care options will be explored and provided as needed.\""
+          "Specific syphilis tests (VDRL/RPR)",
+          "Reassurance that affordable care options will be explored and provided as needed"
         ],
         "additions": [
-          "General statement: \"Pending test results for STI screening\"",
-          "\"Discuss affordable care options for follow-up care\" (content moved from GT Instructions section)",
-          "\"Recommend reaching out to the mental health counselor\" (content moved from GT Instructions section)"
+          "\"Pending test results for STI screening\""
         ]
       }
     ],
@@ -321,81 +311,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"No specific physical symptoms reported\" in Objective section",
+      "addition_text": "\"No specific physical symptoms reported\" (in Objective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, I haven’t had any symptoms. [Patient]: No, none of those. [Patient]: No, my breathing’s been fine. [Patient]: No chest pain or palpitations. [Patient]: No, my stomach’s been fine too. [Patient]: No, nothing like that. [Patient]: No, my joints and muscles feel normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No specific physical symptoms reported."
+      "matched_claim_text": "No specific physical symptoms reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement in Assessment: \"Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues\"",
+      "addition_text": "\"Pending blood work for HIV, Syphilis, Hepatitis B and C, and urine test for Gonorrhea and Chlamydia\" (in Objective section)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We have ordered some blood work for HIV, Syphilis, Hepatitis B and C... The results are pending, and we should have them soon.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Blood work for HIV, Syphilis, Hepatitis B and C is pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues\" (in Assessment section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I smoke daily, about half a pack a day. [Patient]: I drink alcohol 4 to 5 times a week, usually 2 to 3 drinks each time. [Patient]: I eat a lot of fast food, honestly. [Patient]: Not really, I lead a pretty sedentary lifestyle. [Doctor]: In terms of lifestyle, let’s talk about a few changes that could help improve your overall health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues."
+      "matched_claim_text": "Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement in Assessment: \"no clear physical symptoms are present\"",
+      "addition_text": "\"no clear physical symptoms are present\" (in Assessment section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, I haven’t had any symptoms. [Patient]: No, none of those. [Patient]: No, my breathing’s been fine. [Patient]: No chest pain or palpitations. [Patient]: No, my stomach’s been fine too. [Patient]: No, nothing like that. [Patient]: No, my joints and muscles feel normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No specific physical symptoms reported."
+      "matched_claim_text": "No specific physical symptoms reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "General statement in Plan: \"Pending test results for STI screening\"",
+      "addition_text": "\"Pending test results for STI screening\" (in Plan section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We have ordered some blood work for HIV, Syphilis, Hepatitis B and C, and a urine test for Gonorrhea and Chlamydia. The results are pending, and we should have them soon.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"No specific physical symptoms reported\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, I haven’t had any symptoms. [Patient]: No, none of those. [Patient]: No, my breathing’s been fine. [Patient]: No chest pain or palpitations. [Patient]: No, my stomach’s been fine too. [Patient]: No, nothing like that. [Patient]: No, my joints and muscles feel normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No specific physical symptoms reported."
+      "matched_claim_text": "No specific physical symptoms reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Listing specific investigations (blood work for HIV, Syphilis, Hepatitis B and C; urine test for Gonorrhea and Chlamydia)",
+      "addition_text": "\"Pending blood work for HIV, Syphilis, Hepatitis B and C, and urine test for Gonorrhea and Chlamydia\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We have ordered some blood work for HIV, Syphilis, Hepatitis B and C... The results are pending, and we should have them soon.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood work for HIV, Syphilis, Hepatitis B and C is pending."
+      "matched_claim_text": "Blood work for HIV, Syphilis, Hepatitis B and C is pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement: \"Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues\"",
+      "addition_text": "\"Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I smoke daily, about half a pack a day. [Patient]: I drink alcohol 4 to 5 times a week, usually 2 to 3 drinks each time. [Patient]: I eat a lot of fast food, honestly. [Patient]: Not really, I lead a pretty sedentary lifestyle. [Doctor]: In terms of lifestyle, let’s talk about a few changes that could help improve your overall health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues."
+      "matched_claim_text": "Lifestyle factors such as smoking, excessive alcohol consumption, poor diet, and sedentary lifestyle may contribute to overall health issues.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement: \"no clear physical symptoms are present\"",
+      "addition_text": "\"no clear physical symptoms are present\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, I haven’t had any symptoms. [Patient]: No, none of those. [Patient]: No, my breathing’s been fine. [Patient]: No chest pain or palpitations. [Patient]: No, my stomach’s been fine too. [Patient]: No, nothing like that. [Patient]: No, my joints and muscles feel normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No specific physical symptoms reported."
+      "matched_claim_text": "No specific physical symptoms reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "General statement: \"Pending test results for STI screening\"",
+      "addition_text": "\"Pending test results for STI screening\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: ...and a urine test for Gonorrhea and Chlamydia. The results are pending, and we should have them soon.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Urine test for Gonorrhea and Chlamydia is pending."
-    },
-    {
-      "addition_text": "\"Discuss affordable care options for follow-up care\" (content moved from GT Instructions section)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We will also discuss affordable care options to ensure you get the follow-up care you need.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss affordable care options for follow-up care."
-    },
-    {
-      "addition_text": "\"Recommend reaching out to the mental health counselor\" (content moved from GT Instructions section)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Reach out to the mental health counselor to help manage your anxiety.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend reaching out to the mental health counselor."
+      "matched_claim_text": "Urine test for Gonorrhea and Chlamydia is pending.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

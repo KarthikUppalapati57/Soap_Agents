@@ -249,7 +249,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains several omissions, particularly in the Subjective and Plan sections. Key missing details include the severity and impact of palpitations in the HPI, several negative Review of Systems findings, the specific quantity of medication, the detailed reason for cardiology referral, and important patient education regarding general warning signs and follow-up instructions. While no unsupported additions were found, the cumulative effect of these omissions makes the note meaningfully incomplete, requiring caution and review.",
+    "overall_summary": "The generated note provides a mostly accurate summary but contains several omissions that reduce its completeness and clinical utility. Key details regarding the severity and impact of palpitations, specific sleep duration, and the link between anxiety and symptoms were omitted from the Subjective section. More critically, the Plan section omits important patient instructions, including completing ordered tests and referrals, and the crucial safety instruction to report new or worsening symptoms immediately. A significant reassurance statement was also missed. While there are no unsupported additions, these omissions, particularly the high-severity safety instruction, make the note meaningfully incomplete and necessitate careful review.",
     "omissions": [
       "Severity of palpitations (moderate)",
       "Impact of palpitations (interferes with daily tasks)",
@@ -279,7 +279,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits important details regarding the severity ('moderate') and impact ('interferes with daily tasks') of the patient's palpitations. Several negative findings from the Review of Systems (cough, wheezing, nausea, vomiting, heat/cold intolerance) are also missing, as is the specific sleep duration (5-6 hours per night) and the direct link between anxiety and her symptoms. These omissions reduce the completeness of the HPI and ROS, though the core complaint and associated symptoms are captured.",
+        "summary": "The Subjective section is mostly aligned but omits several minor to moderate details. These include the specific severity ('moderate') and impact ('interferes with daily tasks') of palpitations, the patient's specific sleep duration ('5-6 hours per night'), and the explicit mention of anxiety being 'related to her symptoms'. Several negative Review of Systems findings (cough/wheezing, nausea/vomiting, heat/cold intolerance) were also omitted. All additions in this section were supported by the transcript and thus do not impact the grade.",
         "omissions": [
           "Severity of palpitations (moderate)",
           "Impact of palpitations (interferes with daily tasks)",
@@ -297,21 +297,21 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is comprehensive and accurate, with no omissions or unsupported additions. All vital signs and physical examination findings from the Ground Truth are present.",
+        "summary": "The Objective section is complete and accurate, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate, with no omissions or unsupported additions. Both the primary diagnosis and differential diagnoses are fully captured.",
+        "summary": "The Assessment section is complete and accurate, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several omissions that reduce its completeness and clinical utility. Missing details include the medication quantity (60 tablets), the specific reason for the cardiology referral ('due to persistent palpitations'), the provision of resources for sleep hygiene, and important patient reassurance ('Palpitations are a common symptom and often manageable...'). Crucially, the note omits the general instruction to 'Report any new or worsening symptoms immediately' and to 'Complete all ordered tests and schedule the cardiology referral,' which are important follow-up and safety instructions. The specific purposes for ordered tests (e.g., TFTs 'for biochemistry') are also omitted.",
+        "summary": "The Plan section has several notable omissions that impact its completeness and clinical usefulness. Crucial patient instructions, such as 'Complete all ordered tests and schedule the cardiology referral' and the high-severity safety instruction to 'Report any new or worsening symptoms immediately', were missed. A significant reassurance statement ('Palpitations are a common symptom and often manageable...') was also omitted. Minor details like medication quantity (60 tablets) and specific purposes for ordered tests were also not included. All additions in this section were supported by the transcript and thus do not impact the grade.",
         "omissions": [
           "Medication quantity (60 tablets)",
           "Reason for cardiology referral: 'due to persistent palpitations'",
@@ -338,28 +338,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's like my heart is racing or skipping beats.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The palpitations are described as feeling like the heart is racing or skipping beats."
+      "matched_claim_text": "The palpitations are described as feeling like the heart is racing or skipping beats.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Anxiety focus: 'related to sleep'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'm feeling a bit anxious, to be honest. ... [Patient]: Not great. I only get about 5-6 hours a night, and it's not very restful. ... [Doctor]: Has the anxiety been affecting your sleep as well? [Patient]: Yes, definitely.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports anxiety related to sleep and experiences poor quality sleep."
+      "matched_claim_text": "The patient reports anxiety related to sleep and experiences poor quality sleep.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Medication purpose: 'to regulate heart rate'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m prescribing Metoprolol 50 mg, to be taken orally twice daily for 30 days. This medication can help regulate your heart rate.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribed Metoprolol 50 mg orally twice daily for 30 days to regulate heart rate."
+      "matched_claim_text": "Prescribed Metoprolol 50 mg orally twice daily for 30 days to regulate heart rate.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Phasing for tests: 'Awaiting results for' (instead of 'Ordered')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ve also ordered some tests. We're awaiting results for your Electrocardiogram (ECG), Thyroid function tests (TFTs), and Complete blood count (CBC).",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Awaiting results for Electrocardiogram (ECG), Thyroid function tests (TFTs), and Complete blood count (CBC)."
+      "matched_claim_text": "Awaiting results for Electrocardiogram (ECG), Thyroid function tests (TFTs), and Complete blood count (CBC).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -204,9 +204,9 @@
     "plan_alignment_score": 0.6436781609195402
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "ClinicalReviewerModel",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps due to numerous omissions across multiple sections. While there are no unsupported or unknown additions, the cumulative effect of missing details, particularly in the Objective and Plan sections, makes the note meaningfully incomplete and requires careful review.",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has multiple moderate omissions across all sections, particularly in the Plan. While all additions were supported by the transcript and did not penalize the grade, the cumulative effect of the missing details, such as the impact of fatigue on newborn care, the patient's general appearance, the stability of hypothyroidism, specific medication duration, and comprehensive follow-up goals, makes the note meaningfully incomplete and requires careful review.",
     "omissions": [
       "follow-up visit",
       "1 week postpartum",
@@ -242,7 +242,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaints but omits several contextual details from the History of Present Illness, such as the visit being a follow-up, the specific postpartum timeframe, the severity of breastfeeding difficulty, the impact of fatigue on newborn care, and the HPI context of Levothyroxine for hypothyroidism. It also misses a Review of Systems detail regarding no recent weight changes.",
+        "summary": "The Subjective section captures the chief complaints well. However, it omits some contextual details like '1 week postpartum' and 'mild to moderate' for breastfeeding difficulty, and importantly, the impact of fatigue affecting her ability to manage newborn care. These are mostly minor, with the fatigue impact being a moderate omission.",
         "omissions": [
           "follow-up visit",
           "1 week postpartum",
@@ -256,8 +256,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits the patient's general appearance from the physical examination (Alert, moderately cooperative, appears fatigued). More significantly, it completely omits the 'Investigations' section, which details the awaiting CBC and thyroid function test results to evaluate for postpartum thyroiditis, a crucial piece of objective information.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports vital signs and key physical examination findings. The primary omission is the 'General: Alert, moderately cooperative, appears fatigued' observation, which is a moderate gap in the patient's overall presentation. The investigations detail was omitted from this section but correctly moved to the Assessment, so it does not represent a loss of clinical content.",
         "omissions": [
           "Physical Examination - General: Alert, moderately cooperative, appears fatigued",
           "Investigations: Awaiting CBC and thyroid function test results to evaluate for postpartum thyroiditis"
@@ -266,8 +266,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section is strong, accurately capturing the key assessment points. It has only minor omissions regarding the specific '1 week' for postpartum status and that the patient is 'stable on Levothyroxine' for hypothyroidism. All additions in this section were supported by the transcript.",
+        "grade": "B",
+        "summary": "The Assessment section provides a good summary of the patient's conditions. The main omission is the detail that the patient's 'History of hypothyroidism' is 'stable on Levothyroxine,' which is a moderate clinical detail. All additions in this section were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "1 week (for postpartum status)",
           "stable on Levothyroxine (for hypothyroidism)"
@@ -281,7 +281,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has numerous omissions, including specific medication details like the oral route, duration (for 6 weeks), and dispense quantity (42 tablets). It also misses specific postnatal care instructions regarding sleep management and balanced nutrition for overall health. Further omissions include details for the follow-up (reassess thyroid function and general postpartum recovery), the specific mention of 'community resources available' for social support, and the provider's monitoring action for postpartum depression or worsening fatigue. All additions in this section were supported by the transcript.",
+        "summary": "The Plan section outlines appropriate actions but suffers from several moderate omissions. These include the specific duration for Levothyroxine ('for 6 weeks'), detailed advice on managing sleep with a newborn, the broader scope of follow-up to 'reassess thyroid function and general postpartum recovery,' and the important closing statement about patient understanding and addressed queries. These gaps reduce the completeness and clinical usefulness of the plan.",
         "omissions": [
           "Medications: oral (route)",
           "Medications: for 6 weeks (duration)",
@@ -309,35 +309,45 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "**[patient]** I've been finding it hard to get a good latch. My breasts feel really full and heavy, but I'm not sure if the baby is getting enough milk. ... my breasts are definitely engorged.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Difficulty breastfeeding due to poor latch and engorgement."
+      "matched_claim_text": "Difficulty breastfeeding due to poor latch and engorgement.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "postpartum fatigue possibly related to hypothyroidism",
       "supported_by_transcript": "supported",
       "transcript_evidence": "**[patient]** I'm really exhausted. ... **[doctor]** It's quite common to feel fatigued postpartum, but we want to make sure nothing else is contributing to it. ... Given your history of hypothyroidism, we'll need to keep an eye on your thyroid function.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Postpartum fatigue, possibly related to hypothyroidism."
+      "matched_claim_text": "Postpartum fatigue, possibly related to hypothyroidism.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Awaiting CBC and thyroid function test results to evaluate for postpartum thyroiditis (moved from Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "**[doctor]** We're waiting on your CBC and thyroid function test results to evaluate for postpartum thyroiditis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Awaiting CBC and thyroid function test results to evaluate for postpartum thyroiditis."
+      "matched_claim_text": "Awaiting CBC and thyroid function test results to evaluate for postpartum thyroiditis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "public assistance programs if needed",
       "supported_by_transcript": "supported",
       "transcript_evidence": "**[doctor]** We also have community resources available for low-income families and public assistance programs. I'll give you that information as well, in case you need additional support.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss public assistance programs for low-income families if needed."
+      "matched_claim_text": "Discuss public assistance programs for low-income families if needed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Advise patient to seek help immediately for signs of postpartum depression or worsening fatigue (as a patient action, and 'immediately')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "**[doctor]** If you notice any signs of postpartum depression or worsening fatigue, please let us know immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to seek help immediately for signs of postpartum depression or worsening fatigue."
+      "matched_claim_text": "Advise patient to seek help immediately for signs of postpartum depression or worsening fatigue.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

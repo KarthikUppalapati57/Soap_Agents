@@ -256,9 +256,9 @@
     "plan_alignment_score": 0.5915492957746479
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The generated note contains critical omissions that significantly impact its clinical usefulness and safety. Key diagnostic information (Hypertension) is missing from the Assessment, and crucial elements of the Plan, including ordered investigations and comprehensive patient instructions, are entirely absent. While some sections are moderately aligned, the severity of omissions in the Assessment and Plan renders the overall note unreliable and potentially unsafe for patient care.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "D",
+    "overall_summary": "The generated note captures the core subjective and objective findings reasonably well, earning B grades in those sections. However, the Assessment section omits a secondary diagnosis (Hypertension), and the Plan section has significant omissions, including the entire Investigations and Instructions sections. These missing critical elements for patient care, safety, and follow-up materially reduce the clinical usefulness of the note, leading to an overall grade of D.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -301,8 +301,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits several important details from the History of Present Illness, such as the specific impact on daily life (job duties, personal hygiene, social activities) and the daily frequency of symptoms. The Review of Systems is also significantly abbreviated. While the core symptoms are captured, these omissions create noticeable gaps in the patient's clinical picture.",
+        "grade": "B",
+        "summary": "The Subjective section captures the chief complaint and main HPI symptoms. However, it omits several specific details regarding insomnia duration, appetite loss impact, daily symptom occurrence, and the full impact on daily life. Additionally, the structured ROS section and its details are missing. While the core information is present, the lack of detail and structure constitutes several minor to moderate omissions.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -318,8 +318,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section accurately captures all vital signs. While some specific descriptors from the Mental Status Examination (e.g., 'Cooperative,' 'Coherent and relevant' for speech and thought process) are omitted or rephrased, the essential clinical findings regarding the patient's appearance, mood, affect, speech, and thought process are present and correctly conveyed. The omissions are minor and do not detract from clinical usefulness.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports vital signs and summarizes the general appearance and key Mental Status Examination findings. However, it omits the specific section headers (Vital Signs, Physical Examination, MSE) and some detailed MSE descriptors such as 'Cooperative' appearance and the 'Coherent and relevant' aspects of speech and thought process. These are minor omissions that reduce the completeness but not the core clinical accuracy.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -334,8 +334,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section correctly identifies Major Depressive Disorder and Generalized Anxiety Disorder. However, it critically omits the secondary diagnosis of Hypertension. This is a major clinical omission that materially reduces the clinical usefulness and completeness of the patient's problem list.",
+        "grade": "C",
+        "summary": "The Assessment section correctly identifies the primary diagnosis (Major Depressive Disorder, Single Episode) and one secondary diagnosis (Generalized Anxiety Disorder). However, it omits 'Unspecified' for MDD and, more significantly, the secondary diagnosis of 'Hypertension'. The absence of a documented chronic condition like hypertension is a moderate clinical omission, impacting the completeness of the patient's problem list.",
         "omissions": [
           "\"Unspecified\" for Major Depressive Disorder",
           "Secondary Diagnosis: \"Hypertension\"",
@@ -345,8 +345,8 @@
       },
       {
         "section": "Plan",
-        "grade": "F",
-        "summary": "The Plan section has severe and critical omissions. It completely misses the entire 'Investigations' section, which details ordered blood work to rule out underlying medical conditions. Furthermore, the entire 'Instructions' section, containing crucial patient guidance on medication adherence, follow-up conditions, urgent care contact, and adherence to referral, is absent. These omissions are major safety concerns and render the plan incomplete and unreliable.",
+        "grade": "D",
+        "summary": "The Plan section has major omissions that significantly impact its clinical usefulness. The entire 'Investigations' section, including the order for a comprehensive metabolic panel and the rationale, is missing. Crucially, the entire 'Instructions' section, which provides vital patient guidance on medication, follow-up conditions, and urgent care contact, is also omitted. Numerous other details, such as medication route/quantity, specific referral details, and lifestyle advice specifics, are also absent. These major omissions make the plan incomplete and potentially unsafe.",
         "omissions": [
           "Pharmacological Management section header",
           "\"oral\" route for Sertraline",

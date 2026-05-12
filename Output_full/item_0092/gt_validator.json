@@ -274,8 +274,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective section, where entire categories such as Social History, Medications, and Family History are missing. The Plan section also lacks critical details for medication prescriptions (dosage strength, quantity, route) and important patient instructions. While the Objective and Assessment sections are largely complete, the extensive gaps in the Subjective and Plan sections materially reduce the overall clinical usefulness and completeness of the document.",
+    "overall_grade": "C",
+    "overall_summary": "The overall note receives a 'C' grade due to numerous significant omissions, particularly in the Subjective and Plan sections. While there are no unsupported or unknown additions, the extensive missing details regarding patient history (social history, medications, family history) and specific treatment instructions (medication dosages, quantities, routes, and comprehensive patient education) make the note meaningfully incomplete and require significant caution and review for clinical usability.",
     "omissions": [
       "HPI: Cough is constant",
       "HPI: Difficulty completing work tasks due to symptoms",
@@ -313,8 +313,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section has major omissions, including the complete absence of Social History, Medications, and Family History. Additionally, several details from the History of Present Illness and a structured Review of Systems are missing, making the section significantly incomplete. The single addition is supported by the transcript and does not count against the grade.",
+        "grade": "C",
+        "summary": "This section receives a 'C' grade due to numerous omissions. Significant details are missing from the HPI (cough constant, difficulty completing work tasks), ROS (HEENT negatives, structured Constitutional, Other Systems), Social History (tobacco, alcohol, recreation, job status), Medications, and Family History. These omissions represent noticeable gaps in the patient's clinical context.",
         "omissions": [
           "HPI: Cough is constant",
           "HPI: Difficulty completing work tasks due to symptoms",
@@ -335,7 +335,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is largely complete, with only minor omissions regarding the patient's general distress level and the absence of respiratory distress during the physical exam.",
+        "summary": "This section receives an 'A' grade. The only omissions are minor details from the Physical Exam, specifically 'Patient is in mild distress due to cough but no acute distress noted' and 'no signs of respiratory distress'. No unsupported or unknown additions are present.",
         "omissions": [
           "Physical Exam - General: Patient is in mild distress due to cough but no acute distress noted",
           "Physical Exam - Respiratory: No signs of respiratory distress"
@@ -345,7 +345,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is nearly complete, with only a minor omission of the diagnosis qualifier 'unspecified'.",
+        "summary": "This section receives an 'A' grade. The only omission is the minor qualifier 'unspecified' for the diagnosis. No unsupported or unknown additions are present.",
         "omissions": [
           "Diagnosis qualifier: \"unspecified\""
         ],
@@ -354,7 +354,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has multiple moderate to significant omissions. Critical details for medication prescriptions, such as dosage strength, quantity, and route, are missing. Important patient instructions, the specific status of the chest X-ray, and the 'strong recommendation' qualifier for smoking cessation are also omitted, reducing the clinical utility of the plan.",
+        "summary": "This section receives a 'C' grade due to multiple significant omissions. Critical details such as specific medication dosage strengths, quantities, and routes for Albuterol, Dextromethorphan, and Paracetamol are missing. Additionally, the 'Strong recommendation to cease smoking', 'Referral to Specialists: None at this time', the full status of the Chest X-ray, and all three patient instructions are omitted, making the treatment plan meaningfully incomplete.",
         "omissions": [
           "Albuterol inhaler dosage strength: 90 mcg",
           "Albuterol inhaler quantity: 1 inhaler",
@@ -383,14 +383,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] The cough is constant and gets worse at night... It's mostly dry, but sometimes it feels like there's a bit of phlegm in there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The cough is worse at night and sometimes productive."
+      "matched_claim_text": "The cough is worse at night and sometimes productive.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Cough — phenotype_phenotype — Productive cough\nCough — phenotype_phenotype — Nonproductive cough"
     },
     {
       "addition_text": "Cough is sometimes productive",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] The cough is constant and gets worse at night... It's mostly dry, but sometimes it feels like there's a bit of phlegm in there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The cough is worse at night and sometimes productive."
+      "matched_claim_text": "The cough is worse at night and sometimes productive.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Cough — phenotype_phenotype — Productive cough\nCough — phenotype_phenotype — Nonproductive cough"
     }
   ]
 }

@@ -282,9 +282,9 @@
     "plan_alignment_score": 0.6091954022988506
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The generated note contains numerous omissions across all sections, significantly impacting its completeness and clinical utility. While there are no unsupported additions, the absence of critical patient safety instructions in the Plan, such as when to go to the emergency room, renders the note unsafe and unreliable. Additionally, the primary diagnosis is missing from the Assessment, and important contextual details are omitted from the Subjective section.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated SOAP note provides a good overview of the patient's chief complaint, associated symptoms, and key objective findings. However, it suffers from numerous omissions across all sections. Most critically, the Plan section omits vital safety instructions regarding nitroglycerin usage and emergency room criteria for worsening chest pain, which materially reduces the clinical usefulness and safety of the note. The primary diagnosis is also missing from the Assessment section, and several important details are omitted from the Subjective and Objective sections.",
     "omissions": [
       "Patient occupation (truck driver)",
       "Pain is episodic",
@@ -315,8 +315,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits several clinically relevant details, including the patient's occupation, the episodic nature of the pain, its significant impact on daily activities, specific sleep details, and denied musculoskeletal/neurological symptoms. These omissions reduce the completeness of the patient's history.",
+        "grade": "B",
+        "summary": "The Subjective section omits several details, including the patient's occupation, the episodic nature of the pain, its significant impact on daily activities, specific sleep details, and denials of musculoskeletal and neurological symptoms. While the core chief complaint and associated symptoms are present, these omissions reduce the completeness of the patient's history.",
         "omissions": [
           "Patient occupation (truck driver)",
           "Pain is episodic",
@@ -329,8 +329,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section omits the patient's temperature and several normal findings from the cardiovascular and respiratory physical examinations (inspection and palpation). While key abnormal findings are present, these omissions affect the completeness of the physical exam documentation.",
+        "grade": "A",
+        "summary": "The Objective section is largely complete, accurately capturing vital signs, abnormal physical exam findings (irregular heartbeat, murmurs, crackles), and ECG results. However, it omits several normal physical exam findings for cardiovascular (inspection, palpation) and respiratory (inspection, palpation) systems, as well as the patient's temperature. These are minor omissions of normal findings.",
         "omissions": [
           "Temperature: 98.6°F",
           "Cardiovascular physical exam: Inspection (No visible abnormalities)",
@@ -342,8 +342,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section critically omits the primary diagnosis of \"Other chest pain (ICD-10: R07.89)\", only listing the differential diagnoses. This is a significant gap that makes the assessment meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Assessment section omits the primary diagnosis of 'Other chest pain,' only listing the differential diagnoses. This is a moderate omission as it leaves the initial working diagnosis unspecified.",
         "omissions": [
           "Diagnosis: Other chest pain"
         ],
@@ -351,8 +351,8 @@
       },
       {
         "section": "Plan",
-        "grade": "F",
-        "summary": "The Plan section contains numerous and critical omissions. These include specific medication details (Aspirin route, Nitroglycerin maximum dosage), specific cardiac enzymes (Troponin, CK-MB), the full name of the referral cardiologist, detailed lifestyle modification advice, patient agreement, and most importantly, crucial emergency room instructions for worsening chest pain. The absence of these critical safety instructions makes the plan unsafe and unreliable.",
+        "grade": "D",
+        "summary": "The Plan section has numerous omissions, including the route for Aspirin, specific cardiac enzyme names, the cardiologist's first name, detailed diet and exercise instructions, and documentation of patient agreement. Critically, it omits the specific usage instruction for nitroglycerin ('up to 3 tablets in 15 minutes') and the vital emergency room instructions for worsening or unrelieved chest pain. These safety-critical omissions significantly reduce the clinical usefulness and reliability of the plan. The only addition, 'and review new test results' for follow-up, is supported by the transcript and does not impact the grade.",
         "omissions": [
           "Aspirin route: orally",
           "Nitroglycerin specific instruction: up to 3 tablets in 15 minutes",
@@ -378,7 +378,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Let's schedule a follow-up in 1 week to reassess your condition and review any new test results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up in 1 week to reassess condition and review new test results"
+      "matched_claim_text": "Schedule follow-up in 1 week to reassess condition and review new test results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

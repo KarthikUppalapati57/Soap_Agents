@@ -263,8 +263,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. The Subjective, Objective, and Assessment sections are well-captured with only minor omissions. However, the Plan section has several moderate omissions, particularly regarding the specific dosages and frequencies for all prescribed medications, which makes the medical treatment portion of the plan meaningfully incomplete and requires careful review.",
+    "overall_grade": "D",
+    "overall_summary": "The note provides a generally accurate overview of the patient's subjective complaints, objective findings, and assessment. However, the Subjective section omits several important negative findings from the Review of Systems. Most critically, the Plan section suffers from major omissions of all medication dosages, frequencies, and dispensing instructions, which are essential for safe and effective patient management. These significant gaps in the Plan section materially reduce the clinical usefulness and reliability of the entire note.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -300,8 +300,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section is well-captured, accurately reflecting the patient's chief complaint, history of present illness, and review of systems. Omissions are limited to minor details such as specific sleep duration and negative findings in the ROS (e.g., no chest pain, no cough, no hypoglycemic episodes). The single addition was supported by the transcript and did not reduce the grade.",
+        "grade": "B",
+        "summary": "The section accurately captures the patient's chief complaints and positive symptoms but omits several important negative findings from the Review of Systems, such as the absence of chest pain, cough, wheezing, and recent hypoglycemic episodes. The specific sleep duration was also omitted.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -318,7 +318,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately presents the vital signs and physical examination findings. Omissions are minor, including the absence of 'alert and oriented' and 'limited mobility' (which was implied elsewhere). No unsupported additions were present.",
+        "summary": "This section is well-aligned, accurately reporting vital signs and key physical examination findings. Minor details like the patient being \"alert and oriented\" and specific mention of \"limited mobility\" in the musculoskeletal exam were omitted, but these do not significantly impact clinical utility.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -330,7 +330,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section correctly identifies all diagnoses. The only omission is the parenthetical '(severe)' for obesity, which is a minor detail as 'morbid obesity' already conveys severity. No unsupported additions were present.",
+        "summary": "The diagnoses are correctly identified and listed. The only omission is the parenthetical \"(severe)\" qualifier for obesity, which is a minor detail and does not affect the clinical accuracy of the diagnosis.",
         "omissions": [
           "Diagnosis section header",
           "The parenthetical \"(severe)\" for obesity diagnosis"
@@ -339,8 +339,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions that significantly impact its completeness. While the prescribed medications and interventions are listed, crucial details such as the specific dosages and frequencies for Orlistat, Metformin, Lisinopril, and Atorvastatin are missing. Additionally, dispensing details for Orlistat and qualifiers for exercise and referral reasons are omitted. These omissions make the medical treatment portion of the plan meaningfully incomplete and necessitate further review.",
+        "grade": "D",
+        "summary": "This section has significant omissions of critical clinical details. All medication dosages and frequencies (Orlistat, Metformin, Lisinopril, Atorvastatin) are missing, as are the dispensing details for Orlistat. These omissions severely reduce the clinical usefulness and safety of the plan, making it incomplete for direct implementation. Minor omissions include the specific reason for blood work and qualifiers for exercise and dietetics referral.",
         "omissions": [
           "Medical Treatment section header",
           "Lifestyle Changes section header",
@@ -368,14 +368,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm here because I've been struggling with my weight for many years, and it's really starting to affect my health and daily life.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Overall health\" as an impact of weight",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'm here because I've been struggling with my weight for many years, and it's really starting to affect my health and daily life. ... It's made everything harder. Simple tasks like walking or even getting up from a chair are difficult. My mobility is really limited.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient expresses concerns about the impact of their condition on daily activities and overall health."
+      "matched_claim_text": "Patient expresses concerns about the impact of their condition on daily activities and overall health.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

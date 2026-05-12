@@ -268,9 +268,9 @@
     "plan_alignment_score": 0.6844919786096256
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "Clinical Documentation Reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Assessment and Plan sections. Key issues include the absence of the patient's secondary diagnosis (COPD) and the change from a definitive primary diagnosis to a less certain one in the Assessment. Crucially, the Plan omits ordering a lumbar spine CT scan and referring the patient to a Pain Management Specialist, which are major components for managing chronic spinal stenosis. These omissions materially reduce the clinical usefulness and completeness of the documentation.",
+    "overall_summary": "The Generated SOAP note has significant omissions, particularly in the Plan section, which materially reduce its clinical usefulness. Key missing elements include the referral to a pain management specialist and the order for a lumbar spine CT scan. Additionally, the Assessment section omits a secondary diagnosis and changes the certainty of the primary diagnosis. While there are no unsupported or unknown additions, the numerous and clinically significant omissions across multiple sections warrant a lower overall grade.",
     "omissions": [
       "Patient presents for a follow-up visit for chronic lower back pain.",
       "Pain significantly impacts daily activities such as walking short distances, climbing stairs, and standing for long periods.",
@@ -297,7 +297,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is missing important contextual details such as the visit being a follow-up for chronic pain, the specific impact of pain on daily activities (walking short distances, climbing stairs, standing for long periods), and sleep interruption. Additionally, the formal ROS neurological findings (decreased sensation, reduced ankle reflexes, mild weakness in foot dorsiflexion) are omitted, though some related symptoms are mentioned in the HPI.",
+        "summary": "The Subjective section is mostly aligned but omits important details regarding the impact of pain on daily activities (walking short distances, climbing stairs, standing for long periods) and sleep, which are clinically significant. It also misses the context of the visit being a follow-up for chronic pain. The ROS neurological findings were omitted but are captured in the Objective section.",
         "omissions": [
           "Patient presents for a follow-up visit for chronic lower back pain.",
           "Pain significantly impacts daily activities such as walking short distances, climbing stairs, and standing for long periods.",
@@ -309,7 +309,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits several minor findings, including the patient's general appearance (cooperative but anxious) and negative musculoskeletal inspection findings (no visible deformities, no obvious motor deficits). More significantly, the positive neurological finding of 'mild weakness in foot dorsiflexion' is missing from the generated note.",
+        "summary": "The Objective section accurately captures vital signs and several physical examination findings. However, it omits minor details such as the patient's general appearance (anxious) and the absence of visible deformities. More importantly, it misses the specific neurological finding of 'mild weakness in foot dorsiflexion'.",
         "omissions": [
           "General appearance: Cooperative but appears anxious.",
           "Musculoskeletal Inspection: No visible deformities.",
@@ -321,7 +321,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has two moderate to major omissions. It fails to include the patient's secondary condition, Chronic Obstructive Pulmonary Disease (COPD), which is a significant comorbidity. Furthermore, the primary diagnosis of spinal stenosis is presented with uncertainty ('might have') rather than definitively as in the Ground Truth, reducing the clinical clarity of the assessment.",
+        "summary": "The Assessment section has noticeable gaps. It omits the secondary diagnosis of Chronic Obstructive Pulmonary Disease (COPD), which is a significant comorbidity. Furthermore, it presents the primary diagnosis as speculative ('might have') rather than definitive, which alters the clinical certainty of the assessment. All additions in this section were supported by the transcript.",
         "omissions": [
           "Secondary condition: Chronic Obstructive Pulmonary Disease (COPD), managed with Albuterol inhaler as needed.",
           "Primary diagnosis stated definitively (Generated uses 'might have')."
@@ -333,7 +333,7 @@
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section contains major omissions that significantly impact its clinical utility. It fails to include the order for a lumbar spine CT scan for better anatomical visualization and the referral to a Pain Management Specialist for further evaluation and management. Minor omissions include the specific quantity of medication (14 tablets) and the explicit mention of the importance of adherence to physical therapy and medication. The concluding statement about patient understanding and agreement is also omitted.",
+        "summary": "The Plan section contains major omissions that significantly reduce its clinical usefulness. Crucially, it misses the referral to a Pain Management Specialist and the order for a lumbar spine CT scan, both of which are critical components of the patient's management. Other omissions include specific medication quantity and the importance of adherence to therapy and medication. All additions in this section were supported by the transcript.",
         "omissions": [
           "Medication detail: quantity of 14 tablets for Cyclobenzaprine.",
           "Additional Testing: Order lumbar spine CT scan for better anatomical visualization.",
@@ -355,28 +355,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical examination, it seems like you might have spinal stenosis in the lumbar region.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient might have spinal stenosis in the lumbar region based on symptoms and physical examination findings."
+      "matched_claim_text": "The patient might have spinal stenosis in the lumbar region based on symptoms and physical examination findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan instruction: 'Encourage the patient to contact the healthcare provider if symptoms worsen before the follow-up appointment'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage the patient to contact the healthcare provider if symptoms worsen before the follow-up appointment."
+      "matched_claim_text": "Encourage the patient to contact the healthcare provider if symptoms worsen before the follow-up appointment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Diagnosis qualifier: 'based on symptoms and physical examination findings'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical examination, it seems like you might have spinal stenosis in the lumbar region.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient might have spinal stenosis in the lumbar region based on symptoms and physical examination findings."
+      "matched_claim_text": "The patient might have spinal stenosis in the lumbar region based on symptoms and physical examination findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instruction to contact provider if symptoms worsen before follow-up.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage the patient to contact the healthcare provider if symptoms worsen before the follow-up appointment."
+      "matched_claim_text": "Encourage the patient to contact the healthcare provider if symptoms worsen before the follow-up appointment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

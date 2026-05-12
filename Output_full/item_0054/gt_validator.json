@@ -215,97 +215,74 @@
     "plan_alignment_score": 0.4712041884816754
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "expert-clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate overview but suffers from several moderate omissions, particularly in the Subjective and Plan sections. Key details regarding the severity, frequency, and impact of the patient's syncope episodes are missing from the HPI. Additionally, the Plan omits the clinical rationale for ordering the Holter monitor and echocardiogram. While no unsupported additions were found, these omissions reduce the overall completeness and clinical usefulness of the documentation, requiring careful review to understand the full clinical picture.",
+    "overall_summary": "The generated note provides a usable summary but suffers from multiple moderate omissions, particularly in the Subjective and Plan sections. The Subjective section lacks crucial details regarding the severity, frequency, and impact of the patient's symptoms. The Plan section omits specific treatment advice, the clinical rationale for diagnostic tests, and important patient context related to adherence and understanding. The Objective and Assessment sections are well-aligned. The cumulative effect of these omissions reduces the overall completeness and clinical usefulness of the note.",
     "omissions": [
-      "Severity of syncope episodes (moderate to severe)",
-      "Frequency of syncope episodes (twice in the past week)",
-      "Impact of syncope on daily activities (unable to stand long, needing frequent rest)",
-      "ROS detail: no focal neurological deficits reported",
-      "ROS detail: feeling unrested despite 6-7 hours of sleep per night",
-      "Physical Examination - General: No signs of trauma or distress",
-      "Treatment recommendation: Rise slowly from sitting or lying positions",
-      "Specific cardiologist name (Dr. Emily Carter)",
+      "Severity of episodes (moderate to severe)",
+      "Episodes occurred twice in the past week",
+      "Episodes significantly impacting daily activities",
+      "Patient unable to stand for long periods and needing frequent rest",
+      "Feeling unrested despite 6-7 hours of sleep per night",
+      "Physical Examination: General: No signs of trauma or distress",
+      "Treatment Recommendation: Rise slowly from sitting or lying positions",
+      "Purpose of cardiovascular examination (to evaluate potential underlying causes of syncope)",
       "Purpose of 24-hour Holter monitor (to assess for cardiac dysrhythmias)",
-      "Purpose of Echocardiogram (to evaluate cardiac function)",
-      "Status of Echocardiogram (results pending)",
-      "Patient's adherence/difficulty with lifestyle changes",
-      "Advice on incorporating physical activity given sedentary job/lifestyle",
-      "Patient expressed understanding and agreement to the plan",
-      "Instructions were provided in a detailed manner"
+      "Purpose of echocardiogram (to evaluate cardiac function (results pending))",
+      "Patient's cooperation, adherence, and difficulty with lifestyle changes",
+      "Context of patient's sedentary job and lifestyle",
+      "Patient expressed understanding of the plan and agreed to follow-up and diagnostic evaluations"
     ],
-    "additions": [
-      "Plan action item: Provide information on accessing healthcare services due to having health insurance and living in an urban area"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section omits important details regarding the severity, frequency, and impact of the syncope episodes on daily activities, making the HPI less comprehensive. Minor ROS details were also omitted.",
+        "grade": "C",
+        "summary": "The Subjective section omits several key details from the History of Present Illness, including the severity and frequency of episodes, their significant impact on daily activities, and the patient's inability to stand for long periods. It also misses the detail about feeling unrested despite adequate sleep. These omissions make the HPI less comprehensive.",
         "omissions": [
-          "Severity of syncope episodes (moderate to severe)",
-          "Frequency of syncope episodes (twice in the past week)",
-          "Impact of syncope on daily activities (unable to stand long, needing frequent rest)",
-          "ROS detail: no focal neurological deficits reported",
-          "ROS detail: feeling unrested despite 6-7 hours of sleep per night"
+          "Severity of episodes (moderate to severe)",
+          "Episodes occurred twice in the past week",
+          "Episodes significantly impacting daily activities",
+          "Patient unable to stand for long periods and needing frequent rest",
+          "Feeling unrested despite 6-7 hours of sleep per night"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured, with only a minor omission regarding the general physical examination findings of no trauma or distress.",
+        "summary": "This section is largely complete, with only a minor omission regarding the absence of signs of trauma or distress during the general physical examination.",
         "omissions": [
-          "Physical Examination - General: No signs of trauma or distress"
+          "Physical Examination: General: No signs of trauma or distress"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurately reflects the GroundTruth.",
+        "summary": "This section is fully aligned with the Ground Truth, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section omits the specific purposes of the Holter monitor and echocardiogram, which are important clinical details. Several minor omissions also reduce the completeness of patient education and contextual information regarding patient adherence and understanding.",
+        "grade": "C",
+        "summary": "The Plan section omits a specific treatment recommendation to rise slowly from sitting or lying positions. It also lacks the stated purposes for the cardiovascular examination, Holter monitor, and echocardiogram. Furthermore, important patient context regarding cooperation, adherence, difficulty with lifestyle changes, sedentary job, and expressed understanding of the plan is missing.",
         "omissions": [
-          "Treatment recommendation: Rise slowly from sitting or lying positions",
-          "Specific cardiologist name (Dr. Emily Carter)",
+          "Treatment Recommendation: Rise slowly from sitting or lying positions",
+          "Purpose of cardiovascular examination (to evaluate potential underlying causes of syncope)",
           "Purpose of 24-hour Holter monitor (to assess for cardiac dysrhythmias)",
-          "Purpose of Echocardiogram (to evaluate cardiac function)",
-          "Status of Echocardiogram (results pending)",
-          "Patient's adherence/difficulty with lifestyle changes",
-          "Advice on incorporating physical activity given sedentary job/lifestyle",
-          "Patient expressed understanding and agreement to the plan",
-          "Instructions were provided in a detailed manner"
+          "Purpose of echocardiogram (to evaluate cardiac function (results pending))",
+          "Patient's cooperation, adherence, and difficulty with lifestyle changes",
+          "Context of patient's sedentary job and lifestyle",
+          "Patient expressed understanding of the plan and agreed to follow-up and diagnostic evaluations"
         ],
-        "additions": [
-          "Action item: Provide information on accessing healthcare services due to having health insurance and living in an urban area"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
   },
   "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "Plan action item: Provide information on accessing healthcare services due to having health insurance and living in an urban area",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You mentioned you have health insurance and live in an urban area, correct?\n\n[Patient]: Yes, I do.\n\n[Doctor]: Excellent. That will make it easier for you to access healthcare services.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The plan includes providing information on accessing healthcare services due to having health insurance and living in an urban area."
-    },
-    {
-      "addition_text": "Action item: Provide information on accessing healthcare services due to having health insurance and living in an urban area",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You mentioned you have health insurance and live in an urban area, correct?\n\n[Patient]: Yes, I do.\n\n[Doctor]: Excellent. That will make it easier for you to access healthcare services.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The plan includes providing information on accessing healthcare services due to having health insurance and living in an urban area."
-    }
-  ]
+  "addition_evidence": []
 }

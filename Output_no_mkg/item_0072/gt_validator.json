@@ -262,7 +262,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate overview but suffers from several moderate omissions across all sections and one major omission in the Objective section. Key missing details include the duration of Type 2 Diabetes, Chronic Kidney Disease stage, specific lifestyle factors, and crucially, the fasting glucose level of 200 mg/dL. Additionally, important specifics for weight management, patient education on hypoglycemia/hyperglycemia, and dosages for continued medications are absent from the Plan. While all additions were supported by the transcript, the cumulative effect of these omissions reduces the note's completeness and clinical utility, requiring careful review.",
+    "overall_summary": "The generated note provides a usable summary of the patient's visit but suffers from multiple moderate omissions across the Subjective, Assessment, and Plan sections. Key details such as the duration of Type 2 Diabetes, specific CKD stage, the impact of blurry vision, mild diabetic neuropathy in the assessment, specific weight management goals, critical patient education on hypoglycemia/hyperglycemia, and dosages for continued medications are missing. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete.",
     "omissions": [
       "Patient is a first-time presenter to the community health clinic.",
       "Type 2 Diabetes Mellitus diagnosis for 10 years.",
@@ -300,8 +300,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section omits several moderate details, including the duration of Type 2 Diabetes (10 years), Chronic Kidney Disease Stage 3, the specific impact of blurry vision on daily tasks, and important lifestyle/social history details such as sedentary lifestyle, dietary habits, smoking history, and alcohol consumption. While the chief complaint and main diagnoses are present, these omissions make the HPI less comprehensive.",
+        "grade": "C",
+        "summary": "The Subjective section has noticeable gaps, omitting important details from the History of Present Illness (e.g., difficulty reading due to blurry vision, sedentary lifestyle, dietary habits, smoking history, alcohol consumption) and specific diagnoses (e.g., Type 2 Diabetes Mellitus for 10 years, Chronic Kidney Disease Stage 3). Additionally, several negative Review of Systems findings were omitted, making the section meaningfully incomplete.",
         "omissions": [
           "Patient is a first-time presenter to the community health clinic.",
           "Type 2 Diabetes Mellitus diagnosis for 10 years.",
@@ -321,8 +321,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section has a major omission: the fasting glucose level of 200 mg/dL. This is a critical lab result directly supporting the assessment of uncontrolled diabetes. Minor descriptive details like general appearance and absence of organomegaly were also omitted, but the missing fasting glucose significantly impacts the completeness of this section.",
+        "grade": "B",
+        "summary": "The Objective section is mostly complete, capturing vital signs and most physical exam findings. However, it omits the key lab result of 'Fasting Glucose: 200 mg/dL' which is a moderate issue, along with minor omissions regarding general appearance and a specific abdominal finding.",
         "omissions": [
           "General Appearance: Elderly, slightly overweight.",
           "Abdomen: no organomegaly.",
@@ -332,8 +332,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section omits the specific diagnosis of 'Chronic Kidney Disease Stage 3' and 'Mild diabetic neuropathy' as distinct items. While the generated note includes supported additions like 'Uncontrolled Type 2 Diabetes contributing to vision changes and weight loss' and 'Hypertension are concerns', the absence of these specific diagnoses creates noticeable gaps in the problem list.",
+        "grade": "C",
+        "summary": "The Assessment section has noticeable gaps, specifically omitting the precise stage of 'Chronic Kidney Disease Stage 3' and completely missing 'Mild diabetic neuropathy'. While the generated additions are supported by the transcript, these omissions represent moderate clinical details that make the assessment less comprehensive.",
         "omissions": [
           "Assessment of Type 2 Diabetes Mellitus without complications.",
           "Chronic Kidney Disease Stage 3.",
@@ -346,8 +346,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section contains several moderate omissions, including specific details for weight management (enrollment in a program, 7% target), crucial patient education on recognizing symptoms of hypoglycemia and hyperglycemia, and the specific dosages and frequencies for continued medications (Lisinopril and Furosemide). While the core plan elements are present, these omissions reduce the actionable detail and completeness of the plan.",
+        "grade": "C",
+        "summary": "The Plan section contains multiple moderate omissions, including specific details for 'Weight Management: Enroll in a weight loss program, target weight loss of 7%', crucial patient education on 'recognizing symptoms of hypoglycemia and hyperglycemia', and the 'specific dosages and frequency for continued medications (Lisinopril 20 mg, oral, once daily; Furosemide 40 mg, oral, once daily)'. These omissions significantly reduce the completeness and clinical usefulness of the plan.",
         "omissions": [
           "Medication routes (oral, subcutaneous) for prescribed Metformin and Insulin Glargine.",
           "Weight Management: Enroll in a weight loss program, target weight loss of 7%.",
@@ -372,42 +372,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and history, here’s what I’m thinking. Your Type 2 Diabetes seems to be uncontrolled, which could be contributing to your blurry vision and weight loss.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Uncontrolled Type 2 Diabetes contributing to vision changes and weight loss."
+      "matched_claim_text": "Uncontrolled Type 2 Diabetes contributing to vision changes and weight loss.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Hypertension are concerns.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your chronic kidney disease and hypertension are also concerns.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic kidney disease and hypertension are concerns."
+      "matched_claim_text": "Chronic kidney disease and hypertension are concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'for meal planning' after nutritionist consultation.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "consult with a nutritionist for better meal planning.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Uncontrolled Type 2 Diabetes contributing to vision changes and weight loss.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and history, here’s what I’m thinking. Your Type 2 Diabetes seems to be uncontrolled, which could be contributing to your blurry vision and weight loss.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Uncontrolled Type 2 Diabetes contributing to vision changes and weight loss."
+      "matched_claim_text": "Uncontrolled Type 2 Diabetes contributing to vision changes and weight loss.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Hypertension are concerns.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your chronic kidney disease and hypertension are also concerns.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic kidney disease and hypertension are concerns."
+      "matched_claim_text": "Chronic kidney disease and hypertension are concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'for meal planning' after nutritionist consultation.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "consult with a nutritionist for better meal planning.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

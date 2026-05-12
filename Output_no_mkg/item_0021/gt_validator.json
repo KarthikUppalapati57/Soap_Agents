@@ -213,69 +213,77 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The note receives a D due to a high-severity unsupported addition in the Plan section, which includes extraneous and misleading meta-commentary about the note's content, specifically regarding ICD-10 codes. Additionally, there is a moderate omission of a specific specialist referral in the Plan and a moderate omission of the impact of pain on the patient's job in the Subjective section, alongside several minor omissions across the note. These issues materially reduce the note's clinical usefulness and professionalism.",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note provides a clinically usable summary of the patient's presentation, objective findings, assessment, and core plan. However, it has noticeable gaps due to several omissions. Key structural elements like the full Review of Systems section and the Environmental and Lifestyle Considerations section are entirely missing. Additionally, a specific specialist referral and some detailed patient instructions are omitted, making the note meaningfully incomplete compared to the Ground Truth.",
     "omissions": [
-      "Impact of pain on job-related tasks as an Information Technology Consultant",
-      "Absence of fever or weight loss (from ROS)",
+      "Chief Complaint (CC) section label",
+      "History of Present Illness (HPI) section label",
+      "Review of Systems (ROS) section and its detailed content (General, Neurological, Musculoskeletal, Sleep)",
+      "Neurological Exam section label",
+      "Back Exam section label",
+      "Primary Diagnosis label in Assessment",
       "Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy",
-      "Educated on proper back care",
-      "Advised to avoid activities that exacerbate symptoms",
-      "Advised to avoid indulging in foods that could affect blood sugar levels",
-      "Patient lives in an affluent suburban area with excellent access to healthcare services and low environmental health risks",
-      "Patient has a high level of health literacy",
-      "Patient is very cooperative and motivated to follow medical advice"
+      "Patient instructions on proper back care",
+      "Patient instructions to avoid activities that exacerbate symptoms",
+      "Patient instructions to avoid indulging in foods that could affect blood sugar levels",
+      "Environmental and Lifestyle Considerations section and its content"
     ],
     "additions": [
-      "Pain described as \"sharp\"",
-      "Schedule a follow-up appointment for 6 weeks",
-      "Concluding statement about not including identifying information, ICD-10 codes, or personal details"
+      "\"sharp\" pain description in Subjective",
+      "Explicit instruction to \"Schedule a follow-up appointment for 6 weeks\" in Plan",
+      "\"immediately\" qualifier for calling the clinic if symptoms worsen"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Concluding statement about not including identifying information, ICD-10 codes, or personal details"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has a moderate omission regarding the impact of pain on the patient's job-related tasks as an Information Technology Consultant, which is clinically important for understanding functional limitations. There is also a minor omission of the absence of fever or weight loss from the Review of Systems.",
+        "grade": "C",
+        "summary": "The Subjective section accurately captures the chief complaint and most of the history of present illness. However, it omits the distinct 'Chief Complaint (CC)' and 'History of Present Illness (HPI)' section labels. More significantly, the entire 'Review of Systems (ROS)' section and its detailed content are missing. It also omits specific HPI details regarding occasional muscle weakness in the left foot and the significant impact of pain on the patient's ability to walk, stand, and perform job-related tasks.",
         "omissions": [
-          "Impact of pain on job-related tasks as an Information Technology Consultant",
-          "Absence of fever or weight loss (from ROS)"
+          "Chief Complaint (CC) section label",
+          "History of Present Illness (HPI) section label",
+          "Review of Systems (ROS) section and its detailed content (General: No fever or weight loss; Neurological: Tingling and numbness in the left leg, muscle weakness in the left foot; Musculoskeletal: Severe lower back pain, palpable muscle spasm in the lower lumbar region; Sleep: Difficulty sleeping due to pain)",
+          "Occasional muscle weakness in the left foot (from HPI)",
+          "Pain significantly limits ability to walk, stand, and perform job-related tasks as an Information Technology Consultant (from HPI)"
         ],
         "additions": [
-          "Pain described as \"sharp\""
+          "\"sharp\" pain description"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurate with no omissions or unsupported additions.",
-        "omissions": [],
+        "summary": "The Objective section is excellent, accurately capturing all clinical findings. The only omissions are the minor structural labels for 'Neurological Exam' and 'Back Exam' sub-sections, which do not detract from the clinical content.",
+        "omissions": [
+          "Neurological Exam section label",
+          "Back Exam section label"
+        ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate with no omissions or unsupported additions.",
-        "omissions": [],
+        "summary": "The Assessment section is accurate and complete in its clinical content. The omissions are minor, consisting only of the 'Primary Diagnosis' label and the explicit phrasing about symptoms and findings being consistent with the diagnosis, which is implied.",
+        "omissions": [
+          "Primary Diagnosis label",
+          "\"The patient’s symptoms and physical examination findings are consistent with\" (implied but not explicitly stated)"
+        ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has a moderate omission of a specific referral to Dr. Emily Carter, Orthopedic Specialist. There are also several minor omissions related to patient education (proper back care, avoiding exacerbating activities, avoiding specific foods for blood sugar) and contextual information (patient's living situation, health literacy, and motivation). Critically, it includes a high-severity unsupported addition of a concluding meta-statement that is extraneous, unprofessional, and misleading about the note's content, particularly its assertion about ICD-10 codes.",
+        "grade": "C",
+        "summary": "The Plan section includes most of the core management steps (medications, physical therapy, imaging, labs, follow-up). However, it omits a specific referral to Dr. Emily Carter, Orthopedic Specialist. Several patient instructions, such as proper back care, avoiding activities that exacerbate symptoms, and avoiding specific foods that affect blood sugar levels, are also missing. Most notably, the entire 'Environmental and Lifestyle Considerations' section, which provides important patient context, is omitted.",
         "omissions": [
           "Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy",
-          "Educated on proper back care",
-          "Advised to avoid activities that exacerbate symptoms",
-          "Advised to avoid indulging in foods that could affect blood sugar levels",
-          "Patient lives in an affluent suburban area with excellent access to healthcare services and low environmental health risks",
-          "Patient has a high level of health literacy",
-          "Patient is very cooperative and motivated to follow medical advice"
+          "Patient instructions on proper back care",
+          "Patient instructions to avoid activities that exacerbate symptoms",
+          "Patient instructions to avoid indulging in foods that could affect blood sugar levels",
+          "Environmental and Lifestyle Considerations section and its content"
         ],
         "additions": [
-          "Schedule a follow-up appointment for 6 weeks"
+          "Explicit instruction to \"Schedule a follow-up appointment for 6 weeks\"",
+          "\"immediately\" qualifier for calling the clinic if symptoms worsen"
         ]
       }
     ],
@@ -284,25 +292,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Pain described as \"sharp\"",
+      "addition_text": "\"sharp\" pain description in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Sure, it’s a constant, sharp pain that radiates down my left leg.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Schedule a follow-up appointment for 6 weeks",
+      "addition_text": "Explicit instruction to \"Schedule a follow-up appointment for 6 weeks\" in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll re-evaluate your condition in 6 weeks... I'll see you in 6 weeks.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment for 6 weeks."
+      "matched_claim_text": "Schedule a follow-up appointment for 6 weeks.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Concluding statement about not including identifying information, ICD-10 codes, or personal details",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "\"immediately\" qualifier for calling the clinic if symptoms worsen",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: If your symptoms worsen or you develop new symptoms, call the clinic immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Instruct the patient to call the clinic immediately if symptoms worsen or new symptoms develop.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"sharp\" pain description",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Sure, it’s a constant, sharp pain that radiates down my left leg.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Explicit instruction to \"Schedule a follow-up appointment for 6 weeks\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’ll re-evaluate your condition in 6 weeks... I'll see you in 6 weeks.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule a follow-up appointment for 6 weeks.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -276,10 +276,11 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, but it contains several omissions. The Subjective section has noticeable gaps, including the entire Review of Systems and key details about the patient's urination frequency and its impact on sleep. The Objective and Plan sections also have minor omissions related to detailed physical exam findings, specific urinalysis components, medication quantities, and general patient education. No unsupported or unknown additions were identified.",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is usable but has noticeable gaps, particularly in the Subjective and Objective sections. Key omissions include the full Review of Systems, specific details from the History of Present Illness (e.g., urination frequency, impact on sleep), comprehensive negative physical exam findings, and crucial information about pending urinalysis results. The Plan section also omits specific medication dosage forms and quantities. All identified additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
       "Patient presenting for a routine check-up",
       "Patient reports urinating every hour",
       "Frequent urination affecting sleep quality",
@@ -289,35 +290,34 @@
       "ROS - Musculoskeletal: No complaints of muscle or joint pain",
       "ROS - Neurological: No headaches, dizziness, or changes in mental status",
       "Vital Signs section header",
-      "Temperature in Fahrenheit (100°F)",
       "Physical Exam section header",
-      "General physical exam finding: Patient is in no apparent distress and appears well-nourished",
+      "General appearance: Patient is in no apparent distress and appears well-nourished",
       "Cardiovascular exam findings: No murmurs, gallops, or rubs. Regular rate and rhythm",
       "Respiratory exam findings: Lungs clear to auscultation bilaterally, no wheezes, rales, or rhonchi",
       "Skin exam findings: No rashes, lesions, or jaundice observed",
-      "Results section header",
+      "Results section",
       "Urinalysis pending results for leukocyte esterase, nitrites, white blood cell count, and bacteria count",
-      "\"Site Not Specified\" for Urinary Tract Infection in Assessment",
-      "Nitrofurantoin medication detail: \"1 capsule, oral\"",
-      "Nitrofurantoin medication quantity: \"Quantity: 14 capsules\"",
-      "Acetaminophen medication detail: \"1 tablet, oral, every 4-6 hours\"",
-      "Acetaminophen medication quantity: \"Quantity: 20 tablets\"",
-      "Patient education point: Recommended taking pain relief as needed for discomfort",
-      "Additional instructions: Encouraged maintaining a balanced diet and continuing light exercise as tolerated"
+      "Specific diagnosis: 'Urinary Tract Infection, Site Not Specified'",
+      "Medication details for Nitrofurantoin: '1 capsule, oral', 'Quantity: 14 capsules'",
+      "Medication details for Acetaminophen: '1 tablet, oral, every 4-6 hours', 'Quantity: 20 tablets'",
+      "Patient Education: Recommended taking pain relief as needed for discomfort",
+      "Additional Instructions: Encouraged maintaining a balanced diet and continuing light exercise as tolerated"
     ],
     "additions": [
-      "Assessment: Qualifier \"The patient's symptoms and physical exam suggest a possible\" for diagnosis",
-      "Plan: Adverb \"immediately\" for contacting the clinic",
-      "Plan: Instruction \"even if symptoms improve\" for completing antibiotics"
+      "'possible' qualifier for UTI in Assessment",
+      "'The patient's symptoms and physical exam suggest' as an introductory phrase in Assessment",
+      "'even if symptoms improve' added to antibiotic completion instruction in Plan",
+      "'immediately' added to contact clinic instruction in Plan"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section receives a C due to several omissions. It notably omits the entire Review of Systems section, as well as important HPI details such as the patient reporting urinating every hour and this affecting sleep quality. Other minor contextual details like the patient presenting for a routine check-up and managing work as an IT consultant were also omitted.",
+        "summary": "This section is noticeably incomplete due to the omission of the Chief Complaint and History of Present Illness section headers, specific HPI details (patient presenting for routine check-up, urination frequency, impact on sleep, ability to manage work), and the entire Review of Systems section, including important negative findings for gastrointestinal, musculoskeletal, and neurological systems.",
         "omissions": [
           "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
           "Patient presenting for a routine check-up",
           "Patient reports urinating every hour",
           "Frequent urination affecting sleep quality",
@@ -331,17 +331,16 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section receives a B. While key vital signs and positive physical exam findings are present, it omits several negative physical exam findings (cardiovascular, respiratory, skin) and specific details about the pending urinalysis results (leukocyte esterase, nitrites, white blood cell count, and bacteria count). Minor formatting omissions like section headers were also noted.",
+        "grade": "C",
+        "summary": "This section has noticeable gaps. It omits the Vital Signs and Physical Exam section headers, general appearance observations, comprehensive negative findings for cardiovascular, respiratory, and skin exams, and the entire 'Results' section, including crucial details about pending urinalysis results (leukocyte esterase, nitrites, WBC, bacteria count).",
         "omissions": [
           "Vital Signs section header",
-          "Temperature in Fahrenheit (100°F)",
           "Physical Exam section header",
-          "General physical exam finding: Patient is in no apparent distress and appears well-nourished",
+          "General appearance: Patient is in no apparent distress and appears well-nourished",
           "Cardiovascular exam findings: No murmurs, gallops, or rubs. Regular rate and rhythm",
           "Respiratory exam findings: Lungs clear to auscultation bilaterally, no wheezes, rales, or rhonchi",
           "Skin exam findings: No rashes, lesions, or jaundice observed",
-          "Results section header",
+          "Results section",
           "Urinalysis pending results for leukocyte esterase, nitrites, white blood cell count, and bacteria count"
         ],
         "additions": []
@@ -349,29 +348,28 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A. The primary diagnosis of Urinary Tract Infection is correctly identified. The only omission is the minor detail \"Site Not Specified\" for the ICD-10 code. No unsupported or unknown additions were present.",
+        "summary": "This section is clinically aligned. The only omission is the specific ICD-10 diagnosis 'Urinary Tract Infection, Site Not Specified', but the core diagnosis 'possible urinary tract infection (UTI)' is present and clinically appropriate. All additions in this section were supported by the transcript and did not reduce the grade.",
         "omissions": [
-          "\"Site Not Specified\" for Urinary Tract Infection"
+          "Specific diagnosis: 'Urinary Tract Infection, Site Not Specified'"
         ],
         "additions": [
-          "Qualifier \"The patient's symptoms and physical exam suggest a possible\" for diagnosis"
+          "'possible' qualifier for UTI",
+          "'The patient's symptoms and physical exam suggest' as an introductory phrase"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section receives a B. It includes the core medication prescriptions, follow-up, and critical patient instructions. However, it omits specific medication details such as \"1 capsule, oral\" for Nitrofurantoin and \"1 tablet, oral, every 4-6 hours\" for Acetaminophen, along with their respective quantities. Minor patient education points like taking pain relief as needed and encouraging a balanced diet with light exercise were also omitted. No unsupported or unknown additions were present.",
+        "summary": "This section is mostly clinically aligned but has several moderate omissions. It lacks specific medication details such as the dosage form ('1 capsule, oral', '1 tablet, oral') and quantities ('Quantity: 14 capsules', 'Quantity: 20 tablets') for both Nitrofurantoin and Acetaminophen. Minor omissions include patient education on taking pain relief as needed and additional instructions regarding diet and light exercise. All additions in this section were supported by the transcript and did not reduce the grade.",
         "omissions": [
-          "Nitrofurantoin medication detail: \"1 capsule, oral\"",
-          "Nitrofurantoin medication quantity: \"Quantity: 14 capsules\"",
-          "Acetaminophen medication detail: \"1 tablet, oral, every 4-6 hours\"",
-          "Acetaminophen medication quantity: \"Quantity: 20 tablets\"",
-          "Patient education point: Recommended taking pain relief as needed for discomfort",
-          "Additional instructions: Encouraged maintaining a balanced diet and continuing light exercise as tolerated"
+          "Medication details for Nitrofurantoin: '1 capsule, oral', 'Quantity: 14 capsules'",
+          "Medication details for Acetaminophen: '1 tablet, oral, every 4-6 hours', 'Quantity: 20 tablets'",
+          "Patient Education: Recommended taking pain relief as needed for discomfort",
+          "Additional Instructions: Encouraged maintaining a balanced diet and continuing light exercise as tolerated"
         ],
         "additions": [
-          "Adverb \"immediately\" for contacting the clinic",
-          "Instruction \"even if symptoms improve\" for completing antibiotics"
+          "'even if symptoms improve' added to antibiotic completion instruction",
+          "'immediately' added to contact clinic instruction"
         ]
       }
     ],
@@ -380,46 +378,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: Qualifier \"The patient's symptoms and physical exam suggest a possible\" for diagnosis",
+      "addition_text": "'possible' qualifier for UTI in Assessment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'The patient's symptoms and physical exam suggest' as an introductory phrase in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms and physical exam suggest a possible urinary tract infection (UTI)."
+      "matched_claim_text": "The patient's symptoms and physical exam suggest a possible urinary tract infection (UTI).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Adverb \"immediately\" for contacting the clinic",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "If your symptoms worsen or if you experience severe pain, high fever, or blood in your urine, contact the clinic immediately.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: Instruction \"even if symptoms improve\" for completing antibiotics",
+      "addition_text": "'even if symptoms improve' added to antibiotic completion instruction in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Complete the full course of antibiotics even if you start feeling better.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise the patient to complete the full course of antibiotics even if symptoms improve."
+      "matched_claim_text": "Advise the patient to complete the full course of antibiotics even if symptoms improve.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Qualifier \"The patient's symptoms and physical exam suggest a possible\" for diagnosis",
+      "addition_text": "'immediately' added to contact clinic instruction in Plan",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: or blood in your urine, contact the clinic immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Instruct the patient to contact the clinic immediately if they experience blood in their urine.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'possible' qualifier for UTI",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'The patient's symptoms and physical exam suggest' as an introductory phrase",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms and physical exam suggest a possible urinary tract infection (UTI)."
+      "matched_claim_text": "The patient's symptoms and physical exam suggest a possible urinary tract infection (UTI).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Adverb \"immediately\" for contacting the clinic",
+      "addition_text": "'even if symptoms improve' added to antibiotic completion instruction",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Complete the full course of antibiotics even if you start feeling better.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Advise the patient to complete the full course of antibiotics even if symptoms improve.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'immediately' added to contact clinic instruction",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms worsen... contact the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to contact the clinic immediately if symptoms worsen."
-    },
-    {
-      "addition_text": "Instruction \"even if symptoms improve\" for completing antibiotics",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Complete the full course of antibiotics even if you start feeling better.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise the patient to complete the full course of antibiotics even if symptoms improve."
+      "matched_claim_text": "Instruct the patient to contact the clinic immediately if symptoms worsen.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

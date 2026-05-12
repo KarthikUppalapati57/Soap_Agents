@@ -2,7 +2,7 @@
   "item": "item_0196",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0196",
   "ground_truth_soap": "Subjective:\n\nChief Complaint (CC)\nLesion on the forehead.\n\nHistory of Present Illness (HPI)\nThe patient is a pleasant 65-year-old Caucasian female who presents to the dermatology clinic for the evaluation of a rough, scaly lesion on her forehead. The lesion has been present for approximately 2 months and has occasionally bled and caused mild itching. She reports the lesion is constantly there, and symptoms are intermittent but bothersome especially when washing her face or scratching the area.\n\nReview of Systems (ROS)\n- Integumentary: Reports rough, scaly lesion on the forehead with occasional bleeding and mild itching.\n- General: No other complaints.\n\nObjective:\n\nVital Signs\n- Blood pressure: 130/85 mmHg\n- Heart rate: 72 bpm\n- Respiratory rate: 16 breaths/minute\n- Temperature: 98.5°F\n\nPhysical Exam\n- Skin: A detailed skin examination reveals a single, rough, scaly patch measuring approximately 1 cm in diameter located on the forehead, consistent with actinic keratosis. No other suspicious lesions noted on full body exam.\n- CV: Normal heart sounds, no murmurs.\n- Resp: Clear to auscultation bilaterally.\n\nAssessment:\n- Actinic Keratosis on the forehead.\n\nPlan:\n\nTreatment Recommendations:\n- Cryotherapy: Perform cryotherapy on the lesion during this visit.\n- Medication: Prescribe Fluorouracil 5% cream, to be applied to the affected areas twice daily for 2-4 weeks.\n\nLifestyle and Preventive Care:\n- Advise the patient to use daily sunscreen with SPF 30 or higher.\n- Recommend wearing protective clothing, such as wide-brimmed hats, long sleeves, and sunglasses when outdoors.\n- Counsel to avoid peak sun hours from 10 AM to 4 PM.\n\nFollow-Up:\n- Schedule a follow-up appointment in 3 months for a comprehensive skin check to ensure no new lesions have developed and to assess the effectiveness of the treatment.\n\nThe patient was highly cooperative and expressed understanding and willingness to adhere to the prescribed treatment and lifestyle changes. Additionally, we discussed the importance of regular skin examinations to monitor for potential new lesions, given her history and risk factors. \n\nThe patient was encouraged to reduce smoking and was given resources for smoking cessation counseling.",
-  "generated_soap": "Subjective:\nPatient presents with a 2-month history of a rough, scaly, and intermittently itchy and bleeding lesion on the forehead.\n\nObjective:\nPhysical examination reveals a single, rough, scaly patch on the forehead, approximately 1 cm in diameter, consistent with actinic keratosis. Heart sounds are normal, and lungs are clear to auscultation.\n\nAssessment:\nActinic keratosis, precancerous condition caused by sun exposure.\n\nPlan:\n- Treatment: Cryotherapy and Fluorouracil 5% cream for 2-4 weeks.\n- Follow-up appointment in 3 months for skin check.\n- Smoking cessation counseling resources provided.",
+  "generated_soap": "Subjective:\nThe patient presents with a 2-month history of a rough, scaly, and intermittently bleeding and itching lesion on the forehead.\n\nObjective:\nVitals appear normal (BP: 130/85 mmHg, HR: 72 bpm, RR: 16 bpm, T: 98.5°F). Physical examination reveals a single rough, scaly patch on the forehead (1 cm in diameter) consistent with actinic keratosis. Heart and lungs are normal to auscultation.\n\nAssessment:\nActinic keratosis, precancerous condition potentially progressing to squamous cell carcinoma due to sun exposure.\n\nPlan:\n- Perform cryotherapy today on the lesion.\n- Prescribe Fluorouracil 5% cream for application twice daily for 2-4 weeks.\n- Schedule a follow-up appointment in 3 months for skin check and area review.\n- Discuss smoking cessation counseling resources due to reported smoking history.",
   "entities_gt": {
     "all_entities": [
       "forehead",
@@ -40,39 +40,45 @@
   },
   "entities_generated": {
     "all_entities": [
-      "forehead",
+      "vitals",
+      "bp",
+      "hr",
+      "rr",
+      "t",
       "physical examination",
       "actinic keratosis",
-      "heart sounds",
-      "lungs",
+      "heart and lungs",
       "auscultation",
+      "squamous cell carcinoma",
       "cryotherapy",
       "fluorouracil 5% cream",
       "follow-up appointment",
-      "skin check"
+      "skin check and area review"
     ],
     "symptoms": [],
     "medications": [
-      "cryotherapy",
       "fluorouracil 5% cream"
     ],
     "labs": [
+      "bp",
+      "hr",
+      "rr",
+      "t",
       "physical examination",
-      "heart sounds",
-      "lungs",
       "auscultation",
-      "skin check"
+      "skin check and area review"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 14,
-    "gen_count": 10,
-    "overlap_count": 4,
-    "recall": 0.2857142857142857,
+    "gen_count": 14,
+    "overlap_count": 3,
+    "recall": 0.21428571428571427,
     "gt_only": [
       "blood pressure",
       "comprehensive skin check",
       "detailed skin examination",
+      "forehead",
       "heart rate",
       "mild itching",
       "normal heart sounds",
@@ -83,17 +89,21 @@
     ],
     "gen_only": [
       "auscultation",
+      "bp",
       "follow-up appointment",
-      "heart sounds",
-      "lungs",
+      "heart and lungs",
+      "hr",
       "physical examination",
-      "skin check"
+      "rr",
+      "skin check and area review",
+      "squamous cell carcinoma",
+      "t",
+      "vitals"
     ],
     "overlap": [
       "actinic keratosis",
       "cryotherapy",
-      "fluorouracil 5% cream",
-      "forehead"
+      "fluorouracil 5% cream"
     ]
   },
   "clinical_recall_symptoms": {
@@ -113,20 +123,18 @@
   },
   "clinical_recall_medications": {
     "gt_count": 1,
-    "gen_count": 2,
+    "gen_count": 1,
     "overlap_count": 1,
     "recall": 1.0,
     "gt_only": [],
-    "gen_only": [
-      "cryotherapy"
-    ],
+    "gen_only": [],
     "overlap": [
       "fluorouracil 5% cream"
     ]
   },
   "clinical_recall_labs": {
     "gt_count": 5,
-    "gen_count": 5,
+    "gen_count": 7,
     "overlap_count": 0,
     "recall": 0.0,
     "gt_only": [
@@ -138,145 +146,151 @@
     ],
     "gen_only": [
       "auscultation",
-      "heart sounds",
-      "lungs",
+      "bp",
+      "hr",
       "physical examination",
-      "skin check"
+      "rr",
+      "skin check and area review",
+      "t"
     ],
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.3919041561224314,
-    "overall_rouge_l_f1": 0.29833618850250393,
+    "overall_token_f1": 0.4133079704637902,
+    "overall_rouge_l_f1": 0.31313243031162774,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3448275862068966,
-        "rouge_l_f1": 0.19999999999999998
+        "token_f1": 0.36781609195402304,
+        "rouge_l_f1": 0.23140495867768596
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5842696629213484,
-        "rouge_l_f1": 0.45360824742268047
+        "token_f1": 0.6336633663366336,
+        "rouge_l_f1": 0.509090909090909
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3076923076923077,
-        "rouge_l_f1": 0.3076923076923077
+        "token_f1": 0.2222222222222222,
+        "rouge_l_f1": 0.21052631578947364
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.33082706766917297,
-        "rouge_l_f1": 0.23204419889502764
+        "token_f1": 0.42953020134228187,
+        "rouge_l_f1": 0.30150753768844224
       }
     ],
-    "assessment_alignment_score": 0.3076923076923077,
-    "plan_alignment_score": 0.33082706766917297
+    "assessment_alignment_score": 0.2222222222222222,
+    "plan_alignment_score": 0.42953020134228187
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The note captures the chief complaint, history of present illness, and primary assessment well. However, it has noticeable gaps in the Objective section due to the complete omission of vital signs and the confirmation of no other suspicious lesions on full body exam. The Plan section is significantly incomplete, omitting crucial details regarding medication application, all specific lifestyle and preventive care recommendations (sunscreen, protective clothing, avoiding peak sun), and the detailed purpose of the follow-up. These omissions make the note meaningfully incomplete, especially regarding patient education and management.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "D",
+    "overall_summary": "The note accurately captures the patient's chief complaint, history, objective findings, and diagnosis. However, it has significant omissions in the Plan section, notably the complete absence of crucial lifestyle and preventive care recommendations for sun protection (daily sunscreen, protective clothing, avoiding peak sun hours) and the detailed purpose of follow-up. These omissions materially reduce the clinical usefulness of the note, despite the absence of any unsupported or unknown additions.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
       "Review of Systems (ROS) section header",
-      "Patient demeanor (pleasant)",
-      "Lesion symptoms are bothersome, especially when washing face or scratching",
-      "ROS - General: No other complaints",
+      "Patient presents to the dermatology clinic for evaluation",
+      "Lesion is constantly there (from HPI)",
+      "Symptoms are intermittent but bothersome especially when washing her face or scratching the area (from HPI)",
+      "ROS General: No other complaints",
       "Vital Signs section header",
-      "Blood pressure (130/85 mmHg)",
-      "Heart rate (72 bpm)",
-      "Respiratory rate (16 breaths/minute)",
-      "Temperature (98.5°F)",
-      "No other suspicious lesions noted on full body exam",
-      "CV: no murmurs",
-      "Resp: clear to auscultation bilaterally (specifically 'bilaterally')",
-      "Assessment: location of AK ('on the forehead')",
+      "Physical Exam section header",
+      "No other suspicious lesions noted on full body exam (from Skin exam)",
+      "no murmurs (from CV exam)",
+      "bilaterally (from Resp exam)",
+      "on the forehead (location of actinic keratosis in assessment)",
       "Treatment Recommendations section header",
-      "Medication details: 'to be applied to the affected areas twice daily'",
+      "Medication section header",
       "Lifestyle and Preventive Care section header",
-      "Advise daily sunscreen with SPF 30 or higher",
-      "Recommend wearing protective clothing (wide-brimmed hats, long sleeves, sunglasses) when outdoors",
+      "Advise the patient to use daily sunscreen with SPF 30 or higher",
+      "Recommend wearing protective clothing, such as wide-brimmed hats, long sleeves, and sunglasses when outdoors",
       "Counsel to avoid peak sun hours from 10 AM to 4 PM",
       "Follow-Up section header",
-      "Follow-up purpose: 'to ensure no new lesions have developed and to assess the effectiveness of the treatment'",
-      "Patient cooperation, understanding, and willingness to adhere to treatment/lifestyle changes",
-      "Discussion about importance of regular skin examinations to monitor for potential new lesions, given history and risk factors",
-      "Patient encouraged to reduce smoking"
+      "Follow-up purpose: to ensure no new lesions have developed and to assess the effectiveness of the treatment",
+      "The patient was highly cooperative and expressed understanding and willingness to adhere to the prescribed treatment and lifestyle changes",
+      "Additionally, we discussed the importance of regular skin examinations to monitor for potential new lesions, given her history and risk factors",
+      "The patient was encouraged to reduce smoking"
     ],
     "additions": [
-      "Assessment: explanation of AK ('precancerous condition caused by sun exposure')"
+      "Vitals appear normal (summary statement)",
+      "Heart and lungs are normal to auscultation (summary statement)",
+      "precancerous condition potentially progressing to squamous cell carcinoma due to sun exposure (in Assessment)",
+      "due to reported smoking history (qualifier for smoking cessation discussion)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the core history of present illness. However, it omits minor details such as the patient's demeanor, that symptoms are bothersome especially when washing face or scratching, and the general review of systems indicating no other complaints. Several section headers were also omitted.",
+        "summary": "The Subjective section is concise, capturing the core complaint and history. However, it omits several structural headers (CC, HPI, ROS) and some minor details from the HPI regarding the lesion's constant presence and the specific bothersome triggers, as well as the general ROS statement.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
           "Review of Systems (ROS) section header",
-          "Patient demeanor (pleasant)",
-          "Lesion symptoms are bothersome, especially when washing face or scratching",
-          "ROS - General: No other complaints"
+          "Patient presents to the dermatology clinic for evaluation",
+          "Lesion is constantly there",
+          "Symptoms are intermittent but bothersome especially when washing her face or scratching the area",
+          "ROS General: No other complaints"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section accurately describes the lesion and general heart/lung findings. However, it has a significant omission of all vital signs (blood pressure, heart rate, respiratory rate, temperature). It also omits the important detail that no other suspicious lesions were noted on full body exam, and minor details like 'no murmurs' for CV and 'bilaterally' for Resp findings.",
+        "grade": "B",
+        "summary": "The Objective section accurately presents vital signs and key physical exam findings. It omits structural headers (Vital Signs, Physical Exam) and the important negative finding of \"no other suspicious lesions noted on full body exam,\" along with minor descriptive details from the CV and Resp exams. All additions in this section were supported by the transcript.",
         "omissions": [
           "Vital Signs section header",
-          "Blood pressure (130/85 mmHg)",
-          "Heart rate (72 bpm)",
-          "Respiratory rate (16 breaths/minute)",
-          "Temperature (98.5°F)",
+          "Physical Exam section header",
           "No other suspicious lesions noted on full body exam",
-          "CV: no murmurs",
-          "Resp: clear to auscultation bilaterally (specifically 'bilaterally')"
+          "no murmurs",
+          "bilaterally"
         ],
-        "additions": []
+        "additions": [
+          "Vitals appear normal (summary statement)",
+          "Heart and lungs are normal to auscultation (summary statement)"
+        ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately identifying 'Actinic keratosis'. The addition of 'precancerous condition caused by sun exposure' is supported by the transcript and enhances the note. The only omission is the minor detail of the lesion's location ('on the forehead').",
+        "summary": "The Assessment section accurately states the diagnosis of Actinic Keratosis. It has only one minor omission regarding the explicit mention of the lesion's location \"on the forehead,\" which is already clear from the Objective section. The addition in this section was supported by the transcript.",
         "omissions": [
-          "on the forehead"
+          "on the forehead (location of actinic keratosis)"
         ],
         "additions": [
-          "precancerous condition caused by sun exposure"
+          "precancerous condition potentially progressing to squamous cell carcinoma due to sun exposure"
         ]
       },
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section is materially incomplete. While it mentions cryotherapy, Fluorouracil, and a 3-month follow-up, it omits crucial medication details ('to be applied twice daily'), all specific lifestyle and preventive care recommendations (daily sunscreen, protective clothing, avoiding peak sun hours), and the detailed purpose of the follow-up. It also misses patient education on regular skin examinations and the explicit encouragement to reduce smoking. These omissions significantly reduce the clinical usefulness of the plan.",
+        "summary": "The Plan section has significant omissions, including the entire \"Lifestyle and Preventive Care\" subsection, which details critical sun protection advice (daily sunscreen, protective clothing, avoiding peak sun hours). It also omits the detailed purpose of the follow-up appointment and the discussion about the importance of regular skin examinations. These omissions materially reduce the clinical usefulness of the plan. The addition in this section was supported by the transcript.",
         "omissions": [
           "Treatment Recommendations section header",
-          "Medication details: 'to be applied to the affected areas twice daily'",
+          "Medication section header",
           "Lifestyle and Preventive Care section header",
-          "Advise daily sunscreen with SPF 30 or higher",
-          "Recommend wearing protective clothing (wide-brimmed hats, long sleeves, sunglasses) when outdoors",
+          "Advise the patient to use daily sunscreen with SPF 30 or higher",
+          "Recommend wearing protective clothing, such as wide-brimmed hats, long sleeves, and sunglasses when outdoors",
           "Counsel to avoid peak sun hours from 10 AM to 4 PM",
           "Follow-Up section header",
-          "Follow-up purpose: 'to ensure no new lesions have developed and to assess the effectiveness of the treatment'",
-          "Patient cooperation, understanding, and willingness to adhere to treatment/lifestyle changes",
-          "Discussion about importance of regular skin examinations to monitor for potential new lesions, given history and risk factors",
-          "Patient encouraged to reduce smoking"
+          "Follow-up purpose: to ensure no new lesions have developed and to assess the effectiveness of the treatment",
+          "The patient was highly cooperative and expressed understanding and willingness to adhere to the prescribed treatment and lifestyle changes",
+          "Additionally, we discussed the importance of regular skin examinations to monitor for potential new lesions, given her history and risk factors",
+          "The patient was encouraged to reduce smoking"
         ],
-        "additions": []
+        "additions": [
+          "due to reported smoking history (qualifier for smoking cessation discussion)"
+        ]
       }
     ],
     "rubric_notes": null
@@ -284,18 +298,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: explanation of AK ('precancerous condition caused by sun exposure')",
+      "addition_text": "Vitals appear normal (summary statement)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Actinic keratosis is a rough, scaly patch on the skin that develops from years of sun exposure. It is considered a precancerous condition because it can sometimes progress to squamous cell carcinoma, a type of skin cancer.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] Everything looks normal there.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Vitals appear normal.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "precancerous condition caused by sun exposure",
+      "addition_text": "Heart and lungs are normal to auscultation (summary statement)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Actinic keratosis is a rough, scaly patch on the skin that develops from years of sun exposure. It is considered a precancerous condition...",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] Your heart sounds are normal",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Heart sounds are normal to auscultation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "precancerous condition potentially progressing to squamous cell carcinoma due to sun exposure (in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] because it can sometimes progress to squamous cell carcinoma, a type of skin cancer.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Actinic keratosis can potentially progress to squamous cell carcinoma.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "due to reported smoking history (qualifier for smoking cessation discussion)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] One more thing, I noticed you mentioned smoking in your history.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Discussion of smoking cessation is due to reported smoking history.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "precancerous condition potentially progressing to squamous cell carcinoma due to sun exposure",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] because it can sometimes progress to squamous cell carcinoma, a type of skin cancer.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Actinic keratosis can potentially progress to squamous cell carcinoma.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

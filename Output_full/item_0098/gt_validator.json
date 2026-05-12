@@ -275,67 +275,81 @@
     "plan_alignment_score": 0.7111111111111111
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is missing the entire Chief Complaint section, which is a fundamental component of a SOAP note. Additionally, a critical objective finding, the Pulmonary Function Test result and its interpretation, is omitted. While the note captures most other clinically relevant information and contains no unsupported or unknown additions, these significant omissions reduce its completeness and utility.",
+    "overall_summary": "The note has several moderate omissions, including the chief complaint, key details from the history of present illness (COPD history, frequent hospital visits), and the pulmonary function test results. Additionally, there is an unsupported addition of an objective finding (normal abdominal exam) placed within the subjective section. While the core treatment plan is present, these gaps and the structural error make the note noticeably incomplete and require careful review.",
     "omissions": [
-      "Chief Complaint section and content",
-      "Review of Systems section header",
-      "Test Results section header",
-      "Patient Instructions section header",
-      "Concluding statement: \"The patient understands and agrees with the recommended medical treatment plan.\""
+      "Chief Complaint: Follow-up visit for smoking cessation and COPD management",
+      "HPI: history of chronic obstructive pulmonary disease (COPD)",
+      "HPI: frequent hospital visits due to COPD exacerbations",
+      "HPI: Despite previous failed attempts, he is determined to quit smoking",
+      "ROS Respiratory: diffuse wheezing",
+      "ROS Gastrointestinal: No abdominal pain or changes in bowel habits",
+      "ROS Skin: no rashes or lesions",
+      "Physical Examination Constitutional: Anxious but cooperative",
+      "Physical Examination Skin: Dry skin, no rashes or lesions",
+      "Test Results: Pulmonary Function Test: FEV1/FVC ratio of 55%, indicating moderate COPD",
+      "Assessment: 'Cigarettes, Uncomplicated' for Nicotine Dependence",
+      "Plan Follow-up Recommendations: to monitor the progress of smoking cessation and COPD management",
+      "Plan Follow-up Recommendations: due to transportation issues",
+      "Plan Referrals: Maria Gonzalez (name of counselor)",
+      "Plan Further Tests or Imaging: No immediate tests ordered",
+      "Plan Concluding statement: The patient understands and agrees with the recommended medical treatment plan"
     ],
-    "additions": [],
-    "hallucinations_or_unjustified_inferences": [],
+    "additions": [
+      "Subjective: 'normal abdominal exam' (as a physical finding summary in Subjective)"
+    ],
+    "hallucinations_or_unjustified_inferences": [
+      "Subjective: 'normal abdominal exam' (as a physical finding summary in Subjective)"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is mostly complete, but it omits the patient's history of frequent hospital visits due to COPD exacerbations, which is a moderate issue. Several minor details, such as the specific sleep duration, the patient's determination to quit, and some ROS findings (diffuse wheezing, no rashes/lesions), are also missing.",
+        "grade": "C",
+        "summary": "This section has significant omissions, including the chief complaint, the patient's history of COPD, frequent hospital visits, and their determination to quit smoking. It also includes an unsupported addition of an objective finding ('normal abdominal exam') which is miscategorized within the subjective section, making it structurally flawed.",
         "omissions": [
-          "frequent hospital visits due to COPD exacerbations",
-          "Despite previous failed attempts, he is determined to quit smoking.",
-          "4-5 hours per night (sleep duration)",
-          "diffuse wheezing (from ROS)",
-          "no rashes or lesions (from ROS skin)"
+          "Chief Complaint: Follow-up visit for smoking cessation and COPD management",
+          "HPI: history of chronic obstructive pulmonary disease (COPD)",
+          "HPI: frequent hospital visits due to COPD exacerbations",
+          "HPI: Despite previous failed attempts, he is determined to quit smoking",
+          "ROS Respiratory: diffuse wheezing",
+          "ROS Gastrointestinal: No abdominal pain or changes in bowel habits",
+          "ROS Skin: no rashes or lesions"
         ],
         "additions": [
-          "normal abdominal exam (phrasing/detail in Subjective)"
+          "normal abdominal exam"
         ]
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section has a major omission: the Pulmonary Function Test result (FEV1/FVC ratio of 55%) and its interpretation indicating moderate COPD. This is a critical diagnostic finding. Minor omissions include the constitutional observation of the patient being anxious but cooperative, and the skin examination findings.",
+        "grade": "B",
+        "summary": "The Objective section is missing the patient's constitutional appearance ('Anxious but cooperative'), details of the skin examination ('Dry skin, no rashes or lesions'), and the crucial pulmonary function test results (FEV1/FVC ratio of 55%, indicating moderate COPD). The omission of the PFT results is a moderate issue, but other findings are well-captured.",
         "omissions": [
-          "Constitutional: Anxious but cooperative.",
-          "Skin: Dry skin, no rashes or lesions.",
-          "Pulmonary Function Test: FEV1/FVC ratio of 55%, indicating moderate COPD."
+          "Physical Examination Constitutional: Anxious but cooperative",
+          "Physical Examination Skin: Dry skin, no rashes or lesions",
+          "Test Results: Pulmonary Function Test: FEV1/FVC ratio of 55%, indicating moderate COPD"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is largely accurate, with only a minor omission of the specific descriptor \"Cigarettes, Uncomplicated\" for Nicotine Dependence.",
+        "summary": "This section is nearly complete, with only a minor omission regarding the specific descriptor 'Cigarettes, Uncomplicated' for Nicotine Dependence. The primary diagnoses are accurately captured.",
         "omissions": [
-          "Cigarettes, Uncomplicated (for Nicotine Dependence)"
+          "'Cigarettes, Uncomplicated' for Nicotine Dependence"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is comprehensive, but it contains several minor omissions. These include the specific route of administration for Bupropion SR (\"orally\"), the full rationale for lifestyle modifications and follow-up visits, the specific name of the smoking cessation counselor (Maria Gonzalez), and the statement that no immediate tests were ordered. The core treatment, lifestyle, and follow-up instructions are present.",
+        "summary": "The Plan section has several minor omissions, such as the specific purpose of follow-ups ('to monitor the progress of smoking cessation and COPD management'), the reason for mixed visit types ('due to transportation issues'), the name of the referral counselor ('Maria Gonzalez'), the lack of immediate tests, and the concluding statement about patient understanding and agreement. However, all major treatment and follow-up steps are present.",
         "omissions": [
-          "orally (for Bupropion SR administration)",
-          "Encourage dietary changes to include more fresh vegetables and fruits.",
-          "to improve overall health (purpose of exercises)",
-          "to monitor the progress of smoking cessation and COPD management (purpose of follow-ups)",
-          "due to transportation issues (reason for telehealth visits)",
-          "Maria Gonzalez (name of smoking cessation counselor)",
-          "for additional support (purpose of referral)",
-          "No immediate tests ordered."
+          "Follow-up Recommendations: to monitor the progress of smoking cessation and COPD management",
+          "Follow-up Recommendations: due to transportation issues",
+          "Referrals: Maria Gonzalez (name of counselor)",
+          "Further Tests or Imaging: No immediate tests ordered",
+          "Concluding statement: The patient understands and agrees with the recommended medical treatment plan"
         ],
         "additions": []
       }
@@ -345,11 +359,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "normal abdominal exam (phrasing/detail in Subjective)",
+      "addition_text": "Subjective: 'normal abdominal exam' (as a physical finding summary in Subjective)",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "normal abdominal exam",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Your abdominal exam was normal—soft, non-tender, and no hepatosplenomegaly.",
+      "transcript_evidence": "[patient] No, no chest pain or palpitations. ... [patient] No, my stomach is fine. ... [patient] My skin is dry, but no rashes or lesions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Abdominal exam was normal—soft, non-tender, no hepatosplenomegaly"
+      "matched_claim_text": "No reported chest pain or palpitations, normal abdominal exam, dry skin",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

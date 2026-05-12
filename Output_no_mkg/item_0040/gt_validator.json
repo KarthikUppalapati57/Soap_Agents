@@ -241,9 +241,9 @@
     "plan_alignment_score": 0.6965174129353234
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, with all additions being supported by the transcript. The primary areas for improvement are in the Subjective section, where the formal Chief Complaint and some specific details regarding symptom severity and ROS were omitted. In the Plan section, a specific instruction for completing blood work prior to the next visit was also omitted. Despite these omissions, the core clinical content across all sections is well-captured, and there are no unsupported additions that would introduce misleading information.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. All additions were supported by the transcript and therefore did not impact the grade. However, there are several minor omissions across all sections and a few moderate omissions, such as the Chief Complaint statement, symptom severity, and a specific instruction to complete blood work prior to the next visit. Despite these, the note captures the essential clinical information and plan.",
     "omissions": [
       "Chief Complaint (CC) statement",
       "Patient occupation (full-time administrative assistant)",
@@ -262,7 +262,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly aligned but omits the formal Chief Complaint statement, which is a moderate issue. Several minor details from the History of Present Illness (patient's occupation, symptom severity) and Review of Systems (specifics of sleep disturbances, joint pain exacerbation, neurological negatives) were also omitted. All additions in this section were supported by the transcript.",
+        "summary": "The Subjective section has several minor omissions, including specific details about sleep disturbances, joint pain exacerbation, and neurological negative findings. More significantly, the Chief Complaint statement and the patient's self-reported symptom severity (8/10) are omitted, which are important for a complete clinical picture and tracking progress.",
         "omissions": [
           "Chief Complaint (CC) statement",
           "Patient occupation (full-time administrative assistant)",
@@ -279,7 +279,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is highly accurate. The only omission is the general examination finding regarding the patient appearing overweight but cooperative and engaged. All additions in this section, such as the 'indicating obesity' clarification and the listing of current medications, were supported by the transcript and do not reduce the grade.",
+        "summary": "The Objective section is nearly complete with only one minor omission regarding the general examination finding that the 'Patient appears overweight but cooperative and engaged in conversation.' All additions in this section were supported by the transcript.",
         "omissions": [
           "General Examination: Patient appears overweight but cooperative and engaged in conversation."
         ],
@@ -291,7 +291,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately capturing the primary and secondary assessments. The only omissions are minor details regarding the 'previously diagnosed' status and current medication dosages for the secondary assessments, which are present elsewhere in the note. There were no additions in this section.",
+        "summary": "The Assessment section accurately captures the primary and secondary assessments. The omissions are minor, pertaining to the specific details (e.g., 'previously diagnosed, currently on Lisinopril 10 mg daily') within the secondary assessment statements themselves, which are arguably redundant given the medications are listed in the Objective section.",
         "omissions": [
           "Details for secondary assessments: '(previously diagnosed, currently on Lisinopril 10 mg daily)' for Hypertension.",
           "Details for secondary assessments: '(previously diagnosed, currently on Metformin 500 mg twice daily)' for Type 2 Diabetes Mellitus.",
@@ -302,7 +302,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures all major clinical recommendations but omits several structural headings and a specific instruction to ensure completion of ordered blood work prior to the next visit, which is a moderate omission. Minor details from patient education and follow-up scheduling were also less explicit. All additions in this section were supported by the transcript.",
+        "summary": "The Plan section contains all key clinical actions. However, it omits several structural headings (e.g., 'Medical Treatment', 'Lifestyle Change'). There are also minor phrasing differences in patient education details and the omission of 'Scheduled a follow-up appointment in 1 month' (though follow-up is mentioned). A moderate omission is the explicit instruction to 'Ensure completion of ordered blood work (CMP) prior to next visit,' which is an important actionable item for the patient.",
         "omissions": [
           "'Medical Treatment' heading",
           "'Lifestyle Change' heading",
@@ -329,49 +329,63 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your weight is 250 lbs, and your height is 5’5”, giving you a BMI of 35.5, which classifies as obesity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Weight: 250 lbs, Height: 5’5” (BMI: 35.5, indicating obesity)"
+      "matched_claim_text": "Weight: 250 lbs, Height: 5’5” (BMI: 35.5, indicating obesity)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Current medications (Lisinopril, Metformin, Levothyroxine) with dosages and frequencies listed in Objective section.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see that you're taking Lisinopril 10 mg daily for hypertension, Metformin 500 mg twice daily for type 2 diabetes, and Levothyroxine 50 mcg daily for hypothyroidism. Is that accurate?\n[Patient]: Yes, those are the medications I'm on.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'to manage weight loss' after Orlistat medication details in Plan section.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "To help manage your weight and improve your symptoms, we’ll start you on Orlistat 120 mg capsules, to be taken orally three times daily with meals containing fat.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Decrease in work performance due to symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's been really hard. I have to take frequent breaks and sometimes I just can't keep up.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has noted a decrease in work performance due to these symptoms."
+      "matched_claim_text": "The patient has noted a decrease in work performance due to these symptoms.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'indicating obesity' after BMI",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your weight is 250 lbs, and your height is 5’5”, giving you a BMI of 35.5, which classifies as obesity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Weight: 250 lbs, Height: 5’5” (BMI: 35.5, indicating obesity)"
+      "matched_claim_text": "Weight: 250 lbs, Height: 5’5” (BMI: 35.5, indicating obesity)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Current medications: Lisinopril 10 mg daily for hypertension, Metformin 500 mg twice daily for type 2 diabetes, Levothyroxine 50 mcg daily for hypothyroidism",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I see that you're taking Lisinopril 10 mg daily for hypertension... Is that accurate?\n[Patient]: Yes, those are the medications I'm on.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Current medications: Lisinopril 10 mg daily for hypertension"
+      "matched_claim_text": "Current medications: Lisinopril 10 mg daily for hypertension",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'to manage weight loss' after Orlistat medication details",
       "supported_by_transcript": "supported",
       "transcript_evidence": "we’ll start you on Orlistat 120 mg capsules, to be taken orally three times daily with meals containing fat.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Orlistat 120 mg capsules orally three times daily with meals containing fat to manage weight loss"
+      "matched_claim_text": "Initiate Orlistat 120 mg capsules orally three times daily with meals containing fat to manage weight loss",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

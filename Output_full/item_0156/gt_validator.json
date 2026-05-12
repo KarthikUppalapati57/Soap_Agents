@@ -240,65 +240,67 @@
     "plan_alignment_score": 0.6107784431137725
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, capturing the essential elements of the patient's presentation, assessment, and plan. A significant strength is the absence of any unsupported or unknown additions. However, the note consistently omits several minor to moderate details across all sections, particularly regarding the patient's detailed history, specific justifications for the assessment, and comprehensive patient education and safety advice in the plan. While these omissions do not render the note unusable, they reduce its overall completeness and clinical richness.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The note provides the core clinical information but has multiple moderate omissions across several sections. Key details regarding the patient's history, the explicit justification for the assessment, and critical patient education and counseling points in the plan are missing, making the note meaningfully incomplete and requiring careful review. All identified additions were supported by the transcript and did not impact the grade.",
     "omissions": [
-      "Patient's pain onset/duration (past two days)",
-      "Detailed description of pain (intermittent episodes of intensified sharpness)",
-      "Impact of pain on daily activities (unable to work, unable to paint)",
-      "Denial of significant medical history",
+      "Patient's inability to work or engage in activities like painting due to pain",
+      "Patient denies significant medical history",
       "Family history of mother having breast cancer",
-      "Denial of vomiting or diarrhea",
-      "Denial of recent exercise due to pain",
-      "General appearance findings (in severe distress, pallor noted)",
-      "Specific symptoms supporting ectopic pregnancy in assessment (severe right lower abdominal pain, vaginal spotting, dizziness)",
-      "Specific physical exam findings supporting ectopic pregnancy in assessment (cervical motion tenderness, right adnexal tenderness)",
-      "\"Immediate\" qualifier for referral to gynecological surgeon",
-      "Acetaminophen prescription duration (until further assessment)",
-      "Acetaminophen prescription route (oral)",
-      "Patient education point: discussion of potential need for surgical intervention pending ultrasound results",
-      "Patient education point: advice to avoid strenuous activities and seek immediate medical attention if symptoms worsen",
-      "Patient education point: reassurance and addressing anxiety, emphasizing importance of urgent ultrasound and referral",
-      "Statement that patient understands the plan and agreed to proceed"
+      "Review of Systems (ROS) details: Constitutional (severe distress), Gastrointestinal (no vomiting or diarrhea), Musculoskeletal (no recent exercise due to pain), Psychiatric (high anxiety levels due to pain and uncertainty)",
+      "Objective General Appearance: In severe distress, pallor noted",
+      "Pain management detail: Duration (until further assessment)",
+      "Pain management detail: Route (oral)",
+      "Patient education: Discussion of potential need for surgical intervention pending ultrasound results",
+      "Patient education: Advice to avoid strenuous activities and seek immediate medical attention if symptoms worsen",
+      "Patient education: Reassurance and addressing anxiety, emphasizing importance of urgent ultrasound and subsequent referral",
+      "Patient understanding and agreement to the plan"
     ],
     "additions": [
-      "\"fatigue\" in Subjective section"
+      "Subjective: 'fatigue' as a symptom",
+      "Plan: Referral reason includes 'for further evaluation and potential surgical intervention'",
+      "Plan: Pain medication instruction 'but no more than 10 tablets'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main symptoms well. However, it omits several details from the HPI such as the pain's onset/duration, specific characteristics (intermittent intensified sharpness), and impact on daily activities (unable to work/paint). It also omits the denial of significant medical history, family history of breast cancer, and specific negative ROS findings (no vomiting/diarrhea, no recent exercise). The constitutional symptom of 'severe distress' was also omitted. The addition of 'fatigue' was supported by the transcript and does not count against the grade.",
+        "summary": "The Subjective section omits details about the pain's impact on daily activities, the patient's medical and family history, and several specific points from the Review of Systems, such as the absence of vomiting/diarrhea and the patient's severe distress and anxiety. These are numerous minor to moderate omissions.",
         "omissions": [
-          "Pain onset/duration (past two days)",
-          "Pain characteristic: intermittent episodes of intensified sharpness",
-          "Impact of pain on daily activities (unable to work, unable to paint)",
-          "Denial of significant medical history",
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Pain duration (past two days)",
+          "Pain description: intermittent episodes of intensified sharpness",
+          "Impact on daily activities: unable to work or engage in activities such as painting",
+          "Denies any significant medical history",
           "Family history of mother having breast cancer",
-          "Denial of vomiting or diarrhea",
-          "Denial of recent exercise due to pain",
-          "Constitutional symptom: severe distress"
+          "Review of Systems (ROS) section header",
+          "ROS Constitutional: Severe distress",
+          "ROS Gastrointestinal: No vomiting or diarrhea",
+          "ROS Musculoskeletal: No recent exercise due to pain",
+          "ROS Psychiatric: High anxiety levels due to pain and uncertainty"
         ],
         "additions": [
-          "\"fatigue\""
+          "'fatigue' as a symptom"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is strong, accurately capturing all vital signs and the critical physical examination findings (tenderness, guarding, cervical motion tenderness, right adnexal tenderness). The only omission is the general appearance finding of 'in severe distress, pallor noted,' which is a moderate detail but does not detract from the core objective findings.",
+        "grade": "A",
+        "summary": "The Objective section is largely accurate, with only minor omissions regarding the patient's general appearance, specifically the notation of severe distress and pallor.",
         "omissions": [
-          "General Appearance: In severe distress, pallor noted"
+          "General Appearance: In severe distress",
+          "General Appearance: Pallor noted"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment correctly identifies the suspected ectopic pregnancy. However, it omits the explicit mention of the specific symptoms (severe right lower abdominal pain, vaginal spotting, dizziness) and physical examination findings (cervical motion tenderness, right adnexal tenderness) that support this suspicion. While implied, their explicit inclusion is crucial for a complete and well-justified clinical assessment.",
+        "summary": "The Assessment section correctly identifies suspected ectopic pregnancy but omits the explicit linking of specific symptoms (severe right lower abdominal pain, vaginal spotting, dizziness) and physical exam findings (cervical motion tenderness, right adnexal tenderness) that support this suspicion, reducing the clinical justification.",
         "omissions": [
+          "Qualifier 'highly suspicious' for ectopic pregnancy",
           "Specific symptoms supporting suspicion: severe right lower abdominal pain, vaginal spotting, and dizziness",
           "Specific physical examination findings supporting suspicion: cervical motion tenderness and right adnexal tenderness"
         ],
@@ -306,18 +308,20 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section includes all major actions such as ordering beta-hCG, emergency ultrasound, referral to Dr. Karen Smith, Acetaminophen prescription, and follow-up. However, it omits several important details: the 'immediate' qualifier for the surgical referral, the duration ('until further assessment') and route ('oral') for Acetaminophen, and several key patient education points. These omitted education points include discussing potential surgical intervention, advising avoidance of strenuous activities and seeking immediate medical attention if symptoms worsen, and providing reassurance/addressing anxiety. The statement that the patient understands the plan was also omitted.",
+        "grade": "C",
+        "summary": "The Plan section omits several important patient education and counseling points, including discussions about potential surgical intervention, advice on activity restrictions and when to seek immediate medical attention, and reassurance regarding anxiety. Minor details about pain medication duration and route are also missing. These are multiple moderate omissions that impact patient safety and understanding.",
         "omissions": [
-          "\"Immediate\" qualifier for referral to gynecological surgeon",
-          "Acetaminophen prescription duration: Until further assessment",
-          "Acetaminophen prescription route: Oral",
-          "Patient education: Discussion of potential need for surgical intervention pending ultrasound results",
-          "Patient education: Advice to avoid any strenuous activities and seek immediate medical attention if symptoms worsen",
-          "Patient education: Reassurance and addressing anxiety, emphasizing the importance of the urgent ultrasound and subsequent referral to the gynecological surgeon for further evaluation and management",
-          "Statement that patient understands the plan and has agreed to proceed as discussed"
+          "Pain management detail: Duration (Until further assessment)",
+          "Pain management detail: Route (Oral)",
+          "Patient education: Discussed the potential need for surgical intervention pending ultrasound results",
+          "Patient education: Advised to avoid any strenuous activities and seek immediate medical attention if symptoms worsen",
+          "Patient education: Reassured the patient and addressed her anxiety, emphasizing the importance of the urgent ultrasound and subsequent referral to the gynecological surgeon for further evaluation and management",
+          "Patient understanding: The patient understands the plan and has agreed to proceed as discussed"
         ],
-        "additions": []
+        "additions": [
+          "Referral reason includes 'for further evaluation and potential surgical intervention'",
+          "Pain medication instruction 'but no more than 10 tablets'"
+        ]
       }
     ],
     "rubric_notes": null
@@ -325,18 +329,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"fatigue\" in Subjective section",
+      "addition_text": "Subjective: 'fatigue' as a symptom",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I've been feeling very tired and pale.",
+      "transcript_evidence": "I've had poor sleep and I've been feeling very tired and pale.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Abdominal symptom — phenotype_phenotype — Nausea and vomiting"
     },
     {
-      "addition_text": "\"fatigue\"",
+      "addition_text": "Plan: Referral reason includes 'for further evaluation and potential surgical intervention'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "In addition, I'll refer you to a gynecological surgeon, Dr. Karen Smith, for further evaluation and potential surgical intervention.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Refer patient to a gynecological surgeon, Dr. Karen Smith, for further evaluation and potential surgical intervention.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Pain medication instruction 'but no more than 10 tablets'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "For your pain, I'll prescribe Acetaminophen 500 mg. You should take it every 6 hours as needed, but no more than 10 tablets.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prescribe Acetaminophen 500 mg every 6 hours as needed, but no more than 10 tablets for pain management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'fatigue' as a symptom",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've been feeling very tired and pale.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Abdominal symptom — phenotype_phenotype — Nausea and vomiting"
+    },
+    {
+      "addition_text": "Referral reason includes 'for further evaluation and potential surgical intervention'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "In addition, I'll refer you to a gynecological surgeon, Dr. Karen Smith, for further evaluation and potential surgical intervention.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Refer patient to a gynecological surgeon, Dr. Karen Smith, for further evaluation and potential surgical intervention.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pain medication instruction 'but no more than 10 tablets'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "For your pain, I'll prescribe Acetaminophen 500 mg. You should take it every 6 hours as needed, but no more than 10 tablets.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prescribe Acetaminophen 500 mg every 6 hours as needed, but no more than 10 tablets for pain management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

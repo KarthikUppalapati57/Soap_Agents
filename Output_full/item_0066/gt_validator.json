@@ -288,96 +288,105 @@
     "plan_alignment_score": 0.5855855855855856
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note suffers from significant omissions that materially reduce its clinical usefulness. Key issues include the complete absence of the Review of Systems in the Subjective section and the entire Results section (containing critical ABG, CBC, and D-dimer findings) in the Objective section. While all additions are supported by the transcript, these major omissions of foundational clinical data make the note substantially incomplete and less reliable for comprehensive patient management.",
+    "overall_summary": "The overall grade is D due to significant omissions, particularly the critical Arterial Blood Gas (ABG) results in the Objective section, which materially reduce the clinical usefulness of the note for a patient with acute respiratory failure. While other sections are mostly usable, this major gap in diagnostic information is a severe issue. Several other moderate and minor omissions are present across all sections, but no unsupported or unknown additions were found to penalize the grade.",
     "omissions": [
-      "Patient unable to complete sentences (Chief Complaint)",
-      "Patient unable to perform daily activities and has been bedridden due to symptoms (HPI)",
-      "Review of Systems (ROS) section (Constitutional, Respiratory, Cardiovascular, Gastrointestinal, Musculoskeletal, Neurological details)",
-      "Respiratory Rate: 28 breaths/min (Objective Vital Signs)",
-      "Physical Examination: General appearance (Appears in moderate respiratory distress, diaphoretic)",
-      "Physical Examination: Cardiovascular (Tachycardia, regular rhythm)",
-      "Physical Examination: Neurological (no focal deficits)",
-      "Results section (Arterial Blood Gas, Complete Blood Count, D-dimer results)",
-      "Secondary Diagnosis: Type 2 Diabetes Mellitus, well-managed with current medications",
-      "Follow-up plan: Recheck patient daily to assess response to treatment and adjust as needed",
-      "Follow-up plan: Consider step-down to nasal cannula as weaning becomes possible",
-      "Referral to Dr. John Smith (specific name of respiratory therapist)",
-      "Purpose of Chest X-ray: to determine the cause of respiratory failure",
-      "Imaging and Tests: Modality: X-ray, Area: Chest",
-      "Purpose of repeat blood work: to monitor progress",
-      "Patient Education: specific detail about asthma management (especially considering the high pollution in her urban environment)",
-      "Patient Education: specific examples of lifestyle modifications for diabetes (such as dietary changes and potential low-impact exercises)",
-      "Patient Agreements section (patient understanding, agreement, anxiety, cooperation, diligence)"
+      "Patient unable to complete sentences (Chief Complaint detail)",
+      "Patient unable to perform daily activities and has been bedridden (HPI detail)",
+      "ROS Constitutional: diaphoretic",
+      "ROS Respiratory: reduced breath sounds",
+      "ROS Cardiovascular: denies chest pain",
+      "ROS Gastrointestinal: denies nausea or vomiting",
+      "ROS Musculoskeletal: denies muscle pain or joint swelling",
+      "ROS Neurological: denies headaches or dizziness",
+      "Objective Vital Signs: Respiratory Rate (28 breaths/min)",
+      "Objective Physical Examination General: Appears in moderate respiratory distress, diaphoretic",
+      "Objective Physical Examination Cardiovascular: Tachycardia, regular rhythm",
+      "Objective Physical Examination Neurological: no focal deficits",
+      "Objective Results: Arterial Blood Gas (ABG) details (pH 7.29, PaCO2 55 mmHg, PaO2 50 mmHg)",
+      "Objective Results: Complete Blood Count (CBC) - Elevated WBC",
+      "Objective Results: D-dimer - Within normal range",
+      "Assessment: Secondary Diagnosis - Type 2 Diabetes Mellitus, well-managed with current medications",
+      "Plan: Follow-up - Recheck patient daily to assess response to treatment and adjust as needed",
+      "Plan: Follow-up - Consider step-down to nasal cannula as weaning becomes possible",
+      "Plan: Referral - Specific name \"Dr. John Smith\"",
+      "Plan: Imaging and Tests - Purpose of Chest X-ray (\"to determine the cause of respiratory failure\")",
+      "Plan: Imaging and Tests - Specifics for Chest X-ray (\"Modality: X-ray, Area: Chest\")",
+      "Plan: Imaging and Tests - Purpose of repeat blood work (\"to monitor progress\")",
+      "Plan: Patient Education - Detail about asthma education (\"especially considering the high pollution in her urban environment\")",
+      "Plan: Patient Education - Details about lifestyle modifications for diabetes (\"such as dietary changes and potential low-impact exercises\")",
+      "Plan: Patient Agreements - Full statement about patient understanding, agreement, anxiety, cooperation, and diligence"
     ],
     "additions": [
-      "Objective vital signs information (low oxygen saturation, tachycardia) placed in Subjective section",
-      "Detail 'on auscultation of lungs' for respiratory exam findings (Objective)",
-      "Reason for Prednisone: 'for inflammation reduction in airways' (Plan)",
-      "Reason for Meropenem: 'as antibiotic coverage' (Plan)",
-      "Reason for Albuterol: 'to help open up airways' (Plan)"
+      "Inclusion of vital signs (low oxygen saturation, tachycardia) in the Subjective section",
+      "Reason for Prednisone: \"for inflammation reduction in airways\"",
+      "Reason for Meropenem: \"as antibiotic coverage\"",
+      "Reason for Albuterol: \"to help open up airways\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section has major omissions, most notably the complete absence of the Review of Systems, which includes several clinically important details. Additionally, the note omits the patient's inability to complete sentences and being bedridden, which are important indicators of symptom severity and functional impact.",
+        "grade": "B",
+        "summary": "The Subjective section receives a B. It captures the chief complaint and core HPI details but omits several minor ROS findings and two moderate details: the patient being unable to complete sentences and being bedridden. The inclusion of vital signs in this section is a formatting deviation but not a grading penalty as it is supported by the transcript.",
         "omissions": [
-          "Patient unable to complete sentences (Chief Complaint)",
-          "Patient unable to perform daily activities and has been bedridden due to symptoms (HPI)",
-          "Review of Systems (ROS) section (Constitutional: moderate respiratory distress, diaphoretic; Respiratory: severe dyspnea, cough with sputum, reduced breath sounds; Cardiovascular: denies chest pain; Gastrointestinal: denies nausea or vomiting; Musculoskeletal: denies muscle pain or joint swelling; Neurological: denies headaches or dizziness)"
+          "Chief Complaint detail: patient unable to complete sentences",
+          "HPI detail: patient unable to perform daily activities and has been bedridden",
+          "ROS Constitutional: diaphoretic",
+          "ROS Respiratory: reduced breath sounds",
+          "ROS Cardiovascular: denies chest pain",
+          "ROS Gastrointestinal: denies nausea or vomiting",
+          "ROS Musculoskeletal: denies muscle pain or joint swelling",
+          "ROS Neurological: denies headaches or dizziness"
         ],
         "additions": [
-          "Vital signs indicate moderate respiratory distress, low oxygen saturation (86%), and tachycardia (110 bpm)"
+          "Inclusion of vital signs (low oxygen saturation, tachycardia) in the Subjective section"
         ]
       },
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "The Objective section has a major omission with the complete absence of the 'Results' section, which includes critical Arterial Blood Gas, Complete Blood Count, and D-dimer findings. Several important physical examination details (general appearance, cardiovascular rhythm, neurological deficits) and a key vital sign (respiratory rate) are also missing, significantly reducing the clinical usefulness of this section.",
+        "summary": "The Objective section receives a D due to the major omission of detailed Arterial Blood Gas (ABG) results (pH, PaCO2, PaO2), which are critical for managing acute respiratory failure. Other moderate omissions include the patient's general appearance (moderate respiratory distress, diaphoretic) and elevated WBC from the CBC. Several minor omissions are also present, such as respiratory rate and specific details of cardiovascular and neurological exams. This section is missing critical diagnostic information.",
         "omissions": [
-          "Vital Signs: Heart Rate: 110 bpm",
-          "Vital Signs: Respiratory Rate: 28 breaths/min",
-          "Vital Signs: SpO2: 86% on room air",
-          "Physical Examination: General: Appears in moderate respiratory distress, diaphoretic",
-          "Physical Examination: Cardiovascular: Tachycardia, regular rhythm",
-          "Physical Examination: Neurological: no focal deficits",
-          "Results section (Arterial Blood Gas (ABG): pH 7.29, PaCO2 55 mmHg, PaO2 50 mmHg on room air; Complete Blood Count (CBC): Elevated WBC; D-dimer: Within normal range)"
+          "Vital Signs: Respiratory Rate (28 breaths/min)",
+          "Physical Examination General: Appears in moderate respiratory distress, diaphoretic",
+          "Physical Examination Cardiovascular: Tachycardia, regular rhythm",
+          "Physical Examination Neurological: no focal deficits",
+          "Results: Arterial Blood Gas (ABG) details (pH 7.29, PaCO2 55 mmHg, PaO2 50 mmHg)",
+          "Results: Complete Blood Count (CBC) - Elevated WBC",
+          "Results: D-dimer - Within normal range"
         ],
-        "additions": [
-          "on auscultation of lungs"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The primary diagnosis is correctly captured. However, the secondary diagnosis of Type 2 Diabetes Mellitus, including its well-managed status, is omitted. This represents a moderate gap in the patient's overall clinical assessment.",
+        "summary": "The Assessment section receives a B. It correctly identifies the primary diagnosis but omits the secondary diagnosis of Type 2 Diabetes Mellitus and its status, which is a moderate clinical omission. The core assessment is present, but the overall patient context is incomplete.",
         "omissions": [
-          "Secondary Diagnoses: Type 2 Diabetes Mellitus, well-managed with current medications"
+          "Secondary Diagnosis: Type 2 Diabetes Mellitus, well-managed with current medications"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section correctly captures all core treatment plans. However, it has several minor omissions regarding specific details for follow-up (daily recheck, step-down to nasal cannula), the specific name of the referral, and the detailed purposes and modalities for imaging and blood work. The entire 'Patient Agreements' section is also omitted, which is a moderate issue regarding patient engagement and consent.",
+        "summary": "The Plan section receives a B. It includes all major treatment interventions, monitoring, and general education points. However, it has numerous minor omissions regarding specific follow-up details (daily recheck, step-down to nasal cannula), specific referral name, and detailed purposes for imaging and blood work. The omission of the full patient agreement statement is a moderate issue. Despite these, the core treatment plan is well-documented.",
         "omissions": [
           "Follow-up: Recheck patient daily to assess response to treatment and adjust as needed",
           "Follow-up: Consider step-down to nasal cannula as weaning becomes possible",
-          "Referral: Refer to Dr. John Smith, a respiratory therapist, for ongoing management and support (specific name)",
-          "Imaging and Tests: Perform a Chest X-ray to determine the cause of respiratory failure (purpose)",
-          "Imaging and Tests: Modality: X-ray, Area: Chest",
-          "Imaging and Tests: Blood Work: Repeat Complete Blood Count, D-dimer, and Arterial Blood Gas analysis to monitor progress (purpose)",
-          "Patient Education and Counseling: Educate the patient about the importance of adhering to asthma management plans, especially considering the high pollution in her urban environment (specific detail)",
-          "Patient Education and Counseling: Discuss lifestyle modifications to manage diabetes and improve overall health, such as dietary changes and potential low-impact exercises (specific examples)",
-          "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan. She expresses anxiety but is cooperative and diligent in following medical advice."
+          "Referral: Specific name \"Dr. John Smith\"",
+          "Imaging and Tests: Purpose of Chest X-ray (\"to determine the cause of respiratory failure\")",
+          "Imaging and Tests: Specifics for Chest X-ray (\"Modality: X-ray, Area: Chest\")",
+          "Imaging and Tests: Purpose of repeat blood work (\"to monitor progress\")",
+          "Patient Education: Detail about asthma education (\"especially considering the high pollution in her urban environment\")",
+          "Patient Education: Details about lifestyle modifications for diabetes (\"such as dietary changes and potential low-impact exercises\")",
+          "Patient Agreements: Full statement about patient understanding, agreement, anxiety, cooperation, and diligence"
         ],
         "additions": [
-          "Administer Prednisone 50 mg as a bolus for inflammation reduction in airways",
-          "Start Meropenem 1g IV every 8 hours as antibiotic coverage",
-          "Nebulized Albuterol 2.5 mg every 4 hours to help open up airways"
+          "Reason for Prednisone: \"for inflammation reduction in airways\"",
+          "Reason for Meropenem: \"as antibiotic coverage\"",
+          "Reason for Albuterol: \"to help open up airways\""
         ]
       }
     ],
@@ -386,74 +395,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective vital signs information (low oxygen saturation, tachycardia) placed in Subjective section",
+      "addition_text": "Inclusion of vital signs (low oxygen saturation, tachycardia) in the Subjective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your temperature is 37.2°C, blood pressure is 140/85 mmHg, heart rate is 110 bpm, respiratory rate is 28 breaths per minute, and your oxygen saturation is 86% on room air.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs indicate low oxygen saturation (86%) and tachycardia (110 bpm)."
+      "matched_claim_text": "Vital signs indicate low oxygen saturation (86%) and tachycardia (110 bpm).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Detail 'on auscultation of lungs' for respiratory exam findings (Objective)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: (Listening to lungs) I hear severe bilateral wheezing and reduced breath sounds.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Severe bilateral wheezing and reduced breath sounds on auscultation of lungs."
-    },
-    {
-      "addition_text": "Reason for Prednisone: 'for inflammation reduction in airways' (Plan)",
+      "addition_text": "Reason for Prednisone: \"for inflammation reduction in airways\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll also give you intravenous corticosteroids, specifically Prednisone 50 mg as a bolus. This will help reduce inflammation in your airways.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Administer Prednisone 50 mg as a bolus for inflammation reduction in airways."
+      "matched_claim_text": "Administer Prednisone 50 mg as a bolus for inflammation reduction in airways.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Reason for Meropenem: 'as antibiotic coverage' (Plan)",
+      "addition_text": "Reason for Meropenem: \"as antibiotic coverage\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Additionally, we’ll start you on antibiotics, Meropenem 1g IV every 8 hours, to cover any potential infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start Meropenem 1g IV every 8 hours as antibiotic coverage."
+      "matched_claim_text": "Start Meropenem 1g IV every 8 hours as antibiotic coverage.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Reason for Albuterol: 'to help open up airways' (Plan)",
+      "addition_text": "Reason for Albuterol: \"to help open up airways\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll also administer bronchodilators, specifically nebulized Albuterol 2.5 mg every 4 hours, to help open up your airways.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Nebulized Albuterol 2.5 mg every 4 hours to help open up airways."
-    },
-    {
-      "addition_text": "Vital signs indicate moderate respiratory distress, low oxygen saturation (86%), and tachycardia (110 bpm)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Your temperature is 37.2°C, blood pressure is 140/85 mmHg, heart rate is 110 bpm, respiratory rate is 28 breaths per minute, and your oxygen saturation is 86% on room air.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs indicate low oxygen saturation (86%) and tachycardia (110 bpm)."
-    },
-    {
-      "addition_text": "on auscultation of lungs",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: (Listening to lungs) I hear severe bilateral wheezing and reduced breath sounds.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Severe bilateral wheezing and reduced breath sounds on auscultation of lungs."
-    },
-    {
-      "addition_text": "Administer Prednisone 50 mg as a bolus for inflammation reduction in airways",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll also give you intravenous corticosteroids, specifically Prednisone 50 mg as a bolus. This will help reduce inflammation in your airways.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Administer Prednisone 50 mg as a bolus for inflammation reduction in airways."
-    },
-    {
-      "addition_text": "Start Meropenem 1g IV every 8 hours as antibiotic coverage",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Additionally, we’ll start you on antibiotics, Meropenem 1g IV every 8 hours, to cover any potential infection.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start Meropenem 1g IV every 8 hours as antibiotic coverage."
-    },
-    {
-      "addition_text": "Nebulized Albuterol 2.5 mg every 4 hours to help open up airways",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll also administer bronchodilators, specifically nebulized Albuterol 2.5 mg every 4 hours, to help open up your airways.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Nebulized Albuterol 2.5 mg every 4 hours to help open up airways."
+      "matched_claim_text": "Nebulized Albuterol 2.5 mg every 4 hours to help open up airways.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

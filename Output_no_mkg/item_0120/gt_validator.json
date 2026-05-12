@@ -211,9 +211,9 @@
     "plan_alignment_score": 0.6707317073170732
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps, particularly in the Subjective section where the Chief Complaint, medication details, and several key social history elements are omitted. The Objective section also misses several physical examination findings. While the Assessment is complete and all additions are supported by the transcript, the cumulative effect of these omissions makes the note meaningfully incomplete and requires careful review.",
+    "overall_summary": "The note is broadly usable but has noticeable gaps, particularly in the Subjective and Plan sections. Key omissions include the Chief Complaint, current medication regimen, known allergies, and several negative findings from the Review of Systems and Social History. The Plan also omits specific patient education regarding orthostatic hypotension management, medication side effects, and confirmation of patient agreement. There are no unsupported or unknown additions.",
     "omissions": [
       "Chief Complaint: Follow-up for hypertension and Type 2 Diabetes management",
       "HPI: Ongoing regimen of Metformin 500mg twice daily and Lisinopril 10mg once daily",
@@ -247,7 +247,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has numerous omissions, including the Chief Complaint, details of the patient's ongoing medication regimen and allergies in the HPI, several Review of Systems findings, and significant aspects of the Social History (e.g., sedentary lifestyle, diet, environmental risks). These omissions make the Subjective section meaningfully incomplete.",
+        "summary": "This section has significant omissions, including the Chief Complaint, the patient's ongoing medication regimen, and known allergies from the HPI. Additionally, several important negative findings from the Review of Systems (Cardiovascular, Endocrine, Neurological, Gastrointestinal) and key aspects of the Social History (environmental risks, occupation, and negative substance use) are missing, making the section meaningfully incomplete.",
         "omissions": [
           "Chief Complaint: Follow-up for hypertension and Type 2 Diabetes management",
           "HPI: Ongoing regimen of Metformin 500mg twice daily and Lisinopril 10mg once daily",
@@ -267,7 +267,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits several important physical examination findings, specifically details from the cardiovascular, respiratory, neurological (alert and oriented), musculoskeletal (no edema), and gastrointestinal (no organomegaly) systems. While not critically flawed, these are moderate omissions that reduce the completeness of the physical exam documentation.",
+        "summary": "The Objective section accurately captures all vital signs. However, it omits several details from the Physical Examination, such as the patient being generally well-appearing, specific cardiovascular findings (Normal S1, S2, no murmurs or gallops), respiratory findings (Clear to auscultation bilaterally, no wheezing or crackles), neurological status (Alert and oriented), and musculoskeletal findings (No edema, no organomegaly). While these are mostly negative findings, their absence reduces the completeness of the physical exam documentation.",
         "omissions": [
           "Physical Examination: Generally well-appearing, no acute distress",
           "Physical Examination: Cardiovascular: Normal S1, S2, no murmurs or gallops",
@@ -281,14 +281,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate, with no omissions or unsupported/unknown additions. It fully captures the Ground Truth content.",
+        "summary": "This section is perfectly aligned with the Ground Truth, capturing all assessment items accurately and completely. There are no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has a few moderate omissions, including specific details about initiating exercise (e.g., walking), patient education on slowly rising for orthostatic hypotension, discussion of potential medication side effects, and the concluding statement about patient agreement with the plan. However, the core plan items are present, and all additions are supported by the transcript.",
+        "grade": "C",
+        "summary": "The Plan section has several moderate omissions. It misses the specific instruction to educate the patient on slowly rising from seated to standing positions for orthostatic hypotension management, the discussion of potential medication side effects, and the concluding statement about the plan being discussed and agreed upon by the patient. The generated note's additions regarding sleep hygiene and adherence to dietary changes are supported by the transcript and do not impact the grade.",
         "omissions": [
           "Lifestyle Modifications: Recommend initiation of exercise starting with light activities such as walking",
           "Orthostatic Hypotension Management: Educate patient on slowly rising from seated to standing positions",
@@ -310,28 +310,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Improving your sleep hygiene will also help. Try to establish a consistent sleep schedule and create a relaxing bedtime routine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Improve sleep hygiene with consistent sleep schedule and relaxing bedtime routine"
+      "matched_claim_text": "Improve sleep hygiene with consistent sleep schedule and relaxing bedtime routine",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Patient Education: emphasis on adherence to dietary changes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Lastly, it's crucial to stay adherent to your prescribed treatment plan, diet, and exercise recommendations.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the importance of adherence to treatment plan, dietary changes, and exercise recommendations"
+      "matched_claim_text": "Emphasize the importance of adherence to treatment plan, dietary changes, and exercise recommendations",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Sleep hygiene details: consistent sleep schedule and relaxing bedtime routine",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Improving your sleep hygiene will also help. Try to establish a consistent sleep schedule and create a relaxing bedtime routine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Improve sleep hygiene with consistent sleep schedule and relaxing bedtime routine"
+      "matched_claim_text": "Improve sleep hygiene with consistent sleep schedule and relaxing bedtime routine",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient Education: emphasis on adherence to dietary changes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Lastly, it's crucial to stay adherent to your prescribed treatment plan, diet, and exercise recommendations.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the importance of adherence to treatment plan, dietary changes, and exercise recommendations"
+      "matched_claim_text": "Emphasize the importance of adherence to treatment plan, dietary changes, and exercise recommendations",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -284,9 +284,9 @@
     "plan_alignment_score": 0.8028169014084507
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains several omissions, particularly in the Subjective section, and two moderate issues in the Plan section. The most significant issues are the misrepresentation of administered immunizations as pending, and the omission of parental understanding and agreement with the plan. All identified additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note is mostly clinically aligned but contains a moderate factual error in the Plan section regarding the status of immunizations, misrepresenting a completed action as a planned one. There are also several minor omissions in the Subjective and Objective sections, and a moderate omission of family medical history in Subjective and parental understanding in Plan. All additions were supported by the transcript and did not impact the grade.",
     "omissions": [
       "family medical history",
       "Parents college graduates and exhibit moderate health literacy",
@@ -313,7 +313,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor omissions of contextual details such as 'family medical history' and 'Parents college graduates and exhibit moderate health literacy', as well as specific Review of Systems findings like 'Genitourinary: Normal urination patterns, no signs of infection'. While the core HPI is present, these omissions make the section less comprehensive than the ground truth. The addition 'No reported concerns or changes since last visit' was supported by the transcript.",
+        "summary": "The Subjective section has several minor omissions, including details about the child's general health, activities, and developmental trajectory, as well as specific ROS details. A moderate omission is the absence of 'family medical history'. However, the core chief complaint and present illness details are captured, and the single addition was supported by the transcript.",
         "omissions": [
           "family medical history",
           "Parents college graduates and exhibit moderate health literacy",
@@ -330,7 +330,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is nearly complete, with only minor omissions regarding the child's general appearance ('well-nourished' and 'in no distress'). The physical examination findings are otherwise well-captured.",
+        "summary": "The Objective section is well-aligned, with only minor descriptive omissions such as 'well-nourished' and 'in no distress'. The key physical examination findings are accurately reported.",
         "omissions": [
           "well-nourished",
           "in no distress"
@@ -340,7 +340,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately reflecting the ground truth. The addition 'developing normally according to developmental milestones' was supported by the transcript and enhances the note.",
+        "summary": "The Assessment section is accurate and complete. There are no omissions, and the addition 'developing normally according to developmental milestones' was supported by the transcript.",
         "omissions": [],
         "additions": [
           "developing normally according to developmental milestones"
@@ -349,7 +349,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains a moderate clinical inaccuracy by stating immunizations are to be 'Administer[ed]' rather than 'Administered' (completed), misrepresenting the status of a medical procedure. It also omits the important statement that 'The parents understand and agree with the treatment and follow-up plan'. Several other minor omissions relate to the phrasing of advice and recommendations, such as missing 'Advised parents on' and 'Recommended'.",
+        "summary": "The Plan section contains a moderate to high-severity omission where the status of immunizations is changed from 'Administered' (completed) in the Ground Truth to 'Administer' (future) in the Generated note, which is a factual discrepancy. There is also a moderate omission regarding the parents' understanding and agreement with the plan. Several other minor omissions relate to the phrasing of advice and recommendations.",
         "omissions": [
           "Immunizations: Administered DTaP, IPV, and MMR vaccines (Generated states 'Administer', implying future, GT states 'Administered', implying completed)",
           "Advised parents on maintaining a balanced diet (Generated states 'Maintain', missing the 'Advised parents on' part)",
@@ -370,21 +370,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: So, any concerns or changes since the last visit?\n\n[father]: No, not really.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No reported concerns or changes since last visit"
+      "matched_claim_text": "No reported concerns or changes since last visit",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "developing normally according to developmental milestones (added to Assessment section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: All looks good.\" and \"[Doctor]: Neurologically, is he hitting all his developmental milestones for his age?\n\n[mother]: Yes, he's right where he should be.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Child appears healthy and developing normally according to developmental milestones"
+      "matched_claim_text": "Child appears healthy and developing normally according to developmental milestones",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "developing normally according to developmental milestones",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: All looks good.\" and \"[Doctor]: Neurologically, is he hitting all his developmental milestones for his age?\n\n[mother]: Yes, he's right where he should be.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Child appears healthy and developing normally according to developmental milestones"
+      "matched_claim_text": "Child appears healthy and developing normally according to developmental milestones",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

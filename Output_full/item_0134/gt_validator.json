@@ -243,9 +243,9 @@
     "plan_alignment_score": 0.7445255474452555
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note receives a C. While it is broadly clinically usable and contains no unsupported or unknown additions, it has several significant omissions. The most notable is the complete absence of the Chief Complaint and key historical details (patient's history of hypertension and hyperlipidemia, and current medications) from the HPI section. The omission of previous echocardiogram results from the Objective section also represents a moderate gap. These issues make the note meaningfully incomplete, particularly in the Subjective section.",
+    "overall_summary": "The generated note has noticeable gaps, primarily in the Subjective section, where critical historical information such as the chief complaint, patient's past medical history (hypertension, hyperlipidemia), and current medications in the HPI are omitted. The Objective section also misses important echocardiogram findings, and the Plan omits key safety advice. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete, requiring careful review.",
     "omissions": [
       "Chief Complaint: Follow-up for cardiovascular health management",
       "Patient's profession (retired accountant)",
@@ -275,7 +275,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has noticeable gaps, including the complete omission of the Chief Complaint, the patient's history of hypertension and hyperlipidemia, and their current medications from the HPI. Several minor ROS and HPI details are also missing. However, all additions in this section are supported by the transcript.",
+        "summary": "The Subjective section has multiple moderate omissions, including the chief complaint, the patient's history of hypertension and hyperlipidemia in the HPI, and current medications in the HPI. Several minor details like the patient's profession, hobbies, and general well-being are also missing. These omissions significantly reduce the completeness of the patient's clinical picture.",
         "omissions": [
           "Chief Complaint: Follow-up for cardiovascular health management",
           "Patient's profession (retired accountant)",
@@ -293,7 +293,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly aligned, accurately capturing vital signs and physical exam findings. However, it omits the important detail of the previous echocardiogram results (mild left ventricular hypertrophy, normal systolic and diastolic function). Minor details regarding the cardiovascular and general physical exam are also missing. All additions are supported by the transcript.",
+        "summary": "The Objective section omits important details from the physical exam, such as the absence of murmurs or gallops and the patient's alert and oriented appearance. More significantly, it misses the review of the previous echocardiogram findings (mild left ventricular hypertrophy, normal systolic and diastolic function), which is a moderate omission of diagnostic information.",
         "omissions": [
           "Physical Exam: Cardiovascular: no murmurs or gallops",
           "Physical Exam: General: Alert, oriented, appears healthy",
@@ -307,7 +307,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is well-aligned. While it presents the diagnoses in a summarized format rather than a direct list, it captures the core conditions (atherosclerotic heart disease, hypertension, hyperlipidemia) and includes a relevant subjective finding. The only omission is a minor qualifier for hyperlipidemia. All additions are supported by the transcript.",
+        "summary": "The Assessment section is largely complete, with only one minor omission: the qualifier for hyperlipidemia, which states that its current status is pending a recent lipid panel. This is a minor detail that provides context but does not detract from the overall clinical accuracy.",
         "omissions": [
           "Qualifier for hyperlipidemia: \"pending recent lipid panel to confirm current status\""
         ],
@@ -318,8 +318,8 @@
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is well-aligned, capturing all major plan items. The omissions are minor, specifically the advice against new strenuous activities without medical clearance and the dietitian's name. All additions are supported by the transcript.",
+        "grade": "B",
+        "summary": "The Plan section omits the important safety advice against new strenuous activities without medical clearance, which is a moderate omission. It also misses the specific name of the dietitian (Ms. Sarah Thompson) for referral, which is a minor detail. Otherwise, the key elements of the plan are present.",
         "omissions": [
           "Advised against new strenuous activities without medical clearance",
           "Dietitian's name (Ms. Sarah Thompson)"
@@ -336,86 +336,110 @@
     {
       "addition_text": "Subjective: Interpretation of alcohol consumption as \"moderate\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Alright, that’s moderate.",
+      "transcript_evidence": "I have a glass of wine twice a week. Alright, that’s moderate.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: Summary \"Vital signs within normal limits\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure today is 128/78 mmHg, heart rate is 68 beats per minute, respiratory rate is 16 per minute, temperature is 98.6°F, and your oxygen saturation is 98% on room air. Everything looks normal.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: Inclusion of assessment items (atherosclerotic heart disease, hypertension, hyperlipidemia pending lipid panel results)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Now, based on your assessment today, you have atherosclerotic heart disease of native coronary artery without angina pectoris, well-controlled hypertension, and hyperlipidemia. We’ll confirm your lipid status once the panel results are in.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment includes atherosclerotic heart disease of native coronary artery without angina pectoris, well-controlled hypertension, and hyperlipidemia (pending lipid panel results)."
+      "matched_claim_text": "Assessment includes atherosclerotic heart disease of native coronary artery without angina pectoris, well-controlled hypertension, and hyperlipidemia (pending lipid panel results).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Summary \"Cardiovascular health management\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] So, you’re here for the routine follow-up for your cardiovascular health management, correct? ... [doctor] Now, based on your assessment today, you have atherosclerotic heart disease... well-controlled hypertension, and hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cardiovascular health management for atherosclerotic heart disease, hypertension, and hyperlipidemia."
+      "matched_claim_text": "Cardiovascular health management for atherosclerotic heart disease, hypertension, and hyperlipidemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Inclusion of subjective finding \"Occasional shortness of breath with no chest pain or angina\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I’ve been feeling pretty good, but I do have occasional shortness of breath. ... [patient] No, no chest pain or angina.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Occasional shortness of breath with no chest pain or angina."
+      "matched_claim_text": "Occasional shortness of breath with no chest pain or angina.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Summary statement \"Continue lifestyle modifications (balanced diet, exercise, no smoking, moderate alcohol consumption) and medication regimen unless otherwise advised.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Make sure to maintain your balanced diet and moderate salt intake. Keep up your exercise regimen with the 30-minute daily walks. ... [doctor] Okay, and you quit smoking 20 years ago, right? [patient] Yes, that’s correct. ... [patient] I have a glass of wine twice a week. [doctor] Alright, that’s moderate. ... [doctor] For now, we’ll continue your current medications: Atorvastatin 20 mg once daily and Lisinopril 10 mg once daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue lifestyle modifications (balanced diet, exercise, no smoking, moderate alcohol consumption) and medication regimen unless otherwise advised."
+      "matched_claim_text": "Continue lifestyle modifications (balanced diet, exercise, no smoking, moderate alcohol consumption) and medication regimen unless otherwise advised.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Interpretation of alcohol consumption as \"moderate\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Alright, that’s moderate.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Summary \"Vital signs within normal limits\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure today is 128/78 mmHg, heart rate is 68 beats per minute, respiratory rate is 16 per minute, temperature is 98.6°F, and your oxygen saturation is 98% on room air. Everything looks normal.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Inclusion of assessment items (atherosclerotic heart disease, hypertension, hyperlipidemia pending lipid panel results)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Now, based on your assessment today, you have atherosclerotic heart disease of native coronary artery without angina pectoris, well-controlled hypertension, and hyperlipidemia. We’ll confirm your lipid status once the panel results are in.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment includes atherosclerotic heart disease of native coronary artery without angina pectoris, well-controlled hypertension, and hyperlipidemia (pending lipid panel results)."
+      "matched_claim_text": "Assessment includes atherosclerotic heart disease of native coronary artery without angina pectoris, well-controlled hypertension, and hyperlipidemia (pending lipid panel results).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Summary \"Cardiovascular health management\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] So, you’re here for the routine follow-up for your cardiovascular health management, correct? ... [doctor] Now, based on your assessment today, you have atherosclerotic heart disease... well-controlled hypertension, and hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cardiovascular health management for atherosclerotic heart disease, hypertension, and hyperlipidemia."
+      "matched_claim_text": "Cardiovascular health management for atherosclerotic heart disease, hypertension, and hyperlipidemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Inclusion of subjective finding \"Occasional shortness of breath with no chest pain or angina\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I’ve been feeling pretty good, but I do have occasional shortness of breath. ... [patient] No, no chest pain or angina.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Occasional shortness of breath with no chest pain or angina."
+      "matched_claim_text": "Occasional shortness of breath with no chest pain or angina.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Summary statement \"Continue lifestyle modifications (balanced diet, exercise, no smoking, moderate alcohol consumption) and medication regimen unless otherwise advised.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Make sure to maintain your balanced diet and moderate salt intake. Keep up your exercise regimen with the 30-minute daily walks. ... [doctor] Okay, and you quit smoking 20 years ago, right? [patient] Yes, that’s correct. ... [patient] I have a glass of wine twice a week. [doctor] Alright, that’s moderate. ... [doctor] For now, we’ll continue your current medications: Atorvastatin 20 mg once daily and Lisinopril 10 mg once daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue lifestyle modifications (balanced diet, exercise, no smoking, moderate alcohol consumption) and medication regimen unless otherwise advised."
+      "matched_claim_text": "Continue lifestyle modifications (balanced diet, exercise, no smoking, moderate alcohol consumption) and medication regimen unless otherwise advised.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

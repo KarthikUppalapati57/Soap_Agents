@@ -225,9 +225,9 @@
     "plan_alignment_score": 0.6666666666666667
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. The primary issues are several omissions in the Subjective section, including a key HPI detail regarding the patient's inability to walk more than 20 feet without assistance, and important historical context from the Review of Systems (Type 2 Diabetes Mellitus and hypertension). Other sections contain only minor omissions, and there are no unsupported or unknown additions.",
+    "model": "Agent3",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note provides a mostly accurate summary of the patient's visit. However, it has noticeable gaps that reduce its completeness. Key omissions include a specific detail about the severity of the patient's walking difficulty in the HPI (unable to walk more than 20 feet without assistance) and the primary diagnosis of 'Difficulty in walking, not elsewhere classified' in the Assessment section. Additionally, several minor details are omitted across all sections, though no unsupported or unknown additions were found.",
     "omissions": [
       "HPI detail: inability to walk more than 20 feet without assistance",
       "ROS: No recent weight loss or fever",
@@ -253,8 +253,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has noticeable gaps due to several omissions. Key details like the patient's inability to walk more than 20 feet without assistance from the HPI are missing. Additionally, important historical context regarding Type 2 Diabetes Mellitus and hypertension, as well as several negative ROS findings, were omitted, making the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section omits a clinically important detail regarding the patient's inability to walk more than 20 feet without assistance. It also misses several minor details from the Review of Systems, such as the absence of weight loss/fever, constant difficulty walking, absence of joint swelling/deformities, and the patient's history of Type 2 Diabetes Mellitus and controlled hypertension.",
         "omissions": [
           "HPI detail: inability to walk more than 20 feet without assistance",
           "ROS: No recent weight loss or fever",
@@ -268,7 +268,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-aligned with the GroundTruth. The omissions are minor, including the patient's BMI, general appearance (alert, oriented, cooperative), a musculoskeletal negative finding, and the specific descriptor 'bilaterally' for diminished reflexes. These do not materially reduce clinical usefulness.",
+        "summary": "The Objective section is largely complete, with only minor omissions including the patient's BMI, general appearance (alert, oriented, cooperative), a musculoskeletal finding (no joint effusion or deformities), and the 'bilaterally' detail for diminished reflexes. All additions in this section were supported by the transcript.",
         "omissions": [
           "Vital Signs: BMI: 27",
           "Physical Exam - General: Alert, oriented, cooperative",
@@ -281,8 +281,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "This section is excellent, capturing all major clinically important content. The only omission is the formal primary diagnosis 'Difficulty in walking, not elsewhere classified,' which is a minor detail as the critical differential diagnoses are fully present.",
+        "grade": "C",
+        "summary": "The Assessment section has a significant omission: it fails to include the primary diagnosis of 'Difficulty in walking, not elsewhere classified,' only listing differential diagnoses. This makes the section meaningfully incomplete by missing a core component of the assessment.",
         "omissions": [
           "Primary diagnosis: Difficulty in walking, not elsewhere classified"
         ],
@@ -291,7 +291,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "This section is strong, capturing all major clinically important content. The omissions are minor details such as the administration route ('orally') and dispensing specifics for Gabapentin, a nuance of physical activity advice, and the specific reason for sleep hygiene advice ('to manage discomfort-related insomnia'). There are no unsupported or unknown additions.",
+        "summary": "The Plan section is comprehensive, with only minor omissions such as the 'orally' administration route for Gabapentin, specific dispensing details (90 capsules for one-month duration), advice about limiting physical activity that exacerbates symptoms, and the specific reason for sleep hygiene (to manage discomfort-related insomnia). All additions in this section were supported by the transcript.",
         "omissions": [
           "Gabapentin administration route: orally",
           "Gabapentin dispensing details: Dispense 90 capsules for one-month duration",
@@ -312,28 +312,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, those numbers are within a normal range.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal range"
+      "matched_claim_text": "Vital signs are within normal range",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Sleep hygiene advice 'cessation of caffeine late in the day'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: One more thing, improving your sleep hygiene can help manage discomfort-related insomnia. Try to keep a regular sleep schedule and avoid caffeine late in the day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "encourage improved sleep hygiene and cessation of caffeine late in the day."
+      "matched_claim_text": "encourage improved sleep hygiene and cessation of caffeine late in the day.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Summary statement: Vital signs are within normal range",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, those numbers are within a normal range.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal range"
+      "matched_claim_text": "Vital signs are within normal range",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Sleep hygiene advice: cessation of caffeine late in the day",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: One more thing, improving your sleep hygiene can help manage discomfort-related insomnia. Try to keep a regular sleep schedule and avoid caffeine late in the day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "encourage improved sleep hygiene and cessation of caffeine late in the day."
+      "matched_claim_text": "encourage improved sleep hygiene and cessation of caffeine late in the day.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

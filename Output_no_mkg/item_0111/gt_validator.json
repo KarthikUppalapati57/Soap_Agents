@@ -242,61 +242,119 @@
     "plan_alignment_score": 0.4672897196261682
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has several moderate omissions across the Subjective, Assessment, and Plan sections. Key details regarding the patient's history of present illness, detailed medical reasoning for the assessment, and crucial diagnostic orders (EKG, specific blood work, echocardiogram) are missing from the Plan. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete and requires careful review, particularly concerning the diagnostic workup.",
-    "omissions": [],
-    "additions": [],
+    "overall_summary": "The generated SOAP note is generally well-structured and captures the main clinical points. It is commendable that there are no unsupported or unknown additions. However, the note suffers from several moderate omissions. In the Subjective section, details regarding the duration and severity of palpitations, the patient's fear of exercise, and the specific impact of anxiety on sleep are missing, as is the patient's past medical history in the HPI context. The Assessment section lacks the detailed medical reasoning that connects the patient's symptoms, frequency, and anxiety. Most critically, the Plan section omits the explicit documentation of ordered diagnostic tests (EKG, blood work, echocardiogram), which are crucial action items, making the plan less comprehensive. These omissions reduce the overall completeness and clinical utility of the note.",
+    "omissions": [
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Physical Examination section header",
+      "Palpitations section header (under Assessment)",
+      "Medical Reasoning sub-header (under Assessment)",
+      "Possible Differential Diagnosis sub-header (under Assessment)",
+      "Management of Palpitations section header (under Plan)",
+      "Medication sub-header (under Plan)",
+      "Follow-Up sub-header (under Plan)",
+      "Referral sub-header (under Plan)",
+      "Lifestyle and Diet section header (under Plan)",
+      "Patient Education and Counseling sub-header (under Plan)",
+      "Monitoring and Prevention section header (under Plan)",
+      "Patient Agreement sub-header (under Plan)",
+      "Additional Testing section header (under Plan)",
+      "Investigations/Test Results sub-header (under Plan)",
+      "Patient's past medical history of hypertension and high cholesterol (from HPI section)",
+      "Severity of palpitations: 'moderate'",
+      "Duration of palpitations: 'past 2 months'",
+      "Patient's fear of exacerbating palpitations during exercise",
+      "Denial of cough or wheezing (from ROS Respiratory)",
+      "Anxiety leading to difficulty falling asleep (from ROS Psychological)",
+      "Detailed medical reasoning for palpitations (under Assessment), including 'moderate palpitations', 'noticeable increase in frequency in the evening', and 'Anxiety regarding these symptoms is noted, which affects his sleep and exercise habits'",
+      "Patient agreement/understanding of the plan and adherence",
+      "Ordered EKG (awaiting results)",
+      "Ordered Blood Work (biochemistry, electrolytes, thyroid function tests, lipid profile)",
+      "Ordered Echocardiogram to evaluate for structural heart disease",
+      "Documentation of patient's cooperation and concerns about medication side effects being addressed",
+      "Documentation of no treatment disparities",
+      "Documentation of patient's health literacy and living situation (native English speaker, average health literacy, affluent urban neighborhood well-served by transit)"
+    ],
+    "additions": [
+      "Application of 'pending results of EKG and blood work for further evaluation' to the entire list of potential causes for palpitations (in Assessment)",
+      "Specific potential side effects of Metoprolol listed: (fatigue, dizziness, slower heart rate) (in Plan)",
+      "Specific example of stress management technique: (meditation) (in Plan)",
+      "Instruction to contact doctor directly if any issues arise with medication or symptoms (in Plan)"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor to moderate omissions, including the patient's past medical history from the HPI, the duration and severity of palpitations, the patient's fear of exercise, and details about anxiety affecting sleep. These omissions reduce the completeness of the patient's presenting story.",
+        "summary": "The Subjective section omits several formatting headers. More importantly, it misses the duration ('past 2 months') and severity ('moderate') of palpitations, the patient's fear of exacerbating palpitations during exercise, and the specific detail that anxiety leads to difficulty falling asleep. The patient's past medical history of hypertension and high cholesterol is also omitted from the HPI context. These are a few minor and two moderate omissions that reduce the completeness of the subjective narrative.",
         "omissions": [
-          "Past medical history of hypertension and high cholesterol (from HPI)",
-          "Duration of palpitations: 'for the past 2 months'",
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Patient's past medical history of hypertension and high cholesterol (from HPI section)",
           "Severity of palpitations: 'moderate'",
-          "Denial of cough or wheezing",
-          "Anxiety leading to difficulty falling asleep",
-          "Patient's fear of exacerbating palpitations with exercise"
+          "Duration of palpitations: 'past 2 months'",
+          "Patient's fear of exacerbating palpitations during exercise",
+          "Denial of cough or wheezing (from ROS Respiratory)",
+          "Anxiety leading to difficulty falling asleep (from ROS Psychological)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete with no omissions or unsupported/unknown additions.",
-        "omissions": [],
+        "summary": "The Objective section accurately captures all clinical content from the Ground Truth. Only minor formatting headers are omitted, which does not impact clinical usefulness.",
+        "omissions": [
+          "Physical Examination section header",
+          "Cardiovascular sub-header",
+          "Respiratory sub-header"
+        ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section has a moderate omission regarding the detailed medical reasoning for palpitations, specifically missing the 'moderate palpitations', 'noticeable increase in frequency in the evening', and how anxiety affects 'sleep and exercise habits'. The addition linking differential diagnoses to pending results is supported by the transcript and does not lower the grade.",
+        "grade": "C",
+        "summary": "The Assessment section omits several formatting headers and, more critically, the detailed medical reasoning for the palpitations. This reasoning in the Ground Truth connects the patient's moderate palpitations, noticeable increase in frequency in the evening, and anxiety affecting sleep and exercise habits. While the differential diagnoses are present, the lack of this detailed reasoning makes the assessment less comprehensive and reduces its clinical usefulness.",
         "omissions": [
-          "Detailed medical reasoning for palpitations, including 'moderate palpitations', 'noticeable increase in frequency in the evening', and how anxiety affects 'sleep and exercise habits'"
+          "Palpitations section header",
+          "Medical Reasoning sub-header",
+          "Possible Differential Diagnosis sub-header",
+          "Detailed medical reasoning for palpitations, including 'moderate palpitations', 'noticeable increase in frequency in the evening', and 'Anxiety regarding these symptoms is noted, which affects his sleep and exercise habits'"
         ],
         "additions": [
-          "Linking differential diagnoses to pending EKG and blood work results"
+          "Application of 'pending results of EKG and blood work for further evaluation' to the entire list of potential causes for palpitations"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions, most notably the explicit ordering of EKG, specific blood work components (biochemistry, electrolytes, thyroid function tests, lipid profile), and an echocardiogram. The omission of the patient's agreement to the plan and the concluding administrative paragraph also detracts from completeness. All additions in this section are supported by the transcript and do not impact the grade.",
+        "summary": "The Plan section omits numerous formatting headers. More significantly, it fails to explicitly document the ordering of key diagnostic tests (EKG, blood work, echocardiogram) within the Plan section, which are present in the Ground Truth. While some tests are alluded to in the Assessment, their explicit inclusion as part of the plan for further investigation is missing. Several minor administrative details regarding patient agreement, cooperation, and social determinants of health are also omitted. The absence of explicit test orders is a moderate clinical omission.",
         "omissions": [
-          "Metoprolol being explicitly identified as a 'beta-blocker'",
-          "Patient agreement to follow up as instructed and adhere to prescribed medication",
-          "Explicit ordering of EKG in the Plan section",
-          "Explicit ordering of blood work, including specific components (biochemistry, electrolytes, thyroid function tests, lipid profile)",
-          "Ordering of Echocardiogram to evaluate for structural heart disease",
-          "Concluding paragraph about patient cooperation, concerns addressed, no treatment disparities, health literacy, and living situation"
+          "Management of Palpitations section header",
+          "Medication sub-header",
+          "Follow-Up sub-header",
+          "Referral sub-header",
+          "Lifestyle and Diet section header",
+          "Patient Education and Counseling sub-header",
+          "Monitoring and Prevention section header",
+          "Patient Agreement sub-header",
+          "Additional Testing section header",
+          "Investigations/Test Results sub-header",
+          "Patient agreement/understanding of the plan and adherence",
+          "Ordered EKG (awaiting results)",
+          "Ordered Blood Work (biochemistry, electrolytes, thyroid function tests, lipid profile)",
+          "Ordered Echocardiogram to evaluate for structural heart disease",
+          "Documentation of patient's cooperation and concerns about medication side effects being addressed",
+          "Documentation of no treatment disparities",
+          "Documentation of patient's health literacy and living situation (native English speaker, average health literacy, affluent urban neighborhood well-served by transit)"
         ],
         "additions": [
-          "Monitoring for specific Metoprolol side effects (fatigue, dizziness, slower heart rate)",
-          "Specific example of stress management technique: meditation",
-          "Instruction to contact doctor directly if issues arise with medication or symptoms"
+          "Specific potential side effects of Metoprolol listed: (fatigue, dizziness, slower heart rate)",
+          "Specific example of stress management technique: (meditation)",
+          "Instruction to contact doctor directly if any issues arise with medication or symptoms"
         ]
       }
     ],
@@ -305,32 +363,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Linking differential diagnoses to pending EKG and blood work results",
+      "addition_text": "Application of 'pending results of EKG and blood work for further evaluation' to the entire list of potential causes for palpitations (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Now, I’ve ordered an EKG for you. We’re still waiting for the results. We’ve also ordered some blood work to check your electrolytes, thyroid function, and lipid profile.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "pending results of EKG and blood work for further evaluation"
+      "matched_claim_text": "pending results of EKG and blood work for further evaluation",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Monitoring for specific Metoprolol side effects (fatigue, dizziness, slower heart rate)",
+      "addition_text": "Specific potential side effects of Metoprolol listed: (fatigue, dizziness, slower heart rate) (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Some people experience fatigue, dizziness, or a slower heart rate. We’ll monitor how you’re doing with it.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitor for potential side effects of Metoprolol (fatigue, dizziness, slower heart rate)"
+      "matched_claim_text": "Monitor for potential side effects of Metoprolol (fatigue, dizziness, slower heart rate)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific example of stress management technique: meditation",
+      "addition_text": "Specific example of stress management technique: (meditation) (in Plan)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Regular exercise and stress management techniques can also help alleviate anxiety-related symptoms. Have you tried any stress reduction methods before? I’ve tried meditation a couple of times, but I haven’t been consistent. Meditation is a good start.",
+      "transcript_evidence": "Meditation is a good start. Try to incorporate it into your daily routine. Even a few minutes a day can make a difference.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Instruction to contact doctor directly if issues arise with medication or symptoms",
+      "addition_text": "Instruction to contact doctor directly if any issues arise with medication or symptoms (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any concerns, let me know right away. If you experience any issues, you can contact me directly.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to contact doctor directly if any issues arise with medication or symptoms"
+      "matched_claim_text": "Advise patient to contact doctor directly if any issues arise with medication or symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Application of 'pending results of EKG and blood work for further evaluation' to the entire list of potential causes for palpitations",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Now, I’ve ordered an EKG for you. We’re still waiting for the results. We’ve also ordered some blood work to check your electrolytes, thyroid function, and lipid profile.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "pending results of EKG and blood work for further evaluation",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specific potential side effects of Metoprolol listed: (fatigue, dizziness, slower heart rate)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Some people experience fatigue, dizziness, or a slower heart rate. We’ll monitor how you’re doing with it.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Monitor for potential side effects of Metoprolol (fatigue, dizziness, slower heart rate)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specific example of stress management technique: (meditation)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Doctor: \"Regular exercise and stress management techniques can also help alleviate anxiety-related symptoms. Have you tried any stress reduction methods before?\" Patient: \"I’ve tried meditation a couple of times, but I haven’t been consistent.\" Doctor: \"Meditation is a good start.\"",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Instruction to contact doctor directly if any issues arise with medication or symptoms",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If you have any concerns, let me know right away. If you experience any issues, you can contact me directly.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Advise patient to contact doctor directly if any issues arise with medication or symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

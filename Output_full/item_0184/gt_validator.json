@@ -253,41 +253,42 @@
     "plan_alignment_score": 0.47852760736196315
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, accurately capturing the patient's chief complaint, HPI, vital signs, and the core treatment plan. However, the note has several minor omissions, including specific details from the physical examination in the Objective section and some patient education points in the Plan. A moderate omission is the absence of the full differential diagnosis list in the Assessment section. There are no unsupported or unknown additions.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. It accurately captures the chief complaint, history of present illness, vital signs, physical examination findings, primary diagnosis, and core treatment plan. However, there are several minor omissions across the Subjective and Objective sections, and a moderate omission of the differential diagnosis in the Assessment section. Additionally, some important patient education and preventive counseling points are missing from the Plan. No unsupported or unknown additions were found to negatively impact the grade.",
     "omissions": [
-      "Denies hematuria or increased urinary frequency (from ROS)",
-      "General appearance: Alert and oriented, in no acute distress",
-      "Abdomen: no masses",
-      "Cardiovascular: regular rhythm",
-      "Respiratory: no wheezing or crackles",
-      "Neurological: Oriented to person, place, and time",
-      "Differential diagnoses (Urinary tract infection (UTI), non-infectious urethritis, viral infection, bacterial STI)",
-      "Discussion of STI prevention methods and importance of regular screenings",
-      "Emphasized importance of regular health check-ups (from patient education)",
-      "Advised to take Doxycycline with food to minimize gastrointestinal discomfort"
+      "Denial of hematuria (from ROS Genitourinary)",
+      "Denial of increased urinary frequency (from ROS Genitourinary)",
+      "General Appearance: Alert and oriented, in no acute distress (from PE)",
+      "Abdomen: no masses (from PE)",
+      "Cardiovascular: regular rhythm (from PE)",
+      "Respiratory: no wheezing or crackles (from PE)",
+      "Neurological: Oriented to person, place, and time (from PE)",
+      "Differential Diagnosis (UTI, non-infectious urethritis, viral infection, bacterial STI)",
+      "Discussion of STI prevention methods and importance of regular screenings (from Lifestyle and Preventive Measures)",
+      "Emphasis on importance of regular health check-ups (from Patient Education and Counseling)"
     ],
     "additions": [
-      "Advised to contact doctor immediately if any severe side effects occur (regarding Doxycycline)"
+      "Instruction to contact doctor immediately if severe Doxycycline side effects occur (from Plan - Patient Education)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The section accurately captures the chief complaint and history of present illness. The only omission is the specific denial of hematuria or increased urinary frequency from the ROS, which is a minor detail.",
+        "summary": "The Subjective section is excellent, capturing the chief complaint and HPI accurately. Only two minor denials from the ROS (hematuria and increased urinary frequency) were omitted, which do not significantly impact clinical usefulness.",
         "omissions": [
-          "Denies hematuria or increased urinary frequency"
+          "Denial of hematuria",
+          "Denial of increased urinary frequency"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section provides a good overview of the physical examination findings and vital signs. However, it omits several specific normal findings such as the patient being alert and oriented, no masses in the abdomen, regular cardiac rhythm, no wheezing or crackles in the lungs, and being oriented to person, place, and time. While individually minor, these collectively represent a noticeable reduction in detail.",
+        "summary": "The Objective section accurately presents vital signs and key physical examination findings. However, it omits several minor details from the physical exam, such as the patient's general appearance, absence of abdominal masses, regular cardiac rhythm, clear lung sounds without wheezing or crackles, and neurological orientation. While these are minor, their cumulative absence slightly reduces the completeness of the documentation.",
         "omissions": [
-          "General appearance: Alert and oriented, in no acute distress",
+          "General Appearance: Alert and oriented, in no acute distress",
           "Abdomen: no masses",
           "Cardiovascular: regular rhythm",
           "Respiratory: no wheezing or crackles",
@@ -298,23 +299,22 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The primary diagnosis and the need for further testing are correctly identified. However, the section omits the full list of differential diagnoses, which is a moderate gap in the clinical reasoning presented.",
+        "summary": "The Assessment section correctly identifies the primary diagnosis of mild dysuria and possible STI. However, it entirely omits the differential diagnosis, which is a moderate issue as it removes the documented clinical thought process and consideration of other potential conditions.",
         "omissions": [
-          "Differential diagnoses (Urinary tract infection (UTI), non-infectious urethritis, viral infection, bacterial STI)"
+          "Differential Diagnosis (Urinary tract infection (UTI), non-infectious urethritis, viral infection, bacterial STI)"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The medical treatment, investigations, and follow-up recommendations are well-captured. However, the section omits specific patient education points regarding the importance of regular STI screenings and general health check-ups, and the practical advice to take Doxycycline with food to minimize gastrointestinal discomfort. The addition regarding severe side effects is supported by the transcript and does not impact the grade.",
+        "summary": "The Plan section is largely comprehensive, detailing medical treatment, investigations, and follow-up recommendations. It omits the discussion of STI prevention methods and the importance of regular screenings, as well as the emphasis on regular health check-ups, which are important counseling points. The addition regarding contacting the doctor for severe side effects is supported by the transcript and does not reduce the grade.",
         "omissions": [
           "Discussion of STI prevention methods and importance of regular screenings",
-          "Emphasized importance of regular health check-ups",
-          "Advised to take Doxycycline with food to minimize gastrointestinal discomfort"
+          "Emphasis on importance of regular health check-ups"
         ],
         "additions": [
-          "Advised to contact doctor immediately if any severe side effects occur (regarding Doxycycline)"
+          "Instruction to contact doctor immediately if any severe side effects occur (regarding Doxycycline)"
         ]
       }
     ],
@@ -323,11 +323,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Advised to contact doctor immediately if any severe side effects occur (regarding Doxycycline)",
+      "addition_text": "Instruction to contact doctor immediately if severe Doxycycline side effects occur (from Plan - Patient Education)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you experience any severe side effects, please contact us immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Inform the patient to contact the doctor immediately if any severe side effects occur."
+      "matched_claim_text": "Inform the patient to contact the doctor immediately if any severe side effects occur.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Instruction to contact doctor immediately if any severe side effects occur (regarding Doxycycline)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: If you experience any severe side effects, please contact us immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Inform the patient to contact the doctor immediately if any severe side effects occur.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

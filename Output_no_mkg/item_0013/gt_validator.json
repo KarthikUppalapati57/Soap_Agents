@@ -212,8 +212,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note captures the main clinical picture and key elements of the plan. However, it omits several important details from the History of Present Illness and entirely lacks the negative Review of Systems findings. The Objective section is also significantly condensed, missing specific physical exam observations for general appearance, HEENT, and neurological findings, and replacing detailed system findings with general summary statements. The Assessment omits the specific diagnosis code, and the Plan misses precise medication instructions and a distinct general follow-up recommendation. All additions were supported by the transcript and therefore did not impact the grade.",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is clinically usable and accurate, with all additions being supported by the transcript. However, it has several omissions across the Subjective, Objective, and Assessment sections. These include specific details from the History of Present Illness and Review of Systems, key findings from the Physical Exam (e.g., neurological assessment), and the specific diagnosis code and descriptive text in the Assessment. Despite these gaps, the core clinical picture, differential diagnosis, and treatment plan are well-captured, and no unsupported or unknown additions introduce misleading content.",
     "omissions": [
       "Chief Complaint section header",
       "History of Present Illness section header",
@@ -258,8 +258,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section captures the chief complaint, duration, and general impact. However, it omits specific details from the History of Present Illness, such as the patient presenting to the ED, the 'generalized weakness' descriptor, the 'localized,' 'moderate severity,' and 'continuous' nature of symptoms, and specific examples of impact on daily activities. Crucially, it entirely omits the negative findings from the Review of Systems for respiratory, gastrointestinal, and neurological systems.",
+        "grade": "B",
+        "summary": "The Subjective section omits several specific details from the Ground Truth, including the patient's presentation to the Emergency Department, the localized nature of the rash, the moderate severity and continuous nature of symptoms, and the detailed impact on daily activities (reduced energy for household tasks, difficulty concentrating at work). It also lacks the full Review of Systems, specifically negative findings for respiratory, gastrointestinal, and neurological systems. All additions in this section were supported by the transcript.",
         "omissions": [
           "Chief Complaint section header",
           "History of Present Illness section header",
@@ -280,8 +280,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section includes vital signs and a summary statement for several systems. However, it omits specific physical exam findings for general appearance (pale, fatigued, alert), HEENT (mild pallor, no conjunctival hemorrhage), and neurological exam (no focal deficits, strength 5/5). While it summarizes lungs, heart, abdomen, and joints as 'normal,' it omits the specific detailed findings from the Ground Truth (e.g., 'clear to auscultation,' 'no murmurs, rubs, or gallops,' 'non-tender, no organomegaly,' 'no joint swelling'). The rash location is also omitted from this section.",
+        "grade": "B",
+        "summary": "This Objective section omits several specific physical exam findings, including the patient's general appearance (pale and fatigued, alert), HEENT findings (mild pallor, no conjunctival hemorrhage), and the complete neurological exam (no focal deficits, strength 5/5 in all extremities). While a summary statement for lungs, heart, abdomen, and joints is included and supported by the transcript, it does not fully compensate for all the detailed omissions.",
         "omissions": [
           "Physical Exam section header",
           "GENERAL: Pale and fatigued appearance, alert",
@@ -300,7 +300,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section accurately includes the differential diagnoses. The primary omission is the specific descriptive diagnosis and its associated ICD-10 code (R68.89, Other general symptoms and signs).",
+        "summary": "The primary omission in this Assessment section is the specific diagnosis code R68.89 ('Other general symptoms and signs') and its descriptive text. The differential diagnosis is accurately captured. There were no additions in this section.",
         "omissions": [
           "Descriptive diagnosis \"Other general symptoms and signs\""
         ],
@@ -308,8 +308,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section includes the main treatment, referral, lifestyle changes, and instructions for worsening symptoms. However, it omits specific details for NSAID administration, including the frequency ('oral, every 4-6 hours') and the quantity ('30 tablets'). It also omits the distinct general follow-up recommendation to 'Follow-up in 2 weeks if symptoms do not improve,' instead integrating a conditional follow-up into the Dr. Morris appointment.",
+        "grade": "A",
+        "summary": "The Plan section is largely complete. Minor omissions include specific details for NSAID administration (oral, every 4-6 hours) and the total quantity (30 tablets), as well as the general follow-up recommendation if symptoms do not improve. All additions in this section were supported by the transcript.",
         "omissions": [
           "Treatment section header",
           "NSAIDs: \"oral, every 4-6 hours\"",
@@ -337,70 +337,90 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, it's pretty bad. It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Lungs, heart, abdomen, and joints appear normal.\" (summary statement in Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your lungs sound clear. Your heart rate is regular and I don't hear any murmurs, rubs, or gallops. Your abdomen feels normal, no organomegaly which is good. No, my joints feel fine. That’s good to hear.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for further evaluation\" (for dermatologist referral in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ll need to refer you to a dermatologist for a more detailed evaluation. ... Yes, I’ll refer you to Dr. Samuel Morris. ... I’ll also recommend a skin biopsy if any of the lesions look suspicious.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to a dermatologist (Dr. Samuel Morris) for further evaluation and possible skin biopsy."
+      "matched_claim_text": "Referral to a dermatologist (Dr. Samuel Morris) for further evaluation and possible skin biopsy.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"immediately\" (for return to ED in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms worsen, come back to the Emergency Department immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms worsen, return to the Emergency Department immediately."
+      "matched_claim_text": "If symptoms worsen, return to the Emergency Department immediately.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"within two weeks\" (applied to Dr. Morris appointment in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d recommend scheduling an appointment with him as soon as possible, definitely within the next two weeks if your symptoms don’t improve.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule an appointment with Dr. Morris within two weeks if symptoms do not improve."
+      "matched_claim_text": "Schedule an appointment with Dr. Morris within two weeks if symptoms do not improve.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"causing discomfort\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Has this rash been causing a lot of discomfort? Yes, it's pretty bad. It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.",
+      "transcript_evidence": "Yes, it's pretty bad. It’s making it hard to do my usual stuff at home and even at work. I can’t concentrate because of it.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Lungs, heart, abdomen, and joints appear normal.\" (summary statement)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your lungs sound clear. Your heart rate is regular and I don't hear any murmurs, rubs, or gallops. Your abdomen feels normal, no organomegaly. No, my joints feel fine.",
+      "transcript_evidence": "Your lungs sound clear. Your heart rate is regular and I don't hear any murmurs, rubs, or gallops. Your abdomen feels normal, no organomegaly. Your joints feel fine.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for further evaluation\" (for dermatologist referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ll need to refer you to a dermatologist for a more detailed evaluation. ... Yes, I’ll refer you to Dr. Samuel Morris. ... I’ll also recommend a skin biopsy if any of the lesions look suspicious.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to a dermatologist (Dr. Samuel Morris) for further evaluation and possible skin biopsy."
+      "matched_claim_text": "Referral to a dermatologist (Dr. Samuel Morris) for further evaluation and possible skin biopsy.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"immediately\" (for return to ED)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms worsen, come back to the Emergency Department immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms worsen, return to the Emergency Department immediately."
+      "matched_claim_text": "If symptoms worsen, return to the Emergency Department immediately.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"within two weeks\" (applied to Dr. Morris appointment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d recommend scheduling an appointment with him as soon as possible, definitely within the next two weeks if your symptoms don’t improve.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule an appointment with Dr. Morris within two weeks if symptoms do not improve."
+      "matched_claim_text": "Schedule an appointment with Dr. Morris within two weeks if symptoms do not improve.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

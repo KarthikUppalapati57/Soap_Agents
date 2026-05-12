@@ -309,9 +309,9 @@
     "plan_alignment_score": 0.5903614457831325
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary but has noticeable gaps. The most significant issue is the complete omission of the Review of Systems (ROS) section in the Subjective. Additionally, the Assessment omits a specific diagnosis for the chief complaint, and the Plan section lacks detailed patient education content and the patient agreement. All additions were supported by the transcript and did not impact the grade.",
+    "overall_summary": "The generated note provides a concise summary of the patient's presentation, objective findings, and a high-level plan. However, it suffers from significant omissions, particularly the complete absence of the detailed Review of Systems in the Subjective section and the lack of all patient education content and the patient agreement in the Plan section. While the core clinical information is present, these omissions make the note meaningfully incomplete and reduce its overall clinical usefulness, requiring careful review and potential additions by a clinician.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -353,7 +353,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the entire Review of Systems (ROS) and all its individual categories and findings, which is a major clinical omission. Minor details like 'moderate' difficulty and 'Symptoms have been present daily' were also omitted, along with section headers.",
+        "summary": "The Subjective section accurately summarizes the Chief Complaint and History of Present Illness, but it completely omits the detailed Review of Systems, including all individual categories and their findings. This represents a significant gap in the comprehensive documentation of the patient's subjective complaints.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -376,8 +376,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-aligned with only minor omissions, such as the 'Neurological' and 'Musculoskeletal' sub-headers and the detail 'using a cane for support' for gait. The addition of temperature in Celsius was supported by the transcript and did not affect the grade.",
+        "grade": "B",
+        "summary": "The Objective section accurately captures the vital signs and physical examination findings. Minor omissions include the sub-headers for Neurological and Musculoskeletal exams and the detail that the patient is \"using a cane for support\" for gait. The addition of Celsius temperature is supported by the transcript and does not incur a penalty.",
         "omissions": [
           "\"Neurological\" sub-header under Physical Examination",
           "\"Musculoskeletal\" sub-header under Physical Examination",
@@ -390,7 +390,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits the specific diagnosis 'G26.9 - Difficulty in walking, not elsewhere classified,' which is a moderate omission as it's a direct diagnosis for the chief complaint. The 'Diagnosis' sub-header was also omitted.",
+        "summary": "The Assessment section correctly identifies peripheral neuropathy and possible lumbar spine issues. However, it omits the specific diagnosis \"Difficulty in walking, not elsewhere classified\" (G26.9) and the \"Diagnosis\" sub-header, which are moderate clinical and structural omissions.",
         "omissions": [
           "\"Diagnosis\" sub-header",
           "Diagnosis: Difficulty in walking, not elsewhere classified"
@@ -399,8 +399,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions, including specific details and rationales for therapies and imaging (e.g., 'for gait training,' 'to evaluate for structural abnormalities'). It also significantly condenses patient education content, omitting specific counseling points about diabetes/hypertension management and the role of PT/OT. The entire 'Patient Agreements' section and its content were omitted. The addition of 'immediately' was supported by the transcript and did not affect the grade.",
+        "grade": "D",
+        "summary": "The Plan section has numerous and significant omissions. It lacks all patient education content, the entire \"Patient Agreements\" section, and specific details regarding the purpose of physical therapy, occupational therapy, MRI, and the orthopedic referral. Many sub-headers are also omitted. These extensive omissions materially reduce the clinical usefulness and completeness of the plan. The addition of \"immediately\" for follow-up instructions is supported by the transcript and does not incur a penalty.",
         "omissions": [
           "\"Medical Treatment\" sub-header",
           "\"as needed\" instruction for Gabapentin",
@@ -436,14 +436,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "temperature is 98.6°F",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"immediately\" for returning to clinic/contacting team",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If your symptoms worsen or new symptoms develop, please return to the clinic or contact our healthcare team immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to return to clinic or contact healthcare team immediately if symptoms worsen or new symptoms develop."
+      "matched_claim_text": "Advise patient to return to clinic or contact healthcare team immediately if symptoms worsen or new symptoms develop.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

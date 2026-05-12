@@ -245,7 +245,115 @@
     "assessment_alignment_score": 0.5789473684210527,
     "plan_alignment_score": 0.5921787709497208
   },
-  "expert_judge": null,
-  "expert_judge_error": "Judge returned non-JSON output: Illegal trailing comma before end of object: line 10 column 5 (char 1150)",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the primary diagnosis and treatment plan. However, it has several minor and moderate omissions across the Subjective, Objective, and Plan sections, such as specific physical examination findings and the name of the referred cardiologist. Crucially, there are no unsupported or unknown additions that would introduce misleading clinical content.",
+    "omissions": [
+      "Chief Complaint (CC) section heading",
+      "History of Present Illness (HPI) section heading",
+      "Review of Systems (ROS) section heading",
+      "Vital Signs section heading",
+      "Physical Examination section heading",
+      "Investigations section heading",
+      "Primary Diagnosis section heading",
+      "Differential Diagnosis section heading",
+      "Medical Treatment section heading",
+      "Further Investigation section heading",
+      "Referrals section heading",
+      "Follow-Up section heading",
+      "Patient Education and Counseling section heading",
+      "Patient Agreements section heading",
+      "Instructions section heading"
+    ],
+    "additions": [],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "This section is mostly accurate but omits the impact of palpitations on the patient's ability to concentrate at work (moderate omission) and specific denials in the Respiratory, Neurological, and Endocrine Review of Systems (minor omissions). No penalizable additions were found.",
+        "omissions": [
+          "Impact of palpitations: \"limiting her ability to concentrate at work\"",
+          "ROS Respiratory: \"Denies cough or wheezing\"",
+          "ROS Neurological: \"No headaches or vision changes\"",
+          "ROS Endocrine: \"No heat/cold intolerance, no changes in appetite or thirst\""
+        ],
+        "additions": [
+          "\"energy levels\" in \"No changes in weight, appetite, energy levels, fever, or fatigue reported\""
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "B",
+        "summary": "This section omits specific details from the physical examination findings for General, Cardiovascular, Respiratory, Thyroid, and Neurological systems (moderate omissions). While a general summary statement was added and supported by the transcript, the specific details from the Ground Truth were not included.",
+        "omissions": [
+          "Physical Exam: \"General: Alert, no acute distress.\"",
+          "Physical Exam: \"Cardiovascular: Normal heart sounds, no murmurs, gallops, or rubs.\"",
+          "Physical Exam: \"Respiratory: Clear to auscultation bilaterally.\"",
+          "Physical Exam: \"Thyroid: Nontender, no palpable masses or nodules.\"",
+          "Physical Exam: \"Neurological: Non-focal, no deficits observed.\""
+        ],
+        "additions": [
+          "Summary statement: \"No abnormalities detected during physical examination\""
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "This section is complete and accurate, with no omissions or unsupported/unknown additions. All content is well-aligned with the GroundTruth and Transcript.",
+        "omissions": [],
+        "additions": [
+          "Phrase \"need to be ruled out\" for differential diagnoses"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "This section has several minor omissions, including specific medication details (route, quantity), the explicit purpose of the Holter monitor and blood tests, and certain patient education points (potential side effects, regular exercise). A moderate omission is the specific name of the referred cardiologist. No unsupported or unknown additions were identified.",
+        "omissions": [
+          "Medication detail: \"oral\" route for Metoprolol",
+          "Medication detail: \"(30 tablets)\" quantity for Metoprolol",
+          "Purpose of Holter monitor: \"to assess frequency and severity of palpitations\"",
+          "Purpose of blood tests: \"to rule out secondary causes of palpitations\"",
+          "Specific referral: \"Referred to Dr. Sarah Williams, Cardiologist, for further evaluation and management of palpitations.\"",
+          "Patient education: \"Discussed potential side effects of Metoprolol\"",
+          "Patient education: \"Encouraged continuation of regular exercise\"",
+          "Patient agreement: \"The patient understands and agrees with the recommended medical treatment plan.\""
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": "The numerous omissions of section headings were noted but considered minor in terms of clinical materiality and did not significantly impact the overall clinical usefulness or safety of the note."
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "\"energy levels\" in \"No changes in weight, appetite, energy levels, fever, or fatigue reported\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "No, I haven't had any changes in weight, appetite, or energy levels. No fever or fatigue either.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No changes in weight, appetite, energy levels, fever, or fatigue reported",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Summary statement: \"No abnormalities detected during physical examination\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "You're alert and in no acute distress. Your heart sounds are normal with no murmurs, gallops, or rubs. Your lungs are clear to auscultation bilaterally. Your thyroid is nontender with no palpable masses or nodules, and there are no neurological deficits observed.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No abnormalities detected during physical examination",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Phrase \"need to be ruled out\" for differential diagnoses",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "However, we still need to rule out other possible causes like arrhythmias, hyperthyroidism, and electrolyte imbalances.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Arrhythmias, hyperthyroidism, and electrolyte imbalances need to be ruled out",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Arrhythmia — phenotype_phenotype — Palpitations"
+    }
+  ]
 }

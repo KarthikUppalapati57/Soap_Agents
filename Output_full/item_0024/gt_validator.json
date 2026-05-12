@@ -222,9 +222,9 @@
     "plan_alignment_score": 0.5443037974683544
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps in the Subjective and Plan sections. Key omissions include specific details about the patient's pain, its impact on daily life, and several important components of the treatment plan such as pending investigations, full medication instructions, and patient education/understanding. The Objective and Assessment sections are well-aligned with the GroundTruth.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note contains several significant omissions that materially reduce its clinical usefulness. Most notably, the Plan section completely omits the \"Pending Investigations\" for a lumbar spine X-ray, a critical diagnostic step. It also lacks specific medication instructions (frequency and quantity for Ibuprofen) and entire sections for \"Patient Education and Counseling\" and \"Patient Understanding.\" The Subjective section has multiple minor to moderate omissions, including pain severity, specific aggravating factors, and detailed ROS items. While there are no unsupported or unknown additions, these omissions create substantial gaps in the documentation, making the note unreliable for comprehensive clinical decision-making without further review.",
     "omissions": [
       "Patient's pain severity (moderate to severe)",
       "Specific sleep duration (averaging 4-5 hours per night)",
@@ -247,8 +247,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has several minor to moderate omissions, including the patient's pain severity, specific factors that worsen the pain, its impact on job duties and household chores, and the precise sleep duration. Additionally, some ROS details regarding weakness, diet, and exercise habits are missing, making the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "This section has several minor to moderate omissions. It misses the patient's pain severity (moderate to severe), specific aggravating factors (worsens with prolonged sitting and standing), the detailed impact on job duties and household chores, specific sleep duration (4-5 hours per night), and detailed ROS items regarding diet (generally balanced but high in caffeine) and exercise (minimal due to pain, previously active with walking). While the core complaint is captured, these omissions reduce the completeness of the patient's history.",
         "omissions": [
           "Pain severity (moderate to severe)",
           "Denial of numbness or tingling in HPI (Generated's \"No other symptoms were reported\" is too general)",
@@ -264,7 +264,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is largely complete with only one minor omission regarding the specific type of range of motion limitation (forward flexion). The general statement of 'limited range of motion' is present.",
+        "summary": "This section is largely complete and accurate. The only omission is the specific detail that range of motion was \"Limited on forward flexion,\" which is a minor detail as \"limited range of motion\" is still present. There are no unsupported or unknown additions.",
         "omissions": [
           "Specific range of motion limitation: \"Limited on forward flexion\" (Generated has \"limited range of motion\")"
         ],
@@ -273,7 +273,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is complete and accurate. The addition of 'poor sleep quality' as a contributing factor is supported by the transcript and therefore does not reduce the grade.",
+        "summary": "This section is complete and accurate. The addition of \"poor sleep quality\" as a contributing factor to low back pain is supported by the transcript and therefore does not reduce the grade. There are no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": [
           "\"poor sleep quality\" as a contributing factor to low back pain"
@@ -281,8 +281,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section contains multiple moderate omissions that significantly impact its completeness and usefulness. Entire sections like 'Pending Investigations,' 'Patient Education and Counseling,' and 'Patient Understanding' are missing. Specific details for Ibuprofen frequency and quantity, as well as the referral specialist's name, are also omitted.",
+        "grade": "D",
+        "summary": "This section has major and moderate omissions that significantly reduce its clinical usefulness. The most critical omission is the entire \"Pending Investigations\" section, specifically the awaiting lumbar spine X-ray to rule out structural abnormalities or degenerative changes. Additionally, specific medication instructions for Ibuprofen (frequency of \"every 6 hours\" and quantity of \"30 tablets\") are missing. Entire sections for \"Patient Education and Counseling\" and \"Patient Understanding\" are also omitted, along with the specific referral specialist's name (Dr. John Smith). These omissions create substantial gaps in the treatment plan and diagnostic workup.",
         "omissions": [
           "Pending Investigations section (awaiting lumbar spine X-ray to rule out structural abnormalities or degenerative changes)",
           "Ibuprofen frequency: \"every 6 hours\"",
@@ -304,14 +304,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I'm here because of some really bad back pain. ... It's been about three weeks now. ... It's intermittent, but when it hits, it's really bad.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient presented with a three-week history of intermittent low back pain"
+      "matched_claim_text": "The patient presented with a three-week history of intermittent low back pain",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"poor sleep quality\" as a contributing factor to low back pain",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I've been sleeping poorly because of the pain. I only get about 4 or 5 hours of sleep a night.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and poor sleep quality."
+      "matched_claim_text": "and poor sleep quality.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

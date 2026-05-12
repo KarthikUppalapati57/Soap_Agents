@@ -225,94 +225,82 @@
     "plan_alignment_score": 0.5416666666666667
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective and Plan sections. Key medical history such as hypertension management and chronic back pain are missing from Subjective. The Plan section omits crucial patient education regarding hypertension and smoking cessation, as well as important contingency planning for specialist referral. Additionally, an objective finding of \"mild distress\" is incorrectly placed in the Subjective section as an unsupported addition. These multiple major omissions and the unsupported addition materially reduce the clinical usefulness and completeness of the note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The note presents noticeable gaps in the Subjective and Plan sections. Key omissions include details on the patient's medical history (hypertension, chronic back pain), the impact of pain on daily life, and important patient education regarding diet and smoking cessation. A significant contingency plan for specialist referral is also omitted. Additionally, there is a misplaced detail about \"mild distress\" in the Subjective section and a minor redundant phrase in the Plan. While the Objective and Assessment sections are well-captured, the overall incompleteness in other critical areas makes the note usable with caution and review.",
     "omissions": [
-      "Patient's ability to perform household chores affected by pain",
-      "Chronic back pain",
-      "History of hypertension managed with Losartan 50 mg daily",
-      "Negative Review of Systems finding for Gastrointestinal system",
-      "Negative Review of Systems finding for Respiratory system",
-      "Overall feeling of fatigue",
-      "Physical exam finding: 'Appears in mild distress due to pain' (present in Generated Subjective, but an Objective finding in GroundTruth)",
-      "Specific detail of decreased range of motion: 'particularly on internal and external rotation'",
-      "Physical exam finding: 'Pain elicited on movement'",
-      "Neurological exam detail: 'in the right leg' for occasional numbness",
-      "Tramadol prescription detail: 'oral' route",
-      "Tramadol prescription detail: 'for 10 days'",
-      "Purpose of walking aid: 'to alleviate pressure on the hip'",
-      "Patient education on avoiding high-sodium foods given his hypertension",
-      "Patient education on smoking cessation strategies and the benefits of quitting smoking",
-      "Follow-up to reassess 'physical therapy outcomes'",
-      "Discussion of potential need for specialist referral if symptoms do not improve or if significant findings are noted on the X-ray",
-      "Addressing limitations in access to advanced medical facilities",
-      "Statement: 'Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications'",
-      "Instruction: 'Patient is to return to the clinic in 1 month for reassessment'",
-      "Instruction: 'Scheduled the patient for an X-ray of the right hip'"
+      "Patient's ability to perform household chores affected (from HPI)",
+      "Decreased range of motion (as an associated symptom in HPI)",
+      "Chronic back pain (from ROS)",
+      "History of hypertension managed with Losartan 50 mg daily (from ROS)",
+      "Overall feeling of fatigue (from ROS)",
+      "Pain elicited on movement during physical exam",
+      "Tramadol prescribed for 10 days",
+      "Patient education on avoiding high-sodium foods given hypertension",
+      "Patient education on smoking cessation strategies and benefits of quitting smoking",
+      "Follow-up to reassess physical therapy outcomes",
+      "Potential specialist referral if symptoms do not improve or if significant findings on X-ray",
+      "Patient agreement with treatment plan and understanding of follow-up/adherence",
+      "Instruction: Patient to return to clinic in 1 month for reassessment",
+      "Instruction: Patient scheduled for X-ray of the right hip"
     ],
     "additions": [
-      "Mention of 'mild distress' in the Subjective section (GroundTruth lists this as an Objective finding)",
-      "Redundant 'if needed' in the Plan section after 'coordinating with nearby centers if necessary'"
+      "Mild distress reported in Subjective (present in GT Objective)",
+      "Redundant 'if needed' in coordination instruction in Plan"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Mention of 'mild distress' in the Subjective section (GroundTruth lists this as an Objective finding)"
+      "Mild distress reported in Subjective (present in GT Objective)",
+      "Redundant 'if needed' in coordination instruction in Plan",
+      "Redundant 'if needed' in coordination instruction"
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several omissions, including important medical history (hypertension managed with Losartan 50 mg daily, chronic back pain) and the impact on daily life (ability to perform household chores). There is also an unsupported addition of \"mild distress\" which is an objective finding in the GroundTruth, making it a miscategorization.",
+        "summary": "This section has several moderate omissions, including the patient's ability to perform household chores, chronic back pain, history of hypertension with medication, and overall fatigue. Additionally, the mention of 'mild distress' is an unsupported addition to this section, as it belongs in the Objective findings.",
         "omissions": [
-          "Patient's ability to perform household chores affected by pain",
-          "Chronic back pain present",
+          "Patient's ability to perform household chores affected",
+          "Decreased range of motion (as an associated symptom)",
+          "Chronic back pain",
           "History of hypertension managed with Losartan 50 mg daily",
-          "Gastrointestinal: No abnormalities reported",
-          "Respiratory: No abnormalities reported",
           "Overall feeling of fatigue"
         ],
         "additions": [
-          "Mention of 'mild distress' in the Subjective section (GroundTruth lists this as an Objective finding)"
+          "Mild distress reported in Subjective (present in GT Objective)"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section has a moderate omission of \"Pain elicited on movement\" during the musculoskeletal exam. Minor details regarding the specific range of motion and the location of numbness were also omitted. The general finding of \"mild distress\" was omitted from its correct place here, though it appeared as an unsupported addition in the Subjective section.",
+        "grade": "A",
+        "summary": "This section is well-captured with only one minor omission regarding pain elicited on movement, which is largely covered by other documented findings like localized tenderness and decreased range of motion.",
         "omissions": [
-          "General: Appears in mild distress due to pain",
-          "Musculoskeletal: Right hip: particularly on internal and external rotation (for decreased range of motion)",
-          "Musculoskeletal: Right hip: Pain elicited on movement",
-          "Neurological: Sensation intact except for occasional numbness in the right leg (missing 'in the right leg' detail)"
+          "Pain elicited on movement during physical exam"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate with no omissions or unsupported additions.",
+        "summary": "This section accurately reflects the ground truth with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "This section has numerous significant omissions. Crucial patient education points regarding avoiding high-sodium foods for hypertension and smoking cessation strategies are missing. Important contingency planning, such as the discussion of potential specialist referral if symptoms do not improve, is also omitted. Other omissions include prescription details, the purpose of the walking aid, and the patient's agreement with the plan, which collectively make the plan meaningfully incomplete.",
+        "grade": "C",
+        "summary": "This section contains several moderate omissions, notably patient education on avoiding high-sodium foods and smoking cessation strategies, as well as the potential for specialist referral if symptoms do not improve. Minor omissions include the duration of Tramadol prescription and specific details of follow-up. A minor unsupported addition of a redundant phrase is also present.",
         "omissions": [
-          "Tramadol prescription detail: 'oral' route",
-          "Tramadol prescription detail: 'for 10 days'",
-          "Purpose of walking aid: 'to alleviate pressure on the hip'",
-          "Patient education on avoiding high-sodium foods given his hypertension",
-          "Patient education on smoking cessation strategies and the benefits of quitting smoking",
-          "Follow-up to reassess 'physical therapy outcomes'",
-          "Discussion of potential need for specialist referral if symptoms do not improve or if significant findings are noted on the X-ray",
-          "Addressing limitations in access to advanced medical facilities",
-          "Statement: 'Patient agrees with the treatment plan and understands the need for follow-up and adherence to prescribed medications and lifestyle modifications'",
-          "Instruction: 'Patient is to return to the clinic in 1 month for reassessment'",
-          "Instruction: 'Scheduled the patient for an X-ray of the right hip'"
+          "Tramadol prescribed for 10 days",
+          "Patient education on avoiding high-sodium foods given hypertension",
+          "Patient education on smoking cessation strategies and benefits of quitting smoking",
+          "Follow-up to reassess physical therapy outcomes",
+          "Potential specialist referral if symptoms do not improve or if significant findings on X-ray",
+          "Patient agreement with treatment plan and understanding of follow-up/adherence",
+          "Instruction: Patient to return to clinic in 1 month for reassessment",
+          "Instruction: Patient scheduled for X-ray of the right hip"
         ],
         "additions": [
-          "Redundant 'if needed' after 'coordinating with nearby centers if necessary'"
+          "Redundant 'if needed' in coordination instruction"
         ]
       }
     ],
@@ -321,25 +309,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Mention of 'mild distress' in the Subjective section (GroundTruth lists this as an Objective finding)",
+      "addition_text": "Mild distress reported in Subjective (present in GT Objective)",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Redundant 'if needed' in the Plan section after 'coordinating with nearby centers if necessary'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] We’ll need to follow up in a month to reassess your symptoms and see how you’re doing with the physical therapy. ... if your symptoms don’t improve or if we find something significant on the X-ray, we might need to refer you to a specialist. ... we’ll coordinate with nearby centers if necessary.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "follow up in a month to reassess symptoms and coordinating with nearby centers if necessary if needed"
+      "addition_text": "Redundant 'if needed' in coordination instruction in Plan",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Redundant 'if needed' after 'coordinating with nearby centers if necessary'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] We’ll need to follow up in a month to reassess your symptoms and see how you’re doing with the physical therapy. ... if your symptoms don’t improve or if we find something significant on the X-ray, we might need to refer you to a specialist. ... we’ll coordinate with nearby centers if necessary.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "follow up in a month to reassess symptoms and coordinating with nearby centers if necessary if needed"
+      "addition_text": "Redundant 'if needed' in coordination instruction",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

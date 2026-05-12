@@ -224,9 +224,9 @@
     "plan_alignment_score": 0.5873015873015873
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the core clinical findings, assessment, and most of the plan. However, it has several minor omissions, including formatting and less critical details. More notably, it omits specific HPI details about the patient's functional limitations (difficulty climbing stairs, walking distance) and the specific laboratory tests (CBC and Vitamin B12 level) that are pending in the Plan section. There are no unsupported or unknown additions that would negatively impact the grade.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a generally accurate and usable summary of the patient's encounter. However, the Subjective section has noticeable gaps, omitting important details regarding the patient's specific symptoms (hand tremors, slowed movements) and the functional impact on daily activities (difficulty climbing stairs, walking distance). The Plan section also omits the explicit mention of awaiting specific blood work results (CBC and Vitamin B12 levels). All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint (CC) heading",
       "HPI details: occasional mild tremors in her hands and generally slowed movements",
@@ -258,8 +258,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The section omits key HPI details regarding the impact on daily activities, specifically difficulty climbing stairs and walking more than two blocks without rest. It also lacks the structured Review of Systems section and its specific content, as well as minor heading omissions. While some HPI details like tremors and slowed movements are omitted from HPI, they are captured in the Objective section.",
+        "grade": "C",
+        "summary": "The Subjective section receives a C due to several moderate omissions. Key details from the History of Present Illness, such as the patient's occasional mild tremors, generally slowed movements, and the specific impact on daily activities (difficulty climbing stairs and walking more than two blocks), were not included. Additionally, the structured Review of Systems with specific headings and the musculoskeletal detail were omitted.",
         "omissions": [
           "Chief Complaint (CC) heading",
           "HPI details: occasional mild tremors in her hands and generally slowed movements",
@@ -272,7 +272,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section accurately captures all clinical findings. The only issues are minor omissions of section and sub-section headings (Physical Exam, Neurological Exam). All additions are supported by the transcript and do not impact the grade.",
+        "summary": "The Objective section receives an A. All clinically relevant findings from the Ground Truth were accurately captured. The minor omissions were limited to section headings ('Physical Exam' and 'Neurological Exam'). All additions in this section were fully supported by the transcript and did not detract from the grade.",
         "omissions": [
           "Physical Exam heading",
           "Neurological Exam heading"
@@ -287,7 +287,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The section accurately reflects the diagnosis and differential diagnoses. Omissions are limited to minor phrasing (\"The patient's symptoms and physical examination findings are consistent with a diagnosis of\" and \"necessitating further evaluation\") which do not alter the clinical meaning. All additions are supported by the transcript and do not impact the grade.",
+        "summary": "The Assessment section receives an A. The core diagnostic statement and differential diagnoses were accurately presented. The omissions were minor phrasing details ('The patient's symptoms and physical examination findings are consistent with a diagnosis of' and 'necessitating further evaluation') that did not alter the clinical meaning. The single addition was supported by the transcript.",
         "omissions": [
           "'The patient's symptoms and physical examination findings are consistent with a diagnosis of'",
           "'necessitating further evaluation'"
@@ -299,7 +299,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The section omits the specific laboratory tests (CBC and Vitamin B12 level) that are awaiting results, which is a moderate gap in diagnostic planning. It also omits specific plan headings, the endocrinologist's name, and some general patient engagement details, which are minor. All additions are supported by the transcript and do not impact the grade.",
+        "summary": "The Plan section receives a B. While the major components of the plan (Vitamin B12 injections, physical therapy referral, endocrinology referral, and follow-up) were included, there were several omissions. The most significant was the explicit mention of awaiting specific laboratory test results (CBC and Vitamin B12 level). Other omissions included specific plan headings, the endocrinologist's name, and details about patient engagement and interdisciplinary collaboration. All additions were supported by the transcript.",
         "omissions": [
           "Plan headings: Medication, Therapy, Referrals, Laboratory Tests, Follow-Up",
           "Specific endocrinologist name: Dr. John Smith",
@@ -324,98 +324,126 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 130/85 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All of these are within normal limits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs within normal limits: BP 130/85 mmHg, HR 72 bpm, RR 16 breaths per minute, temperature 98.6°F"
+      "matched_claim_text": "Vital signs within normal limits: BP 130/85 mmHg, HR 72 bpm, RR 16 breaths per minute, temperature 98.6°F",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: 'in hands' for mild resting tremor",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I notice a mild resting tremor.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild resting tremor observed in hands"
+      "matched_claim_text": "Mild resting tremor observed in hands",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: 'during gait examination' for reduced arm swing and bradykinesia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see that your arm swing is reduced while walking. I also notice a mild degree of bradykinesia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reduced arm swing while walking and bradykinesia noted during gait examination"
+      "matched_claim_text": "Reduced arm swing while walking and bradykinesia noted during gait examination",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: '(normal balance with eyes closed)' for negative Romberg test",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You’re able to maintain your balance, so your Romberg test is negative. ... It means you don’t have any significant issues with your balance when your eyes are closed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Negative Romberg test (normal balance with eyes closed)"
+      "matched_claim_text": "Negative Romberg test (normal balance with eyes closed)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'general diagnosis'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your symptoms and physical examination findings are consistent with a general diagnosis of difficulty in walking",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Difficulty in walking consistent with a general diagnosis"
+      "matched_claim_text": "Difficulty in walking consistent with a general diagnosis",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'monitor progress' in follow-up instructions",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Lastly, I’d like to schedule a follow-up appointment in 3 months to see how you’re responding to the treatment and to reevaluate your condition.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in 3 months to reevaluate condition and monitor progress"
+      "matched_claim_text": "Schedule follow-up appointment in 3 months to reevaluate condition and monitor progress",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'adjust as needed based on blood work results'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll start the treatment immediately and monitor your progress closely. ... We’ll wait for the results of the blood work to come in. Based on those results, we might adjust the treatment plan if needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start treatment immediately and adjust as needed based on blood work results"
+      "matched_claim_text": "Start treatment immediately and adjust as needed based on blood work results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Vital signs within normal limits",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 130/85 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All of these are within normal limits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs within normal limits: BP 130/85 mmHg, HR 72 bpm, RR 16 breaths per minute, temperature 98.6°F"
+      "matched_claim_text": "Vital signs within normal limits: BP 130/85 mmHg, HR 72 bpm, RR 16 breaths per minute, temperature 98.6°F",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'in hands' for mild resting tremor",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I notice a mild resting tremor.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild resting tremor observed in hands"
+      "matched_claim_text": "Mild resting tremor observed in hands",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'during gait examination' for reduced arm swing and bradykinesia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see that your arm swing is reduced while walking. I also notice a mild degree of bradykinesia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reduced arm swing while walking and bradykinesia noted during gait examination"
+      "matched_claim_text": "Reduced arm swing while walking and bradykinesia noted during gait examination",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'(normal balance with eyes closed)' for negative Romberg test",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You’re able to maintain your balance, so your Romberg test is negative. ... It means you don’t have any significant issues with your balance when your eyes are closed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Negative Romberg test (normal balance with eyes closed)"
+      "matched_claim_text": "Negative Romberg test (normal balance with eyes closed)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'general diagnosis'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your symptoms and physical examination findings are consistent with a general diagnosis of difficulty in walking",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Difficulty in walking consistent with a general diagnosis"
+      "matched_claim_text": "Difficulty in walking consistent with a general diagnosis",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'monitor progress' in follow-up instructions",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Lastly, I’d like to schedule a follow-up appointment in 3 months to see how you’re responding to the treatment and to reevaluate your condition.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in 3 months to reevaluate condition and monitor progress"
+      "matched_claim_text": "Schedule follow-up appointment in 3 months to reevaluate condition and monitor progress",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'adjust as needed based on blood work results'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll start the treatment immediately and monitor your progress closely. ... We’ll wait for the results of the blood work to come in. Based on those results, we might adjust the treatment plan if needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start treatment immediately and adjust as needed based on blood work results"
+      "matched_claim_text": "Start treatment immediately and adjust as needed based on blood work results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

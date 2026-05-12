@@ -221,7 +221,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary of the encounter, capturing the core diagnosis and treatment plan. However, it suffers from multiple moderate omissions, particularly in the Plan section, where crucial patient education regarding medication adherence, potential side effects, and safety instructions (when to reach out) are missing. Several specific details in the HPI and lifestyle recommendations are also omitted, reducing the overall completeness and usefulness of the note for patient guidance.",
+    "overall_summary": "The note accurately captures the patient's chief complaint, core HPI, and diagnosis. However, it suffers from numerous omissions, particularly in the Plan section, where critical medication details (duration, specific instructions, rationale), comprehensive patient education (side effects, when to reach out), and patient agreements are missing. Several important details are also omitted from the Subjective section, making the overall clinical picture less complete. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint detail: \"moderate to severe depressive symptoms and associated complaints\"",
       "HPI detail: \"persistent feelings of worthlessness\"",
@@ -255,7 +255,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main HPI elements. However, it omits several specific details regarding the patient's symptoms, such as 'persistent feelings of worthlessness,' detailed descriptions of appetite changes ('oscillating between periods of little to no eating and over-consumption of fast food'), and specific sleep disruption ('averaging 3-4 hours per night with frequent awakenings'). Some negative ROS findings were also omitted. These are moderate omissions that reduce the richness of the clinical picture.",
+        "summary": "This section omits several important clinical details from the HPI, such as the patient's persistent feelings of worthlessness, specific details about appetite changes (oscillating between little eating and over-consumption of fast food), and the specific duration and frequency of sleep disruption (3-4 hours per night with frequent awakenings). Additionally, specific negative findings from the Review of Systems regarding neurological and gastrointestinal symptoms are missing. The chief complaint detail regarding \"moderate to severe\" symptoms is also omitted. The addition \"No history of depression\" is supported by the transcript.",
         "omissions": [
           "Chief Complaint detail: \"moderate to severe depressive symptoms and associated complaints\"",
           "HPI detail: \"persistent feelings of worthlessness\"",
@@ -271,7 +271,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section correctly states that no assessment was made in the conversation. The omissions are minor boilerplate statements indicating that physical exam, vital signs, and investigation results were 'not applicable' or 'not measured,' which does not detract from the clinical utility of the section.",
+        "summary": "The section correctly indicates that no objective data was assessed. The omissions of the explicit \"Not applicable\" statements for Physical Exam, Vital Signs, and Investigation/Test Results are minor and do not impact the clinical meaning.",
         "omissions": [
           "\"Physical Exam: Not applicable for this encounter.\"",
           "\"Vital Signs: Not measured during this visit.\"",
@@ -282,7 +282,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately identifies the Major Depressive Disorder (first episode). The omission of the 'Unspecified' detail for the diagnosis is minor and does not impact the clinical accuracy or usefulness of the diagnosis.",
+        "summary": "The diagnosis of Major Depressive Disorder (first episode) is correctly identified. The only omission is the detail \"Unspecified\" for the diagnosis, which is a minor detail and does not affect the clinical accuracy. The addition \"based on patient's symptoms\" is supported by the transcript.",
         "omissions": [
           "Diagnosis detail: \"Unspecified\" for Major Depressive Disorder"
         ],
@@ -292,8 +292,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions that significantly impact its completeness. Key medication details like the '8 weeks' duration and instruction to 'take the medication in the morning' are missing. Specific lifestyle instructions for sleep routine ('by going to bed and waking up at the same time every day, including weekends') and diet ('plan meals to ensure nutritional adequacy') are also omitted. Most critically, significant portions of the Patient Education and Counseling are absent, including discussions on potential side effects, the importance of lifestyle modifications, and instructions to reach out if side effects become unmanageable or symptoms worsen. These omissions represent noticeable gaps that reduce the note's utility for patient guidance and safety.",
+        "grade": "D",
+        "summary": "This section has numerous significant omissions that materially reduce its clinical usefulness and safety. Key medication details such as the \"oral\" route, \"for 8 weeks\" duration, instruction to \"take the medication in the morning,\" and the reason \"to minimize gastrointestinal side effects\" are missing. Specific details for lifestyle changes, such as establishing a consistent sleep schedule \"by going to bed and waking up at the same time every day, including weekends\" and planning meals \"to ensure nutritional adequacy,\" are also omitted. Furthermore, almost all of the Patient Education and Counseling (importance of adherence, potential side effects, when to reach out) and Patient Agreements sections are entirely missing, which are crucial for patient safety and comprehensive care documentation.",
         "omissions": [
           "Medication detail: \"oral\" route for Sertraline",
           "Medication detail: \"for 8 weeks\" duration for Sertraline",
@@ -320,28 +320,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, this is the first time I've felt this way.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of depression"
+      "matched_claim_text": "No history of depression",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: \"based on patient's symptoms\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on what you've told me, it sounds like you might be experiencing a Major Depressive Disorder. [Patient]: No, this is the first time I've felt this way.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major Depressive Disorder (first episode) based on patient's symptoms"
+      "matched_claim_text": "Major Depressive Disorder (first episode) based on patient's symptoms",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue — phenotype_phenotype — Chronic fatigue"
     },
     {
       "addition_text": "\"No history of depression\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, this is the first time I've felt this way.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of depression"
+      "matched_claim_text": "No history of depression",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"based on patient's symptoms\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on what you've told me, it sounds like you might be experiencing a Major Depressive Disorder. [Patient]: No, this is the first time I've felt this way.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major Depressive Disorder (first episode) based on patient's symptoms"
+      "matched_claim_text": "Major Depressive Disorder (first episode) based on patient's symptoms",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue — phenotype_phenotype — Chronic fatigue"
     }
   ]
 }

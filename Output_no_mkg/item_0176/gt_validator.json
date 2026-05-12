@@ -283,82 +283,86 @@
     "plan_alignment_score": 0.5381165919282511
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a usable overview of the patient's primary complaint and treatment for hypothyroidism. However, it contains noticeable gaps, particularly the omission of the secondary diagnoses of Chronic Obstructive Pulmonary Disease (COPD) and Obesity from the Assessment, which are major and moderate clinical issues respectively. Additionally, the Plan section is meaningfully incomplete due to the absence of details regarding patient understanding, adherence concerns, and socioeconomic barriers. There are no unsupported or unknown additions.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note captures the patient's chief complaint, HPI, and objective findings reasonably well. However, it has significant shortcomings in the Assessment and Plan sections. The Assessment section omits critical secondary diagnoses (COPD and Obesity) and presents the primary diagnosis tentatively. The Plan section misses important details regarding patient education, understanding, and crucial clinician concerns about medication adherence and socioeconomic barriers. These omissions materially reduce the clinical usefulness and completeness of the note.",
     "omissions": [
-      "Impact of fatigue on daily tasks and work absences",
-      "Specific neurological symptoms: frequent awakenings, daytime drowsiness",
-      "General physical exam finding: Overweight, appears tired and breathless",
-      "Dermatologic physical exam finding: Dry, flaky skin on legs (from Objective section)",
-      "Abdominal physical exam finding: Normal bowel sounds",
-      "Qualifier 'unspecified' for Hypothyroidism diagnosis",
-      "Secondary Diagnosis: Chronic Obstructive Pulmonary Disease (COPD)",
-      "Secondary Diagnosis: Obesity",
+      "Context of visit: urgent care center",
+      "Detail about fatigue severity: impacts ability to perform daily tasks and caused frequent absences from work",
+      "Specific details about sleep disturbances: frequent awakenings, daytime drowsiness",
+      "Symptom: breathing difficulties (distinct from wheezing)",
+      "Physical exam general findings: Overweight, appears tired and breathless",
+      "Abdomen physical exam finding: Normal bowel sounds",
+      "Definitive diagnosis of Hypothyroidism, unspecified (Generated uses 'may have hypothyroidism')",
+      "Secondary diagnosis: Chronic Obstructive Pulmonary Disease (COPD)",
+      "Secondary diagnosis: Obesity",
       "Medication quantity: 30 tablets",
-      "Dietary modifications to incorporate more fruits and vegetables (from Lifestyle and Health Recommendations)",
-      "Patient appeared somewhat dismissive of lifestyle recommendations",
-      "Counseling on the importance of regular follow-up appointments and timely medication intake",
-      "Education about potential long-term complications of untreated hypothyroidism and benefits of early intervention",
-      "Patient Understanding and Agreement section (patient expressed understanding, agreed to adhere, acknowledged need for follow-up)",
-      "Stated concern: Potential concerns about medication adherence due to patient's smoking and dietary habits",
-      "Stated concern: Possible socioeconomic barriers to access healthier food options and follow-up healthcare services"
+      "Medication route: oral",
+      "Specific dietary modification in lifestyle recommendations: incorporate more fruits and vegetables",
+      "Patient's dismissiveness of lifestyle recommendations",
+      "Instruction: Counseled on the importance of regular follow-up appointments and timely medication intake",
+      "Instruction: Educated about the potential long-term complications of untreated hypothyroidism and the benefits of early intervention",
+      "Patient Understanding and Agreement section content (expressed understanding, agreed to adhere, acknowledged need for follow-up/testing)",
+      "Clinician's concern about potential medication adherence due to patient's smoking and dietary habits",
+      "Clinician's concern about possible socioeconomic barriers to access healthier food options and follow-up healthcare services",
+      "Explicit instruction to complete blood work prior to the follow-up visit"
     ],
     "additions": [
-      "Introductory phrase in Assessment: 'Based on the symptoms and physical exam findings, it appears'"
+      "Instruction: Encourage the patient to seek help if they encounter any barriers to accessing healthier food options or making follow-up appointments (GT lists this as a 'Concern', not an instruction)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits the significant impact of fatigue on the patient's daily tasks and work absences, which is a moderate clinical detail. It also misses specific neurological symptoms like frequent awakenings and daytime drowsiness. Despite these, the section is mostly clinically aligned and usable.",
+        "summary": "The Subjective section captures the main symptoms but omits important details regarding the severity of fatigue (impact on daily tasks/work) and specific details of sleep disturbances (frequent awakenings, daytime drowsiness). The context of the visit (urgent care) is also missing. These are a mix of minor and moderate omissions.",
         "omissions": [
-          "Impact of fatigue on daily tasks and work absences",
-          "Specific neurological symptoms: frequent awakenings, daytime drowsiness"
+          "Context of visit: urgent care center",
+          "Detail about fatigue severity: impacts ability to perform daily tasks and caused frequent absences from work",
+          "Specific details about sleep disturbances: frequent awakenings, daytime drowsiness",
+          "Symptom: breathing difficulties (distinct from wheezing)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section has minor omissions, including the general appearance of the patient being overweight, tired, and breathless, the dermatologic finding of dry, flaky skin on legs, and the normal bowel sounds. Despite these minor issues, all major clinically important Ground Truth content is captured.",
+        "summary": "The Objective section is largely complete, with only minor omissions of general physical exam observations ('Overweight, appears tired and breathless') and a specific abdomen finding ('Normal bowel sounds'). These do not significantly impact the clinical utility of the objective findings.",
         "omissions": [
-          "General physical exam finding: Overweight, appears tired and breathless",
-          "Dermatologic physical exam finding: Dry, flaky skin on legs",
-          "Abdominal physical exam finding: Normal bowel sounds"
+          "Physical exam general findings: Overweight, appears tired and breathless",
+          "Abdomen physical exam finding: Normal bowel sounds"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has significant omissions, failing to include the secondary diagnoses of Chronic Obstructive Pulmonary Disease (COPD) and Obesity. The omission of COPD is a major clinical gap, and Obesity is a moderate one, making the overall assessment meaningfully incomplete. The note is still usable but requires caution and review due to these noticeable gaps.",
+        "grade": "D",
+        "summary": "The Assessment section has major issues. It fails to provide a definitive diagnosis for hypothyroidism, instead using tentative language ('may have hypothyroidism'). Crucially, it completely omits two significant secondary diagnoses: Chronic Obstructive Pulmonary Disease (COPD) and Obesity. The omission of COPD is a major clinical gap.",
         "omissions": [
-          "Qualifier 'unspecified' for Hypothyroidism diagnosis",
-          "Secondary Diagnosis: Chronic Obstructive Pulmonary Disease (COPD)",
-          "Secondary Diagnosis: Obesity"
+          "Definitive diagnosis of Hypothyroidism, unspecified (Generated uses 'may have hypothyroidism')",
+          "Secondary diagnosis: Chronic Obstructive Pulmonary Disease (COPD)",
+          "Secondary diagnosis: Obesity"
         ],
-        "additions": [
-          "Introductory phrase: 'Based on the symptoms and physical exam findings, it appears'"
-        ]
+        "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section is meaningfully incomplete due to the omission of several important details. These include the medication quantity, specific dietary modifications, the patient's dismissive attitude towards lifestyle recommendations, comprehensive counseling on follow-up and medication, education on long-term complications, the entire patient understanding and agreement section, and stated concerns regarding medication adherence and socioeconomic barriers. These multiple moderate and minor omissions make the plan less comprehensive.",
+        "summary": "While the core plan (medication, tests, follow-up) is present, this section has multiple moderate omissions. It misses details on patient education (long-term complications of untreated hypothyroidism), patient understanding and agreement, and critical clinician concerns about medication adherence and socioeconomic barriers. The patient's dismissiveness of lifestyle recommendations is also omitted. These gaps reduce the comprehensiveness of the care plan.",
         "omissions": [
           "Medication quantity: 30 tablets",
-          "Dietary modifications to incorporate more fruits and vegetables",
-          "Patient appeared somewhat dismissive of lifestyle recommendations",
-          "Counseling on the importance of regular follow-up appointments and timely medication intake",
-          "Education about potential long-term complications of untreated hypothyroidism and benefits of early intervention",
-          "Patient Understanding and Agreement section",
-          "Stated concern: Potential concerns about medication adherence due to patient's smoking and dietary habits",
-          "Stated concern: Possible socioeconomic barriers to access healthier food options and follow-up healthcare services"
+          "Medication route: oral",
+          "Specific dietary modification in lifestyle recommendations: incorporate more fruits and vegetables",
+          "Patient's dismissiveness of lifestyle recommendations",
+          "Instruction: Counseled on the importance of regular follow-up appointments and timely medication intake",
+          "Instruction: Educated about the potential long-term complications of untreated hypothyroidism and the benefits of early intervention",
+          "Patient Understanding and Agreement section content (expressed understanding, agreed to adhere, acknowledged need for follow-up/testing)",
+          "Clinician's concern about potential medication adherence due to patient's smoking and dietary habits",
+          "Clinician's concern about possible socioeconomic barriers to access healthier food options and follow-up healthcare services",
+          "Explicit instruction to complete blood work prior to the follow-up visit"
         ],
         "additions": [
-          "Instruction to encourage patient to seek help if they encounter any barriers to accessing healthier food options or making follow-up appointments"
+          "Instruction: Encourage the patient to seek help if they encounter any barriers to accessing healthier food options or making follow-up appointments (GT lists this as a 'Concern', not an instruction)"
         ]
       }
     ],
@@ -367,25 +371,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Introductory phrase in Assessment: 'Based on the symptoms and physical exam findings, it appears'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I'm hearing some wheezing and reduced breath sounds bilaterally in your lungs.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Physical Exam Findings: wheezing and reduced breath sounds bilaterally in lungs"
-    },
-    {
-      "addition_text": "Introductory phrase: 'Based on the symptoms and physical exam findings, it appears'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Let me take a look at your thyroid. It feels slightly enlarged but it's not tender.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Physical Exam Findings: Slightly enlarged and non-tender thyroid"
-    },
-    {
-      "addition_text": "Instruction to encourage patient to seek help if they encounter any barriers to accessing healthier food options or making follow-up appointments",
+      "addition_text": "Instruction: Encourage the patient to seek help if they encounter any barriers to accessing healthier food options or making follow-up appointments (GT lists this as a 'Concern', not an instruction)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Do you have any concerns about accessing healthier food options or making it to follow-up appointments? ... [doctor] If you encounter any barriers, please let us know so we can help.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage the patient to seek help if they encounter any barriers to accessing healthier food options or making follow-up appointments."
+      "matched_claim_text": "Encourage the patient to seek help if they encounter any barriers to accessing healthier food options or making follow-up appointments.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

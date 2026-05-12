@@ -198,9 +198,9 @@
     "plan_alignment_score": 0.7472527472527474
   },
   "expert_judge": {
-    "model": "model_name_placeholder",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note is mostly clinically usable but has several moderate omissions, including important past medical history (hyperlipidemia, statin discontinuation), a key objective finding (BMI), and a crucial patient education point (medication adherence). There are no unsupported or unknown additions that would lower the grade.",
+    "overall_summary": "The generated note provides a generally accurate summary of the patient's visit, capturing the chief complaints, current symptoms, and the core assessment and plan. However, it omits several clinically important details, including the patient's history of hyperlipidemia and statin intolerance, the specific trigger for chest tightness, and explicit education on medication adherence. These omissions represent multiple moderate issues that reduce the note's completeness and usefulness, leading to a 'C' grade. There are no unsupported or unknown additions.",
     "omissions": [
       "Patient's reason for follow-up: \"presents for a follow-up regarding his blood pressure management.\"",
       "Headache severity: \"mild to moderate\"",
@@ -225,7 +225,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits important past medical history, specifically the patient's history of hyperlipidemia and the reason for discontinuing statin use due to muscle pain. It also misses minor details regarding the patient's reason for follow-up, headache severity, chest tightness trigger, and general ROS findings.",
+        "summary": "The Subjective section accurately presents the patient's chief complaints and current symptoms but omits crucial historical context, such as the patient's history of hyperlipidemia and previous statin discontinuation due to muscle pain. It also misses the specific trigger for chest tightness (physical exertion) and general ROS details regarding weight and sleep. These are moderate omissions that make the section meaningfully incomplete.",
         "omissions": [
           "Patient's reason for follow-up: \"presents for a follow-up regarding his blood pressure management.\"",
           "Headache severity: \"mild to moderate\"",
@@ -238,8 +238,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section omits the general finding that the patient is overweight with a BMI of 29, which is a clinically relevant detail for a patient with hypertension.",
+        "grade": "A",
+        "summary": "The Objective section is largely accurate, with the only omission being the patient's general finding of being overweight with a BMI of 29, which is a minor detail.",
         "omissions": [
           "General findings: \"Overweight, BMI of 29.\""
         ],
@@ -248,14 +248,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the Ground Truth, with no omissions or unsupported additions.",
+        "summary": "The Assessment section is fully aligned with the Ground Truth, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section omits the specific quantity of Lisinopril prescribed, the explicit purposes for the Basic Metabolic Panel and Lipid Panel, a specific example for physical activity, and the patient education point about the importance of medication adherence despite side effect concerns and cost management strategies. All additions were supported by the transcript and did not impact the grade.",
+        "summary": "The Plan section is mostly complete and actionable. However, it omits the specific quantity of Lisinopril prescribed, the explicit purposes for the BMP and Lipid Panel, a specific example for physical activity, and crucial patient education regarding the importance of medication adherence despite concerns about side effects. The content of the 'Support' section was included within Patient Education, which is a minor structural difference rather than a content omission. The omission of medication adherence education is a moderate issue.",
         "omissions": [
           "Lisinopril prescription quantity: \"30 tablets.\"",
           "Purpose of BMP: \"to monitor kidney function.\"",
@@ -280,21 +280,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Common side effects of Lisinopril can include dizziness, headache, and a persistent dry cough. Serious side effects are rare but can include swelling of the face, lips, or throat. If you experience any of these, seek medical attention right away.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss common and serious side effects of Lisinopril."
+      "matched_claim_text": "Discuss common and serious side effects of Lisinopril.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient Education: \"common and serious side effects of Lisinopril\" (instead of just \"potential side effects\").",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Common side effects of Lisinopril can include dizziness, headache, and a persistent dry cough. Serious side effects are rare but can include swelling of the face, lips, or throat. If you experience any of these, seek medical attention right away.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss common and serious side effects of Lisinopril."
+      "matched_claim_text": "Discuss common and serious side effects of Lisinopril.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient Education: Inclusion of \"provide information on community resources for additional support and healthcare access\" within Patient Education section (GT has this as a separate \"Support\" section).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Lastly, I'd like to provide you with information on community resources for additional support and healthcare access.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide information on community resources for additional support and healthcare access."
+      "matched_claim_text": "Provide information on community resources for additional support and healthcare access.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

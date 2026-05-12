@@ -236,9 +236,9 @@
     "plan_alignment_score": 0.4565217391304348
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Subjective and Plan sections. The Subjective section omits several important HPI details regarding the duration and impact of the patient's condition, as well as their motivation and reluctance for specific lifestyle changes. The Plan section lacks crucial specifics for diet, exercise progression, medication details, comprehensive blood work, and patient education/support. While the Objective and Assessment sections are strong, the multiple moderate omissions in other key sections make the note meaningfully incomplete, requiring careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The overall note suffers from numerous and clinically significant omissions, particularly in the Plan section. While there are no unsupported or unknown additions, the lack of detail in the treatment plan, including specific diet and exercise instructions, medication management specifics, detailed blood work, patient education, and addressing access barriers, materially reduces the note's clinical usefulness and completeness. The Subjective and Objective sections also have several moderate omissions.",
     "omissions": [
       "Duration of obesity (6 years)",
       "Frequent mood changes",
@@ -286,8 +286,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has numerous omissions, including important HPI details such as the duration of obesity, the progressive worsening of symptoms, and the significant impact on the patient's work and social life. Crucially, the patient's motivation for dietary changes and reluctance for certain exercises due to pain/fatigue are missing. While some key symptoms are present, the volume and clinical materiality of the missing information make this section noticeably incomplete.",
+        "grade": "B",
+        "summary": "This section omits several important details from the HPI, such as the duration of obesity, the progressive worsening of symptoms, and the significant impact on the patient's work and social life. It also misses the patient's motivation for dietary changes and reluctance for exercise due to pain/fatigue. Additionally, several denials from the ROS (abdominal pain, bowel changes, shortness of breath, cough, chest pain, palpitations) are omitted, making the ROS less comprehensive. However, the core chief complaint and main symptoms are captured.",
         "omissions": [
           "Duration of obesity (6 years)",
           "Frequent mood changes",
@@ -309,8 +309,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-captured. It includes all major vital signs and physical examination findings. The few minor omissions (e.g., 'appears tired', 'normal heart sounds') do not significantly detract from the clinical usefulness or completeness of this section.",
+        "grade": "B",
+        "summary": "This section omits general appearance details (obese, appears tired) and several normal physical examination findings (normal heart sounds, no murmurs, clear lung sounds bilaterally). While key abnormal findings are present, the omissions reduce the completeness of the physical exam documentation.",
         "omissions": [
           "General appearance: Obese",
           "General appearance: Appears tired",
@@ -323,7 +323,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately capturing all diagnoses from the GroundTruth. The addition of 'Suspected' is supported by the transcript and does not negatively impact the grade.",
+        "summary": "The section accurately captures all diagnoses from the GroundTruth. The addition of \"Suspected\" is supported by the transcript and therefore does not reduce the grade.",
         "omissions": [],
         "additions": [
           "\"Suspected\" (qualifier for diagnoses)"
@@ -331,8 +331,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has a significant number of omissions that reduce its completeness and actionability. While the main categories of the plan are present, crucial details are missing, including specific dietary components (high fiber, low sugar/processed foods), detailed exercise progression (swimming, progressing as tolerated), medication specifics (3-month supply, re-evaluation), comprehensive blood work details (immunology panel, cortisol, insulin, thyroid function tests), and important patient education/counseling points. These omissions represent multiple moderate issues, making the plan less comprehensive and useful.",
+        "grade": "D",
+        "summary": "This section has numerous and significant omissions that materially reduce its clinical usefulness. Key details regarding the recommended diet (high in fiber, low in sugars and processed foods) and exercise (swimming, progression) are missing. Important specifics about Phentermine (3-month supply, re-evaluation at follow-up) are absent. The note also omits the specific endocrinologist's name, the detailed blood work (immunology panel, cortisol, insulin, thyroid function tests), and all points of patient education and counseling. Crucially, it fails to mention addressing potential barriers to accessing specialty care due to the patient's rural location and the patient's agreement with the plan. These omissions make the plan substantially incomplete and less actionable.",
         "omissions": [
           "Diet details: high in fiber",
           "Diet details: low in sugars",
@@ -367,14 +367,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, I suspect you might have severe obesity due to excess calories, polycystic ovary syndrome (PCOS), and hypothyroidism.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Phentermine: close monitoring",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, we’ll monitor you closely.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "with close monitoring."
+      "matched_claim_text": "with close monitoring.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

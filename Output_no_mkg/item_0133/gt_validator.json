@@ -255,75 +255,87 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains noticeable gaps and multiple moderate issues, particularly in the Subjective and Plan sections. The Subjective incorrectly states the visit type as a 'follow-up' instead of an 'initial consultation.' The Plan section significantly omits crucial patient context regarding cooperation, language barriers, and understanding of the treatment plan, which are vital for comprehensive care. The Assessment section also misses a key qualifier for the heart disease diagnosis. All additions in the note are supported by the transcript and do not negatively impact the grade. The note is usable but requires careful review due to these omissions.",
-    "omissions": [],
-    "additions": [],
+    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Plan section. While all additions are supported by the transcript and do not penalize the grade, there are numerous minor omissions across Subjective, Objective, and Assessment. The most significant issue is the complete omission of the Patient Education section and crucial general plan details regarding patient cooperation, language barriers, and comprehension, which materially reduce the completeness and usefulness of the note for ongoing patient management.",
+    "omissions": [
+      "Chief Complaint detail: indicating atherosclerotic heart disease",
+      "HPI detail: without angina pectoris",
+      "HPI detail: denies any chest pain",
+      "ROS: Gastrointestinal system review (no nausea, vomiting, or abdominal pain)",
+      "ROS: Neurological system review (no dizziness or headache)",
+      "ROS: Musculoskeletal system review (no new pain or swelling)",
+      "Physical Exam detail: no wheezes or crackles (from Respiratory exam)",
+      "Physical Exam detail: Extremities (no edema or cyanosis)",
+      "Assessment detail: without angina pectoris (from Atherosclerotic heart disease diagnosis)",
+      "Medication detail: oral (for Pravastatin)",
+      "Medication detail: indefinitely (for Pravastatin)",
+      "Specialist Referral detail: Dr. Sarah Thompson (nephrologist's name)",
+      "Specialist Referral detail: management of renal function (beyond evaluation)",
+      "Lifestyle Modification detail: to improve overall wellbeing and potentially aid in smoking cessation (benefits of yoga)",
+      "Lifestyle Modification detail: Counsel on smoking cessation (specific action)",
+      "Further Testing detail: to assess the extent of atherosclerosis (purpose of CT angiogram)",
+      "Patient Education section (entire section)",
+      "General Plan details: patient cooperation, difficulty quitting smoking, language barriers, patient understanding, future efforts for comprehension/adherence"
+    ],
+    "additions": [
+      "Assessment: sleep disturbances noted",
+      "Assessment: potential need for smoking cessation support",
+      "Plan: schedule follow-up appointments for assessing progress"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section has a moderate omission by incorrectly stating the visit as a 'follow-up' instead of an 'initial consultation.' It also omits several minor details from the Review of Systems and the specific duration of sleep difficulty. However, the core chief complaint and HPI are captured. All additions are supported by the transcript.",
+        "summary": "This section has several minor omissions, including specific denials in the HPI (e.g., 'without angina pectoris', 'denies any chest pain') and details from the Review of Systems (Gastrointestinal, Neurological, Musculoskeletal). While the core chief complaint and HPI are present, these missing details make the section less comprehensive.",
         "omissions": [
-          "The visit being an 'initial consultation' (Generated states 'follow-up')",
-          "Specific detail of atherosclerotic heart disease as 'of the native coronary artery without angina pectoris' in the HPI context",
-          "Denial of chest pain or dyspnea beyond usual COPD symptoms",
-          "Mention of occasional shortness of breath linked to COPD",
-          "ROS: Denial of palpitations or syncope (Cardiovascular)",
-          "ROS: Denial of nausea, vomiting, or abdominal pain (Gastrointestinal)",
-          "ROS: Denial of dizziness or headache (Neurological)",
-          "ROS: Denial of new pain or swelling (Musculoskeletal)",
-          "ROS: Specific duration of sleep difficulty ('averaging 4-5 hours per night')"
+          "Chief Complaint detail: indicating atherosclerotic heart disease",
+          "HPI detail: without angina pectoris",
+          "HPI detail: denies any chest pain",
+          "ROS: Gastrointestinal system review (no nausea, vomiting, or abdominal pain)",
+          "ROS: Neurological system review (no dizziness or headache)",
+          "ROS: Musculoskeletal system review (no new pain or swelling)"
         ],
-        "additions": [
-          "Mention of 'difficulties with smoking cessation' in the Subjective section"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "This section is largely accurate, capturing all vital signs and key physical exam findings. Minor omissions include the patient's general appearance being 'Alert' and specific details like 'no wheezes or crackles' and 'no edema or cyanosis.' The addition of 'normal cardiovascular exam' is supported by the transcript.",
+        "grade": "B",
+        "summary": "This section contains minor omissions related to the physical exam, specifically the absence of 'no wheezes or crackles' in the respiratory exam and the entire 'Extremities (no edema or cyanosis)' detail. The overall physical exam findings are mostly captured, but these specific negative findings are missing.",
         "omissions": [
-          "Physical Exam: General appearance 'Alert'",
-          "Physical Exam: Cardiovascular findings 'No murmurs, rubs, or gallops'",
-          "Physical Exam: Respiratory findings 'no wheezes or crackles'",
-          "Physical Exam: Extremities findings 'No edema or cyanosis'"
+          "Physical Exam detail: no wheezes or crackles (from Respiratory exam)",
+          "Physical Exam detail: Extremities (no edema or cyanosis)"
         ],
-        "additions": [
-          "Summary statement 'normal cardiovascular exam'"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "This section has a moderate omission by not including the important qualifier 'without angina pectoris' for atherosclerotic heart disease. It also slightly rephrases the stability of COPD. However, it correctly identifies the main diagnoses and includes supported additions regarding sleep disturbances and the need for smoking cessation support.",
+        "grade": "A",
+        "summary": "This section is strong, with only one minor omission regarding the detail 'without angina pectoris' for the atherosclerotic heart disease diagnosis. All additions ('sleep disturbances noted', 'potential need for smoking cessation support') are supported by the transcript and therefore do not negatively impact the grade.",
         "omissions": [
-          "'without angina pectoris' (for atherosclerotic heart disease)",
-          "'stable with current management' (for COPD)"
+          "Assessment detail: without angina pectoris (from Atherosclerotic heart disease diagnosis)"
         ],
         "additions": [
-          "'sleep disturbances noted'",
-          "'potential need for smoking cessation support'"
+          "sleep disturbances noted",
+          "potential need for smoking cessation support"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has multiple moderate omissions, most notably the entire concluding paragraph which provides vital patient context regarding cooperation, language barriers, understanding of the plan, and future efforts for adherence. It also omits specific details for medication (indefinitely), the specialist's name, and the full scope of patient education. All additions are supported by the transcript.",
+        "summary": "This section has multiple moderate omissions. While there are minor omissions regarding medication details (oral, indefinitely), specialist name (Dr. Sarah Thompson), scope of referral, and rationales for lifestyle modifications and further testing, the most significant issues are the complete absence of the 'Patient Education section' and 'General Plan details' (patient cooperation, difficulty quitting smoking, language barriers, patient understanding, future efforts for comprehension/adherence). These omissions represent noticeable gaps that make the note meaningfully incomplete regarding patient management and adherence strategies.",
         "omissions": [
-          "Medication details: Pravastatin 'oral, indefinitely'",
-          "Specialist Referral: Specific name 'Dr. Sarah Thompson'",
-          "Lifestyle Modifications: Reason for yoga 'to improve overall wellbeing and potentially aid in smoking cessation'",
-          "Lifestyle Modifications: 'Counsel on smoking cessation with support resources given'",
-          "Further Testing: Reason for CT angiogram 'to assess the extent of atherosclerosis'",
-          "Patient Education: Broader education on 'importance of dietary changes, smoking cessation, and regular exercise, considering her COPD limitations'",
-          "Concluding paragraph detail: Patient was somewhat cooperative but expressed difficulty in quitting smoking",
-          "Concluding paragraph detail: Language barriers managed with assistance of a bilingual staff member",
-          "Concluding paragraph detail: Patient has a basic understanding of her health conditions and the proposed treatment plan",
-          "Concluding paragraph detail: Further efforts will be made to ensure comprehension and adherence to the treatment plan in subsequent visits"
+          "Medication detail: oral (for Pravastatin)",
+          "Medication detail: indefinitely (for Pravastatin)",
+          "Specialist Referral detail: Dr. Sarah Thompson (nephrologist's name)",
+          "Specialist Referral detail: management of renal function (beyond evaluation)",
+          "Lifestyle Modification detail: to improve overall wellbeing and potentially aid in smoking cessation (benefits of yoga)",
+          "Lifestyle Modification detail: Counsel on smoking cessation (specific action)",
+          "Further Testing detail: to assess the extent of atherosclerosis (purpose of CT angiogram)",
+          "Patient Education section (entire section)",
+          "General Plan details: patient cooperation, difficulty quitting smoking, language barriers, patient understanding, future efforts for comprehension/adherence"
         ],
         "additions": [
-          "'schedule follow-up appointments for assessing progress' as a distinct action item"
+          "schedule follow-up appointments for assessing progress"
         ]
       }
     ],
@@ -332,39 +344,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Mention of 'difficulties with smoking cessation' in the Subjective section",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Speaking of smoking, I understand you're finding it difficult to quit. We have support resources that can help you. Would you be interested in those?\n[Patient]: Yes, I guess I need all the help I can get.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient mentions difficulties with smoking cessation."
-    },
-    {
-      "addition_text": "Summary statement 'normal cardiovascular exam'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Your cardiovascular exam is normal with no murmurs, rubs, or gallops.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cardiovascular exam is normal."
-    },
-    {
-      "addition_text": "'sleep disturbances noted'",
+      "addition_text": "Assessment: sleep disturbances noted",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'm having trouble sleeping. I only get about 4 to 5 hours a night.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Sleep disturbances are noted."
+      "matched_claim_text": "Sleep disturbances are noted.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'potential need for smoking cessation support'",
+      "addition_text": "Assessment: potential need for smoking cessation support",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Speaking of smoking, I understand you're finding it difficult to quit. We have support resources that can help you. Would you be interested in those?\n[Patient]: Yes, I guess I need all the help I can get.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "There is a potential need for smoking cessation support."
+      "matched_claim_text": "There is a potential need for smoking cessation support.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'schedule follow-up appointments for assessing progress' as a distinct action item",
+      "addition_text": "Plan: schedule follow-up appointments for assessing progress",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Alright, we'll make sure to follow up on your progress in a month. Please bring any questions or concerns you may have to your next visit.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointments for assessing progress."
+      "matched_claim_text": "Schedule follow-up appointments for assessing progress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "sleep disturbances noted",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I'm having trouble sleeping. I only get about 4 to 5 hours a night.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Sleep disturbances are noted.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "potential need for smoking cessation support",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Speaking of smoking, I understand you're finding it difficult to quit. We have support resources that can help you. Would you be interested in those?\n[Patient]: Yes, I guess I need all the help I can get.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "There is a potential need for smoking cessation support.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "schedule follow-up appointments for assessing progress",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Alright, we'll make sure to follow up on your progress in a month. Please bring any questions or concerns you may have to your next visit.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up appointments for assessing progress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

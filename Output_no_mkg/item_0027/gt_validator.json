@@ -265,9 +265,9 @@
     "plan_alignment_score": 0.7167630057803468
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective section, where all negative Review of Systems details and the entire patient habits and lifestyle section are missing. These omissions severely limit the clinical usefulness of the subjective history. The Assessment section omits important diagnostic qualifiers and the diagnosis of tobacco use disorder. The Plan section is also incomplete, notably missing all specific details for blood work orders. While the Objective section is accurate, the extensive gaps in other critical sections materially reduce the overall clinical utility of the note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note has noticeable gaps, primarily in the Subjective section, which omits all specific negative Review of Systems and detailed patient habits and lifestyle information. The Assessment section is missing important qualifiers for diagnoses and the explicit diagnosis of tobacco use disorder. The Plan section omits crucial details regarding blood work orders. While there are no unsupported or unknown additions, these omissions collectively make the note meaningfully incomplete and reduce its overall clinical usefulness.",
     "omissions": [
       "Reason for visit (general adult medical examination) from HPI",
       "Impact of symptoms (moderate impact on work and daily activities)",
@@ -293,8 +293,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "The Subjective section has major omissions, including the reason for the visit, the impact of symptoms, all negative Review of Systems details, and the entire section on patient habits and lifestyle. These extensive omissions make the subjective history substantially incomplete and significantly reduce its clinical usefulness.",
+        "grade": "C",
+        "summary": "The Subjective section has significant omissions, including the reason for the visit, the impact of symptoms, all specific negative Review of Systems details, and all specific habits and lifestyle details. The complete absence of detailed lifestyle information is a major omission, making this section meaningfully incomplete for a comprehensive medical examination.",
         "omissions": [
           "Reason for visit (general adult medical examination) from HPI",
           "Impact of symptoms (moderate impact on work and daily activities)",
@@ -308,14 +308,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurately reflects all Ground Truth content without any omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is complete and accurate, capturing all vital signs and physical examination findings without any omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section omits important qualifiers for several diagnoses (e.g., 'pending further evaluation,' 'previously diagnosed') which provide crucial context. It also completely misses the diagnosis of 'Tobacco use disorder,' which is a significant clinical finding directly addressed in the plan, making the assessment noticeably incomplete.",
+        "grade": "B",
+        "summary": "The Assessment section omits several important qualifiers for diagnoses (e.g., 'pending further evaluation,' 'previously diagnosed,' 'requiring further evaluation') which provide crucial context. It also misses the explicit diagnosis of 'Tobacco use disorder,' which is a moderate omission given its clinical significance and inclusion in the plan.",
         "omissions": [
           "Encounter for general adult medical examination with abnormal findings",
           "Qualifier for pre-diabetes/Type 2 Diabetes (\"pending further evaluation\")",
@@ -328,8 +328,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits specific details for physical activity and the endocrinologist referral. More significantly, it completely misses the detailed blood work orders, which are essential for further evaluation. It also omits the patient education regarding adherence to lifestyle changes and medication, resulting in noticeable gaps in the plan.",
+        "grade": "B",
+        "summary": "The Plan section omits specific details for regular physical activity, the endocrinologist's name, and the specific reason for the referral. More significantly, it completely misses the detailed blood work orders (biochemistry panel, liver function tests, lipid profile, fasting blood glucose levels), which is a moderate omission. It also omits the discussion of patient education and agreement.",
         "omissions": [
           "Specifics for regular physical activity (aim for at least 30 minutes of moderate exercise 5 days a week)",
           "Specific endocrinologist name (Dr. Morales)",
@@ -351,14 +351,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Hello, I'm feeling alright. I'm just a bit concerned about some symptoms I've been having.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports feeling alright but is concerned about symptoms."
+      "matched_claim_text": "The patient reports feeling alright but is concerned about symptoms.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"to manage blood glucose levels\" after Metformin prescription",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For medication, I would like to start you on Metformin 500 mg, 1 tablet, orally, twice daily for 1 month. This will help manage your blood glucose levels.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Metformin 500 mg, 1 tablet, orally, twice daily for 1 month to manage blood glucose levels."
+      "matched_claim_text": "Prescribe Metformin 500 mg, 1 tablet, orally, twice daily for 1 month to manage blood glucose levels.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

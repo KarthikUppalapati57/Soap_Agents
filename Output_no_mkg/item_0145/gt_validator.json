@@ -319,9 +319,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The overall note receives a D grade due to significant omissions, particularly in the Assessment section where the formal diagnosis and differential diagnoses are missing. While there are no unsupported or unknown additions, the cumulative effect of multiple moderate to major omissions across Subjective and Plan sections, in addition to the critical gaps in Assessment, materially reduces the clinical usefulness and completeness of the note.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The note is missing several clinically important details, including the patient's family history of coronary artery disease, smoking cessation status, and drug allergies in the Subjective section. The Assessment section notably omits the specific diagnosis of Pure Hypercholesterolemia and differential diagnoses. While the core treatment plan is present, the note lacks some specific details regarding lifestyle modifications and patient education. There are no unsupported or unknown additions.",
     "omissions": [
       "Patient's concern about cardiovascular health",
       "Family history of coronary artery disease",
@@ -350,7 +350,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section receives a C grade due to several moderate omissions. Key details such as the patient's concern about cardiovascular health, family history of coronary artery disease, specific diet details (low intake of fruits and vegetables), and the exact duration since quitting smoking (5 years ago) are missing. While some information was relocated, the absence of these clinically relevant details from the Subjective section makes it noticeably incomplete.",
+        "summary": "This section omits several clinically important details, including the patient's family history of coronary artery disease, the fact that he quit smoking 5 years ago, and his lack of known drug allergies. It also misses the patient's concern about cardiovascular health and minor lifestyle details like sleep hours and social outings.",
         "omissions": [
           "Patient's concern about cardiovascular health",
           "Family history of coronary artery disease",
@@ -368,7 +368,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section receives an A grade. The only omission is the minor descriptive detail \"middle-aged male\" from the General appearance. All other clinically important objective findings are accurately captured, and there are no unsupported or unknown additions.",
+        "summary": "This section is largely complete, with only a minor omission of the \"middle-aged male\" descriptor in the general appearance.",
         "omissions": [
           "\"middle-aged male\" descriptor in General appearance"
         ],
@@ -376,8 +376,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section receives a D grade due to major omissions. The formal diagnosis (Pure Hypercholesterolemia, unspecified) and the entire differential diagnosis section are absent. While some medical reasoning is present, the lack of a specific diagnosis and differential diagnoses significantly reduces the clinical usefulness and completeness of the assessment.",
+        "grade": "C",
+        "summary": "This section has significant omissions, failing to include the specific diagnosis of Pure Hypercholesterolemia (ICD-10: E78.00) and the differential diagnoses (Familial hypercholesterolemia, Secondary hyperlipidemia). Part of the medical reasoning for pharmacologic intervention is also omitted.",
         "omissions": [
           "Diagnosis: Pure Hypercholesterolemia, unspecified",
           "Medical Reasoning: \"Lifestyle modifications and pharmacologic intervention are warranted.\"",
@@ -390,8 +390,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section receives a C grade due to multiple moderate omissions. Specific medication details like the \"oral\" route and \"quantity: 30 tablets\" are missing. More importantly, specific dietary recommendations (encourage consumption of fruits, vegetables, whole grains, and lean proteins) and crucial patient education and counseling points, including the patient's understanding and agreement with the plan, are omitted. These gaps make the plan less comprehensive and reduce its utility for patient adherence and shared decision-making.",
+        "grade": "B",
+        "summary": "This section has several moderate omissions, such as specific encouragement for consuming fruits, vegetables, whole grains, and lean proteins, and the explicit listing of an initial lipid panel under blood work. It also omits details regarding patient education on medication adherence and lifestyle changes, and the patient's understanding and agreement with the plan. Minor details like medication route and quantity are also missing.",
         "omissions": [
           "Medication: \"oral\" route for Atorvastatin",
           "Medication: \"quantity: 30 tablets\" for Atorvastatin",
@@ -412,14 +412,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Cough or any respiratory issues?\n[Patient]: No, my breathing is fine.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "History of hypertension managed with Lisinopril 10 mg once daily (relocated from Subjective in GroundTruthSOAP)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see here that you have a history of hypertension managed with Lisinopril 10 mg once daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has a history of hypertension managed with Lisinopril 10 mg once daily."
+      "matched_claim_text": "The patient has a history of hypertension managed with Lisinopril 10 mg once daily.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

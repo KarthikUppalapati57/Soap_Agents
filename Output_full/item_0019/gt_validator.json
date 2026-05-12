@@ -250,110 +250,116 @@
     "plan_alignment_score": 0.5346534653465347
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has several moderate omissions, particularly in the Subjective section, where key details about the duration, frequency, impact on daily activities, and specific symptoms like headaches are missing. The Plan section also omits the full referral contingency and some critical immediate care instructions. All additions were supported by the transcript and therefore did not impact the grade. These omissions result in a note that is meaningfully incomplete, requiring careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, with the significant advantage of having no unsupported or unknown additions. However, it receives a B grade due to several moderate omissions. Key details regarding the duration, frequency, and impact of the patient's symptoms were omitted from the Subjective section. Additionally, the Plan section missed the explicit consideration for a gastroenterologist referral if symptoms persist and some specific urgent care instructions. Minor omissions were also noted across other sections, but these do not significantly detract from the note's overall utility.",
     "omissions": [
-      "Duration of symptoms (past 3 days)",
-      "Initial consultation",
-      "Headaches (from HPI/ROS)",
-      "Episodes recur at least once per hour",
-      "Impact on daily activities (work, sleep, eat)",
-      "Feeling fatigued (from ROS General)",
-      "Unable to maintain daily routines (from ROS General)",
-      "Mild vertigo (from ROS Neurological)",
-      "Alert and oriented but appears fatigued (Objective General)",
-      "No focal deficits observed (Objective Neurologic)",
-      "\"unspecified\" for nausea with vomiting diagnosis",
-      "\"exacerbation\" for Irritable Bowel Syndrome",
-      "\"consider differential given the age and symptoms\" for Early Pregnancy",
-      "\"if tolerated\" for oral rehydration solutions",
-      "\"or sooner\" for follow-up",
-      "Referral to Specialists section (None at this time. Consider gastroenterologist referral if symptoms persist or worsen.)",
-      "\"Temporary dietary modification\" for BRAT diet",
-      "Specifics of BRAT diet (Bananas, Rice, Applesauce, Toast)",
-      "\"and when to seek urgent care\" (from hydration education)",
-      "\"to help manage symptoms\" (from rest/stress education)",
-      "\"to assist with further diagnosis and management\" (from symptom log education)",
-      "Patient agrees to adhere to prescribed treatment and follow up as recommended",
-      "Patient instructed to monitor symptoms closely",
-      "\"persistent vomiting, or any new concerning symptoms\" (from immediate care instructions)",
-      "Emphasis on the importance of follow-up to reassess and adjust treatment as necessary"
+      "Patient is presenting for an initial consultation.",
+      "Duration of symptoms (past 3 days).",
+      "Frequency of vomiting episodes (at least once per hour).",
+      "Impact of symptoms on daily activities (ability to work, sleep, and eat).",
+      "Review of Systems (ROS) section structure.",
+      "Subjective ROS General: Reports feeling fatigued, unable to maintain daily routines.",
+      "Subjective ROS HEENT: no signs of dehydration noted.",
+      "Subjective ROS Neurological: no focal deficits reported.",
+      "Objective General: Alert and oriented.",
+      "Objective General: Appears fatigued.",
+      "Objective Neurologic: No focal deficits observed.",
+      "Assessment: 'unspecified' qualifier for nausea with vomiting.",
+      "Assessment: 'associated' qualifier for migraine-associated nausea and vomiting.",
+      "Assessment: 'exacerbation' qualifier for Irritable Bowel Syndrome.",
+      "Assessment: 'consider differential given the age and symptoms' qualifier for Early Pregnancy.",
+      "Assessment: The explicit separation of 'Diagnosis' and 'Differential Diagnosis' sections.",
+      "Plan: 'or sooner' qualifier for follow-up.",
+      "Plan: Referral to Specialists section: 'None at this time. Consider gastroenterologist referral if symptoms persist or worsen.'",
+      "Plan: Specific components of BRAT diet (Bananas, Rice, Applesauce, Toast).",
+      "Plan: 'when to seek urgent care' in patient education regarding dehydration.",
+      "Plan: Patient agreement to adhere to prescribed treatment and follow up as recommended.",
+      "Plan: Instruction to seek immediate care if experiencing 'persistent vomiting, or any new concerning symptoms'.",
+      "Plan: Emphasis on the importance of follow-up to reassess and adjust treatment as necessary.",
+      "Plan: The structured sub-sections (e.g., Medication Adjustment, Referral to Specialists, INSTRUCTIONS)."
     ],
     "additions": [
-      "Lightheadedness (in Subjective)",
-      "Normal blood pressure, heart rate, and temperature (in Objective)",
-      "\"and vomiting management\" for Ondansetron (in Plan)",
-      "\"to reassess symptoms\" for follow-up (in Plan)",
-      "\"or signs of severe dehydration appear\" (in follow-up, Plan)",
-      "\"Encourage calling the clinic if any questions or concerns arise before the follow-up appointment\" (in Plan)"
+      "Objective: Normal blood pressure, heart rate, and temperature.",
+      "Objective: 'during the neurological exam' as a qualifier for mild dizziness.",
+      "Assessment: 'potential causes include' phrasing to introduce differential diagnoses.",
+      "Plan: 'and vomiting management' to ondansetron indication.",
+      "Plan: 'for now' qualifier for BRAT diet.",
+      "Plan: 'once feeling better' qualifier for reintroducing regular foods.",
+      "Plan: 'to reassess symptoms' qualifier for follow-up.",
+      "Plan: 'e.g.' for signs of severe dehydration.",
+      "Plan: 'for future reference' qualifier for keeping a log of symptoms.",
+      "Plan: Instruction to call the clinic if any questions or concerns arise before the follow-up appointment."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits several clinically important details from the HPI and ROS, including the duration of symptoms (past 3 days), frequency of episodes (at least once per hour), impact on daily activities (work, sleep, eat), and the presence of headaches. These omissions reduce the completeness of the patient's presenting history.",
+        "grade": "B",
+        "summary": "This section omitted several important details from the History of Present Illness, including the duration of symptoms (past 3 days), frequency of vomiting episodes (at least once per hour), and the significant impact on daily activities (ability to work, sleep, and eat). Minor omissions also included the structured Review of Systems section and specific ROS details like 'no signs of dehydration noted' and 'no focal deficits reported'.",
         "omissions": [
-          "Duration of symptoms (past 3 days)",
-          "Initial consultation",
-          "Headaches",
-          "Episodes recur at least once per hour",
-          "Impact on daily activities (work, sleep, eat)",
-          "Feeling fatigued",
-          "Unable to maintain daily routines",
-          "Mild vertigo"
+          "Patient is presenting for an initial consultation.",
+          "Duration of symptoms (past 3 days).",
+          "Frequency of vomiting episodes (at least once per hour).",
+          "Impact of symptoms on daily activities (ability to work, sleep, and eat).",
+          "Review of Systems (ROS) section structure.",
+          "ROS General: Reports feeling fatigued, unable to maintain daily routines.",
+          "ROS HEENT: no signs of dehydration noted.",
+          "ROS Neurological: no focal deficits reported."
         ],
-        "additions": [
-          "Lightheadedness"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete, with only minor omissions of specific observations like 'Alert and oriented but appears fatigued' and 'No focal deficits observed.' All additions were supported by the transcript.",
+        "summary": "This section had only minor omissions, specifically 'Alert and oriented,' 'Appears fatigued,' and 'No focal deficits observed' from the general and neurological findings. These do not significantly impact the clinical usefulness of the section.",
         "omissions": [
-          "Alert and oriented but appears fatigued",
-          "No focal deficits observed"
+          "General: Alert and oriented.",
+          "General: Appears fatigued.",
+          "Neurologic: No focal deficits observed."
         ],
         "additions": [
-          "Normal blood pressure, heart rate, and temperature"
+          "Normal blood pressure, heart rate, and temperature.",
+          "'during the neurological exam' as a qualifier for mild dizziness."
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately captures the primary diagnosis and differential diagnoses. The omissions are minor, relating to specific phrasing or rationale for the differential diagnoses, and do not impact clinical accuracy. There were no unsupported or unknown additions.",
+        "summary": "The Assessment section omitted minor qualifiers for the diagnoses and differential diagnoses, such as 'unspecified' for nausea with vomiting and 'exacerbation' for Irritable Bowel Syndrome. The explicit separation of 'Diagnosis' and 'Differential Diagnosis' sections was also omitted, but the core content is present and accurate.",
         "omissions": [
-          "\"unspecified\" for nausea with vomiting diagnosis",
-          "\"exacerbation\" for Irritable Bowel Syndrome",
-          "\"consider differential given the age and symptoms\" for Early Pregnancy"
+          "'unspecified' qualifier for nausea with vomiting.",
+          "'associated' qualifier for migraine-associated nausea and vomiting.",
+          "'exacerbation' qualifier for Irritable Bowel Syndrome.",
+          "'consider differential given the age and symptoms' qualifier for Early Pregnancy.",
+          "The explicit separation of 'Diagnosis' and 'Differential Diagnosis' sections."
         ],
-        "additions": []
+        "additions": [
+          "'potential causes include' phrasing to introduce differential diagnoses."
+        ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several omissions, including the entire 'Referral to Specialists' section (which contained important contingency planning) and specific critical immediate care instructions such as 'persistent vomiting, or any new concerning symptoms.' Other minor omissions include details about the BRAT diet and specific patient education phrasing. All additions were supported by the transcript.",
+        "grade": "B",
+        "summary": "This section had moderate omissions, including the explicit consideration for a gastroenterologist referral if symptoms persist or worsen, and specific instructions to seek immediate care if experiencing 'persistent vomiting, or any new concerning symptoms.' Minor omissions included the 'or sooner' qualifier for follow-up, specific components of the BRAT diet, and the patient's agreement to the prescribed treatment and follow-up.",
         "omissions": [
-          "\"if tolerated\" for oral rehydration solutions",
-          "\"or sooner\" for follow-up",
-          "Referral to Specialists section (None at this time. Consider gastroenterologist referral if symptoms persist or worsen.)",
-          "\"Temporary dietary modification\" for BRAT diet",
-          "Specifics of BRAT diet (Bananas, Rice, Applesauce, Toast)",
-          "\"and when to seek urgent care\" (from hydration education)",
-          "\"to help manage symptoms\" (from rest/stress education)",
-          "\"to assist with further diagnosis and management\" (from symptom log education)",
-          "Patient agrees to adhere to prescribed treatment and follow up as recommended",
-          "Patient instructed to monitor symptoms closely",
-          "\"persistent vomiting, or any new concerning symptoms\" (from immediate care instructions)",
-          "Emphasis on the importance of follow-up to reassess and adjust treatment as necessary"
+          "'or sooner' qualifier for follow-up.",
+          "Referral to Specialists section: 'None at this time. Consider gastroenterologist referral if symptoms persist or worsen.'",
+          "Specific components of BRAT diet (Bananas, Rice, Applesauce, Toast).",
+          "'when to seek urgent care' in patient education regarding dehydration.",
+          "Patient agreement to adhere to prescribed treatment and follow up as recommended.",
+          "Instruction to seek immediate care if experiencing 'persistent vomiting, or any new concerning symptoms'.",
+          "Emphasis on the importance of follow-up to reassess and adjust treatment as necessary.",
+          "The structured sub-sections (e.g., Medication Adjustment, Referral to Specialists, INSTRUCTIONS)."
         ],
         "additions": [
-          "\"and vomiting management\" for Ondansetron",
-          "\"to reassess symptoms\" for follow-up",
-          "\"or signs of severe dehydration appear\" (in follow-up)",
-          "\"Encourage calling the clinic if any questions or concerns arise before the follow-up appointment\""
+          "'and vomiting management' to ondansetron indication.",
+          "'for now' qualifier for BRAT diet.",
+          "'once feeling better' qualifier for reintroducing regular foods.",
+          "'to reassess symptoms' qualifier for follow-up.",
+          "'e.g.' for signs of severe dehydration.",
+          "'for future reference' qualifier for keeping a log of symptoms.",
+          "Instruction to call the clinic if any questions or concerns arise before the follow-up appointment."
         ]
       }
     ],
@@ -362,88 +368,184 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Lightheadedness (in Subjective)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Yes, I still feel a bit dizzy and lightheaded.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lightheadedness"
-    },
-    {
-      "addition_text": "Normal blood pressure, heart rate, and temperature (in Objective)",
+      "addition_text": "Objective: Normal blood pressure, heart rate, and temperature.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your blood pressure, heart rate, and temperature all look normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Normal blood pressure, heart rate, and temperature"
+      "matched_claim_text": "Normal blood pressure, heart rate, and temperature",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"and vomiting management\" for Ondansetron (in Plan)",
+      "addition_text": "Objective: 'during the neurological exam' as a qualifier for mild dizziness.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I've been feeling dizzy and I have headaches.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Dizziness",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: 'potential causes include' phrasing to introduce differential diagnoses.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "there are several potential causes we need to consider.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: 'and vomiting management' to ondansetron indication.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'm going to prescribe you ondansetron, which is a medication that can help reduce nausea and vomiting. You should take 4 mg orally every 8 hours as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe ondansetron 4 mg orally every 8 hours as needed for nausea and vomiting management"
+      "matched_claim_text": "Prescribe ondansetron 4 mg orally every 8 hours as needed for nausea and vomiting management",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"to reassess symptoms\" for follow-up (in Plan)",
+      "addition_text": "Plan: 'for now' qualifier for BRAT diet.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] For now, I'd like to see you back in a week to reassess your symptoms. If they worsen or you experience severe dehydration, persistent vomiting, or any new concerning symptoms, please seek immediate care.",
+      "transcript_evidence": "[doctor] I also recommend following a BRAT diet for now, which includes bananas, rice, applesauce, and toast. ... Once you start feeling better, you can gradually reintroduce regular foods.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up in a week to reassess symptoms; seek immediate care if symptoms worsen or signs of severe dehydration appear"
+      "matched_claim_text": "Recommend BRAT diet for now, gradually reintroduce regular foods once feeling better",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"or signs of severe dehydration appear\" (in follow-up, Plan)",
+      "addition_text": "Plan: 'once feeling better' qualifier for reintroducing regular foods.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] For now, I'd like to see you back in a week to reassess your symptoms. If they worsen or you experience severe dehydration, persistent vomiting, or any new concerning symptoms, please seek immediate care.",
+      "transcript_evidence": "[doctor] I also recommend following a BRAT diet for now, which includes bananas, rice, applesauce, and toast. ... Once you start feeling better, you can gradually reintroduce regular foods.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up in a week to reassess symptoms; seek immediate care if symptoms worsen or signs of severe dehydration appear"
+      "matched_claim_text": "Recommend BRAT diet for now, gradually reintroduce regular foods once feeling better",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Encourage calling the clinic if any questions or concerns arise before the follow-up appointment\" (in Plan)",
+      "addition_text": "Plan: 'to reassess symptoms' qualifier for follow-up.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "For now, I'd like to see you back in a week to reassess your symptoms.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: 'e.g.' for signs of severe dehydration.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] There's mild pallor but no signs of dehydration, which is a positive sign.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No signs of dehydration",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: 'for future reference' qualifier for keeping a log of symptoms.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Lastly, it would be very helpful if you could keep a log of your symptoms, including the frequency and severity of your nausea and vomiting, as well as any other symptoms you experience.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Suggest keeping a log of symptoms for future reference",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Instruction to call the clinic if any questions or concerns arise before the follow-up appointment.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If anything comes up or you have any questions, don't hesitate to call the clinic.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage calling the clinic if any questions or concerns arise before the follow-up appointment"
+      "matched_claim_text": "Encourage calling the clinic if any questions or concerns arise before the follow-up appointment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Lightheadedness",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Yes, I still feel a bit dizzy and lightheaded.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lightheadedness"
-    },
-    {
-      "addition_text": "Normal blood pressure, heart rate, and temperature",
+      "addition_text": "Normal blood pressure, heart rate, and temperature.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your blood pressure, heart rate, and temperature all look normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Normal blood pressure, heart rate, and temperature"
+      "matched_claim_text": "Normal blood pressure, heart rate, and temperature",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"and vomiting management\" for Ondansetron",
+      "addition_text": "'during the neurological exam' as a qualifier for mild dizziness.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I've been feeling dizzy and I have headaches.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Dizziness",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'potential causes include' phrasing to introduce differential diagnoses.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "The primary diagnosis is nausea with vomiting, and there are several potential causes we need to consider. One possibility is acute gastroenteritis... Another possibility is... There's also a chance it could be... Lastly, we can't rule out early pregnancy...",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'and vomiting management' to ondansetron indication.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'm going to prescribe you ondansetron, which is a medication that can help reduce nausea and vomiting. You should take 4 mg orally every 8 hours as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe ondansetron 4 mg orally every 8 hours as needed for nausea and vomiting management"
+      "matched_claim_text": "Prescribe ondansetron 4 mg orally every 8 hours as needed for nausea and vomiting management",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"to reassess symptoms\" for follow-up",
+      "addition_text": "'for now' qualifier for BRAT diet.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I also recommend following a BRAT diet for now, which includes bananas, rice, applesauce, and toast. ... Once you start feeling better, you can gradually reintroduce regular foods.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recommend BRAT diet for now, gradually reintroduce regular foods once feeling better",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'once feeling better' qualifier for reintroducing regular foods.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I also recommend following a BRAT diet for now, which includes bananas, rice, applesauce, and toast. ... Once you start feeling better, you can gradually reintroduce regular foods.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recommend BRAT diet for now, gradually reintroduce regular foods once feeling better",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'to reassess symptoms' qualifier for follow-up.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] For now, I'd like to see you back in a week to reassess your symptoms. If they worsen or you experience severe dehydration, persistent vomiting, or any new concerning symptoms, please seek immediate care.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up in a week to reassess symptoms; seek immediate care if symptoms worsen or signs of severe dehydration appear"
+      "matched_claim_text": "Schedule follow-up in a week to reassess symptoms; seek immediate care if symptoms worsen or signs of severe dehydration appear",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"or signs of severe dehydration appear\" (in follow-up)",
+      "addition_text": "'e.g.' for signs of severe dehydration.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] For now, I'd like to see you back in a week to reassess your symptoms. If they worsen or you experience severe dehydration, persistent vomiting, or any new concerning symptoms, please seek immediate care.",
+      "transcript_evidence": "[doctor] There's mild pallor but no signs of dehydration, which is a positive sign.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up in a week to reassess symptoms; seek immediate care if symptoms worsen or signs of severe dehydration appear"
+      "matched_claim_text": "No signs of dehydration",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Encourage calling the clinic if any questions or concerns arise before the follow-up appointment\"",
+      "addition_text": "'for future reference' qualifier for keeping a log of symptoms.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Lastly, it would be very helpful if you could keep a log of your symptoms, including the frequency and severity of your nausea and vomiting, as well as any other symptoms you experience.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Suggest keeping a log of symptoms for future reference",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Instruction to call the clinic if any questions or concerns arise before the follow-up appointment.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If anything comes up or you have any questions, don't hesitate to call the clinic.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage calling the clinic if any questions or concerns arise before the follow-up appointment"
+      "matched_claim_text": "Encourage calling the clinic if any questions or concerns arise before the follow-up appointment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

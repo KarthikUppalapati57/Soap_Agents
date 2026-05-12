@@ -234,69 +234,71 @@
     "plan_alignment_score": 0.5547445255474454
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate overview but has noticeable gaps. Key omissions include the patient's history of peripheral neuropathy and Type 2 Diabetes in the Subjective section, the detailed Review of Systems, and the specific diagnosis and detailed clinical reasoning regarding neuropathic involvement in the Assessment section. While the core plan is present, several important patient education and social support details are also omitted. No unsupported or unknown additions were found, as the single identified addition was supported by the transcript.",
+    "overall_summary": "The generated note provides a generally accurate overview but has noticeable gaps in clinically important information. Key omissions include the patient's history of peripheral neuropathy and Type 2 Diabetes in the Subjective section, and the specific diagnosis of Other Chronic Pain along with detailed clinical reasoning in the Assessment section. Several minor details regarding patient education, adherence discussions, and the specific context/purpose of some interventions are also omitted from the Plan. No unsupported or unknown additions were identified.",
     "omissions": [
-      "Patient's history of peripheral neuropathy and Type 2 Diabetes (from Subjective HPI)",
-      "Detailed Review of Systems section (Musculoskeletal, Neurological, Constitutional)",
-      "General physical exam findings (appears fatigued, cooperative but affected by transportation issues)",
-      "Assessment detail: 'Decreased sensation and reduced reflexes in the lower extremities suggest significant neuropathic involvement.'",
+      "Patient's pain severely limits mobility and ability to perform daily tasks.",
+      "Patient's history of peripheral neuropathy and Type 2 Diabetes (from Subjective section)",
+      "Patient wakes frequently due to pain.",
+      "General physical exam findings: Appears fatigued, cooperative but affected by transportation issues.",
+      "Clinical reasoning: Decreased sensation and reduced reflexes in the lower extremities suggest significant neuropathic involvement.",
       "Diagnosis: Other Chronic Pain",
-      "Specific quantity of Lyrica (60 capsules)",
-      "Explicit patient education on conditions and treatment plan",
-      "Discussion of importance of adhering to medication and follow-up appointments despite transportation issues",
-      "Discussion of transportation assistance to improve appointment adherence",
-      "Reason for dietary improvement via food banks (due to financial constraints)"
+      "Lyrica prescription detail: 60 capsules.",
+      "Purpose of MRI: to evaluate for possible spinal causes contributing to pain.",
+      "Follow-up discussion: importance of adhering to medication and follow-up appointments despite transportation issues.",
+      "Patient education: about conditions and proposed treatment plan.",
+      "Purpose of transportation assistance: to help improve appointment adherence.",
+      "Reason for food bank information: due to financial constraints."
     ],
     "additions": [
-      "Summary of pain management, Metformin adjustment, and lab tests in Assessment section"
+      "Pain management with Lyrica (Pregabalin), adjustment of Metformin dosage, and laboratory tests ordered (in Assessment section)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several omissions, including the patient's history of peripheral neuropathy and Type 2 Diabetes from the HPI, which is a significant clinical detail. The entire structured Review of Systems section is also omitted, making this section meaningfully incomplete.",
+        "summary": "This section has significant omissions, including the patient's history of peripheral neuropathy and Type 2 Diabetes, which are crucial for understanding the patient's current presentation. The impact of pain on mobility and daily tasks, and the patient waking frequently due to pain, were also omitted.",
         "omissions": [
-          "Patient's history of peripheral neuropathy and Type 2 Diabetes (from HPI)",
-          "Review of Systems section header and structured content",
-          "HPI detail: 'His pain severely limits his mobility and ability to perform daily tasks.'",
-          "ROS detail: 'Constitutional: Poor sleep, wakes frequently due to pain.'"
+          "Patient's pain severely limits mobility and ability to perform daily tasks.",
+          "Patient's history of peripheral neuropathy and Type 2 Diabetes.",
+          "Patient wakes frequently due to pain."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is largely complete with only a minor omission regarding general physical exam findings ('Appears fatigued, cooperative but affected by transportation issues').",
+        "summary": "This section is nearly complete, with only a minor omission regarding the patient appearing fatigued and affected by transportation issues.",
         "omissions": [
-          "General physical exam findings: 'Appears fatigued, cooperative but affected by transportation issues.'"
+          "General physical exam findings: Appears fatigued, cooperative but affected by transportation issues."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "This section has two moderate omissions: the detailed clinical reasoning statement ('Decreased sensation and reduced reflexes in the lower extremities suggest significant neuropathic involvement') and the specific diagnosis ('Other Chronic Pain'). The identified addition was supported by the transcript and therefore did not lower the grade.",
+        "summary": "This section is missing the specific diagnosis of 'Other Chronic Pain' and a key piece of clinical reasoning connecting decreased sensation and reduced reflexes to significant neuropathic involvement. A supported addition summarizing the plan was present but did not reduce the grade.",
         "omissions": [
-          "'Decreased sensation and reduced reflexes in the lower extremities suggest significant neuropathic involvement.'",
+          "Clinical reasoning: Decreased sensation and reduced reflexes in the lower extremities suggest significant neuropathic involvement.",
           "Diagnosis: Other Chronic Pain"
         ],
         "additions": [
-          "'Pain management with Lyrica (Pregabalin), adjustment of Metformin dosage, and laboratory tests ordered.'"
+          "Pain management with Lyrica (Pregabalin), adjustment of Metformin dosage, and laboratory tests ordered"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section captures the core treatment plan but has several minor omissions. These include the specific quantity of Lyrica, explicit patient education details, and important discussions regarding adherence to appointments despite transportation issues, transportation assistance resources, and the reason for dietary improvement via food banks.",
+        "summary": "While the core plan (medications, labs, imaging, follow-up) is present, this section has multiple minor to moderate omissions. These include specific prescription details (60 capsules), the explicit purpose of the MRI, detailed discussions about medication adherence despite transportation issues, general patient education, and the specific reasons for offering transportation assistance and food bank information.",
         "omissions": [
-          "Specific quantity of Lyrica (60 capsules)",
-          "Explicit patient education about conditions and proposed treatment plan",
-          "Discussion of the importance of adhering to medication and follow-up appointments despite transportation issues",
-          "Discussion of resources for transportation assistance to help improve appointment adherence",
-          "Reason for dietary improvement via food banks (due to financial constraints)"
+          "Lyrica prescription detail: 60 capsules.",
+          "Purpose of MRI: to evaluate for possible spinal causes contributing to pain.",
+          "Follow-up discussion: importance of adhering to medication and follow-up appointments despite transportation issues.",
+          "Patient education: about conditions and proposed treatment plan.",
+          "Purpose of transportation assistance: to help improve appointment adherence.",
+          "Reason for food bank information: due to financial constraints."
         ],
         "additions": []
       }
@@ -306,18 +308,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Summary of pain management, Metformin adjustment, and lab tests in Assessment section",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: For your pain management, I'm going to prescribe you Lyrica, also known as Pregabalin. ... I'm also going to adjust your Metformin dosage from 500 mg to 850 mg, twice daily... I'll order some laboratory tests as well. We need to check your Hemoglobin A1c to monitor your diabetes, renal function tests, and a Complete Blood Count.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'Pain management with Lyrica (Pregabalin), adjustment of Metformin dosage, and laboratory tests ordered.'",
+      "addition_text": "Pain management with Lyrica (Pregabalin), adjustment of Metformin dosage, and laboratory tests ordered (in Assessment section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For your pain management, I'm going to prescribe you Lyrica, also known as Pregabalin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pain management includes Lyrica (Pregabalin)."
+      "matched_claim_text": "Pain management includes Lyrica (Pregabalin).",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Pregabalin — indication — myofascial pain syndrome"
+    },
+    {
+      "addition_text": "Pain management with Lyrica (Pregabalin), adjustment of Metformin dosage, and laboratory tests ordered",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: For your pain management, I'm going to prescribe you Lyrica, also known as Pregabalin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pain management includes Lyrica (Pregabalin).",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Pregabalin — indication — myofascial pain syndrome"
     }
   ]
 }

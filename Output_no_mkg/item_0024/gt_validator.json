@@ -209,76 +209,74 @@
     "plan_alignment_score": 0.6746987951807228
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note provides a partially complete summary of the patient's encounter. While the Objective and Assessment sections are comprehensive and accurate, the Subjective section omits numerous specific details regarding the patient's pain characteristics, impact on daily life, and review of systems. The Plan section also has several moderate omissions, including specific medication administration details and the crucial patient understanding statement. These gaps collectively reduce the overall completeness and clinical utility of the note, making it usable with caution and requiring review.",
+    "overall_summary": "The generated note provides a generally accurate overview but suffers from several omissions, particularly in the Subjective section, where key details regarding pain intensity, duration, aggravating factors, and specific sleep impact are missing. The Plan section also omits important medication frequency details. While there are no unsupported additions, these omissions reduce the overall completeness and clinical usefulness of the note, making it meaningfully incomplete in parts.",
     "omissions": [
-      "Patient's pain described as \"moderate to severe\"",
-      "Pain persisting for \"3 weeks\"",
-      "Pain without associated \"numbness or tingling\"",
-      "Pain worsens with \"prolonged sitting and standing\"",
-      "Pain significantly impacted ability to perform \"job duties and household chores\"",
-      "Patient averaging \"4-5 hours per night\" of sleep",
-      "Denial of \"weakness\" (neurological ROS)",
-      "Diet described as \"generally balanced but high in caffeine\"",
-      "Exercise described as \"minimal due to pain, previously active with walking\"",
-      "Ibuprofen administration details: \"oral\", \"every 6 hours\"",
-      "Follow-up purpose: \"to assess pain and functionality\"",
-      "Name of orthopedic specialist: \"Dr. John Smith\"",
-      "Purpose of specialist referral: \"for further evaluation\"",
-      "Specifics of adherence: \"physical therapy and proper medication use\"",
-      "\"Patient Understanding\" section/statement: \"The patient understands and agrees with the recommended medical treatment plan.\""
+      "Patient reports moderate to severe low back pain",
+      "Pain persisting for the past 3 weeks",
+      "Denial of numbness or tingling (in HPI or ROS)",
+      "Pain worsens with prolonged sitting and standing",
+      "Patient reports poor sleep, averaging 4-5 hours per night",
+      "Denial of weakness (in ROS)",
+      "Diet details (generally balanced but high in caffeine)",
+      "Exercise details (minimal due to pain, previously active with walking)",
+      "Purpose of lumbar spine X-ray: to rule out structural abnormalities or degenerative changes",
+      "Ibuprofen dosage frequency: every 6 hours",
+      "Ibuprofen route: oral",
+      "Follow-up purpose: to assess pain and functionality",
+      "Specific name of orthopedic specialist: Dr. John Smith",
+      "Patient understanding and agreement with the recommended medical treatment plan"
     ],
     "additions": [
-      "\"caffeine intake\" as a potential cause of low back pain in the Assessment section"
+      "Caffeine intake as a potential cause of low back pain in Assessment"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits numerous specific details from the HPI and ROS. These include the 'moderate to severe' pain intensity, exact duration of '3 weeks,' specific aggravating factors like 'prolonged sitting and standing,' detailed impact on 'job duties and household chores,' and the precise '4-5 hours per night' of sleep. It also misses the denial of 'weakness' and specific descriptions of diet and exercise habits. While the core complaints are present, the lack of these details creates noticeable gaps, making the section meaningfully incomplete.",
+        "summary": "This section has several omissions, including the patient's reported pain intensity (\"moderate to severe\"), duration (\"3 weeks\"), specific aggravating factors (\"prolonged sitting and standing\"), and detailed sleep impact (\"averaging 4-5 hours per night\"). It also omits the denial of numbness, tingling, and weakness, as well as specific diet and exercise details. These omissions result in a less comprehensive history of present illness and review of systems.",
         "omissions": [
-          "Patient's pain described as \"moderate to severe\"",
-          "Pain persisting for \"3 weeks\"",
-          "Pain without associated \"numbness or tingling\"",
-          "Pain worsens with \"prolonged sitting and standing\"",
-          "Pain significantly impacted ability to perform \"job duties and household chores\"",
-          "Patient averaging \"4-5 hours per night\" of sleep",
-          "Denial of \"weakness\" (neurological ROS)",
-          "Diet described as \"generally balanced but high in caffeine\"",
-          "Exercise described as \"minimal due to pain, previously active with walking\""
+          "Patient reports moderate to severe low back pain",
+          "Pain persisting for the past 3 weeks",
+          "Denial of numbness or tingling",
+          "Pain worsens with prolonged sitting and standing",
+          "Patient reports poor sleep, averaging 4-5 hours per night",
+          "Denial of weakness",
+          "Diet generally balanced but high in caffeine",
+          "Exercise minimal due to pain, previously active with walking"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is comprehensive and accurately captures all vital signs, physical exam findings, and pending investigations from the GroundTruth, with no omissions or unsupported/unknown additions.",
-        "omissions": [],
+        "summary": "This section is largely complete, with only a minor omission regarding the specific purpose of the pending lumbar spine X-ray (to rule out structural abnormalities or degenerative changes).",
+        "omissions": [
+          "Purpose of lumbar spine X-ray: to rule out structural abnormalities or degenerative changes"
+        ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately identifies the diagnosis of mechanical low back pain and its potential contributing factors. The addition of 'caffeine intake' as a potential cause is explicitly marked as 'supported' by the automated check and therefore does not negatively impact the grade.",
+        "summary": "This section is accurate and complete, with no omissions or unsupported/unknown additions. The addition regarding caffeine intake as a potential cause of low back pain is supported by the transcript and therefore does not impact the grade.",
         "omissions": [],
         "additions": [
-          "\"caffeine intake\" as a potential cause of low back pain"
+          "Caffeine intake as a potential cause of low back pain"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section outlines the main treatment strategies but omits several important clinical details. These include specific medication administration instructions ('every 6 hours' for Ibuprofen), the name of the orthopedic specialist ('Dr. John Smith'), the specific purpose of follow-up ('to assess pain and functionality'), and the crucial 'Patient Understanding' statement. While the pending X-ray information was moved to the Objective section, its omission from the Plan as per GroundTruth structure, along with the other missing details, constitutes multiple moderate issues that reduce the completeness of this section.",
+        "grade": "B",
+        "summary": "This section has several omissions, including the specific frequency for Ibuprofen dosage (\"every 6 hours\") and its route (\"oral\"). It also omits the specific purpose of the follow-up (\"to assess pain and functionality\"), the name of the orthopedic specialist (\"Dr. John Smith\"), and the patient's understanding and agreement with the plan. The missing medication frequency is a moderate issue.",
         "omissions": [
-          "\"Awaiting lumbar spine X-ray to rule out structural abnormalities or degenerative changes\" (as an item in the Plan section, as it was moved to Objective in GeneratedSOAP)",
-          "Ibuprofen administration details: \"oral\", \"every 6 hours\"",
-          "Follow-up purpose: \"to assess pain and functionality\"",
-          "Name of orthopedic specialist: \"Dr. John Smith\"",
-          "Purpose of specialist referral: \"for further evaluation\"",
-          "Specifics of adherence: \"physical therapy and proper medication use\"",
-          "\"Patient Understanding\" section/statement: \"The patient understands and agrees with the recommended medical treatment plan.\""
+          "Ibuprofen dosage frequency: every 6 hours",
+          "Ibuprofen route: oral",
+          "Follow-up purpose: to assess pain and functionality",
+          "Specific name of orthopedic specialist: Dr. John Smith",
+          "Patient understanding and agreement with the recommended medical treatment plan"
         ],
         "additions": []
       }
@@ -288,18 +286,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"caffeine intake\" as a potential cause of low back pain in the Assessment section",
+      "addition_text": "Caffeine intake as a potential cause of low back pain in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I'm here because of some really bad back pain. [patient] It's intermittent, but when it hits, it's really bad.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient presents with a chief complaint of intermittent low back pain"
+      "matched_claim_text": "The patient presents with a chief complaint of intermittent low back pain",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"caffeine intake\" as a potential cause of low back pain",
+      "addition_text": "Caffeine intake as a potential cause of low back pain",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I'm here because of some really bad back pain. [patient] It's intermittent, but when it hits, it's really bad.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient presents with a chief complaint of intermittent low back pain"
+      "matched_claim_text": "The patient presents with a chief complaint of intermittent low back pain",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

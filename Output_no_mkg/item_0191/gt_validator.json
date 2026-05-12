@@ -221,75 +221,75 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately capturing the core clinical picture, assessment, and plan. A significant strength is the absence of any unsupported or unknown additions. However, the note contains several omissions across multiple sections. The most notable issue is the omission of key X-ray findings in the Objective section, which reduces the completeness of diagnostic evidence. Other sections also have several minor to moderate omissions, but these do not fundamentally compromise the note's clinical utility.",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, but it has a noticeable gap in the Objective section due to the complete omission of X-ray findings that support the osteoarthritis diagnosis. Additionally, there are several minor omissions across the Subjective and Plan sections, including specific details about the frequency of pain flares, patient's general sleep quality, specific medication quantity, and detailed follow-up instructions. No unsupported or unknown additions were identified, meaning all additions were grounded in the transcript.",
     "omissions": [
-      "Pain flares up a few times weekly (Subjective)",
-      "Difficulty with prolonged standing (Subjective)",
-      "No other joint pain (Subjective - ROS Musculoskeletal)",
-      "No numbness or tingling (Subjective - ROS Neurological)",
-      "Generally sleeps well (Subjective - ROS General)",
-      "General physical exam findings: Well-nourished, well-developed in no acute distress (Objective)",
-      "X-ray results: Moderate osteophyte formation and narrowed joint space consistent with osteoarthritis (Objective)",
-      "Acetaminophen quantity: 100 tablets (Plan)",
-      "Referral detail: evaluation of joint health (Plan)",
-      "Patient commitment statement: The patient is highly committed to following medical advice and improving his quality of life (Plan)",
-      "General symptom monitoring: monitor his symptoms (Plan)",
-      "Pain diary to be reviewed at the follow-up visit (Plan)"
+      "Frequency of pain flares (a few times weekly)",
+      "Difficulty with prolonged standing",
+      "Denial of other joint pain",
+      "Denial of numbness or tingling",
+      "Statement that patient generally sleeps well",
+      "General appearance: Well-nourished, well-developed, in no acute distress",
+      "Investigation/Test Results: X-ray findings (moderate osteophyte formation, narrowed joint space consistent with osteoarthritis)",
+      "Acetaminophen quantity (100 tablets)",
+      "Specific reason for rheumatologist referral: 'for further evaluation of joint health and pain management'",
+      "Patient's commitment to following medical advice and improving quality of life",
+      "Advice to monitor symptoms",
+      "Detail that pain diary will be reviewed at follow-up visit"
     ],
     "additions": [
-      "Explanation of gout's contribution: which may be contributing to the knee pain due to inflammation exacerbating osteoarthritis (Assessment)",
-      "Acetaminophen purpose: for pain management (Plan)",
-      "Referral detail: and specialized care (Plan)"
+      "Explanation that gout may be contributing to knee pain due to inflammation exacerbating osteoarthritis",
+      "Reason for acetaminophen prescription: 'for pain management'",
+      "Additional detail for rheumatologist referral: 'and specialized care'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section accurately captures the chief complaint and core history of present illness. However, it omits several minor details such as the frequency of pain flares, difficulty with prolonged standing, and specific ROS denials regarding other joint pain, numbness/tingling, and general sleep quality. While these omissions are present, they do not significantly detract from the overall clinical picture, making the section mostly complete and usable.",
+        "summary": "The Subjective section is mostly complete but omits several minor details from the Ground Truth, such as the specific frequency of pain flares ('a few times weekly'), difficulty with prolonged standing, denial of other joint pain, denial of numbness or tingling, and the patient generally sleeping well. These are minor omissions that do not significantly impact the clinical utility of the section.",
         "omissions": [
-          "Pain flares up a few times weekly",
+          "Frequency of pain flares (a few times weekly)",
           "Difficulty with prolonged standing",
-          "No other joint pain (from ROS Musculoskeletal)",
-          "No numbness or tingling (from ROS Neurological)",
-          "Generally sleeps well (from ROS General)"
+          "Denial of other joint pain",
+          "Denial of numbness or tingling",
+          "Statement that patient generally sleeps well"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section accurately reports the patient's vitals and key physical exam findings for the right knee. However, it notably omits the general physical exam findings (well-nourished, well-developed, in no acute distress) and, more significantly, the X-ray results detailing moderate osteophyte formation and narrowed joint space. The absence of these crucial diagnostic findings makes this section meaningfully incomplete.",
+        "summary": "The Objective section has a moderate omission: the X-ray findings (moderate osteophyte formation and narrowed joint space consistent with osteoarthritis) are entirely missing. This is a significant piece of objective evidence supporting the diagnosis. A minor omission is the general appearance description ('Well-nourished, well-developed, in no acute distress').",
         "omissions": [
-          "General physical exam findings: Well-nourished, well-developed in no acute distress",
-          "X-ray results: Moderate osteophyte formation and narrowed joint space consistent with osteoarthritis"
+          "General appearance: Well-nourished, well-developed, in no acute distress",
+          "Investigation/Test Results: X-ray findings (moderate osteophyte formation, narrowed joint space consistent with osteoarthritis)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately stating the diagnoses of unilateral primary osteoarthritis and chronic gout. The explanation of gout's potential contribution is a supported addition and enhances the clinical context without introducing any grading issues. There are no omissions or unsupported/unknown additions in this section.",
+        "summary": "The Assessment section is excellent, accurately capturing all Ground Truth content. There are no omissions, and the single addition regarding gout contributing to knee pain is fully supported by the transcript.",
         "omissions": [],
         "additions": [
-          "Explanation of gout's contribution: which may be contributing to the knee pain due to inflammation exacerbating osteoarthritis"
+          "Explanation that gout may be contributing to knee pain due to inflammation exacerbating osteoarthritis"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section effectively outlines the core treatment strategy, including medication, referral, therapy, and lifestyle modifications. It also includes supported additions that enhance clarity. However, it omits several minor details such as the acetaminophen quantity, the specific mention of 'evaluation of joint health' in the referral, the patient's commitment statement, the instruction to monitor symptoms, and that the pain diary will be reviewed at the follow-up visit. Despite these omissions, the core plan remains clinically sound and actionable.",
+        "summary": "The Plan section contains several minor omissions, including the specific quantity of acetaminophen (100 tablets), the full reason for the rheumatologist referral, the patient's commitment to medical advice, advice to monitor symptoms, and the detail that the pain diary will be reviewed at the follow-up visit. The core plan items are present, and all additions are supported by the transcript.",
         "omissions": [
-          "Acetaminophen quantity: 100 tablets",
-          "Referral detail: evaluation of joint health",
-          "Patient commitment statement: The patient is highly committed to following medical advice and improving his quality of life",
-          "General symptom monitoring: monitor his symptoms",
-          "Pain diary to be reviewed at the follow-up visit"
+          "Acetaminophen quantity (100 tablets)",
+          "Specific reason for rheumatologist referral: 'for further evaluation of joint health and pain management'",
+          "Patient's commitment to following medical advice and improving quality of life",
+          "Advice to monitor symptoms",
+          "Detail that pain diary will be reviewed at follow-up visit"
         ],
         "additions": [
-          "Acetaminophen purpose: for pain management",
-          "Referral detail: and specialized care"
+          "Reason for acetaminophen prescription: 'for pain management'",
+          "Additional detail for rheumatologist referral: 'and specialized care'"
         ]
       }
     ],
@@ -298,46 +298,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Explanation of gout's contribution: which may be contributing to the knee pain due to inflammation exacerbating osteoarthritis (Assessment)",
+      "addition_text": "Explanation that gout may be contributing to knee pain due to inflammation exacerbating osteoarthritis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Also, I see from your records that you have a chronic condition: gout. [Patient]: Yes, I’ve had gout for a while now. Could it be related? [Doctor]: It's possible that your gout is contributing to the knee pain. Sometimes, the inflammation from gout can exacerbate osteoarthritis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient also has a chronic condition of gout, which may be contributing to the knee pain due to inflammation exacerbating osteoarthritis."
+      "matched_claim_text": "The patient also has a chronic condition of gout, which may be contributing to the knee pain due to inflammation exacerbating osteoarthritis.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Acetaminophen purpose: for pain management (Plan)",
+      "addition_text": "Reason for acetaminophen prescription: 'for pain management'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, I'll prescribe you acetaminophen 650 mg. You can take this orally every 6 hours as needed for the pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe acetaminophen 650 mg orally every 6 hours as needed for pain management."
+      "matched_claim_text": "Prescribe acetaminophen 650 mg orally every 6 hours as needed for pain management.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Referral detail: and specialized care (Plan)",
+      "addition_text": "Additional detail for rheumatologist referral: 'and specialized care'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "He’s an expert in these conditions and can offer more specialized care.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explanation of gout's contribution: which may be contributing to the knee pain due to inflammation exacerbating osteoarthritis",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Also, I see from your records that you have a chronic condition: gout. [Patient]: Yes, I’ve had gout for a while now. Could it be related? [Doctor]: It's possible that your gout is contributing to the knee pain. Sometimes, the inflammation from gout can exacerbate osteoarthritis.",
+      "transcript_evidence": "[Doctor]: I’d also like to refer you to a rheumatologist, Dr. John Reyes, for further evaluation of your joint health and pain management. He’s an expert in these conditions and can offer more specialized care.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient also has a chronic condition of gout, which may be contributing to the knee pain due to inflammation exacerbating osteoarthritis."
-    },
-    {
-      "addition_text": "Acetaminophen purpose: for pain management",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: First, I'll prescribe you acetaminophen 650 mg. You can take this orally every 6 hours as needed for the pain.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe acetaminophen 650 mg orally every 6 hours as needed for pain management."
-    },
-    {
-      "addition_text": "Referral detail: and specialized care",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "He’s an expert in these conditions and can offer more specialized care.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": "Refer the patient to a rheumatologist, Dr. John Reyes, for further evaluation and specialized care.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

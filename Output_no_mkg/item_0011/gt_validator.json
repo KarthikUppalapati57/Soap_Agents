@@ -265,79 +265,87 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a mostly accurate clinical summary but suffers from several omissions, particularly in the Subjective and Plan sections. The Plan section has multiple moderate to major omissions, including critical patient education details and the specific 3-day follow-up timeframe for symptom progression. While the note is generally usable, these gaps make it meaningfully incomplete, especially regarding patient instructions and safety. All additions were supported by the transcript and did not impact the grade.",
+    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Plan section. While there are no unsupported or unknown additions, several moderate omissions in the Subjective and Plan sections make the note meaningfully incomplete regarding patient education, specific follow-up instructions, and the impact of symptoms on daily life. The note remains usable but requires careful review due to these missing details.",
     "omissions": [
       "HPI: Symptoms are moderate in severity and constant, causing significant difficulty in completing daily chores and work from home.",
+      "HPI: Disrupted sleep (5-6 hours per night) due to coughing (specific duration)",
       "HPI: Patient feels fatigued.",
-      "ROS: No hemoptysis.",
-      "ROS: No changes in bowel habits.",
-      "ROS: Sleep duration (5-6 hours per night) due to coughing.",
-      "Objective: Cardiovascular: No murmurs.",
-      "Objective: Musculoskeletal: No joint swelling or tenderness.",
-      "Assessment: Medical Reasoning: Mention of 'constellation of symptoms including a persistent dry cough and mild shortness of breath' as the basis for the differential.",
-      "Plan: Medications: 20 tablets of ibuprofen dispensed.",
+      "ROS: Respiratory: no hemoptysis.",
+      "ROS: Gastrointestinal: no changes in bowel habits.",
+      "Physical Exam: Musculoskeletal: No joint swelling or tenderness.",
+      "Assessment: Medical Reasoning: The patient presents with a constellation of symptoms including a persistent dry cough and mild shortness of breath.",
+      "Assessment: Medical Reasoning: Chest X-ray purpose 'to rule out any underlying respiratory condition'.",
+      "Plan: Ibuprofen dispensed with 20 tablets.",
       "Plan: Patient Education: Educated on the potential causes of his symptoms.",
       "Plan: Patient Education: Instructed to monitor for new symptoms such as chest pain or high fever.",
-      "Plan: Patient Education: Discussed the importance of maintaining current diet and lifestyle habits, given his lactose intolerance and moderate exercise routine.",
-      "Plan: Follow-up: Specific instruction to follow up in 3 days if no improvement or sooner if symptoms worsen.",
-      "Plan: Patient Understanding: Patient understands and agrees with the recommended medical treatment plan.",
-      "Plan: Instructions: Explicit instruction to return to the clinic or contact the office if no improvement in symptoms over the next 3 days."
+      "Plan: Patient Education: Discussed the importance of maintaining his current diet and lifestyle habits, given his lactose intolerance and moderate exercise routine.",
+      "Plan: Follow up in 3 days if no improvement.",
+      "Plan: Investigations: Chest X-ray purpose 'to evaluate for any potential underlying respiratory condition'.",
+      "Plan: Environmental and Socio-economic Considerations: The patient's lower socio-economic status and living in a neighborhood with moderate pollution may influence the management and follow-up of his condition.",
+      "Plan: The patient understands and agrees with the recommended medical treatment plan."
     ],
     "additions": [
-      "Objective: Respiratory: 'on lung auscultation'",
-      "Objective: Neurological: 'neurologically'"
+      "Objective: Physical examination: 'on lung auscultation'",
+      "Assessment: 'for further evaluation and management' (as purpose of X-ray)",
+      "Plan: 'for asthma management' (detail for albuterol)",
+      "Plan: 'due to lower socio-economic status and moderate pollution in living area' (causal link phrasing)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The generated note omits details on the severity and impact of symptoms on daily activities, specific sleep duration due to coughing, and a few negative findings from the Review of Systems (hemoptysis, changes in bowel habits). These are minor to moderate omissions.",
+        "summary": "The Subjective section has several omissions, including the specific impact of symptoms on daily chores and work, the exact duration of disrupted sleep, and the patient feeling fatigued (though fatigue is noted in ROS). These are moderate to minor issues that reduce the completeness of the HPI.",
         "omissions": [
           "HPI: Symptoms are moderate in severity and constant, causing significant difficulty in completing daily chores and work from home.",
+          "HPI: Disrupted sleep (5-6 hours per night) due to coughing (specific duration)",
           "HPI: Patient feels fatigued.",
-          "ROS: No hemoptysis.",
-          "ROS: No changes in bowel habits.",
-          "ROS: Sleep duration (5-6 hours per night) due to coughing."
+          "ROS: Respiratory: no hemoptysis.",
+          "ROS: Gastrointestinal: no changes in bowel habits."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is strong, accurately capturing vital signs and most physical exam findings. It only omits two minor negative findings (no murmurs, no joint swelling or tenderness). All additions were supported by the transcript.",
+        "summary": "The Objective section is largely complete, with only one minor omission regarding the absence of joint swelling or tenderness in the musculoskeletal exam. All additions in this section are supported by the transcript.",
         "omissions": [
-          "Cardiovascular: No murmurs.",
-          "Musculoskeletal: No joint swelling or tenderness."
+          "Physical Exam: Musculoskeletal: No joint swelling or tenderness."
         ],
         "additions": [
-          "Respiratory: 'on lung auscultation'",
-          "Neurological: 'neurologically'"
+          "Physical examination: 'on lung auscultation'"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The note correctly identifies the differential diagnoses and the need for a chest X-ray. However, it omits the explicit medical reasoning linking the patient's constellation of symptoms to these differential considerations, which is a moderate omission.",
+        "grade": "A",
+        "summary": "The Assessment section is well-aligned, with only minor omissions of introductory phrasing and a slightly different wording for the purpose of the Chest X-ray, which is otherwise captured. All additions are supported by the transcript.",
         "omissions": [
-          "Medical Reasoning: Mention of 'constellation of symptoms including a persistent dry cough and mild shortness of breath' as the basis for the differential."
+          "Medical Reasoning: The patient presents with a constellation of symptoms including a persistent dry cough and mild shortness of breath.",
+          "Medical Reasoning: Chest X-ray purpose 'to rule out any underlying respiratory condition'."
         ],
-        "additions": []
+        "additions": [
+          "'for further evaluation and management' (as purpose of X-ray)"
+        ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has multiple moderate to major omissions. Key missing elements include the specific quantity of ibuprofen dispensed, important patient education points (potential causes, specific new symptoms to monitor like chest pain/high fever, and maintaining diet/lifestyle habits), and the crucial 3-day follow-up timeframe if symptoms do not improve. These omissions significantly reduce the completeness and actionable nature of the plan.",
+        "summary": "The Plan section contains multiple moderate omissions that significantly impact its completeness. These include crucial patient education points (monitoring for new symptoms like chest pain/fever, maintaining diet/lifestyle habits), specific follow-up timing (3 days if no improvement), and the influence of socio-economic factors on management. These gaps make the plan meaningfully incomplete, requiring caution and review.",
         "omissions": [
-          "Medications: 20 tablets of ibuprofen dispensed.",
+          "Ibuprofen dispensed with 20 tablets.",
           "Patient Education: Educated on the potential causes of his symptoms.",
           "Patient Education: Instructed to monitor for new symptoms such as chest pain or high fever.",
-          "Patient Education: Discussed the importance of maintaining current diet and lifestyle habits, given his lactose intolerance and moderate exercise routine.",
-          "Follow-up: Specific instruction to follow up in 3 days if no improvement or sooner if symptoms worsen.",
-          "Patient Understanding: Patient understands and agrees with the recommended medical treatment plan.",
-          "Instructions: Explicit instruction to return to the clinic or contact the office if no improvement in symptoms over the next 3 days."
+          "Patient Education: Discussed the importance of maintaining his current diet and lifestyle habits, given his lactose intolerance and moderate exercise routine.",
+          "Follow up in 3 days if no improvement.",
+          "Investigations: Chest X-ray purpose 'to evaluate for any potential underlying respiratory condition'.",
+          "Environmental and Socio-economic Considerations: The patient's lower socio-economic status and living in a neighborhood with moderate pollution may influence the management and follow-up of his condition.",
+          "The patient understands and agrees with the recommended medical treatment plan."
         ],
-        "additions": []
+        "additions": [
+          "'for asthma management' (detail for albuterol)",
+          "'due to lower socio-economic status and moderate pollution in living area' (causal link phrasing)"
+        ]
       }
     ],
     "rubric_notes": null
@@ -345,32 +353,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: Respiratory: 'on lung auscultation'",
+      "addition_text": "Objective: Physical examination: 'on lung auscultation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I hear some mild wheezing on expiration and scattered rhonchi.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lung auscultation reveals mild wheezing on expiration and scattered rhonchi."
+      "matched_claim_text": "Lung auscultation reveals mild wheezing on expiration and scattered rhonchi.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective: Neurological: 'neurologically'",
+      "addition_text": "Assessment: 'for further evaluation and management' (as purpose of X-ray)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Neurologically, you're alert and oriented to person, place, and time.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] We're going to order a chest X-ray to rule out any underlying respiratory condition. ... [doctor] We're also ordering a chest X-ray to evaluate for any potential underlying respiratory condition. We'll await those results.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "A chest X-ray is being awaited for further evaluation and management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Respiratory: 'on lung auscultation'",
+      "addition_text": "Plan: 'for asthma management' (detail for albuterol)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Do you have an albuterol inhaler for your asthma? [patient] Yes, I do. [doctor] Good. Continue using the albuterol inhaler as needed.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient to continue using albuterol inhaler as needed for asthma management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: 'due to lower socio-economic status and moderate pollution in living area' (causal link phrasing)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] One more thing, I understand that your lower socio-economic status and living in a neighborhood with moderate pollution might affect the management and follow-up of your condition. I've provided information on community health services for additional support and resources.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Information on community health services is provided for additional support and resources due to lower socio-economic status and moderate pollution in the living area.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Physical examination: 'on lung auscultation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I hear some mild wheezing on expiration and scattered rhonchi.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lung auscultation reveals mild wheezing on expiration and scattered rhonchi."
+      "matched_claim_text": "Lung auscultation reveals mild wheezing on expiration and scattered rhonchi.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Neurological: 'neurologically'",
+      "addition_text": "'for further evaluation and management' (as purpose of X-ray)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Neurologically, you're alert and oriented to person, place, and time.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] We're going to order a chest X-ray to rule out any underlying respiratory condition. ... [doctor] We're also ordering a chest X-ray to evaluate for any potential underlying respiratory condition. We'll await those results.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "A chest X-ray is being awaited for further evaluation and management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'for asthma management' (detail for albuterol)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Do you have an albuterol inhaler for your asthma? [patient] Yes, I do. [doctor] Good. Continue using the albuterol inhaler as needed.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient to continue using albuterol inhaler as needed for asthma management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'due to lower socio-economic status and moderate pollution in living area' (causal link phrasing)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] One more thing, I understand that your lower socio-economic status and living in a neighborhood with moderate pollution might affect the management and follow-up of your condition. I've provided information on community health services for additional support and resources.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Information on community health services is provided for additional support and resources due to lower socio-economic status and moderate pollution in the living area.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

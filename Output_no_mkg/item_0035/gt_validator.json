@@ -265,93 +265,93 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps and multiple moderate issues across several sections. Key omissions include the patient's history of hypothyroidism and its management, detailed physical examination findings (especially regarding tachycardia, pallor, and brittle nails), and the comprehensive medical reasoning linking symptoms and physical findings to the diagnosis in the Assessment. While there are no unsupported additions, the cumulative effect of these omissions makes the note meaningfully incomplete and requires careful review.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note suffers from significant omissions across the Subjective, Objective, and Assessment sections. Key historical details, such as the patient's hypothyroidism and the detailed impact of symptoms, are missing from the Subjective section. The Objective section lacks comprehensive physical examination findings and their clinical interpretations. Most critically, the Assessment section omits the detailed medical reasoning that connects the patient's symptoms and physical findings to the diagnosis, which materially reduces the clinical usefulness of the note. The Plan section is mostly complete with only minor omissions. No unsupported or unknown additions were identified.",
     "omissions": [
       "initial consultation",
-      "symptoms are moderate in severity",
-      "symptoms occur daily (for fatigue, dizziness, brittle nails)",
-      "necessitating frequent breaks due to fatigue",
-      "denial of tobacco, drug use, and significant alcohol consumption (2 drinks/week socially)",
-      "sleeps 6 hours/night but feels tired",
-      "exercises moderately (yoga twice a week)",
-      "history of hypothyroidism managed with Levothyroxine 100 mcg daily",
-      "patient is highly compliant with medical advice",
-      "denial of gastrointestinal symptoms (nausea, vomiting, diarrhea, constipation)",
-      "subjective report of noticeable pallor",
-      "denial of rashes or itching",
-      "tachycardia noted in vital signs",
-      "Physical Examination: General Appearance: patient appears pale with evident fatigue",
-      "Physical Examination: Cardiovascular: tachycardia noted, regular rhythm",
-      "Physical Examination: Skin: noticeable pallor and brittle nails",
-      "Physical Examination: Other Systems: no other abnormalities detected",
-      "medical reasoning linking symptoms (fatigue, dizziness, brittle nails, palpitations) and physical findings (pallor, tachycardia) to anemia",
-      "medication route 'oral' for Ferrous Sulfate",
-      "specific examples of iron-rich foods (spinach, beans, fortified cereals)",
-      "statement that patient understands and agrees with treatment plan",
-      "specific example for referral reason: gastrointestinal bleeding"
+      "Symptoms are moderate in severity",
+      "Symptoms occur daily",
+      "Symptoms necessitating frequent breaks",
+      "Denies history of tobacco, drug use, or significant alcohol consumption (2 drinks per week socially)",
+      "Sleeps around 6 hours per night but often feels tired",
+      "Follows a primarily vegetarian diet with a limited intake of red meat (from HPI)",
+      "Exercises moderately, doing yoga twice a week",
+      "Known history of hypothyroidism, managed with Levothyroxine 100 mcg once daily",
+      "Highly compliant with medical advice",
+      "ROS: Gastrointestinal: Denies nausea, vomiting, diarrhea, or constipation.",
+      "ROS: Dermatological: Reports noticeable pallor",
+      "Objective Vital Signs: (tachycardia noted) for Pulse",
+      "Objective Physical Examination: General Appearance: The patient appears pale with evident fatigue.",
+      "Objective Physical Examination: Cardiovascular: Tachycardia noted, regular rhythm.",
+      "Objective Physical Examination: Skin: Noticeable pallor and brittle nails.",
+      "Objective Physical Examination: Other Systems: No other abnormalities detected.",
+      "Assessment Medical Reasoning: The patient's symptoms of fatigue, dizziness, brittle nails, and palpitations, along with the physical findings of pallor and tachycardia, are indicative of anemia.",
+      "Plan Prescribed Medication: 'oral' route",
+      "Plan Lifestyle Recommendations: specific examples of iron-rich foods (spinach, beans, fortified cereals)",
+      "Plan Referral: 'such as gastrointestinal bleeding'",
+      "Plan: The patient understands and agrees with the treatment plan."
     ],
     "additions": [
-      "palpitations occur occasionally (contradicts GT HPI 'symptoms occur daily')",
-      "objective finding 'pale appearance and brittle nails observed on physical examination' included in Subjective section"
+      "Subjective: Palpitations occur occasionally.",
+      "Subjective: Pale appearance and brittle nails observed on physical examination."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has significant omissions, most notably the patient's history of hypothyroidism managed with Levothyroxine 100 mcg daily. Other moderate omissions include details about symptom severity and daily occurrence, impact on work, social history (tobacco, drug, alcohol use), sleep patterns, exercise habits, and several denials from the Review of Systems. While two additions were noted, both were supported by the transcript and therefore do not lower the grade. The missing medical history is a major gap.",
+        "summary": "This section omits several clinically important details from the HPI and ROS, including the patient's history of hypothyroidism, the severity and daily impact of symptoms, and social history (tobacco/drug/alcohol use). While two additions were made, both were supported by the transcript and do not reduce the grade.",
         "omissions": [
           "initial consultation",
-          "symptoms are moderate in severity",
-          "symptoms occur daily (for fatigue, dizziness, brittle nails)",
-          "necessitating frequent breaks due to fatigue",
-          "denial of tobacco, drug use, and significant alcohol consumption (2 drinks/week socially)",
-          "sleeps 6 hours/night but feels tired",
-          "exercises moderately (yoga twice a week)",
-          "history of hypothyroidism managed with Levothyroxine 100 mcg daily",
-          "patient is highly compliant with medical advice",
-          "denial of gastrointestinal symptoms (nausea, vomiting, diarrhea, constipation)",
-          "subjective report of noticeable pallor",
-          "denial of rashes or itching"
+          "Symptoms are moderate in severity",
+          "Symptoms occur daily",
+          "Symptoms necessitating frequent breaks",
+          "Denies history of tobacco, drug use, or significant alcohol consumption (2 drinks per week socially)",
+          "Sleeps around 6 hours per night but often feels tired",
+          "Follows a primarily vegetarian diet with a limited intake of red meat",
+          "Exercises moderately, doing yoga twice a week",
+          "Known history of hypothyroidism, managed with Levothyroxine 100 mcg once daily",
+          "Highly compliant with medical advice",
+          "ROS: Gastrointestinal: Denies nausea, vomiting, diarrhea, or constipation.",
+          "ROS: Dermatological: Reports noticeable pallor"
         ],
         "additions": [
-          "palpitations occur occasionally (contradicts GT HPI 'symptoms occur daily')",
-          "objective finding 'pale appearance and brittle nails observed on physical examination' included in Subjective section"
+          "Palpitations occur occasionally.",
+          "Pale appearance and brittle nails observed on physical examination."
         ]
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section omits several important physical examination findings and interpretations. Specifically, the note fails to explicitly state 'tachycardia noted in vital signs' and significantly condenses the physical examination, missing details about general appearance (pale with evident fatigue), cardiovascular findings (tachycardia, regular rhythm), and skin findings (noticeable pallor and brittle nails). The absence of a statement regarding 'no other abnormalities detected' also reduces completeness.",
+        "summary": "This section omits several key physical examination findings and their clinical interpretations, such as the general appearance (pale, fatigued), specific cardiovascular findings (tachycardia noted, regular rhythm), and detailed skin findings (noticeable pallor, brittle nails). These omissions make the physical exam incomplete.",
         "omissions": [
-          "tachycardia noted in vital signs",
-          "Physical Examination: General Appearance: patient appears pale with evident fatigue",
-          "Physical Examination: Cardiovascular: tachycardia noted, regular rhythm",
-          "Physical Examination: Skin: noticeable pallor and brittle nails",
-          "Physical Examination: Other Systems: no other abnormalities detected"
+          "Vital Signs: (tachycardia noted) for Pulse",
+          "Physical Examination: General Appearance: The patient appears pale with evident fatigue.",
+          "Physical Examination: Cardiovascular: Tachycardia noted, regular rhythm.",
+          "Physical Examination: Skin: Noticeable pallor and brittle nails.",
+          "Physical Examination: Other Systems: No other abnormalities detected."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "While the primary diagnosis is present, this section significantly omits the detailed medical reasoning that links the patient's symptoms (fatigue, dizziness, brittle nails, palpitations) and physical findings (pallor, tachycardia) to the diagnosis of anemia. The generated note only references the dietary habits, which provides an incomplete justification for the diagnosis.",
+        "grade": "D",
+        "summary": "This section critically omits the detailed medical reasoning that connects the patient's symptoms and physical findings to the diagnosis of Iron Deficiency Anemia. This major omission significantly reduces the clinical usefulness and justification of the diagnosis within the note.",
         "omissions": [
-          "medical reasoning linking symptoms (fatigue, dizziness, brittle nails, palpitations) and physical findings (pallor, tachycardia) to anemia"
+          "Medical Reasoning: The patient's symptoms of fatigue, dizziness, brittle nails, and palpitations, along with the physical findings of pallor and tachycardia, are indicative of anemia."
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The core treatment plan, including medication, lifestyle recommendations, follow-up, and referral, is present. However, the section omits several useful details such as the medication route ('oral'), specific examples of iron-rich foods (spinach, beans, fortified cereals), the patient's understanding and agreement with the plan, and the specific reason for the gastroenterology referral (gastrointestinal bleeding). These are moderate omissions that reduce the comprehensiveness of the plan.",
+        "summary": "This section is largely complete, with only minor omissions such as the 'oral' route for medication, specific examples of iron-rich foods, the detailed context for the gastroenterology referral, and documentation of patient agreement.",
         "omissions": [
-          "medication route 'oral' for Ferrous Sulfate",
-          "specific examples of iron-rich foods (spinach, beans, fortified cereals)",
-          "statement that patient understands and agrees with treatment plan",
-          "specific example for referral reason: gastrointestinal bleeding"
+          "Prescribed Medication: 'oral' route",
+          "Lifestyle Recommendations: specific examples of iron-rich foods (spinach, beans, fortified cereals)",
+          "Referral: 'such as gastrointestinal bleeding'",
+          "The patient understands and agrees with the treatment plan."
         ],
         "additions": []
       }
@@ -361,18 +361,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "palpitations occur occasionally (contradicts GT HPI 'symptoms occur daily')",
+      "addition_text": "Subjective: Palpitations occur occasionally.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I also get palpitations every now and then.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Palpitations occur occasionally."
+      "matched_claim_text": "Palpitations occur occasionally.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "objective finding 'pale appearance and brittle nails observed on physical examination' included in Subjective section",
+      "addition_text": "Subjective: Pale appearance and brittle nails observed on physical examination.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] On physical examination, you appear pale and fatigued. ... Your skin shows noticeable pallor and your nails are quite brittle.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pale appearance and brittle nails observed on physical examination."
+      "matched_claim_text": "Pale appearance and brittle nails observed on physical examination.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Palpitations occur occasionally.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] I also get palpitations every now and then.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Palpitations occur occasionally.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pale appearance and brittle nails observed on physical examination.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] On physical examination, you appear pale and fatigued. ... Your skin shows noticeable pallor and your nails are quite brittle.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pale appearance and brittle nails observed on physical examination.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -282,9 +282,9 @@
     "plan_alignment_score": 0.6486486486486487
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "D",
-    "overall_summary": "The overall note suffers significantly from extensive omissions in the Subjective section, including the complete absence of dedicated Past Medical History, Social History, Allergies, and Medication History sections. While some information from these areas is scattered or implied, its proper structured documentation is missing, materially reducing the note's clinical usefulness and completeness. The Objective, Assessment, and Plan sections are better, but the major gaps in the Subjective section pull the overall grade down.",
+    "overall_summary": "The generated note suffers from significant omissions, particularly in the Subjective section, where entire categories such as Past Medical History, Social History, Allergies, and Medication History are missing. While the Objective, Assessment, and Plan sections are generally well-aligned or have only minor to moderate issues, the extensive gaps in the patient's foundational history materially reduce the clinical usefulness and completeness of the overall documentation. There are no unsupported or unknown additions to penalize.",
     "omissions": [
       "Chief Complaint (CC) section label",
       "History of Present Illness (HPI) section label",
@@ -327,7 +327,7 @@
       {
         "section": "Subjective",
         "grade": "D",
-        "summary": "The Subjective section has numerous and significant omissions. It completely lacks dedicated sections for Chief Complaint, History of Present Illness, Review of Systems, Past Medical History, Social History, Allergies, and Medication History. Key details about symptom onset, impact of fatigue, patient's occupation, and symptom severity are also omitted from the HPI. The absence of entire critical history sections makes this part of the note materially incomplete.",
+        "summary": "The Subjective section omits critical patient information, including the Chief Complaint, detailed History of Present Illness (e.g., symptom onset order, impact of fatigue, severity), Review of Systems details, and entire sections for Past Medical History, Social History, Allergies, and Medication History. These significant gaps severely reduce the clinical usefulness and completeness of the note.",
         "omissions": [
           "Chief Complaint (CC) section label",
           "History of Present Illness (HPI) section label",
@@ -359,7 +359,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured with only minor omissions, specifically the general appearance description ('Well-appearing female, in no acute distress') and the word 'bilaterally' for lung auscultation. All additions in this section were supported by the transcript and did not reduce the grade.",
+        "summary": "The Objective section is well-aligned with the Ground Truth. The few omissions, such as the general appearance description and the term 'bilaterally' for lung auscultation, are minor and do not impact clinical utility. There are no unsupported or unknown additions.",
         "omissions": [
           "Physical Exam: General: Well-appearing female, in no acute distress",
           "Physical Exam: Chest/Lungs: 'bilaterally'"
@@ -371,7 +371,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits the initial summary of the patient's presenting symptoms ('presenting with mild to moderate fatigue, occasional headaches, and a mild cough of two weeks duration') and the explicit framing that the diagnosis is 'Based on the clinical evaluation, her symptoms are most likely due to a combination of factors such as lifestyle'. These are moderate omissions that reduce the completeness of the assessment's introduction.",
+        "summary": "The Assessment section accurately identifies the potential causes of the patient's symptoms. However, it omits the initial summary of the patient's presentation (e.g., 'presenting with mild to moderate fatigue...') and the explicit mention of 'lifestyle' as a contributing factor in the introductory sentence, making it slightly less comprehensive than the Ground Truth. There are no unsupported or unknown additions.",
         "omissions": [
           "presenting with mild to moderate fatigue, occasional headaches, and a mild cough of two weeks duration.",
           "Based on the clinical evaluation, her symptoms are most likely due to a combination of factors such as lifestyle"
@@ -381,7 +381,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section has a minor omission regarding the route of multivitamin administration ('orally') and two moderate omissions: a specific patient education point about discussing the importance of lifestyle modifications, and the crucial documentation of patient understanding and agreement with the treatment plan. All additions in this section were supported by the transcript and did not reduce the grade.",
+        "summary": "The Plan section is largely comprehensive, outlining appropriate interventions. However, it omits the explicit instruction for the multivitamin to be taken 'orally', the specific patient education point about discussing the importance of lifestyle modifications, and the patient's verbalized understanding and agreement to the plan. There are no unsupported or unknown additions.",
         "omissions": [
           "Multivitamin 'orally'",
           "Patient Education: Discuss the importance of lifestyle modifications on overall health",
@@ -402,56 +402,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] And do these symptoms occur daily? [patient] Yes, they do. Every day. ... [doctor] Have you noticed anything that makes your symptoms better or worse? [patient] Not really. It just feels constant.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms occur daily with no alleviating or aggravating factors identified"
+      "matched_claim_text": "Symptoms occur daily with no alleviating or aggravating factors identified",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: 'Vital signs within normal limits'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your vital signs are looking good. Blood pressure is 120/80 mmHg, heart rate is 70 bpm, respiratory rate is 16 breaths per minute, temperature is 98.6°F, and oxygen saturation is 98% on room air.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Multivitamin 'to support overall health'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'll prescribe a multivitamin, one tablet daily, to help with your overall health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe a multivitamin, one tablet daily, to support overall health"
+      "matched_claim_text": "Prescribe a multivitamin, one tablet daily, to support overall health",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'Advise patient to contact if any new symptoms arise or concerns before the follow-up appointment'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If any new symptoms arise or if you have any concerns before our follow-up, don’t hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to contact if any new symptoms arise or concerns before the follow-up appointment"
+      "matched_claim_text": "Advise patient to contact if any new symptoms arise or concerns before the follow-up appointment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "no alleviating or aggravating factors identified",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] And do these symptoms occur daily? [patient] Yes, they do. Every day. ... [doctor] Have you noticed anything that makes your symptoms better or worse? [patient] Not really. It just feels constant.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms occur daily with no alleviating or aggravating factors identified"
+      "matched_claim_text": "Symptoms occur daily with no alleviating or aggravating factors identified",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Vital signs within normal limits",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your vital signs are looking good. Blood pressure is 120/80 mmHg, heart rate is 70 bpm, respiratory rate is 16 breaths per minute, temperature is 98.6°F, and oxygen saturation is 98% on room air.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs within normal limits: Blood pressure 120/80 mmHg, heart rate 70 bpm, respiratory rate 16 breaths per minute, temperature 98.6°F, oxygen saturation 98% on room air"
+      "matched_claim_text": "Vital signs within normal limits: Blood pressure 120/80 mmHg, heart rate 70 bpm, respiratory rate 16 breaths per minute, temperature 98.6°F, oxygen saturation 98% on room air",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Multivitamin 'to support overall health'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'll prescribe a multivitamin, one tablet daily, to help with your overall health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe a multivitamin, one tablet daily, to support overall health"
+      "matched_claim_text": "Prescribe a multivitamin, one tablet daily, to support overall health",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Advise patient to contact if any new symptoms arise or concerns before the follow-up appointment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If any new symptoms arise or if you have any concerns before our follow-up, don’t hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to contact if any new symptoms arise or concerns before the follow-up appointment"
+      "matched_claim_text": "Advise patient to contact if any new symptoms arise or concerns before the follow-up appointment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

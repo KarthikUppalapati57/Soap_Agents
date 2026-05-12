@@ -229,9 +229,9 @@
     "plan_alignment_score": 0.6335403726708075
   },
   "expert_judge": {
-    "model": "clinical_reviewer_model",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key aspects of the history of present illness, vital signs, and the core assessment and plan. However, it has numerous minor omissions, particularly regarding specific details in the HPI, the complete Review of Systems, and granular elements of the physical examination and plan. A moderate issue is the summarization of detailed physical exam findings into a generic \"normal\" statement, reducing the clinical specificity of the Objective section. There is one minor unsupported addition regarding \"illicit substances\" in the subjective history.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note has noticeable gaps and multiple moderate issues across several sections, making it meaningfully incomplete. Key omissions include the complete absence of a detailed Review of Systems in the Subjective section, specific physical exam findings in Objective, important diagnostic context and medication dosages in Assessment, and precise lifestyle modification instructions and referral details in Plan. There is also one minor unsupported addition of \"illicit substances\" in the Subjective section. While the note is broadly usable, these issues necessitate caution and review.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "\"initial consultation\" in CC",
@@ -287,8 +287,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The section captures the patient's chief complaint and main HPI elements. However, it omits many specific details such as the \"mild\" and \"occasional\" nature of symptoms, sleep quality, diet regularity, and physical activity frequency. Crucially, all specific details from the Review of Systems are omitted. There is one minor unsupported addition of \"illicit substances\" to the substance use history.",
+        "grade": "C",
+        "summary": "This section has a major omission with the complete absence of detailed Review of Systems for multiple body systems. It also omits several minor details from the HPI and CC, and moderate details regarding sleep quality and duration. Additionally, there is one minor unsupported addition of \"illicit substances\".",
         "omissions": [
           "Chief Complaint (CC) section header",
           "\"initial consultation\" in CC",
@@ -316,8 +316,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "This section accurately reports the BMI and vital signs. However, it significantly omits all specific findings for the Cardiovascular, Respiratory, Abdomen, Extremities, and Neurological examinations, replacing them with a generic statement that these areas are \"normal.\" This constitutes a moderate issue, as it reduces the clinical detail and usefulness of the section.",
+        "grade": "B",
+        "summary": "This section omits specific details for several physical examination findings (Cardiovascular, Respiratory, Abdomen, Extremities, Neurological), summarizing them as \"normal\" instead of providing the specific positive and negative findings present in the Ground Truth. These are considered moderate omissions.",
         "omissions": [
           "General Appearance section header",
           "Vital Signs section header",
@@ -332,8 +332,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The assessment correctly identifies Type 2 diabetes mellitus, hypertension, and hyperlipidemia. It omits details like \"without complications,\" \"Newly diagnosed,\" and \"family history\" as a basis for T2DM, as well as specific medication dosages for hypertension and hyperlipidemia. The additions of \"suspected\" and \"physical examination\" as a basis for T2DM were supported by the transcript and do not reduce the grade.",
+        "grade": "C",
+        "summary": "The section omits important clinical context for the Type 2 diabetes mellitus diagnosis, specifically \"Newly diagnosed\" and the mention of \"family history\" as a basis. It also omits the specific dosages for the patient's hypertension (Lisinopril) and hyperlipidemia (Atorvastatin) medications. These are multiple moderate omissions.",
         "omissions": [
           "\"without complications\" (for Type 2 diabetes mellitus)",
           "\"Newly diagnosed\" (for Type 2 diabetes mellitus)",
@@ -348,8 +348,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The core plan, including Metformin initiation, dietitian referral, lifestyle modifications, follow-up, and lab tests, is well-captured. However, it omits several granular details such as \"oral\" for Metformin, \"elimination of sugary drinks\" (only \"reduction\" is mentioned), specific exercise duration, \"biochemistry\" for lipid panel, \"to establish baseline\" for labs, the specific name and credential of the dietitian, and the patient's agreement statement. All additions in this section were supported by the transcript.",
+        "grade": "C",
+        "summary": "This section omits several specific and actionable details for lifestyle modifications, such as the \"elimination of sugary drinks\" and the specific exercise goal of \"at least 30 minutes of moderate exercise most days of the week.\" It also lacks the specific name and credential of the dietitian for referral. These are multiple moderate omissions.",
         "omissions": [
           "Medications section header",
           "\"oral\" (for Metformin)",
@@ -380,35 +380,45 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"suspected\" (for Type 2 diabetes mellitus diagnosis)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, I'm leaning towards a diagnosis of type 2 diabetes mellitus.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Type 2 diabetes mellitus is suspected based on symptoms and physical examination."
+      "matched_claim_text": "Type 2 diabetes mellitus is suspected based on symptoms and physical examination.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"physical examination\" (as a basis for T2DM diagnosis, instead of family history)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and physical exam, I'm leaning towards a diagnosis of type 2 diabetes mellitus.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"to current medication regimen\" (for Metformin)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Let's add Metformin 500 mg to your regimen, to be taken twice daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Add Metformin 500 mg twice daily to current medication regimen."
+      "matched_claim_text": "Add Metformin 500 mg twice daily to current medication regimen.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"immediately\" (for contacting clinic)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you experience any adverse effects or if your symptoms worsen, contact the clinic immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

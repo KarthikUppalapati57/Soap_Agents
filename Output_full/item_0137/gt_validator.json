@@ -244,9 +244,9 @@
     "plan_alignment_score": 0.5527638190954774
   },
   "expert_judge": {
-    "model": "expert_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The overall note suffers significantly from issues in the Subjective section. There is a major omission of the patient's past medical history (rheumatoid arthritis, chronic kidney disease stage 2), which is crucial clinical context. Furthermore, an unsupported addition stating 'no other symptoms are reported' is misleading, as the GroundTruth includes denials of headaches/dizziness and endorsement of chronic joint pain. While other sections are mostly aligned, these critical gaps and misleading statements in the Subjective section materially reduce the clinical usefulness and reliability of the entire note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The note has noticeable gaps, particularly the omission of the patient's past medical history (rheumatoid arthritis, chronic kidney disease stage 2). The Subjective section also contains a misleading unsupported addition stating \"no other symptoms are reported,\" which contradicts other reported symptoms and negative findings from the review of systems. While the core diagnosis and plan are present, these issues make the note meaningfully incomplete and require careful review.",
     "omissions": [
       "Patient's past medical history (rheumatoid arthritis, chronic kidney disease stage 2)",
       "Pain described as 'excruciating'",
@@ -282,8 +282,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section has significant issues. It omits the patient's past medical history (rheumatoid arthritis, chronic kidney disease stage 2), which is a major clinical detail. Additionally, the unsupported addition 'no other symptoms are reported' is misleading, as the GroundTruth's Review of Systems includes denials of neurological symptoms and endorsement of chronic joint pain. These issues make the section materially incomplete and introduce misleading content.",
+        "grade": "C",
+        "summary": "This section has several omissions, including the patient's past medical history, details about pain severity ('excruciating,' 'bedridden'), and several negative review of systems findings (denies fever/chills, dysuria, headaches/dizziness, no similar pain in the past). Additionally, it includes an unsupported and misleading addition stating 'no other symptoms are reported,' which is factually incorrect given the patient's reported chronic joint pain and the denials of other symptoms.",
         "omissions": [
           "Past medical history (rheumatoid arthritis, chronic kidney disease stage 2)",
           "Pain described as 'excruciating'",
@@ -305,7 +305,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned. It has a moderate omission of 'guarding' during the abdominal exam and a minor omission of the adjective 'severe' for right lower quadrant tenderness. However, no unsupported or unknown additions were identified, making the section largely usable.",
+        "summary": "The Objective section is mostly accurate but omits two clinically relevant details from the abdominal exam: the 'severe' nature of the right lower quadrant tenderness and the presence of 'guarding.' These are moderate omissions that reduce the specificity of the physical examination findings.",
         "omissions": [
           "Abdominal Exam: 'Severe' right lower quadrant tenderness",
           "Abdominal Exam: 'with guarding'"
@@ -315,7 +315,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section correctly identifies the diagnosis but has a moderate omission by not explicitly listing the specific symptoms (severe lower abdominal pain, hematuria, and positive costovertebral angle tenderness) that support the diagnosis, as present in the GroundTruth. No unsupported or unknown additions were found, ensuring the core assessment is accurate.",
+        "summary": "The Assessment correctly identifies possible kidney stones and notes elevated blood pressure. However, it omits the specific clinical findings (severe lower abdominal pain, hematuria, and positive costovertebral angle tenderness) that the Ground Truth uses to explicitly support the diagnosis, making the diagnostic justification less robust.",
         "omissions": [
           "Specific symptoms (severe lower abdominal pain, hematuria, and positive costovertebral angle tenderness)"
         ],
@@ -327,7 +327,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly complete and clinically usable. It contains several minor omissions, including the 'oral' administration route and '10 tablets' quantity for Tamsulosin, as well as the patient's understanding/agreement statement and the discussion about insurance/access to care. No unsupported or unknown additions were identified, maintaining the clinical integrity of the plan.",
+        "summary": "The Plan section captures all major treatment, testing, and follow-up recommendations. The omissions are minor details such as the 'oral' administration route and '10 tablets' quantity for Tamsulosin, the patient's understanding and agreement statement, and the discussion about insurance and access to care. These do not materially impact the core clinical plan.",
         "omissions": [
           "Tamsulosin: 'oral' administration route",
           "Tamsulosin: '10 tablets' quantity",
@@ -349,84 +349,108 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It feels like a sharp, stabbing pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is sharp and stabbing."
+      "matched_claim_text": "The pain is sharp and stabbing.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Pain exacerbated by pressure on the lower right side of the abdomen",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: (Gently pressing on the abdomen) Does it hurt more when I press here in the lower right side? [Patient]: Yes, that's very tender.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is exacerbated by pressure on the lower right side of the abdomen."
+      "matched_claim_text": "The pain is exacerbated by pressure on the lower right side of the abdomen.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Vomiting occurred 'a few times'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I've been feeling nauseous and I've vomited a few times.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient also experiences nausea and has vomited a few times."
+      "matched_claim_text": "The patient also experiences nausea and has vomited a few times.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'small amount of blood' in urine",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, no pain when I pee, but I did notice blood in my urine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "A small amount of blood was observed in the urine."
+      "matched_claim_text": "A small amount of blood was observed in the urine.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'no other symptoms are reported' in Subjective",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'based on symptoms and urinary findings'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I reviewed your urinalysis results, and it shows blood in the urine but no signs of infection. ... It suggests that you might have kidney stones.",
+      "transcript_evidence": "I reviewed your urinalysis results, and it shows blood in the urine but no signs of infection. ... It suggests that you might have kidney stones.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'The patient's blood pressure is elevated.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Everything looks within the normal range except for your blood pressure which is a bit high.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's blood pressure is elevated."
+      "matched_claim_text": "The patient's blood pressure is elevated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Tamsulosin: 'to help relax the muscles in the urinary tract' (reason for medication)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'll prescribe you Tamsulosin, 0.4 mg to take once daily for 10 days. This will help relax the muscles in your urinary tract so the stones can pass more easily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tamsulosin 0.4 mg once daily for 10 days is prescribed to help relax the muscles in the urinary tract."
+      "matched_claim_text": "Tamsulosin 0.4 mg once daily for 10 days is prescribed to help relax the muscles in the urinary tract.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Follow-up purpose includes 'prevent future kidney stones'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It suggests that you might have kidney stones. ... Yes, it's likely.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible kidney stones."
+      "matched_claim_text": "Possible kidney stones.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'no other symptoms are reported'",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'based on symptoms and urinary findings'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I reviewed your urinalysis results, and it shows blood in the urine but no signs of infection. ... It suggests that you might have kidney stones.",
+      "transcript_evidence": "Patient: \"I've got really severe lower abdominal pain... It feels like a sharp, stabbing pain... I did notice blood in my urine.\" Doctor: \"I reviewed your urinalysis results, and it shows blood in the urine but no signs of infection. ... It suggests that you might have kidney stones.\"",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'The patient's blood pressure is elevated.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Everything looks within the normal range except for your blood pressure which is a bit high.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's blood pressure is elevated."
+      "matched_claim_text": "The patient's blood pressure is elevated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

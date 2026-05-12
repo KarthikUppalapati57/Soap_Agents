@@ -255,81 +255,92 @@
     "plan_alignment_score": 0.6147186147186147
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "ClinicalDocumentationGrader",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a largely accurate and comprehensive account of the patient's encounter, particularly in the Subjective, Objective, and Plan sections. However, the Assessment section contains significant omissions, failing to include the formal primary diagnosis of Calculus of Kidney and completely omitting the secondary diagnosis of Hypertension. While the note mentions symptoms suggestive of kidney stones, the absence of formal diagnoses makes the note meaningfully incomplete and requires careful review. Minor omissions were also noted in other sections, such as patient demographics and specific pain details in the Subjective section, and administrative details in the Plan.",
+    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps and a high-severity unsupported addition. Key omissions include the patient's secondary diagnosis of hypertension in the Assessment and several minor details in the HPI and ROS. A significant issue is the unsupported addition in the Plan section, changing the threshold for seeking immediate medical attention from 'severe pain' to 'unbearable pain', which is a high-severity alignment issue. While many additions are supported, these issues make the note meaningfully incomplete and require careful review.",
     "omissions": [
-      "Patient's age (45-year-old)",
-      "Patient's race (Caucasian)",
-      "Pain described as 'continuous with intermittent severe episodes'",
-      "Pain 'significantly impacting his daily activities'",
-      "ROS Gastrointestinal: No vomiting",
-      "ROS Genitourinary: No dysuria",
-      "ROS Musculoskeletal: Physical activity decreased due to pain",
-      "Objective: 'Other: No other abnormalities detected'",
-      "Assessment: Primary Diagnosis: Calculus of Kidney",
-      "Assessment: Secondary Diagnosis: Hypertension (well-controlled on Lisinopril 10 mg daily)",
-      "Plan: Tamsulosin quantity: 30 capsules",
-      "Plan: Behavioral Assessment: Patient is cooperative and willing to comply with treatment plan",
-      "Plan: Clinical Setting: Private Practice Urology Clinic",
-      "Plan: Type of Encounter: Initial Consultation"
+      "HPI detail: 'continuous with intermittent severe episodes'",
+      "HPI detail: duration of missed work (2 days)",
+      "HPI detail: 'significantly impacting his daily activities'",
+      "ROS detail: 'no vomiting' (explicitly stated in GT GI ROS)",
+      "ROS detail: 'no dysuria' (explicitly stated in GT GU ROS)",
+      "ROS detail: 'Physical activity decreased due to pain' (Musculoskeletal ROS)",
+      "Objective detail: 'No other abnormalities detected' (from Physical Examination)",
+      "Assessment: 'Secondary Diagnosis: Hypertension (well-controlled on Lisinopril 10 mg daily)'",
+      "Plan detail: Medication route 'oral'",
+      "Plan detail: Medication quantity '30 capsules'",
+      "Patient instruction detail: 'inability to urinate' (Generated has 'difficulty urinating')",
+      "Plan section: 'Behavioral Assessment: Patient is cooperative and willing to comply with treatment plan.'",
+      "Plan section: 'Clinical Setting: Private Practice Urology Clinic'",
+      "Plan section: 'Type of Encounter: Initial Consultation'"
     ],
     "additions": [
-      "Assessment: 'which was further supported by the physical examination findings'",
-      "Plan: Tamsulosin purpose: 'to relax muscles in the urinary tract and facilitate stone passage'",
-      "Plan: Patient Instructions: 'Encourage contacting the healthcare provider with any concerns or questions'"
+      "Subjective: Clarification '(blood in urine)' for hematuria",
+      "Assessment: Statement that patient's symptoms were 'further supported by the physical examination findings'",
+      "Plan: Explanation for Tamsulosin: 'to relax muscles in the urinary tract and facilitate stone passage'",
+      "Plan: Clarification for pain relief: 'for managing pain symptoms'",
+      "Plan: Intensifier for pain: 'unbearable pain' (vs severe pain)",
+      "Plan: General instruction: 'Encourage contacting the healthcare provider with any concerns or questions'",
+      "Plan: 'as directed' for medication use"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "Intensifier for pain: 'unbearable pain' (vs severe pain)"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly accurate but omits several minor details, including the patient's age and race, specific descriptions of pain as 'continuous with intermittent severe episodes,' and the significant impact on daily activities. Additionally, several negative findings from the Review of Systems (no vomiting, no dysuria) and decreased physical activity were omitted.",
+        "summary": "This section has several minor omissions, including details about the pain being 'continuous with intermittent severe episodes', the duration of missed work (2 days), the impact on daily activities, and specific negative findings in the ROS ('no vomiting', 'no dysuria', 'physical activity decreased due to pain'). All additions in this section were supported by the transcript.",
         "omissions": [
-          "Patient's age (45-year-old)",
-          "Patient's race (Caucasian)",
-          "Pain described as 'continuous with intermittent severe episodes'",
-          "Pain 'significantly impacting his daily activities'",
-          "ROS Gastrointestinal: No vomiting",
-          "ROS Genitourinary: No dysuria",
-          "ROS Musculoskeletal: Physical activity decreased due to pain"
+          "HPI detail: 'continuous with intermittent severe episodes'",
+          "HPI detail: duration of missed work (2 days)",
+          "HPI detail: 'significantly impacting his daily activities'",
+          "ROS detail: 'no vomiting' (explicitly stated in GT GI ROS)",
+          "ROS detail: 'no dysuria' (explicitly stated in GT GU ROS)",
+          "ROS detail: 'Physical activity decreased due to pain' (Musculoskeletal ROS)"
         ],
-        "additions": []
+        "additions": [
+          "Clarification '(blood in urine)' for hematuria"
+        ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete, accurately capturing all vital signs and key physical examination findings. The only omission is the minor general statement 'No other abnormalities detected.'",
+        "summary": "This section is well-aligned with only one minor omission: 'No other abnormalities detected' from the physical examination. There were no unsupported or unknown additions.",
         "omissions": [
-          "Other: No other abnormalities detected"
+          "No other abnormalities detected (from Physical Examination)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section has major omissions, failing to include the formal primary diagnosis of Calculus of Kidney (ICD-10 N20.0) and completely omitting the secondary diagnosis of Hypertension (well-controlled on Lisinopril 10 mg daily). The note only states that symptoms are 'suggestive of kidney stones' rather than providing a definitive diagnosis, which materially reduces its clinical usefulness.",
+        "grade": "C",
+        "summary": "This section has a significant omission: the 'Secondary Diagnosis: Hypertension (well-controlled on Lisinopril 10 mg daily)'. This is a clinically important piece of information that is missing. The single addition in this section was supported by the transcript.",
         "omissions": [
-          "Primary Diagnosis: Calculus of Kidney",
           "Secondary Diagnosis: Hypertension (well-controlled on Lisinopril 10 mg daily)"
         ],
         "additions": [
-          "'which was further supported by the physical examination findings'"
+          "Statement that patient's symptoms were 'further supported by the physical examination findings'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is comprehensive and well-structured, capturing all major elements of medication, investigations, recommendations, and follow-up. Minor omissions include the specific quantity of Tamsulosin capsules and administrative details such as the behavioral assessment, clinical setting, and type of encounter.",
+        "grade": "C",
+        "summary": "This section contains multiple minor omissions, such as the medication route ('oral'), quantity ('30 capsules'), and specific administrative details like 'Behavioral Assessment', 'Clinical Setting', and 'Type of Encounter'. A critical issue is the unsupported addition of 'unbearable pain' as the threshold for seeking immediate medical attention, which is a high-severity alignment issue as it alters a key patient instruction. Other additions in this section were supported by the transcript.",
         "omissions": [
-          "Tamsulosin quantity: 30 capsules",
-          "Behavioral Assessment: Patient is cooperative and willing to comply with treatment plan",
+          "Medication route 'oral'",
+          "Medication quantity '30 capsules'",
+          "Patient instruction detail: 'inability to urinate' (Generated has 'difficulty urinating')",
+          "Behavioral Assessment: Patient is cooperative and willing to comply with treatment plan.",
           "Clinical Setting: Private Practice Urology Clinic",
           "Type of Encounter: Initial Consultation"
         ],
         "additions": [
-          "Tamsulosin purpose: 'to relax muscles in the urinary tract and facilitate stone passage'",
-          "Patient Instructions: 'Encourage contacting the healthcare provider with any concerns or questions'"
+          "Explanation for Tamsulosin: 'to relax muscles in the urinary tract and facilitate stone passage'",
+          "Clarification for pain relief: 'for managing pain symptoms'",
+          "Intensifier for pain: 'unbearable pain' (vs severe pain)",
+          "General instruction: 'Encourage contacting the healthcare provider with any concerns or questions'",
+          " 'as directed' for medication use"
         ]
       }
     ],
@@ -338,46 +349,130 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: 'which was further supported by the physical examination findings'",
+      "addition_text": "Subjective: Clarification '(blood in urine)' for hematuria",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and examination, it sounds like you might have a kidney stone.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Patient]: Yeah, I've been feeling nauseous, and I've also seen blood in my urine.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Associated symptoms include nausea and hematuria (blood in urine).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Tamsulosin purpose: 'to relax muscles in the urinary tract and facilitate stone passage'",
+      "addition_text": "Assessment: Statement that patient's symptoms were 'further supported by the physical examination findings'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and examination, it sounds like you might have a kidney stone.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient's symptoms and physical examination findings are suggestive of kidney stones.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Explanation for Tamsulosin: 'to relax muscles in the urinary tract and facilitate stone passage'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'm going to prescribe you Tamsulosin 0.4 mg. You should take one capsule daily for 30 days. It will help to relax the muscles in your urinary tract and make it easier to pass the stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescription for Tamsulosin 0.4 mg once daily for 30 days to relax urinary tract muscles and facilitate stone passage."
+      "matched_claim_text": "Prescription for Tamsulosin 0.4 mg once daily for 30 days to relax urinary tract muscles and facilitate stone passage.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Patient Instructions: 'Encourage contacting the healthcare provider with any concerns or questions'",
+      "addition_text": "Plan: Clarification for pain relief: 'for managing pain symptoms'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "You can take over-the-counter pain relief as needed.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Intensifier for pain: 'unbearable pain' (vs severe pain)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If the pain becomes unbearable or you experience fever or difficulty urinating, seek immediate medical attention.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: General instruction: 'Encourage contacting the healthcare provider with any concerns or questions'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you have any concerns, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage contacting the healthcare provider with any concerns or questions."
+      "matched_claim_text": "Encourage contacting the healthcare provider with any concerns or questions.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'which was further supported by the physical examination findings'",
+      "addition_text": "Plan: 'as directed' for medication use",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and examination, it sounds like you might have a kidney stone.",
+      "transcript_evidence": "I also want to remind you to take your medication as prescribed",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Tamsulosin purpose: 'to relax muscles in the urinary tract and facilitate stone passage'",
+      "addition_text": "Clarification '(blood in urine)' for hematuria",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yeah, I've been feeling nauseous, and I've also seen blood in my urine.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Associated symptoms include nausea and hematuria (blood in urine).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement that patient's symptoms were 'further supported by the physical examination findings'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and examination, it sounds like you might have a kidney stone.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient's symptoms and physical examination findings are suggestive of kidney stones.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Explanation for Tamsulosin: 'to relax muscles in the urinary tract and facilitate stone passage'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'm going to prescribe you Tamsulosin 0.4 mg. You should take one capsule daily for 30 days. It will help to relax the muscles in your urinary tract and make it easier to pass the stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescription for Tamsulosin 0.4 mg once daily for 30 days to relax urinary tract muscles and facilitate stone passage."
+      "matched_claim_text": "Prescription for Tamsulosin 0.4 mg once daily for 30 days to relax urinary tract muscles and facilitate stone passage.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient Instructions: 'Encourage contacting the healthcare provider with any concerns or questions'",
+      "addition_text": "Clarification for pain relief: 'for managing pain symptoms'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "You can take over-the-counter pain relief as needed.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Intensifier for pain: 'unbearable pain' (vs severe pain)",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "General instruction: 'Encourage contacting the healthcare provider with any concerns or questions'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you have any concerns, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage contacting the healthcare provider with any concerns or questions."
+      "matched_claim_text": "Encourage contacting the healthcare provider with any concerns or questions.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'as directed' for medication use",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "take your medication as prescribed",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

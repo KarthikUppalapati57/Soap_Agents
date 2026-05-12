@@ -267,8 +267,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note receives a C. While it captures the main clinical picture and has no unsupported or unknown additions, it contains multiple moderate omissions across the Subjective, Objective, and Assessment sections. These include specific details about symptom characteristics and impact on daily activities in the Subjective section, key negative physical exam findings and precise tenderness location in the Objective section, and the omission of \"Pain in the left knee\" as a distinct primary diagnosis in the Assessment section. These gaps make the note noticeably incomplete, requiring review for full clinical context, though it remains broadly usable.",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key history, physical findings, assessment, and plan. However, it omits several specific details from the Ground Truth, particularly regarding the characteristics of swelling and stiffness, the impact on daily activities, and specific physical examination findings like the exact location of tenderness and negative stability tests. The note also omits 'Pain in the left knee' as a distinct problem in the Assessment. All additions made by the model were supported by the transcript, and there were no unsupported or unknown additions that would significantly lower the grade.",
     "omissions": [
       "Chief Complaint section header",
       "History of Present Illness section header",
@@ -281,8 +281,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The section omits specific details about the characteristics of swelling and stiffness, and the explicit mention of the significant impact on daily activities. The omission of \"otherwise stable\" from the ROS is minor. No unsupported additions were found.",
+        "grade": "B",
+        "summary": "The Subjective section omits several moderate details from the History of Present Illness, including the specific characteristics of swelling and stiffness (e.g., 'particularly pronounced in the mornings') and the significant impact on daily activities. A minor ROS detail ('otherwise stable') was also omitted. All additions in this section were supported by the transcript.",
         "omissions": [
           "Occasional swelling and stiffness, particularly pronounced in the mornings",
           "Significant impact on daily activities, including walking, climbing stairs, and prolonged standing",
@@ -294,8 +294,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The section omits important negative findings such as \"no visible deformity\" and \"Negative Lachman's and McMurray's tests\". It also generalizes the specific location of tenderness. No unsupported additions were found.",
+        "grade": "B",
+        "summary": "The Objective section omits several moderate details from the Physical Examination, such as the absence of visible deformity, the specific location of tenderness ('medial and lateral joint lines'), and the negative findings for Lachman's and McMurray's tests. All additions in this section were supported by the transcript.",
         "omissions": [
           "Inspection: 'no visible deformity'",
           "Palpation: Tenderness 'over the medial and lateral joint lines'",
@@ -308,8 +308,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The section notably omits \"Pain in the left knee\" as a distinct primary diagnosis with its ICD-10 code, which was present in the Ground Truth. The omission of \"pre-existing\" is minor. No unsupported additions were found.",
+        "grade": "B",
+        "summary": "The Assessment section omits 'Pain in the left knee' as a distinct problem/diagnosis, combining it implicitly with the osteoarthritis. It also omits the descriptor 'pre-existing' for mild osteoarthritis. All additions in this section were supported by the transcript.",
         "omissions": [
           "Pain in the left knee (as a distinct problem/diagnosis)",
           "'pre-existing' (regarding mild osteoarthritis)"
@@ -322,7 +322,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The section has several minor omissions regarding the explicit purpose of various plan items (X-ray, MRI, lifestyle modifications, follow-up). However, the core actions are present and the purposes are largely implied. No unsupported additions were found.",
+        "summary": "The Plan section is strong, capturing all major components of the Ground Truth plan. It omits the explicit purpose for several interventions (e.g., X-ray 'to rule out structural abnormalities'), but these are minor omissions as the actions themselves are present and the purpose is often implied. All additions in this section were supported by the transcript and enhanced the plan details.",
         "omissions": [
           "Purpose of X-ray: 'to rule out structural abnormalities'",
           "Purpose of MRI: 'to evaluate any potential soft tissue damage'",
@@ -335,7 +335,7 @@
         ]
       }
     ],
-    "rubric_notes": null
+    "rubric_notes": "Global omissions of section headers (Chief Complaint, History of Present Illness, Review of Systems, Vital Signs, Physical Examination) were noted but treated as minor formatting issues for overall grading, as the content was present within the larger sections."
   },
   "expert_judge_error": null,
   "addition_evidence": [
@@ -344,49 +344,63 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, no fever or weight loss.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No associated symptoms of fever were reported."
+      "matched_claim_text": "No associated symptoms of fever were reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Vital signs within normal limits",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 128/82 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. Everything looks normal there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs were within normal limits."
+      "matched_claim_text": "Vital signs were within normal limits.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "On examination, the left knee exhibited...",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Now, let’s inspect your knee. I see some swelling around your left knee...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "On examination, the left knee exhibited swelling."
+      "matched_claim_text": "On examination, the left knee exhibited swelling.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'based on symptoms and examination findings'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on what you’ve described and the examination, it looks like you might have an exacerbation of mild osteoarthritis in your knee.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible exacerbation of mild osteoarthritis in the left knee based on symptoms and examination findings."
+      "matched_claim_text": "Possible exacerbation of mild osteoarthritis in the left knee based on symptoms and examination findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No prior diagnosis of osteoarthritis reported by the patient",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Have you ever been diagnosed with osteoarthritis before? [Patient]: No, I haven’t.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No prior diagnosis of osteoarthritis reported by the patient."
+      "matched_claim_text": "No prior diagnosis of osteoarthritis reported by the patient.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Details for lifestyle modifications: 'including avoiding aggravating activities and using a cane or brace for support if needed'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d also suggest some lifestyle modifications to reduce the strain on your knee. Try to avoid activities that exacerbate the pain, and consider using a cane or a knee brace for support if necessary.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle modifications to reduce strain on the knee, including avoiding aggravating activities and using a cane or brace for support if needed."
+      "matched_claim_text": "Lifestyle modifications to reduce strain on the knee, including avoiding aggravating activities and using a cane or brace for support if needed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Additional detail for follow-up: 'and adjust plan accordingly'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Great. Let’s also schedule a follow-up appointment in four weeks to see how you’re responding to the treatment plan.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in four weeks to assess response to treatment and adjust plan accordingly."
+      "matched_claim_text": "Schedule follow-up appointment in four weeks to assess response to treatment and adjust plan accordingly.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

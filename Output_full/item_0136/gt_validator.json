@@ -248,61 +248,76 @@
     "plan_alignment_score": 0.6524064171122995
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, but it has multiple moderate omissions that reduce its completeness. Key issues include the absence of the secondary diagnosis for hypertension in the Assessment, the omission of the ordered CT scan in the Plan, and the missing instruction to seek immediate medical attention if symptoms worsen. Several minor details are also omitted from the Subjective section.",
+    "overall_summary": "The generated note provides a mostly accurate summary but has several moderate omissions that reduce its clinical completeness and usefulness. Key missing elements include specific details on the impact of pain on daily activities, the secondary diagnosis of hypertension in the assessment, the order for a CT scan, and a critical safety instruction for worsening symptoms in the plan. While all additions were supported by the transcript, the cumulative impact of the omissions warrants a 'C' grade.",
     "omissions": [
-      "Patient Agreements: The patient understands and agrees with the recommended treatment plan.",
-      "Instruction to seek immediate medical attention if symptoms worsen."
+      "HPI: Frequency of pain episodes (2-3 times a week)",
+      "HPI: Specific impact on daily activities (difficulty fulfilling job duties and disrupted sleep)",
+      "ROS Constitutional: no fever or weight loss",
+      "ROS Gastrointestinal: no changes in bowel habits",
+      "ROS Musculoskeletal: limiting physical activity",
+      "Objective: General Appearance: Appears in moderate distress due to pain",
+      "Assessment: Secondary diagnosis of Hypertension",
+      "Plan: Medical reasoning for Calculus of Kidney",
+      "Plan: Order for Non-contrast CT scan of the Abdomen and Pelvis",
+      "Plan: Specific quantity of Tamsulosin (30 capsules)",
+      "Plan: Instruction to seek immediate medical attention if symptoms worsen",
+      "Plan: Patient agreements (patient understands and agrees with treatment plan)",
+      "Plan: Medical reasoning for Hypertension"
     ],
-    "additions": [],
+    "additions": [
+      "Subjective: 'causes moderate distress' (information from GT Objective moved to Generated Subjective)",
+      "Assessment: Summary of symptoms ('causing severe pain, nausea, and occasional blood in urine') within the diagnosis statement"
+    ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly complete but omits several minor details from the HPI, such as the frequency of pain episodes and specific impacts on daily activities (difficulty fulfilling job duties, disrupted sleep). It also omits several negative findings from the ROS (no fever/weight loss, no changes in bowel habits, limiting physical activity). The addition of 'moderate distress' is supported by the transcript and does not affect the grade.",
+        "summary": "The Subjective section is mostly aligned but omits several minor details such as the frequency of pain episodes, specific impacts on daily activities (difficulty fulfilling job duties, disrupted sleep), and several negative findings from the Review of Systems (no fever/weight loss, no changes in bowel habits, limiting physical activity). The addition of 'causes moderate distress' is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "HPI: Frequency of pain episodes (2-3 times a week)",
-          "HPI: Specific impact on daily activities (difficulty fulfilling job duties and disrupted sleep)",
-          "ROS: Constitutional (no fever or weight loss)",
-          "ROS: Gastrointestinal (no changes in bowel habits)",
-          "ROS: Musculoskeletal (limiting physical activity)"
+          "Frequency of pain episodes (2-3 times a week)",
+          "Specific impact on daily activities (difficulty fulfilling job duties and disrupted sleep)",
+          "ROS Constitutional: no fever or weight loss",
+          "ROS Gastrointestinal: no changes in bowel habits",
+          "ROS Musculoskeletal: limiting physical activity"
         ],
         "additions": [
-          "Mention of 'moderate distress' in the Subjective section"
+          "'causes moderate distress' (information from GT Objective moved to Generated Subjective)"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is comprehensive, with only one minor omission regarding the patient's general appearance of being in moderate distress due to pain. All other critical objective findings are accurately captured.",
+        "summary": "The Objective section is well-aligned. The only listed omission, 'Appears in moderate distress due to pain,' was moved to the Subjective section in the generated note and is supported by the transcript, thus not representing a loss of clinical information or a grading penalty.",
         "omissions": [
-          "Physical Examination: General Appearance: Appears in moderate distress due to pain"
+          "General Appearance: Appears in moderate distress due to pain"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has a moderate omission by failing to include Hypertension as a secondary diagnosis. While the plan addresses hypertension, its absence from the Assessment makes the diagnostic summary incomplete. The explicit mention of 'Primary Diagnosis' for Calculus of Kidney is also omitted, which is a minor detail. The inclusion of symptoms is supported by the transcript and does not affect the grade.",
+        "summary": "The Assessment section has a significant omission: the secondary diagnosis of Hypertension is completely missing. While the summary of symptoms within the primary diagnosis statement is a supported addition, the absence of a major co-morbidity makes the assessment meaningfully incomplete.",
         "omissions": [
-          "Secondary Diagnosis: Hypertension",
-          "Explicit mention of 'Primary Diagnosis' for Calculus of Kidney"
+          "Secondary diagnosis of Hypertension"
         ],
         "additions": [
-          "Inclusion of symptoms (severe pain, nausea, occasional blood in urine) in the Assessment section"
+          "Summary of symptoms ('causing severe pain, nausea, and occasional blood in urine') within the diagnosis statement"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has a moderate omission by failing to include the order for a Non-contrast CT scan of the Abdomen and Pelvis, which is a crucial diagnostic step for kidney stones. Minor omissions include the medical reasoning for Calculus of Kidney and Hypertension, and the specific quantity of Tamsulosin (30 capsules).",
+        "summary": "The Plan section contains multiple moderate omissions. Crucially, the order for a Non-contrast CT scan of the Abdomen and Pelvis and the instruction to seek immediate medical attention if symptoms worsen are missing. Other minor omissions include medical reasoning for both diagnoses, the specific quantity of Tamsulosin, and patient agreements. These gaps significantly reduce the clinical usefulness and safety of the plan.",
         "omissions": [
-          "Medical Reasoning for Calculus of Kidney",
+          "Medical reasoning for Calculus of Kidney",
+          "Order for Non-contrast CT scan of the Abdomen and Pelvis",
           "Specific quantity of Tamsulosin (30 capsules)",
-          "Imaging order: Non-contrast CT scan of the Abdomen and Pelvis to evaluate the size and location of kidney stones",
-          "Medical Reasoning for Hypertension"
+          "Instruction to seek immediate medical attention if symptoms worsen",
+          "Patient agreements (patient understands and agrees with treatment plan)",
+          "Medical reasoning for Hypertension"
         ],
         "additions": []
       }
@@ -312,18 +327,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Mention of 'moderate distress' in the Subjective section",
+      "addition_text": "Subjective: 'causes moderate distress' (information from GT Objective moved to Generated Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] On general appearance, you appear to be in moderate distress due to pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain causes moderate distress."
+      "matched_claim_text": "The pain causes moderate distress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Inclusion of symptoms (severe pain, nausea, occasional blood in urine) in the Assessment section",
+      "addition_text": "Assessment: Summary of symptoms ('causing severe pain, nausea, and occasional blood in urine') within the diagnosis statement",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical findings, it sounds like you might have kidney stones. This could explain the severe pain, nausea, and occasional blood in your urine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient likely has kidney stones based on symptoms and physical findings, causing severe pain, nausea, and occasional blood in urine."
+      "matched_claim_text": "The patient likely has kidney stones based on symptoms and physical findings, causing severe pain, nausea, and occasional blood in urine.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'causes moderate distress' (information from GT Objective moved to Generated Subjective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] On general appearance, you appear to be in moderate distress due to pain.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The pain causes moderate distress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Summary of symptoms ('causing severe pain, nausea, and occasional blood in urine') within the diagnosis statement",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and physical findings, it sounds like you might have kidney stones. This could explain the severe pain, nausea, and occasional blood in your urine.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient likely has kidney stones based on symptoms and physical findings, causing severe pain, nausea, and occasional blood in urine.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

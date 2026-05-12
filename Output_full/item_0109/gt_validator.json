@@ -217,75 +217,71 @@
     "plan_alignment_score": 0.5503355704697986
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps, particularly in the Subjective and Plan sections. The Subjective section omits several standard SOAP note components like Review of Systems, Current Medications, Past Medical History, and Family History sections, and misses specific details like family history of rheumatoid arthritis. The Plan section has multiple moderate omissions related to patient education, medication details, and the rationale behind recommendations. While the core clinical information is present, the structural and detailed omissions make the note meaningfully incomplete and require careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note provides a mostly accurate and usable summary of the patient's visit, capturing the chief complaint, HPI, objective findings, assessment, and core plan. However, the Subjective section significantly deviates from standard SOAP structure by omitting dedicated sections for Review of Systems, Current Medications, Past Medical History, and Family History, along with some specific details. The Plan section also has several minor and two moderate omissions related to patient education and safety. There are no unsupported or unknown additions that would negatively impact the grade.",
     "omissions": [
-      "Patient's difficulty sleeping due to pain",
-      "Specific examples of daily activities impacted by pain (climbing stairs, carrying groceries)",
-      "Review of Systems (ROS) section",
-      "Gastrointestinal ROS: Previous gastrointestinal discomfort from NSAIDs",
-      "Musculoskeletal ROS: Pain and tenderness in the lumbar spine, limited range of motion",
-      "Current Medications section",
-      "Past Medical History section",
-      "Family History: Mother had rheumatoid arthritis",
-      "Gabapentin administration route (orally)",
-      "Gabapentin quantity (30 capsules)",
-      "Purpose of MRI: to evaluate possible underlying pathological causes",
-      "Purpose of low-impact exercises: to improve physical activity levels without exacerbating pain",
-      "Patient's cooperativeness with medical advice and willingness to try new treatments",
-      "Instruction to monitor for any side effects of medication",
-      "Discussion of potential benefits and risks associated with the use of Gabapentin"
+      "Specific daily activities impacted (climbing stairs, carrying groceries)",
+      "Pain leading to difficulty sleeping",
+      "Family history of mother having rheumatoid arthritis",
+      "Gabapentin administration route 'orally'",
+      "Gabapentin quantity '30 capsules'",
+      "Purpose of MRI: 'to evaluate possible underlying pathological causes'",
+      "Purpose of lifestyle recommendations: 'to improve physical activity levels without exacerbating pain'",
+      "Patient's cooperativeness and willingness to try new treatments",
+      "Discussion of potential benefits and risks of Gabapentin",
+      "Monitoring for any side effects of prescribed medication"
     ],
     "additions": [
-      "Assessment includes 'potentially related to degenerative disc disease with nerve involvement'"
+      "Assessment detail: 'potentially related to degenerative disc disease with nerve involvement'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has significant omissions, including the entire Review of Systems, Current Medications, Past Medical History, and Family History sections. While some information from these sections is integrated elsewhere in the note, the structured presentation is missing, and the family history of rheumatoid arthritis is entirely omitted. Additionally, specific HPI details like difficulty sleeping and examples of impacted daily activities are missing.",
+        "summary": "This section has significant structural omissions, lacking dedicated Review of Systems, Current Medications, Past Medical History, and Family History sections. Specific details such as activities impacted by pain (climbing stairs, carrying groceries), difficulty sleeping, and the family history of rheumatoid arthritis are also omitted. While some information is integrated into the narrative, the absence of these standard sections makes the note meaningfully incomplete in terms of structure.",
         "omissions": [
-          "Specific examples of daily activities impacted by pain (climbing stairs, carrying groceries)",
+          "Specific daily activities impacted (climbing stairs, carrying groceries)",
           "Pain leading to difficulty sleeping",
           "Review of Systems (ROS) section",
-          "Gastrointestinal ROS: Previous gastrointestinal discomfort from NSAIDs",
-          "Musculoskeletal ROS: Pain and tenderness in the lumbar spine, limited range of motion",
-          "Current Medications section: Previously on NSAIDs (discontinued due to gastrointestinal discomfort)",
-          "Past Medical History section: Degenerative Disc Disease",
-          "Family History: Mother had rheumatoid arthritis"
+          "Previous gastrointestinal discomfort from NSAIDs (as part of Subjective ROS/Current Meds)",
+          "Musculoskeletal findings (pain and tenderness in lumbar spine, limited range of motion) (as part of Subjective ROS)",
+          "Current Medications section",
+          "Past Medical History section",
+          "Family History section",
+          "Mother had rheumatoid arthritis"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is accurately and completely documented, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete. The addition regarding degenerative disc disease with nerve involvement is supported by the transcript and therefore does not reduce the grade.",
+        "summary": "The Assessment section is accurate and complete. The addition regarding the etiology of Chronic Pain Syndrome is supported by the transcript and does not reduce the grade.",
         "omissions": [],
         "additions": [
-          "Assessment includes 'potentially related to degenerative disc disease with nerve involvement'"
+          "Etiology of Chronic Pain Syndrome: 'potentially related to degenerative disc disease with nerve involvement'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions. These include the specific purpose of the MRI and low-impact exercises, as well as crucial patient education points such as monitoring for medication side effects and a discussion of Gabapentin's benefits and risks. Minor details like medication route and quantity are also omitted.",
+        "grade": "B",
+        "summary": "The Plan section has several minor omissions, including the administration route and quantity for Gabapentin, and the specific purposes for the MRI and lifestyle recommendations. More importantly, it omits the discussion of potential benefits and risks of Gabapentin and the instruction to monitor for side effects, which are moderate issues related to patient education and safety.",
         "omissions": [
-          "Gabapentin administration route (orally)",
-          "Gabapentin quantity (30 capsules)",
-          "Purpose of MRI: to evaluate possible underlying pathological causes",
-          "Purpose of low-impact exercises: to improve physical activity levels without exacerbating pain",
-          "Patient is highly cooperative with medical advice and willing to try new treatments",
-          "Advised on the importance of monitoring for any side effects of medication",
-          "Discussed the potential benefits and risks associated with the use of Gabapentin"
+          "Gabapentin administration route 'orally'",
+          "Gabapentin quantity '30 capsules'",
+          "Purpose of MRI: 'to evaluate possible underlying pathological causes'",
+          "Purpose of lifestyle recommendations: 'to improve physical activity levels without exacerbating pain'",
+          "Patient's cooperativeness and willingness to try new treatments",
+          "Discussion of potential benefits and risks of Gabapentin",
+          "Monitoring for any side effects of prescribed medication"
         ],
         "additions": []
       }
@@ -295,11 +291,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment includes 'potentially related to degenerative disc disease with nerve involvement'",
+      "addition_text": "Assessment detail: 'potentially related to degenerative disc disease with nerve involvement'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] Alright, based on what we've discussed and my examination, it seems like you're dealing with Chronic Pain Syndrome. [...] It suggests some nerve involvement, which could be related to your degenerative disc disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic Pain Syndrome potentially related to degenerative disc disease with nerve involvement."
+      "matched_claim_text": "Chronic Pain Syndrome potentially related to degenerative disc disease with nerve involvement.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Etiology of Chronic Pain Syndrome: 'potentially related to degenerative disc disease with nerve involvement'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor] Alright, based on what we've discussed and my examination, it seems like you're dealing with Chronic Pain Syndrome. [...] It suggests some nerve involvement, which could be related to your degenerative disc disease.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Chronic Pain Syndrome potentially related to degenerative disc disease with nerve involvement.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

@@ -300,9 +300,9 @@
     "plan_alignment_score": 0.7074235807860262
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides the core clinical information, including the chief complaint, present illness, objective findings, diagnosis, and main treatment plan. However, it has several moderate omissions, particularly the entire differential diagnosis section in the Assessment and important details regarding patient education and the rationale for investigations in the Plan. There is also a minor unsupported addition of Celsius temperature in the Objective section. These omissions make the note meaningfully incomplete in certain areas, warranting a C grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned but has noticeable gaps, particularly in the Assessment and Plan sections. Key omissions include the entire Differential Diagnosis section and detailed patient education/counseling points. There are also several minor omissions in the Subjective and Plan sections, and one minor unsupported addition in the Objective section. These issues make the note meaningfully incomplete, requiring caution and review.",
     "omissions": [],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [
@@ -312,7 +312,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly complete, capturing the main complaints and history. However, it omits details about the patient's symptoms disrupting sleep and work schedule, and the general feeling of tiredness, which provide useful context.",
+        "summary": "The Subjective section is mostly complete, capturing the chief complaint and main HPI details. However, it omits minor details such as the specific timing of coughing fits (throughout the day and night), the impact on sleep and work, and the patient feeling generally tired, which were present in the Ground Truth.",
         "omissions": [
           "HPI detail: intermittent coughing fits throughout the day and night",
           "HPI detail: His symptoms have disrupted his sleep and work schedule",
@@ -323,7 +323,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is comprehensive and accurate, reflecting all major findings from the physical examination and vital signs. A minor unsupported addition of the temperature in Celsius was noted, but this does not impact clinical usefulness.",
+        "summary": "The Objective section is well-aligned with the Ground Truth. The only discrepancy is the unsupported addition of the temperature in Celsius (37.3°C), which is a minor detail and does not detract from the clinical usefulness of the section. Other additions were supported by the transcript.",
         "omissions": [],
         "additions": [
           "Temperature in Celsius (37.3°C)",
@@ -333,7 +333,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section is significantly incomplete due to the omission of the entire Differential Diagnosis section, which is a key component of clinical reasoning. While the primary diagnosis is stated, this gap reduces the overall clinical utility of the assessment.",
+        "summary": "The Assessment section has a significant omission: the entire Differential Diagnosis section, which included 'Viral upper respiratory infection', 'Asthma exacerbation', and 'GERD-related cough'. This represents a noticeable gap in the clinical thought process. The additions in this section were supported by the transcript and do not negatively impact the grade.",
         "omissions": [
           "Differential Diagnosis section (including Viral upper respiratory infection, Asthma exacerbation, GERD-related cough)"
         ],
@@ -344,8 +344,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section outlines the main pharmacological treatments and supportive care. However, it omits specific medication quantities and dosages for Albuterol, the instruction to avoid strenuous activities, and important details regarding patient education and counseling (e.g., discussion of side effects, provision of educational materials). Additionally, the rationale for ordering the sputum culture is not explicitly stated within the Plan. These omissions make the plan less comprehensive.",
+        "grade": "C",
+        "summary": "The Plan section contains several omissions. Minor details such as specific medication quantities (Clarithromycin 14 tablets, Albuterol 90 mcg, 1 inhaler) and the instruction to 'avoid strenuous activities' were missed. More significantly, the detailed Patient Education and Counseling points, including discussion of medication side effects/adherence and provision of educational materials, were omitted. The rationale for the sputum culture was also not included.",
         "omissions": [
           "Clarithromycin quantity: 14 tablets",
           "Albuterol Inhaler dosage: 90 mcg",
@@ -366,28 +366,36 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"no signs of strep throat\" in Throat exam description",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Let's check your throat... It's erythematous, which means it's red but there's no exudates, so it doesn't look like a strep throat.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Throat: Erythematous with no exudates, indicating no signs of strep throat."
+      "matched_claim_text": "Throat: Erythematous with no exudates, indicating no signs of strep throat.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"is suspected based on clinical presentation and exam findings\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] ...based on what you've told me and the exam, it seems like you might have acute bronchitis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute bronchitis is suspected based on clinical presentation and exam findings."
+      "matched_claim_text": "Acute bronchitis is suspected based on clinical presentation and exam findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Pending sputum culture results\" (as part of Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We're still waiting on the sputum culture results to rule out a bacterial infection",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Sputum culture results are pending."
+      "matched_claim_text": "Sputum culture results are pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

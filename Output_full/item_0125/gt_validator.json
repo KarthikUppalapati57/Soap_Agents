@@ -218,135 +218,99 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note captures the core clinical picture but suffers from several omissions and one significant unsupported addition. The Subjective section lacks many specific details from the HPI and ROS, and deviates significantly from the Ground Truth's structured format. In the Objective section, the omission of pending liver function tests as an objective finding is a moderate issue. The Assessment section omits important duration and impact details and includes a high-severity unsupported addition regarding \"Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes,\" which is a clinical interpretation not explicitly supported by the transcript. The Plan section has several minor omissions but is otherwise sound. These issues collectively reduce the note's completeness and reliability, requiring careful review.",
+    "overall_summary": "The generated SOAP note is broadly clinically usable but has noticeable gaps in the Subjective section. Several clinically important details were omitted, including the 2-year history of opioid use, its origin from prescribed oxycodone, the specific impact on job performance as a part-time construction worker, and the precise duration of insomnia (3-4 hours per night). The Objective, Assessment, and Plan sections are better aligned, containing only minor omissions and no unsupported or unknown additions. All additions present in the note were supported by the transcript and therefore did not negatively impact the grade.",
     "omissions": [
-      "Explicit Chief Complaint section",
-      "HPI detail: Initial consultation for opioid dependence",
-      "HPI detail: 2-year history of opioid use",
-      "HPI detail: Oxycodone initially prescribed for chronic back pain",
-      "HPI detail: Cravings are daily",
-      "HPI detail: Specific impact on job performance as a part-time construction worker",
-      "HPI detail: Specific impact on personal relationships",
-      "HPI detail: Insomnia and irritability worsened over the past month",
-      "ROS detail: Averaging 3-4 hours of sleep per night",
-      "Dedicated Past Medical History section",
-      "Dedicated Family Medical History section",
-      "Dedicated Social History section",
-      "Dedicated Current Medications section",
-      "Dedicated Allergies section",
-      "Social History detail: Recreational Activities (limited; struggles with motivation)",
-      "Social History detail: Drug Use (history of opioid use for chronic pain management)",
-      "Social History detail: Diet (irregular eating patterns, mostly fast food)",
-      "Social History detail: Exercise (no regular exercise)",
-      "Social History detail: Alcohol Consumption (occasional social drinking, 1-2 drinks/week)",
-      "Social History detail: Tobacco Use (smokes 1 pack/day)",
+      "Patient's initial consultation regarding opioid dependence",
+      "2-year history of opioid use",
+      "Opioid use initially started as prescribed oxycodone",
+      "Cravings are daily",
+      "Impact on job performance as a part-time construction worker",
+      "Insomnia averaging 3-4 hours of sleep per night",
+      "Difficulty maintaining job performance and personal relationships due to opioid cravings (from ROS)",
       "Physical Exam: Not conducted in this initial consultation",
-      "Investigation/Test Results: Pending liver function tests to monitor liver health during treatment (as an objective finding)",
-      "Assessment detail: Symptoms ongoing for 2 years",
-      "Assessment detail: Significant impact on daily activities",
-      "Assessment diagnosis detail: 'uncomplicated' (regarding opioid dependence)",
-      "Plan medication detail: 'sublingually' (route of administration)",
-      "Plan referral detail: Specific name of behavioral health specialist (Dr. Emily Johnson)",
-      "Plan monitoring detail: 'biochemistry' (for liver function tests)",
-      "Plan instructions: Patient agrees to comply with treatment recommendations"
+      "Investigation/Test Results: Pending liver function tests to monitor liver health during treatment",
+      "\"uncomplicated\" in opioid dependence diagnosis",
+      "Specific name of the behavioral health specialist (Dr. Emily Johnson)",
+      "\"biochemistry\" for liver function tests",
+      "Patient agrees to comply with treatment recommendations"
     ],
     "additions": [
-      "Objective section includes Past Medical History",
-      "Objective section includes Family Medical History",
-      "Objective section includes Social History",
-      "Objective section includes Allergies",
-      "Objective detail: 'approximately one pack of tobacco daily' (instead of '1 pack/day')",
-      "Objective detail: 'minimal exercise' (instead of 'No regular exercise')",
-      "Assessment detail: 'withdrawal symptoms' (explicitly stated)",
-      "Assessment detail: 'requires medication-assisted treatment and behavioral health counseling'",
-      "Assessment detail: 'poor sleep quality' (explicitly stated)",
-      "Assessment detail: 'Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes.'",
-      "Plan medication detail: 'for opioid use disorder management' (purpose)",
-      "Plan lifestyle detail: 'provide resources for support' (for smoking cessation)",
-      "Plan follow-up detail: 'and make necessary adjustments' (to follow-up purpose)",
-      "Plan instructions detail: 'if needed' (qualifier for financial assistance)"
+      "\"withdrawal symptoms\" in opioid use disorder diagnosis (in Assessment)",
+      "Requires medication-assisted treatment and behavioral health counseling (in Assessment)",
+      "Poor sleep quality (as a coexisting condition in Assessment)",
+      "Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes (in Assessment)",
+      "\"for opioid use disorder management\" (reason for medication in Plan)",
+      "\"provide resources for support\" (for smoking cessation in Plan)",
+      "\"make necessary adjustments\" (in Follow-Up plan)"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Objective detail: 'minimal exercise' (instead of 'No regular exercise')",
-      "Assessment detail: 'Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes.'"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits numerous specific details from the HPI and ROS, such as the 2-year history of opioid use, daily cravings, specific impact on job performance and relationships, and quantification of insomnia. Additionally, it lacks the dedicated structured sections for Chief Complaint, HPI, ROS, Past Medical History, Family Medical History, Social History, Current Medications, and Allergies, which significantly impacts its completeness and adherence to a standard SOAP format.",
+        "summary": "This section has multiple moderate omissions that make it meaningfully incomplete. Key details such as the 2-year history of opioid use, its origin from prescribed oxycodone, the daily nature of cravings, the specific impact on job performance as a part-time construction worker, the average 3-4 hours of sleep per night, and the difficulty maintaining personal relationships due to cravings were omitted. While the core complaint is captured, the lack of these specific details reduces the clinical usefulness and completeness of the history.",
         "omissions": [
-          "Explicit Chief Complaint section",
-          "HPI detail: Initial consultation for opioid dependence",
-          "HPI detail: 2-year history of opioid use",
-          "HPI detail: Oxycodone initially prescribed for chronic back pain",
-          "HPI detail: Cravings are daily",
-          "HPI detail: Specific impact on job performance as a part-time construction worker",
-          "HPI detail: Specific impact on personal relationships",
-          "HPI detail: Insomnia and irritability worsened over the past month",
-          "ROS detail: Averaging 3-4 hours of sleep per night",
-          "Dedicated Past Medical History section",
-          "Dedicated Family Medical History section",
-          "Dedicated Social History section",
-          "Dedicated Current Medications section",
-          "Dedicated Allergies section",
-          "Social History detail: Recreational Activities (limited; struggles with motivation)",
-          "Social History detail: Drug Use (history of opioid use for chronic pain management)",
-          "Social History detail: Diet (irregular eating patterns, mostly fast food)",
-          "Social History detail: Exercise (no regular exercise)",
-          "Social History detail: Alcohol Consumption (occasional social drinking, 1-2 drinks/week)",
-          "Social History detail: Tobacco Use (smokes 1 pack/day)"
+          "Patient's initial consultation regarding opioid dependence",
+          "2-year history of opioid use",
+          "Opioid use initially started as prescribed oxycodone",
+          "Cravings are daily",
+          "Impact on job performance as a part-time construction worker",
+          "Insomnia averaging 3-4 hours of sleep per night",
+          "Difficulty maintaining job performance and personal relationships due to opioid cravings (from ROS)",
+          "Past Medical History section (content moved to Objective in GeneratedSOAP)",
+          "Family Medical History section (content moved to Objective in GeneratedSOAP)",
+          "Social History section (content moved to Objective in GeneratedSOAP)",
+          "Current Medications section",
+          "Allergies section (content moved to Objective in GeneratedSOAP)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits the explicit statement that a physical exam was not conducted and the pending liver function tests as an objective finding, which is a moderate omission. It also includes a minor unsupported addition regarding 'minimal exercise' instead of 'No regular exercise'. While the note structurally moves PMH, FMH, SH, and Allergies into this section, the content itself is present in the overall note.",
+        "summary": "This section has minor omissions, specifically the statements regarding the physical exam not being conducted and pending liver function tests. The additions of past medical history, family medical history, social history, and allergies are all supported by the transcript and, despite being a structural deviation from the GroundTruth, do not negatively impact the grade.",
         "omissions": [
           "Physical Exam: Not conducted in this initial consultation",
-          "Investigation/Test Results: Pending liver function tests to monitor liver health during treatment (as an objective finding)"
+          "Investigation/Test Results: Pending liver function tests to monitor liver health during treatment"
         ],
         "additions": [
-          "Objective section includes Past Medical History",
-          "Objective section includes Family Medical History",
-          "Objective section includes Social History",
-          "Objective section includes Allergies",
-          "'approximately one pack of tobacco daily' (instead of '1 pack/day')",
-          "'minimal exercise' (instead of 'No regular exercise')"
+          "Chronic back pain, anxiety, depression (Past medical history)",
+          "Hypertension, Type 2 Diabetes (Family medical history)",
+          "Smokes approximately one pack of tobacco daily, occasional alcohol use, irregular diet, minimal exercise (Social history)",
+          "No known allergies (Allergies)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section omits important details such as the symptoms being ongoing for 2 years and their significant impact on daily activities. A major concern is the unsupported addition of 'Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes.' While individual risk factors are mentioned in the transcript, this synthesized clinical interpretation as an assessment is not explicitly supported, making it a high-severity issue that reduces the note's reliability.",
+        "grade": "B",
+        "summary": "This section is mostly clinically aligned. It has a few minor omissions, such as the patient's history of chronic back pain, the 2-year duration of symptoms, the significant impact on daily activities, and the 'uncomplicated' qualifier for opioid dependence. All additions in this section, including 'withdrawal symptoms' and 'potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes', are supported by the transcript and do not reduce the grade.",
         "omissions": [
-          "Symptoms ongoing for 2 years",
-          "Significant impact on daily activities",
-          "Diagnosis detail: 'uncomplicated' (regarding opioid dependence)"
+          "History of chronic back pain",
+          "Symptoms have been ongoing for 2 years",
+          "Significant impact on his daily activities",
+          "\"uncomplicated\" in opioid dependence diagnosis"
         ],
         "additions": [
-          "'withdrawal symptoms' (explicitly stated)",
-          "'requires medication-assisted treatment and behavioral health counseling'",
-          "'poor sleep quality' (explicitly stated)",
-          "'Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes.'"
+          "\"withdrawal symptoms\" in opioid use disorder diagnosis",
+          "Requires medication-assisted treatment and behavioral health counseling",
+          "Poor sleep quality (as a coexisting condition)",
+          "Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly complete and accurate. It has several minor omissions, including the specific route 'sublingually' for medication, the name of the behavioral health specialist, the 'biochemistry' detail for liver function tests, and the patient's agreement to comply with treatment recommendations. However, these are minor details that do not significantly impact the core clinical usefulness or safety of the plan. There are no unsupported or unknown additions in this section.",
+        "summary": "This section is mostly clinically aligned, with several minor omissions. These include the specific medication route 'sublingually', the name of the behavioral health specialist (Dr. Emily Johnson), the term 'biochemistry' for liver function tests, and the patient's agreement to comply with treatment recommendations. All additions in this section are supported by the transcript and do not reduce the grade.",
         "omissions": [
-          "Medication route 'sublingually'",
-          "Specific name of behavioral health specialist (Dr. Emily Johnson)",
-          "Monitoring detail: 'biochemistry' (for liver function tests)",
-          "Instructions: Patient agrees to comply with treatment recommendations"
+          "Medication route \"sublingually\"",
+          "Specific name of the behavioral health specialist (Dr. Emily Johnson)",
+          "\"biochemistry\" for liver function tests",
+          "Patient agrees to comply with treatment recommendations"
         ],
         "additions": [
-          "Medication purpose: 'for opioid use disorder management'",
-          "Lifestyle detail: 'provide resources for support' (for smoking cessation)",
-          "Follow-up detail: 'and make necessary adjustments' (to follow-up purpose)",
-          "Instructions detail: 'if needed' (qualifier for financial assistance)"
+          "\"for opioid use disorder management\" (reason for medication)",
+          "\"provide resources for support\" (for smoking cessation)",
+          "\"make necessary adjustments\" (in Follow-Up plan)"
         ]
       }
     ],
@@ -355,172 +319,157 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective section includes Past Medical History",
+      "addition_text": "\"withdrawal symptoms\" in opioid use disorder diagnosis (in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I’m here because I’m struggling with opioid cravings. I stopped taking it about a month ago. I’ve been having moderate cravings for opioids every day. Yes, I’ve been dealing with insomnia and irritability.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has Opioid use disorder with withdrawal symptoms.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Oxycodone — contraindication — substance abuse/dependence"
+    },
+    {
+      "addition_text": "Requires medication-assisted treatment and behavioral health counseling (in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’m going to start you on a medication called Buprenorphine-Naloxone, commonly known as Suboxone. Additionally, I’m going to refer you to a behavioral health specialist for ongoing addiction counseling.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient requires medication-assisted treatment and behavioral health counseling.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Poor sleep quality (as a coexisting condition in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I have anxiety and depression. I’ve been dealing with insomnia and irritability. About 3-4 hours per night.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Coexisting conditions include anxiety, depression, and poor sleep quality.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes (in Assessment)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Patient states, \"Yes, I smoke about a pack a day.\" Regarding diet, \"Not great. I mostly eat fast food and my eating patterns are pretty irregular.\" For exercise, \"Not really. I struggle with motivation.\" And for family history, \"My father has hypertension and Type 2 Diabetes.\"",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"for opioid use disorder management\" (reason for medication in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’m going to start you on a medication called Buprenorphine-Naloxone, commonly known as Suboxone. It’s a combination medication that can help reduce your cravings and withdrawal symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Initiate Buprenorphine-Naloxone (Suboxone) treatment for opioid use disorder management.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"provide resources for support\" (for smoking cessation in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Also, it would be beneficial to consider smoking cessation. There are resources and support groups that can help you quit.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Encourage smoking cessation and provide resources for support.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"make necessary adjustments\" (in Follow-Up plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’ll schedule a follow-up appointment in one week to assess your response to the treatment and make any necessary adjustments.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up appointment in one week to assess response and make necessary adjustments.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Chronic back pain, anxiety, depression (Past medical history)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have chronic back pain, anxiety, and depression.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient's past medical history includes chronic back pain, anxiety, and depression."
+      "matched_claim_text": "Patient's past medical history includes chronic back pain, anxiety, and depression.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective section includes Family Medical History",
+      "addition_text": "Hypertension, Type 2 Diabetes (Family medical history)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My father has hypertension and Type 2 Diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient's family medical history includes hypertension and Type 2 Diabetes."
+      "matched_claim_text": "Patient's family medical history includes hypertension and Type 2 Diabetes.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective section includes Social History",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Not great. I mostly eat fast food and my eating patterns are pretty irregular.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient's social history includes irregular diet."
-    },
-    {
-      "addition_text": "Objective section includes Allergies",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: And any allergies?\n[Patient]: None that I know of.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective detail: 'approximately one pack of tobacco daily' (instead of '1 pack/day')",
+      "addition_text": "Smokes approximately one pack of tobacco daily, occasional alcohol use, irregular diet, minimal exercise (Social history)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I smoke about a pack a day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient's social history includes smoking approximately one pack of tobacco daily."
+      "matched_claim_text": "Patient's social history includes smoking approximately one pack of tobacco daily.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective detail: 'minimal exercise' (instead of 'No regular exercise')",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment detail: 'withdrawal symptoms' (explicitly stated)",
+      "addition_text": "No known allergies (Allergies)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "It’s a combination medication that can help reduce your cravings and withdrawal symptoms.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Patient]: None that I know of.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has no known allergies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment detail: 'requires medication-assisted treatment and behavioral health counseling'",
+      "addition_text": "\"withdrawal symptoms\" in opioid use disorder diagnosis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I’m here because I’m struggling with opioid cravings. I stopped taking it about a month ago. I’ve been having moderate cravings for opioids every day. Yes, I’ve been dealing with insomnia and irritability.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has Opioid use disorder with withdrawal symptoms.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Oxycodone — contraindication — substance abuse/dependence"
+    },
+    {
+      "addition_text": "Requires medication-assisted treatment and behavioral health counseling",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m going to start you on a medication called Buprenorphine-Naloxone, commonly known as Suboxone. Additionally, I’m going to refer you to a behavioral health specialist for ongoing addiction counseling.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient requires medication-assisted treatment and behavioral health counseling."
+      "matched_claim_text": "Patient requires medication-assisted treatment and behavioral health counseling.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment detail: 'poor sleep quality' (explicitly stated)",
+      "addition_text": "Poor sleep quality (as a coexisting condition)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I have anxiety and depression. I’ve been dealing with insomnia and irritability. About 3-4 hours per night.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Coexisting conditions include anxiety, depression, and poor sleep quality."
+      "matched_claim_text": "Coexisting conditions include anxiety, depression, and poor sleep quality.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment detail: 'Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes.'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan medication detail: 'for opioid use disorder management' (purpose)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’m going to start you on a medication called Buprenorphine-Naloxone, commonly known as Suboxone. It’s a combination medication that can help reduce your cravings and withdrawal symptoms.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Buprenorphine-Naloxone (Suboxone) treatment for opioid use disorder management."
-    },
-    {
-      "addition_text": "Plan lifestyle detail: 'provide resources for support' (for smoking cessation)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Also, it would be beneficial to consider smoking cessation. There are resources and support groups that can help you quit.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage smoking cessation and provide resources for support."
-    },
-    {
-      "addition_text": "Plan follow-up detail: 'and make necessary adjustments' (to follow-up purpose)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll schedule a follow-up appointment in one week to assess your response to the treatment and make any necessary adjustments.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in one week to assess response and make necessary adjustments."
-    },
-    {
-      "addition_text": "Plan instructions detail: 'if needed' (qualifier for financial assistance)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: One more thing, I want to make sure you’re aware of potential difficulties affording medication and counseling services. If necessary, we can explore resources for financial assistance.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss potential financial assistance if needed for medication and counseling services."
-    },
-    {
-      "addition_text": "'approximately one pack of tobacco daily' (instead of '1 pack/day')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I smoke about a pack a day.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient's social history includes smoking approximately one pack of tobacco daily."
-    },
-    {
-      "addition_text": "'minimal exercise' (instead of 'No regular exercise')",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Not really. I struggle with motivation.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'withdrawal symptoms' (explicitly stated)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It’s a combination medication that can help reduce your cravings and withdrawal symptoms.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'requires medication-assisted treatment and behavioral health counseling'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’m going to start you on a medication called Buprenorphine-Naloxone, commonly known as Suboxone. Additionally, I’m going to refer you to a behavioral health specialist for ongoing addiction counseling.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient requires medication-assisted treatment and behavioral health counseling."
-    },
-    {
-      "addition_text": "'poor sleep quality' (explicitly stated)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I have anxiety and depression. I’ve been dealing with insomnia and irritability. About 3-4 hours per night.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Coexisting conditions include anxiety, depression, and poor sleep quality."
-    },
-    {
-      "addition_text": "'Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes.'",
+      "addition_text": "Potential complications due to smoking, irregular diet, minimal exercise, and family history of hypertension and diabetes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My father has hypertension and Type 2 Diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient's family medical history includes hypertension and Type 2 Diabetes."
+      "matched_claim_text": "Patient's family medical history includes hypertension and Type 2 Diabetes.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Medication purpose: 'for opioid use disorder management'",
+      "addition_text": "\"for opioid use disorder management\" (reason for medication)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m going to start you on a medication called Buprenorphine-Naloxone, commonly known as Suboxone. It’s a combination medication that can help reduce your cravings and withdrawal symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Buprenorphine-Naloxone (Suboxone) treatment for opioid use disorder management."
+      "matched_claim_text": "Initiate Buprenorphine-Naloxone (Suboxone) treatment for opioid use disorder management.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Lifestyle detail: 'provide resources for support' (for smoking cessation)",
+      "addition_text": "\"provide resources for support\" (for smoking cessation)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Also, it would be beneficial to consider smoking cessation. There are resources and support groups that can help you quit.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage smoking cessation and provide resources for support."
-    },
-    {
-      "addition_text": "Follow-up detail: 'and make necessary adjustments' (to follow-up purpose)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll schedule a follow-up appointment in one week to assess your response to the treatment and make any necessary adjustments.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in one week to assess response and make necessary adjustments."
-    },
-    {
-      "addition_text": "Instructions detail: 'if needed' (qualifier for financial assistance)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: One more thing, I want to make sure you’re aware of potential difficulties affording medication and counseling services. If necessary, we can explore resources for financial assistance.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss potential financial assistance if needed for medication and counseling services."
+      "matched_claim_text": "Encourage smoking cessation and provide resources for support.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

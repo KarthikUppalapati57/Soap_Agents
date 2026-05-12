@@ -281,9 +281,9 @@
     "plan_alignment_score": 0.670807453416149
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key HPI elements, vital signs, physical exam findings, diagnosis, and treatment plan. However, there are several minor omissions, including specific ROS details, the patient's general appearance, and explicit medication routes. More significantly, the note omits the impact of the throat pain on daily activities and missed work, and the crucial patient education point about completing the full course of antibiotics. There are no unsupported or unknown additions that would negatively impact the grade.",
+    "model": "Agent-3",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is broadly clinically usable but contains several moderate omissions and multiple minor omissions across various sections. Key missing details include the patient's general appearance, the impact of the illness on daily activities and work, crucial patient education regarding completing the full course of antibiotics, and specific instructions for follow-up based on throat culture results. While the core diagnosis and treatment plan are present, these gaps make the note meaningfully incomplete in important clinical and patient care aspects. There are no unsupported or unknown additions.",
     "omissions": [
       "HPI: Throat pain described as 'constant frequency'",
       "HPI: Throat pain impacting daily activities including eating, speaking, and resulting in missed work for 2 days",
@@ -314,7 +314,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the core complaint and associated symptoms well. However, it omits the 'constant frequency' of throat pain, the significant impact on daily activities including eating, speaking, and missed work for 2 days, and several minor ROS details such as poor sleep due to pain, denial of ear pain/nasal congestion, and reduced appetite. All additions in this section were supported by the transcript and did not impact the grade.",
+        "summary": "The Subjective section omits important details from the HPI, such as the constant frequency of throat pain and its significant impact on daily activities, eating, speaking, and missed work. It also misses minor ROS details like poor sleep due to pain, reduced appetite, and the denial of ear pain or nasal congestion.",
         "omissions": [
           "HPI: Throat pain described as 'constant frequency'",
           "HPI: Throat pain impacting daily activities including eating, speaking, and resulting in missed work for 2 days",
@@ -330,8 +330,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is excellent, accurately capturing all vital signs and key physical examination findings. The only omission is the patient's 'General Appearance: Alert, cooperative, appears moderately ill,' which is a minor detail. All additions in this section were supported by the transcript and did not impact the grade.",
+        "grade": "B",
+        "summary": "This section omits the general appearance of the patient ('Alert, cooperative, appears moderately ill'), which is a clinically important observation from the physical examination.",
         "omissions": [
           "Physical Examination: General Appearance: Alert, cooperative, appears moderately ill"
         ],
@@ -342,7 +342,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is highly accurate and clinically sound. It correctly identifies acute pharyngitis and its differential diagnosis. The omissions are minor, consisting of the 'unspecified' qualifier for acute pharyngitis and the explicit heading 'Differential Diagnosis.' All additions in this section were supported by the transcript and did not impact the grade.",
+        "summary": "This section has minor omissions, specifically the 'unspecified' qualifier for acute pharyngitis and the explicit 'Differential Diagnosis' heading. The core diagnostic and differential information is otherwise accurately captured.",
         "omissions": [
           "'unspecified' qualifier for acute pharyngitis",
           "Explicit heading 'Differential Diagnosis'"
@@ -355,7 +355,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section outlines the correct medications, dosages, and general patient education. However, it omits the 'oral' route for both Ibuprofen and Amoxicillin, the crucial patient education point about the importance of completing the full course of antibiotics, the patient's agreement with the plan, and a specific instruction regarding follow-up based on throat culture results. The omission regarding antibiotic adherence is a moderate issue. All additions in this section were supported by the transcript and did not impact the grade.",
+        "summary": "The Plan section omits the 'oral' route for both Ibuprofen and Amoxicillin, which are minor details. More significantly, it misses patient education on the importance of completing the full course of antibiotics and the specific instruction for scheduling a follow-up appointment based on throat culture results. It also omits the patient's agreement with the plan.",
         "omissions": [
           "Ibuprofen 'oral' route",
           "Amoxicillin 'oral' route",
@@ -378,112 +378,144 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's been about 4 days now. It started out mild, but it's gotten worse. ... It's pretty constant and moderate in severity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports a 4-day history of moderate throat pain that has worsened over time."
+      "matched_claim_text": "The patient reports a 4-day history of moderate throat pain that has worsened over time.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Patient reports discomfort when neck is pressed",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: How does it feel when I press on your neck?\n\n[Patient]: It hurts a bit, and my neck feels tender and swollen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports discomfort when neck is pressed and describes tender and swollen cervical lymph nodes."
+      "matched_claim_text": "The patient reports discomfort when neck is pressed and describes tender and swollen cervical lymph nodes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Patient describes tender and swollen cervical lymph nodes (as a subjective report)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your cervical lymph nodes are indeed tender and swollen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "tender and swollen cervical lymph nodes."
+      "matched_claim_text": "tender and swollen cervical lymph nodes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: Temperature in Celsius (38.9°C)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your temperature is 102°F",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fever: 102°F (38.9°C)"
+      "matched_claim_text": "Fever: 102°F (38.9°C)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'is suspected' qualifier for acute pharyngitis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, it appears you have acute pharyngitis. This could be either viral or bacterial...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute pharyngitis is suspected, with potential causes of viral or bacterial origin."
+      "matched_claim_text": "Acute pharyngitis is suspected, with potential causes of viral or bacterial origin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'will guide further treatment' regarding throat culture results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: ...we'll need a throat culture to confirm. ...We'll treat it based on the most common causes and review the throat culture once it's available.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending throat culture results will guide further treatment."
+      "matched_claim_text": "Pending throat culture results will guide further treatment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Ibuprofen for 'fever management' (in addition to pain)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For pain and fever, you can take Ibuprofen 200 mg every 6 hours as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pain and fever management with Ibuprofen 200 mg every 6 hours as needed."
+      "matched_claim_text": "Pain and fever management with Ibuprofen 200 mg every 6 hours as needed.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'return to the clinic for reassessment' (specific wording)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms don't improve or if they get worse after 3 days of antibiotic therapy, please come back to the clinic. We may need to reassess your condition.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms do not improve or worsen after 3 days of antibiotic therapy, the patient is advised to return to the clinic for reassessment."
+      "matched_claim_text": "If symptoms do not improve or worsen after 3 days of antibiotic therapy, the patient is advised to return to the clinic for reassessment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Throat pain 'has worsened over time'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's been about 4 days now. It started out mild, but it's gotten worse. ... It's pretty constant and moderate in severity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports a 4-day history of moderate throat pain that has worsened over time."
+      "matched_claim_text": "The patient reports a 4-day history of moderate throat pain that has worsened over time.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient reports discomfort when neck is pressed",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: How does it feel when I press on your neck?\n\n[Patient]: It hurts a bit, and my neck feels tender and swollen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports discomfort when neck is pressed and describes tender and swollen cervical lymph nodes."
+      "matched_claim_text": "The patient reports discomfort when neck is pressed and describes tender and swollen cervical lymph nodes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient describes tender and swollen cervical lymph nodes (as a subjective report)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your cervical lymph nodes are indeed tender and swollen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "tender and swollen cervical lymph nodes."
+      "matched_claim_text": "tender and swollen cervical lymph nodes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Temperature in Celsius (38.9°C)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your temperature is 102°F",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fever: 102°F (38.9°C)"
+      "matched_claim_text": "Fever: 102°F (38.9°C)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'is suspected' qualifier for acute pharyngitis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and physical examination, it appears you have acute pharyngitis. This could be either viral or bacterial...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute pharyngitis is suspected, with potential causes of viral or bacterial origin."
+      "matched_claim_text": "Acute pharyngitis is suspected, with potential causes of viral or bacterial origin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'will guide further treatment' regarding throat culture results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: ...we'll need a throat culture to confirm. ...We'll treat it based on the most common causes and review the throat culture once it's available.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending throat culture results will guide further treatment."
+      "matched_claim_text": "Pending throat culture results will guide further treatment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Ibuprofen for 'fever management' (in addition to pain)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For pain and fever, you can take Ibuprofen 200 mg every 6 hours as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pain and fever management with Ibuprofen 200 mg every 6 hours as needed."
+      "matched_claim_text": "Pain and fever management with Ibuprofen 200 mg every 6 hours as needed.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'return to the clinic for reassessment' (specific wording)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If your symptoms don't improve or if they get worse after 3 days of antibiotic therapy, please come back to the clinic. We may need to reassess your condition.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms do not improve or worsen after 3 days of antibiotic therapy, the patient is advised to return to the clinic for reassessment."
+      "matched_claim_text": "If symptoms do not improve or worsen after 3 days of antibiotic therapy, the patient is advised to return to the clinic for reassessment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -273,98 +273,85 @@
     "plan_alignment_score": 0.4795321637426901
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is clinically usable but contains multiple minor to moderate omissions across all sections. Key missing details include the impact of symptoms on daily life, specific physical examination findings, differential diagnoses, specific examples of worsening infection symptoms for patient education, and patient agreements. There are no unsupported or unknown additions that would further reduce the grade. The cumulative effect of these omissions makes the note meaningfully incomplete, warranting a C grade.",
+    "model": "expert-clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the core clinical picture, including the chief complaint, key HPI elements, vital signs, physical exam findings, diagnosis, and treatment plan. However, there are several minor and a few moderate omissions across all sections, particularly in the detailed HPI, differential diagnoses, and the patient agreements section, which reduce the completeness of the note.",
     "omissions": [
-      "Patient's difficulty sleeping due to frequent urination",
-      "Symptoms present throughout day and night, causing difficulty completing work tasks",
-      "Denial of hematuria",
-      "Specific Metformin dosage (500 mg twice daily)",
-      "General appearance: well-nourished and in no acute distress",
-      "Abdominal inspection: flat, no visible scars or lesions",
-      "Genitourinary examination: deferred",
-      "Diagnosis 'Site Not Specified' for UTI",
-      "Differential diagnoses (Acute cystitis, pyelonephritis, interstitial cystitis)",
-      "Specific quantity of Ciprofloxacin tablets (total of 14 tablets)",
-      "Specific examples of signs and symptoms of worsening infection (e.g., fever, chills, flank pain)",
-      "Education about maintaining a balanced diet",
-      "Patient agreements (understands and agrees with the recommended medical treatment plan; all questions were answered and the patient expressed confidence in adhering to the prescribed management plan)"
+      "Patient's difficulty sleeping due to frequent urination.",
+      "Symptoms present throughout the day and night.",
+      "Difficulty completing work tasks due to frequent trips to the bathroom and discomfort.",
+      "Denial of hematuria (blood in urine).",
+      "Metformin dosage (500 mg twice daily).",
+      "General Appearance: Patient appears well-nourished and in no acute distress.",
+      "Abdominal Inspection: Abdomen is flat, no visible scars or lesions.",
+      "Genitourinary Examination: Deferred.",
+      "Assessment diagnosis specificity: \"Site Not Specified\".",
+      "Differential Diagnosis: Acute cystitis, pyelonephritis, interstitial cystitis.",
+      "Specific symptoms listed in medical reasoning (dysuria, increased frequency, lower abdominal pain).",
+      "Antibiotic details: \"tablets, orally\".",
+      "Antibiotic details: \"(total of 14 tablets)\".",
+      "Specific examples of worsening infection signs/symptoms (e.g., fever, chills, flank pain).",
+      "Review of the impact of diabetes on susceptibility to infections.",
+      "Advice to maintain a balanced diet.",
+      "Follow-up detail: \"to ensure appropriate treatment and resolution of infection.\"",
+      "Patient Agreements section (including patient understanding, agreement, questions answered, confidence in adherence)."
     ],
-    "additions": [
-      "Temperature in Celsius (37°C)",
-      "Instruction to monitor blood sugar closely"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section omits details regarding the patient's difficulty sleeping and work impairment due to frequent urination, the symptoms' persistence day and night, the denial of hematuria, and the specific Metformin dosage. While the core complaints are present, these are minor to moderate omissions affecting the completeness of the HPI and ROS.",
+        "summary": "The Subjective section is missing details regarding the patient's difficulty sleeping and work impairment due to frequent urination, the constant nature of symptoms (day and night), the denial of hematuria, and the specific dosage of Metformin. While the main points are present, these omissions reduce the overall completeness of the HPI and ROS.",
         "omissions": [
-          "Difficulty sleeping due to frequent urination",
-          "Symptoms present throughout the day and night",
-          "Difficulty completing work tasks due to frequent trips to the bathroom and discomfort",
-          "Denial of hematuria",
-          "Specific Metformin dosage (500 mg twice daily)"
+          "Difficulty sleeping due to frequent urination.",
+          "Symptoms present throughout the day and night.",
+          "Difficulty completing work tasks due to frequent trips to the bathroom and discomfort.",
+          "Denial of hematuria (blood in urine).",
+          "Metformin dosage (500 mg twice daily)."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section omits details about the patient's general appearance (well-nourished, no acute distress), specific abdominal inspection findings (flat, no scars/lesions), and the deferral of the genitourinary examination. The addition of temperature in Celsius is supported by the transcript and does not impact the grade. The omissions are minor descriptive details.",
+        "summary": "The Objective section accurately reports vital signs and the key abdominal finding of suprapubic tenderness. However, it omits the general appearance (well-nourished, no acute distress), specific abdominal inspection details (flat, no scars/lesions), and the important note that the genitourinary examination was deferred. These are minor omissions that affect the comprehensiveness of the physical examination documentation.",
         "omissions": [
-          "General Appearance: Patient appears well-nourished and in no acute distress",
-          "Abdominal Examination: Inspection: Abdomen is flat, no visible scars or lesions",
-          "Genitourinary Examination: Deferred"
+          "General Appearance: Patient appears well-nourished and in no acute distress.",
+          "Abdominal Inspection: Abdomen is flat, no visible scars or lesions.",
+          "Genitourinary Examination: Deferred."
         ],
-        "additions": [
-          "Temperature in Celsius (37°C)"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The section omits the 'Site Not Specified' detail for the UTI diagnosis and the differential diagnoses (acute cystitis, pyelonephritis, interstitial cystitis). While the primary diagnosis and medical reasoning are present, these omissions reduce the completeness of the clinical thought process.",
+        "summary": "The Assessment section correctly identifies the likely diagnosis of UTI and its reasoning. However, it omits the differential diagnoses (acute cystitis, pyelonephritis, interstitial cystitis), which is a moderate gap in clinical reasoning documentation. It also misses the specific symptoms listed in the medical reasoning and the 'Site Not Specified' detail for the diagnosis.",
         "omissions": [
-          "Diagnosis 'Site Not Specified' for UTI",
-          "Differential Diagnosis: Acute cystitis, pyelonephritis, interstitial cystitis"
+          "Diagnosis specificity: \"Site Not Specified\".",
+          "Differential Diagnosis: Acute cystitis, pyelonephritis, interstitial cystitis.",
+          "Specific symptoms listed in medical reasoning (dysuria, increased frequency, lower abdominal pain)."
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section omits the specific quantity of Ciprofloxacin tablets, specific examples of worsening infection signs (e.g., fever, chills, flank pain), education about maintaining a balanced diet, and the patient's agreements regarding the treatment plan. The omission of specific worsening symptoms is a moderate safety-related issue. The addition of instruction to monitor blood sugar closely is supported by the transcript and does not impact the grade.",
+        "grade": "B",
+        "summary": "The Plan section outlines the essential treatment, labs, and follow-up. However, it omits minor details about antibiotic administration (tablets, orally, total quantity), specific examples of worsening infection signs/symptoms (e.g., fever, chills, flank pain), the review of diabetes' impact on infection susceptibility, and advice on maintaining a balanced diet. Most notably, the entire 'Patient Agreements' section, which documents patient understanding and adherence, is omitted, representing a moderate gap in documentation.",
         "omissions": [
-          "Specific quantity of Ciprofloxacin tablets (total of 14 tablets)",
-          "Specific examples of signs and symptoms of worsening infection (e.g., fever, chills, flank pain)",
-          "Education about maintaining a balanced diet",
-          "Patient agreements (understands and agrees with the recommended medical treatment plan; all questions were answered and the patient expressed confidence in adhering to the prescribed management plan)"
+          "Antibiotic details: \"tablets, orally\".",
+          "Antibiotic details: \"(total of 14 tablets)\".",
+          "Specific examples of worsening infection signs/symptoms (e.g., fever, chills, flank pain).",
+          "Review of the impact of diabetes on susceptibility to infections.",
+          "Advice to maintain a balanced diet.",
+          "Follow-up detail: \"to ensure appropriate treatment and resolution of infection.\"",
+          "Patient Agreements section (including patient understanding, agreement, questions answered, confidence in adherence)."
         ],
-        "additions": [
-          "Instruction to monitor blood sugar closely"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
   },
   "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "Temperature in Celsius (37°C)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "your temperature is 98.6°F",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Temperature: 98.6°F (37°C)"
-    },
-    {
-      "addition_text": "Instruction to monitor blood sugar closely",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Also, since you have diabetes, keeping your blood sugar under control is crucial because high blood sugar can make you more susceptible to infections. ... Yes, I'll make sure to monitor my blood sugar closely.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage the patient to monitor blood sugar closely due to diabetes"
-    }
-  ]
+  "addition_evidence": []
 }

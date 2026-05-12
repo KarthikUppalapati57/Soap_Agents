@@ -260,9 +260,9 @@
     "plan_alignment_score": 0.5100671140939598
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is missing several clinically relevant details across all sections. Key omissions include a comprehensive Review of Systems, the full differential diagnosis in the Assessment, and critical follow-up instructions and patient education points in the Plan. While no unsupported additions were found, the numerous omissions, including several moderate ones, make the note meaningfully incomplete, requiring caution and review.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, with all additions being supported by the transcript. However, it has several minor and a few moderate omissions. These include specific details in the HPI and a comprehensive review of systems in the Subjective section, granular negative findings in the Physical Examination, the full differential diagnosis in the Assessment, and several patient education points and the structured instructions in the Plan. Despite these omissions, the core clinical information, primary diagnosis, and treatment plan are well-captured.",
     "omissions": [
       "HPI detail: symptoms are intermittent",
       "HPI detail: mild impact on daily activities",
@@ -297,7 +297,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits several important details from the Review of Systems, including constitutional symptoms (fever, chills, weight loss), specific genitourinary denials (hematuria, increased urinary frequency), and a comprehensive denial of symptoms across other systems. Minor HPI details regarding intermittent symptoms and mild impact on daily activities are also missing.",
+        "summary": "The Subjective section receives a B. It accurately captures the chief complaint and main HPI details. However, it omits minor HPI details such as the intermittent nature of symptoms and their mild impact on daily activities. More significantly, it omits several specific denials from the Review of Systems, including constitutional symptoms (fever, chills, weight loss), specific genitourinary symptoms (hematuria, increased urinary frequency), and a comprehensive denial across other systems, making the ROS less thorough than the Ground Truth.",
         "omissions": [
           "HPI detail: symptoms are intermittent",
           "HPI detail: mild impact on daily activities",
@@ -313,7 +313,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits several specific findings from the physical examination, such as the patient's general appearance (alert and oriented, in no acute distress), absence of abdominal masses, specific cardiovascular findings (no murmurs, regular rhythm), detailed respiratory findings (lungs clear to auscultation bilaterally, no wheezing or crackles), musculoskeletal findings (no joint swelling or tenderness), and neurological details (oriented to person, place, and time).",
+        "summary": "The Objective section receives a B. While it correctly states that vital signs are within normal limits and summarizes key physical exam findings, it omits several specific negative findings. These include the patient's general appearance (alert and oriented, in no acute distress), the absence of masses in the abdomen, specific cardiovascular findings (no murmurs, regular rhythm), detailed respiratory findings (lungs clear to auscultation bilaterally, no wheezing or crackles), musculoskeletal findings (no joint swelling or tenderness), and neurological orientation (oriented to person, place, and time). These are minor omissions but collectively reduce the completeness of the physical examination documentation.",
         "omissions": [
           "General Appearance: Alert and oriented, in no acute distress",
           "Abdomen: no masses",
@@ -330,8 +330,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has a significant omission: the entire differential diagnosis (UTI, non-infectious urethritis, viral infection, bacterial STI) is missing, which is crucial for clinical reasoning. Additionally, the qualifier \"pending results\" for the possible STI diagnosis is omitted.",
+        "grade": "B",
+        "summary": "The Assessment section receives a B. It correctly identifies mild dysuria and possible STI as the primary diagnosis. However, it omits the important qualifier \"pending results\" for the possible STI, which indicates diagnostic uncertainty. A more significant omission is the entire differential diagnosis, which includes UTI, non-infectious urethritis, viral infection, and bacterial STI. While the investigations are mentioned (as a supported addition), the absence of the documented differential diagnosis represents a moderate gap in the clinical reasoning.",
         "omissions": [
           "Primary Diagnosis qualifier \"pending results\" for possible STI",
           "Differential Diagnosis: Urinary tract infection (UTI)",
@@ -345,8 +345,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits several important patient education points, including the importance of completing the antibiotic course, advice to take Doxycycline with food to minimize gastrointestinal discomfort, and the emphasis on regular health check-ups. The specific reason for prescribing Doxycycline (\"for potential bacterial STIs\") is also missing. Most critically, the entire INSTRUCTIONS section, which details follow-up for test results in 1 week and re-testing in 3 months, is omitted.",
+        "grade": "B",
+        "summary": "The Plan section receives a B. It correctly outlines the empiric antibiotic prescription, investigations, and follow-up schedule. However, it omits the specific reason for Doxycycline (for potential bacterial STIs) and several important patient education points, such as the importance of completing the antibiotic course, the advice to take Doxycycline with food to minimize gastrointestinal discomfort, and the emphasis on regular health check-ups. Additionally, the content of the dedicated 'INSTRUCTIONS' section from the Ground Truth is not fully replicated, representing a moderate structural and content omission.",
         "omissions": [
           "Reason for Doxycycline: \"for potential bacterial STIs\"",
           "Lifestyle/Preventive: Discussed STI prevention methods and importance of regular screenings",
@@ -370,70 +370,90 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, there's no discharge. ... [Patient]: No, nothing like that. ... [Patient]: No, everything else seems normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No other symptoms reported."
+      "matched_claim_text": "No other symptoms reported.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: \"Vital signs within normal limits\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, those are within normal limits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs within normal limits"
+      "matched_claim_text": "Vital signs within normal limits",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: \"Further tests needed for viral hepatitis, HIV, syphilis serology, urine analysis and culture to rule out a UTI.\" (This is an investigation/plan item)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll do some blood tests for viral hepatitis, HIV, and syphilis serology.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further tests needed for viral hepatitis, HIV, syphilis serology"
+      "matched_claim_text": "Further tests needed for viral hepatitis, HIV, syphilis serology",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"with caution regarding potential gastrointestinal side effects.\" (This is a patient education detail integrated into the prescription line)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, Doxycycline can cause some gastrointestinal discomfort. It’s best to take it with food to minimize this.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "with caution regarding potential gastrointestinal side effects."
+      "matched_claim_text": "with caution regarding potential gastrointestinal side effects.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"Advise patient on safe sexual practices, including consistent use of condoms and limiting the number of sexual partners.\" (This is a consolidated statement, GT has these as separate bullet points under Lifestyle and Patient Education)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Also, I’d advise you to use condoms consistently and limit the number of sexual partners. Safe sexual practices are crucial in preventing STIs.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient on safe sexual practices, including consistent use of condoms and limiting the number of sexual partners."
+      "matched_claim_text": "Advise patient on safe sexual practices, including consistent use of condoms and limiting the number of sexual partners.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"No other symptoms reported.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, there's no discharge. ... [Patient]: No, nothing like that. ... [Patient]: No, everything else seems normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No other symptoms reported."
+      "matched_claim_text": "No other symptoms reported.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Vital signs within normal limits\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, those are within normal limits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs within normal limits"
+      "matched_claim_text": "Vital signs within normal limits",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Further tests needed for viral hepatitis, HIV, syphilis serology, urine analysis and culture to rule out a UTI.\" (This is an investigation/plan item)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll do some blood tests for viral hepatitis, HIV, and syphilis serology.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further tests needed for viral hepatitis, HIV, syphilis serology"
+      "matched_claim_text": "Further tests needed for viral hepatitis, HIV, syphilis serology",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"with caution regarding potential gastrointestinal side effects.\" (This is a patient education detail integrated into the prescription line)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, Doxycycline can cause some gastrointestinal discomfort. It’s best to take it with food to minimize this.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "with caution regarding potential gastrointestinal side effects."
+      "matched_claim_text": "with caution regarding potential gastrointestinal side effects.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Advise patient on safe sexual practices, including consistent use of condoms and limiting the number of sexual partners.\" (This is a consolidated statement, GT has these as separate bullet points under Lifestyle and Patient Education)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Also, I’d advise you to use condoms consistently and limit the number of sexual partners. Safe sexual practices are crucial in preventing STIs.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient on safe sexual practices, including consistent use of condoms and limiting the number of sexual partners."
+      "matched_claim_text": "Advise patient on safe sexual practices, including consistent use of condoms and limiting the number of sexual partners.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

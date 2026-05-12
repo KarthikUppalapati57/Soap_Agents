@@ -221,8 +221,8 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaints, vital signs, key physical exam findings, primary assessment, and the majority of the treatment plan. There are no unsupported or unknown additions that would introduce misleading clinical content. However, the note has several minor omissions, particularly in the Subjective section regarding detailed social history and specific ROS denials. More notably, it omits the patient's established diagnoses (HTN and CKD Stage 3) from the HPI and some clinical reasoning regarding pending test results and management effectiveness from the Assessment section. Despite these moderate gaps, the note remains a reliable clinical document.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is generally well-structured and captures most of the clinical plan and objective findings. However, the Subjective section has noticeable gaps, specifically omitting the chief complaint and the patient's core diagnoses (hypertension and CKD Stage 3) from the history of present illness. There are also moderate omissions in the Assessment and Plan sections regarding clinical reasoning and specific investigation details. No unsupported or unknown additions were identified, which is a strength.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "Chief Complaint content: Follow-up for chronic kidney disease and hypertension",
@@ -265,7 +265,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several minor omissions, including specific ROS denials (cough, GI symptoms, musculoskeletal weakness) and details from the social history (tobacco/drug use, sleep, recreational activities). A moderate omission is the absence of the patient's established diagnoses (hypertension and Chronic Kidney Disease Stage 3) from the History of Present Illness, which is crucial context for the visit. No unsupported or unknown additions were found.",
+        "summary": "The Subjective section omits the Chief Complaint entirely and fails to include the patient's history of hypertension and Chronic Kidney Disease Stage 3 within the History of Present Illness. Several minor details from the HPI and ROS, such as the impact of symptoms on daily activities, tobacco/drug use denial, sleep habits, recreational activities, and specific ROS denials (cough, GI, musculoskeletal weakness), are also missing. These major omissions make the section meaningfully incomplete.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "Chief Complaint content: Follow-up for chronic kidney disease and hypertension",
@@ -285,7 +285,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned. While it omits detailed descriptions of several physical exam findings (e.g., specific cardiovascular, respiratory, abdominal, musculoskeletal, and neurological details), it provides a concise and accurate summary of the key objective findings, including vital signs, general appearance, and the presence of mild pitting edema. All additions in this section were supported by the transcript and therefore did not impact the grade.",
+        "summary": "The Objective section omits the specific detailed descriptions of several physical examination findings (Cardiovascular, Respiratory, Abdominal, Musculoskeletal, Neurological) which are instead summarized more broadly in the generated note. While less detailed, the core findings are present. No unsupported or unknown additions were identified.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -303,7 +303,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section accurately captures the primary assessment of Chronic Kidney Disease, Stage 3, and its likely cause. However, it omits the detail about the patient presenting for routine follow-up and, more significantly, the clinical reasoning regarding pending test results and the likely deterioration controlled by current management. This is considered a moderate omission, but the core assessment remains intact. No unsupported or unknown additions were found.",
+        "summary": "The Assessment section omits the detail that the patient presents for routine follow-up and, more significantly, the medical reasoning regarding 'likely deterioration controlled by current management' for the hypertensive chronic kidney disease. This represents a moderate gap in the clinical reasoning. No unsupported or unknown additions were identified.",
         "omissions": [
           "Patient presents for routine follow-up",
           "Test Results: Pending, but considering current symptoms and history, likely deterioration controlled by current management"
@@ -313,7 +313,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned and usable. It accurately includes the continuation of Lisinopril, prescription of Furosemide, referral to a dietitian, and follow-up scheduling. Minor omissions include the specific details of the blood work investigations (biochemistry, hematology, vitamin D levels) and some of the specific counseling language for diet and exercise (e.g., 'reinforce adherence' and the full rationale for exercise). All additions in this section were supported by the transcript and therefore did not impact the grade.",
+        "summary": "The Plan section omits the specific details of the blood work investigations (biochemistry, hematology, and vitamin D levels). It also consolidates the reinforcement of a low-sodium diet and gentle exercise, which were listed twice in the Ground Truth, into single mentions. No unsupported or unknown additions were identified.",
         "omissions": [
           "Medical Management section header",
           "Referral section header",
@@ -339,56 +339,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "temperature is 98.6°F",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Temperature: 98.6°F (37°C)"
+      "matched_claim_text": "Temperature: 98.6°F (37°C)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: 'clear heart' in physical examination summary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your cardiovascular exam shows no murmurs; your heart has a regular rate and rhythm. Your lungs are clear to auscultation bilaterally.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "clear lungs and heart"
+      "matched_claim_text": "clear lungs and heart",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'detailed' renal diet planning",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m also going to refer you to a dietitian, Herbert Shaw, RD, for more detailed renal diet planning.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to a dietitian, Herbert Shaw, RD, for detailed renal diet planning"
+      "matched_claim_text": "Referral to a dietitian, Herbert Shaw, RD, for detailed renal diet planning",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'Wait for results of pending blood work and address any significant findings promptly'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We're awaiting your blood work results for biochemistry, hematology, and vitamin D levels. ... If there are any significant findings, I'll let you know immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Wait for results of pending blood work and address any significant findings promptly"
+      "matched_claim_text": "Wait for results of pending blood work and address any significant findings promptly",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Temperature in Celsius (37°C)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "temperature is 98.6°F",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Temperature: 98.6°F (37°C)"
+      "matched_claim_text": "Temperature: 98.6°F (37°C)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'clear heart' in physical examination summary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your cardiovascular exam shows no murmurs; your heart has a regular rate and rhythm. Your lungs are clear to auscultation bilaterally.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "clear lungs and heart"
+      "matched_claim_text": "clear lungs and heart",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'detailed' renal diet planning",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m also going to refer you to a dietitian, Herbert Shaw, RD, for more detailed renal diet planning.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to a dietitian, Herbert Shaw, RD, for detailed renal diet planning"
+      "matched_claim_text": "Referral to a dietitian, Herbert Shaw, RD, for detailed renal diet planning",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Wait for results of pending blood work and address any significant findings promptly'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We're awaiting your blood work results for biochemistry, hematology, and vitamin D levels. ... If there are any significant findings, I'll let you know immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Wait for results of pending blood work and address any significant findings promptly"
+      "matched_claim_text": "Wait for results of pending blood work and address any significant findings promptly",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

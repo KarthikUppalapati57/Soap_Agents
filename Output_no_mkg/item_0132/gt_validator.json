@@ -270,98 +270,91 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary but has several omissions, particularly in the Review of Systems, Physical Exam, and Plan sections. Key details regarding cardiovascular and neurological physical exam findings are missing. The Plan section notably omits detailed patient education and counseling content, as well as the important 'Addressing Disparities' section. There is one minor unsupported structural addition in the Plan. While the core diagnoses and medical treatment plan are accurately captured, the missing elements reduce the overall completeness and usefulness of the documentation, making it meaningfully incomplete in several areas.",
+    "overall_summary": "The generated SOAP note provides a generally accurate summary of the patient's visit, capturing key subjective complaints, objective findings, and the assessment. However, it exhibits several omissions, particularly in the Review of Systems within the Subjective section and specific physical exam details in the Objective section. The most significant issues are found in the Plan section, which omits the entire \"Addressing Disparities\" content, crucial context for a smoking cessation referral, and several patient education details. Additionally, an unsupported structural header for \"Lifestyle Modifications\" is present. These gaps, especially in the comprehensive care plan, make the note meaningfully incomplete, though the core medical treatment plan is largely intact.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
       "Review of Systems (ROS) section header",
-      "ROS Constitutional: denies fever or weight loss",
-      "ROS Cardiovascular: Denies chest pain or palpitations",
-      "ROS Neurological: denies headaches or vision changes",
-      "ROS Gastrointestinal: Denies abdominal pain, nausea, or vomiting",
-      "ROS Genitourinary: Denies dysuria or hematuria",
-      "Physical Exam: Cardiovascular findings (No murmurs, gallops, or rubs. Strong peripheral pulses)",
-      "Physical Exam: Neurological findings (CN II-XII intact, no focal deficits)",
-      "\"orally\" for Rosuvastatin 20 mg",
+      "Investigations section header",
+      "Blood Work section header",
       "Patient Education and Counseling section header",
-      "Patient Education and Counseling: Discussion on importance of managing cholesterol to prevent cardiovascular events",
-      "Patient Education and Counseling: Education on Mediterranean diet and its benefits for heart health",
-      "Patient Education and Counseling: Encouragement for initiating gentle exercises to improve cardiovascular health and overall well-being",
-      "Patient Education and Counseling: Addressing the need for improved sleep hygiene to enhance sleep quality",
       "Lifestyle Recommendations section header",
-      "Lifestyle Recommendations: \"to ensure at least 7-8 hours of sleep per night\" for sleep hygiene",
       "Addressing Disparities section header",
-      "Addressing Disparities content: Acknowledged potential barriers related to accessing specialized care due to socioeconomic status; facilitated patient navigation to relevant community resources and support programs",
-      "\"Patient agrees to and understands the proposed medical treatment plan and is motivated to make necessary lifestyle changes\""
+      "Concluding statement: \"Patient agrees to and understands the proposed medical treatment plan and is motivated to make necessary lifestyle changes.\""
     ],
     "additions": [
-      "\"COPD are known comorbidities\" in the Subjective summary",
-      "\"Chest X-ray results are pending\" in Objective",
-      "\"Lifestyle Modifications\" section header in Plan",
-      "\"community resources for socioeconomic support\" listed under Referrals in Plan"
+      "\"Chest X-ray results are pending\" in Objective section",
+      "\"COPD are known comorbidities\" in Subjective section",
+      "\"Lifestyle Modifications\" section header in Plan section"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "\"Lifestyle Modifications\" section header in Plan",
-      "\"Lifestyle Modifications\" section header"
+      "\"Lifestyle Modifications\" section header in Plan section",
+      "\"Lifestyle Modifications\" section header (combining Patient Education and Counseling and Lifestyle Recommendations)"
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and HPI well. However, it omits several denials from the Review of Systems (Constitutional, Cardiovascular, Neurological, Gastrointestinal, Genitourinary) and several section headers. The single addition, 'COPD are known comorbidities,' is supported by the transcript and does not impact the grade. The omissions are numerous but mostly minor details or structural, allowing the section to remain mostly clinically aligned.",
+        "summary": "The Subjective section provides a concise overview of the patient's chief complaints and key historical elements. However, it omits several specific denials from the Review of Systems (e.g., fever, weight loss, chest pain, headaches, abdominal pain, dysuria) and the detailed breakdown of the HPI and ROS sections from the Ground Truth. All additions in this section are supported by the transcript.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
           "Review of Systems (ROS) section header",
-          "ROS Constitutional: denies fever or weight loss",
-          "ROS Cardiovascular: Denies chest pain or palpitations",
-          "ROS Neurological: denies headaches or vision changes",
-          "ROS Gastrointestinal: Denies abdominal pain, nausea, or vomiting",
-          "ROS Genitourinary: Denies dysuria or hematuria"
+          "\"on exertion\" qualifier for mild fatigue",
+          "Denial of fever or weight loss (Constitutional ROS)",
+          "Denial of chest pain or palpitations (Cardiovascular ROS)",
+          "Denial of headaches or vision changes (Neurological ROS)",
+          "Denial of abdominal pain, nausea, or vomiting (Gastrointestinal ROS)",
+          "Denial of dysuria or hematuria (Genitourinary ROS)",
+          "Specific ROS detail: \"Reports joint pain due to osteoarthritis\" (Musculoskeletal ROS)"
         ],
         "additions": [
-          "\"COPD are known comorbidities\" in the Subjective summary"
+          "\"COPD are known comorbidities\" (diagnosis in Subjective)"
         ]
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section accurately includes vital signs and lab results. However, it omits two moderate clinical details from the physical exam: cardiovascular findings (no murmurs, gallops, or rubs; strong peripheral pulses) and neurological findings (CN II-XII intact, no focal deficits). The addition 'Chest X-ray results are pending' is supported by the transcript. The missing physical exam details represent noticeable gaps in the clinical documentation.",
+        "grade": "B",
+        "summary": "The Objective section accurately presents vital signs, key physical exam findings (wheezing, joint tenderness), and blood work results. However, it omits important details from the cardiovascular physical exam (no murmurs, gallops, or rubs; strong peripheral pulses) and the neurological exam (CN II-XII intact, no focal deficits). The addition regarding pending chest X-ray results is supported by the transcript.",
         "omissions": [
-          "Physical Exam: Cardiovascular findings (No murmurs, gallops, or rubs. Strong peripheral pulses)",
-          "Physical Exam: Neurological findings (CN II-XII intact, no focal deficits)"
+          "Physical Exam - Cardiovascular: \"No murmurs, gallops, or rubs. Strong peripheral pulses.\"",
+          "Physical Exam - Neurological: \"CN II-XII intact, no focal deficits.\"",
+          "Investigations section header",
+          "Blood Work section header"
         ],
         "additions": [
-          "\"Chest X-ray results are pending\""
+          "\"Chest X-ray results are pending.\""
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the GroundTruth, with no omissions or unsupported/unknown additions.",
+        "summary": "The Assessment section is perfectly aligned with the Ground Truth, accurately listing all diagnoses without any omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has numerous omissions, including detailed patient education and counseling content (e.g., discussion on cholesterol management, Mediterranean diet benefits, exercise encouragement, sleep hygiene details) and the entire 'Addressing Disparities' section. It also omits several structural headers and a minor detail ('orally' for medication, specific sleep duration). There is one minor unsupported addition, the 'Lifestyle Modifications' section header. The cumulative effect of these moderate omissions significantly reduces the completeness and usefulness of the plan, making it meaningfully incomplete despite capturing the core medical treatment and some lifestyle recommendations.",
+        "summary": "The Plan section captures the core medical treatments, lifestyle recommendations, and referrals. However, it has several omissions, including the \"orally\" qualifier for Rosuvastatin, specific details from patient education and counseling, and the important context for the smoking cessation referral (\"despite the patient having quit smoking 2 years ago\"). Most significantly, it omits the entire \"Addressing Disparities\" content, which details acknowledging barriers and facilitating navigation to community resources. An unsupported \"Lifestyle Modifications\" section header is also present. These omissions, particularly the major gap in addressing disparities, make the Plan section meaningfully incomplete.",
         "omissions": [
           "\"orally\" for Rosuvastatin 20 mg",
           "Patient Education and Counseling section header",
-          "Patient Education and Counseling: Discussion on importance of managing cholesterol to prevent cardiovascular events",
-          "Patient Education and Counseling: Education on Mediterranean diet and its benefits for heart health",
-          "Patient Education and Counseling: Encouragement for initiating gentle exercises to improve cardiovascular health and overall well-being",
-          "Patient Education and Counseling: Addressing the need for improved sleep hygiene to enhance sleep quality",
+          "Detail: \"Discussed the importance of managing cholesterol to prevent cardiovascular events.\"",
+          "Detail: \"Provided education on the Mediterranean diet and its benefits for heart health.\"",
+          "Detail: \"Encouraged initiating gentle exercises like walking for 30 minutes, 5 days a week, to improve cardiovascular health and overall well-being.\"",
+          "Detail: \"Addressed the need for improved sleep hygiene to enhance sleep quality.\"",
+          "Detail: \"despite the patient having quit smoking 2 years ago\" (from smoking cessation referral)",
           "Lifestyle Recommendations section header",
-          "Lifestyle Recommendations: \"to ensure at least 7-8 hours of sleep per night\" for sleep hygiene",
+          "Detail: \"to ensure at least 7-8 hours of sleep per night\" (from sleep hygiene recommendation)",
           "Addressing Disparities section header",
-          "Addressing Disparities content: Acknowledged potential barriers related to accessing specialized care due to socioeconomic status; facilitated patient navigation to relevant community resources and support programs",
-          "\"Patient agrees to and understands the proposed medical treatment plan and is motivated to make necessary lifestyle changes\""
+          "Detail: \"Acknowledged potential barriers related to accessing specialized care due to socioeconomic status; facilitated patient navigation to relevant community resources and support programs.\"",
+          "Concluding statement: \"Patient agrees to and understands the proposed medical treatment plan and is motivated to make necessary lifestyle changes.\""
         ],
         "additions": [
-          "\"Lifestyle Modifications\" section header",
-          "\"community resources for socioeconomic support\" listed under Referrals"
+          "\"Lifestyle Modifications\" section header (combining Patient Education and Counseling and Lifestyle Recommendations)",
+          "\"attend smoking cessation program for reinforcement of positive lifestyle changes\" listed under \"Lifestyle Modifications\" (GT lists it under \"Referrals\")",
+          "\"community resources for socioeconomic support\" listed under \"Referrals\" (GT has this as part of \"Addressing Disparities\" section, not explicitly a referral)"
         ]
       }
     ],
@@ -370,53 +363,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"COPD are known comorbidities\" in the Subjective summary",
+      "addition_text": "\"Chest X-ray results are pending\" in Objective section",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’re still waiting on the results of your chest X-ray.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Chest X-ray results are pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"COPD are known comorbidities\" in Subjective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I have joint pain because of my osteoarthritis. [Patient]: Yes, I have osteoarthritis and COPD.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Osteoarthritis and COPD are known comorbidities."
+      "matched_claim_text": "Osteoarthritis and COPD are known comorbidities.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Chest X-ray results are pending\" in Objective",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re still waiting on the results of your chest X-ray.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chest X-ray results are pending."
-    },
-    {
-      "addition_text": "\"Lifestyle Modifications\" section header in Plan",
+      "addition_text": "\"Lifestyle Modifications\" section header in Plan section",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"community resources for socioeconomic support\" listed under Referrals in Plan",
+      "addition_text": "\"COPD are known comorbidities\" (diagnosis in Subjective)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: To help with any potential barriers to accessing specialized care due to socioeconomic status, I’ll facilitate your navigation to relevant community resources and support programs.",
+      "transcript_evidence": "[Patient]: Yes, I have joint pain because of my osteoarthritis. [Patient]: Yes, I have osteoarthritis and COPD.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referrals include community resources for socioeconomic support."
+      "matched_claim_text": "Osteoarthritis and COPD are known comorbidities.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Chest X-ray results are pending\"",
+      "addition_text": "\"Chest X-ray results are pending.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re still waiting on the results of your chest X-ray.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chest X-ray results are pending."
+      "matched_claim_text": "Chest X-ray results are pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Lifestyle Modifications\" section header",
+      "addition_text": "\"Lifestyle Modifications\" section header (combining Patient Education and Counseling and Lifestyle Recommendations)",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"community resources for socioeconomic support\" listed under Referrals",
+      "addition_text": "\"attend smoking cessation program for reinforcement of positive lifestyle changes\" listed under \"Lifestyle Modifications\" (GT lists it under \"Referrals\")",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’m also referring you to a smoking cessation program, even though you quit smoking 2 years ago. It’s to reinforce positive lifestyle changes.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Lifestyle modifications include attending a smoking cessation program for reinforcement of positive lifestyle changes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"community resources for socioeconomic support\" listed under \"Referrals\" (GT has this as part of \"Addressing Disparities\" section, not explicitly a referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: To help with any potential barriers to accessing specialized care due to socioeconomic status, I’ll facilitate your navigation to relevant community resources and support programs.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referrals include community resources for socioeconomic support."
+      "matched_claim_text": "Referrals include community resources for socioeconomic support.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

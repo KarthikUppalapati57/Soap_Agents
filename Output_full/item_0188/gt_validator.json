@@ -282,83 +282,105 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective and Plan sections, which materially reduce its clinical usefulness. Key patient context from the HPI is missing, and the Assessment is overly generalized. Most critically, the Plan section omits essential administrative details like the provider's name and the date of the note, making it incomplete for official documentation. While there are no unsupported or unknown additions, the cumulative impact of these omissions results in a note that is meaningfully incomplete and requires substantial review.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a broad overview but suffers from numerous omissions, particularly in the Assessment and Plan sections, which reduce its clinical utility. While there is only one minor unsupported addition, the cumulative effect of missing specific details regarding the patient's history, the assessment of stable conditions, and actionable plan items, including patient agreements, makes the note meaningfully incomplete. It would require careful review and supplementation to be fully reliable.",
     "omissions": [
-      "Chief Complaint section",
-      "History of Present Illness section",
-      "Review of Systems structured by body system",
-      "General appearance findings in Physical Examination (Well-developed, well-nourished female in no apparent distress)",
-      "Specific respiratory findings in Physical Examination (No wheezes, rales, or rhonchi)",
-      "Specific abdominal findings in Physical Examination (no masses or organomegaly)",
-      "Mild dryness as an explicit skin finding in the Objective section",
-      "\"Well-child visit: Normal findings\" as a specific assessment item",
-      "Specific details for eczema assessment (Stable, no active lesions, managed effectively with hydrocortisone cream as needed)",
-      "Specific lifestyle recommendation (adequate sleep)",
-      "Specific patient education points (Discuss the importance of incorporating vegetables into daily meals, Recommend maintaining physical activity such as continuing baseball practice twice a week, Educate on the importance of skin moisturization to manage dryness and prevent eczema flare-ups)",
-      "Patient Agreements section",
-      "Provider information (Dr. Emily Johnson, Family Medicine Physician)",
-      "Date of note (October 5, 2023)"
+      "Chief Complaint: \"Routine check-up.\"",
+      "HPI: \"Her parents report no acute complaints.\"",
+      "HPI: \"She is generally healthy.\"",
+      "HPI: \"past mild episodes of eczema treated successfully with hydrocortisone cream.\"",
+      "HPI: \"No chronic conditions are reported.\"",
+      "ROS detail: \"otherwise no active skin conditions\" (from Dermatological ROS)",
+      "BMI status: \"(Normal)\"",
+      "Physical Examination: \"General: Well-developed, well-nourished female in no apparent distress.\"",
+      "Physical Examination: \"Respiratory: No wheezes, rales, or rhonchi.\"",
+      "Physical Examination: \"Abdomen: no masses or organomegaly.\"",
+      "Physical Examination: \"Skin: Mild dryness\" (as an objective finding)",
+      "Specific mention of \"Well-child visit: Normal findings.\"",
+      "Eczema assessment detail: \"Stable, no active lesions.\"",
+      "Eczema management detail: \"managed effectively with hydrocortisone cream as needed.\"",
+      "Specific follow-up detail: \"Schedule next routine check-up in one year.\"",
+      "Lifestyle changes: \"adequate sleep.\"",
+      "Immunizations detail: \"Review immunization records and administer any pending vaccines as per age-appropriate immunization schedule.\"",
+      "Patient Education and Counseling - Diet: \"Discuss the importance of incorporating vegetables into daily meals.\"",
+      "Patient Education and Counseling - Exercise: \"Recommend maintaining physical activity, such as continuing baseball practice twice a week.\"",
+      "Patient Education and Counseling - Hydration and Skin Care: \"Educate on the importance of skin moisturization to manage dryness and prevent eczema flare-ups.\"",
+      "Patient Agreements section: \"The patient and her parents understand and agree with the recommended health plan. The child remains cooperative and attentive during visits.\""
     ],
     "additions": [
-      "\"changes in appetite\" in Subjective section",
-      "General statement in Assessment (\"Overall, the patient appears to be in good health with normal vital signs and no concerning symptoms.\")",
-      "\"Patient will maintain good skin care by moisturizing daily\" in Plan section"
+      "Subjective: \"changes in appetite\"",
+      "Subjective: \"feeling well\"",
+      "Objective: Temperature in Celsius: \"(37°C)\"",
+      "Assessment: General statement: \"Overall, the patient appears to be in good health with normal vital signs and no concerning symptoms.\"",
+      "Assessment: \"Mild dryness of skin present.\" (as an assessment item)",
+      "Plan: \"Patient will maintain good skin care by moisturizing daily.\""
     ],
     "hallucinations_or_unjustified_inferences": [
-      "\"changes in appetite\" in Subjective section"
+      "Subjective: \"changes in appetite\"",
+      "\"changes in appetite\""
     ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section is missing the Chief Complaint and significant details from the History of Present Illness, including patient demographics, past medical history of eczema, and general health status. While the Review of Systems content is present, the lack of structured HPI makes the section meaningfully incomplete for patient context.",
+        "grade": "B",
+        "summary": "The Subjective section has several omissions, including the Chief Complaint, details about the patient's general health, and the history of eczema management. There is one minor unsupported addition regarding 'changes in appetite'. Despite these, the core subjective complaints and ROS are mostly captured, making the section largely usable.",
         "omissions": [
-          "Chief Complaint: Routine check-up",
-          "History of Present Illness (HPI) details (8-year-old African American female, Jasmine, routine check-up, no acute complaints, generally healthy, past mild episodes of eczema treated successfully with hydrocortisone cream, no chronic conditions)",
-          "Review of Systems structured by body system"
+          "Chief Complaint: \"Routine check-up.\"",
+          "HPI: \"Her parents report no acute complaints.\"",
+          "HPI: \"She is generally healthy.\"",
+          "HPI: \"past mild episodes of eczema treated successfully with hydrocortisone cream.\"",
+          "HPI: \"No chronic conditions are reported.\"",
+          "ROS detail: \"otherwise no active skin conditions\""
         ],
         "additions": [
-          "\"changes in appetite\" in the list of reviewed systems"
+          "\"changes in appetite\"",
+          "\"feeling well\""
         ]
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-captured. Minor omissions include general appearance findings and specific negative findings for respiratory and abdominal exams (e.g., no wheezes, no masses), but the core clinical observations and vital signs are accurately reported.",
+        "grade": "B",
+        "summary": "The Objective section is missing several minor details, such as the BMI status being 'Normal' and specific negative findings from the physical examination (e.g., 'no wheezes, rales, or rhonchi'; 'no masses or organomegaly'). However, all major vital signs and key physical exam findings are present, and there are no unsupported additions, making the section mostly accurate and usable.",
         "omissions": [
-          "General appearance findings (Well-developed, well-nourished female in no apparent distress)",
-          "Specific respiratory findings (No wheezes, rales, or rhonchi)",
-          "Specific abdominal findings (no masses or organomegaly)",
-          "Mild dryness as an explicit skin finding in the Physical Examination section"
+          "BMI status: \"(Normal)\"",
+          "Physical Examination: \"General: Well-developed, well-nourished female in no apparent distress.\"",
+          "Physical Examination: \"Respiratory: No wheezes, rales, or rhonchi.\"",
+          "Physical Examination: \"Abdomen: no masses or organomegaly.\"",
+          "Physical Examination: \"Skin: Mild dryness\""
         ],
-        "additions": []
+        "additions": [
+          "Temperature in Celsius: \"(37°C)\""
+        ]
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section is noticeably incomplete. It omits the specific assessment of 'Well-child visit: Normal findings' and detailed status of the mild eczema (stable, no active lesions, managed effectively). The general statement provided, while supported by the transcript, does not fully replace these specific clinical assessments.",
+        "summary": "The Assessment section is noticeably incomplete. It omits the specific mention of a 'Well-child visit: Normal findings' and, more significantly, the detailed assessment of 'Mild eczema: Stable, no active lesions, managed effectively with hydrocortisone cream as needed.' The generated assessment is too general, lacking crucial clinical context for a known condition. There are no unsupported additions, but the omissions are moderate in clinical importance.",
         "omissions": [
-          "\"Well-child visit: Normal findings\" as a specific assessment item",
-          "Specific details for eczema assessment (Stable, no active lesions, managed effectively with hydrocortisone cream as needed)"
+          "Specific mention of \"Well-child visit: Normal findings.\"",
+          "Eczema assessment detail: \"Stable, no active lesions.\"",
+          "Eczema management detail: \"managed effectively with hydrocortisone cream as needed.\""
         ],
         "additions": [
-          "General statement (\"Overall, the patient appears to be in good health with normal vital signs and no concerning symptoms.\")"
+          "General statement: \"Overall, the patient appears to be in good health with normal vital signs and no concerning symptoms.\"",
+          "\"Mild dryness of skin present.\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has major omissions that materially reduce its clinical usefulness. Critical administrative information such as the Provider's name and the Date of the note are absent. Additionally, specific patient education points (e.g., incorporating vegetables, continuing baseball, detailed skin moisturization) and the Patient Agreements section are omitted, making the plan less actionable and comprehensive.",
+        "grade": "C",
+        "summary": "The Plan section has multiple omissions of specific and actionable details. These include the precise follow-up schedule, the recommendation for 'adequate sleep,' specific patient education points for diet, exercise, and skin care, and the comprehensive 'Patient Agreements' section. While the general categories of the plan are present, the lack of detail and the absence of patient agreement significantly reduce its clinical usefulness. There are no unsupported additions, but the numerous omissions are moderate to high in severity.",
         "omissions": [
-          "Specific lifestyle recommendation (adequate sleep)",
-          "Specific patient education points (Discuss the importance of incorporating vegetables into daily meals, Recommend maintaining physical activity such as continuing baseball practice twice a week, Educate on the importance of skin moisturization to manage dryness and prevent eczema flare-ups)",
-          "Patient Agreements section (The patient and her parents understand and agree with the recommended health plan. The child remains cooperative and attentive during visits.)",
-          "Provider information (Dr. Emily Johnson, Family Medicine Physician)",
-          "Date of note (October 5, 2023)"
+          "Specific follow-up detail: \"Schedule next routine check-up in one year.\"",
+          "Lifestyle changes: \"adequate sleep.\"",
+          "Immunizations detail: \"Review immunization records and administer any pending vaccines as per age-appropriate immunization schedule.\"",
+          "Patient Education and Counseling - Diet: \"Discuss the importance of incorporating vegetables into daily meals.\"",
+          "Patient Education and Counseling - Exercise: \"Recommend maintaining physical activity, such as continuing baseball practice twice a week.\"",
+          "Patient Education and Counseling - Hydration and Skin Care: \"Educate on the importance of skin moisturization to manage dryness and prevent eczema flare-ups.\"",
+          "Patient Agreements section: \"The patient and her parents understand and agree with the recommended health plan. The child remains cooperative and attentive during visits.\""
         ],
         "additions": [
-          "\"Patient will maintain good skin care by moisturizing daily\""
+          "\"Patient will maintain good skin care by moisturizing daily.\""
         ]
       }
     ],
@@ -367,46 +389,112 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"changes in appetite\" in Subjective section",
+      "addition_text": "Subjective: \"changes in appetite\"",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "General statement in Assessment (\"Overall, the patient appears to be in good health with normal vital signs and no concerning symptoms.\")",
+      "addition_text": "Subjective: \"feeling well\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Hi, I'm good, thank you. Everything's been fine. I feel good.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Objective: Temperature in Celsius: \"(37°C)\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "your temperature is 98.6 degrees Fahrenheit.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: General statement: \"Overall, the patient appears to be in good health with normal vital signs and no concerning symptoms.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Patient: Everything's been fine. I feel good. ... Doctor: Everything looks great there. ... Patient: No, nothing really.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient appears to be in good health with normal vital signs and no concerning symptoms."
+      "matched_claim_text": "The patient appears to be in good health with normal vital signs and no concerning symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Patient will maintain good skin care by moisturizing daily\" in Plan section",
+      "addition_text": "Assessment: \"Mild dryness of skin present.\" (as an assessment item)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Patient: Just some mild dryness, but no eczema flare-ups. ... Doctor: I see some mild dryness but no active eczematous lesions or rashes.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Mild dryness of skin is present.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: \"Patient will maintain good skin care by moisturizing daily.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Patient: We try to moisturize daily, especially after baths. Doctor: That’s good practice. Moisturizing daily will help manage the dryness and prevent eczema flare-ups. ... Doctor: and keeping your skin moisturized to prevent dryness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient to maintain good skin care by moisturizing daily to manage dryness and prevent flare-ups."
+      "matched_claim_text": "Patient to maintain good skin care by moisturizing daily to manage dryness and prevent flare-ups.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"changes in appetite\" in the list of reviewed systems",
+      "addition_text": "\"changes in appetite\"",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"feeling well\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Doctor: Have you experienced any fevers or chills recently? Patient: No, none at all. ... Doctor: How about any weight loss or changes in appetite? Patient: No, my weight’s been pretty stable.",
+      "transcript_evidence": "Patient: Hi, I'm good, thank you. ... Everything's been fine. I feel good. ... No, nothing really. Just here for the check-up.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient denies constitutional symptoms including fevers, chills, weight loss, and changes in appetite."
+      "matched_claim_text": "The patient reports feeling well and denies specific concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "General statement (\"Overall, the patient appears to be in good health with normal vital signs and no concerning symptoms.\")",
+      "addition_text": "Temperature in Celsius: \"(37°C)\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "your temperature is 98.6 degrees Fahrenheit.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "General statement: \"Overall, the patient appears to be in good health with normal vital signs and no concerning symptoms.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Patient: Everything's been fine. I feel good. ... Doctor: Everything looks great there. ... Patient: No, nothing really.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient appears to be in good health with normal vital signs and no concerning symptoms."
+      "matched_claim_text": "The patient appears to be in good health with normal vital signs and no concerning symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Patient will maintain good skin care by moisturizing daily\"",
+      "addition_text": "\"Mild dryness of skin present.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Patient: Just some mild dryness, but no eczema flare-ups. ... Doctor: I see some mild dryness but no active eczematous lesions or rashes.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Mild dryness of skin is present.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Patient will maintain good skin care by moisturizing daily.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Patient: We try to moisturize daily, especially after baths. Doctor: That’s good practice. Moisturizing daily will help manage the dryness and prevent eczema flare-ups. ... Doctor: and keeping your skin moisturized to prevent dryness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient to maintain good skin care by moisturizing daily to manage dryness and prevent flare-ups."
+      "matched_claim_text": "Patient to maintain good skin care by moisturizing daily to manage dryness and prevent flare-ups.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

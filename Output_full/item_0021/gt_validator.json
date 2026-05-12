@@ -202,83 +202,74 @@
     "plan_alignment_score": 0.5463414634146342
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Subjective and Plan sections. While the Objective and Assessment sections are well-captured, the Subjective section omits important details regarding the patient's functional limitations, specific symptoms like occasional muscle weakness, and relevant ROS negatives. The Plan section has several moderate omissions, including a specific referral, the detailed purpose of imaging, and crucial patient instructions, most notably the comprehensive advice on diabetes management. All identified additions were supported by the transcript and therefore did not impact the grade.",
+    "overall_summary": "The generated SOAP note provides a mostly accurate and usable clinical summary. However, it omits several details, particularly in the Subjective and Plan sections. Key omissions include the patient's occupation, specific symptom details like occasional muscle weakness in the left foot, the specific orthopedic specialist for referral, and crucial patient instructions regarding diabetes management and diet. While no unsupported additions were found, these omissions reduce the overall completeness and clinical usefulness of the note, requiring careful review.",
     "omissions": [
-      "Patient's pain is described as \"constant\".",
-      "Occasional muscle weakness in the left foot.",
-      "Pain significantly limits ability to walk, stand, and perform job-related tasks.",
-      "Patient's job title (Information Technology Consultant).",
-      "No fever or weight loss.",
-      "\"Palpable\" qualifier for muscle spasm in Objective section.",
-      "Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy.",
-      "Purpose of MRI: \"to evaluate for nerve impingement or disc herniation\".",
-      "\"determine further management steps\" in follow-up.",
-      "Educated on proper back care.",
-      "Advised to avoid activities that exacerbate symptoms.",
-      "Encouraged to maintain a balanced diet, manage diabetes effectively, and avoid indulging in foods that could affect blood sugar levels.",
-      "Details about patient's living situation (affluent suburban area, excellent access to healthcare, low environmental health risks).",
-      "Details about patient's health literacy, cooperativeness, and motivation."
+      "Patient's occupation (Information Technology Consultant)",
+      "Pain described as 'constant'",
+      "Occasional muscle weakness in the left foot (from HPI and ROS)",
+      "General Review of Systems: No fever or weight loss",
+      "Referral to Dr. Emily Carter, Orthopedic Specialist",
+      "Reason for Lumbar spine MRI: to evaluate for nerve impingement or disc herniation",
+      "Further management steps in follow-up plan (beyond assessing response)",
+      "Instruction on proper back care",
+      "Instruction to avoid activities that exacerbate symptoms",
+      "Instruction to maintain a balanced diet, manage diabetes effectively, and avoid foods affecting blood sugar levels",
+      "Environmental and Lifestyle Considerations (affluent suburban area, access to healthcare, low environmental health risks, high health literacy, cooperative and motivated)"
     ],
     "additions": [
-      "\"and foot\" for tingling and numbness in the left leg.",
-      "\"immediately\" for calling the clinic if symptoms worsen.",
-      "\"Schedule follow-up appointment for 6 weeks\" as a distinct instruction."
+      "Tingling and numbness in the left foot (in addition to left leg)",
+      "Muscle spasms in the lower lumbar area mentioned in Subjective narrative (HPI)",
+      "Qualifier 'suspected' for lumbar radiculopathy in Assessment"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section receives a C due to several moderate omissions. Key details such as the 'constant' nature of the pain, 'occasional muscle weakness in the left foot', the significant impact on the patient's ability to walk, stand, and perform job-related tasks, and the absence of fever or weight loss were not included. The addition of 'and foot' for tingling and numbness was supported by the transcript and did not affect the grade.",
+        "grade": "B",
+        "summary": "The Subjective section accurately captures the chief complaint and main aspects of the HPI. However, it omits the patient's occupation, the constant nature of the pain, occasional muscle weakness in the left foot, and the general review of systems findings (no fever or weight loss). The additions regarding tingling/numbness in the left foot and muscle spasms in the HPI are supported by the transcript and do not impact the grade.",
         "omissions": [
-          "Patient's pain is described as \"constant\".",
-          "Occasional muscle weakness in the left foot.",
-          "Pain significantly limits ability to walk, stand, and perform job-related tasks.",
-          "Patient's job title (Information Technology Consultant).",
-          "No fever or weight loss."
+          "Patient's occupation (Information Technology Consultant)",
+          "Pain described as 'constant'",
+          "Occasional muscle weakness in the left foot (from HPI and ROS)",
+          "General Review of Systems: No fever or weight loss"
         ],
         "additions": [
-          "\"and foot\" for tingling and numbness in the left leg."
+          "Tingling and numbness in the left foot (in addition to left leg)",
+          "Muscle spasms in the lower lumbar area mentioned in Subjective narrative (HPI)"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-captured with only a minor omission of the 'palpable' qualifier for muscle spasm, which does not materially affect the clinical usefulness of the documentation.",
-        "omissions": [
-          "\"Palpable\" qualifier for muscle spasm."
-        ],
+        "summary": "The Objective section is accurate and complete, with no omissions or unsupported additions.",
+        "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is excellent, with the only omission being the 'Primary Diagnosis' label, which is a formatting detail and does not impact clinical content or usefulness.",
-        "omissions": [
-          "\"Primary Diagnosis\" label."
-        ],
-        "additions": []
+        "summary": "The Assessment section accurately identifies the primary diagnosis. The addition of the qualifier 'suspected' for lumbar radiculopathy is supported by the transcript and does not impact the grade. There are no omissions or unsupported additions.",
+        "omissions": [],
+        "additions": [
+          "Qualifier 'suspected' for lumbar radiculopathy"
+        ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section receives a C due to multiple moderate to major omissions. Important missing details include the specific referral to Dr. Emily Carter, the detailed purpose of the lumbar spine MRI, and several patient instructions such as proper back care, avoiding exacerbating activities, and critically, the comprehensive advice on maintaining a balanced diet and effectively managing diabetes. Environmental and lifestyle considerations were also omitted. The additions regarding calling 'immediately' if symptoms worsen and scheduling a follow-up were supported by the transcript and did not impact the grade.",
+        "summary": "The Plan section outlines the core treatment strategy but has several notable omissions. It misses the specific orthopedic specialist for referral, the detailed reason for the lumbar spine MRI, further management steps for follow-up, and several patient instructions, most significantly those related to proper back care, avoiding symptom-exacerbating activities, and managing diabetes effectively with diet. It also omits the environmental and lifestyle considerations. These omissions make the plan less comprehensive.",
         "omissions": [
-          "Referral to Dr. Emily Carter, Orthopedic Specialist, for further evaluation and management of lumbar radiculopathy.",
-          "Purpose of MRI: \"to evaluate for nerve impingement or disc herniation\".",
-          "\"determine further management steps\" in follow-up.",
-          "Educated on proper back care.",
-          "Advised to avoid activities that exacerbate symptoms.",
-          "Encouraged to maintain a balanced diet, manage diabetes effectively, and avoid indulging in foods that could affect blood sugar levels.",
-          "Details about patient's living situation (affluent suburban area, excellent access to healthcare, low environmental health risks).",
-          "Details about patient's health literacy, cooperativeness, and motivation."
+          "Referral to Dr. Emily Carter, Orthopedic Specialist",
+          "Reason for Lumbar spine MRI: to evaluate for nerve impingement or disc herniation",
+          "Further management steps in follow-up plan (beyond assessing response)",
+          "Instruction on proper back care",
+          "Instruction to avoid activities that exacerbate symptoms",
+          "Instruction to maintain a balanced diet, manage diabetes effectively, and avoid foods affecting blood sugar levels",
+          "Environmental and Lifestyle Considerations (affluent suburban area, access to healthcare, low environmental health risks, high health literacy, cooperative and motivated)"
         ],
-        "additions": [
-          "\"immediately\" for calling the clinic if symptoms worsen.",
-          "\"Schedule follow-up appointment for 6 weeks\" as a distinct instruction."
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -286,25 +277,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"and foot\" for tingling and numbness in the left leg.",
+      "addition_text": "Tingling and numbness in the left foot (in addition to left leg)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I have tingling and numbness down my left leg and my left foot feels weak sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient experiences tingling and numbness in the left leg and foot."
+      "matched_claim_text": "The patient experiences tingling and numbness in the left leg and foot.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"immediately\" for calling the clinic if symptoms worsen.",
+      "addition_text": "Muscle spasms in the lower lumbar area mentioned in Subjective narrative (HPI)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "If your symptoms worsen or you develop new symptoms, call the clinic immediately.",
+      "transcript_evidence": "[Doctor]: Have you noticed any muscle spasms in the lower back?\n\n[Patient]: Yes, I can feel them, especially in the lower lumbar area.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to call the clinic immediately if symptoms worsen or new symptoms develop."
+      "matched_claim_text": "The patient experiences muscle spasms in the lower lumbar area.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Schedule follow-up appointment for 6 weeks\" as a distinct instruction.",
+      "addition_text": "Qualifier 'suspected' for lumbar radiculopathy in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "We’ll re-evaluate your condition in 6 weeks to see how you're responding to the treatment and decide on the next steps. ... Okay, I’ll come back in 6 weeks. ... I'll see you in 6 weeks.",
+      "transcript_evidence": "Based on your symptoms and the physical exam, it looks like you might have lumbar radiculopathy.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment for 6 weeks."
+      "matched_claim_text": "It is suspected that the patient has lumbar radiculopathy.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Qualifier 'suspected' for lumbar radiculopathy",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on your symptoms and the physical exam, it looks like you might have lumbar radiculopathy.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "It is suspected that the patient has lumbar radiculopathy.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

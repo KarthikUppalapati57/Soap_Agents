@@ -238,7 +238,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The note receives a D grade primarily due to critical omissions in the Objective section, specifically the absence of key laboratory values like hemoglobin and hematocrit, which are fundamental to supporting the diagnosis and justifying the treatment plan. Additionally, the Subjective and Plan sections contain multiple omissions regarding detailed HPI characteristics, patient education, and crucial next steps for ongoing management, further reducing the note's completeness and clinical usefulness. No unsupported or unknown additions were identified.",
+    "overall_summary": "The generated note has significant omissions, particularly in the Objective section where critical lab values for hemoglobin and hematocrit are missing, which materially reduces the clinical usefulness of the note. The Subjective and Plan sections also contain multiple moderate omissions related to symptom impact, patient education, and comprehensive next steps. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "HPI details: symptoms are constant",
       "HPI details: symptoms significantly impacted ability to complete daily tasks and walk short distances",
@@ -271,8 +271,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is mostly clinically aligned but has several omissions, including details about the constancy of symptoms, their significant impact on daily tasks and walking, and difficulty sleeping due to palpitations. It also omits 'no recent changes in diet' and 'awaiting stool occult blood test results' from the ROS, making the HPI less comprehensive.",
+        "grade": "C",
+        "summary": "This section omits several moderate details, including the constant nature of symptoms, their significant impact on daily tasks and sleep due to palpitations, and the pending stool occult blood test results from the ROS. While the main symptoms are captured, these omissions reduce the completeness and clinical context.",
         "omissions": [
           "Symptoms are constant",
           "Symptoms significantly impacted ability to complete daily tasks and walk short distances",
@@ -286,7 +286,7 @@
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "This section receives a D grade due to critical omissions of specific laboratory values, including hemoglobin (7.2 g/dL) and hematocrit (21%), which are central to the patient's diagnosis and the justification for a blood transfusion. The absence of reticulocyte count and blood smear details, along with the 'awaiting stool occult blood test results' from the lab section, further reduces the clinical usefulness and completeness of the objective findings.",
+        "summary": "This section has major omissions, specifically the critical lab values for Hemoglobin (7.2 g/dL) and Hematocrit (21%). It also omits other important lab findings like elevated reticulocyte count, normocytic/normochromic cells, and the pending stool occult blood test results. These missing details significantly reduce the clinical usefulness and reliability of the objective findings. The single addition was supported by the transcript.",
         "omissions": [
           "Cardiovascular: regular rhythm, no murmurs",
           "CBC: Hemoglobin 7.2 g/dL",
@@ -302,7 +302,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section accurately captures the core diagnosis of acute posthemorrhagic anemia. The only omission is the statement regarding the necessity of immediate intervention given the patient's symptoms, which, while important for clinical context and urgency, does not alter the primary diagnosis itself.",
+        "summary": "The core diagnosis of acute posthemorrhagic anemia is correctly captured. The only omission is the concluding statement emphasizing the necessity of immediate intervention given the patient's symptoms, which is a moderate detail but does not detract from the primary assessment.",
         "omissions": [
           "'Given the patient's severe fatigue, dizziness, shortness of breath, and palpitations, immediate intervention is necessary.'"
         ],
@@ -311,7 +311,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section includes the main treatment components but suffers from numerous omissions. These include the specific name of the gastroenterologist, details about educating the patient on medication compliance, the qualifier for avoiding strenuous activities ('until hemoglobin levels stabilize and symptoms resolve'), and documentation of patient cooperation and understanding. Crucially, important 'Next Steps' for monitoring symptoms and promptly reviewing stool occult blood test results are also omitted, making the plan less comprehensive for ongoing patient management.",
+        "summary": "This section contains numerous moderate omissions, including specific patient education details (compliance with medication, understanding of condition), important qualifiers for activity restrictions ('until hemoglobin levels stabilize and symptoms resolve'), and crucial next steps for monitoring and reviewing test results. While the main interventions are present, the lack of comprehensive patient management details makes the plan less complete. All additions were supported by the transcript.",
         "omissions": [
           "Specific name of the gastroenterologist (Dr. Stephanie White)",
           "Educate on importance of compliance with medication",
@@ -337,42 +337,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your heart rate is elevated, indicating tachycardia...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tachycardia (elevated heart rate) was noted."
+      "matched_claim_text": "Tachycardia (elevated heart rate) was noted.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'for anemia management' (clarification for PRBC administration)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll start by addressing the anemia. Your hemoglobin level is quite low at 7.2 g/dL, and your hematocrit is 21%. We'll need to give you a blood transfusion to increase your red blood cell count.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "This is for anemia management."
+      "matched_claim_text": "This is for anemia management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'as necessary for recovery' (added to follow-up appointments)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Just ensure you take your medications as prescribed and attend all follow-up appointments. It's crucial for your recovery.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to attend all follow-up appointments as necessary for recovery."
+      "matched_claim_text": "Advise patient to attend all follow-up appointments as necessary for recovery.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'(elevated heart rate)' as a clarification for Tachycardia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your heart rate is elevated, indicating tachycardia...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tachycardia (elevated heart rate) was noted."
+      "matched_claim_text": "Tachycardia (elevated heart rate) was noted.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'for anemia management' (clarification for PRBC administration)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll start by addressing the anemia. Your hemoglobin level is quite low at 7.2 g/dL, and your hematocrit is 21%. We'll need to give you a blood transfusion to increase your red blood cell count.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "This is for anemia management."
+      "matched_claim_text": "This is for anemia management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'as necessary for recovery' (added to follow-up appointments)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Just ensure you take your medications as prescribed and attend all follow-up appointments. It's crucial for your recovery.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to attend all follow-up appointments as necessary for recovery."
+      "matched_claim_text": "Advise patient to attend all follow-up appointments as necessary for recovery.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

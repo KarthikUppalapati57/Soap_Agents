@@ -218,9 +218,9 @@
     "plan_alignment_score": 0.518918918918919
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "Clinical Documentation Reviewer v1.0",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has a significant gap in the Assessment section due to the complete omission of the specific diagnosis. Additionally, several moderate details regarding the patient's functional limitations and comprehensive administrative/social context are missing. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note captures the core clinical encounter, including chief complaint, key HPI elements, and the treatment plan. However, it has noticeable gaps and multiple moderate omissions that reduce its completeness. Specifically, the note omits the specific diagnosis in the Assessment section and misses important clinical details in the Subjective section, such as the severity of symptoms and functional limitations. The relocation of the electrolyte panel order from the Plan to the Objective section also creates an omission in the Plan. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Severity of nausea/vomiting (moderate)",
       "Patient's functional limitations (strenuous tasks not feasible)",
@@ -238,7 +238,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main aspects of the history of present illness. However, it omits the severity of symptoms, specific functional limitations, and detailed endocrine review of systems. It also lacks explicit section headers and ROS categories.",
+        "summary": "The Subjective section is mostly aligned but omits several important clinical details. Specifically, the severity of nausea/vomiting (moderate) and the patient's functional limitations (strenuous tasks not feasible) were not captured. Additionally, specific details from the Endocrine Review of Systems were omitted. The structural omissions of section headers and explicit ROS categories are minor. All additions in this section were supported by the transcript.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -255,7 +255,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-aligned, accurately stating that no physical examination was performed due to telemedicine. The omission of an explicit 'Vital Signs: NA' is minor, as the context of telemedicine is provided. The relocation of the electrolyte panel order from Plan to Objective is a structural change but the information is present and supported.",
+        "summary": "The Objective section is well-aligned. The only omission is the explicit mention of 'Vital Signs: NA (telemedicine consultation)', though the note does state that no physical examination was performed due to telemedicine. The addition of the electrolyte panel order to this section, while a relocation from the GroundTruth's Plan, is supported by the transcript and does not reduce the grade.",
         "omissions": [
           "Vital Signs: NA (telemedicine consultation)"
         ],
@@ -265,8 +265,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section has a major clinical omission, failing to include the specific diagnosis of 'Nausea and vomiting, unspecified.' Instead, it provides a statement about pending test results, which, while supported by the transcript, does not fulfill the primary purpose of the Assessment section. This significantly reduces the clinical usefulness of the note.",
+        "grade": "C",
+        "summary": "The Assessment section has a significant omission: the specific diagnosis of 'Nausea and vomiting, unspecified (ICD-10 R11.2)' is entirely missing. While the generated note includes a statement about pending results, this does not compensate for the absence of the initial diagnostic impression. The addition in this section was supported by the transcript.",
         "omissions": [
           "Diagnosis: Nausea and vomiting, unspecified"
         ],
@@ -277,7 +277,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section effectively captures the prescribed medication, follow-up recommendations, patient education, and lifestyle advice. However, it omits several important administrative and social context details regarding patient cooperation, adherence, living situation, language fluency, and agreement with the plan. The electrolyte panel order was relocated to the Objective section, which is a structural change rather than a content omission.",
+        "summary": "The Plan section captures the main treatment, follow-up, and patient education. However, it omits the electrolyte panel order, which was present in the GroundTruth's Plan section (though it was relocated to the Objective section in the generated note). Several minor administrative and social context details, such as patient cooperation, living situation, and language fluency, were also omitted. There were no penalizable additions in this section.",
         "omissions": [
           "Electrolyte panel order (as it was moved to Objective in GeneratedSOAP)",
           "Administrative/Social details: Patient was highly cooperative and adherent to medical advice",
@@ -297,35 +297,45 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "They've been happening along with the nausea and vomiting, so just these past couple of days. ... No, this is the first time I've had it this bad.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms started recently and are the first time this bad for the patient"
+      "matched_claim_text": "Symptoms started recently and are the first time this bad for the patient",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment stating 'Pending results of ordered tests and further investigation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We should have the results soon. ... I'll be in touch once we have your test results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending results of ordered tests and further investigation"
+      "matched_claim_text": "Pending results of ordered tests and further investigation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement that symptoms started recently and are 'the first time this bad for the patient'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "They've been happening along with the nausea and vomiting, so just these past couple of days. ... No, this is the first time I've had it this bad.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms started recently and are the first time this bad for the patient"
+      "matched_claim_text": "Symptoms started recently and are the first time this bad for the patient",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Electrolyte panel ordered to assess for potential dehydration and electrolyte imbalance (this item is present in GroundTruthSOAP under the Plan section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "However, I have ordered an electrolyte panel to assess for potential dehydration and electrolyte imbalance.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Electrolyte panel ordered to assess for potential dehydration and electrolyte imbalance"
+      "matched_claim_text": "Electrolyte panel ordered to assess for potential dehydration and electrolyte imbalance",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement: 'Pending results of ordered tests and further investigation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We should have the results soon. ... I'll be in touch once we have your test results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending results of ordered tests and further investigation"
+      "matched_claim_text": "Pending results of ordered tests and further investigation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

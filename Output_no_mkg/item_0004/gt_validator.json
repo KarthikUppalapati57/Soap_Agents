@@ -277,9 +277,9 @@
     "plan_alignment_score": 0.6473988439306358
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness and completeness. Key issues include the absence of the primary diagnosis in the Assessment section, the omission of known drug allergies in Subjective, and the complete lack of a Patient Understanding and Compliance section in the Plan. While some sections are well-captured, these critical gaps warrant a lower overall grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note provides a generally accurate and usable summary of the patient encounter. However, it has several omissions, most notably the absence of the primary diagnosis (left knee pain most likely exacerbated by underlying osteoarthritis) in the Assessment section, which significantly impacts the completeness of the clinical picture. Other moderate omissions include the patient's known drug allergies and the full patient understanding and compliance section in the Plan. All identified additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Allergies: No known drug allergies (NKDA)",
       "Social History: Retired, previously active with daily walks",
@@ -301,7 +301,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits the patient's known drug allergies (NKDA) and details about their social history regarding being retired and previously active with daily walks. The omission of allergy information is a moderate-to-high severity issue, impacting patient safety and comprehensive documentation.",
+        "summary": "The Subjective section is mostly complete but omits the patient's known drug allergies (NKDA) and details about their social history (retired, previously active with daily walks). These are moderate and minor omissions, respectively, but the core subjective information is present.",
         "omissions": [
           "Allergies: No known drug allergies (NKDA)",
           "Social History: Retired, previously active with daily walks"
@@ -311,7 +311,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures all GroundTruth content and includes only supported additions, resulting in no grading issues.",
+        "summary": "This section is excellent, with no omissions or unsupported/unknown additions. All vital signs and physical examination findings are accurately captured.",
         "omissions": [],
         "additions": [
           "\"(stable vital signs)\""
@@ -319,8 +319,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section has a major omission by failing to include the primary diagnosis of \"Left knee pain, most likely exacerbated by underlying osteoarthritis.\" Instead, it only lists potential differential diagnoses, which significantly reduces the clinical usefulness and completeness of the assessment.",
+        "grade": "C",
+        "summary": "This section has a significant omission: the primary diagnosis of \"Left knee pain, most likely exacerbated by underlying osteoarthritis\" is missing. The generated note only lists potential diagnoses. This makes the assessment meaningfully incomplete regarding the most likely underlying cause of the patient's symptoms. The omission of \"Synovitis\" from the differential diagnosis is a minor issue.",
         "omissions": [
           "Primary Diagnosis: Left knee pain, most likely exacerbated by underlying osteoarthritis",
           "Differential Diagnosis: Synovitis"
@@ -331,8 +331,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits the total tablet count for the prescribed Ibuprofen, the instruction to encourage the patient to take medication as directed, and the entire \"Patient Understanding and Compliance\" section. The absence of the compliance section is a moderate-to-high severity issue, as it is crucial for documenting patient engagement and agreement with the treatment plan.",
+        "grade": "B",
+        "summary": "The Plan is largely comprehensive and actionable. However, it omits the specific total tablet count for Ibuprofen, the explicit instruction to encourage medication adherence, and the entire \"Patient Understanding and Compliance\" section, which are moderate omissions impacting documentation completeness. All additions in this section were supported by the transcript.",
         "omissions": [
           "Treatment Recommendations: total 30 tablets of Ibuprofen",
           "Patient Education: Encourage the patient to take the prescribed medication as directed",
@@ -352,72 +352,92 @@
     {
       "addition_text": "Objective: \"(stable vital signs)\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Everything looks stable there.",
+      "transcript_evidence": "Your blood pressure is 130/80 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6 °F. Everything looks stable there.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: \"based on physical examination findings and symptoms reported\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see. You also have an antalgic gait, which means you’re limping to avoid putting weight on the painful knee. I’m going to order an MRI of your left knee to evaluate for a potential meniscal tear or ligament damage.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "This assessment is based on physical examination findings and symptoms reported."
+      "matched_claim_text": "This assessment is based on physical examination findings and symptoms reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"to help with pain and inflammation\" (reason for Ibuprofen)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In the meantime, I’m going to prescribe you some NSAIDs. Take Ibuprofen 400 mg, orally, three times daily for the next 10 days. That should help with the pain and inflammation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Ibuprofen 400 mg, orally, three times daily for 10 days to help with pain and inflammation."
+      "matched_claim_text": "Prescribe Ibuprofen 400 mg, orally, three times daily for 10 days to help with pain and inflammation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"as much as possible\" (qualifier for rest)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "rest your knee as much as possible",
+      "transcript_evidence": "I also want you to rest your knee as much as possible.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: \"a few times a day\" (qualifier for ice application)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Apply ice to your knee for about 20 minutes a few times a day to help reduce the swelling.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"(stable vital signs)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Everything looks stable there.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"based on physical examination findings and symptoms reported\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see. You also have an antalgic gait, which means you’re limping to avoid putting weight on the painful knee. I’m going to order an MRI of your left knee to evaluate for a potential meniscal tear or ligament damage.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "This assessment is based on physical examination findings and symptoms reported."
+      "matched_claim_text": "This assessment is based on physical examination findings and symptoms reported.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"to help with pain and inflammation\" (reason for Ibuprofen)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In the meantime, I’m going to prescribe you some NSAIDs. Take Ibuprofen 400 mg, orally, three times daily for the next 10 days. That should help with the pain and inflammation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Ibuprofen 400 mg, orally, three times daily for 10 days to help with pain and inflammation."
+      "matched_claim_text": "Prescribe Ibuprofen 400 mg, orally, three times daily for 10 days to help with pain and inflammation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"as much as possible\" (qualifier for rest)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also want you to rest your knee as much as possible.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"a few times a day\" (qualifier for ice application)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I also want you to rest your knee as much as possible. Avoid any activities that make the pain worse. Apply ice to your knee for about 20 minutes a few times a day to help reduce the swelling. Elevate your knee when you can.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Rest the knee as much as possible, avoid activities that make the pain worse, apply ice to the knee for 20 minutes a few times a day, and elevate the knee when possible."
+      "matched_claim_text": "Rest the knee as much as possible, avoid activities that make the pain worse, apply ice to the knee for 20 minutes a few times a day, and elevate the knee when possible.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

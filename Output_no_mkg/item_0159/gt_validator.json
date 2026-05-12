@@ -260,7 +260,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has noticeable gaps that make it meaningfully incomplete. Key omissions include the formal diagnosis and the patient's history of gestational diabetes in the Assessment section, which are clinically important details. Additionally, crucial contextual information regarding the patient's postpartum status (initial visit, 2 days post-delivery) is omitted from the Subjective section, and several minor patient education points are missing from the Plan. There are no unsupported or unknown additions that would negatively impact the grade.",
+    "overall_summary": "The generated note provides a largely accurate and usable clinical summary. The Subjective and Objective sections are well-captured with only minor, non-critical omissions. The Plan section is also strong, though it misses a few minor educational and instructional details. The most significant issue lies in the Assessment section, which omits crucial diagnostic information, specifically the formal diagnosis of \"Single live birth,\" \"Postpartum Status,\" and the patient's \"History of gestational diabetes.\" While no unsupported or unknown additions were found across the entire note, these omissions in the Assessment section represent noticeable gaps that make the note meaningfully incomplete, requiring a reviewer to consult other sources for a full clinical picture.",
     "omissions": [
       "Summary statement: Jane Doe has delivered a healthy baby and is experiencing normal postpartum symptoms",
       "Summary statement: No further tests or specialist referrals are required at this time"
@@ -270,8 +270,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is mostly aligned but omits key contextual information regarding the patient's status as an initial postpartum visit and being 2 days post single live birth. These are moderate omissions that impact the completeness of the HPI. Minor ROS details like 'limited mobility' and 'Neurological: No concerns' were also omitted. No unsupported or unknown additions were present.",
+        "grade": "A",
+        "summary": "The section accurately captures the patient's chief complaints and most of the HPI and ROS. Minor omissions include the patient's status as an initial postpartum visit 2 days post-delivery, and specific ROS details like limited mobility and no neurological concerns. No unsupported or unknown additions were identified.",
         "omissions": [
           "Patient's status as initial postpartum visit",
           "Patient's status as 2 days post single live birth",
@@ -283,7 +283,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, capturing all major clinically important Ground Truth content. The omissions are minor, such as the temperature in Celsius, the uterus being 'midline', and the 'oriented' part of 'alert and oriented'. All additions in this section were supported by the transcript and therefore did not reduce the grade.",
+        "summary": "The Objective section is comprehensive, accurately reporting vital signs and physical examination findings. Minor omissions include the Celsius temperature and the specific detail that the uterus was 'midline' and the patient was 'oriented'. All additions were supported by the transcript.",
         "omissions": [
           "Temperature in Celsius (36.9°C)",
           "Uterus described as midline",
@@ -297,7 +297,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has significant omissions that make the note meaningfully incomplete. It fails to include the formal diagnosis of 'Single live birth' (Z37.0) and, more critically, the patient's 'History of gestational diabetes (controlled with diet)'. These are moderate-to-major omissions of clinically material information. The narrative assessment provided is supported by the transcript but does not compensate for these missing structured data points. No unsupported or unknown additions were present.",
+        "summary": "This section has significant omissions, failing to include the formal diagnosis of \"Single live birth,\" \"Postpartum Status,\" and the clinically relevant \"History of gestational diabetes (controlled with diet).\" While a narrative assessment is provided, these specific diagnostic and historical details are crucial for a complete clinical picture. No unsupported or unknown additions were identified.",
         "omissions": [
           "Diagnosis: Single live birth",
           "Postpartum Status",
@@ -310,7 +310,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned and usable. It has several minor omissions related to specific patient education and lifestyle recommendations, such as continuing prenatal vitamins if breastfeeding, education on breastfeeding techniques, encouraging sleep when the baby sleeps, and ensuring a good support network. However, the core elements of postpartum care, pain management, and follow-up are well-captured. All additions in this section were supported by the transcript and did not reduce the grade.",
+        "summary": "The Plan section captures the majority of the critical care instructions and recommendations. There are several minor omissions, including the instruction to continue prenatal vitamins if breastfeeding, specific education on breastfeeding techniques, the recommendation to sleep when the baby sleeps, and the instruction to ensure a good support network. All additions were supported by the transcript.",
         "omissions": [
           "Instruction to continue prenatal vitamins if breastfeeding",
           "Education on breastfeeding techniques and challenges",
@@ -333,42 +333,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 118/76 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. Your oxygen saturation is 98% on room air. Everything looks normal here.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment-like statement: patient seems to be adapting well to newborn care",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I have family and friends who are helping out. [Doctor]: That’s wonderful. Having a strong support system is very important.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient seems to be adapting well to newborn care."
+      "matched_claim_text": "Patient seems to be adapting well to newborn care.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Detailed narrative assessment: Normal postpartum course with some expected symptoms such as cramping, soreness, and vaginal bleeding; patient seems to be adapting well to newborn care",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Hmm, that’s quite common after delivery. ... I see a small amount of lochia rubra, which is normal. ... Overall, everything seems to be in order.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Normal postpartum course with expected symptoms such as cramping, soreness, and vaginal bleeding."
+      "matched_claim_text": "Normal postpartum course with expected symptoms such as cramping, soreness, and vaginal bleeding.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Detail added to follow-up visit: to assess progress",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d also like to schedule a follow-up visit in 6 weeks to check on your progress.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up visit in 6 weeks."
+      "matched_claim_text": "Schedule follow-up visit in 6 weeks.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Detail added to contact instructions: before the scheduled follow-up",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you experience any significant pain, heavy bleeding, fever, or signs of infection before then, please contact our office immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Detail added to breastfeeding encouragement: and provide support for maintaining milk production, hydration, and rest",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Make sure to stay hydrated and eat a balanced diet to support your milk production. ... Remember to sleep when the baby sleeps to manage your fatigue. It’s crucial to get as much rest as possible.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage breastfeeding, hydration, and balanced diet for milk production, and rest for fatigue."
+      "matched_claim_text": "Encourage breastfeeding, hydration, and balanced diet for milk production, and rest for fatigue.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

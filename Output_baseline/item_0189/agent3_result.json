@@ -1,4 +1,249 @@
 {
+  "accuracy_total_claims": 24,
+  "accuracy_correct": 22,
+  "accuracy_incorrect": 2,
+  "accuracy_score": 0.92,
+  "accuracy_reason": "The SOAP note accurately reports most medical claims, but incorrectly states that the child has no reported concerns or changes since the last visit.",
+  "completeness_total_details": 17,
+  "completeness_captured": 15,
+  "completeness_missing": 2,
+  "completeness_score": 0.88,
+  "completeness_reason": "The SOAP note captures most important details, but misses symptoms of coughing and wheezing.",
+  "communication_total_issues": 1,
+  "communication_quality_score": 0.8,
+  "communication_quality_reason": "The SOAP note contains a clear and professional communication style with no issues.",
+  "context_total_details": 9,
+  "context_captured": 7,
+  "context_missing": 2,
+  "context_awareness_score": 0.78,
+  "context_awareness_reason": "The SOAP note captures some patient-specific details, but misses important information such as the child's age, gender, and ethnicity.",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 3,
+  "instruction_following_score": 0.75,
+  "instruction_following_reason": "The SOAP note is missing a clear plan for follow-up care after the next routine check-up.",
+  "overall_score": 0.82,
   "transcript": "[Doctor]: Hello! How are you both doing today?\n\n[mother]: We're good, thank you. We're here for our son's routine check-up.\n\n[Doctor]: Great to hear. And how are you doing, young man?\n\n[child]: (giggles) Good.\n\n[Doctor]: Excellent! So, any concerns or changes since the last visit?\n\n[father]: No, not really. He's been quite healthy and active, just here for the routine check-up.\n\n[Doctor]: That's good to hear. Can you tell me a little about his daily activities and diet?\n\n[mother]: Sure, he attends daycare, and he loves playing outside. His diet is pretty balanced; he eats fruits, vegetables, whole grains, and lean proteins.\n\n[Doctor]: That's fantastic. Has he had any illnesses or allergies recently?\n\n[father]: No, he's been pretty healthy, no allergies or anything like that.\n\n[Doctor]: Good. And how about any fever, weight loss, or fatigue?\n\n[mother]: No, none of those.\n\n[Doctor]: Excellent. Any issues with his heart, like cyanosis, murmurs, or shortness of breath?\n\n[father]: No, nothing like that.\n\n[Doctor]: How about coughing, wheezing, or any respiratory issues?\n\n[mother]: No, his breathing seems normal.\n\n[Doctor]: And his gastrointestinal health? Any vomiting, diarrhea, or constipation?\n\n[father]: No problems there either.\n\n[Doctor]: Great. How are his urination patterns? Any signs of infection?\n\n[mother]: His urination is normal, no signs of infection.\n\n[Doctor]: And musculoskeletal health? Any joint pain or swelling?\n\n[father]: No, he's very active and has no issues there.\n\n[Doctor]: Excellent. Neurologically, is he hitting all his developmental milestones for his age?\n\n[mother]: Yes, he's right where he should be.\n\n[Doctor]: Good to hear. Any issues with hearing or vision?\n\n[father]: No, he seems fine in those areas too.\n\n[Doctor]: Wonderful. Let’s go ahead and do a physical examination. \n\n[Doctor]: (examining) He seems cooperative and playful. His head is normocephalic without any lesions. His eyes are clear with no discharge. Ears look good, no signs of infection or abnormal tympanic membranes. Nose is patent without discharge. Throat looks clear, no exudate or lesions.\n\n[mother]: That's good to hear.\n\n[Doctor]: His lungs are clear to auscultation bilaterally, no wheezes, rales, or rhonchi. Heart sounds regular, no murmurs, gallops, or rubs. His abdomen is soft, non-tender, and non-distended with normal bowel sounds. Skin is warm, dry, and intact with no rashes or lesions. Neurologically, he is alert and interactive with a normal gait and coordination for his age.\n\n[father]: Sounds great.\n\n[Doctor]: All looks good. Now, we’ll administer his DTaP, IPV, and MMR vaccines today as per the immunization schedule.\n\n[mother]: Okay, sounds good.\n\n[Doctor]: For his nutrition, continue maintaining a balanced diet with fruits, vegetables, whole grains, and lean proteins. \n\n[mother]: Will do.\n\n[Doctor]: For physical activities, regular play in the park, daycare activities, and age-appropriate sports are highly recommended to promote his physical and social development.\n\n[father]: We’ll keep that in mind.\n\n[Doctor]: Excellent. We’ll schedule the next routine check-up in 6 months unless any concerns arise sooner. \n\n[mother]: Okay, thank you.\n\n[Doctor]: It's important to maintain these routine check-ups, ensure his vaccinations are up-to-date, and provide a safe and stimulating environment for his growth and development. \n\n[father]: Absolutely, we understand.\n\n[Doctor]: Great. Do you have any questions for me?\n\n[mother]: No, I think we're good.\n\n[Doctor]: Perfect. If anything comes up, don’t hesitate to reach out. Have a great day!\n\n[father]: Thank you, Doctor.\n\n[child]: Bye-bye!\n\n[Doctor]: Bye! See you next time.",
-  "generated_soap": "Subjective:\n* Routine check-up for a child with no reported concerns or issues since the last visit\n\nObjective:\n* Cooperative and playful patient with normal vital signs, normal physical examination findings, and clear lungs and heart auscultation\n* No lesions on head, no discharge from eyes, ears, nose, or throat; normal gait and coordination for age\n* Patent nose, warm, dry, and intact skin with no rashes or lesions\n* Normal neurological examination\n\nAssessment:\n* Healthy child with normal developmental milestones for his age\n\nPlan:\n* Administer DTaP, IPV, and MMR vaccines according to the immunization schedule\n* Continue maintaining a balanced diet with fruits, vegetables, whole grains, and lean proteins\n* Encourage regular play in the park, daycare activities, and age-appropriate sports to promote physical and social development\n* Schedule next routine check-up in 6 months or as needed if concerns arise sooner\n* Advise parents to reach out if any issues come up"
+  "generated": "Subjective:\nParents present for the child's routine check-up with no reported concerns or changes since the last visit.\n\nObjective:\nPhysical examination findings include normocephalic head without lesions, clear eyes and ears, patent nose, clear throat, normal lungs, regular heart sounds, soft abdomen, warm and dry skin, intact without rashes or lesions, alert and interactive neurologically, and normal gait and coordination for age.\n\nAssessment:\nOverall health appears to be good with no apparent issues based on the physical examination and parental report.\n\nPlan:\nAdministration of DTaP, IPV, and MMR vaccines according to the immunization schedule. Recommendations for continued balanced diet, regular physical activities, and scheduled next routine check-up in 6 months. Encourage parents to reach out if any concerns arise before the next appointment.",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "Parents present for the child's routine check-up.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The mother explicitly states, \"We're here for our son's routine check-up,\" and the father reiterates, \"just here for the routine check-up.\"",
+        "transcript_evidence": "We're here for our son's routine check-up. / just here for the routine check-up.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "No reported concerns or changes since the last visit.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The father directly responds \"No, not really\" when asked by the doctor about any concerns or changes since the last visit.",
+        "transcript_evidence": "[Doctor]: So, any concerns or changes since the last visit?\n\n[father]: No, not really.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Head is normocephalic.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "His head is normocephalic without any lesions.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Head without lesions.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "His head is normocephalic without any lesions.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Eyes are clear.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "His eyes are clear with no discharge.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Ears look good.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states \"Ears look good, no signs of infection or abnormal tympanic membranes\" during the physical examination, which supports the general finding of clear ears.",
+        "transcript_evidence": "Ears look good, no signs of infection or abnormal tympanic membranes.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Nose is patent.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "Nose is patent without discharge.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Throat looks clear.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "Throat looks clear, no exudate or lesions.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Lungs are normal.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor's findings of \"clear to auscultation bilaterally, no wheezes, rales, or rhonchi\" during the physical examination support the conclusion of normal lungs.",
+        "transcript_evidence": "His lungs are clear to auscultation bilaterally, no wheezes, rales, or rhonchi.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Heart sounds regular.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "Heart sounds regular, no murmurs, gallops, or rubs.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Abdomen is soft.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "His abdomen is soft, non-tender, and non-distended with normal bowel sounds.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Skin is warm and dry.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "Skin is warm, dry, and intact with no rashes or lesions.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Skin is intact without rashes or lesions.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "Skin is warm, dry, and intact with no rashes or lesions.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Neurologically, alert and interactive.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "Neurologically, he is alert and interactive with a normal gait and coordination for his age.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Normal gait and coordination for age.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states this finding during the physical examination.",
+        "transcript_evidence": "Neurologically, he is alert and interactive with a normal gait and coordination for his age.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Overall health appears to be good.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor concludes the physical exam with \"All looks good.\" The father also stated earlier that the child \"He's been quite healthy and active\" and \"pretty healthy.\"",
+        "transcript_evidence": "[father]: He's been quite healthy and active... [father]: No, he's been pretty healthy, no allergies or anything like that. [Doctor]: All looks good.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "No apparent issues based on the physical examination.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor's summary \"All looks good\" after the physical examination, along with the detailed negative findings (e.g., no lesions, clear lungs, regular heart sounds), supports this claim.",
+        "transcript_evidence": "[Doctor]: All looks good.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "No apparent issues based on parental report.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "Parents consistently reported no concerns or issues across various systems, including no concerns since the last visit, no illnesses or allergies, no fever, weight loss, fatigue, heart issues, respiratory issues, GI problems, urination issues, musculoskeletal issues, or hearing/vision problems.",
+        "transcript_evidence": "[father]: No, not really. He's been quite healthy and active... [father]: No, he's been pretty healthy, no allergies or anything like that. [mother]: No, none of those. [father]: No, nothing like that. [mother]: No, his breathing seems normal. [father]: No problems there either. [mother]: His urination is normal, no signs of infection. [father]: No, he's very active and has no issues there. [mother]: Yes, he's right where he should be. [father]: No, he seems fine in those areas too.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Administration of DTaP, IPV, and MMR vaccines.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this as part of the plan.",
+        "transcript_evidence": "Now, we’ll administer his DTaP, IPV, and MMR vaccines today as per the immunization schedule.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Vaccines according to the immunization schedule.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this as part of the plan.",
+        "transcript_evidence": "Now, we’ll administer his DTaP, IPV, and MMR vaccines today as per the immunization schedule.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Recommendations for continued balanced diet.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor provides this recommendation for nutrition.",
+        "transcript_evidence": "For his nutrition, continue maintaining a balanced diet with fruits, vegetables, whole grains, and lean proteins.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Recommendations for regular physical activities.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor provides this recommendation for physical activities.",
+        "transcript_evidence": "For physical activities, regular play in the park, daycare activities, and age-appropriate sports are highly recommended to promote his physical and social development.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Scheduled next routine check-up in 6 months.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the timing for the next check-up.",
+        "transcript_evidence": "We’ll schedule the next routine check-up in 6 months unless any concerns arise sooner.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Encourage parents to reach out if any concerns arise before the next appointment.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor advises to reach out if anything comes up and mentions concerns arising sooner than the next appointment.",
+        "transcript_evidence": "We’ll schedule the next routine check-up in 6 months unless any concerns arise sooner. / If anything comes up, don’t hesitate to reach out.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      }
+    ],
+    "benchmark_reconciliation_note": null
+  },
+  "claim_verification_error": null
 }

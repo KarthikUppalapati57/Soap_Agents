@@ -255,9 +255,9 @@
     "plan_alignment_score": 0.5925925925925926
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_v1",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it contains several moderate omissions and one high-severity unsupported addition in the Plan section. Key subjective details like the patient's inability to perform daily activities and known allergies are omitted. The detailed rationale for investigations in the Plan is also missing. The unsupported addition of 'and management' to the cardiologist referral in the Plan, despite being a subtle change, is a significant issue per the rubric, preventing a higher overall grade.",
+    "overall_summary": "The generated note provides a generally accurate overview but contains several moderate omissions across the Subjective, Objective, and Plan sections. Key missing details include the patient's functional limitations, explicit documentation of no known allergies, and the pending status and explicit ordering of critical investigations (Chest X-ray and ABG). There is one minor unsupported addition in the Plan regarding the cardiologist referral. These issues make the note meaningfully incomplete, requiring careful review.",
     "omissions": [
       "Chief Complaint section header",
       "History of Present Illness section header",
@@ -298,7 +298,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly complete, capturing the chief complaint and core history. However, it omits important details such as the patient being unable to perform daily activities and being confined to bed, and the absence of known allergies. Several minor structural and specific detail omissions are also present.",
+        "summary": "The Subjective section omits important clinical details such as the patient being unable to perform daily activities and confined to bed, and the explicit statement of \"Allergies: None known\". Several formatting headers are also missing. However, the core HPI, ROS, Social, and Medication history are well-captured.",
         "omissions": [
           "Chief Complaint section header",
           "History of Present Illness section header",
@@ -319,7 +319,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately captures vital signs and physical examination findings. However, it omits the pending status of the Chest X-ray and Arterial Blood Gases (ABG) from the Investigations subsection, which were present in the Ground Truth. Minor structural omissions of section headers are also noted.",
+        "summary": "The Objective section accurately captures vital signs and physical exam findings but omits the crucial information that Chest X-ray and Arterial Blood Gases are pending. Formatting headers are also missing.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -332,14 +332,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the Ground Truth, with no omissions or unsupported/unknown additions.",
+        "summary": "The Assessment section is complete and accurately reflects the Ground Truth with no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section captures the major interventions but has several issues. It omits the detailed rationale for ordering the Chest X-ray and ABG, and the specific name of the cardiologist. Critically, it includes an unsupported addition of 'and management' to the cardiologist referral, which is considered a high-severity issue in this section. Minor structural omissions of section headers are also present.",
+        "summary": "The Plan section omits the explicit plan to order Chest X-ray and Arterial Blood Gases, which are critical diagnostic steps. It also misses the specific name of the cardiologist and several formatting headers. There is one minor unsupported addition, \"and management,\" to the cardiologist referral.",
         "omissions": [
           "Oxygen Therapy section header",
           "Medications section header",
@@ -366,56 +366,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I still smoke, but I've been thinking about quitting.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Reason for Methylprednisolone: 'to reduce lung inflammation' (from Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "start you on Methylprednisolone 40 mg IV every 12 hours for 5 days to reduce inflammation in your lungs.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Additional detail for cardiologist referral: 'and management' (from Plan)",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "New plan item: 'Encourage smoking cessation for improved lung health' (from Plan)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: That would definitely be beneficial for your lungs. ... It’s also important to consider quitting smoking as it will significantly benefit your lungs.",
+      "transcript_evidence": "It’s also important to consider quitting smoking as it will significantly benefit your lungs.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient considering quitting smoking",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I still smoke, but I've been thinking about quitting.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Reason for Methylprednisolone: 'to reduce lung inflammation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m also going to prescribe Albuterol 2.5 mg/3mL via nebulizer every 4 hours as needed for wheezing and start you on Methylprednisolone 40 mg IV every 12 hours for 5 days to reduce inflammation in your lungs.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Additional detail for cardiologist referral: 'and management'",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "New plan item: 'Encourage smoking cessation for improved lung health'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It’s also important to consider quitting smoking as it will significantly benefit your lungs.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

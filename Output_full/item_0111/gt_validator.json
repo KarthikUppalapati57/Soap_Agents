@@ -244,78 +244,100 @@
     "plan_alignment_score": 0.4880382775119617
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions that impact its clinical completeness and usefulness. Key missing elements include the patient's past medical history in the Subjective section, the entire Medical Reasoning section in the Assessment, and the detailed listing of ordered diagnostic tests (EKG, blood work, echocardiogram) in the Plan. While the core treatment plan and differential diagnoses are present, these gaps make the note meaningfully incomplete and necessitate careful review.",
+    "overall_summary": "The note is broadly usable but has noticeable gaps and multiple moderate issues across the Subjective, Assessment, and Plan sections. Key omissions include the patient's past medical history, the duration and severity of palpitations, the detailed medical reasoning for the assessment, specific details of ordered tests, and important patient agreement and social context information. There is one minor unsupported addition in the Plan section.",
     "omissions": [
-      "Patient's past medical history of hypertension and high cholesterol",
-      "Duration of palpitations: 'past 2 months'",
-      "Severity of palpitations: 'moderate'",
-      "ROS detail: denies cough or wheezing",
-      "ROS detail: anxiety leading to difficulty falling asleep",
-      "Assessment initial summary statement (past medical history and presenting complaint)",
-      "Medical Reasoning section in Assessment",
-      "Differential diagnosis detail: '(pending blood work)' for Thyroid dysfunction",
-      "Medication detail: 'oral' route for Metoprolol",
-      "Monitoring and Prevention section (Patient Agreement)",
-      "Additional Testing section details (EKG, blood work, echocardiogram)",
-      "Final paragraph details (patient cooperation, medication side effect concerns addressed, no treatment disparities, health literacy, living situation)"
+      "Patient's past medical history (hypertension and high cholesterol)",
+      "Duration of palpitations (past 2 months)",
+      "Severity of palpitations (moderate)",
+      "Patient's fear of exacerbating palpitations with exercise",
+      "Denial of cough or wheezing",
+      "Difficulty falling asleep due to anxiety",
+      "Medical Reasoning for palpitations in Assessment",
+      "Specific details of blood work ordered (biochemistry, electrolytes, thyroid function tests, lipid profile)",
+      "Specific details of imaging ordered (Echocardiogram to evaluate for structural heart disease)",
+      "Patient Agreement section in Plan",
+      "Concluding paragraph in Plan (patient cooperation, concerns about medication side effects addressed, no treatment disparities, native English speaker, average health literacy, lives in an affluent urban neighborhood well-served by transit)",
+      "Structured ROS categories (Constitutional, Cardiovascular, Respiratory, Psychological)",
+      "Section headers (e.g., Chief Complaint, HPI, ROS, Physical Examination, Management of Palpitations, Lifestyle and Diet, Patient Education and Counseling, Monitoring and Prevention, Patient Agreement, Additional Testing, Investigations/Test Results)",
+      "\"oral\" route for Metoprolol",
+      "Mention that Metoprolol is a beta-blocker",
+      "\"(pending blood work)\" qualifier for Thyroid dysfunction"
     ],
     "additions": [
-      "Assessment section includes 'Pending results from EKG, blood work, and echocardiogram'",
-      "Plan item: 'Monitor the patient closely for side effects of Metoprolol and provide guidance if necessary'",
-      "Plan item: 'stress management techniques (e.g., meditation)'",
-      "Plan item: 'to alleviate symptoms and promote overall health'"
+      "Monitoring for Metoprolol side effects in Plan",
+      "Meditation as an example of stress management techniques",
+      "\"promote overall health\" as a reason for lifestyle changes"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "\"promote overall health\" as a reason for lifestyle changes",
+      "\"and promote overall health\" as a reason for lifestyle changes"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section omits the patient's past medical history of hypertension and high cholesterol, which is important context. It also misses minor details regarding the duration and severity of palpitations, and specific ROS details like denying cough/wheezing and anxiety affecting sleep. These are mostly minor to moderate omissions.",
+        "grade": "C",
+        "summary": "This section has several minor and moderate omissions. Crucial clinical details such as the patient's past medical history (hypertension and high cholesterol), the duration of palpitations (past 2 months), and the severity (moderate) are missing. Other omissions include the patient's fear of exacerbating palpitations with exercise, denial of cough or wheezing, and difficulty falling asleep due to anxiety. Several structural elements like section headers and ROS categories are also omitted.",
         "omissions": [
-          "Patient's past medical history of hypertension and high cholesterol",
-          "Duration of palpitations: 'past 2 months'",
-          "Severity of palpitations: 'moderate'",
-          "ROS detail: denies cough or wheezing",
-          "ROS detail: anxiety leading to difficulty falling asleep"
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Patient's past medical history (hypertension and high cholesterol)",
+          "Duration of palpitations (past 2 months)",
+          "Severity of palpitations (moderate)",
+          "Patient's fear of exacerbating palpitations with exercise",
+          "Denial of cough or wheezing (from ROS Respiratory)",
+          "Difficulty falling asleep due to anxiety (from ROS Psychological)",
+          "Structured ROS categories (Constitutional, Cardiovascular, Respiratory, Psychological)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurate, with no omissions or unsupported/unknown additions.",
-        "omissions": [],
+        "summary": "This section is well-aligned with the Ground Truth. The only omissions are minor structural or stylistic details, which do not impact clinical usefulness.",
+        "omissions": [
+          "Physical Examination section header",
+          "\"noted\" after irregular heartbeat"
+        ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has major omissions, most notably the complete absence of the 'Medical Reasoning' section, which details the clinical thought process. It also lacks the initial summary statement contextualizing the patient's history and presenting complaint. While the differential diagnoses are present, the missing reasoning significantly reduces the note's clinical usefulness.",
+        "summary": "This section has a major clinical omission: the detailed 'Medical Reasoning' for palpitations, which includes the patient's reported symptoms, their frequency, and the impact on sleep and exercise. The patient's past medical history is also omitted from the summary statement. These gaps make the assessment meaningfully incomplete, despite the differential diagnoses being present.",
         "omissions": [
-          "Initial summary statement (past medical history of hypertension and high cholesterol, presenting with palpitations)",
-          "Medical Reasoning section (details about moderate palpitations, increased frequency in evening, anxiety affecting sleep and exercise habits)",
-          "Differential diagnosis detail: '(pending blood work)' for Thyroid dysfunction"
+          "Patient's past medical history (hypertension and high cholesterol) in the summary",
+          "Medical Reasoning for palpitations (including moderate severity, increased frequency in evening, anxiety affecting sleep and exercise)",
+          "\"Possible Differential Diagnosis\" section header",
+          "Numbering for differential diagnoses",
+          "\"(pending blood work)\" qualifier for Thyroid dysfunction"
         ],
-        "additions": [
-          "'Pending results from EKG, blood work, and echocardiogram'"
-        ]
+        "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has a major omission by not explicitly detailing the ordered additional tests (EKG, blood work, echocardiogram) and their purpose, which is a critical part of the diagnostic plan. Minor omissions include the 'oral' route for medication, the patient agreement, and holistic patient context from the final paragraph. All additions in this section were supported by the transcript and did not lower the grade.",
+        "summary": "This section contains multiple moderate clinical omissions, including the 'Patient Agreement' regarding the treatment plan and adherence, specific details of the ordered blood work (biochemistry, electrolytes, thyroid function tests, lipid profile), and imaging (Echocardiogram to evaluate for structural heart disease). Important contextual information from the concluding paragraph, such as patient cooperation, addressed medication concerns, and social determinants of health, is also missing. Minor omissions include the 'oral' route and the description of Metoprolol as a 'beta-blocker'. There is one minor unsupported addition: 'promote overall health' as a reason for lifestyle changes.",
         "omissions": [
-          "Medication detail: 'oral' route for Metoprolol",
-          "Monitoring and Prevention section (Patient Agreement)",
-          "Additional Testing section (details of EKG, blood work, echocardiogram)",
-          "Final paragraph (patient cooperation, medication side effect concerns addressed, no treatment disparities, health literacy, living situation)"
+          "\"Management of Palpitations\" section header",
+          "\"oral\" route for Metoprolol",
+          "Mention that Metoprolol is a beta-blocker",
+          "\"Lifestyle and Diet\" section header",
+          "\"Patient Education and Counseling\" section header",
+          "\"Monitoring and Prevention\" section header",
+          "\"Patient Agreement\" section (patient understands/agrees, will follow up, adhere to medication)",
+          "\"Additional Testing\" section header",
+          "\"Investigations/Test Results\" section header",
+          "Specific details of blood work ordered (biochemistry, electrolytes, thyroid function tests, lipid profile)",
+          "Specific details of imaging ordered (Echocardiogram to evaluate for structural heart disease)",
+          "Concluding paragraph details (patient cooperative, concerns about medication side effects addressed, no treatment disparities, native English speaker, average health literacy, lives in an affluent urban neighborhood well-served by transit)"
         ],
         "additions": [
-          "'Monitor the patient closely for side effects of Metoprolol and provide guidance if necessary'",
-          "Lifestyle changes: '(e.g., meditation)'",
-          "Lifestyle changes: 'to alleviate symptoms and promote overall health'"
+          "Monitoring for Metoprolol side effects and providing guidance if necessary",
+          "\"(e.g., meditation)\" as an example of stress management techniques",
+          "\"and promote overall health\" as a reason for lifestyle changes"
         ]
       }
     ],
@@ -324,60 +346,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment section includes 'Pending results from EKG, blood work, and echocardiogram'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Now, I’ve ordered an EKG for you. We’re still waiting for the results. We’ve also ordered some blood work to check your electrolytes, thyroid function, and lipid profile. I’ve also ordered an echocardiogram to check for any structural heart disease.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending results from EKG, blood work, and echocardiogram."
-    },
-    {
-      "addition_text": "Plan item: 'Monitor the patient closely for side effects of Metoprolol and provide guidance if necessary'",
+      "addition_text": "Monitoring for Metoprolol side effects in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll monitor how you’re doing with it. If you have any concerns, let me know right away. We’ll monitor you closely. If you experience any issues, you can contact me directly.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitor the patient closely for side effects of Metoprolol and provide guidance if necessary"
+      "matched_claim_text": "Monitor the patient closely for side effects of Metoprolol and provide guidance if necessary",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan item: 'stress management techniques (e.g., meditation)'",
+      "addition_text": "Meditation as an example of stress management techniques",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Regular exercise and stress management techniques can also help alleviate anxiety-related symptoms. Have you tried any stress reduction methods before? ... Meditation is a good start. Try to incorporate it into your daily routine.",
+      "transcript_evidence": "Regular exercise and stress management techniques can also help alleviate anxiety-related symptoms. Have you tried any stress reduction methods before? ... I’ve tried meditation a couple of times, but I haven’t been consistent. ... Meditation is a good start.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan item: 'to alleviate symptoms and promote overall health'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We need to make some lifestyle and diet changes. I recommend reducing your salt intake, increasing your vegetable consumption, and avoiding fast food. Regular exercise and stress management techniques can also help alleviate anxiety-related symptoms. Meditation is a good start. Try to incorporate it into your daily routine.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend lifestyle changes such as reducing salt intake, increasing vegetable consumption, avoiding fast food, regular exercise, and stress management techniques (e.g., meditation) to alleviate symptoms and promote overall health"
+      "addition_text": "\"promote overall health\" as a reason for lifestyle changes",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'Pending results from EKG, blood work, and echocardiogram'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Now, I’ve ordered an EKG for you. We’re still waiting for the results. We’ve also ordered some blood work to check your electrolytes, thyroid function, and lipid profile. I’ve also ordered an echocardiogram to check for any structural heart disease.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending results from EKG, blood work, and echocardiogram."
-    },
-    {
-      "addition_text": "'Monitor the patient closely for side effects of Metoprolol and provide guidance if necessary'",
+      "addition_text": "Monitoring for Metoprolol side effects and providing guidance if necessary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll monitor how you’re doing with it. If you have any concerns, let me know right away. We’ll monitor you closely. If you experience any issues, you can contact me directly.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitor the patient closely for side effects of Metoprolol and provide guidance if necessary"
+      "matched_claim_text": "Monitor the patient closely for side effects of Metoprolol and provide guidance if necessary",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Lifestyle changes: '(e.g., meditation)'",
+      "addition_text": "\"(e.g., meditation)\" as an example of stress management techniques",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Regular exercise and stress management techniques can also help alleviate anxiety-related symptoms. Have you tried any stress reduction methods before? ... I’ve tried meditation a couple of times, but I haven’t been consistent. ... Meditation is a good start. Try to incorporate it into your daily routine.",
+      "transcript_evidence": "Regular exercise and stress management techniques can also help alleviate anxiety-related symptoms. Have you tried any stress reduction methods before? [patient] I’ve tried meditation a couple of times, but I haven’t been consistent. [doctor] Meditation is a good start.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Lifestyle changes: 'to alleviate symptoms and promote overall health'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We need to make some lifestyle and diet changes. I recommend reducing your salt intake, increasing your vegetable consumption, and avoiding fast food. Regular exercise and stress management techniques can also help alleviate anxiety-related symptoms. Meditation is a good start. Try to incorporate it into your daily routine.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Recommend lifestyle changes such as reducing salt intake, increasing vegetable consumption, avoiding fast food, regular exercise, and stress management techniques (e.g., meditation) to alleviate symptoms and promote overall health"
+      "addition_text": "\"and promote overall health\" as a reason for lifestyle changes",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

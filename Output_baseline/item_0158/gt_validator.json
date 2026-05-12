@@ -2,7 +2,7 @@
   "item": "item_0158",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0158",
   "ground_truth_soap": "#\nSubjective:\n\n   Chief Complaint (CC):\n   Mild postpartum cramping and moderate palpitations.\n\n   History of Present Illness (HPI):\n   The patient is a 30-year-old Caucasian female who presents for an initial postpartum consultation via telemedicine. She reports experiencing mild postpartum cramping that is occasional and brief, and moderate palpitations that occur daily, lasting 5-10 minutes. She also notes lightheadedness with the palpitations, which causes anxiety during baby care.\n\n   Review of Systems (ROS):\n   - Constitutional: Reports anxiety related to palpitations. Sleep is interrupted due to newborn care and palpitations.\n   - Cardiovascular: Reports daily palpitations, lasting 5-10 minutes, accompanied by lightheadedness.\n   - Gastrointestinal: Reduced appetite.\n   - Musculoskeletal: Engages in brief walks when physically possible.\n   - Neuropsychiatric: No reports of headache or vision changes.\n\nObjective:\n   - Vitals: Blood pressure, heart rate, temperature, and respiratory rate not available (telemedicine).\n   - Physical Exam: \n     - Examination of the Uterus: N/A (remote consultation).\n     - Examination of the Breasts: N/A (remote consultation).\n     - Examination of the Perineum: N/A (remote consultation).\n\nAssessment:\n   - Diagnosis:\n     - Single live birth.\n     - Postpartum cramping, likely physiological and self-limiting.\n     - Palpitations, likely related to postpartum hormonal changes and possibly exacerbated by anxiety.\n\nPlan:\n   - Medical Treatment:\n     - Continue prenatal vitamins and iron supplementation.\n     - Prescription for a light dosage of beta-blocker (e.g., propranolol) for palpitations if deemed necessary after ECG results.\n   \n   - Follow-Up Recommendations:\n     - Regular postnatal check-up in 6 weeks.\n     - Pelvic floor physiotherapy to aid postpartum recovery.\n   \n   - Referrals:\n     - Referral to pediatrician Dr. Susan Brown for newborn care.\n     - Referral to cardiologist Dr. John White due to palpitations.\n     \n   - Patient Education and Counseling:\n     - Discussed the importance of maintaining a balanced diet and engaging in light physical activities as tolerated.\n     - Advised on techniques to manage anxiety, including brief relaxation exercises and deep breathing.\n     - Educated about the normalcy of mild postpartum cramping and the importance of hydration.\n     \n   - Investigation/Test Results:\n     - Blood Work: Electrolyte panel ordered to check for imbalances causing palpitations.\n     - Imaging: Upcoming ECG scheduled to assess heart rhythm abnormalities.\n\n#\n\nThe patient understands and agrees with the recommended medical treatment plan.",
-  "generated_soap": "Subjective:\n* Postpartum mother presents with mild postpartum cramping and moderate palpitations\n* Complaints include lightheadedness, anxiety, interrupted sleep, decreased appetite, and occasional brief walks\n\nObjective:\n* No physical exam or vital checks performed due to telemedicine consultation\n* No recent blood work reported by the patient\n\nAssessment:\n* Mild postpartum cramping likely physiological and self-limiting\n* Palpitations possibly related to postpartum hormonal changes and anxiety\n\nPlan:\n* Order electrolyte panel for potential imbalances causing palpitations\n* Schedule ECG to assess heart rhythm\n* Continue prenatal vitamins and iron supplements\n* Consider prescription of a light dosage of beta-blocker like propranolol for palpitations after ECG results\n* Refer patient to Dr. Susan Brown, pediatrician, for newborn care\n* Refer patient to Dr. John White, cardiologist, for palpitations evaluation\n* Recommend pelvic floor physiotherapy for postpartum recovery\n* Schedule follow-up check-up in 6 weeks\n* Encourage balanced diet and light physical activities as tolerated\n* Advise relaxation exercises and deep breathing techniques to manage anxiety",
+  "generated_soap": "Subjective:\n- Postpartum patient reports mild cramping and moderate palpitations\n- Palpitations cause lightheadedness and anxiety\n- Sleep is interrupted due to newborn and palpitations\n- Appetite decreased\n- No headaches or vision changes\n\nObjective:\n- Cannot perform physical exam or vitals check (telemedicine)\n\nAssessment:\n- Postpartum cramping likely physiological, self-limiting\n- Palpitations potentially related to postpartum hormonal changes and anxiety\n\nPlan:\n- Order electrolyte panel for potential imbalances causing palpitations\n- Schedule ECG to assess heart rhythm\n- Continue taking prenatal vitamins and iron supplements\n- Consider light dosage of propranolol if necessary, post ECG results\n- Schedule regular postnatal check-up in 6 weeks\n- Refer patient to Dr. Susan Brown (pediatrician) and Dr. John White (cardiologist)\n- Recommend pelvic floor physiotherapy for postpartum recovery\n- Advise balanced diet, light physical activities, relaxation exercises, and deep breathing techniques to manage anxiety and maintain hydration",
   "entities_gt": {
     "all_entities": [
       "postpartum cramping",
@@ -50,30 +50,35 @@
   },
   "entities_generated": {
     "all_entities": [
-      "mild postpartum cramping",
+      "mild cramping",
       "palpitations",
       "lightheadedness",
       "anxiety",
-      "interrupted sleep",
-      "decreased appetite",
-      "occasional brief walks",
+      "sleep",
+      "appetite decreased",
+      "physical exam",
+      "postpartum cramping",
       "electrolyte panel",
       "ecg",
-      "beta-blocker",
+      "prenatal vitamins",
+      "iron supplements",
       "propranolol",
-      "pelvic floor physiotherapy"
+      "postnatal check-up",
+      "pelvic floor physiotherapy",
+      "balanced diet",
+      "light physical activities",
+      "relaxation exercises",
+      "deep breathing techniques"
     ],
     "symptoms": [
-      "mild postpartum cramping",
+      "mild cramping",
       "palpitations",
       "lightheadedness",
       "anxiety",
-      "interrupted sleep",
-      "decreased appetite",
-      "occasional brief walks"
+      "appetite decreased",
+      "postpartum cramping"
     ],
     "medications": [
-      "beta-blocker",
       "propranolol"
     ],
     "labs": [
@@ -83,10 +88,11 @@
   },
   "clinical_recall_all": {
     "gt_count": 19,
-    "gen_count": 12,
-    "overlap_count": 5,
-    "recall": 0.2631578947368421,
+    "gen_count": 19,
+    "overlap_count": 7,
+    "recall": 0.3684210526315789,
     "gt_only": [
+      "beta-blocker",
       "blood pressure",
       "breasts",
       "constitutional",
@@ -94,66 +100,69 @@
       "heart rate",
       "medical treatment",
       "perineum",
-      "physical exam",
-      "postpartum cramping",
       "reduced appetite",
       "respiratory rate",
-      "sleep",
       "temperature",
       "uterus"
     ],
     "gen_only": [
-      "decreased appetite",
+      "appetite decreased",
+      "balanced diet",
+      "deep breathing techniques",
       "ecg",
       "electrolyte panel",
-      "interrupted sleep",
-      "mild postpartum cramping",
-      "occasional brief walks",
-      "pelvic floor physiotherapy"
+      "iron supplements",
+      "light physical activities",
+      "mild cramping",
+      "pelvic floor physiotherapy",
+      "postnatal check-up",
+      "prenatal vitamins",
+      "relaxation exercises"
     ],
     "overlap": [
       "anxiety",
-      "beta-blocker",
       "lightheadedness",
       "palpitations",
-      "propranolol"
+      "physical exam",
+      "postpartum cramping",
+      "propranolol",
+      "sleep"
     ]
   },
   "clinical_recall_symptoms": {
     "gt_count": 10,
-    "gen_count": 7,
-    "overlap_count": 3,
-    "recall": 0.3,
+    "gen_count": 6,
+    "overlap_count": 4,
+    "recall": 0.4,
     "gt_only": [
       "constitutional",
       "headache",
       "moderate palpitations",
       "neuropsychiatric",
-      "postpartum cramping",
       "reduced appetite",
       "sleep"
     ],
     "gen_only": [
-      "decreased appetite",
-      "interrupted sleep",
-      "mild postpartum cramping",
-      "occasional brief walks"
+      "appetite decreased",
+      "mild cramping"
     ],
     "overlap": [
       "anxiety",
       "lightheadedness",
-      "palpitations"
+      "palpitations",
+      "postpartum cramping"
     ]
   },
   "clinical_recall_medications": {
     "gt_count": 2,
-    "gen_count": 2,
-    "overlap_count": 2,
-    "recall": 1.0,
-    "gt_only": [],
+    "gen_count": 1,
+    "overlap_count": 1,
+    "recall": 0.5,
+    "gt_only": [
+      "beta-blocker"
+    ],
     "gen_only": [],
     "overlap": [
-      "beta-blocker",
       "propranolol"
     ]
   },
@@ -175,107 +184,103 @@
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5210936296800655,
-    "overall_rouge_l_f1": 0.36810321066756363,
+    "overall_token_f1": 0.5146329243243108,
+    "overall_rouge_l_f1": 0.3754103330605635,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3137254901960785,
-        "rouge_l_f1": 0.20437956204379562
+        "token_f1": 0.39622641509433965,
+        "rouge_l_f1": 0.3216783216783217
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.2926829268292683,
-        "rouge_l_f1": 0.14035087719298245
+        "token_f1": 0.25806451612903225,
+        "rouge_l_f1": 0.08695652173913043
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.8,
-        "rouge_l_f1": 0.75
+        "token_f1": 0.7647058823529412,
+        "rouge_l_f1": 0.7368421052631579
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.6779661016949151,
-        "rouge_l_f1": 0.37768240343347637
+        "token_f1": 0.6395348837209303,
+        "rouge_l_f1": 0.35616438356164387
       }
     ],
-    "assessment_alignment_score": 0.8,
-    "plan_alignment_score": 0.6779661016949151
+    "assessment_alignment_score": 0.7647058823529412,
+    "plan_alignment_score": 0.6395348837209303
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, earning a B grade. It accurately captures the main complaints, assessments, and plan. However, it omits several specific details from the Ground Truth, including the duration of palpitations, the specific causes of interrupted sleep, the explicit diagnosis of single live birth, and the conditionality for beta-blocker prescription. There are no unsupported or unknown additions.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaints, most of the HPI, and the full plan. There are no unsupported or unknown additions. However, the note has several minor omissions, primarily related to specific details within the Subjective and Plan sections, and formatting headers. A moderate omission is the lack of explicit mention of 'Single live birth' in the Assessment, which is key context for a postpartum patient.",
     "omissions": [
-      "initial postpartum consultation via telemedicine",
-      "palpitations occur daily, lasting 5-10 minutes",
-      "anxiety during baby care",
-      "Sleep is interrupted due to newborn care and palpitations",
-      "No reports of headache or vision changes",
-      "Specific vital signs not available (Blood pressure, heart rate, temperature, and respiratory rate)",
-      "Specific physical exam components not performed (Uterus, Breasts, Perineum)",
-      "Single live birth diagnosis",
-      "condition 'if deemed necessary' for beta-blocker prescription",
-      "qualifier 'brief' for relaxation exercises",
-      "Education on normalcy of mild postpartum cramping and importance of hydration",
-      "Global statement: The patient understands and agrees with the recommended medical treatment plan"
+      "\"The patient understands and agrees with the recommended medical treatment plan.\""
     ],
-    "additions": [
-      "No recent blood work reported by the patient"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section receives a B grade due to several omissions. It misses specific details such as the daily occurrence and 5-10 minute duration of palpitations, the patient's anxiety during baby care, and that sleep interruption is due to both newborn care and palpitations. The absence of headache or vision changes was also omitted.",
+        "summary": "The Subjective section is mostly accurate, capturing the main complaints and symptoms. However, it omits specific details such as the cramping being 'occasional and brief' and the palpitations being 'daily, lasting 5-10 minutes'. It also misses the specific context of anxiety 'during baby care' and the Musculoskeletal ROS entry. Several section headers were also omitted.",
         "omissions": [
-          "initial postpartum consultation via telemedicine",
-          "palpitations occur daily, lasting 5-10 minutes",
-          "anxiety during baby care",
-          "Sleep is interrupted due to newborn care and palpitations",
-          "No reports of headache or vision changes"
+          "Chief Complaint section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "\"initial postpartum consultation via telemedicine\"",
+          "Cramping described as \"occasional and brief\"",
+          "Palpitations described as \"daily, lasting 5-10 minutes\"",
+          "Anxiety specifically \"during baby care\"",
+          "Musculoskeletal ROS: \"Engages in brief walks when physically possible.\""
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section receives an A grade. It correctly states that no physical exam or vital checks were performed due to telemedicine. The omissions of specific vital signs (blood pressure, heart rate, temperature, respiratory rate) and specific physical exam components (uterus, breasts, perineum) are minor. The addition 'No recent blood work reported by the patient' is supported by the transcript and does not reduce the grade.",
+        "summary": "The Objective section is excellent. It correctly identifies that a physical exam and vitals check could not be performed due to telemedicine. The omissions are only specific examples of what could not be examined (e.g., uterus, breasts, perineum), which are minor details given the general statement.",
         "omissions": [
-          "Specific vital signs not available (Blood pressure, heart rate, temperature, and respiratory rate)",
-          "Specific physical exam components not performed (Examination of the Uterus, Examination of the Breasts, Examination of the Perineum)"
+          "Specific mention of \"Blood pressure, heart rate, temperature, and respiratory rate\" for vitals",
+          "Specific mention of \"Examination of the Uterus\", \"Examination of the Breasts\", \"Examination of the Perineum\" as N/A"
         ],
-        "additions": [
-          "No recent blood work reported by the patient"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section receives a B grade due to the omission of the 'Single live birth' diagnosis. While the context implies this, its explicit mention as a diagnosis is a moderate omission.",
+        "summary": "The Assessment section captures the core diagnoses for postpartum cramping and palpitations. However, it omits the crucial diagnostic context of 'Single live birth'. The phrasing for palpitations being 'possibly exacerbated by anxiety' was also slightly different from the GT, though the generated note still mentions anxiety as a factor. The 'Diagnosis' header was also omitted.",
         "omissions": [
-          "Single live birth diagnosis"
+          "\"Diagnosis\" section header",
+          "\"Single live birth\"",
+          "Palpitations \"possibly exacerbated by anxiety\""
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section receives a B grade. It omits the important condition 'if deemed necessary' for the beta-blocker prescription, which is a moderate issue. Other minor omissions include the qualifier 'brief' for relaxation exercises and the patient education on the normalcy of mild postpartum cramping and the importance of hydration. The global statement about patient understanding and agreement was also omitted.",
+        "summary": "The Plan section is comprehensive, including all major recommendations for medical treatment, follow-up, referrals, patient education, and investigations. The omissions are primarily formatting headers for sub-sections (e.g., 'Medical Treatment', 'Referrals') and minor clarifying details for referrals (e.g., 'for newborn care', 'due to palpitations'). It also omits the education point about the 'normalcy of mild postpartum cramping' and the overall statement about patient understanding and agreement.",
         "omissions": [
-          "condition 'if deemed necessary' for beta-blocker prescription",
-          "qualifier 'brief' for relaxation exercises",
-          "Education on normalcy of mild postpartum cramping and importance of hydration",
-          "Global statement: The patient understands and agrees with the recommended medical treatment plan"
+          "\"Medical Treatment\" section header",
+          "\"Follow-Up Recommendations\" section header",
+          "\"Referrals\" section header",
+          "\"Patient Education and Counseling\" section header",
+          "\"Investigation/Test Results\" section header",
+          "\"Blood Work\" sub-header under Investigation/Test Results",
+          "\"Imaging\" sub-header under Investigation/Test Results",
+          "\"for newborn care\" (for pediatrician referral)",
+          "\"due to palpitations\" (for cardiologist referral)",
+          "Education about \"normalcy of mild postpartum cramping\""
         ],
         "additions": []
       }
@@ -283,13 +288,5 @@
     "rubric_notes": null
   },
   "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "No recent blood work reported by the patient",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "No, not recently.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    }
-  ]
+  "addition_evidence": []
 }

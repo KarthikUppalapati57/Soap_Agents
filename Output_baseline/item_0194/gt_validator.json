@@ -2,7 +2,7 @@
   "item": "item_0194",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0194",
   "ground_truth_soap": "Subjective:\n\nChief Complaint (CC)\n- Follow-up for right knee pain due to osteoarthritis.\n\nHistory of Present Illness (HPI)\n- A 65-year-old Caucasian female with a 5-year history of right knee osteoarthritis presents for a follow-up. She continues to experience moderate to severe knee pain, swelling, stiffness, and occasional locking of the knee. The symptoms are daily and significantly impact her ability to walk, climb stairs, and rise from a seated position. She reports difficulty sleeping due to pain, although she generally maintains a balanced diet and performs prescribed physical therapy exercises 3 times a week. She uses a cane for short distances and has an overall high health literacy.\n\nReview of Systems (ROS)\n- Constitutional: Reports good general health but experiences interrupted sleep due to knee pain.\n- Musculoskeletal: Complaints of right knee pain, swelling, stiffness, and occasional locking. No new joint involvement.\n- Neurological: No reports of numbness, tingling, or weakness.\n\nObjective:\n\nVitals:\n- Blood pressure: 135/85 mm Hg\n- Heart rate: 72 BPM\n\nPhysical Exam:\n- Inspection of the right knee: Swelling and slight deformity noted.\n- Palpation: Tenderness along the joint line.\n- Range of Motion: Decreased with crepitus during movement.\n\nInvestigation/Test Results:\n- Previous X-ray: Joint space narrowing and osteophyte formation in the right knee.\n- Blood Work: CBC and BMP within normal limits except for slightly elevated cholesterol levels.\n\nAssessment:\n- Unilateral primary osteoarthritis, right knee (ICD-10 M17.11)\n\nPlan:\n- Medical Treatment:\n  - Administer corticosteroid injection in the right knee today to reduce inflammation and pain.\n  - Prescribe Meloxicam 15 mg, once daily, oral, for 30 days to manage pain and inflammation.\n\n- Follow-Up and Monitoring:\n  - Follow-up appointment in 6 weeks to evaluate the response to the corticosteroid injection.\n  - If symptoms do not improve, discuss further options such as knee arthroscopy or total knee replacement.\n  \n- Referral:\n  - MRI of the right knee to assess the extent of cartilage damage.\n  - Referral to Dr. John Smith, Orthopedic Surgeon, for further evaluation and management of right knee osteoarthritis.\n\n- Lifestyle and Non-Pharmacological Interventions:\n  - Encourage the continuation of physical therapy and weight management activities.\n  - Advise avoidance of high-impact activities, continuing with low-impact exercises.\n\nPatient Agreements:\n- The patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications.",
-  "generated_soap": "Subjective:\n* Right knee pain due to osteoarthritis persists and is moderate to severe with associated swelling, stiffness, and occasional locking of the joint\n* Pain affects mobility and ability to walk, climb stairs, get up from a seated position, and sleep\n\nObjective:\n* Blood pressure 135/85 mm Hg, heart rate 72 BPM\n* Swelling, slight deformity, tenderness on palpation of the right knee joint line\n* Decreased range of motion with crepitus on movement\n\nAssessment:\n* Unilateral primary osteoarthritis in the right knee\n\nPlan:\n* Corticosteroid injection in the right knee today to reduce inflammation and pain\n* Prescribe Meloxicam 15 mg once daily for 30 days\n* Schedule follow-up appointment in 6 weeks to assess response to treatment and discuss further options if necessary (arthroscopy, total knee replacement)\n* Obtain MRI of the right knee to assess cartilage damage\n* Continue with physical therapy and weight management activities; avoid high-impact activities and stick to low-impact exercises",
+  "generated_soap": "Subjective:\n\n* The patient presents with persistent moderate to severe right knee pain due to osteoarthritis\n* The pain affects mobility and sleep\n* Swelling, stiffness, and occasional locking of the joint are reported\n\nObjective:\n\n* Blood pressure: 135/85 mm Hg\n* Heart rate: 72 BPM\n* Physical examination reveals swelling, slight deformity, tenderness along the joint line, decreased range of motion, and crepitus when moving the knee\n\nAssessment:\n\n* Unilateral primary osteoarthritis in the right knee\n\nPlan:\n\n* Corticosteroid injection in the right knee to reduce inflammation and pain\n* Prescribe Meloxicam 15 mg once daily for 30 days to manage pain and inflammation\n* Schedule a follow-up appointment in 6 weeks to assess response to treatment\n* Discuss further options like arthroscopy or total knee replacement if symptoms do not improve\n* MRI of the right knee to better assess cartilage damage\n* Continue with physical therapy, weight management activities, and low-impact exercises while avoiding high-impact activities.",
   "entities_gt": {
     "all_entities": [
       "right knee pain",
@@ -75,29 +75,31 @@
       "arthroscopy",
       "total knee replacement",
       "mri",
-      "physical therapy"
+      "physical therapy",
+      "weight management activities"
     ],
     "symptoms": [
       "pain",
       "swelling",
       "stiffness",
       "slight deformity",
-      "tenderness",
+      "tenderness along the joint line",
       "decreased range of motion",
       "crepitus"
     ],
     "medications": [
-      "meloxicam"
+      "meloxicam 15 mg"
     ],
     "labs": [
       "blood pressure",
+      "135/85 mm hg",
       "heart rate",
       "mri"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 24,
-    "gen_count": 18,
+    "gen_count": 19,
     "overlap_count": 11,
     "recall": 0.4583333333333333,
     "gt_only": [
@@ -122,7 +124,8 @@
       "inflammation",
       "physical therapy",
       "slight deformity",
-      "tenderness"
+      "tenderness",
+      "weight management activities"
     ],
     "overlap": [
       "blood pressure",
@@ -141,8 +144,8 @@
   "clinical_recall_symptoms": {
     "gt_count": 11,
     "gen_count": 7,
-    "overlap_count": 3,
-    "recall": 0.2727272727272727,
+    "overlap_count": 4,
+    "recall": 0.36363636363636365,
     "gt_only": [
       "joint space narrowing",
       "moderate to severe knee pain",
@@ -150,38 +153,36 @@
       "occasional locking",
       "palpation",
       "range of motion",
-      "right knee pain",
-      "tenderness along the joint line"
+      "right knee pain"
     ],
     "gen_only": [
       "crepitus",
       "decreased range of motion",
-      "slight deformity",
-      "tenderness"
+      "slight deformity"
     ],
     "overlap": [
       "pain",
       "stiffness",
-      "swelling"
+      "swelling",
+      "tenderness along the joint line"
     ]
   },
   "clinical_recall_medications": {
     "gt_count": 2,
     "gen_count": 1,
-    "overlap_count": 0,
-    "recall": 0.0,
+    "overlap_count": 1,
+    "recall": 0.5,
     "gt_only": [
-      "corticosteroid injection",
+      "corticosteroid injection"
+    ],
+    "gen_only": [],
+    "overlap": [
       "meloxicam 15 mg"
-    ],
-    "gen_only": [
-      "meloxicam"
-    ],
-    "overlap": []
+    ]
   },
   "clinical_recall_labs": {
     "gt_count": 6,
-    "gen_count": 3,
+    "gen_count": 4,
     "overlap_count": 2,
     "recall": 0.3333333333333333,
     "gt_only": [
@@ -191,6 +192,7 @@
       "previous x-ray"
     ],
     "gen_only": [
+      "135/85 mm hg",
       "mri"
     ],
     "overlap": [
@@ -199,22 +201,22 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.5921422482660675,
-    "overall_rouge_l_f1": 0.48724689241848773,
+    "overall_token_f1": 0.5707085493115618,
+    "overall_rouge_l_f1": 0.4673364204490882,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.4122137404580152,
-        "rouge_l_f1": 0.2947368421052632
+        "token_f1": 0.3252032520325203,
+        "rouge_l_f1": 0.18784530386740333
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.627906976744186,
-        "rouge_l_f1": 0.4742268041237114
+        "token_f1": 0.5909090909090909,
+        "rouge_l_f1": 0.5102040816326532
       },
       {
         "section": "Assessment",
@@ -227,45 +229,33 @@
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.7034482758620689,
-        "rouge_l_f1": 0.5550239234449762
+        "token_f1": 0.7417218543046358,
+        "rouge_l_f1": 0.5462962962962962
       }
     ],
     "assessment_alignment_score": 0.6250000000000001,
-    "plan_alignment_score": 0.7034482758620689
+    "plan_alignment_score": 0.7417218543046358
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer_agent",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary but suffers from several significant omissions across the Subjective, Objective, and Plan sections. While the core assessment and immediate treatment plan are present, the lack of detailed patient history, crucial diagnostic evidence (X-ray findings), and a specific referral to an orthopedic surgeon makes the note meaningfully incomplete and requires careful review to ensure all necessary clinical information and actions are captured.",
+    "overall_summary": "The generated note captures the core clinical picture and main treatment steps. However, it omits several important contextual details from the Subjective section, such as the duration of the condition, specific functional limitations, and current patient adherence to physical therapy. Key diagnostic findings from previous X-rays and blood work are also missing from the Objective section. Most critically, a specific referral to an orthopedic surgeon, a major component of the Plan, is entirely absent. These omissions collectively make the note noticeably incomplete and require careful review.",
     "omissions": [
-      "Chief Complaint section header",
-      "History of Present Illness (HPI) section header",
       "5-year history of right knee osteoarthritis",
-      "Patient presents for a follow-up",
       "Symptoms are daily",
-      "Patient generally maintains a balanced diet",
-      "Performs prescribed physical therapy exercises 3 times a week",
-      "Uses a cane for short distances",
-      "Overall high health literacy",
-      "Review of Systems (ROS) section header",
-      "Constitutional ROS: Reports good general health",
-      "Musculoskeletal ROS: No new joint involvement",
-      "Neurological ROS: No reports of numbness, tingling, or weakness",
-      "Vitals section header",
-      "Physical Exam section header",
-      "Investigation/Test Results section header",
-      "Previous X-ray findings: Joint space narrowing and osteophyte formation in the right knee",
-      "Blood Work findings: CBC and BMP within normal limits except for slightly elevated cholesterol levels",
-      "Medical Treatment section header",
+      "Specific activities impacted by pain (walking, climbing stairs, rising from a seated position)",
+      "Patient maintains a balanced diet",
+      "Patient performs prescribed physical therapy exercises 3 times a week",
+      "Patient uses a cane for short distances",
+      "Patient has overall high health literacy",
+      "Patient reports good general health (ROS Constitutional)",
+      "No new joint involvement (ROS Musculoskeletal)",
+      "No reports of numbness, tingling, or weakness (ROS Neurological)",
+      "Previous X-ray findings (joint space narrowing and osteophyte formation)",
+      "Blood work results (CBC and BMP within normal limits except for slightly elevated cholesterol levels)",
       "\"oral\" route for Meloxicam",
-      "\"to manage pain and inflammation\" for Meloxicam",
-      "Follow-Up and Monitoring section header",
-      "Referral section header",
       "Referral to Dr. John Smith, Orthopedic Surgeon, for further evaluation and management of right knee osteoarthritis",
-      "Lifestyle and Non-Pharmacological Interventions section header",
-      "Patient Agreements section header",
-      "Patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications"
+      "Patient agreements (patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications)"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -273,58 +263,46 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits several moderate clinical details, including the 5-year history of osteoarthritis, specific frequency of physical therapy (3 times a week), use of a cane for mobility, and comprehensive Review of Systems negatives (no new joint involvement, no numbness/tingling/weakness). These omissions reduce the completeness of the patient's history and functional status.",
+        "summary": "The Subjective section omits several moderate details, including the 5-year history of osteoarthritis, specific activities impacted by pain (walking, climbing stairs, rising from a seated position), the patient's adherence to physical therapy exercises 3 times a week, and the use of a cane for short distances. Minor omissions include the daily nature of symptoms, balanced diet, high health literacy, and specific ROS findings (good general health, no new joint involvement, no numbness/tingling/weakness). These omissions make the patient's history and context meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint section header",
-          "History of Present Illness (HPI) section header",
           "5-year history of right knee osteoarthritis",
-          "Patient presents for a follow-up",
           "Symptoms are daily",
-          "Patient generally maintains a balanced diet",
-          "Performs prescribed physical therapy exercises 3 times a week",
-          "Uses a cane for short distances",
-          "Overall high health literacy",
-          "Review of Systems (ROS) section header",
-          "Constitutional ROS: Reports good general health",
-          "Musculoskeletal ROS: No new joint involvement",
-          "Neurological ROS: No reports of numbness, tingling, or weakness"
+          "Specific activities impacted by pain (walking, climbing stairs, rising from a seated position)",
+          "Patient maintains a balanced diet",
+          "Patient performs prescribed physical therapy exercises 3 times a week",
+          "Patient uses a cane for short distances",
+          "Patient has overall high health literacy",
+          "Patient reports good general health (ROS Constitutional)",
+          "No new joint involvement (ROS Musculoskeletal)",
+          "No reports of numbness, tingling, or weakness (ROS Neurological)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section accurately captures vitals and physical exam findings but has a major omission: the previous X-ray findings (joint space narrowing and osteophyte formation). This diagnostic evidence is crucial for supporting the assessment. Additionally, the blood work findings (CBC/BMP normal, elevated cholesterol) are omitted, which provides important general health context.",
+        "grade": "B",
+        "summary": "The Objective section accurately captures vitals and physical exam findings. However, it omits two moderate pieces of information: the previous X-ray findings (joint space narrowing and osteophyte formation) and the blood work results (CBC and BMP within normal limits except for slightly elevated cholesterol levels). While not critical to the immediate physical exam, these are important diagnostic and contextual findings.",
         "omissions": [
-          "Vitals section header",
-          "Physical Exam section header",
-          "Investigation/Test Results section header",
-          "Previous X-ray findings: Joint space narrowing and osteophyte formation in the right knee",
-          "Blood Work findings: CBC and BMP within normal limits except for slightly elevated cholesterol levels"
+          "Previous X-ray findings (joint space narrowing and osteophyte formation)",
+          "Blood work results (CBC and BMP within normal limits except for slightly elevated cholesterol levels)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the Ground Truth, accurately stating the diagnosis of unilateral primary osteoarthritis in the right knee.",
+        "summary": "The Assessment section is perfectly aligned with the GroundTruth, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section captures most key interventions but has a major omission: the specific referral to Dr. John Smith, Orthopedic Surgeon, for further evaluation and management. This is a critical actionable item for the patient's ongoing care. The patient's understanding and agreement with the plan are also omitted, which is a moderate gap in documenting shared decision-making.",
+        "summary": "The Plan section has a major omission: the specific referral to Dr. John Smith, Orthopedic Surgeon, for further evaluation and management of right knee osteoarthritis. This is a critical action item. Minor omissions include the 'oral' route for Meloxicam and the patient's agreement with the recommended plan. The absence of the specific referral significantly impacts the completeness and usefulness of the plan.",
         "omissions": [
-          "Medical Treatment section header",
           "\"oral\" route for Meloxicam",
-          "\"to manage pain and inflammation\" for Meloxicam",
-          "Follow-Up and Monitoring section header",
-          "Referral section header",
           "Referral to Dr. John Smith, Orthopedic Surgeon, for further evaluation and management of right knee osteoarthritis",
-          "Lifestyle and Non-Pharmacological Interventions section header",
-          "Patient Agreements section header",
-          "Patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications"
+          "Patient agreements (patient understands and agrees with the recommended medical treatment plan, follow-up schedule, and lifestyle modifications)"
         ],
         "additions": []
       }

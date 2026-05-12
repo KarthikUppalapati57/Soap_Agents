@@ -261,95 +261,115 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Plan section, where critical details regarding investigations, comprehensive lifestyle and wellness counseling, and detailed patient instructions are entirely missing. The Subjective and Objective sections also suffer from multiple moderate omissions of important clinical details from the HPI, ROS, and MSE. While the Assessment section is mostly accurate, the cumulative impact of these omissions, especially the major gaps in the Plan, materially reduces the clinical usefulness and completeness of the note.",
+    "overall_summary": "The generated note has significant omissions across multiple sections, particularly in the Subjective, Assessment, and Plan. While the core diagnoses and initial pharmacological treatment are captured, crucial details regarding the patient's functional impairment, a significant secondary diagnosis (Hypertension), ordered investigations, comprehensive lifestyle counseling, and essential patient instructions are missing. These omissions materially reduce the clinical usefulness and completeness of the note, and some have potential safety implications.",
     "omissions": [
-      "Missing detailed HPI elements (e.g., specific sleep duration, impact on daily life)",
-      "Missing full Review of Systems",
-      "Missing detailed Mental Status Examination findings (e.g., cooperative appearance, specific speech/thought process details)",
-      "Missing secondary diagnosis of Hypertension",
-      "Missing Investigations plan (blood work details)",
-      "Missing comprehensive Lifestyle and Wellness counseling",
-      "Missing specific patient instructions and sign-off details",
-      "Missing specific medication details (route, quantity)"
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Specific detail about insomnia: \"averaging only 3-4 hours of sleep per night\"",
+      "Statement that symptoms occur daily",
+      "Specific impact on daily life: \"impacted her ability to perform job duties, maintain personal hygiene, and participate in social activities\"",
+      "ROS detail: \"Other systems: No relevant findings reported\"",
+      "Vital Signs section header",
+      "Physical Examination section header",
+      "Mental Status Examination (MSE) section header",
+      "MSE detail: \"Appearance: Cooperative, visibly distressed, tearful\" (specifically 'Cooperative')",
+      "MSE detail: \"Mood: Depressed\"",
+      "MSE detail: \"Affect: Anxious\"",
+      "MSE detail: \"Speech: Coherent and relevant, but slowed\"",
+      "MSE detail: \"Thought Process: Slowed, but coherent and relevant\"",
+      "\"Unspecified\" for Major Depressive Disorder",
+      "\"Hypertension\" as a secondary diagnosis",
+      "\"Primary Diagnosis\" and \"Secondary Diagnoses\" labels",
+      "Pharmacological Management section header",
+      "\"oral\" route for Sertraline",
+      "\"Quantity: 28 tablets\" for Sertraline",
+      "\"alprazolam\" (generic name for Xanax)",
+      "Follow-up section header",
+      "Referral section header",
+      "\"initial evaluation\" for Dr. Martinez referral",
+      "Investigations section and its content (blood work including CMP, ordered to rule out underlying medical conditions, results pending)",
+      "Lifestyle and Wellness section and its content (encourage support from family/friends, recommend minimal physical activity, counsel on regular sleep schedule/balanced diet)",
+      "Access to Resources section header",
+      "\"considering the limited access in her neighborhood\" for local mental health support services",
+      "Instructions section and its content (patient to take medication as directed, follow-up sooner if symptoms worsen, contact urgent care for new concerns/adverse reactions, advised to follow through with referral)",
+      "Sign-Off section and its content (Dr. [Your Name], Family Medicine Physician, Urgent Care Center)"
     ],
     "additions": [
-      "Inclusion of diagnostic labels (Major Depressive Disorder, Generalized Anxiety Disorder) in Subjective section",
-      "Anhedonia as a symptom in Subjective",
-      "Relocation of some Mental Status Examination findings (slowed thought process, depressed mood, anxious affect) from Objective to Subjective section",
-      "Rephrased general appearance in Objective section"
+      "\"anhedonia\" in Subjective",
+      "\"slowed thought process\" in Subjective (information present in GT Objective)",
+      "\"depressed mood\" in Subjective (information present in GT Objective)",
+      "\"anxious affect\" in Subjective (information present in GT Objective)",
+      "Mention of \"Major Depressive Disorder and Generalized Anxiety Disorder\" as part of presenting symptoms in Subjective"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Relocation of some Mental Status Examination findings (slowed thought process, depressed mood, anxious affect) from Objective to Subjective section"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has numerous moderate omissions of clinically important details from the HPI, such as specific sleep duration, the impact on job duties, personal hygiene, and social activities, and explicit mention of feelings of worthlessness and concentration difficulties. The detailed Review of Systems is also largely missing. While all content additions are supported by the transcript, the relocation of Mental Status Examination elements from the Objective section represents an unsupported structural change.",
+        "summary": "The Subjective section captures the primary complaint and core symptoms but omits important details regarding the severity of insomnia, the daily occurrence of symptoms, and the significant impact on the patient's ability to perform job duties, maintain personal hygiene, and participate in social activities. The lack of these specific details reduces the completeness and clinical utility of the section. All additions were supported by the transcript and did not impact the grade.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
           "Review of Systems (ROS) section header",
-          "Specific sleep duration (3-4 hours of sleep per night)",
-          "Impact of symptoms on job duties",
-          "Impact of symptoms on personal hygiene",
-          "Impact of symptoms on social activities",
-          "Feelings of worthlessness",
-          "Difficulties with concentration",
-          "ROS: Constitutional findings (Significant weight loss, fatigue)",
-          "ROS: Other systems: No relevant findings reported"
+          "Specific detail about insomnia: \"averaging only 3-4 hours of sleep per night\"",
+          "Statement that symptoms occur daily",
+          "Specific impact on daily life: \"impacted her ability to perform job duties, maintain personal hygiene, and participate in social activities\"",
+          "ROS detail: \"Other systems: No relevant findings reported\""
         ],
         "additions": [
-          "Anhedonia",
-          "Slowed thought process (moved from Objective MSE)",
-          "Depressed mood (moved from Objective MSE)",
-          "Anxious affect (moved from Objective MSE)",
-          "Inclusion of diagnostic labels (Major Depressive Disorder and Generalized Anxiety Disorder)"
+          "\"anhedonia\"",
+          "\"slowed thought process\" (information present in GT Objective)",
+          "\"depressed mood\" (information present in GT Objective)",
+          "\"anxious affect\" (information present in GT Objective)",
+          "Mention of \"Major Depressive Disorder and Generalized Anxiety Disorder\" as part of presenting symptoms"
         ]
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits several specific details from the Mental Status Examination, including the patient's cooperative appearance and the full description of speech. While the general appearance is rephrased and supported, the relocation of mood, affect, and thought process details to the Subjective section, despite the content being supported, represents an unsupported structural change from the Ground Truth, contributing to the incompleteness of this section.",
+        "grade": "B",
+        "summary": "The Objective section accurately includes vital signs and the general appearance of distress. However, it omits specific details from the Mental Status Examination regarding speech and thought process, which are important for a comprehensive psychiatric evaluation. The core findings of depressed mood and anxious affect are generally captured, though not with the exact structure of the Ground Truth. There were no grade-impacting additions.",
         "omissions": [
+          "Vital Signs section header",
           "Physical Examination section header",
           "Mental Status Examination (MSE) section header",
-          "General appearance detail: \"distressed and tearful\"",
-          "MSE: Appearance: Cooperative",
-          "MSE: Mood: Depressed",
-          "MSE: Affect: Anxious",
-          "MSE: Speech: Coherent and relevant, but slowed",
-          "MSE: Thought Process: Slowed, but coherent and relevant"
+          "MSE detail: \"Appearance: Cooperative, visibly distressed, tearful\" (specifically 'Cooperative')",
+          "MSE detail: \"Mood: Depressed\"",
+          "MSE detail: \"Affect: Anxious\"",
+          "MSE detail: \"Speech: Coherent and relevant, but slowed\"",
+          "MSE detail: \"Thought Process: Slowed, but coherent and relevant\""
         ],
-        "additions": [
-          "\"depressed and anxious general appearance\" (rephrased/combined from GT)"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section is missing the secondary diagnosis of Hypertension, which is a clinically relevant omission. It also omits the 'Unspecified' detail for Major Depressive Disorder. Despite these, the primary diagnoses are correctly identified.",
+        "grade": "C",
+        "summary": "The Assessment section correctly identifies the primary and secondary psychiatric diagnoses. However, it critically omits 'Hypertension' as a secondary diagnosis, which is a significant clinical comorbidity that should be documented. This omission makes the assessment incomplete. There were no grade-impacting additions.",
         "omissions": [
           "\"Unspecified\" for Major Depressive Disorder",
-          "Secondary diagnosis: Hypertension"
+          "\"Hypertension\" as a secondary diagnosis",
+          "\"Primary Diagnosis\" and \"Secondary Diagnoses\" labels"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section has numerous significant omissions that materially reduce its clinical usefulness. Crucially, it completely misses the Investigations section regarding ordered blood work, the comprehensive Lifestyle and Wellness counseling, and the detailed patient Instructions. These are major gaps that are critical for patient care, safety, and follow-up, making the plan substantially incomplete.",
+        "summary": "The Plan section is severely incomplete. While it includes pharmacological management, follow-up, and referral to a psychiatrist, it critically omits the ordered investigations (blood work), comprehensive lifestyle and wellness counseling, and detailed patient instructions for medication adherence, symptom worsening, adverse reactions, and urgent care contact. These multiple major omissions significantly reduce the clinical usefulness and safety of the plan. There were no grade-impacting additions.",
         "omissions": [
           "Pharmacological Management section header",
           "\"oral\" route for Sertraline",
-          "Quantity: 28 tablets for Sertraline",
-          "\"alprazolam\" in parentheses for Xanax",
-          "\"initial evaluation and ongoing management\" for Dr. Martinez referral",
-          "Investigations section (blood work including comprehensive metabolic panel (CMP) ordered to rule out underlying medical conditions, results pending)",
-          "Lifestyle and Wellness section (encourage patient to seek support from family and friends, recommend minimal physical activity such as short walks, counsel on importance of maintaining regular sleep schedule and balanced diet)",
+          "\"Quantity: 28 tablets\" for Sertraline",
+          "\"alprazolam\" (generic name for Xanax)",
+          "Follow-up section header",
+          "Referral section header",
+          "\"initial evaluation\" for Dr. Martinez referral",
+          "Investigations section and its content (blood work including CMP, ordered to rule out underlying medical conditions, results pending)",
+          "Lifestyle and Wellness section and its content (encourage support from family/friends, recommend minimal physical activity, counsel on regular sleep schedule/balanced diet)",
+          "Access to Resources section header",
           "\"considering the limited access in her neighborhood\" for local mental health support services",
-          "Instructions section (patient to take prescribed medication as directed, follow-up in 4 weeks or sooner if symptoms worsen, contact urgent care center with any new concerns or adverse reactions to medication, advised to follow through with referral to psychiatrist Dr. Lucy Martinez)",
-          "Sign-Off section (Dr. [Your Name], Family Medicine Physician, Urgent Care Center)"
+          "Instructions section and its content (patient to take medication as directed, follow-up sooner if symptoms worsen, contact urgent care for new concerns/adverse reactions, advised to follow through with referral)",
+          "Sign-Off section and its content (Dr. [Your Name], Family Medicine Physician, Urgent Care Center)"
         ],
         "additions": []
       }
@@ -359,74 +379,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Inclusion of diagnostic labels (Major Depressive Disorder, Generalized Anxiety Disorder) in Subjective section",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Based on everything we've discussed, it sounds like you're experiencing Major Depressive Disorder, Single Episode, and you also have symptoms of Generalized Anxiety Disorder. Does that make sense to you?\n[Patient]: Yes, it does.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major Depressive Disorder, Single Episode, and Generalized Anxiety Disorder."
-    },
-    {
-      "addition_text": "Anhedonia as a symptom in Subjective",
+      "addition_text": "\"anhedonia\" in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I don't even want to see my friends or go out.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Relocation of some Mental Status Examination findings (slowed thought process, depressed mood, anxious affect) from Objective to Subjective section",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "\"slowed thought process\" in Subjective (information present in GT Objective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your thought process is also slowed, but coherent and relevant.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Rephrased general appearance in Objective section",
+      "addition_text": "\"depressed mood\" in Subjective (information present in GT Objective)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You appear quite distressed and tearful. Your mood seems depressed and your affect is anxious. Does that sound accurate?\n[Patient]: Yes, that's how I've been feeling.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "depressed and anxious general appearance."
-    },
-    {
-      "addition_text": "Anhedonia",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I don't even want to see my friends or go out.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms include anhedonia."
-    },
-    {
-      "addition_text": "Slowed thought process (moved from Objective MSE)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Your thought process is also slowed, but coherent and relevant. Does that sound accurate?\n[Patient]: Yes, that's how I've been feeling.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms include slowed thought process."
-    },
-    {
-      "addition_text": "Depressed mood (moved from Objective MSE)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your mood seems depressed and your affect is anxious.",
+      "transcript_evidence": "[Patient]: I've been feeling really depressed for the past two months.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Anxious affect (moved from Objective MSE)",
+      "addition_text": "\"anxious affect\" in Subjective (information present in GT Objective)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your mood seems depressed and your affect is anxious.",
+      "transcript_evidence": "Your affect is anxious.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Inclusion of diagnostic labels (Major Depressive Disorder and Generalized Anxiety Disorder)",
+      "addition_text": "Mention of \"Major Depressive Disorder and Generalized Anxiety Disorder\" as part of presenting symptoms in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on everything we've discussed, it sounds like you're experiencing Major Depressive Disorder, Single Episode, and you also have symptoms of Generalized Anxiety Disorder. Does that make sense to you?\n[Patient]: Yes, it does.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major Depressive Disorder, Single Episode, and Generalized Anxiety Disorder."
+      "matched_claim_text": "Major Depressive Disorder, Single Episode, and Generalized Anxiety Disorder.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"depressed and anxious general appearance\" (rephrased/combined from GT)",
+      "addition_text": "\"anhedonia\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You appear quite distressed and tearful. Your mood seems depressed and your affect is anxious. Does that sound accurate?\n[Patient]: Yes, that's how I've been feeling.",
+      "transcript_evidence": "I don't even want to see my friends or go out.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"slowed thought process\" (information present in GT Objective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Your thought process is also slowed, but coherent and relevant. Does that sound accurate?\n[Patient]: Yes, that's how I've been feeling.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "depressed and anxious general appearance."
+      "matched_claim_text": "The patient's symptoms include slowed thought process.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"depressed mood\" (information present in GT Objective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your mood seems depressed and your affect is anxious.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"anxious affect\" (information present in GT Objective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your mood seems depressed and your affect is anxious.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Mention of \"Major Depressive Disorder and Generalized Anxiety Disorder\" as part of presenting symptoms",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on everything we've discussed, it sounds like you're experiencing Major Depressive Disorder, Single Episode, and you also have symptoms of Generalized Anxiety Disorder. Does that make sense to you?\n[Patient]: Yes, it does.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Major Depressive Disorder, Single Episode, and Generalized Anxiety Disorder.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

@@ -254,133 +254,90 @@
     "plan_alignment_score": 0.5917159763313609
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions in the Assessment and Plan sections, which materially reduce its clinical usefulness. Key missing elements include the entire differential diagnosis, the patient's history of hyperlipidemia, and the crucial initial diagnostic blood work (TSH, Free T4, Free T3 levels). While the Subjective and Objective sections are more complete, these major gaps in clinical reasoning and initial management steps warrant a lower overall grade.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note provides a generally accurate summary of the patient's visit. However, it has several notable omissions, particularly in the Assessment and Plan sections. Key missing elements include the differential diagnosis, specific initial diagnostic tests, and detailed patient agreements. While there are no unsupported additions, these omissions reduce the overall completeness and clinical utility of the note, making it meaningfully incomplete in several important areas.",
     "omissions": [
-      "Chief Complaint (CC) heading",
-      "History of Present Illness (HPI) heading",
-      "Review of Systems (ROS) heading",
-      "moderate qualifier for fatigue",
-      "Symptoms occur daily",
-      "Symptoms significantly impacted her ability to perform daily tasks and maintain her work responsibilities as a full-time office manager",
-      "ROS categories (Constitutional, Endocrine, Integumentary, Psychiatric)",
-      "anxious about medication adjustments (specific reason for anxiety)",
-      "Vital Signs heading",
+      "Severity of fatigue: 'moderate'",
+      "Impact of symptoms on daily tasks and work responsibilities as a full-time office manager",
+      "Detailed Review of Systems (ROS) categories (Constitutional, Endocrine, Integumentary)",
+      "Specific context for anxiety: 'about medication adjustments'",
       "Height: 5'5\"",
       "Weight: 180 lbs",
-      "Physical Examination heading",
-      "General appearance: Cooperative, appears anxious, slightly overweight",
-      "Skin: particularly on the extremities",
-      "Cardiovascular: Regular rhythm",
-      "Respiratory: to auscultation bilaterally",
-      "Abdomen: no organomegaly",
-      "Neurological: No focal deficits",
-      "Musculoskeletal: Normal tone and strength",
-      "history of hyperlipidemia",
-      "listing of symptoms consistent with hypothyroidism (fatigue, weight gain, cold intolerance, dry skin, and hair thinning) in Assessment",
-      "specifics of family history: hypothyroidism (mother) and type 2 diabetes (father)",
-      "Differential Diagnosis heading",
-      "Primary hypothyroidism (as a differential)",
-      "Subclinical hypothyroidism (as a differential)",
-      "Depression (considering fatigue but less likely without mood disturbances) (as a differential)",
-      "Anemia (less likely given the clinical presentation) (as a differential)",
-      "Medical Treatment heading",
-      "oral route of administration for Levothyroxine",
-      "indefinitely duration for Levothyroxine",
-      "initial quantity of 30 tablets for Levothyroxine",
-      "Follow-Up heading",
-      "Tests Ordered heading",
-      "Blood work: TSH, Free T4, and Free T3 levels to confirm diagnosis (initial diagnostic tests)",
-      "Lifestyle and Self-Care Recommendations heading",
-      "Patient Education heading",
-      "Educated the patient on the symptoms of thyroid dysfunction and the importance of follow-up appointments",
-      "Patient Agreements heading",
-      "Patient understands and agrees with the proposed treatment plan, including medication adherence and lifestyle modifications. She expresses willingness to follow up in 6 weeks for reassessment and repeat thyroid function tests"
+      "General appearance: 'Cooperative'",
+      "General appearance: 'slightly overweight'",
+      "Skin detail: 'particularly on the extremities'",
+      "Abdomen detail: 'no organomegaly'",
+      "Musculoskeletal findings: 'Normal tone and strength'",
+      "History of hyperlipidemia",
+      "Specific symptoms consistent with hypothyroidism (fatigue, weight gain, cold intolerance, dry skin, and hair thinning)",
+      "Specific family history details: mother with hypothyroidism and father with type 2 diabetes",
+      "Differential Diagnosis section (including Primary hypothyroidism, Subclinical hypothyroidism, Depression, Anemia)",
+      "Medication details: 'oral', 'indefinitely', 'initial quantity of 30 tablets'",
+      "Specific thyroid function tests for follow-up: TSH, Free T4, and Free T3 levels",
+      "Separate 'Tests Ordered' section with 'Blood work: TSH, Free T4, and Free T3 levels to confirm diagnosis'",
+      "Patient education on symptoms of thyroid dysfunction and importance of follow-up appointments",
+      "'Patient Agreements' section (including patient understanding, agreement with treatment plan, medication adherence, lifestyle modifications, and willingness to follow up)"
     ],
     "additions": [
-      "based on physical exam findings (as an explicit basis for assessment)",
-      "thyroid and metabolic disorders (generalized term for family history)",
-      "remind the patient to take it on an empty stomach, avoiding other medications or supplements (specific medication instructions)",
-      "further assessment and medication adjustment as needed (detail for follow-up)"
+      "Instruction to take Levothyroxine on an empty stomach, avoiding other medications or supplements",
+      "Follow-up purpose: 'for further assessment and medication adjustment as needed.'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly clinically aligned, capturing the main symptoms and duration. However, it omits several minor details such as the 'moderate' qualifier for fatigue, the daily occurrence and significant impact of symptoms on daily tasks, and the specific reason for anxiety (medication adjustments). Headings and ROS categories are also omitted.",
+        "summary": "The Subjective section accurately captures the patient's chief complaints and main symptoms. However, it omits the severity of fatigue, the impact of symptoms on daily tasks and work responsibilities, the detailed ROS categories, and the specific context for the patient's anxiety regarding medication adjustments. These are mostly minor to moderate omissions.",
         "omissions": [
-          "Chief Complaint (CC) heading",
-          "History of Present Illness (HPI) heading",
-          "Review of Systems (ROS) heading",
-          "moderate qualifier for fatigue",
-          "Symptoms occur daily",
-          "Symptoms significantly impacted her ability to perform daily tasks and maintain her work responsibilities as a full-time office manager",
-          "ROS categories (Constitutional, Endocrine, Integumentary, Psychiatric)",
-          "anxious about medication adjustments (specific reason for anxiety)"
+          "Severity of fatigue: 'moderate'",
+          "Impact of symptoms on daily tasks and work responsibilities as a full-time office manager",
+          "Detailed Review of Systems (ROS) categories (Constitutional, Endocrine, Integumentary)",
+          "Specific context for anxiety: 'about medication adjustments'"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section captures the essential vital signs and physical exam findings. However, it omits the patient's height and weight, a detailed general appearance, and several specific details from the physical examination such as 'particularly on the extremities' for dry skin, 'regular rhythm' for cardiovascular, and negative findings for respiratory, abdomen, neurological, and musculoskeletal systems. Headings are also omitted.",
+        "grade": "A",
+        "summary": "The Objective section is well-captured, including vital signs (except height and weight) and key physical examination findings. The omissions are minor descriptive details such as height, weight, specific general appearance descriptors, and minor details about skin, abdomen, and musculoskeletal findings, which do not significantly impact the clinical usefulness of the section.",
         "omissions": [
-          "Vital Signs heading",
           "Height: 5'5\"",
           "Weight: 180 lbs",
-          "Physical Examination heading",
-          "General appearance: Cooperative, appears anxious, slightly overweight",
-          "Skin: particularly on the extremities",
-          "Cardiovascular: Regular rhythm",
-          "Respiratory: to auscultation bilaterally",
-          "Abdomen: no organomegaly",
-          "Neurological: No focal deficits",
-          "Musculoskeletal: Normal tone and strength"
+          "General appearance: 'Cooperative'",
+          "General appearance: 'slightly overweight'",
+          "Skin detail: 'particularly on the extremities'",
+          "Abdomen detail: 'no organomegaly'",
+          "Musculoskeletal findings: 'Normal tone and strength'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section has major omissions that significantly reduce its clinical usefulness. The entire differential diagnosis is missing, which is a critical component of a comprehensive assessment. Additionally, the patient's history of hyperlipidemia and the specific symptoms supporting the hypothyroidism diagnosis are omitted. The family history is generalized, losing important specificity.",
+        "grade": "C",
+        "summary": "The Assessment section correctly identifies possible hypothyroidism and increased risk factors. However, it omits the patient's history of hyperlipidemia, the specific list of symptoms consistent with hypothyroidism, and the detailed family history (mother with hypothyroidism, father with type 2 diabetes). Most significantly, the entire Differential Diagnosis section is missing, which is a major gap in a clinical assessment.",
         "omissions": [
-          "history of hyperlipidemia",
-          "listing of symptoms consistent with hypothyroidism (fatigue, weight gain, cold intolerance, dry skin, and hair thinning) in Assessment",
-          "specifics of family history: hypothyroidism (mother) and type 2 diabetes (father)",
-          "Differential Diagnosis heading",
-          "Primary hypothyroidism (as a differential)",
-          "Subclinical hypothyroidism (as a differential)",
-          "Depression (considering fatigue but less likely without mood disturbances) (as a differential)",
-          "Anemia (less likely given the clinical presentation) (as a differential)"
+          "History of hyperlipidemia",
+          "Specific symptoms consistent with hypothyroidism (fatigue, weight gain, cold intolerance, dry skin, and hair thinning)",
+          "Specific family history details: mother with hypothyroidism and father with type 2 diabetes",
+          "Differential Diagnosis section (including Primary hypothyroidism, Subclinical hypothyroidism, Depression, Anemia)"
         ],
-        "additions": [
-          "based on physical exam findings (as an explicit basis for assessment)",
-          "thyroid and metabolic disorders (generalized term for family history)"
-        ]
+        "additions": []
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section contains major omissions that materially reduce its clinical usefulness. Crucially, the initial diagnostic blood work (TSH, Free T4, and Free T3 levels) to confirm the diagnosis is entirely missing. Other omissions include the indefinite duration of Levothyroxine, the initial quantity of tablets, specific patient education details, and the patient's explicit agreement with the treatment plan. Headings for various plan subsections are also omitted.",
+        "grade": "C",
+        "summary": "The Plan section outlines the core treatment and lifestyle recommendations. However, it omits specific medication details (oral, indefinitely, initial quantity), the specific thyroid function tests for follow-up (TSH, Free T4, Free T3), and a separate 'Tests Ordered' section for initial diagnostic blood work. The 'Patient Agreements' section, which confirms patient understanding and willingness to follow the plan, is also entirely omitted. There are no unsupported or unknown additions in this section.",
         "omissions": [
-          "Medical Treatment heading",
-          "oral route of administration for Levothyroxine",
-          "indefinitely duration for Levothyroxine",
-          "initial quantity of 30 tablets for Levothyroxine",
-          "Follow-Up heading",
-          "Tests Ordered heading",
-          "Blood work: TSH, Free T4, and Free T3 levels to confirm diagnosis (initial diagnostic tests)",
-          "Lifestyle and Self-Care Recommendations heading",
-          "Patient Education heading",
-          "Educated the patient on the symptoms of thyroid dysfunction and the importance of follow-up appointments",
-          "Patient Agreements heading",
-          "Patient understands and agrees with the proposed treatment plan, including medication adherence and lifestyle modifications. She expresses willingness to follow up in 6 weeks for reassessment and repeat thyroid function tests"
+          "Medication details: 'oral', 'indefinitely', 'initial quantity of 30 tablets'",
+          "Specific thyroid function tests for follow-up: TSH, Free T4, and Free T3 levels",
+          "Separate 'Tests Ordered' section with 'Blood work: TSH, Free T4, and Free T3 levels to confirm diagnosis'",
+          "Patient education on symptoms of thyroid dysfunction and importance of follow-up appointments",
+          "'Patient Agreements' section (including patient understanding, agreement with treatment plan, medication adherence, lifestyle modifications, and willingness to follow up)"
         ],
         "additions": [
-          "remind the patient to take it on an empty stomach, avoiding other medications or supplements (specific medication instructions)",
-          "further assessment and medication adjustment as needed (detail for follow-up)"
+          "Instruction to take Levothyroxine on an empty stomach, avoiding other medications or supplements",
+          "Follow-up purpose: 'for further assessment and medication adjustment as needed.'"
         ]
       }
     ],
@@ -389,32 +346,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "based on physical exam findings (as an explicit basis for assessment)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Based on your symptoms and physical exam findings, it seems like you might have hypothyroidism.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient may have hypothyroidism based on symptoms and physical exam findings."
-    },
-    {
-      "addition_text": "thyroid and metabolic disorders (generalized term for family history)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You have a history of hyperlipidemia, and your family history includes your mother having hypothyroidism and your father having type 2 diabetes, which increases your risk.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increased risk due to family history of thyroid and metabolic disorders."
-    },
-    {
-      "addition_text": "remind the patient to take it on an empty stomach, avoiding other medications or supplements (specific medication instructions)",
+      "addition_text": "Instruction to take Levothyroxine on an empty stomach, avoiding other medications or supplements",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Common side effects of Levothyroxine can include increased heart rate, sweating, and nervousness, but these are rare if taken correctly. Make sure you take it on an empty stomach and avoid taking it with other medications or supplements.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss potential side effects of Levothyroxine and remind the patient to take it on an empty stomach, avoiding other medications or supplements."
+      "matched_claim_text": "Discuss potential side effects of Levothyroxine and remind the patient to take it on an empty stomach, avoiding other medications or supplements.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "further assessment and medication adjustment as needed (detail for follow-up)",
+      "addition_text": "Follow-up purpose: 'for further assessment and medication adjustment as needed.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Remember to come back in 6 weeks for a follow-up and repeat thyroid function tests. This will help us adjust the medication if needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks for further assessment and medication adjustment as needed."
+      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks for further assessment and medication adjustment as needed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

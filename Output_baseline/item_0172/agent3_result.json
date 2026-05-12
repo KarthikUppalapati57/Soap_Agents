@@ -1,4 +1,249 @@
 {
+  "accuracy_total_claims": 14,
+  "accuracy_correct": 13,
+  "accuracy_incorrect": 1,
+  "accuracy_score": 0.93,
+  "accuracy_reason": "The generated SOAP note accurately captured 13 out of 14 medical claims from the RAW TRANSCRIPT, with only one claim (the patient's medication use) being missing or inaccurately represented.",
+  "completeness_total_details": 15,
+  "completeness_captured": 12,
+  "completeness_missing": 3,
+  "completeness_score": 0.8,
+  "completeness_reason": "The generated SOAP note captured 12 out of 15 important details from the RAW TRANSCRIPT, with three details (symptoms duration, lifestyle factors, and medical history) being missing or inaccurately represented.",
+  "communication_total_issues": 2,
+  "communication_quality_score": 0.5,
+  "communication_quality_reason": "The generated SOAP note contained two communication issues: unclear sentences (\"The patient presented with symptoms of fever, chills, body aches, and difficulty breathing that have been present for approximately two days\") and unnecessary repetition (\"The patient's sleep has been affected by coughing during the night, resulting in 5-6 hours of sleep per night\").",
+  "context_total_details": 8,
+  "context_captured": 7,
+  "context_missing": 1,
+  "context_awareness_score": 0.88,
+  "context_awareness_reason": "The generated SOAP note captured 7 out of 8 patient-specific details from the RAW TRANSCRIPT, with one detail (duration of symptoms) being missing or inaccurately represented.",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 4,
+  "instruction_following_score": 1.0,
+  "instruction_following_reason": "The generated SOAP note accurately captured all four SOAP sections (Subjective, Objective, Assessment, and Plan), with no issues or omissions.",
+  "overall_score": 0.86,
   "transcript": "[Doctor]: Good morning! How are you doing today?\n\n[Patient]: I've been better. My primary care doctor wanted me to see you because of this fever, chills, body aches, and difficulty breathing that I’ve been having for about two days now.\n\n[Doctor]: I’m sorry to hear that. Can you tell me a bit more about your symptoms?\n\n[Patient]: Sure. I’ve had a moderate fever, chills, and body aches. It’s been difficult for me to breathe, and I’ve been coughing a lot. These symptoms started two days ago and haven’t really let up.\n\n[Doctor]: Okay, and how severe would you say these symptoms are?\n\n[Patient]: They’re moderate, but they’re really affecting my daily life. I can’t go to work and I need to rest frequently.\n\n[Doctor]: I understand. Do you have a history of any respiratory conditions?\n\n[Patient]: Yes, I have asthma and I use an albuterol inhaler as needed.\n\n[Doctor]: Got it. Have you been using your inhaler more frequently over the past two days?\n\n[Patient]: Yes, I’ve been using it more often because of the difficulty breathing.\n\n[Doctor]: That’s important to note. Have you noticed any triggers for your asthma lately?\n\n[Patient]: No, nothing out of the ordinary.\n\n[Doctor]: Alright. Do you smoke or use any tobacco products?\n\n[Patient]: No, I don’t smoke.\n\n[Doctor]: How about alcohol? Do you drink?\n\n[Patient]: Rarely. I don’t drink often.\n\n[Doctor]: And what about recreational drugs?\n\n[Patient]: No, I don’t use any recreational drugs.\n\n[Doctor]: Good to know. How has your sleep been affected by these symptoms?\n\n[Patient]: I’ve been coughing a lot during the night, which makes it hard to sleep. I’m only getting about 5-6 hours of sleep each night.\n\n[Doctor]: That sounds tough. What about your diet? Are you eating well?\n\n[Patient]: I generally follow a healthy diet, but I do occasionally eat fast food.\n\n[Doctor]: Okay, thank you for sharing that. I see you’re allergic to penicillin. Are there any other allergies I should know about?\n\n[Patient]: No, just penicillin.\n\n[Doctor]: Understood. Let’s go over your symptoms again. You mentioned fever, chills, body aches, and difficulty breathing. Have you had any other symptoms?\n\n[Patient]: No, that’s pretty much it.\n\n[Doctor]: Alright. I’ve noted that you’re experiencing moderate fever, chills, body aches, and difficulty breathing. You’ve mentioned that these symptoms have significantly impacted your daily activities. Anything else you want to add?\n\n[Patient]: No, that covers it.\n\n[Doctor]: Okay. Since this is a telemedicine consultation, I can’t take your vital signs or perform a physical exam. But I will be sending you for some tests. We’ll do an RT-PCR test for COVID-19 and a complete blood count (CBC) with differential to get a better understanding of what’s going on.\n\n[Patient]: Okay, that sounds good.\n\n[Doctor]: In the meantime, I recommend strict isolation for you and your close contacts to prevent the spread of infection. It’s essential to follow these guidelines strictly.\n\n[Patient]: I’ll do that. It’s just me at home right now, so it should be manageable.\n\n[Doctor]: Good. I’ll also schedule a follow-up telemedicine appointment in 7 days to reassess your symptoms and review your test results.\n\n[Patient]: Alright.\n\n[Doctor]: For now, I’ll prescribe acetaminophen 500 mg, oral, every 6 hours as needed for fever management. Have you taken acetaminophen before?\n\n[Patient]: Yes, I have.\n\n[Doctor]: Great. Make sure to follow the dosage instructions carefully. Additionally, it’s crucial to practice enhanced hand hygiene, social distancing, and wearing masks to mitigate the spread of infection.\n\n[Patient]: I’ll make sure to do that.\n\n[Doctor]: I understand that access to immediate quarantine facilities might be challenging due to socio-economic constraints. Are you aware of any community resources that could assist you?\n\n[Patient]: Not really. I’m not sure what’s available.\n\n[Doctor]: I’ll look into potential community aid resources for you and share that information during our follow-up. It’s important to have support, especially in these times.\n\n[Patient]: Thank you, I appreciate that.\n\n[Doctor]: Lastly, given your history of asthma, it’s vital to recognize signs of respiratory distress that would necessitate emergency care. If you have severe difficulty breathing, persistent chest pain, or bluish lips or face, you need to seek immediate medical attention.\n\n[Patient]: I’ll definitely keep an eye out for those signs.\n\n[Doctor]: Good. Are there any other questions or concerns you have right now?\n\n[Patient]: I think that covers it. Thank you for your help.\n\n[Doctor]: You’re welcome. I’ll follow up with you in 7 days via telemedicine. Please monitor your symptoms closely and seek immediate care if your breathing difficulties worsen.\n\n[Patient]: I will. Thank you again.\n\n[Doctor]: Take care and stay safe. Goodbye for now.\n\n[Patient]: Goodbye.",
-  "generated_soap": "Subjective:\nThe patient presents with a two-day history of fever, chills, body aches, difficulty breathing, and coughing. The symptoms have significantly impacted their daily activities. The patient is allergic to penicillin and has asthma requiring albuterol inhaler use as needed.\n\nObjective:\nDue to this being a telemedicine consultation, vital signs and physical examination cannot be obtained.\n\nAssessment:\nThe patient is experiencing moderate respiratory symptoms, likely indicative of an acute respiratory infection. Given the ongoing COVID-19 pandemic, an RT-PCR test for COVID-19 and a complete blood count (CBC) with differential are ordered to determine the cause. The patient's history of asthma requires close monitoring for signs of respiratory distress that may necessitate emergency care.\n\nPlan:\nThe patient will be sent for an RT-PCR test for COVID-19 and a CBC with differential. In the meantime, strict isolation is recommended to prevent the spread of infection. The patient has been prescribed acetaminophen 500 mg, oral, every 6 hours as needed for fever management. A follow-up telemedicine appointment will be scheduled in 7 days to reassess symptoms and review test results. The patient is advised to practice enhanced hand hygiene, social distancing, and wearing masks to mitigate the spread of infection. Potential community aid resources will be investigated and shared during the follow-up appointment. The patient is made aware of signs of respiratory distress that would necessitate emergency care."
+  "generated": "Subjective:\nThe patient presented with symptoms of fever, chills, body aches, and difficulty breathing that have been present for approximately two days. The symptoms are moderate in severity and have significantly impacted the patient's daily activities.\n\nObjective:\nA detailed history was obtained regarding the patient's symptoms, asthma history, medication use (albuterol inhaler), allergies (penicillin), and lifestyle factors (no smoking, rare alcohol consumption, no recreational drug use). The patient's sleep has been affected by coughing during the night, resulting in 5-6 hours of sleep per night.\n\nAssessment:\nThe patient is experiencing moderate fever, chills, body aches, and difficulty breathing consistent with an acute respiratory infection. Given the patient's asthma history, close attention should be paid to signs of respiratory distress that might require emergency care.\n\nPlan:\nThe patient will undergo RT-PCR testing for COVID-19 and a complete blood count (CBC) with differential. In the meantime, strict isolation is recommended for the patient and their close contacts to prevent infection spread. Acetaminophen 500 mg, oral, every 6 hours as needed for fever management has been prescribed. The patient will also undergo a follow-up telemedicine appointment in 7 days to reassess symptoms and review test results. It was recommended to practice enhanced hand hygiene, social distancing, and wearing masks. Potential community aid resources were noted to be explored for the patient's assistance. The patient was advised to seek immediate medical attention if breathing difficulties worsen or signs of respiratory distress are observed.",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "The patient presented with symptoms of fever, chills, body aches, and difficulty breathing.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states experiencing 'fever, chills, body aches, and difficulty breathing'.",
+        "transcript_evidence": "[Patient]: I've been better. My primary care doctor wanted me to see you because of this fever, chills, body aches, and difficulty breathing that I’ve been having for about two days now. ... [Patient]: Sure. I’ve had a moderate fever, chills, and body aches. It’s been difficult for me to breathe, and I’ve been coughing a lot.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The symptoms have been present for approximately two days.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient states the symptoms started two days ago.",
+        "transcript_evidence": "[Patient]: I've been better. My primary care doctor wanted me to see you because of this fever, chills, body aches, and difficulty breathing that I’ve been having for about two days now. ... [Patient]: These symptoms started two days ago and haven’t really let up.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The symptoms are moderate in severity.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient describes having a 'moderate fever' and later states the symptoms are 'moderate'.",
+        "transcript_evidence": "[Patient]: Sure. I’ve had a moderate fever, chills, and body aches. ... [Patient]: They’re moderate, but they’re really affecting my daily life.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The symptoms have significantly impacted the patient's daily activities.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient states the symptoms are 'really affecting my daily life' and prevent them from going to work.",
+        "transcript_evidence": "[Patient]: They’re moderate, but they’re really affecting my daily life. I can’t go to work and I need to rest frequently.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Patient has asthma history.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states having asthma.",
+        "transcript_evidence": "[Doctor]: Do you have a history of any respiratory conditions?\n\n[Patient]: Yes, I have asthma and I use an albuterol inhaler as needed.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Patient uses an albuterol inhaler.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient states they use an albuterol inhaler and have been using it more frequently.",
+        "transcript_evidence": "[Patient]: Yes, I have asthma and I use an albuterol inhaler as needed. ... [Patient]: Yes, I’ve been using it more often because of the difficulty breathing.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Patient has allergies (penicillin).",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor notes the penicillin allergy, and the patient confirms it.",
+        "transcript_evidence": "[Doctor]: Okay, thank you for sharing that. I see you’re allergic to penicillin. Are there any other allergies I should know about?\n\n[Patient]: No, just penicillin.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Patient does not smoke.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states they do not smoke.",
+        "transcript_evidence": "[Doctor]: Do you smoke or use any tobacco products?\n\n[Patient]: No, I don’t smoke.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Patient has rare alcohol consumption.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient states they drink 'rarely' and 'don’t drink often'.",
+        "transcript_evidence": "[Doctor]: How about alcohol? Do you drink?\n\n[Patient]: Rarely. I don’t drink often.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Patient uses no recreational drug use.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states they do not use recreational drugs.",
+        "transcript_evidence": "[Doctor]: And what about recreational drugs?\n\n[Patient]: No, I don’t use any recreational drugs.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patient's sleep has been affected by coughing during the night.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient states that coughing a lot during the night makes it hard to sleep.",
+        "transcript_evidence": "[Patient]: I’ve been coughing a lot during the night, which makes it hard to sleep.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Patient is getting 5-6 hours of sleep per night.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states their sleep duration.",
+        "transcript_evidence": "[Patient]: I’m only getting about 5-6 hours of sleep each night.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patient is experiencing moderate fever, chills, body aches, and difficulty breathing.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "This reiterates symptoms and severity established in the subjective section, consistent with the patient's statements.",
+        "transcript_evidence": "[Patient]: Sure. I’ve had a moderate fever, chills, and body aches. It’s been difficult for me to breathe, and I’ve been coughing a lot. ... [Patient]: They’re moderate, but they’re really affecting my daily life.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Symptoms are consistent with an acute respiratory infection.",
+        "soap_section": "Assessment",
+        "support_status": "unsupported",
+        "rationale": "While the symptoms are suggestive of a respiratory infection, the transcript does not explicitly state this as a definitive assessment or diagnosis. The doctor orders tests for COVID-119, but does not use this specific phrasing for the assessment.",
+        "transcript_evidence": null,
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Close attention should be paid to signs of respiratory distress that might require emergency care.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor advises the patient to recognize signs of respiratory distress that would necessitate emergency care.",
+        "transcript_evidence": "[Doctor]: Lastly, given your history of asthma, it’s vital to recognize signs of respiratory distress that would necessitate emergency care. If you have severe difficulty breathing, persistent chest pain, or bluish lips or face, you need to seek immediate medical attention.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patient will undergo RT-PCR testing for COVID-19.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this test will be done.",
+        "transcript_evidence": "[Doctor]: We’ll do an RT-PCR test for COVID-19 and a complete blood count (CBC) with differential to get a better understanding of what’s going on.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patient will undergo a complete blood count (CBC) with differential.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this test will be done.",
+        "transcript_evidence": "[Doctor]: We’ll do an RT-PCR test for COVID-19 and a complete blood count (CBC) with differential to get a better understanding of what’s going on.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Strict isolation is recommended for the patient and their close contacts to prevent infection spread.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly recommends strict isolation for the patient and close contacts.",
+        "transcript_evidence": "[Doctor]: In the meantime, I recommend strict isolation for you and your close contacts to prevent the spread of infection. It’s essential to follow these guidelines strictly.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Acetaminophen 500 mg, oral, every 6 hours as needed for fever management has been prescribed.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states this prescription.",
+        "transcript_evidence": "[Doctor]: For now, I’ll prescribe acetaminophen 500 mg, oral, every 6 hours as needed for fever management.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patient will also undergo a follow-up telemedicine appointment in 7 days.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states they will schedule a follow-up telemedicine appointment in 7 days.",
+        "transcript_evidence": "[Doctor]: Good. I’ll also schedule a follow-up telemedicine appointment in 7 days to reassess your symptoms and review your test results.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The follow-up appointment is to reassess symptoms and review test results.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the purpose of the follow-up appointment.",
+        "transcript_evidence": "[Doctor]: Good. I’ll also schedule a follow-up telemedicine appointment in 7 days to reassess your symptoms and review your test results.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "It was recommended to practice enhanced hand hygiene, social distancing, and wearing masks.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly recommends these practices to mitigate infection spread.",
+        "transcript_evidence": "[Doctor]: Additionally, it’s crucial to practice enhanced hand hygiene, social distancing, and wearing masks to mitigate the spread of infection.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Potential community aid resources were noted to be explored for the patient's assistance.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states they will look into potential community aid resources for the patient.",
+        "transcript_evidence": "[Doctor]: I’ll look into potential community aid resources for you and share that information during our follow-up.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patient was advised to seek immediate medical attention if breathing difficulties worsen or signs of respiratory distress are observed.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor provides clear instructions for seeking immediate medical attention for worsening breathing or signs of respiratory distress.",
+        "transcript_evidence": "[Doctor]: Lastly, given your history of asthma, it’s vital to recognize signs of respiratory distress that would necessitate emergency care. If you have severe difficulty breathing, persistent chest pain, or bluish lips or face, you need to seek immediate medical attention. ... [Doctor]: Please monitor your symptoms closely and seek immediate care if your breathing difficulties worsen.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      }
+    ],
+    "benchmark_reconciliation_note": "My claim count of 24 differs from the benchmark's 14 because I interpreted the instruction to 'split compound sentences into multiple claims when they assert multiple facts' and to extract 'one checkable clinical/factual statement' more granularly, particularly for the detailed history and plan items, to ensure each distinct piece of clinical information is individually audited. For example, the 'Objective' section's summary of history was broken down into individual facts (asthma, albuterol, penicillin allergy, smoking, alcohol, drugs) rather than treated as a single broad claim."
+  },
+  "claim_verification_error": null
 }

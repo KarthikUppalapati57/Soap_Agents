@@ -273,9 +273,9 @@
     "plan_alignment_score": 0.5325443786982249
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Subjective and Plan sections. Key omissions include the patient's current medications, allergies, detailed Review of Systems, the specific impact of pain on daily activities, the detailed rationale for the MRI, and patient agreements regarding the treatment plan. While no unsupported additions were found, these omissions make the note meaningfully incomplete.",
+    "overall_summary": "The generated note has several noticeable gaps, particularly in the Subjective and Plan sections. Key omissions include patient medications, allergies, detailed HPI context, and comprehensive ROS in the Subjective section. The Plan section also omits important details regarding patient education and agreement. While the Objective and Assessment sections are largely accurate, the significant omissions in other critical areas reduce the overall clinical usefulness and completeness of the note, making it usable with caution and requiring review.",
     "omissions": [
       "Impact of pain on daily activities and previous exercise routines (daily walks)",
       "Denial of recent trauma or injury to the knee",
@@ -298,8 +298,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section has several significant omissions, including the patient's current medications, allergies, detailed Review of Systems, and the impact of pain on daily activities. These omissions reduce the completeness of the patient's history.",
+        "grade": "D",
+        "summary": "This section has major omissions that materially reduce its clinical usefulness. Critical information such as the impact of pain on daily activities, denial of trauma/surgeries, current medications (Lisinopril, Atorvastatin), and known allergies are missing. Additionally, the detailed Review of Systems (Cardiovascular, General, Other systems) is absent. These omissions create significant gaps in the patient's history and safety profile.",
         "omissions": [
           "Impact of pain on daily activities and limiting previous exercise routines (including daily walks)",
           "Denial of recent trauma or injury to the knee",
@@ -315,7 +315,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly complete, with minor omissions such as the explicit mention of 'limited range of motion' and the full phrasing of the McMurray test finding.",
+        "summary": "This section is mostly clinically aligned. The primary omission is 'Limited range of motion,' which is a moderate issue. The specific phrasing 'indicating possible meniscal involvement' for the McMurray test was also omitted, but the test itself and its implication are present. The note is still clearly usable despite these minor to moderate gaps.",
         "omissions": [
           "Limited range of motion",
           "Positive McMurray test 'indicating possible meniscal involvement'"
@@ -327,7 +327,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is largely accurate, with only a minor omission regarding the explicit statement that the positive McMurray test needs further evaluation through imaging.",
+        "summary": "This section is well-aligned with the ground truth. The only omission is the explicit statement that the positive McMurray test 'needs further evaluation through imaging,' which is a minor detail as imaging is subsequently ordered in the Plan. This does not significantly impact the clinical usefulness of the diagnosis.",
         "omissions": [
           "Explanation that the positive McMurray test 'needs further evaluation through imaging'"
         ],
@@ -336,7 +336,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several moderate omissions, including the detailed purpose of the MRI and physical therapy, specific patient education on adherence, and the patient's agreement and understanding of the plan. These omissions reduce the comprehensiveness of the treatment plan documentation.",
+        "summary": "This section has noticeable gaps that make it meaningfully incomplete. Omissions include the specific purposes of the PT and MRI referrals, patient education on adherence to treatment, and patient agreements regarding the plan. While the core plan is present, these missing details reduce the comprehensiveness of patient engagement and rationale for interventions.",
         "omissions": [
           "Specific purpose of PT referral: 'for knee strengthening and mobility exercises'",
           "Specific purpose of MRI: 'to evaluate the extent of joint degeneration and rule out other pathologies such as meniscal tears'",
@@ -358,21 +358,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’d say it’s usually around a 5 or 6, but it can go up to an 8 on bad days.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports moderate to severe pain in the left knee."
+      "matched_claim_text": "The patient reports moderate to severe pain in the left knee.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "RPA1 — protein_protein — RPAIN"
     },
     {
       "addition_text": "Description of balanced diet as 'rich in fruits, vegetables, and lean proteins'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Low-impact activities like swimming or cycling can help minimize knee stress. And maintaining a healthy weight can reduce the load on your knees. A balanced diet is also important for joint health. Make sure you’re eating plenty of fruits, vegetables, and lean proteins.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage lifestyle modifications including low-impact activities (swimming, cycling), maintaining a healthy weight, and a balanced diet rich in fruits, vegetables, and lean proteins."
+      "matched_claim_text": "Encourage lifestyle modifications including low-impact activities (swimming, cycling), maintaining a healthy weight, and a balanced diet rich in fruits, vegetables, and lean proteins.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Vitals are 'within normal limits'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "All within normal limits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vitals are within normal limits."
+      "matched_claim_text": "Vitals are within normal limits.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

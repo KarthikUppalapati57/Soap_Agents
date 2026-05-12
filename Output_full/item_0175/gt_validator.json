@@ -221,9 +221,9 @@
     "plan_alignment_score": 0.6867469879518071
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note captures the primary diagnosis and core treatment plan but has noticeable gaps in the Subjective and Plan sections. The Subjective section omits the Chief Complaint, detailed HPI narrative, and Review of Systems structure, making it meaningfully incomplete. The Plan section misses crucial patient education regarding lifestyle modifications and recognizing signs of over/under-treatment, which are important for patient safety and comprehensive care. All additions were supported by the transcript and did not impact the grade.",
+    "overall_summary": "The generated note captures the primary symptoms and core plan but has noticeable gaps. The Subjective section is meaningfully incomplete due to the omission of detailed HPI context (e.g., duration, impact on work, sleep, diet/exercise habits) and the entire Review of Systems section. The Objective section omits pending laboratory results, and the Plan section misses important patient education points regarding lifestyle modifications and recognizing signs of over/under-treatment. All additions were supported by the transcript.",
     "omissions": [
       "Chief Complaint section",
       "Detailed HPI context (e.g., duration, impact on work, sleep, diet/exercise habits)",
@@ -249,7 +249,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has significant omissions, including the Chief Complaint, detailed HPI context (e.g., duration, impact on work, sleep, diet/exercise habits), and the entire Review of Systems structure. While core symptoms are listed, the lack of narrative and structured information makes the section meaningfully incomplete. All additions were supported by the transcript and did not lower the grade.",
+        "summary": "This section has significant omissions, including the Chief Complaint, detailed HPI context (e.g., duration, impact on work, sleep, diet/exercise habits), and the complete Review of Systems section. While core symptoms are listed, the lack of narrative depth and structured ROS makes it meaningfully incomplete. All additions were supported by the transcript.",
         "omissions": [
           "Chief Complaint: 'Follow-up for hypothyroidism management.'",
           "HPI context: '36-year-old Caucasian female presenting for a follow-up appointment for her hypothyroidism.'",
@@ -264,7 +264,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned. It accurately captures vital signs and most physical exam findings. However, it omits the physical exam detail of 'thinning hair noted' and, more significantly, the entire 'Laboratory Results' section indicating that a complete thyroid panel is awaiting results. This constitutes a moderate omission of important clinical context.",
+        "summary": "The Objective section accurately captures vital signs and most physical exam findings. However, it omits the specific physical exam finding of 'thinning hair noted' and, more significantly, the entire 'Laboratory Results' section indicating pending thyroid panel tests. All additions were supported by the transcript.",
         "omissions": [
           "Physical Exam: 'thinning hair noted' (from General Inspection)",
           "Laboratory Results: 'Awaiting results: Complete Thyroid Panel (TSH, Free T4, T3)'"
@@ -274,7 +274,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is excellent. It accurately identifies the primary diagnosis of Hypothyroidism. The only omission is the minor qualifier 'unspecified'. The elaboration on the diagnosis ('appears to be poorly controlled, possibly leading to symptoms mentioned by the patient') is a supported addition and enhances the clinical picture without reducing the grade.",
+        "summary": "The Assessment section is strong, accurately identifying the primary diagnosis of Hypothyroidism. The only omission is the minor qualifier 'unspecified'. The elaboration provided is supported by the transcript.",
         "omissions": [
           "Diagnosis qualifier: 'unspecified' (for hypothyroidism)"
         ],
@@ -284,8 +284,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has multiple moderate omissions that reduce its clinical usefulness. It misses key patient education points regarding the importance of lifestyle modifications and educating on recognizing signs of over- or under-treatment, which are crucial for patient safety and comprehensive management. Minor omissions include the medication route 'orally' and the instruction to 'Call with any questions or concerns'. All additions were supported by the transcript and did not lower the grade.",
+        "grade": "B",
+        "summary": "The Plan section includes the key medical management, follow-up, and lifestyle recommendations. However, it omits the medication route ('orally'), explicit patient education points about the importance of lifestyle modifications and recognizing signs of over/under-treatment, and a general instruction to call with questions. All additions were supported by the transcript.",
         "omissions": [
           "Medication route: 'orally' (for Levothyroxine)",
           "Patient Education: 'Discuss the importance of ... lifestyle modifications in managing hypothyroidism.'",
@@ -308,63 +308,81 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Over the past three months, I've been experiencing a lot of fatigue, weight gain, constipation, dry skin... Yes, I have dry skin and my hair is thinning.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Dry skin"
+      "matched_claim_text": "Dry skin",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective finding: 'Mild peripheral edema in lower extremities' listed in Subjective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I also see mild peripheral edema in your lower extremities.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild peripheral edema in lower extremities"
+      "matched_claim_text": "Mild peripheral edema in lower extremities",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment elaboration: 'Hypothyroidism appears to be poorly controlled, possibly leading to symptoms mentioned by the patient'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems your hypothyroidism might not be well controlled. ... It’s swelling in your legs, which can be related to hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypothyroidism appears to be poorly controlled, possibly leading to symptoms mentioned by the patient"
+      "matched_claim_text": "Hypothyroidism appears to be poorly controlled, possibly leading to symptoms mentioned by the patient",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "Specific phrasing in follow-up: 'evaluate response to new dose'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll schedule a follow-up appointment in 6 weeks to review your lab results and evaluate how you’re feeling.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in 6 weeks to review lab results and evaluate response to new dose"
+      "matched_claim_text": "Schedule follow-up appointment in 6 weeks to review lab results and evaluate response to new dose",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier for reporting changes: 'to the healthcare provider immediately'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Medication adherence is crucial... Make sure to take your medication exactly as prescribed. ... If you notice any of these, contact us immediately. ... And keep monitoring your symptoms and report any significant changes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize medication adherence and report any significant changes in symptoms to the healthcare provider immediately"
+      "matched_claim_text": "Emphasize medication adherence and report any significant changes in symptoms to the healthcare provider immediately",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective finding: 'Pale and dry skin appearance' (listed in Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Over the past three months, I've been experiencing a lot of fatigue, weight gain, constipation, dry skin... Yes, I have dry skin and my hair is thinning.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Dry skin"
+      "matched_claim_text": "Dry skin",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective finding: 'Mild peripheral edema in lower extremities' (listed in Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I also see mild peripheral edema in your lower extremities.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild peripheral edema in lower extremities"
+      "matched_claim_text": "Mild peripheral edema in lower extremities",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Elaboration on diagnosis: 'appears to be poorly controlled, possibly leading to symptoms mentioned by the patient'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems your hypothyroidism might not be well controlled. ... It’s swelling in your legs, which can be related to hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypothyroidism appears to be poorly controlled, possibly leading to symptoms mentioned by the patient"
+      "matched_claim_text": "Hypothyroidism appears to be poorly controlled, possibly leading to symptoms mentioned by the patient",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "Follow-up detail: 'evaluate response to new dose' (instead of 'evaluate symptom improvement')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll schedule a follow-up appointment in 6 weeks to review your lab results and evaluate how you’re feeling.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in 6 weeks to review lab results and evaluate response to new dose"
+      "matched_claim_text": "Schedule follow-up appointment in 6 weeks to review lab results and evaluate response to new dose",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

@@ -222,36 +222,25 @@
     "plan_alignment_score": 0.6211180124223603
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Subjective and Plan sections. While major clinical points are captured, numerous details regarding the history of present illness, social history, specific plan interventions (e.g., weight management program), and prescription details are omitted. The absence of any unsupported or unknown additions is positive, but the volume and clinical materiality of the omissions reduce the overall completeness and usefulness of the note.",
+    "overall_summary": "The generated note provides a generally accurate overview but has noticeable gaps in clinically important details, particularly in the Subjective and Plan sections. Key omissions include specific HPI details like pain duration and character, social history regarding tobacco and alcohol use, and critical plan elements such as gabapentin prescription quantity and duration, the specific weight management program, and the named rheumatologist for referral. These multiple moderate omissions make the note meaningfully incomplete, requiring caution and further review.",
     "omissions": [
-      "Patient presenting for a follow-up regarding chronic pain",
       "Pain persisted for 5 years",
       "Pain associated with stiffness",
-      "Pain associated with decreased range of motion",
-      "Pain is daily",
-      "Patient's specific job duties as an office manager",
-      "Specific sleep duration (5-6 hours per night)",
+      "Patient's job duties as an office manager",
+      "Sleep duration (5-6 hours per night)",
       "Diet details (fairly balanced but high in carbohydrates)",
       "Minimal exercise due to discomfort",
-      "Denial of tobacco and drug use",
-      "Alcohol consumption (occasionally, 1-2 drinks per week)",
-      "Neurological ROS details (denies changes in sensation/strength, no headaches/dizziness)",
-      "No swelling or redness observed (musculoskeletal exam finding)",
-      "\"in all extremities\" for normal sensation and strength (neurological exam)",
-      "\"of Lumbar Spine and Knees\" for X-ray results",
-      "\"Other\" for Chronic Pain in assessment",
-      "Gabapentin administration route: \"orally\"",
-      "Gabapentin quantity: \"90 capsules\"",
-      "Gabapentin duration: \"1 month\"",
+      "Denies tobacco and drug use",
+      "Consumes alcohol occasionally (1-2 drinks per week)",
+      "Review of Systems (ROS) section header and specific system breakdowns",
+      "Physical Examination detail: 'no swelling or redness observed'",
+      "Gabapentin prescription quantity: 90 capsules",
+      "Gabapentin prescription duration: 1 month",
       "Initiate a weight management program",
-      "Specific goal for physical therapy: \"to improve mobility and strengthen muscles around affected joints\"",
-      "Specific goal for weight management program: \"aimed at reducing stress on the joints\"",
-      "Name of Rheumatologist: \"Dr. Maria Lopez\"",
-      "Specific reason for Vitamin D level: \"to assess for any deficiencies\"",
-      "Patient counseling detail: \"manage her symptoms more effectively\"",
-      "Patient counseling detail: \"She understands and agrees to the proposed medical plan and referrals.\""
+      "Specific name of the referring rheumatologist (Dr. Maria Lopez)",
+      "Full counseling statement regarding adherence, lifestyle changes, understanding, and agreement to the plan and referrals"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -259,58 +248,58 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has numerous omissions, including the duration of pain (5 years), specific pain characteristics (stiffness, decreased range of motion, daily), detailed social history (diet, exercise, tobacco/drug use, alcohol consumption), and specific neurological ROS details. While the chief complaint and impact on daily life are present, the lack of these details makes the HPI and ROS meaningfully incomplete.",
+        "summary": "The Subjective section captures the chief complaint and main impacts but omits several important details from the HPI and social history. Specifically, the note misses that the pain persisted for 5 years and is associated with stiffness, as well as the patient's denial of tobacco and drug use and occasional alcohol consumption. While the core narrative is present, these omissions represent moderate gaps in the patient's history.",
         "omissions": [
-          "Patient presenting for a follow-up regarding chronic pain",
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
           "Pain persisted for 5 years",
           "Pain associated with stiffness",
-          "Pain associated with decreased range of motion",
-          "Pain is daily",
-          "Patient's specific job duties as an office manager",
-          "Specific sleep duration (5-6 hours per night)",
+          "Patient's job duties as an office manager",
+          "Sleep duration (5-6 hours per night)",
           "Diet details (fairly balanced but high in carbohydrates)",
           "Minimal exercise due to discomfort",
-          "Denial of tobacco and drug use",
-          "Alcohol consumption (occasionally, 1-2 drinks per week)",
-          "Neurological ROS details (denies changes in sensation/strength, no headaches/dizziness)"
+          "Denies tobacco and drug use",
+          "Consumes alcohol occasionally (1-2 drinks per week)",
+          "Review of Systems (ROS) section header",
+          "Specific ROS breakdown by system (Musculoskeletal, Endocrine, General, Neurological, Psychiatric)",
+          "Neurological ROS: Denies any changes in sensation or strength; no headaches or dizziness"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured. The omissions are minor, such as the absence of 'no swelling or redness observed' in the musculoskeletal exam, 'in all extremities' for neurological findings, and 'of Lumbar Spine and Knees' for X-ray results. These do not materially impact the clinical usefulness of the section.",
+        "summary": "The Objective section is well-aligned with the ground truth. Omissions are limited to minor formatting details and the specific observation of 'no swelling or redness observed' during the musculoskeletal exam, which do not detract from the clinical usefulness of the section.",
         "omissions": [
-          "No swelling or redness observed (musculoskeletal exam finding)",
-          "\"in all extremities\" for normal sensation and strength (neurological exam)",
-          "\"of Lumbar Spine and Knees\" for X-ray results"
+          "Physical Examination section header",
+          "Musculoskeletal exam detail: 'no swelling or redness observed'",
+          "Neurological exam section header",
+          "Results section header"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is nearly perfect, with only the minor omission of the word 'Other' from 'Other Chronic Pain'. The core diagnosis is accurately stated.",
-        "omissions": [
-          "\"Other\" for Chronic Pain"
-        ],
+        "summary": "The Assessment section is perfectly aligned with the ground truth, with no omissions or additions.",
+        "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section contains several moderate omissions. Key details for gabapentin (administration route 'orally', quantity '90 capsules', duration '1 month') are missing. The significant intervention of 'Initiate a weight management program' is omitted, as are the specific goals for physical therapy and weight management. The name of the referring rheumatologist ('Dr. Maria Lopez') and specific patient counseling details are also absent. These omissions reduce the specificity and completeness of the treatment plan.",
+        "summary": "The Plan section captures the main interventions but suffers from multiple moderate omissions that reduce its completeness for clinical execution. Key missing details include the specific quantity (90 capsules) and duration (1 month) for gabapentin, the initiation of a weight management program, the specific name of the referring rheumatologist (Dr. Maria Lopez), and the full comprehensive counseling statement regarding adherence and patient agreement. These omissions make the plan meaningfully incomplete.",
         "omissions": [
-          "Gabapentin administration route: \"orally\"",
-          "Gabapentin quantity: \"90 capsules\"",
-          "Gabapentin duration: \"1 month\"",
-          "Initiate a weight management program",
-          "Specific goal for physical therapy: \"to improve mobility and strengthen muscles around affected joints\"",
-          "Specific goal for weight management program: \"aimed at reducing stress on the joints\"",
-          "Name of Rheumatologist: \"Dr. Maria Lopez\"",
-          "Specific reason for Vitamin D level: \"to assess for any deficiencies\"",
-          "Patient counseling detail: \"manage her symptoms more effectively\"",
-          "Patient counseling detail: \"She understands and agrees to the proposed medical plan and referrals.\""
+          "Medical Management section header",
+          "Gabapentin prescription quantity: 90 capsules",
+          "Gabapentin prescription duration: 1 month",
+          "Non-Pharmacological Interventions section header",
+          "Initiate a weight management program aimed at reducing stress on the joints",
+          "Follow-up section header",
+          "Referrals section header",
+          "Specific name of the referring rheumatologist: Dr. Maria Lopez",
+          "Laboratory Tests section header",
+          "Full counseling statement: 'The patient has been counseled on the importance of adhering to the prescribed treatment plan and making lifestyle changes to manage her symptoms more effectively. She understands and agrees to the proposed medical plan and referrals.'"
         ],
         "additions": []
       }

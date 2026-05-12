@@ -193,9 +193,9 @@
     "plan_alignment_score": 0.3918918918918919
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, history of present illness, objective findings, diagnosis, and core treatment plan. However, it omits the entire Review of Systems section and detailed lifestyle and preventive care recommendations, which are moderate issues. Several minor details are also omitted across sections. All additions were supported by the transcript and did not negatively impact the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note captures the primary diagnosis and treatment plan but has several notable omissions that reduce its completeness and clinical usefulness. The most significant gaps are the complete absence of lifestyle and preventive care recommendations in the Plan section, which are crucial for managing actinic keratosis. Additionally, the Subjective section omits the full Review of Systems, and some minor details are missing across other sections. There are no unsupported or unknown additions that would negatively impact the grade.",
     "omissions": [
       "Patient descriptor \"pleasant\"",
       "Detail about lesion being bothersome when washing face or scratching",
@@ -221,7 +221,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is missing the entire Review of Systems (ROS) section, which is a moderate structural omission. It also omits minor details such as the patient descriptor 'pleasant' and specific symptom triggers. Despite these, the core History of Present Illness is well-captured.",
+        "summary": "This section omits the full Review of Systems, including the general statement of no other complaints, which is a moderate gap. It also misses minor details such as the patient descriptor 'pleasant' and specific context about the lesion being bothersome when washing or scratching.",
         "omissions": [
           "Patient descriptor \"pleasant\"",
           "Detail about lesion being bothersome when washing face or scratching",
@@ -233,7 +233,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete and accurate. It omits only minor details such as the lesion size, absence of cardiac murmurs, and bilateral lung auscultation. The summary statement 'Vitals within normal limits' was a supported addition and did not impact the grade.",
+        "summary": "The Objective section is well-captured, accurately reporting vital signs and key physical exam findings. Minor omissions include the exact lesion size (1 cm) and specific details like the absence of cardiac murmurs and bilateral lung auscultation, but these do not significantly detract from the clinical utility.",
         "omissions": [
           "Lesion size (approximately 1 cm in diameter)",
           "Absence of cardiac murmurs",
@@ -246,7 +246,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is accurate and complete in its core meaning. The only omission is the specific location of the actinic keratosis ('on the forehead'), which is a minor detail given it's clearly stated in other sections. The addition describing actinic keratosis as a 'precancerous condition due to sun exposure' was supported and did not affect the grade.",
+        "summary": "The assessment correctly identifies Actinic Keratosis. The only omission is the specific location 'on the forehead,' which is mentioned in the Objective section, making this a minor issue. The addition of 'precancerous condition due to sun exposure' is supported by the transcript and enhances the note.",
         "omissions": [
           "Location of actinic keratosis (\"on the forehead\")"
         ],
@@ -256,8 +256,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section captures the essential treatment recommendations (cryotherapy, medication, follow-up schedule). However, it has a moderate omission by entirely missing the detailed lifestyle and preventive care recommendations (sunscreen, protective clothing, avoiding peak sun hours). Several minor details regarding follow-up purpose, patient understanding, and resources for smoking cessation were also omitted. The addition clarifying smoking cessation was supported and did not impact the grade.",
+        "grade": "C",
+        "summary": "This section has significant omissions, particularly the entire set of lifestyle and preventive care recommendations (daily sunscreen, protective clothing, avoiding peak sun hours), which are critical for patient education and long-term management of actinic keratosis. Other minor omissions include specific follow-up details, patient understanding, and explicit mention of resources for smoking cessation counseling.",
         "omissions": [
           "Lifestyle and Preventive Care recommendations (sunscreen, protective clothing, avoiding peak sun hours)",
           "Follow-up detail: \"to ensure no new lesions have developed\"",
@@ -277,23 +277,29 @@
     {
       "addition_text": "Summary statement \"Vitals within normal limits\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your blood pressure is 130/85 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.5°F. Everything looks normal there.",
+      "transcript_evidence": "Everything looks normal there.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Description of Actinic Keratosis as \"precancerous condition due to sun exposure\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Actinic keratosis is a rough, scaly patch on the skin that develops from years of sun exposure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Actinic Keratosis is due to sun exposure."
+      "matched_claim_text": "Actinic Keratosis is due to sun exposure.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Clarification for smoking cessation: \"to aid in reducing smoking habit\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Reducing smoking will greatly benefit your skin and overall health. We have resources for smoking cessation counseling if you're interested.\n[patient] Yes, I've been trying to cut down. That would be helpful.\n[doctor] Excellent. We'll get you started on that as well.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Smoking cessation counseling will be offered to aid in reducing smoking habit."
+      "matched_claim_text": "Smoking cessation counseling will be offered to aid in reducing smoking habit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

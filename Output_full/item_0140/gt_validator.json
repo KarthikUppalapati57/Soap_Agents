@@ -254,7 +254,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the patient's chief complaint, history, vital signs, physical exam findings, assessment, and the majority of the treatment plan. The overall grade is 'B' due to several minor omissions in the Review of Systems and patient education, and a few moderate omissions including the patient's general appearance, specific medication details (strength, route, quantity), and the entire patient agreements section. There are no unsupported or unknown additions.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, capturing the majority of the Ground Truth content. However, it has several minor and moderate omissions. Key omissions include the lack of explicit section headings for Chief Complaint and various Plan sub-sections, missing specific denials in the Review of Systems, incomplete medication details (form and quantity), and the complete absence of the Patient Agreements section. Despite these, the core clinical information, diagnoses, and treatment plan are well-represented.",
     "omissions": [
       "Explicit Chief Complaint section/statement",
       "Denial of hemoptysis",
@@ -274,8 +274,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section captures all major clinically important Ground Truth content. The omissions are minor, primarily consisting of specific denials from the Review of Systems (hemoptysis, chest pain, palpitations, syncope, nausea, vomiting, abdominal pain, dizziness, headache) and the exact duration of sleep (averaging 5 hours per night). The chief complaint content is present within the HPI, despite the lack of an explicit 'Chief Complaint' heading.",
+        "grade": "B",
+        "summary": "The Subjective section accurately captures the Chief Complaint and History of Present Illness, including positive findings from the Review of Systems. However, it omits the explicit Chief Complaint section heading, several specific denials from the ROS (hemoptysis, chest pain, GI, neurological symptoms), and the precise duration of sleep difficulty.",
         "omissions": [
           "Explicit Chief Complaint section/statement",
           "No history of hemoptysis",
@@ -289,7 +289,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly complete, accurately reporting all vital signs and most physical examination findings. However, it omits the general appearance description ('Alert and oriented, appears moderately distressed due to dyspnea'), which is a moderately important clinical observation for the patient's initial presentation.",
+        "summary": "The Objective section provides a comprehensive and accurate summary of vital signs and physical examination findings. The only omission is the descriptive detail regarding the patient's general appearance ('Alert and oriented, appears moderately distressed due to dyspnea').",
         "omissions": [
           "General appearance: Alert and oriented, appears moderately distressed due to dyspnea"
         ],
@@ -298,7 +298,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is accurate and complete, clearly stating the primary diagnosis and the relevant differential diagnoses. The only omission is the explicit 'Diagnosis:' heading, which is a minor structural detail and does not impact the clinical content or usefulness of the section.",
+        "summary": "The Assessment section is excellent, fully capturing the primary diagnosis and all differential diagnoses. The only omission is the explicit 'Diagnosis:' heading, which is a minor formatting detail that does not impact clinical content.",
         "omissions": [
           "Explicit 'Diagnosis:' heading"
         ],
@@ -307,7 +307,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures all major components of the treatment plan, including medication, investigations, referral, follow-up, and patient education. However, it omits specific medication details such as the strength (90 mcg/spray), route (inhalation), and quantity (Qty: 1 inhaler), which are moderately important for a complete prescription. Additionally, the entire 'Patient Agreements' section, confirming patient understanding and agreement, is missing, which is a moderate omission. The lack of explicit sub-headings for plan components is a minor structural omission.",
+        "summary": "The Plan section outlines all major components of the treatment strategy, including medication, investigations, referrals, and follow-up. However, it omits specific medication details (90 mcg/spray, inhalation, Qty: 1 inhaler), lacks explicit section headings for Medical Treatment, Investigations, Referrals, Follow-up, and Patient Education, and entirely misses the Patient Agreements section. A minor patient education detail about adherence to follow-up appointments is also omitted.",
         "omissions": [
           "Specific medication details: Albuterol 90 mcg/spray, inhalation, Qty: 1 inhaler",
           "Explicit section headings for Medical Treatment, Investigations, Referrals, Follow-up, Patient Education and Counseling, Patient Agreements",

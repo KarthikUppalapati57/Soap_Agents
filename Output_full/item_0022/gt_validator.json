@@ -211,7 +211,184 @@
     "assessment_alignment_score": 0.13333333333333333,
     "plan_alignment_score": 0.6
   },
-  "expert_judge": null,
-  "expert_judge_error": "Judge returned non-JSON output: Expecting property name enclosed in double quotes: line 11 column 5 (char 793)",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a mostly accurate summary but contains several clinically important omissions. Key missing details include the specific impact of pain on daily activities in the Subjective section, crucial pending diagnostic results (X-ray and CBC) in the Objective section, and the overall patient context paragraph in the Plan. While there are no unsupported or unknown additions, the cumulative effect of these omissions, particularly the moderate ones, makes the note meaningfully incomplete in certain areas, requiring careful review.",
+    "omissions": [
+      "Specific impact of pain on daily activities (walking, climbing stairs, performing job duties as a receptionist)",
+      "No fever (in ROS General)",
+      "Visible discomfort in the left leg (as an inspection finding)",
+      "\"lumbar\" in \"Limited lumbar flexion and extension\"",
+      "Pending Results: X-ray Lumbosacral Spine to evaluate bone structure",
+      "Pending Results: Complete Blood Count (CBC) to rule out any underlying infection",
+      "Medication detail: \"1 capsule\" (for Gabapentin)",
+      "Medication detail: \"Quantity: 42 capsules\" (for Gabapentin)",
+      "Physical therapy detail: \"home exercises\" and \"to alleviate symptoms\"",
+      "Lifestyle modification detail: \"starting with light walking and gradually increasing as tolerated\"",
+      "Follow-up goal: \"evaluate the effectiveness of the treatment plan\"",
+      "Education point: \"pain management\"",
+      "Education point: \"nature of sciatica, its typical course\"",
+      "Education point: \"importance of follow-up visits\"",
+      "Overall patient context paragraph (cooperative, motivated, financial limitations, health programs)"
+    ],
+    "additions": [
+      "Pain \"worsening over time\" (in Subjective)",
+      "\"Discomfort when touching left leg\" (in Objective, as opposed to \"Visible discomfort\")",
+      "\"Normal vital signs\" (summary in Objective)",
+      "\"Left sided\" (in Assessment diagnosis)",
+      "\"with associated pain and muscle weakness\" (in Assessment diagnosis)"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section is mostly aligned but omits specific details about how the pain impacts daily activities (walking, climbing stairs, performing job duties as a receptionist) and the absence of fever in the ROS. All additions in this section were supported by the transcript.",
+        "omissions": [
+          "Specific impact on daily activities (walking, climbing stairs, performing job duties as a receptionist)",
+          "No fever (from ROS General)"
+        ],
+        "additions": [
+          "Pain \"worsening over time\""
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "C",
+        "summary": "The Objective section has noticeable gaps due to the omission of crucial pending diagnostic results: the X-ray of the lumbosacral spine and the Complete Blood Count. It also omits the specific inspection finding of 'visible discomfort in the left leg' and the detail 'lumbar' for range of motion. All additions in this section were supported by the transcript.",
+        "omissions": [
+          "Visible discomfort in the left leg (as an inspection finding)",
+          "\"lumbar\" in \"Limited lumbar flexion and extension\"",
+          "Pending Results: X-ray Lumbosacral Spine to evaluate bone structure",
+          "Pending Results: Complete Blood Count (CBC) to rule out any underlying infection"
+        ],
+        "additions": [
+          "Discomfort when touching left leg",
+          "Normal vital signs"
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is complete and accurate, with no omissions or unsupported/unknown additions. All additions were supported by the transcript.",
+        "omissions": [],
+        "additions": [
+          "Left sided (in diagnosis)",
+          "with associated pain and muscle weakness (in diagnosis)"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section is largely usable but has several minor omissions regarding medication details (capsule count, quantity), physical therapy specifics (home exercises, symptom alleviation), lifestyle modification details (gradual increase in activity), and patient education points (pain management, nature of sciatica, importance of follow-up visits). It also omits the overall patient context paragraph, which describes patient cooperation, motivation, and financial considerations. There were no unsupported or unknown additions in this section.",
+        "omissions": [
+          "Medication detail: \"1 capsule\" (for Gabapentin)",
+          "Medication detail: \"Quantity: 42 capsules\" (for Gabapentin)",
+          "Physical therapy detail: \"home exercises\" and \"to alleviate symptoms\"",
+          "Lifestyle modification detail: \"starting with light walking and gradually increasing as tolerated\"",
+          "Follow-up goal: \"evaluate the effectiveness of the treatment plan\"",
+          "Education point: \"pain management\"",
+          "Education point: \"nature of sciatica, its typical course\"",
+          "Education point: \"importance of follow-up visits\"",
+          "Overall patient context paragraph (cooperative, motivated, financial limitations, health programs)"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Pain \"worsening over time\" (in Subjective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I've been having this really sharp, shooting pain down my left leg for the past six weeks. It's been getting worse.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pain worsening over time",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Discomfort when touching left leg\" (in Objective, as opposed to \"Visible discomfort\")",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Does it hurt when I touch your left leg? [Patient]: Yes, it’s uncomfortable.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Discomfort when touching left leg",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Normal vital signs\" (summary in Objective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Blood pressure is 120/80 mmHg, heart rate is 76 bpm, respiratory rate is 16 breaths/min, and temperature is 98.6°F. Everything looks normal there.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Left sided\" (in Assessment diagnosis)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I've been having this really sharp, shooting pain down my left leg for the past six weeks. It's been getting worse. ... [Doctor]: For your musculoskeletal system, you mentioned severe sharp pain radiating down the left leg and muscle weakness? [Patient]: Yes, that's correct. ... [Doctor]: Okay, that's positive on the left side.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"with associated pain and muscle weakness\" (in Assessment diagnosis)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, it looks like you have sciatica. This is when the sciatic nerve gets irritated or compressed, causing pain and weakness down your leg.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Left sided sciatica with associated pain and muscle weakness",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "ADM — phenotype_protein — Pain"
+    },
+    {
+      "addition_text": "Pain \"worsening over time\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I've been having this really sharp, shooting pain down my left leg for the past six weeks. It's been getting worse.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pain worsening over time",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Discomfort when touching left leg",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Does it hurt when I touch your left leg? [Patient]: Yes, it’s uncomfortable.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Discomfort when touching left leg",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Normal vital signs",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Blood pressure is 120/80 mmHg, heart rate is 76 bpm, respiratory rate is 16 breaths/min, and temperature is 98.6°F. Everything looks normal there.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Normal vital signs (BP 120/80 mmHg, HR 76 bpm, RR 16 breaths/min, temperature 98.6°F)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Left sided (in diagnosis)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I've been having this really sharp, shooting pain down my left leg for the past six weeks. ... [Doctor]: Okay, that's positive on the left side.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "with associated pain and muscle weakness (in diagnosis)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, it looks like you have sciatica. This is when the sciatic nerve gets irritated or compressed, causing pain and weakness down your leg.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Left sided sciatica with associated pain and muscle weakness",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "ADM — phenotype_protein — Pain"
+    }
+  ]
 }

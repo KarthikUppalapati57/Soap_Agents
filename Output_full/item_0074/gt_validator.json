@@ -265,9 +265,9 @@
     "plan_alignment_score": 0.518987341772152
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it contains several noticeable omissions, particularly in the Subjective and Plan sections. Key details regarding the patient's history of present illness, specific lifestyle modification advice, and the explicit listing of ordered tests in the Plan are missing. All additions were supported by the transcript and therefore did not negatively impact the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has several omissions, particularly in the Plan section. While there are no unsupported or unknown additions, the lack of specific details regarding lifestyle modifications, ordered tests, and patient agreement in the Plan, along with less detailed reasoning in the Assessment and some missing HPI context in the Subjective, prevents a higher grade. The note captures the core clinical picture but lacks the comprehensive detail of the Ground Truth.",
     "omissions": [
       "Initial consultation",
       "Specific weight loss amount (5 lbs)",
@@ -296,8 +296,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section omits several important contextual details from the History of Present Illness, including the specific weight loss amount (5 lbs), the impact of symptoms on daily activities, and the patient's stable diet and exercise routine. It also omits a minor ROS detail (no fever or chills). These omissions create noticeable gaps in the patient's clinical picture.",
+        "grade": "B",
+        "summary": "This section has several minor to moderate omissions, including the specific weight loss amount (5 lbs), the impact of symptoms on daily activities, and the patient's stable diet/exercise routine. These details provide important context to the History of Present Illness. The omission of 'no fever or chills' from the ROS is minor. The addition of 'Patient appears alert and oriented with no acute distress' is supported by the transcript and does not penalize the grade.",
         "omissions": [
           "Initial consultation",
           "Specific weight loss amount (5 lbs)",
@@ -311,8 +311,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section has several minor omissions, such as \"peripheral pulses intact\" and \"no wheezing or crackles.\" The general appearance details (\"Alert and oriented, in no acute distress\") were omitted from this section but were moved to the Subjective section of the generated note, so the information is not entirely lost from the document.",
+        "grade": "A",
+        "summary": "This section is largely complete. The omission of 'Alert and oriented, in no acute distress' is a structural difference as this information was moved to the Subjective section in the generated note, but the content is not lost. Minor omissions include 'peripheral pulses intact' and 'no wheezing or crackles' from the physical examination, which do not significantly impact clinical usefulness.",
         "omissions": [
           "General appearance (Alert and oriented, in no acute distress)",
           "Cardiovascular: peripheral pulses intact",
@@ -323,7 +323,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section omits the detailed reasoning for the diagnosis, which provides important clinical justification. However, the core diagnosis and the mention of pending lab results are present. All additions in this section were supported by the transcript.",
+        "summary": "The assessment omits the detailed reasoning for the likely diagnosis, specifically 'as suggested by his symptomatology of increased thirst and frequent urination, coupled with a mild weight loss over the last three months'. This reduces the robustness and clinical justification of the diagnostic impression. The addition of specific lab tests in parentheses is supported by the transcript and does not penalize the grade.",
         "omissions": [
           "Detailed reasoning for diagnosis (as suggested by his symptomatology of increased thirst and frequent urination, coupled with a mild weight loss over the last three months)"
         ],
@@ -334,7 +334,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section contains numerous and significant omissions that reduce its clinical usefulness. Missing details include specific dietary and exercise recommendations, the nutritionist's name, the dispense quantity for medication, the entire \"Tests Ordered\" subsection (though tests are mentioned in Assessment), and confirmation of patient understanding and agreement. These omissions make the plan meaningfully incomplete.",
+        "summary": "This section has multiple moderate to major omissions that significantly reduce its completeness and actionability. Key missing details include specific dietary advice (reducing high-carbohydrate intake, increasing fiber and protein), specific physical activity goals (150 minutes of moderate exercise per week), emphasis on weight management techniques, the nutritionist's name (Dr. Leslie Green), and the explicit listing of 'Tests Ordered' (Hemoglobin A1c, Fasting Blood Glucose, Lipid Panel). The omission of patient understanding and agreement is also noted. These gaps make the plan less comprehensive and require careful review. All additions in this section are supported by the transcript and do not penalize the grade.",
         "omissions": [
           "Medication: Dispense 30 tablets",
           "Lifestyle Modifications: Specific dietary advice (reducing high-carbohydrate intake, increasing fiber and protein)",
@@ -360,56 +360,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: On physical examination, you appear alert and oriented, and you’re in no acute distress.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient appears alert and oriented with no acute distress"
+      "matched_claim_text": "Patient appears alert and oriented with no acute distress",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Specific lab tests listed in parentheses (Hemoglobin A1c, Fasting Blood Glucose, Lipid Panel)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I've ordered a Hemoglobin A1c, Fasting Blood Glucose, and a Lipid Panel.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "(Hemoglobin A1c, Fasting Blood Glucose, Lipid Panel)"
+      "matched_claim_text": "(Hemoglobin A1c, Fasting Blood Glucose, Lipid Panel)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: personalized advice (for nutritionist referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: That's why I'm referring you to a nutritionist, Dr. Leslie Green. She can help you with meal planning and give you more personalized advice.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Refer patient to a nutritionist for meal planning and personalized advice"
+      "matched_claim_text": "Refer patient to a nutritionist for meal planning and personalized advice",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Encourage patient to contact the doctor if they have any questions or concerns in the meantime",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In the meantime, if you have any questions or concerns, don't hesitate to contact me.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to contact the doctor if they have any questions or concerns in the meantime"
+      "matched_claim_text": "Encourage patient to contact the doctor if they have any questions or concerns in the meantime",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient appears alert and oriented with no acute distress",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: On physical examination, you appear alert and oriented, and you’re in no acute distress.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient appears alert and oriented with no acute distress"
+      "matched_claim_text": "Patient appears alert and oriented with no acute distress",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific lab tests listed in parentheses (Hemoglobin A1c, Fasting Blood Glucose, Lipid Panel)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I've ordered a Hemoglobin A1c, Fasting Blood Glucose, and a Lipid Panel.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "(Hemoglobin A1c, Fasting Blood Glucose, Lipid Panel)"
+      "matched_claim_text": "(Hemoglobin A1c, Fasting Blood Glucose, Lipid Panel)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "personalized advice (for nutritionist referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: That's why I'm referring you to a nutritionist, Dr. Leslie Green. She can help you with meal planning and give you more personalized advice.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Refer patient to a nutritionist for meal planning and personalized advice"
+      "matched_claim_text": "Refer patient to a nutritionist for meal planning and personalized advice",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Encourage patient to contact the doctor if they have any questions or concerns in the meantime",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In the meantime, if you have any questions or concerns, don't hesitate to contact me.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to contact the doctor if they have any questions or concerns in the meantime"
+      "matched_claim_text": "Encourage patient to contact the doctor if they have any questions or concerns in the meantime",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

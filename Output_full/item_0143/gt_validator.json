@@ -262,9 +262,9 @@
     "plan_alignment_score": 0.5728643216080402
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note captures the main clinical picture but has significant omissions that make it meaningfully incomplete. The most critical omission is the absence of \"Tobacco Use Disorder\" as a distinct diagnosis in the Assessment section, along with its supporting medical reasoning. Additionally, several important details regarding the patient's general appearance and respiratory effort are missing from the Objective section. The Subjective and Plan sections also lack specific details in the HPI, ROS denials, and patient education/counseling points. While the note is broadly usable, these gaps require careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note captures the main clinical picture but suffers from significant omissions, particularly the complete absence of \"Tobacco Use Disorder\" as a diagnosis in the Assessment section. It also lacks detailed patient education and counseling in the Plan and specific clinical observations and reasoning in other sections. While no unsupported additions were found, the numerous omissions materially reduce the note's completeness and clinical utility. The omission of many section headers also impacts readability.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -286,7 +286,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The section captures the chief complaints and main HPI elements, including persistent cough, weight loss, night sweats, and smoking history. However, it omits specific durations for some symptoms, the detailed impact on daily activities (household chores), and several denials from the Review of Systems (fever, hemoptysis, chest pain, nausea/vomiting, dizziness). The addition of \"weakness\" is supported by the transcript and does not affect the grade.",
+        "summary": "The Subjective section provides the chief complaints and a general history but omits specific details regarding symptom severity (severe cough), exact durations (5 months for cough), impact on daily activities (household chores), and several denied symptoms from the Review of Systems (e.g., fever, hemoptysis, chest pain, nausea, dizziness).",
         "omissions": [
           "Severity of cough (severe)",
           "Specific duration of cough (5 months)",
@@ -305,7 +305,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The vital signs are accurately captured. Most physical examination findings are present, but the section omits the description of the patient's general appearance as \"Thin, cachectic woman appearing older than stated age\" and the observation of \"use of accessory muscles\" for breathing, both of which are clinically significant. The omission of \"no organomegaly\" is minor.",
+        "summary": "The Objective section accurately reports vital signs and key respiratory findings. However, it omits important general appearance details (\"Thin, cachectic woman appearing older than stated age\") and a significant respiratory observation (\"use of accessory muscles observed\"), as well as the absence of organomegaly.",
         "omissions": [
           "General Appearance: 'Thin, cachectic woman appearing older than stated age'",
           "Respiratory: 'use of accessory muscles observed'",
@@ -316,7 +316,7 @@
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "This section has a major omission: \"Tobacco Use Disorder\" is not listed as a distinct diagnosis, nor is its detailed medical reasoning included. While smoking history is mentioned in the context of COPD, it is not elevated to a separate problem. The medical reasoning for COPD and Poor Nutritional Status is also significantly condensed, lacking specific supporting details from the Ground Truth.",
+        "summary": "This section has a major omission: the complete absence of \"Tobacco Use Disorder\" as a distinct diagnosis, despite the patient's significant smoking history. Additionally, the medical reasoning provided for COPD and Poor Nutritional Status is significantly less detailed than the Ground Truth, lacking specific supporting symptoms or contextual information.",
         "omissions": [
           "Specific diagnosis of 'Tobacco Use Disorder'",
           "Detailed medical reasoning for COPD: specific symptoms (dyspnea, use of accessory muscles)",
@@ -330,7 +330,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The core treatment plan, diagnostics, and referrals are present. However, the section omits several important patient education and counseling details for COPD, Tobacco Use Disorder, Poor Nutritional Status, and Physical Activity. It also misses the specific referral to Dr. John Smith, a pulmonologist, for smoking cessation. The addition regarding the exercise regimen referral is supported by the transcript and does not affect the grade.",
+        "summary": "The Plan section outlines the core medical treatments, diagnostics, and referrals. However, it notably omits detailed patient education and counseling for COPD, Tobacco Use Disorder, Poor Nutritional Status, and Physical Activity. Specific referral details, such as the mention of Dr. John Smith for smoking cessation and local food banks for nutritional assistance, are also missing.",
         "omissions": [
           "Patient Education and Counseling for COPD: 'Explained the diagnosis of COPD and its chronic nature. Discussed the importance of medication adherence and lifestyle changes.'",
           "Patient Education and Counseling for Tobacco Use Disorder: 'Strongly advised to quit smoking. Discussed the numerous health benefits of quitting and the increased risk of continuing to smoke.'",
@@ -351,16 +351,20 @@
     {
       "addition_text": "Weakness as a symptom",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I feel so weak. I can barely do my household chores, and my mobility has really decreased.",
+      "transcript_evidence": "I feel so weak.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Constitutional symptom — phenotype_phenotype — Night sweats"
     },
     {
       "addition_text": "'exercise regimen' included in the referral for community resources for nutritional assistance",
       "supported_by_transcript": "supported",
       "transcript_evidence": "For your nutritional status, I'll refer you to community resources for nutritional assistance, including local food banks that may provide healthier food options. [...] I'll also encourage you to start a gradual walking exercise regimen to improve your endurance and overall health.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Refer for community resources for nutritional assistance and exercise regimen"
+      "matched_claim_text": "Refer for community resources for nutritional assistance and exercise regimen",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

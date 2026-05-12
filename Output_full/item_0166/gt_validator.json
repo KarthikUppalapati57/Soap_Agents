@@ -237,76 +237,84 @@
     "plan_alignment_score": 0.7225130890052356
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions across the Subjective, Assessment, and Plan sections. Key missing elements include the Chief Complaint, detailed Review of Systems, formal diagnoses for chronic conditions, and critical patient education regarding medication specifics and potential side effects of Atorvastatin. While the Objective section is mostly complete, the substantial gaps in other sections reduce the overall clinical usefulness and completeness of the note.",
+    "model": "expert-clinical-documentation-reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness. Key information missing includes the Chief Complaint, detailed History of Present Illness, and the entire Review of Systems in the Subjective section. The Assessment section notably omits the explicit diagnoses for hyperlipidemia, hypertension, and type 2 diabetes mellitus. Additionally, the Plan section lacks specific medication details and critical patient education regarding potential side effects of a new medication. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint: Routine check-up",
-      "HPI: Denials of specific acute symptoms (chest pain, dizziness, shortness of breath)",
-      "HPI: Primary concern to maintain overall health",
-      "ROS: General - occasional difficulty falling asleep",
-      "ROS: General - no weight changes noted",
-      "ROS: Cardiovascular - no chest pain, palpitations, or edema",
-      "ROS: Respiratory - no shortness of breath or cough",
-      "ROS: Gastrointestinal - no abdominal pain, nausea, or changes in bowel habits",
-      "ROS: Musculoskeletal - no joint pain or muscle weakness",
-      "ROS: Neurological - no headaches, dizziness, or changes in vision",
-      "Physical Exam: Capillary refill <2 seconds",
-      "Physical Exam: Well-nourished appearance",
-      "Assessment: Diagnosis of Hyperlipidemia",
+      "HPI: known history of hypertension and Type 2 Diabetes Mellitus",
+      "HPI: denies experiencing any acute symptoms, such as chest pain, dizziness, or shortness of breath",
+      "HPI: primary concern is to maintain his overall health and manage his chronic conditions effectively",
+      "Review of Systems (ROS) section",
+      "ROS: occasional difficulty falling asleep",
+      "ROS: no weight changes noted",
+      "ROS: no chest pain, palpitations, or edema (cardiovascular)",
+      "ROS: no shortness of breath or cough (respiratory)",
+      "ROS: no abdominal pain, nausea, or changes in bowel habits (gastrointestinal)",
+      "ROS: no joint pain or muscle weakness (musculoskeletal)",
+      "ROS: no headaches, dizziness, or changes in vision (neurological)",
+      "Objective: Physical Exam: capillary refill <2 seconds",
+      "Objective: Physical Exam: Well-nourished",
+      "Assessment: Diagnosis of Hyperlipidemia, unspecified",
       "Assessment: Diagnosis of Hypertension",
       "Assessment: Diagnosis of Type 2 Diabetes Mellitus",
-      "Plan: Atorvastatin medication details (oral, for 90 days, quantity: 90 tablets)",
-      "Plan: Metformin medication details (500 mg, oral, twice daily for diabetes)",
-      "Plan: Lisinopril medication details (10 mg, oral, once daily for hypertension)",
-      "Plan: Purpose of lipid panel recheck (to assess effectiveness of lifestyle changes and statin therapy)",
-      "Plan: General frequency for hypertension and diabetes monitoring (regular follow-up every 3-6 months)",
-      "Plan: Patient education on importance of adhering to medication and lifestyle modifications",
-      "Plan: Patient education on potential side effects of Atorvastatin (muscle pain, liver enzyme changes) and advice to report unusual symptoms"
+      "Plan: Atorvastatin medication details: oral, for 90 days, quantity: 90 tablets",
+      "Plan: Metformin medication details: 500 mg, oral, twice daily for diabetes",
+      "Plan: Lisinopril medication details: 10 mg, oral, once daily for hypertension",
+      "Plan: Follow-up purpose for lipid panel recheck: to assess the effectiveness of the lifestyle changes and statin therapy",
+      "Plan: Follow-up frequency for hypertension and diabetes monitoring: Regular follow-up every 3-6 months",
+      "Plan: Patient Education: importance of adhering to prescribed medication and lifestyle modifications",
+      "Plan: Patient Education: potential side effects of Atorvastatin (muscle pain, liver enzyme changes) and advice to report unusual symptoms immediately"
     ],
     "additions": [
-      "Subjective: The patient reports feeling well and denies any new issues or concerns since the last visit",
+      "Subjective: The patient reports feeling well",
+      "Subjective: denies any new issues or concerns since the last visit",
       "Assessment: The patient is currently managing their hypertension and diabetes effectively as per self-report",
-      "Assessment: The addition of Atorvastatin for hyperlipidemia is recommended"
+      "Assessment: The addition of Atorvastatin for hyperlipidemia is recommended",
+      "Plan: Atorvastatin medication specified 'for hyperlipidemia'",
+      "Plan: Metformin and Lisinopril medication specified 'as prescribed'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section is significantly incomplete, omitting the Chief Complaint, detailed denials from the History of Present Illness, and a comprehensive Review of Systems. These omissions make the section meaningfully incomplete.",
+        "grade": "D",
+        "summary": "This section has major omissions, including the Chief Complaint, significant details from the History of Present Illness (known conditions, denial of acute symptoms, patient's primary concern), and the complete absence of the Review of Systems section. These gaps make the subjective account substantially incomplete.",
         "omissions": [
           "Chief Complaint: Routine check-up",
-          "HPI: Denials of specific acute symptoms (chest pain, dizziness, shortness of breath)",
-          "HPI: Primary concern to maintain overall health",
-          "ROS: General - occasional difficulty falling asleep",
-          "ROS: General - no weight changes noted",
-          "ROS: Cardiovascular - no chest pain, palpitations, or edema",
-          "ROS: Respiratory - no shortness of breath or cough",
-          "ROS: Gastrointestinal - no abdominal pain, nausea, or changes in bowel habits",
-          "ROS: Musculoskeletal - no joint pain or muscle weakness",
-          "ROS: Neurological - no headaches, dizziness, or changes in vision"
+          "HPI: known history of hypertension and Type 2 Diabetes Mellitus",
+          "HPI: denies experiencing any acute symptoms, such as chest pain, dizziness, or shortness of breath",
+          "HPI: primary concern is to maintain his overall health and manage his chronic conditions effectively",
+          "Review of Systems (ROS) section",
+          "ROS: occasional difficulty falling asleep",
+          "ROS: no weight changes noted",
+          "ROS: no chest pain, palpitations, or edema (cardiovascular)",
+          "ROS: no shortness of breath or cough (respiratory)",
+          "ROS: no abdominal pain, nausea, or changes in bowel habits (gastrointestinal)",
+          "ROS: no joint pain or muscle weakness (musculoskeletal)",
+          "ROS: no headaches, dizziness, or changes in vision (neurological)"
         ],
         "additions": [
-          "The patient reports feeling well and denies any new issues or concerns since the last visit"
+          "The patient reports feeling well",
+          "denies any new issues or concerns since the last visit"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely accurate, with only minor omissions regarding capillary refill and general appearance. The core vital signs and major physical exam findings are present.",
+        "summary": "This section is well-captured with only minor omissions, specifically 'capillary refill <2 seconds' and 'Well-nourished' from the Physical Exam. These do not significantly impact the clinical utility of the section.",
         "omissions": [
-          "Physical Exam: Capillary refill <2 seconds",
-          "Physical Exam: Well-nourished appearance"
+          "Physical Exam: capillary refill <2 seconds",
+          "Physical Exam: Well-nourished"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section has major omissions, failing to explicitly state the formal diagnoses for Hyperlipidemia, Hypertension, and Type 2 Diabetes Mellitus. This materially reduces the clinical usefulness of the section.",
+        "grade": "C",
+        "summary": "The Assessment section omits the explicit diagnoses for Hyperlipidemia, Hypertension, and Type 2 Diabetes Mellitus. While the conditions are referenced indirectly, the absence of formal diagnoses represents a noticeable gap in clinical documentation.",
         "omissions": [
-          "Diagnosis of Hyperlipidemia",
+          "Diagnosis of Hyperlipidemia, unspecified",
           "Diagnosis of Hypertension",
           "Diagnosis of Type 2 Diabetes Mellitus"
         ],
@@ -317,18 +325,21 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions, including specific medication details (route, duration, quantity), the purpose of the lipid panel recheck, general follow-up frequency for chronic conditions, and crucial patient education regarding medication adherence and potential side effects of Atorvastatin. These omissions make the plan meaningfully incomplete and less safe.",
+        "grade": "B",
+        "summary": "This section has several minor omissions regarding specific medication details (duration, quantity) and the purpose of the lipid panel recheck. A moderate issue is the omission of crucial patient education regarding the potential side effects of Atorvastatin, a newly prescribed medication.",
         "omissions": [
-          "Atorvastatin medication details (oral, for 90 days, quantity: 90 tablets)",
-          "Metformin medication details (500 mg, oral, twice daily for diabetes)",
-          "Lisinopril medication details (10 mg, oral, once daily for hypertension)",
-          "Purpose of lipid panel recheck (to assess effectiveness of lifestyle changes and statin therapy)",
-          "General frequency for hypertension and diabetes monitoring (regular follow-up every 3-6 months)",
-          "Patient education on importance of adhering to medication and lifestyle modifications",
-          "Patient education on potential side effects of Atorvastatin (muscle pain, liver enzyme changes) and advice to report unusual symptoms"
+          "Atorvastatin medication details: oral, for 90 days, quantity: 90 tablets",
+          "Metformin medication details: 500 mg, oral, twice daily for diabetes",
+          "Lisinopril medication details: 10 mg, oral, once daily for hypertension",
+          "Follow-up purpose for lipid panel recheck: to assess the effectiveness of the lifestyle changes and statin therapy",
+          "Follow-up frequency for hypertension and diabetes monitoring: Regular follow-up every 3-6 months",
+          "Patient Education: importance of adhering to prescribed medication and lifestyle modifications",
+          "Patient Education: potential side effects of Atorvastatin (muscle pain, liver enzyme changes) and advice to report unusual symptoms immediately"
         ],
-        "additions": []
+        "additions": [
+          "Atorvastatin medication specified 'for hyperlipidemia'",
+          "Metformin and Lisinopril medication specified 'as prescribed'"
+        ]
       }
     ],
     "rubric_notes": null
@@ -336,46 +347,112 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: The patient reports feeling well and denies any new issues or concerns since the last visit",
+      "addition_text": "Subjective: The patient reports feeling well",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Hi doctor, I'm doing well, thank you. Just here for my routine check-up. [doctor] Great to hear. So, how have you been feeling? Any new issues or concerns? [patient] Not really. No, none of those.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports feeling well and denies any new issues or concerns since the last visit."
+      "matched_claim_text": "The patient reports feeling well and denies any new issues or concerns since the last visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Subjective: denies any new issues or concerns since the last visit",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Hi doctor, I'm doing well, thank you. Just here for my routine check-up. [doctor] Great to hear. So, how have you been feeling? Any new issues or concerns? [patient] Not really. No, none of those.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient reports feeling well and denies any new issues or concerns since the last visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: The patient is currently managing their hypertension and diabetes effectively as per self-report",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I just want to make sure I'm managing my hypertension and diabetes properly.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is currently managing their hypertension and diabetes effectively as per self-report."
+      "matched_claim_text": "The patient is currently managing their hypertension and diabetes effectively as per self-report.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: The addition of Atorvastatin for hyperlipidemia is recommended",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Now, I'm going to add Atorvastatin 20 mg once daily for your hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The addition of Atorvastatin for hyperlipidemia is recommended."
+      "matched_claim_text": "The addition of Atorvastatin for hyperlipidemia is recommended.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "The patient reports feeling well and denies any new issues or concerns since the last visit",
+      "addition_text": "Plan: Atorvastatin medication specified 'for hyperlipidemia'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Now, I'm going to add Atorvastatin 20 mg once daily for your hyperlipidemia.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Medication: Add Atorvastatin 20 mg once daily for hyperlipidemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Metformin and Lisinopril medication specified 'as prescribed'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Are you still taking Metformin 500 mg twice daily for your diabetes? [patient] Yes, I am. [doctor] And Lisinopril 10 mg once daily for hypertension? [patient] Yes, that too.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue Metformin and Lisinopril as prescribed.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Lisinopril — indication — hypertension"
+    },
+    {
+      "addition_text": "The patient reports feeling well",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Hi doctor, I'm doing well, thank you. Just here for my routine check-up. [doctor] Great to hear. So, how have you been feeling? Any new issues or concerns? [patient] Not really. No, none of those.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports feeling well and denies any new issues or concerns since the last visit."
+      "matched_claim_text": "The patient reports feeling well and denies any new issues or concerns since the last visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "denies any new issues or concerns since the last visit",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Hi doctor, I'm doing well, thank you. Just here for my routine check-up. [doctor] Great to hear. So, how have you been feeling? Any new issues or concerns? [patient] Not really. No, none of those.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient reports feeling well and denies any new issues or concerns since the last visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "The patient is currently managing their hypertension and diabetes effectively as per self-report",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I just want to make sure I'm managing my hypertension and diabetes properly.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is currently managing their hypertension and diabetes effectively as per self-report."
+      "matched_claim_text": "The patient is currently managing their hypertension and diabetes effectively as per self-report.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "The addition of Atorvastatin for hyperlipidemia is recommended",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Now, I'm going to add Atorvastatin 20 mg once daily for your hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The addition of Atorvastatin for hyperlipidemia is recommended."
+      "matched_claim_text": "The addition of Atorvastatin for hyperlipidemia is recommended.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Atorvastatin medication specified 'for hyperlipidemia'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Now, I'm going to add Atorvastatin 20 mg once daily for your hyperlipidemia.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Medication: Add Atorvastatin 20 mg once daily for hyperlipidemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Metformin and Lisinopril medication specified 'as prescribed'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Are you still taking Metformin 500 mg twice daily for your diabetes? [patient] Yes, I am. [doctor] And Lisinopril 10 mg once daily for hypertension? [patient] Yes, that too.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue Metformin and Lisinopril as prescribed.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Lisinopril — indication — hypertension"
     }
   ]
 }

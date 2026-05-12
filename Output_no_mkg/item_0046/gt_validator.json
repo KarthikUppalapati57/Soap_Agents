@@ -321,66 +321,58 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, core HPI, vital signs, physical examination findings, lab results, assessment, and primary plan components. However, there are several omissions, including important contextual details in the Subjective section (e.g., sleep quality, diet, exercise, substance use), the pending iron studies in the Objective section, and crucial patient education regarding iron supplement absorption in the Plan section. Despite these moderate and minor omissions, the note remains a useful clinical document, and there are no unsupported additions.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key HPI elements, vital signs, physical exam findings, lab results, assessment, and most of the plan. However, the note has several minor and a few moderate omissions. These include details about the impact of symptoms on daily life, social history regarding tobacco/alcohol/drugs, the fact that iron studies are awaiting, and the important patient instruction to take iron supplements with vitamin C to enhance absorption. There are no unsupported or unknown additions that would negatively impact the grade.",
     "omissions": [
       "Patient's occupation (office manager)",
-      "Symptoms significantly impacted ability to perform routine tasks at work and home",
+      "Symptoms are constant and significantly impacted her ability to perform routine tasks at work and home",
       "Sleep patterns relatively unchanged, averaging 6-7 hours per night, but still feels unrested",
-      "Diet is average but includes a high intake of sugar",
-      "Admits to rarely exercising due to a busy schedule",
+      "Diet is average (in HPI context)",
+      "Rarely exercising due to a busy schedule",
       "No use of tobacco, drugs, and only occasional alcohol consumption (2-3 glasses of wine per week)",
       "Enjoys reading and watching movies in her spare time",
-      "Denial of weight changes (from ROS Constitutional)",
-      "Denial of cough (from ROS Respiratory)",
-      "Denial of wheezing (from ROS Respiratory)",
-      "Denial of shortness of breath at rest (from ROS Respiratory)",
-      "Pale conjunctiva (from Physical Examination)",
-      "No wheezing or crackles in lungs (from Physical Examination)",
-      "Awaiting iron studies results (from Laboratory Results)",
-      "Advised patient to take iron supplements with vitamin C or orange juice to enhance absorption",
-      "Provided a list of iron-rich foods",
-      "Patient was cooperative and eager to follow medical recommendations",
-      "Patient understood the need for follow-up and agreed to the referral and prescribed treatment"
+      "Denies weight changes (ROS Constitutional)",
+      "Denies cough, wheezing, or shortness of breath at rest (ROS Respiratory)",
+      "Respiratory exam finding: no wheezing or crackles",
+      "Lab results: Awaiting results: Iron studies to assess for iron deficiency",
+      "Instruction to take iron supplements with vitamin C or orange juice to enhance absorption",
+      "Patient was cooperative and eager to follow medical recommendations, understood the need for follow-up, and agreed to the referral and prescribed treatment"
     ],
     "additions": [
-      "\"The patient is presenting with symptoms consistent with\" (in Assessment section)"
+      "Assessment phrasing: \"The patient is presenting with symptoms consistent with\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section has noticeable omissions, including important details about the patient's sleep quality, diet, exercise habits, and substance use (alcohol, tobacco, drugs), which are relevant for a comprehensive history. While the chief complaint and main HPI symptoms are present, the missing contextual information makes the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete, capturing the chief complaint and many HPI and ROS details. However, it omits several minor details such as the patient's occupation, specific leisure activities, and denials of weight changes or specific respiratory symptoms at rest. More significantly, it omits the impact of symptoms on the patient's ability to perform routine tasks and key social history regarding tobacco, drug, and alcohol use, which are moderate omissions.",
         "omissions": [
           "Patient's occupation (office manager)",
-          "Symptoms significantly impacted ability to perform routine tasks at work and home",
+          "Symptoms are constant and significantly impacted her ability to perform routine tasks at work and home",
           "Sleep patterns relatively unchanged, averaging 6-7 hours per night, but still feels unrested",
-          "Diet is average but includes a high intake of sugar",
-          "Admits to rarely exercising due to a busy schedule",
+          "Diet is average (in HPI context)",
+          "Rarely exercising due to a busy schedule",
           "No use of tobacco, drugs, and only occasional alcohol consumption (2-3 glasses of wine per week)",
           "Enjoys reading and watching movies in her spare time",
-          "Denial of weight changes (from ROS Constitutional)",
-          "Denial of cough (from ROS Respiratory)",
-          "Denial of wheezing (from ROS Respiratory)",
-          "Denial of shortness of breath at rest (from ROS Respiratory)"
+          "Denies weight changes (ROS Constitutional)",
+          "Denies cough, wheezing, or shortness of breath at rest (ROS Respiratory)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly complete, accurately capturing vital signs, physical examination findings, and key lab results. However, it omits the detail that iron studies results are still awaiting, which is a moderate omission regarding the completeness of the lab workup. Minor physical exam findings like 'pale conjunctiva' and 'no wheezing or crackles' were also omitted.",
+        "summary": "The Objective section accurately reports all vital signs, physical examination findings, and critical lab results (hemoglobin and hematocrit). A minor omission is the explicit mention of 'no wheezing or crackles' in the respiratory exam, though 'clear lungs bilaterally' implies this. A moderate omission is the detail that iron studies are 'awaiting results to assess for iron deficiency', which provides important context for the diagnostic process.",
         "omissions": [
-          "Pale conjunctiva (from Physical Examination)",
-          "No wheezing or crackles in lungs (from Physical Examination)",
-          "Awaiting iron studies results (from Laboratory Results)"
+          "Respiratory exam finding: no wheezing or crackles",
+          "Lab results: Awaiting results: Iron studies to assess for iron deficiency"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately and completely stating the diagnosis of Acute Posthemorrhagic Anemia without any omissions. The minor addition present was supported by the transcript and therefore did not impact the grade.",
+        "summary": "The Assessment section is accurate and complete, correctly identifying 'Acute Posthemorrhagic Anemia'. The addition of 'The patient is presenting with symptoms consistent with' is supported by the transcript and does not reduce the grade.",
         "omissions": [],
         "additions": [
           "\"The patient is presenting with symptoms consistent with\""
@@ -389,12 +381,10 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures all major treatment, follow-up, and referral recommendations. However, it omits the important patient education detail about taking iron supplements with vitamin C or orange juice to enhance absorption, which is a moderate omission impacting treatment efficacy. Minor omissions include details about providing a list of iron-rich foods and the patient's agreement to the plan.",
+        "summary": "The Plan section is largely comprehensive, including medical treatment, follow-up, referral, and lifestyle changes. However, it omits the crucial patient instruction to take iron supplements with vitamin C or orange juice to enhance absorption, which is a moderate clinical omission impacting treatment efficacy. A minor omission is the documentation of patient cooperation and understanding of the plan.",
         "omissions": [
           "Advised patient to take iron supplements with vitamin C or orange juice to enhance absorption",
-          "Provided a list of iron-rich foods",
-          "Patient was cooperative and eager to follow medical recommendations",
-          "Patient understood the need for follow-up and agreed to the referral and prescribed treatment"
+          "Patient was cooperative and eager to follow medical recommendations, understood the need for follow-up, and agreed to the referral and prescribed treatment"
         ],
         "additions": []
       }
@@ -404,18 +394,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"The patient is presenting with symptoms consistent with\" (in Assessment section)",
+      "addition_text": "Assessment phrasing: \"The patient is presenting with symptoms consistent with\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It indicates that you have anemia, most likely acute posthemorrhagic anemia. This could explain your fatigue and dizziness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is presenting with symptoms consistent with acute posthemorrhagic anemia."
+      "matched_claim_text": "The patient is presenting with symptoms consistent with acute posthemorrhagic anemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"The patient is presenting with symptoms consistent with\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It indicates that you have anemia, most likely acute posthemorrhagic anemia. This could explain your fatigue and dizziness.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is presenting with symptoms consistent with acute posthemorrhagic anemia."
+      "matched_claim_text": "The patient is presenting with symptoms consistent with acute posthemorrhagic anemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

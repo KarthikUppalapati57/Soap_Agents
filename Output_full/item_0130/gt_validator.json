@@ -249,9 +249,9 @@
     "plan_alignment_score": 0.7363636363636363
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps in the Subjective and Assessment sections, which make it meaningfully incomplete. Key omissions include the patient's known history of hypertension and hyperlipidemia, family history details in the Subjective, and the diagnosis of hyperlipidemia in the Assessment. While the Objective and Plan sections are well-captured with only minor omissions, the multiple moderate issues in other sections prevent a higher overall grade. All additions were supported by the transcript and did not negatively impact the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the chief complaint, present illness, objective findings, and a comprehensive plan. However, it omits several moderate details, including the patient's known history of hypertension and hyperlipidemia, family history of heart disease and Type 2 diabetes in the Subjective section, and the explicit diagnosis of Hyperlipidemia in the Assessment. Additionally, there are numerous minor omissions across all sections, primarily concerning specific details in ROS, physical exam, and patient education/agreement. No unsupported or unknown additions were identified.",
     "omissions": [
       "oral administration for Atorvastatin",
       "30 tablets quantity for Atorvastatin",
@@ -279,8 +279,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of the patient's known history of hypertension and hyperlipidemia, as well as the detailed family history of heart disease and Type 2 diabetes. Additionally, several denials from the Review of Systems (shortness of breath, nausea/vomiting/abdominal pain, dizziness/syncope, weight loss/fever) were omitted, making the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section omits the patient's known history of hypertension and hyperlipidemia, and the family history of heart disease and Type 2 diabetes. Several minor Review of Systems denials (shortness of breath, nausea/vomiting/abdominal pain, dizziness/syncope, weight loss/fever) are also missing.",
         "omissions": [
           "Known history of hypertension and hyperlipidemia",
           "Denies chest pain or discomfort (from ROS)",
@@ -295,7 +295,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-captured. The omissions are minor, including general physical exam findings (well-groomed, no distress), the cardiovascular finding of 'regular rate and rhythm', and the EKG finding of 'Normal sinus rhythm'. These do not significantly impact the clinical usefulness of the section.",
+        "summary": "The Objective section is largely complete. Minor omissions include the general physical exam findings (\"Well-groomed, no distress\"), the explicit mention of \"regular rate and rhythm\" for cardiovascular exam, and \"Normal sinus rhythm\" for the EKG.",
         "omissions": [
           "General physical exam findings (Well-groomed, no distress)",
           "Cardiovascular exam finding: regular rate and rhythm",
@@ -305,8 +305,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "This section has a moderate omission: the diagnosis of 'Hyperlipidemia' is missing. While the detail 'of native coronary artery' for atherosclerotic heart disease was also omitted, the absence of a primary diagnosis like hyperlipidemia makes this section noticeably incomplete. All additions in this section were supported by the transcript and did not lower the grade.",
+        "grade": "B",
+        "summary": "The Assessment section omits \"Hyperlipidemia\" as a distinct diagnosis and the specific detail \"of native coronary artery\" for the atherosclerotic heart disease diagnosis. No unsupported or unknown additions were identified.",
         "omissions": [
           "\"of native coronary artery\" (for atherosclerotic heart disease)",
           "Hyperlipidemia (as a diagnosis)"
@@ -321,7 +321,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "This section is comprehensive and clinically useful. The omissions are minor details, such as the 'oral' administration and '30 tablets' quantity for Atorvastatin, specific phrasing about hydration/dietary changes for cholesterol, and details regarding patient education material provision and patient agreements. These do not detract from the core treatment and lifestyle plan.",
+        "summary": "The Plan section is comprehensive, capturing all major treatment and lifestyle recommendations. Minor omissions include the \"oral\" administration and \"30 tablets\" quantity for Atorvastatin, the explicit encouragement of hydration, and detailed statements regarding providing educational material and patient agreement/motivation.",
         "omissions": [
           "\"oral\" administration for Atorvastatin",
           "\"30 tablets\" quantity for Atorvastatin",
@@ -344,42 +344,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's been controlled with Losartan 50 mg daily. [doctor] Your blood pressure is controlled with your current medication...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Well-managed hypertension with Losartan 50 mg daily"
+      "matched_claim_text": "Well-managed hypertension with Losartan 50 mg daily",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "pulmonary hypertension, primary, autosomal recessive — disease_phenotype_positive — Angina pectoris"
     },
     {
       "addition_text": "\"Pending lipid panel results\" (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Not recently, I think we're waiting on those results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending lipid panel results"
+      "matched_claim_text": "Pending lipid panel results",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Well-managed\" for hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's been controlled with Losartan 50 mg daily. [doctor] Your blood pressure is controlled with your current medication...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Well-managed hypertension with Losartan 50 mg daily"
+      "matched_claim_text": "Well-managed hypertension with Losartan 50 mg daily",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "pulmonary hypertension, primary, autosomal recessive — disease_phenotype_positive — Angina pectoris"
     },
     {
       "addition_text": "\"with Losartan 50 mg daily\" (for hypertension)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's been controlled with Losartan 50 mg daily. [doctor] Your blood pressure is controlled with your current medication...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Well-managed hypertension with Losartan 50 mg daily"
+      "matched_claim_text": "Well-managed hypertension with Losartan 50 mg daily",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Pending lipid panel results\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Not recently, I think we're waiting on those results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending lipid panel results"
+      "matched_claim_text": "Pending lipid panel results",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Family history of heart disease and Type 2 diabetes\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see you have a family history of heart disease in your father and Type 2 diabetes in your mother. Is that correct? [patient] Yes, my father had heart disease and my mother has diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Family history of heart disease and Type 2 diabetes"
+      "matched_claim_text": "Family history of heart disease and Type 2 diabetes",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "pulmonary hypertension, primary, autosomal recessive — disease_phenotype_positive — Angina pectoris"
     }
   ]
 }

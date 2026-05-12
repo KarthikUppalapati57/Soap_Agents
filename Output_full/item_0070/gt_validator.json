@@ -264,46 +264,49 @@
     "plan_alignment_score": 0.7415730337078651
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it contains multiple moderate omissions that reduce its completeness. Key details such as the 'without complications' qualifier for Type 2 Diabetes Mellitus, the patient's family history as a diagnostic basis, the specific pulse findings, the rationale for ordering lab tests ('to establish baseline'), and the patient's agreement with the plan are missing. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete.",
+    "overall_summary": "The note is generally usable but has noticeable gaps, particularly in the Assessment section, where key diagnostic qualifiers (\"Newly diagnosed\", \"without complications\") and specific medication dosages for controlled conditions are omitted. The Plan also misses a specific dietary instruction. While there are no unsupported or unknown additions, the multiple moderate omissions in critical sections make the note meaningfully incomplete, justifying a C grade.",
     "omissions": [
-      "initial consultation",
-      "minimal but noticeable impact on his daily activities",
-      "patient occasionally goes for walks",
-      "no dysuria",
-      "no hematuria",
-      "pulses 2+ bilaterally",
-      "Type 2 diabetes mellitus without complications",
-      "family history as a basis for diabetes diagnosis",
-      "Lisinopril 10 mg daily",
-      "Atorvastatin 20 mg daily",
-      "oral administration for Metformin",
-      "biochemistry for lab tests",
-      "to establish baseline for lab tests",
-      "The patient understands and agrees with the recommended medical treatment plan"
+      "initial consultation (from Chief Complaint)",
+      "minimal but noticeable impact on daily activities (from HPI)",
+      "No dysuria (from ROS Urinary)",
+      "No hematuria (from ROS Urinary)",
+      "to auscultation bilaterally (from Respiratory exam)",
+      "pulses 2+ bilaterally (from Extremities exam)",
+      "without complications (for Type 2 diabetes mellitus)",
+      "Newly diagnosed (for Type 2 diabetes mellitus)",
+      "family history (as a basis for Type 2 diabetes mellitus diagnosis)",
+      "10 mg daily (Lisinopril dosage)",
+      "20 mg daily (Atorvastatin dosage)",
+      "oral (for Metformin)",
+      "elimination of sugary drinks (from dietary changes)",
+      "Order (for lab tests)",
+      "biochemistry (for lipid panel)",
+      "to establish baseline (for lab tests)",
+      "The patient understands and agrees with the recommended medical treatment plan."
     ],
     "additions": [
-      "Increased thirst mostly in the afternoons and evenings",
-      "physical exam findings as a basis for diabetes diagnosis",
-      "for diabetes management (added to Metformin initiation)",
-      "diabetes management progress (added to follow-up re-evaluation)",
-      "immediately (added to contact clinic instruction)",
-      "Prescribe Metformin and provide referral for Ms. Sarah Johnson, RD",
-      "Schedule follow-up appointment in 3 months for recheck"
+      "Increased thirst mostly in the afternoons and evenings (specific timing detail)",
+      "suspected (for Type 2 diabetes mellitus)",
+      "physical exam findings (as a basis for Type 2 diabetes mellitus diagnosis)",
+      "for diabetes management (for Metformin initiation)",
+      "fasting glucose, lipid panel, and diabetes management progress (added to follow-up re-evaluation scope)",
+      "immediately (for contacting clinic)",
+      "Prescribe Metformin and provide referral for Ms. Sarah Johnson, RD (summary statement)",
+      "Schedule follow-up appointment in 3 months for recheck (repetition)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The Subjective section is well-captured with only minor omissions, including the context of 'initial consultation', the 'minimal but noticeable impact on his daily activities', and specific ROS denials for 'dysuria' and 'hematuria'. All additions in this section were supported by the transcript.",
+        "summary": "The Subjective section has a few minor omissions regarding the chief complaint context, HPI detail, and specific ROS negatives. However, it accurately captures the main subjective complaints and history, with no penalizable additions.",
         "omissions": [
           "initial consultation",
-          "minimal but noticeable impact on his daily activities",
-          "patient occasionally goes for walks",
-          "no dysuria",
-          "no hematuria"
+          "minimal but noticeable impact on daily activities",
+          "No dysuria",
+          "No hematuria"
         ],
         "additions": [
           "Increased thirst mostly in the afternoons and evenings"
@@ -311,9 +314,10 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has one moderate omission: the specific finding of 'pulses 2+ bilaterally'. Other objective findings are accurately documented, and there were no unsupported or unknown additions.",
+        "grade": "A",
+        "summary": "The Objective section is missing minor descriptive details from the physical examination findings but otherwise accurately reflects the objective findings, with no penalizable additions.",
         "omissions": [
+          "to auscultation bilaterally",
           "pulses 2+ bilaterally"
         ],
         "additions": []
@@ -321,31 +325,35 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has several notable omissions. The qualifier 'without complications' for Type 2 Diabetes Mellitus is a moderate omission, as is the absence of 'family history' as a basis for the diagnosis. Additionally, the specific dosages for 'Lisinopril 10 mg daily' and 'Atorvastatin 20 mg daily' were omitted. While an addition regarding physical exam findings as a diagnostic basis was supported, the missing clinical details significantly impact the completeness of the assessment.",
+        "summary": "This section has several moderate omissions, including key qualifiers for the Type 2 diabetes mellitus diagnosis (\"without complications\", \"Newly diagnosed\") and the specific dosages for controlled hypertension and hyperlipidemia. The omission of \"family history\" as a basis for diagnosis also reduces completeness. These omissions make the assessment less precise and complete than the ground truth.",
         "omissions": [
-          "without complications (for Type 2 DM)",
-          "family history as a basis for diabetes diagnosis",
-          "Lisinopril 10 mg daily",
-          "Atorvastatin 20 mg daily"
+          "without complications",
+          "Newly diagnosed",
+          "family history",
+          "10 mg daily (Lisinopril dosage)",
+          "20 mg daily (Atorvastatin dosage)"
         ],
         "additions": [
-          "physical exam findings as a basis for diabetes diagnosis"
+          "suspected",
+          "physical exam findings"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section contains two moderate omissions: the purpose of lab tests ('to establish baseline') and the crucial statement that 'The patient understands and agrees with the recommended medical treatment plan'. Minor omissions include the 'oral administration' route for Metformin and 'biochemistry' for lab tests. All additions in this section were supported by the transcript, but the moderate omissions reduce the overall completeness and clarity of the plan.",
+        "summary": "The Plan section has one moderate omission regarding a specific dietary recommendation (\"elimination of sugary drinks\") and several minor omissions related to medication administration route, lab test details, and patient agreement. The core plan is present, but these gaps reduce its completeness.",
         "omissions": [
-          "oral administration for Metformin",
-          "biochemistry for lab tests",
-          "to establish baseline for lab tests",
-          "The patient understands and agrees with the recommended medical treatment plan"
+          "oral",
+          "elimination of sugary drinks",
+          "Order (for lab tests)",
+          "biochemistry (for lipid panel)",
+          "to establish baseline (for lab tests)",
+          "The patient understands and agrees with the recommended medical treatment plan."
         ],
         "additions": [
-          "for diabetes management (added to Metformin initiation)",
-          "diabetes management progress (added to follow-up re-evaluation)",
-          "immediately (added to contact clinic instruction)",
+          "for diabetes management",
+          "fasting glucose, lipid panel, and diabetes management progress (added to follow-up re-evaluation scope)",
+          "immediately (for contacting clinic)",
           "Prescribe Metformin and provide referral for Ms. Sarah Johnson, RD",
           "Schedule follow-up appointment in 3 months for recheck"
         ]
@@ -356,53 +364,130 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
+      "addition_text": "Increased thirst mostly in the afternoons and evenings (specific timing detail)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] It's mostly in the afternoons and evenings. I just feel like I can't get enough water.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Increased thirst mostly in the afternoons and evenings.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "suspected (for Type 2 diabetes mellitus)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and physical exam, I'm leaning towards a diagnosis of type 2 diabetes mellitus.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Type 2 diabetes mellitus suspected based on symptoms and physical exam findings.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "physical exam findings (as a basis for Type 2 diabetes mellitus diagnosis)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and physical exam, I'm leaning towards a diagnosis of type 2 diabetes mellitus.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Type 2 diabetes mellitus suspected based on symptoms and physical exam findings.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "for diabetes management (for Metformin initiation)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Let's add Metformin 500 mg to your regimen, to be taken twice daily. ... Here's your prescription for Metformin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Plan to initiate Metformin 500 mg twice daily for diabetes management, and prescription was provided.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "fasting glucose, lipid panel, and diabetes management progress (added to follow-up re-evaluation scope)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Let's schedule a follow-up appointment in 3 months to re-evaluate your HbA1c levels and see how you're doing with these changes. We'll also need to run some lab tests, including HbA1c, fasting glucose, and a lipid panel to establish a baseline and monitor your diabetes management.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up in 3 months to re-evaluate HbA1c, fasting glucose, lipid panel, and diabetes management progress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "immediately (for contacting clinic)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If you experience any adverse effects or if your symptoms worsen, contact the clinic immediately.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Prescribe Metformin and provide referral for Ms. Sarah Johnson, RD (summary statement)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We'll also refer you to Ms. Sarah Johnson, a dietitian, who can help you with nutritional counseling. ... and a referral for Ms. Sarah Johnson, RD.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Plan to refer patient to Ms. Sarah Johnson, RD, a dietitian, for nutritional counseling, and referral was provided.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Schedule follow-up appointment in 3 months for recheck (repetition)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Let's schedule a follow-up appointment in 3 months to re-evaluate your HbA1c levels and see how you're doing with these changes. We'll also need to run some lab tests, including HbA1c, fasting glucose, and a lipid panel to establish a baseline and monitor your diabetes management.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up in 3 months to re-evaluate HbA1c, fasting glucose, lipid panel, and diabetes management progress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
       "addition_text": "Increased thirst mostly in the afternoons and evenings",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's mostly in the afternoons and evenings. I just feel like I can't get enough water.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increased thirst mostly in the afternoons and evenings."
+      "matched_claim_text": "Increased thirst mostly in the afternoons and evenings.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "physical exam findings as a basis for diabetes diagnosis",
+      "addition_text": "suspected",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, I'm leaning towards a diagnosis of type 2 diabetes mellitus.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Type 2 diabetes mellitus suspected based on symptoms and physical exam findings."
+      "matched_claim_text": "Type 2 diabetes mellitus suspected based on symptoms and physical exam findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "for diabetes management (added to Metformin initiation)",
+      "addition_text": "physical exam findings",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and physical exam, I'm leaning towards a diagnosis of type 2 diabetes mellitus.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Type 2 diabetes mellitus suspected based on symptoms and physical exam findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "for diabetes management",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Let's add Metformin 500 mg to your regimen, to be taken twice daily. ... Here's your prescription for Metformin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan to initiate Metformin 500 mg twice daily for diabetes management, and prescription was provided."
-    },
-    {
-      "addition_text": "diabetes management progress (added to follow-up re-evaluation)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Let's schedule a follow-up appointment in 3 months to re-evaluate your HbA1c levels and see how you're doing with these changes. We'll also need to run some lab tests, including HbA1c, fasting glucose, and a lipid panel to establish a baseline and monitor your diabetes management.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up in 3 months to re-evaluate HbA1c, fasting glucose, lipid panel, and diabetes management progress."
-    },
-    {
-      "addition_text": "immediately (added to contact clinic instruction)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] If you experience any adverse effects or if your symptoms worsen, contact the clinic immediately.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to contact the clinic immediately if experiencing adverse effects or worsening symptoms."
+      "matched_claim_text": "Plan to initiate Metformin 500 mg twice daily for diabetes management, and prescription was provided.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Prescribe Metformin and provide referral for Ms. Sarah Johnson, RD",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We'll also refer you to Ms. Sarah Johnson, a dietitian, who can help you with nutritional counseling. ... and a referral for Ms. Sarah Johnson, RD.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan to refer patient to Ms. Sarah Johnson, RD, a dietitian, for nutritional counseling, and referral was provided."
+      "matched_claim_text": "Plan to refer patient to Ms. Sarah Johnson, RD, a dietitian, for nutritional counseling, and referral was provided.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Schedule follow-up appointment in 3 months for recheck",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Let's schedule a follow-up appointment in 3 months to re-evaluate your HbA1c levels and see how you're doing with these changes. We'll also need to run some lab tests, including HbA1c, fasting glucose, and a lipid panel to establish a baseline and monitor your diabetes management.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up in 3 months to re-evaluate HbA1c, fasting glucose, lipid panel, and diabetes management progress."
+      "matched_claim_text": "Schedule follow-up in 3 months to re-evaluate HbA1c, fasting glucose, lipid panel, and diabetes management progress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

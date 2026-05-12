@@ -271,7 +271,180 @@
     "assessment_alignment_score": 0.29629629629629634,
     "plan_alignment_score": 0.4615384615384615
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Subjective'; got ['Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, but it has noticeable gaps, particularly in the Plan section. While there are no unsupported or unknown additions, several moderate omissions across Subjective, Objective, and Plan reduce the note's completeness and usefulness for comprehensive patient care and follow-up. Key missing details include specific symptom characteristics, important physical exam findings, and crucial patient education, monitoring, and safety instructions in the Plan.",
+    "omissions": [
+      "Chief Complaint: Chronic disease management",
+      "HPI: Known diagnosis of Hypertension",
+      "HPI: Known diagnosis of Type 2 Diabetes",
+      "HPI: Asthma uses Albuterol inhaler as needed",
+      "HPI: Specifics of dizziness (moderate, daily)",
+      "HPI: Specifics of shortness of breath (daily)",
+      "ROS: Constitutional (5-6 hours of sleep per night, difficulty staying asleep)",
+      "ROS: Cardiovascular (no chest pain)",
+      "ROS: Gastrointestinal (no abdominal pain, nausea, or vomiting)",
+      "ROS: Neurological (no headaches or visual disturbances)",
+      "ROS: General (no recent weight gain or loss)",
+      "Physical Exam: General (Appears tired, slight pallor)",
+      "Physical Exam: Respiratory (decreased breath sounds bilaterally)",
+      "Plan: Type 2 Diabetes monitoring (regular blood glucose log)",
+      "Plan: Specific pulmonologist name (Dr. Regina Davis)",
+      "Plan: Patient Education and Counseling (emphasized importance of medication adherence)",
+      "Plan: Patient Education and Counseling (discussed impact of diet and exercise on overall health)",
+      "Plan: Patient Education and Counseling (addressed concerns due to low health literacy by simplifying medical instructions and ensuring comprehension)",
+      "Plan: Community and Social Support (advised exploring local food banks and community gardens)",
+      "Plan: Community and Social Support (encouraged participation in community wellness programs to improve diet and physical activity)",
+      "Plan: Follow-up instruction (sooner if symptoms worsen)",
+      "Plan: Follow-up instruction (monitor symptoms and maintain log of blood pressure and blood glucose levels)",
+      "Concluding statement about patient's understanding and cooperation"
+    ],
+    "additions": [
+      "Subjective: Patient reports struggling with maintaining a healthy diet due to stress (as a subjective complaint)",
+      "Assessment: Lifestyle factors contributing to patient's symptoms (stress, poor diet, lack of physical activity)",
+      "Plan: Request Basic Metabolic Panel",
+      "Plan: Request Complete Blood Count"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete but omits several minor details such as known diagnoses for hypertension and type 2 diabetes, the use of an Albuterol inhaler, and various negative review of systems findings. More importantly, it omits the specific characteristics of dizziness ('moderate, daily') and shortness of breath ('daily'), as well as details about sleep (5-6 hours, difficulty staying asleep), which are moderate omissions affecting the granularity of the patient's presentation.",
+        "omissions": [
+          "Chief Complaint: Chronic disease management",
+          "HPI: Known diagnosis of Hypertension",
+          "HPI: Known diagnosis of Type 2 Diabetes",
+          "HPI: Asthma uses Albuterol inhaler as needed",
+          "HPI: Specifics of dizziness (moderate, daily)",
+          "HPI: Specifics of shortness of breath (daily)",
+          "ROS: Constitutional (5-6 hours of sleep per night, difficulty staying asleep)",
+          "ROS: Cardiovascular (no chest pain)",
+          "ROS: Gastrointestinal (no abdominal pain, nausea, or vomiting)",
+          "ROS: Neurological (no headaches or visual disturbances)",
+          "ROS: General (no recent weight gain or loss)"
+        ],
+        "additions": [
+          "Patient reports struggling with maintaining a healthy diet due to stress"
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "B",
+        "summary": "The Objective section accurately captures most vital signs and physical exam findings. However, it omits the general appearance ('Appears tired, slight pallor') and, more significantly, the respiratory finding of 'decreased breath sounds bilaterally,' which is a moderate omission of a clinically important observation.",
+        "omissions": [
+          "Physical Exam: General (Appears tired, slight pallor)",
+          "Physical Exam: Respiratory (decreased breath sounds bilaterally)"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section is excellent, with no omissions or unsupported/unknown additions. It accurately reflects the Ground Truth content.",
+        "omissions": [],
+        "additions": [
+          "Lifestyle factors contributing to patient's symptoms (stress, poor diet, lack of physical activity)"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "C",
+        "summary": "The Plan section has numerous omissions, several of which are moderate in clinical importance. While the core medical treatments and referrals are present, the note omits critical patient monitoring instructions (e.g., 'regular blood glucose log,' 'monitor symptoms and maintain log of blood pressure and blood glucose levels'), important patient education details (e.g., 'emphasized importance of medication adherence,' 'addressed concerns due to low health literacy'), and safety instructions ('sooner if symptoms worsen'). These omissions make the plan less comprehensive for patient self-management and follow-up.",
+        "omissions": [
+          "Type 2 Diabetes monitoring (regular blood glucose log)",
+          "Asthma: Referral to specific pulmonologist Dr. Regina Davis",
+          "Patient Education and Counseling: Emphasized the importance of medication adherence",
+          "Patient Education and Counseling: Discussed the impact of diet and exercise on overall health",
+          "Patient Education and Counseling: Addressed concerns due to low health literacy by simplifying medical instructions and ensuring comprehension",
+          "Community and Social Support: Advised exploring local food banks and community gardens",
+          "Community and Social Support: Encouraged participation in community wellness programs to improve diet and physical activity",
+          "Follow-Up Instructions: Follow up sooner if symptoms worsen",
+          "Follow-Up Instructions: Monitor symptoms and maintain a log of blood pressure and blood glucose levels",
+          "Concluding statement: Patient cooperative but seemed overwhelmed by medical instructions; thus, additional time was taken to ensure understanding and provide clear, manageable steps"
+        ],
+        "additions": [
+          "Request Basic Metabolic Panel",
+          "Request Complete Blood Count"
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Subjective: Patient reports struggling with maintaining a healthy diet due to stress (as a subjective complaint)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I'm feeling a bit overwhelmed, honestly. ... I still find it hard to manage household chores. ... I only get about 5-6 hours of sleep a night. It's hard to stay asleep. ... Not really, I've been stressed and eating poorly.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient feels overwhelmed and is struggling with managing household chores, sleeping, and maintaining a healthy diet due to stress.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: Lifestyle factors contributing to patient's symptoms (stress, poor diet, lack of physical activity)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Not really, I've been stressed and eating poorly. ... [Doctor]: I recommend seeking community resources to help improve your diet, focusing on reducing processed foods. Light indoor exercises can also help. ... Stress management techniques can be very beneficial for your overall health.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Lifestyle factors contributing to patient's symptoms (stress, poor diet, lack of physical activity).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Request Basic Metabolic Panel",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I'm going to order some tests, including a Basic Metabolic Panel and a Complete Blood Count. We'll also get a chest X-ray to evaluate your respiratory symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Request a chest X-ray, Basic Metabolic Panel, and Complete Blood Count.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Request Complete Blood Count",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I'm going to order some tests, including a Basic Metabolic Panel and a Complete Blood Count. We'll also get a chest X-ray to evaluate your respiratory symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Request a chest X-ray, Basic Metabolic Panel, and Complete Blood Count.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Patient reports struggling with maintaining a healthy diet due to stress",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I'm feeling a bit overwhelmed, honestly. ... I still find it hard to manage household chores. ... I only get about 5-6 hours of sleep a night. It's hard to stay asleep. ... Not really, I've been stressed and eating poorly.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient feels overwhelmed and is struggling with managing household chores, sleeping, and maintaining a healthy diet due to stress.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle factors contributing to patient's symptoms (stress, poor diet, lack of physical activity)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Not really, I've been stressed and eating poorly. ... [Doctor]: I recommend seeking community resources to help improve your diet, focusing on reducing processed foods. Light indoor exercises can also help. ... Stress management techniques can be very beneficial for your overall health.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Lifestyle factors contributing to patient's symptoms (stress, poor diet, lack of physical activity).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Request Basic Metabolic Panel",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I'm going to order some tests, including a Basic Metabolic Panel and a Complete Blood Count. We'll also get a chest X-ray to evaluate your respiratory symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Request a chest X-ray, Basic Metabolic Panel, and Complete Blood Count.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Request Complete Blood Count",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I'm going to order some tests, including a Basic Metabolic Panel and a Complete Blood Count. We'll also get a chest X-ray to evaluate your respiratory symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Request a chest X-ray, Basic Metabolic Panel, and Complete Blood Count.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

@@ -214,14 +214,53 @@ def _gt_validator_row(folder: Path, transcript: str) -> dict[str, object]:
 
     ev = d.get("addition_evidence")
     n_sup = n_unsup = n_unk = None
+    n_pk_sup = n_pk_unsup = n_pk_unk = None
+    n_tr_or_pk_sup = n_tr_unsup_pk_sup = n_both_unsup = None
     if isinstance(ev, list) and ev:
         n_sup = sum(1 for a in ev if isinstance(a, dict) and a.get("supported_by_transcript") == "supported")
         n_unsup = sum(1 for a in ev if isinstance(a, dict) and a.get("supported_by_transcript") == "unsupported")
         n_unk = sum(1 for a in ev if isinstance(a, dict) and a.get("supported_by_transcript") == "unknown")
+        n_pk_sup = sum(1 for a in ev if isinstance(a, dict) and a.get("supported_by_primekg") == "supported")
+        n_pk_unsup = sum(1 for a in ev if isinstance(a, dict) and a.get("supported_by_primekg") == "unsupported")
+        n_pk_unk = sum(
+            1
+            for a in ev
+            if isinstance(a, dict)
+            and a.get("supported_by_primekg") in ("unknown", None)
+        )
+        n_tr_or_pk_sup = sum(
+            1
+            for a in ev
+            if isinstance(a, dict)
+            and (
+                a.get("supported_by_transcript") == "supported"
+                or a.get("supported_by_primekg") == "supported"
+            )
+        )
+        n_tr_unsup_pk_sup = sum(
+            1
+            for a in ev
+            if isinstance(a, dict)
+            and a.get("supported_by_transcript") == "unsupported"
+            and a.get("supported_by_primekg") == "supported"
+        )
+        n_both_unsup = sum(
+            1
+            for a in ev
+            if isinstance(a, dict)
+            and a.get("supported_by_transcript") == "unsupported"
+            and a.get("supported_by_primekg") == "unsupported"
+        )
     row["n_addition_evidence_entries"] = len(ev) if isinstance(ev, list) else None
     row["n_additions_supported_by_transcript"] = n_sup
     row["n_additions_unsupported_by_transcript"] = n_unsup
     row["n_additions_unknown_by_transcript"] = n_unk
+    row["n_additions_supported_by_primekg"] = n_pk_sup
+    row["n_additions_unsupported_by_primekg"] = n_pk_unsup
+    row["n_additions_unknown_by_primekg"] = n_pk_unk
+    row["n_additions_supported_by_transcript_or_primekg"] = n_tr_or_pk_sup
+    row["n_additions_transcript_unsupported_primekg_supported"] = n_tr_unsup_pk_sup
+    row["n_additions_unsupported_by_transcript_and_primekg"] = n_both_unsup
 
     for key in list(d.keys()):
         if key.startswith("clinical_recall_") and isinstance(d[key], dict):
@@ -282,6 +321,12 @@ def main() -> None:
         "n_additions_unsupported_by_transcript",
         "n_additions_supported_by_transcript",
         "n_additions_unknown_by_transcript",
+        "n_additions_supported_by_primekg",
+        "n_additions_unsupported_by_primekg",
+        "n_additions_unknown_by_primekg",
+        "n_additions_supported_by_transcript_or_primekg",
+        "n_additions_transcript_unsupported_primekg_supported",
+        "n_additions_unsupported_by_transcript_and_primekg",
         "n_omissions_unsupported_by_transcript",
         "n_hallucinations_or_unjustified_inferences",
         "agent3_n_claims",

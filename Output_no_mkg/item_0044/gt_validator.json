@@ -285,95 +285,106 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the patient's chief complaints, key HPI elements, vital signs, and the main assessment and plan points. However, it has several omissions across all sections. Notable omissions include specific HPI details (shortness of breath, impact on mobility), detailed physical examination findings (cardiovascular, respiratory, musculoskeletal), specific patient education content, and crucial follow-up instructions. There are no unsupported or unknown additions that would negatively impact the grade, but the cumulative effect of the omissions prevents an 'A' grade.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is broadly usable but contains noticeable gaps and multiple moderate omissions across several sections, particularly in the Subjective and Plan. The Chief Complaint is entirely missing, and several important details from the HPI, ROS, and Physical Examination are omitted. The Plan section lacks specific patient education details, referral names, and comprehensive monitoring and follow-up instructions, making it less actionable. All additions were supported by the transcript and therefore did not negatively impact the grade.",
     "omissions": [
-      "Chief Complaint: Initial consultation for obesity management",
-      "HPI: significant increases in weight noted in the last 2 years",
-      "HPI: shortness of breath with moderate exertion",
-      "HPI: impacted ability to walk long distances or climb stairs",
-      "HPI: reduced participation in recreational activities",
-      "ROS: Constitutional: Reports feeling unrested despite 6 hours of sleep per night",
-      "ROS: Cardiovascular: No syncope",
-      "ROS: Gastrointestinal: No changes in bowel habits",
-      "ROS: Musculoskeletal: no muscular weakness",
-      "Objective PE: General Appearance: well-nourished male",
-      "Objective PE: Cardiovascular: Normal heart sounds, no murmurs, regular rate and rhythm",
-      "Objective PE: Respiratory: Breath sounds clear bilaterally, no wheezes or crackles",
-      "Objective PE: Musculoskeletal: Mild bilateral knee tenderness",
-      "Objective PE: Neurological: Alert and oriented, no focal deficits",
-      "Assessment: explicit mention of BMI of 32.5 kg/m² in obesity description",
-      "Plan: Obesity: Specific patient education details (reducing fast food/sugary drinks, increasing fruits/vegetables, incorporating regular physical activity)",
-      "Plan: Hypertension: Monitor blood pressure at each monthly follow-up",
-      "Plan: Hyperlipidemia: Pending results from lipid panel to reassess lipid control",
-      "Plan: Fatigue and Musculoskeletal Complaints: Assess knee pain and fatigue in follow-up visits",
-      "Plan: Laboratory and Diagnostic Tests: Follow-up on results in next appointment",
-      "Plan: Patient Agreement: The patient understands and agrees with the recommended medical treatment plan",
-      "Plan: Instructions: Follow up in 1 month to reassess weight, blood pressure, and review laboratory results"
+      "Chief Complaint section and content: Initial consultation for obesity management",
+      "HPI detail: significant increases in weight noted in the last 2 years",
+      "HPI detail: weight gain impacted ability to walk long distances or climb stairs",
+      "HPI detail: reduced participation in recreational activities",
+      "ROS Constitutional: Reports feeling unrested despite 6 hours of sleep per night",
+      "ROS Cardiovascular: no syncope",
+      "ROS Respiratory: Shortness of breath with moderate exertion (as a positive finding)",
+      "ROS Gastrointestinal: no changes in bowel habits",
+      "ROS Musculoskeletal: reduced stamina (as a positive finding)",
+      "ROS Musculoskeletal: no muscular weakness",
+      "Physical Examination General Appearance: well-nourished male",
+      "Physical Examination Cardiovascular: Normal heart sounds, no murmurs, regular rate and rhythm",
+      "Physical Examination Respiratory: Breath sounds clear bilaterally, no wheezes or crackles",
+      "Physical Examination Musculoskeletal: Mild bilateral knee tenderness",
+      "Physical Examination Neurological: Alert and oriented, no focal deficits",
+      "Assessment Obesity description: BMI of 32.5 kg/m²",
+      "Assessment Obesity description: reports progressive weight gain",
+      "Plan Obesity Patient Education and Counseling details: reducing fast food and sugary drinks, increasing fruits and vegetables, incorporating regular physical activity",
+      "Plan Obesity Referral: specific nutritionist name (Dr. Sarah Martin)",
+      "Plan Hypertension Monitoring: Monitor blood pressure at each monthly follow-up",
+      "Plan Hyperlipidemia Additional Testing: Pending results from lipid panel to reassess lipid control",
+      "Plan Fatigue and Musculoskeletal Complaints Monitoring: Assess knee pain and fatigue in follow-up visits",
+      "Plan Laboratory and Diagnostic Tests: Follow-up on results in next appointment",
+      "Patient Agreement: The patient understands and agrees with the recommended medical treatment plan",
+      "Instructions: Follow up in 1 month to reassess weight, blood pressure, and review laboratory results"
     ],
     "additions": [
-      "Objective PE: patient appears with hypertension",
-      "Assessment: Fatigue and knee pain present"
+      "Objective Physical Examination description: 'with hypertension'",
+      "Assessment item: 'Fatigue and knee pain present'",
+      "Plan Hypertension instruction qualifier: 'for hypertension control'",
+      "Plan Hyperlipidemia instruction qualifier: 'for hyperlipidemia management'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several omissions, including the Chief Complaint, specific HPI details such as shortness of breath with moderate exertion and the impact on daily activities, and several minor details from the Review of Systems. While the core HPI is present, these omissions create noticeable gaps in the clinical picture.",
+        "summary": "This section has significant omissions, including the entire Chief Complaint, several key details from the History of Present Illness (e.g., impact on walking/stairs, reduced recreational activities), and multiple positive Review of Systems findings (e.g., feeling unrested, shortness of breath with moderate exertion, reduced stamina). These omissions make the subjective account meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint: Initial consultation for obesity management",
-          "HPI: significant increases in weight noted in the last 2 years",
-          "HPI: shortness of breath with moderate exertion",
-          "HPI: impacted ability to walk long distances or climb stairs",
-          "HPI: reduced participation in recreational activities",
-          "ROS: Constitutional: Reports feeling unrested despite 6 hours of sleep per night",
-          "ROS: Cardiovascular: No syncope",
-          "ROS: Gastrointestinal: No changes in bowel habits",
-          "ROS: Musculoskeletal: reduced stamina, no muscular weakness"
+          "Chief Complaint section and content: Initial consultation for obesity management",
+          "HPI detail: significant increases in weight noted in the last 2 years",
+          "HPI detail: weight gain impacted ability to walk long distances or climb stairs",
+          "HPI detail: reduced participation in recreational activities",
+          "ROS Constitutional: Reports feeling unrested despite 6 hours of sleep per night",
+          "ROS Cardiovascular: no syncope",
+          "ROS Respiratory: Shortness of breath with moderate exertion (as a positive finding)",
+          "ROS Gastrointestinal: no changes in bowel habits",
+          "ROS Musculoskeletal: reduced stamina (as a positive finding)",
+          "ROS Musculoskeletal: no muscular weakness"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "This section accurately captures vital signs but omits several important physical examination findings, including details about general appearance, cardiovascular, respiratory, musculoskeletal (mild bilateral knee tenderness), and neurological exams. These omissions make the physical examination meaningfully incomplete. The addition of 'patient appears with hypertension' was supported by the transcript and did not lower the grade.",
+        "grade": "B",
+        "summary": "The Objective section omits several important physical examination findings, such as the general appearance detail of 'well-nourished male,' specific cardiovascular findings (normal heart sounds, no murmurs), respiratory findings (clear breath sounds), musculoskeletal details (mild bilateral knee tenderness), and neurological findings (alert and oriented, no focal deficits). While the core vital signs are present, the lack of detailed physical exam findings reduces the comprehensiveness of this section. The addition of 'with hypertension' is supported by the transcript and does not affect the grade.",
         "omissions": [
-          "Physical Examination: General Appearance: well-nourished male",
-          "Physical Examination: Cardiovascular: Normal heart sounds, no murmurs, regular rate and rhythm",
-          "Physical Examination: Respiratory: Breath sounds clear bilaterally, no wheezes or crackles",
-          "Physical Examination: Musculoskeletal: Mild bilateral knee tenderness",
-          "Physical Examination: Neurological: Alert and oriented, no focal deficits"
+          "Physical Examination General Appearance: well-nourished male",
+          "Physical Examination Cardiovascular: Normal heart sounds, no murmurs, regular rate and rhythm",
+          "Physical Examination Respiratory: Breath sounds clear bilaterally, no wheezes or crackles",
+          "Physical Examination Musculoskeletal: Mild bilateral knee tenderness",
+          "Physical Examination Neurological: Alert and oriented, no focal deficits"
         ],
         "additions": [
-          "Physical Examination: patient appears with hypertension"
+          "Physical Examination description: 'with hypertension'"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "This section is excellent, capturing all major clinically important Ground Truth content. The only omission is the explicit mention of BMI in the obesity description, which is a minor detail as the BMI is already present in the Objective section. The addition of 'Fatigue and knee pain present' was supported by the transcript and did not lower the grade.",
+        "grade": "B",
+        "summary": "This section has minor omissions, specifically the patient's BMI of 32.5 kg/m² and the mention of 'reports progressive weight gain' in the obesity description. While these are relevant details, the core diagnoses are present. The addition of 'Fatigue and knee pain present' is supported by the transcript and does not affect the grade.",
         "omissions": [
-          "explicit mention of BMI of 32.5 kg/m² in obesity description"
+          "Obesity description: BMI of 32.5 kg/m²",
+          "Obesity description: reports progressive weight gain"
         ],
         "additions": [
-          "Fatigue and knee pain present"
+          "Assessment item: 'Fatigue and knee pain present'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section is mostly clinically aligned and usable, capturing the main components of the plan. However, it has several omissions, including specific details of patient education regarding diet and exercise, explicit monitoring instructions for hypertension and musculoskeletal complaints, the status of pending lipid panel results, and the crucial final follow-up instructions. These omissions represent several minor and moderate issues that reduce the completeness and actionability of the plan.",
+        "grade": "C",
+        "summary": "The Plan section contains multiple moderate omissions that reduce its clinical utility. It lacks specific details for patient education and counseling (e.g., reducing fast food/sugary drinks, increasing fruits/vegetables), the specific nutritionist's name for referral, and several monitoring and follow-up instructions for hypertension, hyperlipidemia, fatigue, musculoskeletal complaints, and laboratory results. The patient agreement and overall follow-up instructions are also missing. These omissions make the plan less detailed and actionable. All additions in this section are supported by the transcript and do not affect the grade.",
         "omissions": [
-          "Obesity: Patient Education and Counseling: Educated the patient on the importance of reducing fast food and sugary drinks, increasing the intake of fruits and vegetables, and incorporating regular physical activity into his daily routine",
-          "Hypertension: Monitor blood pressure at each monthly follow-up",
-          "Hyperlipidemia: Additional Testing: Pending results from lipid panel to reassess lipid control",
-          "Fatigue and Musculoskeletal Complaints: Monitoring: Assess knee pain and fatigue in follow-up visits",
+          "Obesity Patient Education and Counseling details: reducing fast food and sugary drinks, increasing fruits and vegetables, incorporating regular physical activity",
+          "Obesity Referral: specific nutritionist name (Dr. Sarah Martin)",
+          "Hypertension Monitoring: Monitor blood pressure at each monthly follow-up",
+          "Hyperlipidemia Additional Testing: Pending results from lipid panel to reassess lipid control",
+          "Fatigue and Musculoskeletal Complaints Monitoring: Assess knee pain and fatigue in follow-up visits",
           "Laboratory and Diagnostic Tests: Follow-up on results in next appointment",
           "Patient Agreement: The patient understands and agrees with the recommended medical treatment plan",
           "Instructions: Follow up in 1 month to reassess weight, blood pressure, and review laboratory results"
         ],
-        "additions": []
+        "additions": [
+          "Hypertension instruction qualifier: 'for hypertension control'",
+          "Hyperlipidemia instruction qualifier: 'for hyperlipidemia management'"
+        ]
       }
     ],
     "rubric_notes": null
@@ -381,32 +392,67 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective PE: patient appears with hypertension",
+      "addition_text": "Objective Physical Examination description: 'with hypertension'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: On physical examination, you appear to be well-nourished and obese. ... and there's reduced stamina and endurance. ... You also have hypertension, which is well-controlled on Lisinopril 20 mg daily",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "On physical examination, the patient appears obese with hypertension and reduced stamina and endurance."
+      "matched_claim_text": "On physical examination, the patient appears obese with hypertension and reduced stamina and endurance.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: Fatigue and knee pain present",
+      "addition_text": "Assessment item: 'Fatigue and knee pain present'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I feel really fatigued. My knees hurt... [Doctor]: Regarding your fatigue and knee pain, I recommend gradually increasing your physical activity...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fatigue and knee pain are present."
+      "matched_claim_text": "Fatigue and knee pain are present.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Physical Examination: patient appears with hypertension",
+      "addition_text": "Plan Hypertension instruction qualifier: 'for hypertension control'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: For your hypertension, continue taking Lisinopril 20 mg once daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue Lisinopril 20 mg once daily for hypertension control.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan Hyperlipidemia instruction qualifier: 'for hyperlipidemia management'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: For hyperlipidemia, continue taking Atorvastatin 10 mg once daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue Atorvastatin 10 mg once daily for hyperlipidemia management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Physical Examination description: 'with hypertension'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: On physical examination, you appear to be well-nourished and obese. ... and there's reduced stamina and endurance. ... You also have hypertension, which is well-controlled on Lisinopril 20 mg daily",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "On physical examination, the patient appears obese with hypertension and reduced stamina and endurance."
+      "matched_claim_text": "On physical examination, the patient appears obese with hypertension and reduced stamina and endurance.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Fatigue and knee pain present",
+      "addition_text": "Hypertension instruction qualifier: 'for hypertension control'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: I feel really fatigued. My knees hurt... [Doctor]: Regarding your fatigue and knee pain, I recommend gradually increasing your physical activity...",
+      "transcript_evidence": "[Doctor]: For your hypertension, continue taking Lisinopril 20 mg once daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fatigue and knee pain are present."
+      "matched_claim_text": "Continue Lisinopril 20 mg once daily for hypertension control.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Hyperlipidemia instruction qualifier: 'for hyperlipidemia management'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: For hyperlipidemia, continue taking Atorvastatin 10 mg once daily.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue Atorvastatin 10 mg once daily for hyperlipidemia management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

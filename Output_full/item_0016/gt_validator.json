@@ -241,8 +241,8 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps and an unsupported addition. The Subjective section omits important details regarding symptom frequency, impact on sleep, and missed work. The Assessment section includes an unsupported addition of 'and diarrhea' in the primary diagnosis, which alters the specific diagnostic statement from the Ground Truth. The Plan section, while covering core actions, significantly omits crucial patient education, specific safety instructions (e.g., signs of dehydration, alarming ER symptoms), and rationales for interventions, making it less comprehensive for patient understanding and safety.",
+    "overall_grade": "D",
+    "overall_summary": "The note captures many key clinical details but suffers from a critical unsupported addition in the Assessment section, where \"diarrhea\" is explicitly included in the primary diagnosis statement without transcript support. Additionally, the Subjective section omits important details regarding symptom severity and impact, and the Plan section lacks crucial patient education, rationales for interventions, and specific safety instructions, reducing its overall completeness and utility.",
     "omissions": [
       "Chief Complaint (CC) section heading",
       "History of Present Illness (HPI) section heading",
@@ -284,8 +284,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits several clinically important details, including the patient's vomiting frequency (4-5 times a day), constant feeling of nausea, nausea disrupting sleep, and missing several days of work due to symptoms. While the main complaints are present, these omissions make the description of symptom severity and impact meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section is mostly aligned but omits several clinically important details from the HPI, such as the patient's specific vomiting frequency (4-5 times a day), constant feeling of nausea, sleep disruption, and missed days of work. It also omits the specific breakdown of the Review of Systems, making it less comprehensive.",
         "omissions": [
           "Chief Complaint (CC) section heading",
           "History of Present Illness (HPI) section heading",
@@ -301,7 +301,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, accurately capturing all vital signs and key physical exam findings. The only omissions are minor formatting (section headings) and a boilerplate 'Other Systems: Unremarkable' statement, none of which impact clinical usefulness.",
+        "summary": "The Objective section accurately captures all vital signs and physical exam findings. The only omissions are section headings and the minor detail of 'Other Systems: Unremarkable', which do not impact the clinical content.",
         "omissions": [
           "Vital Signs section heading",
           "Physical Exam section heading",
@@ -311,8 +311,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section contains an unsupported addition: 'and diarrhea' explicitly included in the primary diagnosis statement. The Ground Truth diagnosis is 'Nausea with vomiting, unspecified,' so adding 'and diarrhea' to the diagnosis without Ground Truth support is a moderate-to-high severity issue that alters the specific diagnostic statement. Minor omissions of a section heading and the 'unspecified' qualifier are also present.",
+        "grade": "D",
+        "summary": "The Assessment section contains a high-severity unsupported addition: the explicit inclusion of \"and diarrhea\" in the primary diagnosis statement. While diarrhea was reported, the Ground Truth diagnosis was specifically \"Nausea with vomiting, unspecified.\" This unsupported addition materially alters the diagnostic statement, significantly reducing the clinical usefulness and accuracy of this section.",
         "omissions": [
           "Diagnosis section heading",
           "\"unspecified\" qualifier for nausea with vomiting diagnosis"
@@ -324,7 +324,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has multiple moderate omissions that reduce its clinical usefulness and completeness. Key missing elements include encouragement of hydration with electrolyte solutions, specific reasons for investigations, rationales for lifestyle changes, the importance of medication adherence, information about specific signs of dehydration, and specific examples of alarming symptoms for an ER visit. These omissions impact patient education and safety instructions.",
+        "summary": "The Plan section captures the main interventions but has multiple moderate omissions. It lacks specific medication details (route, quantity), encouragement of hydration with electrolyte solutions, and the rationales for ordering investigations and lifestyle recommendations. Crucially, it omits important patient education regarding medication adherence, specific signs of dehydration, and detailed alarming symptoms for seeking emergency care, which are vital for patient safety and understanding.",
         "omissions": [
           "Medications section heading",
           "Investigations section heading",
@@ -356,7 +356,9 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

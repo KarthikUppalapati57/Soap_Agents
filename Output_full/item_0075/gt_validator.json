@@ -198,9 +198,9 @@
     "plan_alignment_score": 0.7586206896551725
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The overall note receives a 'D' primarily due to major omissions in the Assessment section, where the patient's chronic conditions of Hypertension and Hyperlipidemia are entirely missing. This significantly reduces the clinical usefulness and completeness of the note. Additionally, the Subjective section has a moderate omission by excluding the entire Review of Systems. While the Plan section is excellent, and the Objective section has only minor omissions, the critical gaps in the Assessment section warrant a lower overall grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note contains several omissions that impact its completeness. Notably, the entire Review of Systems section is missing from Subjective, and the patient's secondary diagnoses of Hypertension and Hyperlipidemia are omitted from the Assessment section. Additionally, there are minor omissions in the HPI and Objective sections. All identified additions were supported by the transcript and therefore did not negatively impact the grade. These omissions, particularly the missing secondary diagnoses, result in a meaningfully incomplete clinical picture.",
     "omissions": [
       "Subjective: HPI detail: symptoms are present daily",
       "Subjective: Review of Systems section (General, Musculoskeletal, Other systems)",
@@ -220,8 +220,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section receives a 'C' due to a moderate omission of the entire Review of Systems section, which is a standard component of a comprehensive subjective note. A minor detail about symptoms being present daily was also omitted from the HPI.",
+        "grade": "B",
+        "summary": "The Subjective section has a minor omission regarding the daily presence of symptoms in the HPI. More significantly, the entire Review of Systems section is omitted, which represents a noticeable gap in the documentation.",
         "omissions": [
           "HPI detail: symptoms are present daily",
           "Review of Systems section (General, Musculoskeletal, Other systems)"
@@ -231,7 +231,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section receives a 'B' due to several minor omissions in the physical examination findings, specifically regarding the patient's general appearance ('Appears mildly fatigued but in no acute distress'), cardiovascular status ('Regular rate and rhythm'), and neurological status ('Alert and oriented'). All additions in this section were supported by the transcript and did not negatively impact the grade.",
+        "summary": "The Objective section has several minor omissions in the physical examination details, specifically regarding the patient's general appearance, the regularity of heart rhythm, and neurological orientation. However, these do not significantly detract from the overall clinical usefulness.",
         "omissions": [
           "Physical Examination: General: Appears mildly fatigued but in no acute distress",
           "Physical Examination: Cardiovascular: Regular rate and rhythm",
@@ -243,8 +243,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section receives a 'D' due to major omissions of two critical secondary diagnoses: Hypertension and Hyperlipidemia. These are ongoing conditions that should be reflected in the assessment for comprehensive patient care. The omission of the 'Unspecified' qualifier for Vitamin D Deficiency is a minor issue. All additions in this section were supported by the transcript and did not negatively impact the grade.",
+        "grade": "C",
+        "summary": "The Assessment section has significant omissions, failing to include the patient's secondary diagnoses of Hypertension and Hyperlipidemia, which are important comorbidities. A minor detail, the 'Unspecified' qualifier for Vitamin D Deficiency, was also omitted. These omissions make the assessment meaningfully incomplete.",
         "omissions": [
           "Secondary diagnosis: Hypertension",
           "Secondary diagnosis: Hyperlipidemia",
@@ -258,7 +258,7 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section receives an 'A' as it accurately and completely captures all major clinically important Ground Truth content. There are no omissions or unsupported/unknown additions in this section.",
+        "summary": "The Plan section is complete and accurately reflects the Ground Truth, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       }
@@ -272,42 +272,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your heart rate is regular, and there are no murmurs. Now, I'll check your lungs. Your respiratory effort is normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Normal respiratory effort and heart rate with no murmurs."
+      "matched_claim_text": "Normal respiratory effort and heart rate with no murmurs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'Suspected' qualifier for Vitamin D deficiency",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the examination, I suspect you might have a vitamin D deficiency. This can cause fatigue, muscle weakness, and bone pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected Vitamin D deficiency causing fatigue, muscle weakness, and bone pain."
+      "matched_claim_text": "Suspected Vitamin D deficiency causing fatigue, muscle weakness, and bone pain.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue, Increased muscle fatiguability"
     },
     {
       "addition_text": "Assessment: Linking symptoms 'causing fatigue, muscle weakness, and bone pain' to diagnosis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the examination, I suspect you might have a vitamin D deficiency. This can cause fatigue, muscle weakness, and bone pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected Vitamin D deficiency causing fatigue, muscle weakness, and bone pain."
+      "matched_claim_text": "Suspected Vitamin D deficiency causing fatigue, muscle weakness, and bone pain.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue, Increased muscle fatiguability"
     },
     {
       "addition_text": "Physical Examination: Normal respiratory effort",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your heart rate is regular, and there are no murmurs. Now, I'll check your lungs. Your respiratory effort is normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Normal respiratory effort and heart rate with no murmurs."
+      "matched_claim_text": "Normal respiratory effort and heart rate with no murmurs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Suspected' qualifier for Vitamin D deficiency",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the examination, I suspect you might have a vitamin D deficiency. This can cause fatigue, muscle weakness, and bone pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected Vitamin D deficiency causing fatigue, muscle weakness, and bone pain."
+      "matched_claim_text": "Suspected Vitamin D deficiency causing fatigue, muscle weakness, and bone pain.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue, Increased muscle fatiguability"
     },
     {
       "addition_text": "Linking symptoms 'causing fatigue, muscle weakness, and bone pain' to diagnosis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the examination, I suspect you might have a vitamin D deficiency. This can cause fatigue, muscle weakness, and bone pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected Vitamin D deficiency causing fatigue, muscle weakness, and bone pain."
+      "matched_claim_text": "Suspected Vitamin D deficiency causing fatigue, muscle weakness, and bone pain.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue, Increased muscle fatiguability"
     }
   ]
 }

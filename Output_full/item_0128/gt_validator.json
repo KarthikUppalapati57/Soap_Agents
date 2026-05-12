@@ -208,9 +208,9 @@
     "plan_alignment_score": 0.6739130434782609
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The GeneratedSOAP provides a clinically usable note, accurately capturing the patient's chief complaint, history of present illness, and a comprehensive assessment and plan for opioid dependence and co-morbidities. All identified additions are supported by the transcript. However, the note receives a C grade due to several significant omissions. The entire Chief Complaint and Review of Systems sections are missing, leading to a less comprehensive subjective history. Additionally, the Plan section omits explicit Patient Education, Patient Agreements, and detailed Instructions regarding follow-up protocols and lifestyle advice, which are important for patient care and safety.",
+    "overall_summary": "The generated note demonstrates significant omissions, particularly in the Subjective and Plan sections. The Chief Complaint and the entire Review of Systems section are absent, along with crucial HPI details about the impact of opioid use. In the Plan, critical patient education, agreements, and detailed instructions regarding follow-up, side effects, and lifestyle advice are missing. While the Assessment section is accurate and there are no unsupported additions, the extensive and clinically material omissions reduce the overall completeness and usefulness of the note, requiring significant caution and review.",
     "omissions": [
       "Chief Complaint section and content",
       "HPI detail: 'initial emergency visit related to opioid overdose' (context of follow-up)",
@@ -237,8 +237,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section receives a C grade due to the complete omission of the Chief Complaint section and the detailed Review of Systems. While some medical history is present, the lack of a structured ROS, including important negatives like the absence of suicidal ideation, and the omission of the full impact of opioid use on the patient's life, make this section meaningfully incomplete.",
+        "grade": "D",
+        "summary": "This section has major omissions, including the entire Chief Complaint and Review of Systems sections, along with their detailed content. Key HPI details regarding the impact of opioid use on work, social isolation, and family activities are also missing. These omissions significantly reduce the completeness and clinical utility of the subjective information.",
         "omissions": [
           "Chief Complaint section and content: 'Follow-up after initial emergency visit related to opioid overdose.'",
           "HPI detail: 'initial emergency visit related to opioid overdose' (context of follow-up)",
@@ -257,8 +257,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section receives an A grade. It correctly notes the telemedicine consultation and the absence of a physical exam. The minor omissions of redundant previous diagnoses and chronic conditions are not clinically significant as this information is present elsewhere in the note. The allergy information was relocated but not omitted from the overall note.",
+        "grade": "B",
+        "summary": "This section omits the patient's previous diagnoses and chronic conditions (Hypothyroidism, Obstructive Sleep Apnea). While the ibuprofen allergy information is present in the generated note (relocated to Subjective), its absence from the Objective section is a structural discrepancy. The missing diagnoses are moderate omissions.",
         "omissions": [
           "Previous Diagnoses: Hypothyroidism, Obstructive Sleep Apnea (OSA)",
           "Allergies: Ibuprofen (information moved to Subjective in Gen)",
@@ -269,14 +269,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A grade. It accurately reflects the patient's conditions and their severity as described in the GroundTruthSOAP, with no omissions or unsupported/unknown additions.",
+        "summary": "This section is complete and accurately reflects the GroundTruth content. There are no omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section receives a C grade due to the omission of the explicit Patient Education, Patient Agreements, and detailed Instructions sections. While key treatment elements are present, the absence of comprehensive guidance on contacting the clinic for concerns/side effects, immediate initiation of rehabilitation, and lifestyle advice (exercise/diet) represents noticeable gaps in patient management and follow-up.",
+        "grade": "D",
+        "summary": "This section has several major omissions, including the entire Patient Education, Patient Agreements, and Instructions sections. These missing details are critical for patient safety (e.g., contact for side effects), adherence, and comprehensive follow-up care (e.g., immediate initiation of rehab, exercise/diet advice). A minor detail about adjusting OSA treatment as necessary is also omitted.",
         "omissions": [
           "Patient Education section and its full content: 'Discussed the importance of adherence to medication and follow-up plans. Encouraged participation in support groups.'",
           "Obstructive Sleep Apnea: 'adjust treatment as necessary'",
@@ -298,42 +298,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You have an ibuprofen allergy, correct? [patient] Yes, that’s right.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has an ibuprofen allergy and no other known medication allergies."
+      "matched_claim_text": "Patient has an ibuprofen allergy and no other known medication allergies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'monitor symptoms closely' for obstructive sleep apnea",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] And for your obstructive sleep apnea, continue using your CPAP machine. Monitor your symptoms and let us know if you need any adjustments. Okay? [patient] Okay.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Continue using CPAP machine for obstructive sleep apnea and monitor symptoms closely."
+      "matched_claim_text": "Plan: Continue using CPAP machine for obstructive sleep apnea and monitor symptoms closely.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'for monitoring' for hypothyroidism",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] For your hypothyroidism, continue taking your current medication, levothyroxine. I’ll order thyroid function tests to monitor your levels.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Continue taking levothyroxine for hypothyroidism and order thyroid function tests for monitoring."
+      "matched_claim_text": "Plan: Continue taking levothyroxine for hypothyroidism and order thyroid function tests for monitoring.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'No known allergies to medications other than ibuprofen' (information present in GT Objective, but moved to Gen Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "You have an ibuprofen allergy, correct? Yes, that’s right.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'monitor symptoms closely' for obstructive sleep apnea",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] And for your obstructive sleep apnea, continue using your CPAP machine. Monitor your symptoms and let us know if you need any adjustments. Okay? [patient] Okay.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Continue using CPAP machine for obstructive sleep apnea and monitor symptoms closely."
+      "matched_claim_text": "Plan: Continue using CPAP machine for obstructive sleep apnea and monitor symptoms closely.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'for monitoring' for hypothyroidism",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] For your hypothyroidism, continue taking your current medication, levothyroxine. I’ll order thyroid function tests to monitor your levels.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Continue taking levothyroxine for hypothyroidism and order thyroid function tests for monitoring."
+      "matched_claim_text": "Plan: Continue taking levothyroxine for hypothyroidism and order thyroid function tests for monitoring.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -265,7 +265,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions across the Subjective, Objective, and Plan sections. Key details from the History of Present Illness and the entire Review of Systems are missing from Subjective. The Objective section critically omits all specific lipid panel and HbA1c values. In the Plan, important patient education and agreement sections are entirely absent, along with several structural headers and specific medication/dietary details. While the core diagnoses and main treatment actions are present, these extensive omissions materially reduce the clinical usefulness and completeness of the documentation.",
+    "overall_summary": "The generated note suffers from significant omissions in the Subjective and Objective sections. The Subjective section lacks a comprehensive History of Present Illness and completely omits the Review of Systems. The Objective section critically misses all specific lipid panel values and the HbA1c value from the results. While the Assessment is accurate and the Plan covers the main treatment points, the extensive missing foundational clinical data in the initial sections materially reduces the overall completeness and clinical usefulness of the note. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint (CC) section header and content",
       "History of Present Illness (HPI) section header",
@@ -311,7 +311,7 @@
       {
         "section": "Subjective",
         "grade": "D",
-        "summary": "The Subjective section is significantly incomplete, omitting the Chief Complaint, History of Present Illness, and Review of Systems headers, as well as the entire detailed Review of Systems content. Many clinically relevant details from the HPI, such as the patient being asymptomatic with elevated cholesterol, her vegan diet habits, exercise routine, sleep duration, and high motivation, are also missing.",
+        "summary": "The Subjective section is significantly incomplete, omitting the formal Chief Complaint, most of the detailed History of Present Illness (including lifestyle, sleep duration, and patient motivation), and the entire Review of Systems. This substantially reduces the clinical context and usefulness of the note. All additions were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "Chief Complaint (CC) section header and content",
           "History of Present Illness (HPI) section header",
@@ -332,7 +332,7 @@
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "The Objective section suffers from major omissions, most notably the complete absence of specific lipid panel values (Total, LDL, HDL Cholesterol, Triglycerides) and the HbA1c percentage. While some vital signs and physical exam findings are present, the lack of these critical quantitative lab results significantly reduces the clinical utility and completeness of this section.",
+        "summary": "The Objective section has major omissions, most notably the complete absence of all specific lipid panel values (Total Cholesterol, LDL, HDL, Triglycerides) and the HbA1c value from the results section. While vital signs and physical exam findings are present, the missing detailed lab results materially reduce the clinical utility of this section.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -347,8 +347,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section is mostly aligned with the Ground Truth. The only omission is the statement that cholesterol levels remain elevated despite current lifestyle, which is a moderate detail. All additions in this section were supported by the transcript and therefore did not impact the grade.",
+        "grade": "A",
+        "summary": "The Assessment section is strong, accurately capturing the patient's diagnoses and the need for treatment adjustments. The only omission is a minor detail regarding cholesterol levels remaining elevated despite current lifestyle, which does not significantly impact the overall clinical assessment. All additions were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "Statement that cholesterol levels remain elevated despite current lifestyle"
         ],
@@ -359,8 +359,8 @@
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has numerous omissions, including several structural headers (Medications, Lifestyle Changes, Referral, Follow-up, Patient Education and Counseling, Patient Agreements). Crucially, the entire Patient Education and Counseling and Patient Agreements sections are missing, which are vital for comprehensive care documentation. Specific details regarding medication administration and dietary recommendations are also omitted, reducing the precision and completeness of the plan.",
+        "grade": "C",
+        "summary": "The Plan section captures the core treatment strategy, including medications, lifestyle recommendations, referral, and follow-up. However, it omits numerous structural headers, specific medication details, the nutritionist's name, and the entire Patient Education and Counseling and Patient Agreements sections, which are important for comprehensive documentation and patient engagement. All additions were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "Medications section header",
           "Rosuvastatin: 'oral, once daily indefinitely'",
@@ -389,49 +389,63 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I usually get about 6 hours per night, but I have trouble falling asleep sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "She reports difficulty falling asleep sometimes."
+      "matched_claim_text": "She reports difficulty falling asleep sometimes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"The patient may also have mild fatigue and sleep disturbances\" (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's mild, not too bad. Just more noticeable lately, I suppose. ... [patient] I usually get about 6 hours per night, but I have trouble falling asleep sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient may also have mild fatigue and sleep disturbances."
+      "matched_claim_text": "The patient may also have mild fatigue and sleep disturbances.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"require adjustments to current treatment plan\" (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "They are elevated, which indicates that we need to make some adjustments to your treatment plan.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific sleep hygiene techniques: \"maintaining a regular sleep schedule, avoiding caffeine late in the day, and creating a relaxing bedtime routine\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Also, to help with your sleep, consider improving your sleep hygiene. Techniques like maintaining a regular sleep schedule, avoiding caffeine late in the day, and creating a relaxing bedtime routine can be helpful.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Address sleep issues by improving sleep hygiene with techniques such as maintaining a regular sleep schedule, avoiding caffeine late in the day, and creating a relaxing bedtime routine."
+      "matched_claim_text": "Address sleep issues by improving sleep hygiene with techniques such as maintaining a regular sleep schedule, avoiding caffeine late in the day, and creating a relaxing bedtime routine.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"sometimes\" regarding difficulty falling asleep",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I usually get about 6 hours per night, but I have trouble falling asleep sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "She reports difficulty falling asleep sometimes."
+      "matched_claim_text": "She reports difficulty falling asleep sometimes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"The patient may also have mild fatigue and sleep disturbances\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's mild, not too bad. Just more noticeable lately, I suppose. ... [patient] I usually get about 6 hours per night, but I have trouble falling asleep sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient may also have mild fatigue and sleep disturbances."
+      "matched_claim_text": "The patient may also have mild fatigue and sleep disturbances.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"require adjustments to current treatment plan\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] So, you're here to manage your hypercholesterolemia and type 2 diabetes, correct? [patient] Yes, that's right. ... [doctor] Your lipid panel shows a total cholesterol of 240 mg/dL, LDL cholesterol of 150 mg/dL, HDL cholesterol of 50 mg/dL, and triglycerides of 170 mg/dL. Your HbA1c is 7.2%. ... [doctor] They are elevated, which indicates that we need to make some adjustments to your treatment plan.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypercholesterolemia, with elevated total cholesterol (240 mg/dL), LDL cholesterol (150 mg/dL), and triglycerides (170 mg/dL), and type 2 diabetes, with HbA1c of 7.2%, require adjustments to the current treatment plan."
+      "matched_claim_text": "Hypercholesterolemia, with elevated total cholesterol (240 mg/dL), LDL cholesterol (150 mg/dL), and triglycerides (170 mg/dL), and type 2 diabetes, with HbA1c of 7.2%, require adjustments to the current treatment plan.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Abnormal circulating cholesterol concentration — phenotype_phenotype — Hypercholesterolemia, familial hypercholesterolemia — disease_phenotype_positive — Increased LDL cholesterol concentration"
     }
   ]
 }

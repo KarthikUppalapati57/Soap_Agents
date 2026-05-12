@@ -248,7 +248,91 @@
     "assessment_alignment_score": 0.125,
     "plan_alignment_score": 0.7675675675675675
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Subjective'; got ['Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note accurately captures the patient's objective findings and the core treatment plan. However, the Assessment section is significantly incomplete, omitting crucial clinical reasoning and supporting details for each diagnosis, such as how obesity contributes to other symptoms or how PCOS manifests. The Subjective section also misses the explicit Chief Complaint statement and some patient context. While the note is broadly usable, these multiple moderate omissions in clinical rationale reduce its overall completeness and usefulness, warranting a C grade.",
+    "omissions": [],
+    "additions": [],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section captures the patient's main complaints and history of present illness. However, it omits the explicit Chief Complaint statement and several minor details regarding the patient's motivation, struggles, and specific negative findings from the Review of Systems. The content for dermatological and endocrine ROS is present in the HPI, so their omission as separate ROS items is less impactful. These issues, including one moderate omission (CC statement), lead to a B grade.",
+        "omissions": [
+          "Chief Complaint (CC) statement",
+          "Patient presenting for a routine check-up focused on weight management and PCOS-related symptoms",
+          "Patient attributes irregular menstrual cycles, acne, and hirsutism to her PCOS",
+          "Symptoms (irregular cycles, acne, hirsutism) occur daily",
+          "Patient is highly motivated to adhere to treatment plans",
+          "Patient struggles due to work-related stress and lack of time",
+          "ROS: Gastrointestinal: No significant complaints",
+          "ROS: Musculoskeletal: No joint pain or muscle weakness reported",
+          "ROS: Dermatological: Acne and increased hair growth noted (as a separate ROS item)",
+          "ROS: Endocrine: Irregular menstrual cycles (as a separate ROS item)"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is well-aligned with the Ground Truth. It accurately reports all vital signs, physical exam findings, and investigation results. The only omissions are minor details, such as the 'non-tender' qualifier for the abdomen and 'slightly elevated' for fasting blood sugar. This section receives an A grade.",
+        "omissions": [
+          "Abdomen: 'non-tender' finding",
+          "Fasting Blood Sugar: '(slightly elevated)' qualifier"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "C",
+        "summary": "The Assessment section correctly identifies the diagnoses (Obesity, PCOS, Asthma, elevated blood sugar, dyslipidemia). However, it significantly omits all the supporting clinical details and reasoning for these diagnoses. Missing are explanations of how obesity contributes to fatigue, shortness of breath, and risk for diabetes, how PCOS manifests, and how asthma is stable but exacerbated by obesity. These multiple moderate omissions make the section meaningfully incomplete, resulting in a C grade.",
+        "omissions": [
+          "Obesity: 'Contributing to patient's fatigue and shortness of breath'",
+          "Obesity: 'Worsens PCOS symptoms and increases risk for type 2 diabetes'",
+          "PCOS: 'Manifests as irregular menstrual cycles, acne, and hirsutism'",
+          "PCOS: 'Hormonal imbalances confirmed by lab results'",
+          "Mild Asthma: 'Stable but exacerbated by obesity'"
+        ],
+        "additions": [
+          "'elevated blood sugar' as a problem/diagnosis",
+          "'dyslipidemia' as a problem/diagnosis"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "A",
+        "summary": "The Plan section is largely comprehensive, outlining medications, lifestyle modifications, referrals, and follow-up instructions. The omissions are minor, including the specific reason for the physical therapy referral ('to avoid injury') and some standard patient instructions regarding calling the office or returning earlier if needed. This section receives an A grade.",
+        "omissions": [
+          "Referral reason: 'to avoid injury'",
+          "Instructions: 'Call the office with any questions or concerns'",
+          "Instructions: 'Return to the clinic in 3 months or earlier if needed for any adverse effects'"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "'elevated blood sugar' as a problem/diagnosis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Your BMI is 32, which classifies as obese. ... I understand you're here for a routine check-up focused on weight management and PCOS-related symptoms. ... Your fasting blood sugar is 110 mg/dL, which is slightly elevated. ... Your lipid profile shows total cholesterol at 210 mg/dL, LDL at 140 mg/dL, HDL at 45 mg/dL, and triglycerides at 190 mg/dL. ... [patient] I also have a history of mild asthma. ... [doctor] Hmm, I notice some mild wheezing.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnoses: Obesity, PCOS, elevated blood sugar, dyslipidemia, asthma.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'dyslipidemia' as a problem/diagnosis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your lipid profile shows total cholesterol at 210 mg/dL, LDL at 140 mg/dL, HDL at 45 mg/dL, and triglycerides at 190 mg/dL.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

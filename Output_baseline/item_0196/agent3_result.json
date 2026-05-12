@@ -1,4 +1,240 @@
 {
+  "accuracy_total_claims": 14,
+  "accuracy_correct": 13,
+  "accuracy_incorrect": 1,
+  "accuracy_score": 0.93,
+  "accuracy_reason": "",
+  "completeness_total_details": 15,
+  "completeness_captured": 12,
+  "completeness_missing": 3,
+  "completeness_score": 0.8,
+  "completeness_reason": "",
+  "communication_total_issues": 2,
+  "communication_quality_score": 0.5,
+  "communication_quality_reason": "The doctor uses a clear and concise tone, but there is an unnecessary repetition of the treatment plan.",
+  "context_total_details": 8,
+  "context_captured": 6,
+  "context_missing": 2,
+  "context_awareness_score": 0.75,
+  "context_awareness_reason": "",
+  "instruction_total_sections": 4,
+  "instruction_complete_sections": 3,
+  "instruction_following_score": 0.75,
+  "instruction_following_reason": "The doctor completes three out of four sections, but the assessment section is missing a clear explanation of the patient's symptoms.",
+  "overall_score": 0.81,
   "transcript": "[doctor] Hi there, how are you doing today?\n\n[patient] Hello, I'm doing okay, thank you.\n\n[doctor] Great to hear. So, I see that you have a lesion on your forehead. Can you tell me a bit more about it?\n\n[patient] Yes, it's been there for about two months now. It's rough and scaly, and it sometimes bleeds and itches a bit.\n\n[doctor] Hmm, I see. And is the lesion constantly there, or does it come and go?\n\n[patient] It's constantly there, but the bleeding and itching are intermittent. It gets especially bothersome when I'm washing my face or if I accidentally scratch it.\n\n[doctor] Got it. Have you noticed any other symptoms or unusual changes in your skin?\n\n[patient] No, just this one on my forehead.\n\n[doctor] Alright, thank you for that information. Let me quickly review your vitals. Your blood pressure is 130/85 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.5°F. Everything looks normal there. \n\n[patient] Okay, that's good to know.\n\n[doctor] Now, let me take a closer look at the lesion on your forehead. I'll also do a full body skin examination to check for any other suspicious areas. \n\n[patient] Sure, no problem.\n\n[doctor] Alright, I see a single, rough, scaly patch on your forehead, about 1 cm in diameter. This is consistent with actinic keratosis. The rest of your skin looks fine, and I don't see any other suspicious lesions. Your heart sounds are normal, and your lungs are clear to auscultation as well.\n\n[patient] What exactly is actinic keratosis?\n\n[doctor] Actinic keratosis is a rough, scaly patch on the skin that develops from years of sun exposure. It is considered a precancerous condition because it can sometimes progress to squamous cell carcinoma, a type of skin cancer.\n\n[patient] Oh, I see. So, what can we do about it?\n\n[doctor] We have a few treatment options. I recommend we perform cryotherapy today, which involves freezing the lesion with liquid nitrogen. Additionally, I'll prescribe Fluorouracil 5% cream for you to apply to the affected area twice daily for 2-4 weeks.\n\n[patient] That sounds good. What else should I do to prevent this from happening again?\n\n[doctor] It's important to protect your skin from the sun. Use a daily sunscreen with SPF 30 or higher, wear protective clothing like wide-brimmed hats, long sleeves, and sunglasses when you're outdoors, and try to avoid peak sun hours from 10 AM to 4 PM.\n\n[patient] I can do that. Is there anything else I should know?\n\n[doctor] We'll also want to schedule a follow-up appointment in 3 months to check on the treated area and perform a comprehensive skin check to ensure no new lesions have developed.\n\n[patient] Okay, I understand.\n\n[doctor] One more thing, I noticed you mentioned smoking in your history. Reducing smoking will greatly benefit your skin and overall health. We have resources for smoking cessation counseling if you're interested.\n\n[patient] Yes, I've been trying to cut down. That would be helpful.\n\n[doctor] Excellent. We'll get you started on that as well. Do you have any other questions or concerns?\n\n[patient] No, I think you've covered everything. Thank you.\n\n[doctor] You're welcome. My nurse will come in shortly to perform the cryotherapy and provide you with the prescription for the cream. I'll see you at your follow-up appointment.\n\n[patient] Thank you. I'll see you then.",
-  "generated_soap": "Subjective:\nPatient presents with a 2-month history of a rough, scaly, and intermittently itchy and bleeding lesion on the forehead.\n\nObjective:\nPhysical examination reveals a single, rough, scaly patch on the forehead, approximately 1 cm in diameter, consistent with actinic keratosis. Heart sounds are normal, and lungs are clear to auscultation.\n\nAssessment:\nActinic keratosis, precancerous condition caused by sun exposure.\n\nPlan:\n- Treatment: Cryotherapy and Fluorouracil 5% cream for 2-4 weeks.\n- Follow-up appointment in 3 months for skin check.\n- Smoking cessation counseling resources provided."
+  "generated": "Subjective:\nThe patient presents with a 2-month history of a rough, scaly, and intermittently bleeding and itching lesion on the forehead.\n\nObjective:\nVitals appear normal (BP: 130/85 mmHg, HR: 72 bpm, RR: 16 bpm, T: 98.5°F). Physical examination reveals a single rough, scaly patch on the forehead (1 cm in diameter) consistent with actinic keratosis. Heart and lungs are normal to auscultation.\n\nAssessment:\nActinic keratosis, precancerous condition potentially progressing to squamous cell carcinoma due to sun exposure.\n\nPlan:\n- Perform cryotherapy today on the lesion.\n- Prescribe Fluorouracil 5% cream for application twice daily for 2-4 weeks.\n- Schedule a follow-up appointment in 3 months for skin check and area review.\n- Discuss smoking cessation counseling resources due to reported smoking history.",
+  "claim_verification": {
+    "claims": [
+      {
+        "claim_text": "The patient presents with a 2-month history of a rough, scaly, and intermittently bleeding and itching lesion on the forehead.",
+        "soap_section": "Subjective",
+        "support_status": "supported",
+        "rationale": "The patient explicitly states the lesion has been present for 'about two months now' and describes it as 'rough and scaly'. They also mention it 'sometimes bleeds and itches a bit' and that 'the bleeding and itching are intermittent'.",
+        "transcript_evidence": "[patient] Yes, it's been there for about two months now. It's rough and scaly, and it sometimes bleeds and itches a bit. It's constantly there, but the bleeding and itching are intermittent.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Vitals appear normal.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states that 'Everything looks normal there' after reviewing the vitals.",
+        "transcript_evidence": "[doctor] Everything looks normal there.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Blood pressure is 130/85 mmHg.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the patient's blood pressure.",
+        "transcript_evidence": "[doctor] Your blood pressure is 130/85 mmHg",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Heart rate is 72 bpm.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the patient's heart rate.",
+        "transcript_evidence": "[doctor] heart rate is 72 bpm",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Respiratory rate is 16 bpm.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the patient's respiratory rate.",
+        "transcript_evidence": "[doctor] respiratory rate is 16 breaths per minute",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Temperature is 98.5°F.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states the patient's temperature.",
+        "transcript_evidence": "[doctor] and your temperature is 98.5°F.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Physical examination reveals a single rough, scaly patch on the forehead.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states their finding during the examination.",
+        "transcript_evidence": "[doctor] Alright, I see a single, rough, scaly patch on your forehead",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patch is 1 cm in diameter.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor specifies the size of the patch found during the examination.",
+        "transcript_evidence": "[doctor] about 1 cm in diameter.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The patch is consistent with actinic keratosis.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states that the observed patch is consistent with actinic keratosis.",
+        "transcript_evidence": "[doctor] This is consistent with actinic keratosis.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Heart sounds are normal to auscultation.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states that the heart sounds are normal.",
+        "transcript_evidence": "[doctor] Your heart sounds are normal",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Lungs are clear to auscultation.",
+        "soap_section": "Objective",
+        "support_status": "supported",
+        "rationale": "The doctor states that the lungs are clear to auscultation.",
+        "transcript_evidence": "[doctor] and your lungs are clear to auscultation as well.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Diagnosis is Actinic keratosis.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor identifies the lesion as actinic keratosis.",
+        "transcript_evidence": "[doctor] This is consistent with actinic keratosis.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Actinic keratosis is a precancerous condition.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explains that actinic keratosis is considered a precancerous condition.",
+        "transcript_evidence": "[doctor] It is considered a precancerous condition",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Actinic keratosis can potentially progress to squamous cell carcinoma.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explains the potential progression of actinic keratosis.",
+        "transcript_evidence": "[doctor] because it can sometimes progress to squamous cell carcinoma, a type of skin cancer.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Actinic keratosis is due to sun exposure.",
+        "soap_section": "Assessment",
+        "support_status": "supported",
+        "rationale": "The doctor explains the cause of actinic keratosis.",
+        "transcript_evidence": "[doctor] Actinic keratosis is a rough, scaly patch on the skin that develops from years of sun exposure.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Perform cryotherapy today on the lesion.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor recommends and plans to perform cryotherapy today.",
+        "transcript_evidence": "[doctor] I recommend we perform cryotherapy today, which involves freezing the lesion with liquid nitrogen.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Prescribe Fluorouracil 5% cream.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states they will prescribe Fluorouracil 5% cream.",
+        "transcript_evidence": "[doctor] Additionally, I'll prescribe Fluorouracil 5% cream for you to apply to the affected area",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Fluorouracil 5% cream for application twice daily.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor specifies the frequency of application for the prescribed cream.",
+        "transcript_evidence": "[doctor] for you to apply to the affected area twice daily",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Fluorouracil 5% cream for application for 2-4 weeks.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor specifies the duration of application for the prescribed cream.",
+        "transcript_evidence": "[doctor] for 2-4 weeks.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Schedule a follow-up appointment in 3 months.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor states the plan to schedule a follow-up appointment in 3 months.",
+        "transcript_evidence": "[doctor] We'll also want to schedule a follow-up appointment in 3 months",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "The follow-up appointment is for a skin check and area review.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor specifies the purpose of the follow-up appointment.",
+        "transcript_evidence": "[doctor] to check on the treated area and perform a comprehensive skin check to ensure no new lesions have developed.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Discuss smoking cessation counseling resources.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor offers smoking cessation resources, and the patient expresses interest, leading to the plan to 'get you started on that as well'.",
+        "transcript_evidence": "[doctor] We have resources for smoking cessation counseling if you're interested. [patient] Yes, I've been trying to cut down. That would be helpful. [doctor] Excellent. We'll get you started on that as well.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      },
+      {
+        "claim_text": "Discussion of smoking cessation is due to reported smoking history.",
+        "soap_section": "Plan",
+        "support_status": "supported",
+        "rationale": "The doctor explicitly states that the smoking cessation discussion is based on the patient's reported smoking history.",
+        "transcript_evidence": "[doctor] One more thing, I noticed you mentioned smoking in your history.",
+        "medical_knowledge_evidence": null,
+        "medical_knowledge_rationale": null
+      }
+    ],
+    "benchmark_reconciliation_note": "My audit identified 23 distinct claims, which differs from the benchmark's reported 14 claims. This discrepancy is primarily due to a more granular breakdown of multi-faceted statements in the SOAP note into individual checkable facts, particularly for vital signs, medication details, and plan components, to ensure comprehensive auditing."
+  },
+  "claim_verification_error": null
 }

@@ -224,9 +224,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures all critical clinical information, including chief complaint, key HPI details, vital signs, significant physical exam findings, lab results, assessment, and the core treatment plan. There are several minor omissions, mainly concerning detailed negative findings in the Review of Systems and Physical Exam, and the normal range for the vitamin D level. Additionally, there are a few moderate omissions, such as the patient's reduced energy levels affecting daily tasks and the comprehensive concluding paragraph regarding patient education and understanding. All additions are supported by the transcript and do not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. It accurately captures the chief complaint, key aspects of the history of present illness, vital signs, relevant physical exam findings, and the primary assessment and plan. However, it omits several detailed physical exam findings, specific ROS denials, the patient's reported impact on daily tasks, the normal range for vitamin D, and important patient education and concluding remarks from the plan. All additions were supported by the transcript and therefore did not negatively impact the grade.",
     "omissions": [
       "Patient's reduced energy levels affecting daily tasks and overall productivity.",
       "Review of Systems (ROS) findings for Neurological: Denies headaches, dizziness, or numbness.",
@@ -259,7 +259,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint, duration, and severity of symptoms well. However, it omits the patient's reduced energy levels affecting daily tasks and overall productivity, which is a moderate omission. Several minor omissions from the Review of Systems (negative neurological, skin, and endocrine findings) also reduce completeness. No unsupported or unknown additions are present.",
+        "summary": "The Subjective section is mostly aligned, capturing the chief complaint and core HPI. However, it omits the patient's reduced energy levels affecting daily tasks and overall productivity, which is a moderate omission. Additionally, it omits several specific denials from the Review of Systems (Neurological, Skin, Endocrine), which are minor omissions.",
         "omissions": [
           "Patient's reduced energy levels affecting daily tasks and overall productivity.",
           "Review of Systems (ROS) findings for Neurological: Denies headaches, dizziness, or numbness.",
@@ -271,7 +271,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately presents vital signs, the key positive physical exam finding (mild muscle and bone tenderness), and the critical lab result (low 25-hydroxy vitamin D level). However, it omits numerous specific negative physical exam findings across various systems (General, HEENT, Neck, Respiratory, Cardiovascular, Abdomen, Skin, Neurological) and the normal range for the vitamin D level. While these are minor omissions, their collective absence makes the section less detailed. Supported summary statements like 'Vital signs are within normal limits' and 'no other abnormalities' help to convey overall normalcy without introducing errors.",
+        "summary": "The Objective section captures the vital signs and the critical lab result. However, it omits numerous specific details from the physical exam (General, HEENT, Neck, Respiratory, Cardiovascular, Abdomen, Skin, Neurological findings) and the normal range for the 25-hydroxy vitamin D level. While the generated note provides a summary of normal findings, these specific omissions are numerous minor issues. All additions in this section were supported by the transcript.",
         "omissions": [
           "General physical exam: Alert, cooperative, well-nourished.",
           "HEENT physical exam: Normocephalic, atraumatic. No signs of nasal congestion or throat abnormalities.",
@@ -291,7 +291,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, capturing all Ground Truth content without any omissions. All additions, such as 'likely contributing to fatigue and muscle weakness' and 'Current' before hypothyroidism, are supported by the transcript and enhance the clarity of the assessment without introducing any unsupported information.",
+        "summary": "The Assessment section is excellent, accurately capturing all Ground Truth content without any omissions or unsupported/unknown additions. All additions were supported by the transcript.",
         "omissions": [],
         "additions": [
           "Assessment detail: 'likely contributing to fatigue and muscle weakness' for Vitamin D deficiency.",
@@ -301,7 +301,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section includes all core treatment, lifestyle, and follow-up actions. However, it omits the specific instruction to 'Schedule a re-check of 25-hydroxy vitamin D levels after 3 months' (a minor omission given a similar instruction is present). More significantly, it omits the discussion of the importance of adherence to the prescribed supplementation and lifestyle modifications, and the comprehensive concluding paragraph about patient concerns, follow-up, and understanding, which are moderate omissions related to patient education and visit closure. All additions are supported by the transcript.",
+        "summary": "The Plan section captures the core treatment, lifestyle changes, and follow-up schedule. However, it omits the specific instruction to 'Schedule a re-check of 25-hydroxy vitamin D levels after 3 months' (a minor omission), the discussion of the importance of adherence to supplementation and lifestyle modifications (a moderate omission), and the concluding paragraph regarding patient encouragement and understanding (a moderate omission). All additions in this section were supported by the transcript.",
         "omissions": [
           "Specific instruction to 'Schedule a re-check of 25-hydroxy vitamin D levels after 3 months.'",
           "Discussion of the importance of adherence to the prescribed supplementation and lifestyle modifications.",
@@ -323,49 +323,63 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your vitals look good. Blood pressure is 120/78 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, temperature is 98.6°F, and your oxygen saturation is 99% on room air.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Physical exam summary: 'no other abnormalities'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Your head, eyes, ears, nose, and throat look normal. There's no nasal congestion or throat abnormalities. Your neck has no lymphadenopathy, goiter, or mass. Your breath sounds are clear bilaterally, no wheezes, rales, or rhonchi. Your heart sounds are normal as well, no murmurs, rubs, or gallops. Your abdomen is soft and non-tender with no hepatosplenomegaly. I do notice some mild tenderness in your muscles and bones, but otherwise, you have a normal range of motion. There are no rashes, lesions, or skin discolorations. Your neurological exam is normal; you're alert and oriented with no focal deficits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Physical exam shows mild muscle and bone tenderness but no other abnormalities"
+      "matched_claim_text": "Physical exam shows mild muscle and bone tenderness but no other abnormalities",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment detail: 'likely contributing to fatigue and muscle weakness' for Vitamin D deficiency.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] This low vitamin D level could be contributing to your fatigue and muscle weakness. So, my assessment is that you have a vitamin D deficiency.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vitamin D deficiency likely contributing to fatigue and muscle weakness"
+      "matched_claim_text": "Vitamin D deficiency likely contributing to fatigue and muscle weakness",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier: 'Current' before hypothyroidism.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your medical history record, I see you have hypothyroidism and you're stable on your current treatment. [patient] It was checked a few months ago, and everything was stable.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Current hypothyroidism is stable on current treatment"
+      "matched_claim_text": "Current hypothyroidism is stable on current treatment",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier: 'about' in 'Increase sun exposure to about 15 minutes daily'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Additionally, try to increase your sun exposure to about 15 minutes daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increase sun exposure to about 15 minutes daily"
+      "matched_claim_text": "Increase sun exposure to about 15 minutes daily",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier: 'immediately' in 'Advise the patient to report any new symptoms or signs of vitamin D toxicity immediately'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If you experience any new symptoms or signs of vitamin D toxicity, please report them immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise the patient to report any new symptoms or signs of vitamin D toxicity immediately"
+      "matched_claim_text": "Advise the patient to report any new symptoms or signs of vitamin D toxicity immediately",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Bulleted plan item: 'overall assessment' as part of the follow-up plan.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’ll see you in 3 months for a re-evaluation of your vitamin D levels and overall assessment.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

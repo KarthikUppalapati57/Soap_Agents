@@ -253,87 +253,84 @@
     "plan_alignment_score": 0.7380952380952381
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key symptoms, vital signs, physical exam findings, diagnosis, and treatment plan. All additions were supported by the transcript and therefore did not impact the grade. However, the note has several minor omissions, particularly regarding negative findings in the Review of Systems and Physical Exam, and some moderate omissions in the Subjective section (impact on daily life, specific dietary details) and Assessment section (explicit medical reasoning linking symptoms and history to the diagnosis).",
+    "model": "expert_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note provides a generally accurate overview of the patient's presentation, assessment, and plan. However, it suffers from several omissions across all sections. Most notably, the \"Additional Testing\" section, detailing pending blood work, is entirely missing from the Plan, which significantly reduces the clinical usefulness of the note. Other omissions include specific details in the HPI, all negative findings from the Review of Systems, specific physical exam findings, and a more comprehensive medical reasoning in the Assessment. While no unsupported additions were found, these omissions collectively make the note meaningfully incomplete.",
     "omissions": [
-      "Patient's symptoms occurring daily",
-      "Impact of symptoms on ability to concentrate at work and perform daily routines",
-      "Infrequent consumption of red meat or iron-fortified foods (detail about diet)",
-      "Occasional use of NSAIDs",
-      "No chronic conditions reported",
-      "Cardiovascular Review of Systems: No chest pain, palpitations, or edema",
-      "Respiratory Review of Systems: No cough or wheezing",
-      "Gastrointestinal Review of Systems: No nausea, vomiting, or changes in bowel habits",
-      "Neurological Review of Systems: No headaches or syncope",
-      "Musculoskeletal Review of Systems: No joint pain or muscle weakness",
-      "Cardiovascular Physical Exam: Normal heart sounds, no murmurs",
-      "Respiratory Physical Exam: Clear to auscultation bilaterally",
-      "Skin Physical Exam: Pale conjunctiva",
-      "Neurological Physical Exam: Alert and oriented, no focal deficits",
-      "Medical Reasoning: Patient’s symptoms of fatigue, pallor, and shortness of breath on exertion (as reasoning)",
-      "Medical Reasoning: History of menorrhagia (as reasoning)",
-      "Context of awaiting blood work results",
-      "Patient understands and agrees with the recommended medical treatment plan and follow-up instructions"
+      "Impact of symptoms on concentration at work and daily routines",
+      "Detail about diet: infrequent consumption of red meat or iron-fortified foods",
+      "History of occasional NSAID use",
+      "Report of no chronic conditions",
+      "Negative cardiovascular review of systems (no chest pain, palpitations, or edema)",
+      "Negative respiratory review of systems (no cough or wheezing)",
+      "Negative gastrointestinal review of systems (no nausea, vomiting, or changes in bowel habits)",
+      "Negative neurological review of systems (no headaches or syncope)",
+      "Negative musculoskeletal review of systems (no joint pain or muscle weakness)",
+      "Normal heart sounds, no murmurs (Physical Exam)",
+      "Clear to auscultation bilaterally (Physical Exam)",
+      "Pale conjunctiva (Physical Exam, distinct from general pallor)",
+      "Alert and oriented, no focal deficits (Physical Exam)",
+      "Diagnosis qualifier 'Unspecific' for Iron Deficiency Anemia",
+      "Detailed medical reasoning in Assessment explicitly mentioning fatigue, pallor, shortness of breath on exertion, and history of menorrhagia as contributing factors",
+      "Entire 'Additional Testing' section, including the status of 'Awaiting blood work results'",
+      "Entire 'Patient Agreements' section"
     ],
     "additions": [
-      "Pale skin and conjunctiva included in Subjective HPI summary",
-      "Specific blood tests (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity) listed under Follow-up Recommendations in Plan"
+      "In Plan, Medical Treatment: 'for iron supplementation'",
+      "In Plan, Follow-Up Recommendations: Explicitly listing 'Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity' as the blood tests to be repeated"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section provides a good summary of the patient's chief complaint and main HPI elements. However, it omits several minor details such as symptoms occurring daily, occasional NSAID use, and no chronic conditions. More significantly, it omits the impact of symptoms on daily routines and the specific detail about infrequent consumption of red meat or iron-fortified foods. Additionally, all negative findings from the Review of Systems (Cardiovascular, Respiratory, Gastrointestinal, Neurological, Musculoskeletal) were omitted, making the ROS incomplete. The addition of 'pale skin and conjunctiva' was supported by the transcript and did not affect the grade.",
+        "summary": "The Subjective section captures the chief complaint and main symptoms but omits important details from the History of Present Illness, such as the impact of symptoms on daily life, specific dietary habits (infrequent red meat/iron-fortified foods), occasional NSAID use, and the absence of chronic conditions. Furthermore, all negative findings from the Review of Systems across multiple body systems are omitted, reducing the comprehensiveness of this section.",
         "omissions": [
-          "Symptoms occurring daily",
-          "Impact on ability to concentrate at work and perform daily routines",
-          "Infrequent consumption of red meat or iron-fortified foods",
-          "Occasional use of NSAIDs",
-          "No chronic conditions reported",
-          "Cardiovascular Review of Systems: No chest pain, palpitations, or edema",
-          "Respiratory Review of Systems: No cough or wheezing",
-          "Gastrointestinal Review of Systems: No nausea, vomiting, or changes in bowel habits",
-          "Neurological Review of Systems: No headaches or syncope",
-          "Musculoskeletal Review of Systems: No joint pain or muscle weakness"
+          "Impact of symptoms on concentration at work and daily routines",
+          "Detail about diet: infrequent consumption of red meat or iron-fortified foods",
+          "History of occasional NSAID use",
+          "Report of no chronic conditions",
+          "Negative cardiovascular review of systems (no chest pain, palpitations, or edema)",
+          "Negative respiratory review of systems (no cough or wheezing)",
+          "Negative gastrointestinal review of systems (no nausea, vomiting, or changes in bowel habits)",
+          "Negative neurological review of systems (no headaches or syncope)",
+          "Negative musculoskeletal review of systems (no joint pain or muscle weakness)"
         ],
-        "additions": [
-          "Pale skin and conjunctiva included in HPI summary"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section accurately captures all vital signs and key positive physical exam findings (pallor, soft non-distended abdomen). The omissions are limited to minor negative physical exam findings such as normal heart sounds, clear lungs, and alert and oriented neurological status, which do not significantly detract from the clinical usefulness of the section.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports vital signs and general physical exam findings. However, it omits several specific findings from the physical examination, including normal heart sounds and absence of murmurs, clear lung auscultation, the specific finding of pale conjunctiva, and the patient's neurological status (alert and oriented, no focal deficits).",
         "omissions": [
-          "Cardiovascular Physical Exam: Normal heart sounds, no murmurs",
-          "Respiratory Physical Exam: Clear to auscultation bilaterally",
-          "Skin Physical Exam: Pale conjunctiva",
-          "Neurological Physical Exam: Alert and oriented, no focal deficits"
+          "Normal heart sounds, no murmurs (Cardiovascular Physical Exam)",
+          "Clear to auscultation bilaterally (Respiratory Physical Exam)",
+          "Pale conjunctiva (Skin Physical Exam, distinct from general pallor)",
+          "Alert and oriented, no focal deficits (Neurological Physical Exam)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section correctly identifies the primary diagnosis and lists appropriate differential diagnoses. However, it omits the explicit medical reasoning that links the patient’s specific symptoms (fatigue, pallor, shortness of breath on exertion) and history (menorrhagia) to the suspected iron deficiency anemia. While the diagnosis is correct, the lack of this explicit reasoning represents a moderate gap in the documentation of clinical thought.",
+        "summary": "The Assessment section correctly identifies the likely diagnosis of iron deficiency anemia and lists appropriate differential diagnoses. However, it omits the \"Unspecific\" qualifier for the diagnosis and significantly condenses the medical reasoning, failing to explicitly link the diagnosis to all contributing factors such as menorrhagia, as present in the Ground Truth.",
         "omissions": [
-          "Medical Reasoning: Patient’s symptoms of fatigue, pallor, and shortness of breath on exertion (as reasoning)",
-          "Medical Reasoning: History of menorrhagia (as reasoning)"
+          "Diagnosis qualifier 'Unspecific' for Iron Deficiency Anemia",
+          "Detailed medical reasoning in Assessment explicitly mentioning fatigue, pallor, shortness of breath on exertion, and history of menorrhagia as contributing factors"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is comprehensive and accurately includes prescribed treatment, follow-up recommendations, referral, patient education, and lifestyle recommendations. The omissions are minor, specifically the context of awaiting blood work results and the patient's agreement with the plan. The addition of specific blood tests under follow-up recommendations was supported by the transcript and did not affect the grade.",
+        "grade": "D",
+        "summary": "The Plan section correctly includes prescribed treatment, follow-up recommendations (including specific tests), patient education, and referral. However, it critically omits the entire \"Additional Testing\" section, which details the pending blood work (CBC, Serum ferritin, Serum iron, and TIBC) and their status. This is a major omission that materially reduces the clinical usefulness of the plan. The \"Patient Agreements\" section is also omitted.",
         "omissions": [
-          "Context of awaiting blood work results",
-          "Patient understands and agrees with the recommended medical treatment plan and follow-up instructions"
+          "Entire 'Additional Testing' section, including the status of 'Awaiting blood work results'",
+          "Entire 'Patient Agreements' section"
         ],
         "additions": [
-          "Specific blood tests (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity) listed under Follow-up Recommendations"
+          "In Medical Treatment: 'for iron supplementation'",
+          "In Follow-Up Recommendations: Explicitly listing 'Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity' as the blood tests to be repeated"
         ]
       }
     ],
@@ -342,32 +339,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Pale skin and conjunctiva included in Subjective HPI summary",
+      "addition_text": "In Plan, Medical Treatment: 'for iron supplementation'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Just that my skin and the area around my eyes look really pale.",
+      "transcript_evidence": "[Doctor]: Here’s what we’ll do. I’ll prescribe you ferrous sulfate 325 mg, to be taken orally once daily with Vitamin C to enhance absorption.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports pale skin and conjunctiva."
+      "matched_claim_text": "Medical Treatment: Prescribe ferrous sulfate 325 mg orally once daily with Vitamin C for iron supplementation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific blood tests (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity) listed under Follow-up Recommendations in Plan",
+      "addition_text": "In Plan, Follow-Up Recommendations: Explicitly listing 'Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity' as the blood tests to be repeated",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d like to see you back in 4 weeks to reassess your symptoms and repeat some blood tests. ... We’re awaiting some blood work results: Complete blood count, Serum ferritin, Serum iron, and Total iron-binding capacity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-Up: Schedule a follow-up in 4 weeks to reassess symptoms and repeat blood tests (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity)."
+      "matched_claim_text": "Follow-Up: Schedule a follow-up in 4 weeks to reassess symptoms and repeat blood tests (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Pale skin and conjunctiva included in HPI summary",
+      "addition_text": "In Medical Treatment: 'for iron supplementation'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Just that my skin and the area around my eyes look really pale.",
+      "transcript_evidence": "[Doctor]: Here’s what we’ll do. I’ll prescribe you ferrous sulfate 325 mg, to be taken orally once daily with Vitamin C to enhance absorption.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports pale skin and conjunctiva."
+      "matched_claim_text": "Medical Treatment: Prescribe ferrous sulfate 325 mg orally once daily with Vitamin C for iron supplementation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific blood tests (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity) listed under Follow-up Recommendations",
+      "addition_text": "In Follow-Up Recommendations: Explicitly listing 'Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity' as the blood tests to be repeated",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d like to see you back in 4 weeks to reassess your symptoms and repeat some blood tests. ... We’re awaiting some blood work results: Complete blood count, Serum ferritin, Serum iron, and Total iron-binding capacity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-Up: Schedule a follow-up in 4 weeks to reassess symptoms and repeat blood tests (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity)."
+      "matched_claim_text": "Follow-Up: Schedule a follow-up in 4 weeks to reassess symptoms and repeat blood tests (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

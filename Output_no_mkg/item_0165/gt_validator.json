@@ -260,79 +260,64 @@
     "plan_alignment_score": 0.5612244897959183
   },
   "expert_judge": {
-    "model": "Expert Clinical Documentation Reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Subjective and Plan sections. While there are no unsupported or unknown additions, the note omits several important details from the HPI and ROS, such as the patient's past medical history of hypertension and specific denials from the review of systems. The Plan section also lacks crucial details regarding medication dosage specifics, comprehensive patient education, and explicit documentation of patient understanding and agreement, which collectively reduce the note's completeness and clinical usefulness.",
+    "overall_summary": "The generated SOAP note has noticeable gaps, particularly in the Subjective and Plan sections, which make it meaningfully incomplete. While all identified additions are supported by the transcript and do not penalize the grade, significant omissions of detailed history, review of systems, and patient education/agreement content reduce the note's overall clinical usefulness and completeness. The note is still usable but requires careful review due to these gaps.",
     "omissions": [
-      "Past medical history of hypertension (from HPI)",
-      "Patient reports no direct symptoms related to high cholesterol (from HPI)",
-      "Family history of coronary artery disease in father (from HPI)",
-      "Family history of diabetes mellitus type 2 in mother (from HPI)",
-      "Denies fever, chills, or weight loss (Constitutional ROS)",
-      "Denies chest pain, palpitations, or shortness of breath (Cardiovascular ROS)",
-      "Denies cough or difficulty breathing (Respiratory ROS)",
-      "Denies abdominal pain, nausea, or changes in bowel habits (Gastrointestinal ROS)",
-      "Denies headaches, dizziness, or changes in vision (Neurological ROS)",
-      "General physical exam findings: Alert and oriented, cooperative, appears slightly anxious",
-      "Cardiovascular exam detail: no murmurs, rubs, or gallops",
-      "Respiratory exam detail: clear to auscultation bilaterally, no wheezes, rales, or rhonchi",
-      "Gastrointestinal exam detail: soft, non-tender, no hepatosplenomegaly",
-      "Musculoskeletal exam detail: normal range of motion",
-      "Neurological exam detail: cranial nerves intact, no focal deficits",
-      "Patient is asymptomatic (from Assessment)",
-      "Patient shows concern due to elevated LDL and total cholesterol levels (from Assessment)",
-      "Atorvastatin dosage details: oral, once daily, 30 tablets with 2 refills",
-      "Separate advice on strategies for weight loss to reach a healthy BMI",
-      "Discussion on the importance of adhering to prescribed medications and lifestyle changes to manage hyperlipidemia and reduce cardiovascular risk",
-      "Patient understanding and agreement with the treatment plan",
-      "Patient commitment to making necessary lifestyle adjustments"
+      "Chief Complaint section header and content",
+      "History of Present Illness (HPI) section header and content",
+      "Review of Systems (ROS) section header and detailed content",
+      "Patient Education and Counseling section header",
+      "Patient Agreements section header and content"
     ],
-    "additions": [
-      "\"waiting on liver function tests\" in Objective section",
-      "\"necessitate preventive measures against cardiovascular diseases\" in Assessment section",
-      "\"to lower cholesterol levels\" as purpose for Atorvastatin prescription",
-      "\"for tailored dietary counseling\" (addition of \"tailored\")"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section receives a C due to several omissions. Key details from the HPI, such as the patient's past medical history of hypertension and specific family history of coronary artery disease and diabetes mellitus type 2, are missing. Additionally, the comprehensive review of systems, including denials for constitutional, cardiovascular, respiratory, gastrointestinal, and neurological symptoms, is largely omitted, making this section meaningfully incomplete.",
+        "grade": "D",
+        "summary": "The Subjective section is missing critical components, including the Chief Complaint, detailed History of Present Illness (e.g., past medical history of hypertension, asymptomatic status, family history of CAD/DM2), and almost all of the Review of Systems. These omissions materially reduce the clinical usefulness and completeness of this section.",
         "omissions": [
-          "Past medical history of hypertension (from HPI)",
-          "Patient reports no direct symptoms related to high cholesterol (from HPI)",
-          "Family history of coronary artery disease in father (from HPI)",
-          "Family history of diabetes mellitus type 2 in mother (from HPI)",
-          "Denies fever, chills, or weight loss (Constitutional ROS)",
-          "Denies chest pain, palpitations, or shortness of breath (Cardiovascular ROS)",
-          "Denies cough or difficulty breathing (Respiratory ROS)",
-          "Denies abdominal pain, nausea, or changes in bowel habits (Gastrointestinal ROS)",
-          "Denies headaches, dizziness, or changes in vision (Neurological ROS)"
+          "Chief Complaint section header",
+          "History of Present Illness (HPI) section header",
+          "Past medical history of hypertension",
+          "Patient reports no direct symptoms related to high cholesterol",
+          "Family history of coronary artery disease in father",
+          "Family history of diabetes mellitus type 2 in mother",
+          "Review of Systems (ROS) section header",
+          "Denial of constitutional symptoms (fever, chills, weight loss)",
+          "Denial of cardiovascular symptoms (chest pain, palpitations, shortness of breath)",
+          "Denial of respiratory symptoms (cough, difficulty breathing)",
+          "Denial of gastrointestinal symptoms (abdominal pain, nausea, changes in bowel habits)",
+          "Denial of neurological symptoms (headaches, dizziness, changes in vision)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section receives a B. While it captures vital signs and key lipid profile results, it omits several specific physical examination findings, such as the general appearance (alert, oriented, cooperative, anxious), and detailed findings for cardiovascular (no murmurs, rubs, gallops), respiratory (clear to auscultation bilaterally, no wheezes, rales, rhonchi), gastrointestinal (soft, non-tender, no hepatosplenomegaly), musculoskeletal (normal range of motion), and neurological (cranial nerves intact, no focal deficits) systems. These are minor omissions that reduce the granularity but not the overall clinical usability significantly.",
+        "summary": "The Objective section captures the essential vital signs and key lipid profile results. While it omits detailed descriptions of the physical examination findings and section headers, the most clinically important numerical data is present. The single addition in this section is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "General physical exam findings: Alert and oriented, cooperative, appears slightly anxious",
-          "Cardiovascular exam detail: no murmurs, rubs, or gallops",
-          "Respiratory exam detail: clear to auscultation bilaterally, no wheezes, rales, or rhonchi",
-          "Gastrointestinal exam detail: soft, non-tender, no hepatosplenomegaly",
-          "Musculoskeletal exam detail: normal range of motion",
-          "Neurological exam detail: cranial nerves intact, no focal deficits"
+          "Physical Examination section header",
+          "General appearance: Alert and oriented, cooperative, appears slightly anxious",
+          "Cardiovascular exam detail: \"no murmurs, rubs, or gallops\"",
+          "Respiratory exam detail: \"to auscultation bilaterally, no wheezes, rales, or rhonchi\"",
+          "Gastrointestinal exam detail: \"Soft, non-tender, no hepatosplenomegaly\"",
+          "Musculoskeletal exam detail: \"normal range of motion\"",
+          "Neurological exam detail: \"Cranial nerves intact, no focal deficits\"",
+          "Recent Test Results section header",
+          "Lipid Profile section header"
         ],
         "additions": [
-          "\"waiting on liver function tests\" in Objective section"
+          "\"(waiting on liver function tests)\" in the objective findings"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section receives an A. It accurately captures the core assessment of newly diagnosed hyperlipidemia in a patient with hypertension and relevant family history. The only omissions are minor details: that the patient is asymptomatic and specifically shows concern due to elevated LDL and total cholesterol levels. These do not materially impact the clinical usefulness of the assessment.",
+        "grade": "B",
+        "summary": "The Assessment section is mostly clinically aligned, identifying the patient's hypertension and elevated cholesterol with family history. It has minor omissions such as 'newly diagnosed hyperlipidemia,' 'patient is asymptomatic,' and specific mention of patient concern due to LDL/total cholesterol levels. The addition in this section is supported by the transcript and does not reduce the grade.",
         "omissions": [
+          "\"newly diagnosed hyperlipidemia\"",
           "Patient is asymptomatic",
           "Patient shows concern due to elevated LDL and total cholesterol levels"
         ],
@@ -343,17 +328,21 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section receives a C due to multiple moderate omissions. It lacks specific details for the Atorvastatin prescription, such as \"oral, once daily, 30 tablets with 2 refills.\" Crucially, it omits the detailed discussion on the importance of adhering to prescribed medications and lifestyle changes, as well as the explicit documentation of the patient's understanding and agreement with the treatment plan and commitment to lifestyle adjustments. These omissions reduce the completeness and utility of the plan for follow-up and legal documentation.",
+        "summary": "The Plan section outlines the core treatment actions (medication, lifestyle, referral, follow-up). However, it has multiple moderate omissions, including specific medication details (e.g., refills), explicit advice on weight loss strategies, and the entire Patient Education and Counseling and Patient Agreements sections. These omissions make the plan less comprehensive regarding patient engagement and specific instructions. All additions in this section are supported by the transcript and do not reduce the grade.",
         "omissions": [
-          "Atorvastatin dosage details: oral, once daily, 30 tablets with 2 refills",
-          "Separate advice on strategies for weight loss to reach a healthy BMI",
-          "Discussion on the importance of adhering to prescribed medications and lifestyle changes to manage hyperlipidemia and reduce cardiovascular risk",
-          "Patient understanding and agreement with the treatment plan",
-          "Patient commitment to making necessary lifestyle adjustments"
+          "Medical Treatment details: \"oral, once daily, 30 tablets with 2 refills\"",
+          "Lifestyle Modifications section header",
+          "Advice on strategies for weight loss to reach a healthy BMI",
+          "Referrals section header",
+          "Follow-Up section header",
+          "Patient Education and Counseling section header",
+          "Discussion of importance of adhering to prescribed medications and lifestyle changes to manage hyperlipidemia and reduce cardiovascular risk",
+          "Patient Agreements section header",
+          "Patient Agreements content (patient understands and agrees with treatment plan, committed to lifestyle adjustments)"
         ],
         "additions": [
-          "\"to lower cholesterol levels\" as purpose for Atorvastatin prescription",
-          "\"for tailored dietary counseling\" (addition of \"tailored\")"
+          "\"to lower cholesterol levels\" (as purpose of Atorvastatin)",
+          "\"tailored\" dietary counseling"
         ]
       }
     ],
@@ -362,39 +351,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"waiting on liver function tests\" in Objective section",
+      "addition_text": "\"(waiting on liver function tests)\" in the objective findings",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re still waiting on your liver function tests.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "waiting on liver function tests"
-    },
-    {
-      "addition_text": "\"necessitate preventive measures against cardiovascular diseases\" in Assessment section",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Given your history of hypertension and your newly diagnosed hyperlipidemia, it’s crucial to manage these risk factors to prevent cardiovascular diseases.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "necessitate preventive measures against cardiovascular diseases."
-    },
-    {
-      "addition_text": "\"to lower cholesterol levels\" as purpose for Atorvastatin prescription",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll start by prescribing Atorvastatin 20 mg to help lower your cholesterol.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Atorvastatin 20 mg to lower cholesterol levels"
-    },
-    {
-      "addition_text": "\"for tailored dietary counseling\" (addition of \"tailored\")",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’ll also refer you to a dietitian, Dr. Jane Smith, for dietary counseling. She can provide you with a tailored diet plan.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Refer the patient to a dietitian, Dr. Jane Smith, for tailored dietary counseling"
+      "matched_claim_text": "waiting on liver function tests",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"necessitate preventive measures against cardiovascular diseases\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your history of hypertension and your newly diagnosed hyperlipidemia, it’s crucial to manage these risk factors to prevent cardiovascular diseases.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "necessitate preventive measures against cardiovascular diseases."
+      "matched_claim_text": "necessitate preventive measures against cardiovascular diseases.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"to lower cholesterol levels\" (as purpose of Atorvastatin)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’ll start by prescribing Atorvastatin 20 mg to help lower your cholesterol.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Prescribe Atorvastatin 20 mg to lower cholesterol levels",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"tailored\" dietary counseling",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’ll also refer you to a dietitian, Dr. Jane Smith, for dietary counseling. She can provide you with a tailored diet plan.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Refer the patient to a dietitian, Dr. Jane Smith, for tailored dietary counseling",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

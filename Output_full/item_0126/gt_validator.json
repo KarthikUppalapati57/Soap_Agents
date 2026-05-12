@@ -237,93 +237,108 @@
     "plan_alignment_score": 0.6601941747572816
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps, particularly in the Objective and Assessment sections. Key medical history, chronic conditions, and the primary diagnosis of Opioid Dependence are omitted, making the note meaningfully incomplete. While the Subjective and Plan sections are better, the missing critical diagnostic and contextual information necessitates caution and review.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated SOAP note has significant omissions that materially reduce its clinical usefulness. Most notably, the explicit diagnosis of \"Opioid Dependence, Uncomplicated\" is missing from the Assessment section, which is a major clinical gap. Additionally, the patient's Attention Deficit Hyperactivity Disorder (ADHD) is omitted from both the Objective and Assessment sections, and crucial historical context like \"Previously on OxyContin for pain management\" is absent. Several specific patient education points and a key counseling arrangement are also missing from the Plan. While the note captures many elements, these omissions make it meaningfully incomplete.",
     "omissions": [
-      "Worst symptoms occurring in the mornings",
-      "No illicit drug use reported",
-      "Minimal recreational activities, mostly watches TV or browses the internet",
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "\"worst symptoms occurring in the mornings\"",
+      "\"Drug Use: No illicit drug use reported.\" (from ROS)",
+      "\"Recreational Activities: Minimal, mostly watches TV or browses the internet.\"",
       "Attention Deficit Hyperactivity Disorder (ADHD) as a medical history item",
-      "Previously on OxyContin for pain management",
-      "Allergies: Latex (as an Objective item)",
-      "ADHD as a chronic condition",
-      "Chronic Lower Back Pain as an explicit chronic condition",
-      "Diagnosis: Opioid Dependence, Uncomplicated",
-      "History of Chronic Lower Back Pain and ADHD",
-      "No evidence of illicit drug use",
-      "30 tablets for Naltrexone prescription",
-      "oral administration for Naltrexone",
-      "or issues in follow-up monitoring (for side effects or issues)",
-      "Arrange for counseling to provide consistent support and reinforce commitment to change",
-      "Explained the potential benefits and side effects of Naltrexone (from Patient Education)",
-      "Discussed non-opioid alternatives and the importance of physical therapy (from Patient Education)",
-      "Emphasized the importance of regular follow-up and behavioral therapy to support her through withdrawal and recovery (from Patient Education)"
+      "\"Previously on OxyContin for pain management.\"",
+      "Allergies section in Objective",
+      "Attention Deficit Hyperactivity Disorder (ADHD) as a chronic condition",
+      "\"Diagnosis: Opioid Dependence, Uncomplicated\"",
+      "Attention Deficit Hyperactivity Disorder (ADHD) in Assessment",
+      "\"No evidence of illicit drug use.\" (from Assessment)",
+      "\"30 tablets\" (for Naltrexone prescription)",
+      "\"or issues\" (from follow-up monitoring)",
+      "\"Arrange for counseling to provide consistent support and reinforce commitment to change.\"",
+      "\"due to financial constraints\" (for generic medications)",
+      "Patient Education section header",
+      "\"Brief on Opioid Dependence: Explained the potential benefits and side effects of Naltrexone.\"",
+      "\"Pain Management Alternatives: Discussed non-opioid alternatives and the importance of physical therapy.\"",
+      "\"Counseling and Support: Emphasized the importance of regular follow-up and behavioral therapy to support her through withdrawal and recovery.\"",
+      "Next Steps section header"
     ],
     "additions": [
-      "Allergic to latex (as a Subjective item)",
-      "Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending (as an Objective item)",
-      "Blood work to check liver function is also pending due to Naltrexone use (as an Objective item)",
-      "Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies (in Assessment)"
+      "\"Allergic to latex.\" (in Subjective)",
+      "\"Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending.\" (in Objective)",
+      "\"Blood work to check liver function is also pending due to Naltrexone use.\" (in Objective)",
+      "\"due to Naltrexone use\" (detail in Objective)",
+      "\"Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies.\" (in Assessment)",
+      "\"for future discussion during next consultation\" (in Plan)",
+      "\"immediately\" (in Plan)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is mostly clinically aligned, capturing the core symptoms and impact. However, it omits minor details like the worst symptoms occurring in the mornings, the explicit mention of no illicit drug use reported (from GT ROS), and specific recreational activities. All additions were supported by the transcript and did not reduce the grade.",
+        "grade": "A",
+        "summary": "The Subjective section is well-captured. Minor omissions include the specific timing of \"worst symptoms occurring in the mornings,\" the explicit mention of \"no illicit drug use reported\" from ROS, and details about \"recreational activities.\" Structural section headers were also omitted. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Worst symptoms occurring in the mornings",
-          "No illicit drug use reported",
-          "Minimal recreational activities, mostly watches TV or browses the internet"
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "\"worst symptoms occurring in the mornings\"",
+          "\"Drug Use: No illicit drug use reported.\" (from ROS)",
+          "\"Recreational Activities: Minimal, mostly watches TV or browses the internet.\""
         ],
         "additions": [
-          "Allergic to latex"
+          "\"Allergic to latex.\""
         ]
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "This section has multiple moderate omissions, including the patient's Attention Deficit Hyperactivity Disorder (ADHD) as both a medical history item and a chronic condition, and the history of previously being on OxyContin for pain management. While some information about pending investigations is present, the absence of these key medical history and chronic condition details makes the section meaningfully incomplete. All additions were supported by the transcript and did not reduce the grade.",
+        "summary": "The Objective section has several moderate omissions, including the patient's Attention Deficit Hyperactivity Disorder (ADHD) from both medical history and chronic conditions, and the crucial historical detail \"Previously on OxyContin for pain management.\" The dedicated \"Allergies\" section header was also omitted. All additions in this section were supported by the transcript.",
         "omissions": [
           "Attention Deficit Hyperactivity Disorder (ADHD) as a medical history item",
-          "Previously on OxyContin for pain management",
-          "Allergies: Latex",
-          "ADHD as a chronic condition",
-          "Chronic Lower Back Pain as an explicit chronic condition"
+          "\"Previously on OxyContin for pain management.\"",
+          "Allergies section",
+          "Attention Deficit Hyperactivity Disorder (ADHD) as a chronic condition"
         ],
         "additions": [
-          "Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending",
-          "Blood work to check liver function is also pending due to Naltrexone use"
+          "\"Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending.\"",
+          "\"Blood work to check liver function is also pending due to Naltrexone use.\"",
+          "\"due to Naltrexone use\""
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section suffers from a major omission: the primary diagnosis of 'Opioid Dependence, Uncomplicated' is entirely missing. Additionally, the history of Chronic Lower Back Pain and ADHD is omitted, which are important contextual elements for the assessment. These significant gaps make the assessment meaningfully incomplete. All additions were supported by the transcript and did not reduce the grade.",
+        "grade": "D",
+        "summary": "The Assessment section suffers from a major omission: the explicit diagnosis of \"Opioid Dependence, Uncomplicated.\" While the note describes the patient's severe opioid withdrawal symptoms, the formal diagnosis is absent, significantly reducing the section's clinical utility. Additionally, the patient's Attention Deficit Hypeactivity Disorder (ADHD) is omitted, and the confirmation of \"No evidence of illicit drug use\" is also missing. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Diagnosis: Opioid Dependence, Uncomplicated",
-          "History of Chronic Lower Back Pain and ADHD",
-          "No evidence of illicit drug use"
+          "\"Diagnosis: Opioid Dependence, Uncomplicated\"",
+          "Attention Deficit Hyperactivity Disorder (ADHD) in Assessment",
+          "\"No evidence of illicit drug use.\""
         ],
         "additions": [
-          "Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies"
+          "\"Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies.\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned, capturing the main treatment strategies. However, it has several minor omissions, such as specific medication details (30 tablets, oral administration) and several points from the Patient Education sub-section. A moderate omission is the specific action item to 'Arrange for counseling to provide consistent support and reinforce commitment to change'. Despite these, the core plan is usable. There were no unsupported or unknown additions.",
+        "grade": "C",
+        "summary": "The Plan section omits several moderate details, including the specific instruction to \"Arrange for counseling to provide consistent support and reinforce commitment to change,\" and the detailed points under \"Patient Education\" such as \"Brief on Opioid Dependence,\" \"Pain Management Alternatives,\" and \"Counseling and Support.\" Minor omissions include the quantity \"30 tablets\" for Naltrexone, \"or issues\" for follow-up monitoring, and the contextual \"due to financial constraints.\" Structural section headers for Patient Education and Next Steps were also omitted. All additions in this section were supported by the transcript.",
         "omissions": [
-          "30 tablets for Naltrexone prescription",
-          "oral administration for Naltrexone",
-          "or issues in follow-up monitoring (for side effects or issues)",
-          "Arrange for counseling to provide consistent support and reinforce commitment to change",
-          "Explained the potential benefits and side effects of Naltrexone (from Patient Education)",
-          "Discussed non-opioid alternatives and the importance of physical therapy (from Patient Education)",
-          "Emphasized the importance of regular follow-up and behavioral therapy to support her through withdrawal and recovery (from Patient Education)"
+          "\"30 tablets\" (for Naltrexone prescription)",
+          "\"or issues\" (from follow-up monitoring)",
+          "\"Arrange for counseling to provide consistent support and reinforce commitment to change.\"",
+          "\"due to financial constraints\" (for generic medications)",
+          "Patient Education section header",
+          "\"Brief on Opioid Dependence: Explained the potential benefits and side effects of Naltrexone.\"",
+          "\"Pain Management Alternatives: Discussed non-opioid alternatives and the importance of physical therapy.\"",
+          "\"Counseling and Support: Emphasized the importance of regular follow-up and behavioral therapy to support her through withdrawal and recovery.\"",
+          "Next Steps section header"
         ],
-        "additions": []
+        "additions": [
+          "\"for future discussion during next consultation\"",
+          "\"immediately\""
+        ]
       }
     ],
     "rubric_notes": null
@@ -331,60 +346,130 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Allergic to latex (as a Subjective item)",
+      "addition_text": "\"Allergic to latex.\" (in Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'm allergic to latex.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Allergic to latex."
+      "matched_claim_text": "Allergic to latex.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending (as an Objective item)",
+      "addition_text": "\"Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending.\" (in Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We have an MRI of your lumbar spine pending to evaluate your chronic lower back pain... Are you aware of this?\n[Patient]: Yes, I remember.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending."
+      "matched_claim_text": "Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Blood work to check liver function is also pending due to Naltrexone use (as an Objective item)",
+      "addition_text": "\"Blood work to check liver function is also pending due to Naltrexone use.\" (in Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: ...and some blood work to check your liver function because of the Naltrexone. Are you aware of this?\n[Patient]: Yes, I remember.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood work to check liver function is also pending due to Naltrexone use."
+      "matched_claim_text": "Blood work to check liver function is also pending due to Naltrexone use.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies (in Assessment)",
+      "addition_text": "\"due to Naltrexone use\" (detail in Objective)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: ...and some blood work to check your liver function because of the Naltrexone. Are you aware of this?\n[Patient]: Yes, I remember.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Blood work to check liver function is also pending due to Naltrexone use.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies.\" (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We need to address this comprehensively. First, we’ll continue with Naltrexone 50 mg once daily. I’ll also refer you to physical therapy... We should work on some lifestyle modifications... We also need to support you in quitting smoking... We’ll arrange for counseling... We’ll also educate you on non-opioid pain management strategies.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies."
+      "matched_claim_text": "Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Allergic to latex",
+      "addition_text": "\"for future discussion during next consultation\" (in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’re awaiting the results of your MRI and liver function tests. We’ll discuss these findings during your next consultation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Await results of MRI and liver function tests for future discussion during next consultation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"immediately\" (in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We’ll also initiate the referral process for physical therapy immediately.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Allergic to latex.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'm allergic to latex.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Allergic to latex."
+      "matched_claim_text": "Allergic to latex.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending",
+      "addition_text": "\"Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We have an MRI of your lumbar spine pending to evaluate your chronic lower back pain... Are you aware of this?\n[Patient]: Yes, I remember.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending."
+      "matched_claim_text": "Chronic lower back pain is being evaluated with an MRI of the lumbar spine pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Blood work to check liver function is also pending due to Naltrexone use",
+      "addition_text": "\"Blood work to check liver function is also pending due to Naltrexone use.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: ...and some blood work to check your liver function because of the Naltrexone. Are you aware of this?\n[Patient]: Yes, I remember.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood work to check liver function is also pending due to Naltrexone use."
+      "matched_claim_text": "Blood work to check liver function is also pending due to Naltrexone use.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies",
+      "addition_text": "\"due to Naltrexone use\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: ...and some blood work to check your liver function because of the Naltrexone. Are you aware of this?\n[Patient]: Yes, I remember.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Blood work to check liver function is also pending due to Naltrexone use.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We need to address this comprehensively. First, we’ll continue with Naltrexone 50 mg once daily. I’ll also refer you to physical therapy... We should work on some lifestyle modifications... We also need to support you in quitting smoking... We’ll arrange for counseling... We’ll also educate you on non-opioid pain management strategies.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies."
+      "matched_claim_text": "Need for comprehensive management, including continued Naltrexone treatment, physical therapy referral, lifestyle modifications, smoking cessation counseling, and education on non-opioid pain management strategies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"for future discussion during next consultation\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’re awaiting the results of your MRI and liver function tests. We’ll discuss these findings during your next consultation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Await results of MRI and liver function tests for future discussion during next consultation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"immediately\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We’ll also initiate the referral process for physical therapy immediately.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

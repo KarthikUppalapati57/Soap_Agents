@@ -240,9 +240,9 @@
     "plan_alignment_score": 0.6580645161290323
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note provides a usable summary of the patient's visit but suffers from significant omissions in the Subjective and Assessment sections. The complete absence of the Review of Systems and Differential Diagnosis sections makes the note meaningfully incomplete, requiring careful review for full clinical context. The Objective and Plan sections are more complete, with only minor to moderate omissions.",
+    "overall_summary": "The generated note receives a C grade due to several significant omissions, particularly the complete absence of the Review of Systems (ROS) section in Subjective and the Differential Diagnosis section in Assessment. While the core diagnosis and treatment plan are present, these major gaps, along with other moderate and minor omissions across all sections, make the note meaningfully incomplete. There were no unsupported or unknown additions that would lower the grade.",
     "omissions": [
       "Patient's symptoms impacting ability to concentrate at work and perform daily routines",
       "Infrequent consumption of red meat or iron-fortified foods",
@@ -265,8 +265,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "The section is significantly incomplete due to the complete omission of the Review of Systems (ROS) section. Additionally, important details regarding the patient's symptoms impacting work/daily routines, infrequent consumption of specific foods, and occasional NSAID use were omitted from the HPI.",
+        "grade": "C",
+        "summary": "The Subjective section is missing the entire Review of Systems (ROS) section, which is a major omission of clinically important content. Additionally, details regarding the patient's symptoms impacting work/daily routines, infrequent consumption of red meat/iron-fortified foods, and occasional NSAID use were omitted from the History of Present Illness.",
         "omissions": [
           "Symptoms impacting ability to concentrate at work and perform daily routines",
           "Infrequent consumption of red meat or iron-fortified foods",
@@ -278,7 +278,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The section is mostly complete, but omits several normal findings from the physical examination, specifically cardiovascular, respiratory, gastrointestinal, and neurological findings.",
+        "summary": "The Objective section is mostly complete, but it omits several minor physical exam findings, including specific cardiovascular (normal heart sounds, no murmurs), respiratory (clear to auscultation bilaterally), gastrointestinal (soft, non-distended abdomen, no organomegaly), and neurological (alert and oriented, no focal deficits) findings.",
         "omissions": [
           "Physical Exam - Cardiovascular findings (Normal heart sounds, no murmurs)",
           "Physical Exam - Respiratory findings (Clear to auscultation bilaterally)",
@@ -289,8 +289,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section has significant gaps, primarily the complete omission of the Differential Diagnosis section. A key detail regarding the patient's history of menorrhagia was also omitted from the medical reasoning.",
+        "grade": "C",
+        "summary": "The Assessment section has significant omissions, most notably the entire Differential Diagnosis section. It also omits the patient's history of menorrhagia as a specific detail in the medical reasoning for iron deficiency anemia, which is a key supporting factor.",
         "omissions": [
           "Medical Reasoning detail: History of menorrhagia",
           "Differential Diagnosis section (including other types of anemia, chronic disease anemia, thyroid dysfunction, and nutritional deficiencies)"
@@ -299,8 +299,8 @@
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The plan is largely comprehensive. Minor omissions include the specific name of the nutritionist (Dr. Emily Brown), some detailed phrasing from patient education and counseling, and the entire Patient Agreements section. The single addition is supported by the transcript and does not impact the grade.",
+        "grade": "B",
+        "summary": "The Plan section is largely complete and clinically usable. Minor omissions include the specific name of the nutritionist (Dr. Emily Brown), detailed phrasing for patient education on dietary iron, and the Patient Agreements section. The addition regarding the purpose of awaiting blood work results was supported by the transcript and did not impact the grade.",
         "omissions": [
           "Referral detail: Name of nutritionist, Dr. Emily Brown",
           "Patient Education and Counseling detail: Specific phrasing about dietary iron education (importance, ways to incorporate, vegetarian diet context)",
@@ -320,7 +320,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’re awaiting some blood work results: Complete blood count, Serum ferritin, Serum iron, and Total iron-binding capacity. These will help us confirm the diagnosis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Await blood work results (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity) to confirm diagnosis."
+      "matched_claim_text": "Await blood work results (Complete blood count, Serum ferritin, Serum iron, Total iron-binding capacity) to confirm diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

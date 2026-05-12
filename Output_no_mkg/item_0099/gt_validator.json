@@ -244,16 +244,17 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the patient's chief complaint, history, objective findings, and the primary treatment plan for nicotine dependence. There are no unsupported or unknown additions. However, the note has several minor omissions, including some negative ROS and physical exam findings, and two moderate omissions: the patient's initial resistance but current willingness for nicotine replacement therapy and counseling in the Subjective section, and the detail about awaiting full lipid panel and subsequent blood pressure readings for chronic condition management in the Plan section. Despite these omissions, the note remains a reliable clinical document.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, history of present illness, vital signs, physical exam findings, and the core treatment plan for nicotine dependence. However, there are several minor omissions, primarily negative findings from the Review of Systems and minor details in the Physical Exam and Plan. Additionally, two moderate omissions include the patient's initial resistance but willingness for treatment in the ROS, and a specific diagnostic step for chronic conditions in the Plan. No unsupported or unknown additions were identified.",
     "omissions": [
-      "ROS: No wheezing or shortness of breath",
-      "ROS: No chest pain or palpitations",
-      "ROS: No gastrointestinal issues",
-      "ROS: Mental Health: initially resistant to quitting but willing to try nicotine replacement therapy and see a counselor",
-      "Physical Exam: HEENT: no exudates",
-      "Assessment: 'Cigarettes' from Nicotine Dependence",
-      "Plan: Await full lipid panel and subsequent blood pressure readings",
-      "Plan: Patient agreement to the plan"
+      "Review of Systems: No wheezing or shortness of breath noted",
+      "Review of Systems: No chest pain or palpitations",
+      "Review of Systems: No gastrointestinal issues reported",
+      "Review of Systems: Mental Health - initially resistant to quitting but willing to try nicotine replacement therapy and see a counselor",
+      "Physical Exam: HEENT - no exudates",
+      "Assessment: 'Cigarettes' from Nicotine Dependence diagnosis",
+      "Plan: Await full lipid panel and subsequent blood pressure readings (for Hypertension and Hyperlipidemia)",
+      "Plan: Instruction to schedule an appointment with Dr. Jane Smith for smoking cessation counseling",
+      "Plan: Patient agreed to this plan and will follow up in 1 month"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -261,40 +262,41 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly clinically aligned but has several minor omissions (negative ROS findings for respiratory, cardiovascular, and gastrointestinal systems) and one moderate omission regarding the patient's initial resistance to quitting but current willingness for nicotine replacement therapy and counseling. This moderate omission impacts the completeness of the patient's mental health context related to their chief complaint.",
+        "summary": "The section accurately captures the chief complaint and HPI but omits several negative findings from the Review of Systems (Respiratory, Cardiovascular, GI) and a moderate omission regarding the patient's mental health readiness for quitting.",
         "omissions": [
-          "ROS: No wheezing or shortness of breath noted",
-          "ROS: No chest pain or palpitations",
-          "ROS: No issues reported (Gastrointestinal)",
-          "ROS: Mental Health: Initially resistant to quitting but willing to try nicotine replacement therapy and see a counselor"
+          "Review of Systems: No wheezing or shortness of breath noted (Respiratory)",
+          "Review of Systems: No chest pain or palpitations (Cardiovascular)",
+          "Review of Systems: No issues reported (Gastrointestinal)",
+          "Review of Systems: Initially resistant to quitting but willing to try nicotine replacement therapy and see a counselor (Mental Health)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, capturing all major clinically important Ground Truth content. The only omission is the minor negative finding of 'no exudates' in the HEENT exam, which does not significantly impact clinical usefulness.",
+        "summary": "The section is nearly complete, with only a minor omission regarding the absence of exudates in the HEENT exam.",
         "omissions": [
-          "Physical Exam: HEENT: no exudates"
+          "Physical Exam: HEENT - no exudates"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, capturing all major diagnoses. The only omission is the minor specificity of 'Cigarettes' from 'Nicotine Dependence', which does not reduce clinical usefulness.",
+        "summary": "The assessment accurately lists the diagnoses, with only a minor omission of the specific substance 'Cigarettes' from the nicotine dependence diagnosis.",
         "omissions": [
-          "Nicotine Dependence, 'Cigarettes'"
+          "'Cigarettes' from Nicotine Dependence diagnosis"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned and usable. It accurately captures the core treatment plan for nicotine dependence and key instructions. However, it has one moderate omission regarding awaiting full lipid panel and subsequent blood pressure readings for chronic condition management, which is an important detail for continuity of care. There is also a minor omission of patient agreement to the plan.",
+        "summary": "The plan effectively outlines the treatment for nicotine dependence and continuation of chronic medications. However, it omits a key diagnostic step for hypertension/hyperlipidemia (moderate omission) and specific instructions for scheduling counseling, as well as the patient's agreement to the plan (minor omissions).",
         "omissions": [
-          "Await full lipid panel and subsequent blood pressure readings",
-          "The patient agreed to this plan and will follow up in 1 month (patient agreement)"
+          "Await full lipid panel and subsequent blood pressure readings (for Hypertension and Hyperlipidemia)",
+          "Instruction to schedule an appointment with Dr. Jane Smith for smoking cessation counseling",
+          "The patient agreed to this plan and will follow up in 1 month"
         ],
         "additions": []
       }

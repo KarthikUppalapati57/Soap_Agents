@@ -248,100 +248,98 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Assessment section where a primary diagnosis and significant past medical history are omitted. The Subjective section also misses important HPI context. While there are no unsupported or unknown additions, the cumulative effect of moderate omissions reduces the overall completeness and usefulness of the note, requiring caution and review.",
+    "overall_summary": "The generated note provides a generally accurate overview of the patient's postpartum visit. However, it suffers from several significant omissions, particularly the absence of the primary diagnosis (Single live birth) and the patient's history of gestational diabetes in the Assessment section. Additionally, the Plan section omits several important instructions regarding prenatal vitamins, specific physical activity advice, and detailed breastfeeding education. All additions made by the model were supported by the transcript and therefore did not reduce the grade.",
     "omissions": [
-      "HPI detail: initial postpartum visit following a single live birth 2 days ago",
-      "ROS: General - poor sleep",
-      "ROS: Gastrointestinal - No issues reported",
-      "ROS: Musculoskeletal - limited mobility",
-      "ROS: Neurological - No concerns",
-      "Objective: Vital Signs - Temperature in Celsius (36.9°C)",
-      "Objective: Physical Examination - General: oriented",
-      "Objective: Physical Examination - Uterus: midline",
-      "Assessment: Diagnosis - Single live birth",
-      "Assessment: Postpartum Status",
-      "Assessment: History of gestational diabetes (controlled with diet)",
-      "Plan: Postpartum Care - Continue prenatal vitamins if breastfeeding",
-      "Plan: Postpartum Care - Monitor for any signs of postpartum complications",
-      "Plan: Education and Counseling - Educate on breastfeeding techniques and challenges",
-      "Plan: Lifestyle Recommendations - Balanced diet rich in vegetables, fruits, and proteins",
-      "Plan: Patient Education section",
-      "Plan: Summary section",
-      "Plan: Summary detail - No further tests or specialist referrals required at this time"
+      "Patient's initial postpartum visit status",
+      "Date of single live birth (2 days ago)",
+      "Poor sleep (as a distinct ROS item)",
+      "Gastrointestinal: No issues reported (from ROS)",
+      "Musculoskeletal: limited mobility (from ROS)",
+      "Neurological: No concerns (from ROS)",
+      "Patient is \"oriented\" (from General Physical Exam)",
+      "Uterus is \"midline\"",
+      "Temperature in Celsius (36.9°C)",
+      "Diagnosis of Single live birth",
+      "History of gestational diabetes (controlled with diet)",
+      "Instruction to continue prenatal vitamins if breastfeeding",
+      "Advice for light physical activity, beginning with short walks",
+      "Monitoring for postpartum complications, specifically mood changes",
+      "Education on breastfeeding techniques and challenges",
+      "Instruction to continue with light activities and increase as tolerated",
+      "Statement: \"No further tests or specialist referrals are required at this time.\""
     ],
     "additions": [
-      "Objective: Vital signs within normal range",
-      "Assessment: Postpartum cramping and soreness likely due to recent delivery",
-      "Assessment: Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms",
-      "Plan: Follow-Up - to assess progress",
-      "Plan: Contact office instruction - before the scheduled visit",
-      "Plan: Postpartum depression discussion - and encourage patient to reach out for help if needed",
-      "Plan: Emphasize importance of breastfeeding support, hydration, and balanced diet to maintain milk production",
-      "Plan: Instruct the patient to seek help if any questions or concerns arise"
+      "\"Vital signs within normal range\" (summary statement in Objective)",
+      "\"Postpartum cramping and soreness likely due to recent delivery\" (elaboration in Assessment)",
+      "\"Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms\" (elaboration in Assessment)",
+      "\"to assess progress\" (added to follow-up visit in Plan)",
+      "\"immediately\" (added to contact office instruction in Plan)",
+      "\"before the scheduled visit\" (added to contact office instruction in Plan)",
+      "\"to maintain milk production\" (added to breastfeeding support in Plan)",
+      "\"Instruct the patient to seek help if any questions or concerns arise\" (general instruction in Plan)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits the crucial HPI detail that this is an initial postpartum visit following a single live birth 2 days ago. It also misses minor ROS details such as 'poor sleep,' 'no gastrointestinal issues reported,' 'limited mobility,' and 'no neurological concerns.'",
+        "summary": "The Subjective section captures the chief complaint and main HPI points but omits several details from the Ground Truth, including the patient's initial postpartum visit status, the exact timing of delivery (2 days ago), and specific negative findings from the Review of Systems (Gastrointestinal, Neurological, limited mobility). These are minor to moderate omissions of contextual details.",
         "omissions": [
-          "HPI detail: initial postpartum visit following a single live birth 2 days ago",
-          "ROS: General - poor sleep",
-          "ROS: Gastrointestinal - No issues reported",
-          "ROS: Musculoskeletal - limited mobility",
-          "ROS: Neurological - No concerns"
+          "Patient's initial postpartum visit status",
+          "Date of single live birth (2 days ago)",
+          "Poor sleep (as a distinct ROS item)",
+          "Gastrointestinal: No issues reported",
+          "Musculoskeletal: limited mobility",
+          "Neurological: No concerns"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured with only minor omissions, including the temperature in Celsius, the patient being 'oriented,' and the uterus being described as 'midline.' These do not significantly impact clinical usefulness.",
+        "summary": "The Objective section is largely complete and accurate, reporting vital signs and physical examination findings. Minor omissions include the patient being 'oriented,' the uterus being 'midline,' and the temperature in Celsius. The addition of 'Vital signs within normal range' is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "Vital Signs: Temperature in Celsius (36.9°C)",
-          "Physical Examination: General - oriented",
-          "Physical Examination: Uterus - midline"
+          "Patient is \"oriented\" (from General Physical Exam)",
+          "Uterus is \"midline\"",
+          "Temperature in Celsius (36.9°C)"
         ],
         "additions": [
-          "Vital signs within normal range"
+          "\"Vital signs within normal range\" (summary statement)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has significant omissions, failing to include the primary diagnosis of 'Single live birth' and the important past medical history of 'History of gestational diabetes (controlled with diet).' These omissions make the section meaningfully incomplete.",
+        "grade": "D",
+        "summary": "The Assessment section has significant omissions. It fails to include the primary diagnosis of 'Single live birth' and the clinically important 'History of gestational diabetes (controlled with diet).' These are major gaps that materially reduce the clinical usefulness and completeness of this section. The elaborations provided in the generated note are supported by the transcript and do not negatively impact the grade.",
         "omissions": [
-          "Diagnosis: Single live birth",
-          "Postpartum Status",
+          "Diagnosis of Single live birth",
           "History of gestational diabetes (controlled with diet)"
         ],
         "additions": [
-          "Postpartum cramping and soreness likely due to recent delivery",
-          "Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms"
+          "\"Postpartum cramping and soreness likely due to recent delivery\" (elaboration)",
+          "\"Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms\" (elaboration)"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section contains several minor omissions, such as the instruction to continue prenatal vitamins if breastfeeding, to monitor for postpartum complications, specific education on breastfeeding techniques and challenges, and detailed diet recommendations. It also omits the dedicated 'Patient Education' and 'Summary' sections from the GroundTruth.",
+        "grade": "C",
+        "summary": "The Plan section omits several important clinical instructions and educational points. These include the instruction to continue prenatal vitamins if breastfeeding, specific advice on beginning light physical activity with short walks, and education on breastfeeding techniques and challenges. While some general advice is present, these specific omissions represent multiple moderate gaps in the comprehensive care plan. All additions in this section are supported by the transcript.",
         "omissions": [
-          "Postpartum Care: Continue prenatal vitamins if breastfeeding",
-          "Postpartum Care: Monitor for any signs of postpartum complications",
-          "Education and Counseling: Educate on breastfeeding techniques and challenges",
-          "Lifestyle Recommendations: Balanced diet rich in vegetables, fruits, and proteins",
-          "Patient Education section",
-          "Summary section",
-          "Summary detail: No further tests or specialist referrals required at this time"
+          "Instruction to continue prenatal vitamins if breastfeeding",
+          "Advice for light physical activity, beginning with short walks",
+          "Monitoring for postpartum complications, specifically mood changes",
+          "Education on breastfeeding techniques and challenges",
+          "Instruction to continue with light activities and increase as tolerated",
+          "Statement: \"No further tests or specialist referrals are required at this time.\""
         ],
         "additions": [
-          "Follow-Up: to assess progress",
-          "Contact office instruction: before the scheduled visit",
-          "Postpartum depression discussion: and encourage patient to reach out for help if needed",
-          "Emphasize importance of breastfeeding support, hydration, and balanced diet to maintain milk production",
-          "Instruct the patient to seek help if any questions or concerns arise"
+          "\"to assess progress\" (added to follow-up visit)",
+          "\"immediately\" (added to contact office instruction)",
+          "\"before the scheduled visit\" (added to contact office instruction)",
+          "\"to maintain milk production\" (added to breastfeeding support)",
+          "\"Instruct the patient to seek help if any questions or concerns arise\""
         ]
       }
     ],
@@ -350,116 +348,148 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: Vital signs within normal range",
+      "addition_text": "\"Vital signs within normal range\" (summary statement in Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 118/76 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. Your oxygen saturation is 98% on room air. Everything looks normal here.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: Postpartum cramping and soreness likely due to recent delivery",
+      "addition_text": "\"Postpartum cramping and soreness likely due to recent delivery\" (elaboration in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Hmm, that’s quite common after delivery.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Postpartum cramping and soreness are likely due to recent delivery."
+      "matched_claim_text": "Postpartum cramping and soreness are likely due to recent delivery.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms",
+      "addition_text": "\"Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms\" (elaboration in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: How about any other symptoms? Are you experiencing any bleeding or fatigue? ... [Doctor]: Remember to sleep when the baby sleeps to manage your fatigue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms."
+      "matched_claim_text": "Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue — phenotype_phenotype — Episodic fatigue"
     },
     {
-      "addition_text": "Plan: Follow-Up - to assess progress",
+      "addition_text": "\"to assess progress\" (added to follow-up visit in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’d also like to schedule a follow-up visit in 6 weeks to check on your progress.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up visit in 6 weeks to assess progress."
+      "matched_claim_text": "Schedule a follow-up visit in 6 weeks to assess progress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Contact office instruction - before the scheduled visit",
+      "addition_text": "\"immediately\" (added to contact office instruction in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If you experience any significant pain, heavy bleeding, fever, or signs of infection before then, please contact our office immediately.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"before the scheduled visit\" (added to contact office instruction in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you experience any significant pain, heavy bleeding, fever, or signs of infection before then, please contact our office immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise to contact the office immediately if experiencing significant pain, heavy bleeding, fever, or signs of infection before the scheduled visit."
+      "matched_claim_text": "Advise to contact the office immediately if experiencing significant pain, heavy bleeding, fever, or signs of infection before the scheduled visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Postpartum depression discussion - and encourage patient to reach out for help if needed",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It’s also important to discuss postpartum depression. If you notice any symptoms like persistent sadness, difficulty bonding with your baby, or changes in appetite, please reach out to us.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss postpartum depression symptoms and encourage the patient to reach out for help if needed."
-    },
-    {
-      "addition_text": "Plan: Emphasize importance of breastfeeding support, hydration, and balanced diet to maintain milk production",
+      "addition_text": "\"to maintain milk production\" (added to breastfeeding support in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Breastfeeding can be challenging, so don’t hesitate to ask for help if you need it. Make sure to stay hydrated and eat a balanced diet to support your milk production.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the importance of breastfeeding support, hydration, and a balanced diet to maintain milk production."
+      "matched_claim_text": "Emphasize the importance of breastfeeding support, hydration, and a balanced diet to maintain milk production.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Instruct the patient to seek help if any questions or concerns arise",
+      "addition_text": "\"Instruct the patient to seek help if any questions or concerns arise\" (general instruction in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Do you have any other questions or concerns? ... If you need anything before then, don’t hesitate to call.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to seek help if any questions or concerns arise."
+      "matched_claim_text": "Instruct the patient to seek help if any questions or concerns arise.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Vital signs within normal range",
+      "addition_text": "\"Vital signs within normal range\" (summary statement)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 118/76 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. Your oxygen saturation is 98% on room air. Everything looks normal here.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Postpartum cramping and soreness likely due to recent delivery",
+      "addition_text": "\"Postpartum cramping and soreness likely due to recent delivery\" (elaboration)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Hmm, that’s quite common after delivery.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Postpartum cramping and soreness are likely due to recent delivery."
+      "matched_claim_text": "Postpartum cramping and soreness are likely due to recent delivery.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms",
+      "addition_text": "\"Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms\" (elaboration)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: How about any other symptoms? Are you experiencing any bleeding or fatigue? ... [Doctor]: Remember to sleep when the baby sleeps to manage your fatigue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms."
+      "matched_claim_text": "Mild vaginal bleeding, fatigue, and sleep disturbances are expected postpartum symptoms.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue — phenotype_phenotype — Episodic fatigue"
     },
     {
-      "addition_text": "Follow-Up: to assess progress",
+      "addition_text": "\"to assess progress\" (added to follow-up visit)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’d also like to schedule a follow-up visit in 6 weeks to check on your progress.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up visit in 6 weeks to assess progress."
+      "matched_claim_text": "Schedule a follow-up visit in 6 weeks to assess progress.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Contact office instruction: before the scheduled visit",
+      "addition_text": "\"immediately\" (added to contact office instruction)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If you experience any significant pain, heavy bleeding, fever, or signs of infection before then, please contact our office immediately.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"before the scheduled visit\" (added to contact office instruction)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you experience any significant pain, heavy bleeding, fever, or signs of infection before then, please contact our office immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise to contact the office immediately if experiencing significant pain, heavy bleeding, fever, or signs of infection before the scheduled visit."
+      "matched_claim_text": "Advise to contact the office immediately if experiencing significant pain, heavy bleeding, fever, or signs of infection before the scheduled visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Postpartum depression discussion: and encourage patient to reach out for help if needed",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It’s also important to discuss postpartum depression. If you notice any symptoms like persistent sadness, difficulty bonding with your baby, or changes in appetite, please reach out to us.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss postpartum depression symptoms and encourage the patient to reach out for help if needed."
-    },
-    {
-      "addition_text": "Emphasize importance of breastfeeding support, hydration, and balanced diet to maintain milk production",
+      "addition_text": "\"to maintain milk production\" (added to breastfeeding support)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Breastfeeding can be challenging, so don’t hesitate to ask for help if you need it. Make sure to stay hydrated and eat a balanced diet to support your milk production.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the importance of breastfeeding support, hydration, and a balanced diet to maintain milk production."
+      "matched_claim_text": "Emphasize the importance of breastfeeding support, hydration, and a balanced diet to maintain milk production.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Instruct the patient to seek help if any questions or concerns arise",
+      "addition_text": "\"Instruct the patient to seek help if any questions or concerns arise\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Do you have any other questions or concerns? ... If you need anything before then, don’t hesitate to call.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to seek help if any questions or concerns arise."
+      "matched_claim_text": "Instruct the patient to seek help if any questions or concerns arise.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

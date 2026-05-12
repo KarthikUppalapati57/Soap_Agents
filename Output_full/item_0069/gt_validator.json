@@ -272,92 +272,67 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective and Plan sections. Key patient history, detailed investigation descriptions, specific referrals, and the entire 'Instructions' section are missing. While there are no unsupported additions, the numerous and clinically material omissions make the note meaningfully incomplete, requiring careful review for clinical usability.",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions across the Subjective, Objective, and Plan sections. Key missing information includes the patient's past medical history (COPD, hypertension), functional status (bedridden), all ordered investigations (ABG, Chest X-ray, CBC, BMP), and critical referrals (respiratory therapy for mechanical ventilation, pulmonologist). These omissions materially reduce the clinical usefulness and completeness of the note.",
     "omissions": [
-      "Patient's history of COPD and hypertension",
-      "Patient is a former smoker who quit 10 years ago",
-      "Patient maintains a balanced diet",
-      "Chief Complaint (CC) section header",
-      "History of Present Illness (HPI) section header",
-      "Review of Systems (ROS) section header",
-      "Specific ROS categories (Constitutional, Respiratory, Cardiovascular, Neurological, General)",
-      "Vital Signs section header",
-      "Physical Examination section header",
-      "General appearance: \"Middle-aged female, in moderate respiratory distress\"",
-      "Cardiovascular exam finding: \"Tachycardia without murmurs\"",
-      "Diagnosis section header",
-      "Treatment section header",
-      "Investigations section header",
-      "Arterial Blood Gas (ABG) to assess levels of oxygen, carbon dioxide, and pH",
-      "Chest X-ray to assess for possible pneumonia or other underlying conditions",
-      "Complete Blood Count (CBC) and Basic Metabolic Panel (BMP) for biochemistry to monitor electrolytes, kidney function, and signs of infection",
-      "Monitoring and Follow-up section header",
+      "Patient's history of Chronic Obstructive Pulmonary Disease (COPD) and hypertension",
+      "Shortness of breath has been continuous since onset",
+      "Patient is bedridden",
+      "Balanced diet (from ROS General)",
+      "Former smoker (quit 10 years ago) (from ROS General)",
+      "Patient's general appearance in physical exam: 'middle-aged female, in moderate respiratory distress'",
+      "Cardiovascular exam finding: Tachycardia without murmurs",
+      "Investigations: Arterial Blood Gas (ABG) test",
+      "Investigations: Chest X-ray",
+      "Investigations: Complete Blood Count (CBC) and Basic Metabolic Panel (BMP)",
       "Referral to respiratory therapy for evaluations and recommendations on mechanical ventilation if needed",
-      "Referral to Dr. John Smith, Pulmonologist, for further evaluation and management of COPD exacerbation",
-      "Lifestyle Recommendations section header",
-      "Instructions section header",
-      "Instructions section content: \"The patient will remain in the ICU for continuous monitoring and receive follow-up consultations with the pulmonologist and respiratory therapy team. Any significant changes in her condition will prompt immediate reassessment and adjustment of the treatment plan as necessary.\""
+      "Referral to Dr. John Smith, Pulmonologist",
+      "Global instructions section at the end of the Plan"
     ],
-    "additions": [
-      "\"extreme\" qualifier for fatigue"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section omits crucial patient history, including COPD, hypertension, and former smoking status, which are vital for clinical context. It also misses several structural headers and specific ROS categories, making it noticeably incomplete.",
+        "grade": "D",
+        "summary": "The Subjective section has several important omissions, including the patient's history of Chronic Obstructive Pulmonary Disease (COPD) and hypertension, the fact that the shortness of breath has been continuous, the patient being bedridden, and their former smoking status. These are significant gaps in the patient's history and functional status.",
         "omissions": [
-          "Patient's history of COPD and hypertension",
-          "Patient is a former smoker who quit 10 years ago",
-          "Patient maintains a balanced diet",
-          "Chief Complaint (CC) section header",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
-          "Specific ROS categories (Constitutional, Respiratory, Cardiovascular, Neurological, General)"
+          "Patient's history of Chronic Obstructive Pulmonary Disease (COPD) and hypertension",
+          "Shortness of breath has been continuous since onset",
+          "Patient is bedridden",
+          "Balanced diet (from ROS General)",
+          "Former smoker (quit 10 years ago) (from ROS General)"
         ],
-        "additions": [
-          "\"extreme\" qualifier for fatigue"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is mostly aligned, capturing vital signs and key physical exam findings. However, it omits structural headers and specific details regarding the patient's general appearance ('in moderate respiratory distress') and a cardiovascular finding ('Tachycardia without murmurs').",
+        "grade": "C",
+        "summary": "The Objective section omits the patient's general appearance ('middle-aged female, in moderate respiratory distress') and a specific cardiovascular finding ('Tachycardia without murmurs'). While not as critical as other sections, these are noticeable gaps in the physical examination findings.",
         "omissions": [
-          "Vital Signs section header",
-          "Physical Examination section header",
-          "General appearance: \"Middle-aged female, in moderate respiratory distress\"",
-          "Cardiovascular exam finding: \"Tachycardia without murmurs\""
+          "Patient's general appearance in physical exam: 'middle-aged female, in moderate respiratory distress'",
+          "Cardiovascular exam finding: Tachycardia without murmurs"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately capturing the diagnosis. The only omission is a minor structural header ('Diagnosis section header').",
-        "omissions": [
-          "Diagnosis section header"
-        ],
+        "summary": "The Assessment section is perfectly aligned with the GroundTruthSOAP, with no omissions or additions.",
+        "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section has major omissions that significantly reduce its clinical usefulness. It completely misses the detailed descriptions for all ordered investigations (ABG, Chest X-ray, CBC, BMP), crucial referrals (respiratory therapy for ventilation, pulmonologist), and the entire 'Instructions' section, which contains vital follow-up and management details.",
+        "summary": "The Plan section suffers from major omissions, including all ordered investigations (Arterial Blood Gas, Chest X-ray, Complete Blood Count, and Basic Metabolic Panel). Crucial referrals to respiratory therapy (including evaluation for mechanical ventilation) and a pulmonologist are also missing, as is the entire global instructions section. These omissions severely impact the completeness and actionable nature of the plan.",
         "omissions": [
-          "Treatment section header",
-          "Investigations section header",
-          "Arterial Blood Gas (ABG) to assess levels of oxygen, carbon dioxide, and pH",
-          "Chest X-ray to assess for possible pneumonia or other underlying conditions",
-          "Complete Blood Count (CBC) and Basic Metabolic Panel (BMP) for biochemistry to monitor electrolytes, kidney function, and signs of infection",
-          "Monitoring and Follow-up section header",
+          "Investigations: Arterial Blood Gas (ABG) test",
+          "Investigations: Chest X-ray",
+          "Investigations: Complete Blood Count (CBC) and Basic Metabolic Panel (BMP)",
           "Referral to respiratory therapy for evaluations and recommendations on mechanical ventilation if needed",
-          "Referral to Dr. John Smith, Pulmonologist, for further evaluation and management of COPD exacerbation",
-          "Lifestyle Recommendations section header",
-          "Instructions section header",
-          "Instructions section content: \"The patient will remain in the ICU for continuous monitoring and receive follow-up consultations with the pulmonologist and respiratory therapy team. Any significant changes in her condition will prompt immediate reassessment and adjustment of the treatment plan as necessary.\""
+          "Referral to Dr. John Smith, Pulmonologist",
+          "Global instructions section at the end of the Plan"
         ],
         "additions": []
       }
@@ -365,13 +340,5 @@
     "rubric_notes": null
   },
   "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "\"extreme\" qualifier for fatigue",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, my lips and fingernails have turned blue. I'm also feeling extremely tired and confused. ... [Patient]: Yes, I feel very fatigued.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports cyanosis, extreme fatigue, and confusion."
-    }
-  ]
+  "addition_evidence": []
 }

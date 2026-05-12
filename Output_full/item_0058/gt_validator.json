@@ -248,84 +248,68 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a mostly clinically aligned and usable summary of the encounter. All additions were supported by the transcript and thus did not impact the grade. However, the note has several omissions, most notably the complete absence of the patient's response to the treatment plan in the Plan section, which is a critical piece of information for understanding patient adherence and future care. Other omissions include specific details about constipation frequency, feeling of incomplete evacuation, and the reason for the dietitian referral. These gaps make the note meaningfully incomplete in certain areas, particularly regarding patient engagement.",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaint, vital signs, physical exam findings, and the core treatment plan. However, several omissions reduce its completeness, particularly in the Subjective section where specific details about constipation frequency and the feeling of incomplete evacuation are missing. In the Plan section, the rationale for the dietitian referral, the importance of treatment compliance, and the entire Patient's Response section are omitted, which impacts the note's utility for understanding patient engagement and detailed care planning. No unsupported or unknown additions were identified, preventing a lower grade.",
     "omissions": [
-      "Patient's constipation episodes occurring 3-4 times per week.",
-      "Patient's feeling of incomplete evacuation even after bowel movements.",
-      "Management of chronic knee pain with physical therapy.",
-      "Moderate impact on daily life and activities due to gastrointestinal symptoms.",
-      "General physical exam findings: well-nourished, appears her stated age.",
-      "Specific heart sounds: Normal S1, S2.",
-      "Specific respiratory exam finding: Clear to auscultation bilaterally.",
-      "Diagnosis specificity: \"unspecified\" for constipation.",
-      "Medication administration route: taken orally.",
-      "Dietitian's name: Sarah Johnson.",
-      "Reason for dietitian referral: due to persistent symptoms and poor dietary habits.",
-      "Education detail: Provided simple and clear explanations.",
-      "Education detail: importance of compliance with treatment plan.",
-      "Patient's response to plan: Mrs. Park is somewhat resistant to lifestyle changes but is open to trying the new treatment plan. She understands the need for dietary modifications and agreed to follow up with the dietitian."
+      "Constipation frequency (3-4 times per week)",
+      "Feeling of incomplete evacuation",
+      "Knee pain managed with physical therapy",
+      "General physical exam findings: 'Well-nourished, appears her stated age'",
+      "Name of dietitian (Sarah Johnson)",
+      "Reason for dietitian referral: 'due to persistent symptoms and poor dietary habits'",
+      "Importance of compliance with treatment plan",
+      "Patient's Response section"
     ],
     "additions": [
-      "Statement that vital signs are \"within normal limits\".",
-      "Assessment statement: \"No acute abnormalities noted during physical exam\".",
-      "Specific examples of psyllium husk side effects (e.g., bloating or gas).",
-      "Qualifier for knee pain: \"have been ongoing for a while\"."
+      "Summary statement: 'Vital signs within normal limits'",
+      "Assessment statement: 'No acute abnormalities noted during physical exam'",
+      "Examples of psyllium husk side effects (e.g., bloating or gas)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and its severity, but omits several important details. These include the specific frequency of constipation episodes (3-4 times per week), the patient's feeling of incomplete evacuation, the management of chronic knee pain with physical therapy, and the moderate impact on daily life due to gastrointestinal symptoms. While the core information is present, these omissions represent several minor to moderate gaps.",
+        "summary": "The Subjective section is mostly complete but omits key details regarding the patient's constipation, specifically the frequency (3-4 times per week) and the feeling of incomplete evacuation. It also misses the detail that knee pain is managed with physical therapy. These omissions reduce the overall completeness of the patient's history.",
         "omissions": [
-          "Constipation episodes occurring 3-4 times per week.",
-          "Feeling of incomplete evacuation even after bowel movements.",
-          "Chronic knee pain managed with physical therapy.",
-          "Moderate impact on daily life and activities due to gastrointestinal symptoms."
+          "Constipation frequency (3-4 times per week)",
+          "Feeling of incomplete evacuation",
+          "Knee pain managed with physical therapy"
         ],
-        "additions": [
-          "Knee pain from osteoarthritis \"have been ongoing for a while\"."
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured. The omissions are minor details of normal physical exam findings, such as the patient appearing \"well-nourished, appears her stated age,\" specific heart sounds (\"Normal S1, S2\"), and specific respiratory findings (\"Clear to auscultation bilaterally\"). These do not detract from the clinical usefulness or accuracy of the section.",
+        "summary": "The Objective section is highly accurate and complete. The only omission is the general physical exam finding 'Well-nourished, appears her stated age,' which is a minor descriptive detail. The addition 'Vital signs within normal limits' is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "General physical exam findings: well-nourished, appears her stated age.",
-          "Cardiovascular exam finding: Normal S1, S2.",
-          "Respiratory exam finding: Clear to auscultation bilaterally."
+          "General physical exam findings: 'Well-nourished, appears her stated age'"
         ],
         "additions": [
-          "Statement that vital signs are \"within normal limits\"."
+          "Summary statement: 'Vital signs within normal limits'"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section correctly identifies the diagnosis of constipation. The only omission is the specificity \"unspecified\" for constipation, which is a minor detail and does not impact the clinical accuracy or usefulness of the diagnosis.",
-        "omissions": [
-          "Diagnosis specificity: \"unspecified\" for constipation."
-        ],
+        "summary": "The Assessment section is excellent, with no omissions. The addition 'No acute abnormalities noted during physical exam' is supported by the transcript and does not reduce the grade.",
+        "omissions": [],
         "additions": [
-          "\"No acute abnormalities noted during physical exam\"."
+          "Assessment statement: 'No acute abnormalities noted during physical exam'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has several omissions, the most significant being the complete absence of the patient's response to the treatment plan. This includes her resistance to lifestyle changes but openness to the new medication and agreement to follow up with the dietitian, which is crucial for understanding patient adherence and future care. Other omissions include the dietitian's name, the specific reason for the referral (due to persistent symptoms and poor dietary habits), and the importance of compliance with the treatment plan. These omissions represent noticeable gaps that make the plan section meaningfully incomplete regarding patient engagement and context.",
+        "grade": "B",
+        "summary": "The Plan section captures the core treatment strategy but has several omissions that reduce its clinical utility. These include the specific name of the dietitian (Sarah Johnson), the detailed reason for the dietitian referral ('due to persistent symptoms and poor dietary habits'), and the importance of compliance with the treatment plan. Furthermore, the entire 'Patient's Response' section is omitted, which is a significant gap in understanding patient engagement and potential barriers to adherence. The addition 'Examples of psyllium husk side effects (e.g., bloating or gas)' is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "Medication administration route: taken orally.",
-          "Dietitian's name: Sarah Johnson.",
-          "Reason for dietitian referral: due to persistent symptoms and poor dietary habits.",
-          "Education detail: Provided simple and clear explanations.",
-          "Education detail: importance of compliance with treatment plan.",
-          "Patient's response to plan (entire section): Mrs. Park is somewhat resistant to lifestyle changes but is open to trying the new treatment plan. She understands the need for dietary modifications and agreed to follow up with the dietitian."
+          "Name of dietitian (Sarah Johnson)",
+          "Reason for dietitian referral: 'due to persistent symptoms and poor dietary habits'",
+          "Importance of compliance with treatment plan",
+          "Patient's Response section"
         ],
         "additions": [
-          "Specific examples of psyllium husk side effects (e.g., bloating or gas)."
+          "Examples of psyllium husk side effects (e.g., bloating or gas)"
         ]
       }
     ],
@@ -334,46 +318,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Statement that vital signs are \"within normal limits\".",
+      "addition_text": "Summary statement: 'Vital signs within normal limits'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Everything looks within normal limits.",
+      "transcript_evidence": "Your blood pressure is 132/78 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F, with an oxygen saturation of 98% on room air. Everything looks within normal limits.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment statement: \"No acute abnormalities noted during physical exam\".",
+      "addition_text": "Assessment statement: 'No acute abnormalities noted during physical exam'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: \"Everything looks within normal limits.\" Doctor: \"Your heart sounds are normal with no murmurs, and your lungs are clear without any wheezes, rales, or rhonchi. I also noted some bilateral knee crepitus, but no joint swelling or redness.\"",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No acute abnormalities noted during physical exam."
+      "matched_claim_text": "No acute abnormalities noted during physical exam.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific examples of psyllium husk side effects (e.g., bloating or gas).",
+      "addition_text": "Examples of psyllium husk side effects (e.g., bloating or gas)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: \"Lastly, I want to provide you with some education on the importance of dietary fiber, physical activity, and hydration in managing constipation. It's important to comply with the treatment plan, and be aware of potential side effects of psyllium husk, such as bloating or gas.\"",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Education on the importance of dietary fiber, physical activity, and hydration in managing constipation; awareness of potential side effects of psyllium husk (e.g., bloating or gas)."
-    },
-    {
-      "addition_text": "Qualifier for knee pain: \"have been ongoing for a while\".",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Patient: \"I do get occasional headaches, and my knee pain from osteoarthritis has been acting up, but that's been ongoing for a while.\"",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Occasional headaches and knee pain from osteoarthritis are present but have been ongoing for a while."
-    },
-    {
-      "addition_text": "Knee pain from osteoarthritis \"have been ongoing for a while\".",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Patient: \"I do get occasional headaches, and my knee pain from osteoarthritis has been acting up, but that's been ongoing for a while.\"",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Occasional headaches and knee pain from osteoarthritis are present but have been ongoing for a while."
-    },
-    {
-      "addition_text": "\"No acute abnormalities noted during physical exam\".",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Doctor: \"Everything looks within normal limits.\" Doctor: \"Your heart sounds are normal with no murmurs, and your lungs are clear without any wheezes, rales, or rhonchi. I also noted some bilateral knee crepitus, but no joint swelling or redness.\"",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "No acute abnormalities noted during physical exam."
+      "matched_claim_text": "Education on the importance of dietary fiber, physical activity, and hydration in managing constipation; awareness of potential side effects of psyllium husk (e.g., bloating or gas).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

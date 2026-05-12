@@ -226,9 +226,9 @@
     "plan_alignment_score": 0.7441860465116279
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Subjective section, where the chief complaint, the patient's history of chronic kidney disease and hypertension, and the impact of symptoms on daily activities are omitted. Additionally, the note omits details regarding the clinical reasoning in the Assessment and specific investigations in the Plan. All identified additions are supported by the transcript and do not negatively impact the grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the patient's main symptoms, vital signs, key physical exam findings, and the core assessment and plan. However, it omits the chief complaint and the patient's history of hypertension and chronic kidney disease stage 3 from the History of Present Illness, which are important contextual details. Additionally, specific details regarding the types of blood work for investigations and the clinical reasoning within the assessment are missing. All additions were supported by the transcript.",
     "omissions": [
       "Chief Complaint: Follow-up for chronic kidney disease and hypertension",
       "Patient's history of hypertension and Chronic Kidney Disease Stage 3 in HPI",
@@ -255,8 +255,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section has several omissions, including the chief complaint, the patient's history of hypertension and Chronic Kidney Disease Stage 3 in the HPI, and the impact of symptoms on daily activities. While many ROS denials are minor, the absence of these key HPI elements makes the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section captures the patient's persistent fatigue and swelling, along with several denied symptoms and social history details. However, it omits the chief complaint for the visit and the patient's history of hypertension and Chronic Kidney Disease Stage 3 from the History of Present Illness, which are significant contextual omissions. Details about the impact of symptoms on daily activities and adherence to diet/exercise in the HPI are also missing.",
         "omissions": [
           "Chief Complaint: Follow-up for chronic kidney disease and hypertension",
           "Presents for a follow-up (in HPI)",
@@ -275,8 +275,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section accurately captures vital signs and the key finding of mild pitting edema. However, it omits all other normal physical examination findings (General, Cardiovascular, Respiratory, Abdominal, Musculoskeletal, Neurological), which, while not critical abnormalities, are standard components of a complete physical exam. These are considered minor omissions.",
+        "grade": "A",
+        "summary": "The Objective section is strong, accurately capturing all vital signs and the key physical exam finding of mild pitting edema. The omissions are limited to minor details from the general, cardiovascular, respiratory, abdominal, musculoskeletal, and neurological physical examinations, which do not materially reduce the clinical usefulness of the section.",
         "omissions": [
           "Physical Examination: General - Well-nourished, in no apparent distress",
           "Physical Examination: Cardiovascular - No murmurs, regular rate and rhythm",
@@ -290,7 +290,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section correctly identifies the primary diagnosis. However, it omits the clinical reasoning regarding pending test results and the consideration of likely deterioration, which provides important context for the current management and future plan. This is considered a moderate omission.",
+        "summary": "The Assessment section correctly identifies the primary diagnosis of hypertensive chronic kidney disease, Stage 3, and its likely contribution to symptoms. However, it omits the important clinical reasoning regarding pending test results and the consideration of likely deterioration controlled by current management, which reduces the completeness of the assessment.",
         "omissions": [
           "Test Results: Pending, but considering current symptoms and history, likely deterioration controlled by current management"
         ],
@@ -299,7 +299,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is comprehensive, including medical management, referral, and follow-up details. The only omission is the specific types of blood work ordered (biochemistry, hematology, and vitamin D levels), which is a moderate detail for investigations. The addition regarding informing the patient of significant findings is supported by the transcript and does not negatively impact the grade.",
+        "summary": "The Plan section is largely comprehensive, including medication management, lifestyle recommendations, referrals, and follow-up scheduling. The only omission is the specific types of blood work (biochemistry, hematology, and vitamin D levels) for investigations. The addition regarding awaiting blood work results and informing the patient of significant findings is fully supported by the transcript and does not impact the grade.",
         "omissions": [
           "Investigations: Blood work for biochemistry, hematology, and vitamin D levels"
         ],
@@ -317,14 +317,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "If there are any significant findings, I'll let you know immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Inform patient of significant findings if necessary"
+      "matched_claim_text": "Inform patient of significant findings if necessary",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Await results of blood work; inform patient of significant findings if necessary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "In the meantime, I'll also be waiting for the results of your blood work.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Await results of blood work"
+      "matched_claim_text": "Await results of blood work",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

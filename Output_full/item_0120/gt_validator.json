@@ -223,97 +223,87 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Subjective and Plan sections. While all additions were supported by the transcript and thus did not lower the grade, numerous omissions across HPI, ROS, Social History, Physical Examination, and Plan details reduce the note's completeness and clinical usefulness. The note is still usable but requires careful review due to these missing details.",
+    "overall_summary": "The note is broadly usable but contains noticeable gaps, primarily in the Subjective section where the Chief Complaint and several key social history details (sedentary lifestyle, high carbohydrate diet) are omitted. The Plan section also omits discussion of potential medication side effects. There are no unsupported or unknown additions.",
     "omissions": [
-      "Chief Complaint section header and content",
-      "HPI: frequency of dizziness (1-2 times per week)",
-      "HPI: impact of dizziness (mildly impacted daily activities)",
-      "HPI: specific medication dosages (Metformin 500mg twice daily, Lisinopril 10mg once daily) in HPI",
-      "HPI: no known allergies",
-      "ROS: specific sleep duration (6-7 hours per night)",
-      "ROS: Cardiovascular: No chest pain or palpitations",
-      "ROS: Endocrine: No new symptoms related to diabetes; recent A1C levels within normal ranges",
-      "ROS: Neurological: no other neurological symptoms (beyond dizziness)",
-      "ROS: Gastrointestinal: No nausea, vomiting, or changes in bowel habits",
-      "Social History: lives in urban area with high pollution and environmental health risks",
-      "Social History: works as a cashier",
-      "Social History: sedentary lifestyle",
-      "Social History: high carbohydrate diet and low vegetable intake",
-      "Physical Examination: Generally well-appearing, no acute distress",
-      "Physical Examination: Cardiovascular: Normal S1, S2, no murmurs or gallops",
-      "Physical Examination: Respiratory: Clear to auscultation bilaterally, no wheezing or crackles",
-      "Physical Examination: Gastrointestinal: Abdomen soft, non-tender, no organomegaly",
-      "Physical Examination: Neurological: Alert and oriented",
-      "Physical Examination: Musculoskeletal: normal range of motion in all extremities",
-      "Assessment: Type 2 Diabetes detail: recent blood work including A1C within normal ranges",
-      "Plan: Lifestyle Modifications: specific exercise recommendation (walking for 30 minutes 3-4 times a week)",
-      "Plan: Orthostatic Hypotension Management: monitor blood pressure at home especially when experiencing dizziness",
-      "Plan: Patient Education: discuss potential side effects of medications",
-      "Plan: Concluding statement: plan discussed in detail with patient and she is in agreement"
+      "Chief Complaint: Follow-up for hypertension and Type 2 Diabetes management.",
+      "HPI: Dizziness frequency (1-2 times per week).",
+      "HPI: Dizziness impact (mildly impacted daily activities).",
+      "HPI: No known allergies.",
+      "ROS: Specific sleep duration (6-7 hours per night).",
+      "ROS: No chest pain or palpitations.",
+      "ROS: No new symptoms related to diabetes.",
+      "ROS: No nausea, vomiting, or changes in bowel habits.",
+      "Social History: Lives in an urban area with high pollution and environmental health risks.",
+      "Social History: Works as a cashier.",
+      "Social History: Sedentary lifestyle.",
+      "Social History: High carbohydrate diet and low vegetable intake (as a description of current diet).",
+      "Physical Exam: Generally well-appearing, no acute distress.",
+      "Physical Exam: Neurological finding \"Alert and oriented\".",
+      "Physical Exam: Musculoskeletal finding \"normal range of motion in all extremities\".",
+      "Assessment: Type 2 Diabetes detail: \"recent blood work including A1C within normal ranges.\"",
+      "Plan: Patient Education: \"Discuss potential side effects of medications\".",
+      "Plan: Concluding statement: \"This plan was discussed in detail with the patient, and she is in agreement with the recommendations.\""
     ],
     "additions": [
-      "Subjective: 'no other reported symptoms' (generalization for ROS)",
-      "Subjective: explicit statement 'The patient is adherent to medication regimen for hypertension and Type 2 Diabetes'"
+      "Subjective: The patient is adherent to medication regimen for hypertension and Type 2 Diabetes."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has numerous omissions, including the Chief Complaint header and content, specific details from the HPI (dizziness frequency and impact, specific medication dosages, allergies), extensive ROS details (sleep duration, cardiovascular, endocrine, neurological, and gastrointestinal specifics), and several key aspects of the Social History (living environment, occupation, sedentary lifestyle, and diet specifics). These omissions create noticeable gaps, making the section meaningfully incomplete despite the core complaints being present.",
+        "summary": "This section has significant omissions, including the Chief Complaint, specific details about dizziness frequency and impact, medication dosages, allergies, and several negative ROS findings. Crucially, it also misses important social history details regarding the patient's sedentary lifestyle and diet, which are directly relevant to the Plan.",
         "omissions": [
-          "Chief Complaint section header and content",
-          "HPI: frequency of dizziness (1-2 times per week)",
-          "HPI: impact of dizziness (mildly impacted daily activities)",
-          "HPI: specific medication dosages (Metformin 500mg twice daily, Lisinopril 10mg once daily) in HPI",
-          "HPI: no known allergies",
-          "ROS: specific sleep duration (6-7 hours per night)",
-          "ROS: Cardiovascular: No chest pain or palpitations",
-          "ROS: Endocrine: No new symptoms related to diabetes; recent A1C levels within normal ranges",
-          "ROS: Neurological: no other neurological symptoms (beyond dizziness)",
-          "ROS: Gastrointestinal: No nausea, vomiting, or changes in bowel habits",
-          "Social History: lives in urban area with high pollution and environmental health risks",
-          "Social History: works as a cashier",
-          "Social History: sedentary lifestyle",
-          "Social History: high carbohydrate diet and low vegetable intake"
+          "Chief Complaint: Follow-up for hypertension and Type 2 Diabetes management.",
+          "HPI: Dizziness frequency (1-2 times per week).",
+          "HPI: Dizziness impact (mildly impacted daily activities).",
+          "HPI: Specific medication dosages (Metformin 500mg twice daily, Lisinopril 10mg once daily).",
+          "HPI: No known allergies.",
+          "ROS: Specific sleep duration (6-7 hours per night).",
+          "ROS: No chest pain or palpitations.",
+          "ROS: No new symptoms related to diabetes.",
+          "ROS: No nausea, vomiting, or changes in bowel habits.",
+          "Social History: Lives in an urban area with high pollution and environmental health risks.",
+          "Social History: Works as a cashier.",
+          "Social History: Sedentary lifestyle.",
+          "Social History: High carbohydrate diet and low vegetable intake."
         ],
         "additions": [
-          "'no other reported symptoms' (generalization for ROS)",
-          "explicit statement 'The patient is adherent to medication regimen for hypertension and Type 2 Diabetes'"
+          "The patient is adherent to medication regimen for hypertension and Type 2 Diabetes."
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "While vital signs are completely captured, the Physical Examination section omits several specific findings, such as 'Generally well-appearing, no acute distress,' specific cardiovascular findings (Normal S1, S2, no murmurs or gallops), respiratory details (Clear to auscultation bilaterally, no wheezing or crackles), gastrointestinal details (Abdomen soft, non-tender, no organomegaly), neurological (Alert and oriented), and musculoskeletal (normal range of motion). The generated note provides a generalized summary, which is accurate but lacks the granular detail of the Ground Truth.",
+        "grade": "A",
+        "summary": "This section accurately captures all vital signs and provides a concise summary of the physical examination findings. While some specific descriptive phrases from the physical exam were omitted, the overall clinical picture and key findings are present.",
         "omissions": [
-          "Physical Examination: Generally well-appearing, no acute distress",
-          "Physical Examination: Cardiovascular: Normal S1, S2, no murmurs or gallops",
-          "Physical Examination: Respiratory: Clear to auscultation bilaterally, no wheezing or crackles",
-          "Physical Examination: Gastrointestinal: Abdomen soft, non-tender, no organomegaly",
-          "Physical Examination: Neurological: Alert and oriented",
-          "Physical Examination: Musculoskeletal: normal range of motion in all extremities"
+          "Physical Exam: Generally well-appearing, no acute distress.",
+          "Physical Exam: Specific cardiovascular findings (Normal S1, S2, no murmurs or gallops).",
+          "Physical Exam: Specific respiratory findings (Clear to auscultation bilaterally, no wheezing or crackles).",
+          "Physical Exam: Specific gastrointestinal findings (Abdomen soft, non-tender, no organomegaly).",
+          "Physical Exam: Neurological finding \"Alert and oriented\".",
+          "Physical Exam: Musculoskeletal finding \"normal range of motion in all extremities\"."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is nearly complete, with only one minor omission regarding the specific detail that 'recent blood work including A1C within normal ranges' for Type 2 Diabetes was not explicitly stated, though 'Well-managed' implies this.",
+        "summary": "The section accurately identifies and assesses the patient's conditions. The only omission is a minor detail about recent A1C levels being within normal ranges for Type 2 Diabetes, which does not detract from the overall clinical usefulness.",
         "omissions": [
-          "Type 2 Diabetes detail: recent blood work including A1C within normal ranges"
+          "Type 2 Diabetes detail: \"recent blood work including A1C within normal ranges.\""
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has several moderate omissions. It lacks the specific exercise recommendation (walking for 30 minutes 3-4 times a week), the detail to monitor blood pressure at home 'especially when experiencing dizziness' for orthostatic hypotension management, the patient education point to 'discuss potential side effects of medications,' and the concluding statement that the 'plan was discussed in detail with the patient, and she is in agreement.' These omissions reduce the actionable detail and completeness of the plan.",
+        "grade": "B",
+        "summary": "The plan is comprehensive and clinically appropriate. However, it omits the important patient education point about discussing potential side effects of medications. Minor details regarding specific exercise recommendations and context for blood pressure monitoring were also omitted.",
         "omissions": [
-          "Lifestyle Modifications: specific exercise recommendation (walking for 30 minutes 3-4 times a week)",
-          "Orthostatic Hypotension Management: monitor blood pressure at home especially when experiencing dizziness",
-          "Patient Education: discuss potential side effects of medications",
-          "Concluding statement: plan discussed in detail with patient and she is in agreement"
+          "Lifestyle Modifications: Specific exercise recommendation (walking for 30 minutes 3-4 times a week).",
+          "Orthostatic Hypotension Management: Context for BP monitoring (\"especially when experiencing dizziness\").",
+          "Patient Education: \"Discuss potential side effects of medications\".",
+          "Concluding statement: \"This plan was discussed in detail with the patient, and she is in agreement with the recommendations.\""
         ],
         "additions": []
       }
@@ -323,32 +313,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'no other reported symptoms' (generalization for ROS)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Not really, just the dizziness and sometimes I don't sleep well.\n[Patient]: No, none of that.\n[Patient]: No, my blood sugar levels have been stable. My recent A1C levels were within normal ranges.\n[Patient]: No, everything's normal there.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reported no other reported symptoms."
-    },
-    {
-      "addition_text": "Subjective: explicit statement 'The patient is adherent to medication regimen for hypertension and Type 2 Diabetes'",
+      "addition_text": "Subjective: The patient is adherent to medication regimen for hypertension and Type 2 Diabetes.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Are you still taking your Metformin 500mg twice daily and Lisinopril 10mg once daily?\n[Patient]: Yes, I am.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is adherent to medication regimen for hypertension and Type 2 Diabetes."
+      "matched_claim_text": "The patient is adherent to medication regimen for hypertension and Type 2 Diabetes.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "- Metformin — indication — type 2 diabetes mellitus"
     },
     {
-      "addition_text": "'no other reported symptoms' (generalization for ROS)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Not really, just the dizziness and sometimes I don't sleep well.\n[Patient]: No, none of that.\n[Patient]: No, my blood sugar levels have been stable. My recent A1C levels were within normal ranges.\n[Patient]: No, everything's normal there.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reported no other reported symptoms."
-    },
-    {
-      "addition_text": "explicit statement 'The patient is adherent to medication regimen for hypertension and Type 2 Diabetes'",
+      "addition_text": "The patient is adherent to medication regimen for hypertension and Type 2 Diabetes.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Are you still taking your Metformin 500mg twice daily and Lisinopril 10mg once daily?\n[Patient]: Yes, I am.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is adherent to medication regimen for hypertension and Type 2 Diabetes."
+      "matched_claim_text": "The patient is adherent to medication regimen for hypertension and Type 2 Diabetes.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "- Metformin — indication — type 2 diabetes mellitus"
     }
   ]
 }

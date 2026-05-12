@@ -272,9 +272,9 @@
     "plan_alignment_score": 0.5534591194968554
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "D",
-    "overall_summary": "The generated note has several minor omissions across the Subjective, Objective, and Assessment sections, and a moderate omission in the Assessment regarding the reasoning for diagnosis. The most significant issues are in the Plan section, which omits critical diagnostic tests (Hemoglobin A1c, Fasting Blood Glucose, and Lipid Panel) that are essential for confirming the diagnosis and guiding management. This major omission severely reduces the clinical usefulness and completeness of the note.",
+    "overall_summary": "The note has significant omissions, particularly in the Plan section where all three specific lab tests ordered for diagnosis and management are missing. The Assessment section also lacks the clinical reasoning for the diagnosis. While the Objective section is well-captured, and the Subjective section captures the main complaints despite some missing details, the critical gaps in the Plan and Assessment materially reduce the note's clinical usefulness.",
     "omissions": [
       "Subjective: initial consultation",
       "Subjective: mild symptoms",
@@ -307,7 +307,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main aspects of the HPI. However, it omits several minor details such as the 'initial consultation,' 'mild symptoms,' 'symptoms occur several times a day,' and 'no significant changes in diet or exercise.' It also omits the specific quantification of weight loss ('5 lbs') and the impact on daily activities, which are moderate omissions.",
+        "summary": "The section captures the chief complaint and main aspects of the HPI, but omits several minor to moderate details such as the specific amount of weight loss, the impact of symptoms on daily activities, the stability of diet/exercise, and some ROS details.",
         "omissions": [
           "initial consultation",
           "mild symptoms",
@@ -322,7 +322,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured, including all vital signs and most physical examination findings. The omissions are minor details from the physical exam, such as 'Alert and oriented,' 'peripheral pulses intact,' and 'No thyromegaly, no palpable masses,' which do not significantly impact the clinical utility of the section.",
+        "summary": "This section is well-captured, including all vital signs and most physical examination findings. Only minor details from the physical exam, such as the patient being alert and oriented, intact peripheral pulses, and absence of thyromegaly or palpable masses, are omitted.",
         "omissions": [
           "Physical Examination: General: Alert and oriented",
           "Physical Examination: Cardiovascular: peripheral pulses intact",
@@ -332,8 +332,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section correctly identifies 'Possible Type 2 Diabetes Mellitus; pending lab results.' However, it omits the clinical reasoning for this assessment, specifically 'as suggested by his symptomatology of increased thirst and frequent urination, coupled with a mild weight loss over the last three months.' This is a moderate omission as it removes the justification for the diagnosis.",
+        "grade": "C",
+        "summary": "The section correctly identifies the possible diagnosis but omits the detailed clinical reasoning that supports it, specifically the link between the patient's symptomatology and weight loss to the likely diagnosis of Type 2 Diabetes Mellitus.",
         "omissions": [
           "reasoning for diagnosis (as suggested by his symptomatology of increased thirst and frequent urination, coupled with a mild weight loss over the last three months)"
         ],
@@ -342,7 +342,7 @@
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section contains major omissions that significantly reduce its clinical usefulness. Crucially, it omits all ordered diagnostic tests: Hemoglobin A1c, Fasting Blood Glucose, and Lipid Panel. These are critical for confirming the diagnosis and comprehensive patient management. Additionally, there are moderate omissions regarding specific details of patient education and weight management techniques, and several minor omissions related to medication details, referral specifics, and follow-up purpose. The single addition is supported by the transcript and does not affect the grade.",
+        "summary": "This section has major omissions, most notably the complete absence of the three specific lab tests ordered (Hemoglobin A1c, Fasting Blood Glucose, and Lipid Panel), which are crucial for diagnosis and management. Additionally, detailed specifics of patient education and several minor details regarding medication, lifestyle modifications, follow-up, and referrals are missing. The single addition is supported by the transcript and does not impact the grade.",
         "omissions": [
           "Medication: oral route",
           "Medication: Dispense 30 tablets for ongoing management of blood sugar levels",
@@ -370,14 +370,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In the meantime, if you have any questions or concerns, don't hesitate to contact me.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage the patient to contact the doctor with any questions or concerns."
+      "matched_claim_text": "Encourage the patient to contact the doctor with any questions or concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Encourage the patient to contact the doctor with any questions or concerns",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In the meantime, if you have any questions or concerns, don't hesitate to contact me.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage the patient to contact the doctor with any questions or concerns."
+      "matched_claim_text": "Encourage the patient to contact the doctor with any questions or concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

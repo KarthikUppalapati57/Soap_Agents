@@ -266,90 +266,73 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps and an unsupported addition that reduces its accuracy and completeness. Key omissions include the patient's history of hypothyroidism and medication details, specific symptoms and physical findings in the assessment reasoning, and the detailed reason for the gastroenterology referral. An unsupported addition in the Subjective section misrepresents ROS denials as \"observed.\" These issues make the note meaningfully incomplete and require careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaints, HPI, vital signs, and the core assessment and plan. However, it omits several important demographic details (age, sex, race) and the specific dosage of Levothyroxine in the Subjective section. The Assessment section also lacks some of the detailed medical reasoning present in the ground truth. There are no unsupported or unknown additions, which significantly contributes to its usability.",
     "omissions": [
-      "Patient age (32-year-old)",
-      "Initial consultation",
-      "Symptoms occur daily",
-      "Specific alcohol consumption (2 drinks per week socially)",
-      "Sleep details (6 hours per night, often feels tired)",
-      "History of hypothyroidism, managed with Levothyroxine 100 mcg once daily",
-      "Statement of patient being highly compliant with medical advice",
-      "ROS: Gastrointestinal (denies nausea, vomiting, diarrhea, or constipation)",
-      "Height (5'6\")",
-      "Weight (150 lbs)",
-      "Physical Exam: Cardiovascular finding of \"Tachycardia noted, regular rhythm\"",
-      "Physical Exam: \"Other Systems: No other abnormalities detected\"",
-      "Assessment reasoning: specific symptoms (fatigue, dizziness, brittle nails, palpitations)",
-      "Assessment reasoning: specific physical findings (pallor and tachycardia)",
-      "Medication route \"oral\" for Ferrous Sulfate",
-      "Referral to specific doctor name \"Dr. Smith\"",
-      "Specific reason for referral: \"to rule out possible underlying causes of anemia, such as gastrointestinal bleeding\"",
-      "Statement that \"The patient understands and agrees with the treatment plan\""
+      "The patient understands and agrees with the treatment plan."
     ],
-    "additions": [
-      "Palpitations described as \"occasionally\"",
-      "ROS denials phrased as \"observed\" (e.g., \"No... observed\")",
-      "Statement \"The patient is compliant with Levothyroxine for hypothyroidism\" (placed in Objective section)"
-    ],
-    "hallucinations_or_unjustified_inferences": [
-      "ROS denials phrased as \"observed\" (e.g., \"No... observed\")"
-    ],
+    "additions": [],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several omissions, most notably the patient's history of hypothyroidism and specific medication details (Levothyroxine 100 mcg daily). Other omissions include the patient's age, initial consultation context, daily symptom occurrence, specific alcohol consumption, and sleep details. Additionally, the unsupported phrasing of ROS denials as \"observed\" rather than patient-reported is a moderate issue that misrepresents the source of information.",
+        "summary": "The Subjective section has noticeable gaps due to the omission of several clinically important details, including the patient's age, sex, race, and the specific dosage of Levothyroxine. While the core HPI is present, the lack of these details and the structured Review of Systems makes the section meaningfully incomplete.",
         "omissions": [
+          "Chief Complaint (CC) heading",
           "Patient age (32-year-old)",
-          "Initial consultation",
-          "Symptoms occur daily",
+          "Patient sex/gender (female)",
+          "Patient race/ethnicity (African American)",
+          "Severity of symptoms (moderate)",
+          "Frequency of symptoms (daily)",
           "Specific alcohol consumption (2 drinks per week socially)",
-          "Sleep details (6 hours per night, often feels tired)",
-          "History of hypothyroidism, managed with Levothyroxine 100 mcg once daily",
-          "Statement of patient being highly compliant with medical advice",
-          "ROS: Gastrointestinal (denies nausea, vomiting, diarrhea, or constipation)"
+          "Sleep duration (6 hours per night)",
+          "Statement about feeling tired despite 6 hours of sleep",
+          "Levothyroxine dosage (100 mcg once daily)",
+          "Statement 'highly compliant with medical advice' (related to hypothyroidism)",
+          "Review of Systems (ROS) section structure",
+          "Explicit mention of 'Reports fatigue' under Constitutional ROS",
+          "Explicit mention of 'Reports palpitations' under Cardiovascular ROS",
+          "Explicit mention of 'Reports dizziness' under Neurological ROS",
+          "Explicit mention of 'Reports brittle nails, noticeable pallor' under Dermatological ROS"
         ],
-        "additions": [
-          "Palpitations described as \"occasionally\"",
-          "ROS denials phrased as \"observed\" (e.g., \"No... observed\")"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly accurate. Minor omissions include the patient's height and weight, the \"regular rhythm\" detail for tachycardia, and the general statement about \"no other abnormalities detected\" in other systems. The inclusion of the patient's compliance with Levothyroxine, while supported by the transcript, is placed in the Objective section rather than Subjective.",
+        "summary": "The Objective section is mostly complete, capturing all vital signs and key physical findings. It omits minor details such as height, weight, and specific physical examination sub-headings. The addition regarding Levothyroxine compliance is supported by the transcript and does not reduce the grade.",
         "omissions": [
           "Height (5'6\")",
           "Weight (150 lbs)",
-          "Physical Exam: Cardiovascular finding of \"Tachycardia noted, regular rhythm\"",
-          "Physical Exam: \"Other Systems: No other abnormalities detected\""
+          "Physical Examination section heading",
+          "General Appearance: 'The patient appears pale with evident fatigue.'",
+          "Cardiovascular: 'Tachycardia noted, regular rhythm.'",
+          "Skin: 'Noticeable pallor and brittle nails.'",
+          "Other Systems: 'No other abnormalities detected.'"
         ],
         "additions": [
-          "Statement \"The patient is compliant with Levothyroxine for hypothyroidism\" (this information is in GT Subjective)"
+          "The patient is compliant with Levothyroxine for hypothyroidism."
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "While the primary diagnosis is correct, the medical reasoning omits specific symptoms (fatigue, dizziness, brittle nails, palpitations) and physical findings (pallor and tachycardia) that support the diagnosis. This makes the justification less comprehensive and detailed compared to the ground truth.",
+        "grade": "B",
+        "summary": "The Assessment section correctly identifies the primary diagnosis. However, it omits some of the detailed medical reasoning that explicitly links specific symptoms (palpitations) and physical findings (tachycardia) to the indication of anemia, making the reasoning slightly less comprehensive than the ground truth.",
         "omissions": [
-          "Specific symptoms listed in medical reasoning (fatigue, dizziness, brittle nails, palpitations)",
-          "Specific physical findings listed in medical reasoning (pallor and tachycardia)"
+          "'Primary Diagnosis' heading",
+          "Detailed medical reasoning: 'The patient's symptoms of fatigue, dizziness, brittle nails, and palpitations, along with the physical findings of pallor and tachycardia, are indicative of anemia.'"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The core treatment plan is present. However, the note omits the specific reason for the gastroenterology referral (\"to rule out possible underlying causes of anemia, such as gastrointestinal bleeding\"), which is a moderate clinical detail. Minor omissions include the medication route (\"oral\") and the specific doctor's name for the referral.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive and clinically sound. It accurately captures all prescribed medication, lifestyle recommendations, follow-up instructions, and the referral. The only omissions are minor details, such as the specific name of the gastroenterologist and a specific example of an underlying cause for referral.",
         "omissions": [
-          "Medication route \"oral\" for Ferrous Sulfate",
-          "Referral to specific doctor name \"Dr. Smith\"",
-          "Specific reason for referral: \"to rule out possible underlying causes of anemia, such as gastrointestinal bleeding\"",
-          "Statement that \"The patient understands and agrees with the treatment plan\""
+          "Referral to 'Dr. Smith' (specific name)",
+          "Specific example of underlying cause for referral: 'such as gastrointestinal bleeding'"
         ],
         "additions": []
       }
@@ -359,32 +342,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Palpitations described as \"occasionally\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I also get palpitations every now and then.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "They also experience palpitations occasionally."
-    },
-    {
-      "addition_text": "ROS denials phrased as \"observed\" (e.g., \"No... observed\")",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Statement \"The patient is compliant with Levothyroxine for hypothyroidism\" (placed in Objective section)",
+      "addition_text": "The patient is compliant with Levothyroxine for hypothyroidism.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I have hypothyroidism. I take Levothyroxine 100 mcg once daily, and I’m very compliant with it.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is compliant with Levothyroxine for hypothyroidism."
-    },
-    {
-      "addition_text": "Statement \"The patient is compliant with Levothyroxine for hypothyroidism\" (this information is in GT Subjective)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] Yes, I have hypothyroidism. I take Levothyroxine 100 mcg once daily, and I’m very compliant with it.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient is compliant with Levothyroxine for hypothyroidism."
+      "matched_claim_text": "The patient is compliant with Levothyroxine for hypothyroidism.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

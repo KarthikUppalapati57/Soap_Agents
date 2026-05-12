@@ -305,9 +305,9 @@
     "plan_alignment_score": 0.5655172413793104
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions, particularly in the Assessment and Plan sections. While the Objective section is complete, the Subjective section misses important past medical history and social history details. The Assessment lacks explicit problem statements for chronic conditions and their medical reasoning. Most critically, the Plan section omits specific medication dosages and entirely misses the ordered tests, which are instead incorrectly placed in the Assessment section. These issues make the note meaningfully incomplete and reduce its clinical usefulness.",
+    "overall_summary": "The generated note captures the chief complaint, present illness, and objective findings well, and correctly identifies suspected thyroid dysfunction with appropriate initial steps. However, it suffers from numerous omissions in the Subjective section, including past medical history and detailed social history. Most critically, the Assessment section is meaningfully incomplete, failing to explicitly list and provide medical reasoning for the patient's chronic conditions of prediabetes and hyperlipidemia. The Plan section also lacks specific medication dosages and the explicit listing of ordered tests, reducing its completeness.",
     "omissions": [
       "Past medical history of prediabetes and hyperlipidemia",
       "Reason for visit: general adult medical examination",
@@ -343,7 +343,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several omissions, including the patient's past medical history of prediabetes and hyperlipidemia, the reason for the visit, and details regarding sleep, tobacco/drug use, alcohol consumption, diet, and exercise. While the chief complaint and main HPI are present, the lack of comprehensive background information makes the section less complete.",
+        "summary": "The Subjective section captures the chief complaint and core history of present illness. However, it omits important past medical history (prediabetes and hyperlipidemia), details about sleep quality, and several elements from the social history and review of systems, making it less comprehensive than the ground truth.",
         "omissions": [
           "Past medical history of prediabetes and hyperlipidemia",
           "Reason for visit: general adult medical examination",
@@ -362,14 +362,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurately reflects the vital signs and physical examination findings from the GroundTruthSOAP, with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is excellent, accurately capturing all vital signs and physical examination findings without any omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has multiple moderate omissions. It fails to explicitly list 'Encounter for general adult medical examination with abnormal findings', 'Moderate fatigue', 'Prediabetes', and 'Hyperlipidemia' as distinct problems/diagnoses. Crucially, the medical reasoning for all diagnoses, including the suspected thyroid dysfunction, prediabetes, and hyperlipidemia, is entirely omitted. While ordered tests and medication continuation are mentioned, the absence of a structured problem list and clinical rationale significantly impacts the completeness and clarity of the assessment.",
+        "summary": "The Assessment section is meaningfully incomplete. While it correctly identifies suspected thyroid dysfunction and the need for further evaluation, it entirely omits the distinct diagnoses and medical reasoning for the patient's prediabetes and hyperlipidemia. These are significant gaps that reduce the clinical usefulness of the assessment. All additions in this section were supported by the transcript and did not impact the grade.",
         "omissions": [
           "Encounter for general adult medical examination with abnormal findings",
           "Explicit mention of 'Moderate fatigue' as a problem/diagnosis",
@@ -386,8 +386,8 @@
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section contains major omissions that materially reduce its clinical usefulness. It omits the specific dosages for Metformin and Atorvastatin, which are critical for medication instructions. Most significantly, the ordered tests (blood work and thyroid ultrasound) are entirely absent from the Plan section, despite being present in the GroundTruthSOAP's Plan. This misplacement and omission of key diagnostic steps from the Plan is a major issue.",
+        "grade": "B",
+        "summary": "The Plan section outlines the key components of care, including referrals, medication continuation, lifestyle modifications, and follow-up. However, it omits specific medication dosages, the name of the endocrinologist, and the explicit listing of ordered tests within the Plan section, which were present in the ground truth. These omissions reduce the specificity and completeness of the plan.",
         "omissions": [
           "Specific name of the endocrinologist: 'Dr. John Smith'",
           "Specific dosage for Metformin: '500 mg twice daily'",
@@ -409,28 +409,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m going to order some blood tests including a biochemistry panel, thyroid-stimulating hormone (TSH), Free T4, and Free T3. I also want to get a thyroid ultrasound to check for any structural abnormalities.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Laboratory tests for biochemistry panel, TSH, Free T4, Free T3, and thyroid ultrasound are ordered."
+      "matched_claim_text": "Laboratory tests for biochemistry panel, TSH, Free T4, Free T3, and thyroid ultrasound are ordered.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Continuation of Metformin and Atorvastatin listed under Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You mentioned a history of prediabetes. Are you still taking Metformin?\n\n[Patient]: Yes, I take Metformin 500 mg twice daily. ... [Doctor]: Great, continue taking those medications.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continuation of Metformin as prescribed."
+      "matched_claim_text": "Continuation of Metformin as prescribed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Laboratory tests for biochemistry panel, TSH, Free T4, Free T3, and thyroid ultrasound are ordered",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m going to order some blood tests including a biochemistry panel, thyroid-stimulating hormone (TSH), Free T4, and Free T3. I also want to get a thyroid ultrasound to check for any structural abnormalities.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Laboratory tests for biochemistry panel, TSH, Free T4, Free T3, and thyroid ultrasound are ordered."
+      "matched_claim_text": "Laboratory tests for biochemistry panel, TSH, Free T4, Free T3, and thyroid ultrasound are ordered.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Continuation of Metformin and Atorvastatin as prescribed",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You mentioned a history of prediabetes. Are you still taking Metformin?\n\n[Patient]: Yes, I take Metformin 500 mg twice daily. ... [Doctor]: Great, continue taking those medications.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continuation of Metformin as prescribed."
+      "matched_claim_text": "Continuation of Metformin as prescribed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

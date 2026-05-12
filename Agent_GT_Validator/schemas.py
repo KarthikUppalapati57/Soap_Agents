@@ -106,6 +106,9 @@ class AdditionEvidence(BaseModel):
     transcript_evidence: Optional[str] = None
     evidence_source: Literal["agent3_claims", "gemini", "none"] = "none"
     matched_claim_text: Optional[str] = None
+    # PrimeKG / MKG channel (separate from transcript). Default "unknown" when not computed.
+    supported_by_primekg: TranscriptSupport = "unknown"
+    primekg_evidence: Optional[str] = None
 
 
 class GTValidatorReport(BaseModel):

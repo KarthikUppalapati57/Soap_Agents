@@ -2,7 +2,7 @@
   "item": "item_0178",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0178",
   "ground_truth_soap": "#\n\nSubjective:\n   Chief Complaint (CC):\n   Fatigue and weight gain.\n\n   History of Present Illness (HPI):\n   The patient, named Emily Johnson, is a 34-year-old Caucasian female presenting with a 3-month history of moderate fatigue, weight gain, cold intolerance, dry skin, and hair loss. She reports persistent daily symptoms that have significantly impacted her ability to maintain energy levels for work and recreational activities. She sleeps 8-9 hours per night but still feels fatigued. Her diet is balanced, though she consumes a high amount of processed foods. She leads a sedentary lifestyle and does not engage in regular exercise. She is a non-smoker and consumes alcohol occasionally, about 1-2 drinks per week.\n\n   Review of Systems (ROS):\n   - General: Reports moderate fatigue affecting daily activities. \n   - Skin: Dry skin noted on arms and legs. \n   - Endocrine: Weight gain over the past 3 months, cold intolerance.\n   - Neurological: Reports hair loss over the past 3 months, diminished energy.\n   - Cardiovascular: No chest pain or palpitations reported.\n\nObjective:\n   Vitals:\n   - BP: 122/76 mm Hg\n   - HR: 58 bpm (bradycardic)\n   - BMI: 26\n\n   Physical Exam:\n   - General: Appears fatigued but well-nourished.\n   - Skin: Dry skin on arms and legs.\n   - Cardiovascular: Heart sounds normal with no murmurs, rubs, or gallops.\n   - Neurological: Diminished deep tendon reflexes.\n\nAssessment:\n   - Hypothyroidism, unspecified.\n\nPlan:\n   - Medication: Prescribe Levothyroxine 50 mcg, oral, once daily, for lifelong treatment.\n   - Follow-Up: Instruct patient to return to the clinic in 6 weeks for reevaluation and repeat thyroid function tests.\n   - Tests: Order Thyroid Function Tests (TFTs) including TSH, Free T3, and Free T4.\n   - Lifestyle Recommendations: Advise the patient to maintain a balanced diet with reduced intake of processed foods, incorporate moderate physical activity into her routine, and monitor symptoms' progress.\n   - Education: Provide information on hypothyroidism and the importance of medication adherence and regular follow-ups.\n\n#",
-  "generated_soap": "Subjective:\nThe patient reports moderate fatigue for the past three months affecting daily activities, associated with weight gain (10 lbs), dry skin, hair loss, and cold intolerance.\n\nObjective:\nBlood pressure: 122/76, Heart rate: 58 bpm, BMI: 26. Physical examination reveals fatigue, dry skin, diminished deep tendon reflexes, and normal heart sounds with no murmurs or gallops.\n\nAssessment:\nPossible hypothyroidism based on symptoms and physical examination findings; awaiting Thyroid Function Tests results for confirmation.\n\nPlan:\n- Pending Thyroid Function Test results\n- Start Levothyroxine upon confirmation of hypothyroidism\n- Lifestyle modifications including balanced diet and moderate physical activity\n- Follow-up in 6 weeks for reevaluation and repeat thyroid function tests\n- Provide information on hypothyroidism and importance of medication adherence and regular follow-ups.",
+  "generated_soap": "Subjective:\n- Fatigue (3 months duration)\n- Weight gain (10 pounds)\n- Dry skin\n- Hair loss\n- Cold intolerance\n\nObjective:\n- Blood pressure: 122/76 mmHg\n- Heart rate: 58 bpm\n- BMI: 26\n- Fatigued appearance, dry skin, diminished deep tendon reflexes on physical exam\n\nAssessment:\n- Possible hypothyroidism; awaiting Thyroid Function Tests results (TSH, Free T3, Free T4)\n\nPlan:\n- Start Levothyroxine if hypothyroidism confirmed\n- Regular follow-ups for monitoring and adjustment of medication\n- Lifestyle modifications: balanced diet, reduced processed foods, increased physical activity",
   "entities_gt": {
     "all_entities": [
       "fatigue",
@@ -60,49 +60,49 @@
       "blood pressure",
       "heart rate",
       "bmi",
-      "physical examination",
-      "normal heart sounds",
-      "no murmurs or gallops",
+      "fatigued appearance",
       "hypothyroidism",
-      "symptoms",
       "thyroid function tests",
-      "pending thyroid function test results",
+      "tsh",
+      "free t3",
+      "free t4",
       "levothyroxine",
-      "lifestyle modifications"
+      "regular follow-ups",
+      "lifestyle modifications",
+      "balanced diet",
+      "increased physical activity"
     ],
     "symptoms": [
       "fatigue",
-      "weight gain",
       "dry skin",
       "hair loss",
       "cold intolerance",
-      "diminished deep tendon reflexes",
-      "normal heart sounds"
+      "fatigued appearance",
+      "diminished deep tendon reflexes"
     ],
     "medications": [
       "levothyroxine"
     ],
     "labs": [
       "blood pressure",
-      "122/76",
       "heart rate",
       "bmi",
-      "normal heart sounds",
-      "thyroid function tests"
+      "thyroid function tests",
+      "tsh",
+      "free t3",
+      "free t4"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 22,
-    "gen_count": 17,
-    "overlap_count": 7,
-    "recall": 0.3181818181818182,
+    "gen_count": 19,
+    "overlap_count": 10,
+    "recall": 0.45454545454545453,
     "gt_only": [
       "bp",
       "cardiovascular",
       "diminished energy",
       "follow-up",
-      "free t3",
-      "free t4",
       "heart sounds normal",
       "hr",
       "levothyroxine 50 mcg",
@@ -110,49 +110,50 @@
       "neurological",
       "oral",
       "persistent daily symptoms",
-      "reevaluation",
-      "tsh"
+      "reevaluation"
     ],
     "gen_only": [
+      "balanced diet",
       "blood pressure",
       "dry skin",
+      "fatigued appearance",
       "heart rate",
+      "increased physical activity",
       "levothyroxine",
       "lifestyle modifications",
-      "no murmurs or gallops",
-      "normal heart sounds",
-      "pending thyroid function test results",
-      "physical examination",
-      "symptoms"
+      "regular follow-ups"
     ],
     "overlap": [
       "bmi",
       "cold intolerance",
       "fatigue",
+      "free t3",
+      "free t4",
       "hair loss",
       "hypothyroidism",
       "thyroid function tests",
+      "tsh",
       "weight gain"
     ]
   },
   "clinical_recall_symptoms": {
     "gt_count": 7,
-    "gen_count": 7,
-    "overlap_count": 6,
-    "recall": 0.8571428571428571,
+    "gen_count": 6,
+    "overlap_count": 5,
+    "recall": 0.7142857142857143,
     "gt_only": [
-      "diminished energy"
+      "diminished energy",
+      "weight gain"
     ],
     "gen_only": [
-      "normal heart sounds"
+      "fatigued appearance"
     ],
     "overlap": [
       "cold intolerance",
       "diminished deep tendon reflexes",
       "dry skin",
       "fatigue",
-      "hair loss",
-      "weight gain"
+      "hair loss"
     ]
   },
   "clinical_recall_medications": {
@@ -170,136 +171,180 @@
   },
   "clinical_recall_labs": {
     "gt_count": 7,
-    "gen_count": 6,
-    "overlap_count": 1,
-    "recall": 0.14285714285714285,
+    "gen_count": 7,
+    "overlap_count": 4,
+    "recall": 0.5714285714285714,
     "gt_only": [
       "bp",
-      "free t3",
-      "free t4",
       "heart sounds normal",
-      "hr",
-      "tsh"
+      "hr"
     ],
     "gen_only": [
-      "122/76",
       "blood pressure",
       "bmi",
-      "heart rate",
-      "normal heart sounds"
+      "heart rate"
     ],
     "overlap": [
-      "thyroid function tests"
+      "free t3",
+      "free t4",
+      "thyroid function tests",
+      "tsh"
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.40807117263004283,
-    "overall_rouge_l_f1": 0.2824423241960725,
+    "overall_token_f1": 0.31043956043956045,
+    "overall_rouge_l_f1": 0.2210582894578268,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3065693430656935,
-        "rouge_l_f1": 0.13978494623655913
+        "token_f1": 0.1746031746031746,
+        "rouge_l_f1": 0.11494252873563218
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.6376811594202899,
-        "rouge_l_f1": 0.4788732394366197
+        "token_f1": 0.5396825396825397,
+        "rouge_l_f1": 0.40625000000000006
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.1111111111111111,
-        "rouge_l_f1": 0.1111111111111111
+        "token_f1": 0.15384615384615385,
+        "rouge_l_f1": 0.14285714285714285
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5769230769230769,
-        "rouge_l_f1": 0.4
+        "token_f1": 0.3736263736263737,
+        "rouge_l_f1": 0.22018348623853212
       }
     ],
-    "assessment_alignment_score": 0.1111111111111111,
-    "plan_alignment_score": 0.5769230769230769
+    "assessment_alignment_score": 0.15384615384615385,
+    "plan_alignment_score": 0.3736263736263737
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note provides a mostly clinically aligned and usable summary of the patient encounter. The Objective and Assessment sections are strong, accurately capturing key findings and the diagnostic impression. However, the Subjective section omits several minor to moderate details regarding lifestyle and specific ROS findings. The Plan section has moderate omissions concerning specific medication details (dosage, frequency, duration) and the full list of thyroid function tests. Additionally, the Plan includes an unsupported heading, \"Lifestyle modifications,\" which, while not clinically misleading, is an unjustified structural addition. Despite these issues, the core clinical information is present, making the note broadly usable.",
-    "omissions": [],
-    "additions": [],
-    "hallucinations_or_unjustified_inferences": [
-      "\"Lifestyle modifications\" as a general heading"
+    "overall_grade": "C",
+    "overall_summary": "The generated note accurately captures the patient's chief complaints, key symptoms, and objective findings. All additions are supported by the transcript, which is excellent. However, the note has numerous omissions, particularly in the Plan section, where critical details regarding medication dosage, specific follow-up timing, explicit test orders, and patient education are missing, making the plan meaningfully incomplete and requiring significant manual review.",
+    "omissions": [
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Impact of symptoms on work and recreational activities",
+      "Patient sleeps 8-9 hours per night but still feels fatigued",
+      "Detailed diet information (balanced, high processed foods)",
+      "Detailed lifestyle information (sedentary, no regular exercise)",
+      "Social history (non-smoker, occasional alcohol 1-2 drinks/week)",
+      "Specific location of dry skin (arms and legs) in ROS",
+      "Diminished energy in ROS",
+      "Absence of chest pain or palpitations in ROS",
+      "Vitals section header",
+      "Physical Exam section header",
+      "Heart rate described as \"bradycardic\"",
+      "General appearance: \"well-nourished\"",
+      "Specific location of dry skin (arms and legs) in Physical Exam",
+      "Cardiovascular exam details (normal heart sounds, no murmurs, rubs, or gallops)",
+      "\"unspecified\" qualifier for hypothyroidism in Assessment",
+      "Medication section header in Plan",
+      "Specific Levothyroxine dosage (50 mcg, oral, once daily)",
+      "Lifelong treatment for Levothyroxine",
+      "Follow-Up section header in Plan",
+      "Specific follow-up timing (6 weeks)",
+      "Purpose of follow-up (reevaluation and repeat thyroid function tests)",
+      "Tests section header in Plan",
+      "Explicit order for Thyroid Function Tests (TFTs) including TSH, Free T3, and Free T4 in Plan",
+      "Lifestyle Recommendations section header in Plan",
+      "Recommendation to monitor symptoms' progress",
+      "Education section header in Plan",
+      "Information on hypothyroidism and importance of medication adherence and regular follow-ups"
     ],
+    "additions": [
+      "Weight gain amount (10 pounds) in Subjective",
+      "\"on physical exam\" phrasing in Objective",
+      "\"Possible\" qualifier for hypothyroidism in Assessment",
+      "Mention of awaiting Thyroid Function Tests results (TSH, Free T3, Free T4) in Assessment",
+      "Conditional statement for starting Levothyroxine (\"if hypothyroidism confirmed\")",
+      "\"adjustment of medication\" as part of follow-up purpose",
+      "\"increased physical activity\" phrasing in lifestyle modifications"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the core chief complaint and main HPI symptoms well. However, it omits several minor to moderate details regarding the patient's lifestyle (diet specifics, exercise, smoking, alcohol) and some specific Review of Systems findings. All additions in this section are supported by the transcript.",
+        "summary": "The Subjective section captures the patient's main symptoms and duration but omits several details from the History of Present Illness, Review of Systems, and social history, such as the impact on daily activities, sleep patterns, detailed diet/lifestyle, and smoking/alcohol use. These are numerous minor omissions that reduce the completeness of the narrative.",
         "omissions": [
-          "Chief Complaint section header",
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
           "Impact of symptoms on work and recreational activities",
-          "Patient sleeps 8-9 hours but still feels fatigued",
-          "Diet is balanced, though consumes a high amount of processed foods",
-          "Sedentary lifestyle and no regular exercise",
-          "Non-smoker status",
-          "Occasional alcohol consumption (1-2 drinks per week)",
-          "Review of Systems section header",
-          "Specific ROS detail: Dry skin on arms and legs",
-          "Specific ROS detail: Hair loss over the past 3 months, diminished energy",
-          "Specific ROS detail: No chest pain or palpitations"
+          "Patient sleeps 8-9 hours per night but still feels fatigued",
+          "Detailed diet information (balanced, high processed foods)",
+          "Detailed lifestyle information (sedentary, no regular exercise)",
+          "Social history (non-smoker, occasional alcohol 1-2 drinks/week)",
+          "Specific location of dry skin (arms and legs) in ROS",
+          "Diminished energy in ROS",
+          "Absence of chest pain or palpitations in ROS"
         ],
         "additions": [
-          "Quantification of weight gain as \"10 lbs\""
+          "Weight gain amount (10 pounds)"
         ]
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section accurately captures all major vital signs and key physical exam findings. The omissions are minor descriptive details or interpretations (e.g., 'bradycardic,' 'well-nourished,' 'no rubs,' 'on arms and legs') that do not significantly impact the clinical usefulness of the section. There are no unsupported or unknown additions.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports vital signs and key physical exam findings. It omits some descriptive details like the 'bradycardic' qualifier for heart rate, 'well-nourished' appearance, specific dry skin location, and full cardiovascular exam details. These are minor omissions that do not significantly impact the clinical utility of the section.",
         "omissions": [
-          "Heart rate noted as \"bradycardic\"",
+          "Vitals section header",
+          "Physical Exam section header",
+          "Heart rate described as \"bradycardic\"",
           "General appearance: \"well-nourished\"",
-          "Cardiovascular exam: \"no rubs\"",
-          "Skin exam: \"on arms and legs\""
+          "Specific location of dry skin (arms and legs) in Physical Exam",
+          "Cardiovascular exam details (normal heart sounds, no murmurs, rubs, or gallops)"
         ],
-        "additions": []
+        "additions": [
+          "\"on physical exam\" phrasing"
+        ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately identifies hypothyroidism as the primary impression. The single omission, the 'unspecified' qualifier, is minor. All additions in this section, which provide a more nuanced initial assessment pending test results, are fully supported by the transcript.",
+        "summary": "This section is strong, with only a minor omission of the 'unspecified' qualifier for hypothyroidism. The additions of 'Possible' and 'awaiting Thyroid Function Tests results' are supported by the transcript and clinically appropriate, reflecting the diagnostic uncertainty prior to test results.",
         "omissions": [
           "\"unspecified\" qualifier for hypothyroidism"
         ],
         "additions": [
-          "\"Possible hypothyroidism based on symptoms and physical examination findings\"",
-          "\"awaiting Thyroid Function Tests results for confirmation\""
+          "\"Possible\" qualifier for hypothyroidism",
+          "Mention of awaiting Thyroid Function Tests results (TSH, Free T3, Free T4)"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several moderate omissions, specifically lacking the dosage, frequency, and duration of Levothyroxine, as well as the full list of specific thyroid function tests (TSH, Free T3, Free T4). Additionally, the section includes an unsupported addition: the general heading 'Lifestyle modifications.' While the content under this heading is supported, the heading itself is an unjustified structural element, contributing to a lower grade due to its presence in a high-severity section.",
+        "summary": "This section has significant omissions, including specific medication dosage and duration (lifelong treatment), precise follow-up timing (6 weeks), explicit ordering of thyroid function tests, and detailed patient education on hypothyroidism and adherence. These omissions make the plan meaningfully incomplete and less actionable for patient management.",
         "omissions": [
-          "Levothyroxine dosage \"50 mcg\"",
-          "Levothyroxine route \"oral\"",
-          "Levothyroxine frequency \"once daily\"",
-          "Levothyroxine duration \"for lifelong treatment\"",
-          "Specific thyroid function tests: \"TSH, Free T3, and Free T4\"",
-          "Lifestyle recommendation: \"reduced intake of processed foods\"",
-          "Lifestyle recommendation: \"monitor symptoms' progress\""
+          "Medication section header",
+          "Specific Levothyroxine dosage (50 mcg, oral, once daily)",
+          "Lifelong treatment for Levothyroxine",
+          "Follow-Up section header",
+          "Specific follow-up timing (6 weeks)",
+          "Purpose of follow-up (reevaluation and repeat thyroid function tests)",
+          "Tests section header",
+          "Explicit order for Thyroid Function Tests (TFTs) including TSH, Free T3, and Free T4",
+          "Lifestyle Recommendations section header",
+          "Recommendation to monitor symptoms' progress",
+          "Education section header",
+          "Information on hypothyroidism and importance of medication adherence and regular follow-ups"
         ],
         "additions": [
-          "\"Pending Thyroid Function Test results\" as a separate instruction",
-          "\"Start Levothyroxine upon confirmation of hypothyroidism\" as a conditional instruction",
-          "\"Lifestyle modifications\" as a general heading"
+          "Conditional statement for starting Levothyroxine (\"if hypothyroidism confirmed\")",
+          "\"adjustment of medication\" as part of follow-up purpose",
+          "\"increased physical activity\" phrasing in lifestyle modifications"
         ]
       }
     ],
@@ -308,46 +353,103 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Quantification of weight gain as \"10 lbs\"",
+      "addition_text": "Weight gain amount (10 pounds) in Subjective",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I've gained about 10 pounds.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[patient] Yes, I've gained some weight... [doctor] How much weight have you gained in the past three months? [patient] I've gained about 10 pounds.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Weight gain (10 pounds)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Possible hypothyroidism based on symptoms and physical examination findings\"",
+      "addition_text": "\"on physical exam\" phrasing in Objective",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "This can be associated with conditions like hypothyroidism, which seems to match your symptoms. Yes, hypothyroidism is a condition where your thyroid gland doesn't produce enough thyroid hormones. This can lead to symptoms like fatigue, weight gain, dry skin, hair loss, and cold intolerance.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] Your deep tendon reflexes are diminished.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "diminished deep tendon reflexes on physical exam",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"awaiting Thyroid Function Tests results for confirmation\"",
+      "addition_text": "\"Possible\" qualifier for hypothyroidism in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4. These tests will help confirm if you have hypothyroidism.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] This can be associated with conditions like hypothyroidism, which seems to match your symptoms. ... Yes, hypothyroidism is a condition where your thyroid gland doesn't produce enough thyroid hormones.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Possible hypothyroidism",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Pending Thyroid Function Test results\" as a separate instruction",
+      "addition_text": "Mention of awaiting Thyroid Function Tests results (TSH, Free T3, Free T4) in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "awaiting Thyroid Function Tests results (TSH, Free T3, Free T4)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Start Levothyroxine upon confirmation of hypothyroidism\" as a conditional instruction",
+      "addition_text": "Conditional statement for starting Levothyroxine (\"if hypothyroidism confirmed\")",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "If the tests confirm hypothyroidism, we'll start you on a medication called Levothyroxine.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] If the tests confirm hypothyroidism, we'll start you on a medication called Levothyroxine.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Start Levothyroxine if hypothyroidism confirmed",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Lifestyle modifications\" as a general heading",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "addition_text": "\"adjustment of medication\" as part of follow-up purpose",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] You'll need regular follow-ups to monitor your thyroid levels and adjust the medication as needed. ... We'll see you back in the clinic in 6 weeks to reevaluate and repeat your thyroid function tests.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Regular follow-ups for monitoring and adjustment of medication",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"increased physical activity\" phrasing in lifestyle modifications",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] and incorporate moderate physical activity into your routine.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "increased physical activity",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Weight gain amount (10 pounds)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I've gained some weight... [doctor] How much weight have you gained in the past three months? [patient] I've gained about 10 pounds.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Weight gain (10 pounds)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"on physical exam\" phrasing",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Your deep tendon reflexes are diminished.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "diminished deep tendon reflexes on physical exam",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Possible\" qualifier for hypothyroidism",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] This can be associated with conditions like hypothyroidism, which seems to match your symptoms. ... Yes, hypothyroidism is a condition where your thyroid gland doesn't produce enough thyroid hormones.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Possible hypothyroidism",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Mention of awaiting Thyroid Function Tests results (TSH, Free T3, Free T4)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "awaiting Thyroid Function Tests results (TSH, Free T3, Free T4)",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

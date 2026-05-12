@@ -324,9 +324,9 @@
     "plan_alignment_score": 0.35
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_v1.0",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a mostly accurate summary of the patient encounter. However, it has several minor omissions in the Subjective and Objective sections, and a significant omission in the Plan section regarding the specific dosage and administration instructions for Acetaminophen. While all additions are supported by the transcript, the missing critical medication details make the note meaningfully incomplete and necessitate careful review for clinical usefulness and safety.",
+    "overall_summary": "The note effectively captures the patient's chief complaint, most of the subjective and objective findings, and all diagnoses. However, the Plan section contains critical omissions regarding medication details (dosage, frequency, maximum daily dose) and essential patient safety education for Acetaminophen, which significantly impacts the clinical usefulness and safety of the treatment plan. Several moderate omissions in the Subjective section also reduce the overall completeness.",
     "omissions": [
       "Impact of symptoms on daily tasks and physical activities",
       "Denial of recent respiratory infections",
@@ -354,7 +354,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly complete but omits several minor to moderate details from the HPI and ROS, such as the impact of symptoms on daily tasks, denial of recent respiratory infections, the non-productive nature of the cough, and denial of hemoptysis. All additions in this section are supported by the transcript.",
+        "summary": "The Subjective section has several omissions, including the impact of symptoms on daily activities, the non-productive nature of the cough, and denials of recent respiratory infections and hemoptysis. These omissions reduce the completeness and clinical detail of the patient's history.",
         "omissions": [
           "Impact of symptoms on daily tasks and physical activities",
           "Denial of recent respiratory infections",
@@ -367,8 +367,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section accurately captures vital signs and key physical exam findings. However, it omits a few minor details from the physical exam, including the patient not being in acute distress, the absence of heart murmurs, and no organomegaly during the abdominal exam.",
+        "grade": "A",
+        "summary": "The Objective section is largely accurate, with only minor omissions such as the patient not being in acute distress and the absence of murmurs or organomegaly during the physical exam. All major vital signs and physical findings are present.",
         "omissions": [
           "Patient not in acute distress",
           "No murmurs noted during cardiovascular exam",
@@ -379,7 +379,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately reflecting the patient's conditions. There are no omissions, and all additions in this section are fully supported by the transcript, thus not impacting the grade.",
+        "summary": "The Assessment section is complete and accurate, capturing all diagnoses from the Ground Truth without any omissions. All additions in this section are supported by the transcript and do not reduce the grade.",
         "omissions": [],
         "additions": [
           "Prescription of Acetaminophen for pain as needed, with instructions to monitor symptoms and lifestyle modifications",
@@ -388,8 +388,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has noticeable gaps, most significantly omitting the specific dosage, route, frequency, and maximum daily dose for Acetaminophen, which is a moderate to high severity issue for medication safety. It also misses specific details for lifestyle modifications and the symptom diary, as well as the clarification on referrals and patient's disposition. All additions in this section are supported by the transcript.",
+        "grade": "D",
+        "summary": "The Plan section has several significant omissions, including critical details for Acetaminophen dosage (500mg), route (oral), frequency (every 4-6 hours), and maximum daily dose (up to 4 times a day). Crucial patient education on not exceeding the recommended Acetaminophen dose is also missing. Additionally, specific details for lifestyle modifications and symptom diary entries are omitted, which reduces the actionable nature and safety of the plan.",
         "omissions": [
           "Acetaminophen dosage (500mg), route (oral), frequency (every 4-6 hours), and maximum daily dose (up to 4 times a day)",
           "Specific lifestyle modifications (balanced diet, regular light exercise)",
@@ -413,42 +413,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I’d say it’s about a 7 or 8 most of the time, sometimes even worse. ... [Doctor]: Do you experience these symptoms daily? [Patient]: Yes, every single day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms rated as 7-8 out of 10 in severity, occurring daily"
+      "matched_claim_text": "Symptoms rated as 7-8 out of 10 in severity, occurring daily",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Status epilepticus — phenotype_phenotype — Status epilepticus without prominent motor symptoms"
     },
     {
       "addition_text": "Prescription of Acetaminophen for pain as needed, with instructions to monitor symptoms and lifestyle modifications (listed in Assessment section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m going to prescribe you Acetaminophen 500mg, which you can take every 4-6 hours as needed for any pain, but not more than 4 times a day. ... [Doctor]: In the meantime, it’s important to make some lifestyle modifications, like following a balanced diet and engaging in regular light exercise as tolerated. ... [Doctor]: It would also be helpful if you could keep a symptom diary. Note the severity and frequency of your cough, shortness of breath, and any chest pain episodes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribed Acetaminophen for pain as needed, with instructions to monitor symptoms and lifestyle modifications"
+      "matched_claim_text": "Prescribed Acetaminophen for pain as needed, with instructions to monitor symptoms and lifestyle modifications",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Ordered CBC, CMP, TSH, and Chest X-ray for further evaluation (listed in Assessment section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d also like to order some blood work, including a Complete Blood Count (CBC), Comprehensive Metabolic Panel (CMP), and Thyroid Stimulating Hormone (TSH). Additionally, we’ll get a Chest X-ray to further evaluate your persistent cough and shortness of breath.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Ordered CBC, CMP, TSH, and Chest X-ray for further evaluation"
+      "matched_claim_text": "Ordered CBC, CMP, TSH, and Chest X-ray for further evaluation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instruction to communicate changes/concerns through the patient portal",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you notice any changes or have concerns, don’t hesitate to call or message me through the patient portal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Communicate any changes or concerns through the patient portal"
+      "matched_claim_text": "Communicate any changes or concerns through the patient portal",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Prescription of Acetaminophen for pain as needed, with instructions to monitor symptoms and lifestyle modifications",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m going to prescribe you Acetaminophen 500mg, which you can take every 4-6 hours as needed for any pain, but not more than 4 times a day. ... [Doctor]: In the meantime, it’s important to make some lifestyle modifications, like following a balanced diet and engaging in regular light exercise as tolerated. ... [Doctor]: It would also be helpful if you could keep a symptom diary. Note the severity and frequency of your cough, shortness of breath, and any chest pain episodes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribed Acetaminophen for pain as needed, with instructions to monitor symptoms and lifestyle modifications"
+      "matched_claim_text": "Prescribed Acetaminophen for pain as needed, with instructions to monitor symptoms and lifestyle modifications",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Ordered CBC, CMP, TSH, and Chest X-ray for further evaluation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d also like to order some blood work, including a Complete Blood Count (CBC), Comprehensive Metabolic Panel (CMP), and Thyroid Stimulating Hormone (TSH). Additionally, we’ll get a Chest X-ray to further evaluate your persistent cough and shortness of breath.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Ordered CBC, CMP, TSH, and Chest X-ray for further evaluation"
+      "matched_claim_text": "Ordered CBC, CMP, TSH, and Chest X-ray for further evaluation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -252,9 +252,9 @@
     "plan_alignment_score": 0.8040201005025125
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, with no unsupported or unknown additions. However, it has several minor and a few moderate omissions. Key details regarding the severity and impact of symptoms on daily activities in the Subjective section, and the likely influence of environmental factors in the Assessment, are missing. While the core plan is present, some specific rationales for tests and the exact phrasing of patient education points are omitted.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures all objective findings and the core diagnosis. However, it has several moderate omissions across the Subjective, Assessment, and Plan sections, primarily regarding the detailed impact of symptoms, clinical reasoning for the assessment, and rationales for ordered tests. There are no unsupported or unknown additions to the note.",
     "omissions": [
       "The patient understands and agrees with the recommended medical treatment plan."
     ],
@@ -264,7 +264,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the worsening asthma symptoms but omits important details regarding the moderate severity of symptoms, their intensification in the last 2 days, frequency (several times a day), significant impact on daily activities and ability to work as a full-time teacher, and explicit mention of sleep disruption due to nocturnal cough. The omission of 'Mild distress' from ROS General is also noted, though it appears in Objective.",
+        "summary": "The Subjective section captures the chief complaint and main symptoms but omits important details regarding the moderate severity of symptoms, their intensification over the last two days, their frequency, and their significant impact on the patient's daily activities, work, and sleep. The 'Mild distress' from ROS General was also omitted from Subjective but captured in Objective.",
         "omissions": [
           "moderate severity of wheezing, chest tightness, nocturnal cough, and shortness of breath",
           "symptoms intensified in the last 2 days",
@@ -278,14 +278,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, capturing all vital signs and physical examination findings without any omissions or additions.",
+        "summary": "The Objective section is complete and accurately reflects all vital signs and physical examination findings from the Ground Truth.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section correctly identifies 'Asthma exacerbation' but omits the explanation of signs and symptoms consistent with the diagnosis (wheezing, chest tightness, nocturnal cough) and, more significantly, the mention of environmental factors due to high pollution in her urban area as a likely influence.",
+        "summary": "The Assessment section correctly identifies 'Asthma Exacerbation' but omits the detailed explanation of signs and symptoms consistent with the exacerbation (wheezing, chest tightness, nocturnal cough) and the mention of environmental factors like high pollution as a likely influence.",
         "omissions": [
           "Explanation of signs and symptoms consistent with an asthma exacerbation (wheezing, chest tightness, nocturnal cough)",
           "Mention of environmental factors due to high pollution in her urban area as a likely influence"
@@ -295,7 +295,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section includes all major actions (medications, tests, follow-up, education points) but has several minor omissions. These include the quantity of inhalers, the specific rationales for ordering CBC (to rule out infection) and Chest X-ray (to rule out pneumonia), and the specific phrasing used for patient education (e.g., 'Discussed the importance of adhering,' 'Advised to avoid,' 'Recommended monitoring,' 'Encouraged to maintain').",
+        "summary": "The Plan section omits the specific quantities ('quantity 1 inhaler') for both Salbutamol and Fluticasone. It also misses the clinical rationales for ordering the CBC ('to rule out any underlying infection') and Chest X-ray ('to rule out pneumonia'). While the core patient education points are present, the specific framing of 'Discussed the importance of...', 'Advised to...', 'Recommended...', and 'Encouraged to...' for lifestyle modifications is not explicitly captured.",
         "omissions": [
           "quantity 1 inhaler for Salbutamol",
           "quantity 1 inhaler for Fluticasone",

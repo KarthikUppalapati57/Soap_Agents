@@ -2,7 +2,7 @@
   "item": "item_0038",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0038",
   "ground_truth_soap": "Subjective:\n\nCC:\nElevated blood pressure, headaches, occasional dizziness, and chest tightness.\n\nHPI:\nMr. Johnson, a 68-year-old Caucasian male, presents for a follow-up regarding his blood pressure management. He reports experiencing mild to moderate headaches, occasional dizziness, and chest tightness over the past six months. These symptoms occur several times per week, predominantly during physical exertion, and have a mild impact on his daily activities. He has a history of hyperlipidemia and previously discontinued statin use due to muscle pain.\n\nROS:\n- Cardiovascular: Reports chest tightness and elevated blood pressure.\n- Neurological: Occasional dizziness and mild to moderate headaches.\n- General: No significant weight change, sleep quality remains good with 7-8 hours per night.\n\nObjective:\n\nGeneral:\nOverweight, BMI of 29.\n\nCardiovascular:\n- Blood Pressure: 150/95 mmHg.\n- Heart: No murmurs detected, regular rate and rhythm.\n\nAbdominal Exam:\n- Abdomen: Soft, non-tender, no organomegaly.\n\nAssessment:\n\nHypertensive Heart Disease without Heart Failure.\n\nPlan:\n\nMedication:\n   - Prescribe Lisinopril 10 mg, oral, once daily, quantity: 30 tablets.\n\nLaboratory Tests:\n   - Basic Metabolic Panel (BMP) to monitor kidney function.\n   - Lipid Panel to assess cholesterol levels.\n\nReferral:\n   - Refer to Cardiologist, Dr. Thompson, for further evaluation of hypertensive heart disease.\n\nFollow-Up:\n   - Schedule follow-up in 4 weeks to monitor blood pressure and check for side effects of the medication.\n\nLifestyle Modifications:\n   - Reduce sodium intake and cut down on processed foods.\n   - Encourage regular physical activity, such as daily walks.\n   - Limit alcohol consumption to no more than 1-2 beers per week.\n\nPatient Education:\n   - Educate on the importance of medication adherence despite concerns about side effects.\n   - Discuss potential side effects of Lisinopril and reassured about cost management strategies.\n\nSupport:\n   - Provide information on community resources for additional support and healthcare access.",
-  "generated_soap": "Subjective:\nThe patient reports experiencing elevated blood pressure, headaches, occasional dizziness, and chest tightness for the past six months. The symptoms occur several times a week and have mild impact on daily activities. The patient has a history of hyperlipidemia and discontinued statin use due to muscle pain.\n\nObjective:\nBlood pressure today is 150/95 mmHg, heart rate and rhythm are regular with no detected murmurs. Abdomen is soft, non-tender, no organomegaly. Vital signs and physical exam performed. Awaiting results of Basic Metabolic Panel and Lipid Panel.\n\nAssessment:\nHypertensive Heart Disease without heart failure.\n\nPlan:\nPrescribe Lisinopril 10 mg orally once daily, schedule a follow-up appointment in 4 weeks to monitor blood pressure and check for any side effects from the medication. Start referring patient to Cardiologist Dr. Thompson for further evaluation. Advise on lifestyle modifications such as reducing sodium intake, cutting down on processed foods, regular physical activity, and limiting alcohol consumption to no more than 1-2 beers per week. Inform about potential side effects of Lisinopril and provide information on community resources for additional support and healthcare access.",
+  "generated_soap": "Subjective:\n- Patient reports elevated blood pressure, headaches, occasional dizziness, and chest tightness for the past six months, mostly associated with physical activity or standing up quickly\n- No significant weight change or changes in sleep quality\n\nObjective:\n- Blood pressure: 150/95 mmHg (elevated)\n- Heart rate and rhythm are regular, no murmurs detected\n- Abdomen is soft, non-tender, no organomegaly\n- Awaiting results of Basic Metabolic Panel and Lipid Panel\n\nAssessment:\n- Hypertensive heart disease without heart failure\n\nPlan:\n- Start Lisinopril 10 mg orally once daily (30-tablet supply) to lower blood pressure\n- Order Basic Metabolic Panel for monitoring kidney function\n- Assess cholesterol levels with Lipid Panel\n- Refer patient to Cardiologist Dr. Thompson for further evaluation\n- Schedule follow-up appointment in 4 weeks to monitor blood pressure and check for side effects\n- Recommend lifestyle modifications: reduce sodium intake, increase physical activity, limit alcohol consumption to no more than 1-2 beers per week\n- Provide information on community resources for additional support and healthcare access\n- Advise patient to seek immediate medical attention if experiencing serious side effects from Lisinopril (swelling of the face, lips, or throat)",
   "entities_gt": {
     "all_entities": [
       "blood pressure",
@@ -41,48 +41,46 @@
   },
   "entities_generated": {
     "all_entities": [
+      "blood pressure",
       "headaches",
       "occasional dizziness",
       "chest tightness",
-      "muscle pain",
       "heart rate",
       "rhythm",
       "abdomen",
-      "vital signs",
       "basic metabolic panel",
       "lipid panel",
       "hypertensive heart disease",
+      "heart failure",
       "lisinopril",
+      "kidney function",
       "follow-up appointment",
-      "lifestyle modifications"
+      "throat"
     ],
     "symptoms": [
+      "elevated blood pressure",
       "headaches",
       "occasional dizziness",
       "chest tightness",
-      "muscle pain",
-      "non-tender",
-      "vital signs"
+      "non-tender"
     ],
     "medications": [
       "lisinopril"
     ],
     "labs": [
+      "blood pressure",
       "heart rate",
-      "rhythm",
-      "vital signs",
       "basic metabolic panel",
       "lipid panel"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 14,
-    "gen_count": 14,
-    "overlap_count": 7,
-    "recall": 0.5,
+    "gen_count": 15,
+    "overlap_count": 8,
+    "recall": 0.5714285714285714,
     "gt_only": [
       "basic metabolic panel (bmp)",
-      "blood pressure",
       "cardiovascular",
       "follow-up",
       "heart",
@@ -92,14 +90,15 @@
     "gen_only": [
       "basic metabolic panel",
       "follow-up appointment",
+      "heart failure",
       "heart rate",
-      "lifestyle modifications",
-      "muscle pain",
+      "kidney function",
       "rhythm",
-      "vital signs"
+      "throat"
     ],
     "overlap": [
       "abdomen",
+      "blood pressure",
       "chest tightness",
       "headaches",
       "hypertensive heart disease",
@@ -110,21 +109,21 @@
   },
   "clinical_recall_symptoms": {
     "gt_count": 6,
-    "gen_count": 6,
-    "overlap_count": 4,
-    "recall": 0.6666666666666666,
+    "gen_count": 5,
+    "overlap_count": 3,
+    "recall": 0.5,
     "gt_only": [
       "cc",
+      "muscle pain",
       "sleep quality"
     ],
     "gen_only": [
-      "non-tender",
-      "vital signs"
+      "elevated blood pressure",
+      "non-tender"
     ],
     "overlap": [
       "chest tightness",
       "headaches",
-      "muscle pain",
       "occasional dizziness"
     ]
   },
@@ -141,41 +140,39 @@
   },
   "clinical_recall_labs": {
     "gt_count": 5,
-    "gen_count": 5,
-    "overlap_count": 2,
-    "recall": 0.4,
+    "gen_count": 4,
+    "overlap_count": 3,
+    "recall": 0.6,
     "gt_only": [
       "150/95 mmhg",
-      "blood pressure",
       "heart"
     ],
     "gen_only": [
-      "heart rate",
-      "rhythm",
-      "vital signs"
+      "heart rate"
     ],
     "overlap": [
       "basic metabolic panel",
+      "blood pressure",
       "lipid panel"
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.7578236914600551,
-    "overall_rouge_l_f1": 0.631344696969697,
+    "overall_token_f1": 0.7039639529306104,
+    "overall_rouge_l_f1": 0.5932921077455193,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.6446280991735537,
-        "rouge_l_f1": 0.48749999999999993
+        "token_f1": 0.42105263157894735,
+        "rouge_l_f1": 0.2857142857142857
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.6666666666666667,
-        "rouge_l_f1": 0.4545454545454546
+        "token_f1": 0.7037037037037038,
+        "rouge_l_f1": 0.5172413793103449
       },
       {
         "section": "Assessment",
@@ -188,113 +185,14 @@
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.72,
-        "rouge_l_f1": 0.5833333333333334
+        "token_f1": 0.6910994764397906,
+        "rouge_l_f1": 0.5702127659574469
       }
     ],
     "assessment_alignment_score": 1.0,
-    "plan_alignment_score": 0.72
+    "plan_alignment_score": 0.6910994764397906
   },
-  "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note provides a mostly accurate and clinically usable summary of the patient's encounter. The Subjective, Objective, and Assessment sections are well-captured with only minor omissions. However, the Plan section has several moderate omissions, including the explicit ordering of laboratory tests (Basic Metabolic Panel and Lipid Panel) and important patient education points regarding medication adherence and cost management strategies. All additions in the note are supported by the transcript and do not negatively impact the grade. Despite the gaps in the Plan, the note remains broadly clinically useful.",
-    "omissions": [
-      "HPI: presents for a follow-up regarding his blood pressure management",
-      "HPI: symptoms occur predominantly during physical exertion",
-      "ROS: Cardiovascular: Reports chest tightness and elevated blood pressure",
-      "ROS: Neurological: Occasional dizziness and mild to moderate headaches",
-      "ROS: General: No significant weight change, sleep quality remains good with 7-8 hours per night",
-      "Objective: General: Overweight, BMI of 29",
-      "Plan: Medication: quantity: 30 tablets for Lisinopril",
-      "Plan: Laboratory Tests: Basic Metabolic Panel (BMP) to monitor kidney function",
-      "Plan: Laboratory Tests: Lipid Panel to assess cholesterol levels",
-      "Plan: Patient Education: Educate on the importance of medication adherence despite concerns about side effects",
-      "Plan: Patient Education: Discuss potential side effects of Lisinopril and reassured about cost management strategies"
-    ],
-    "additions": [
-      "Objective: Vital signs and physical exam performed",
-      "Objective: Awaiting results of Basic Metabolic Panel and Lipid Panel"
-    ],
-    "hallucinations_or_unjustified_inferences": [],
-    "section_grades": [
-      {
-        "section": "Subjective",
-        "grade": "A",
-        "summary": "This section is well-captured. The omissions are minor details such as the specific trigger for symptoms (physical exertion) and detailed ROS entries, which do not significantly detract from the overall clinical picture of the patient's chief complaint and history of present illness.",
-        "omissions": [
-          "HPI: presents for a follow-up regarding his blood pressure management",
-          "HPI: symptoms occur predominantly during physical exertion",
-          "ROS: Cardiovascular: Reports chest tightness and elevated blood pressure",
-          "ROS: Neurological: Occasional dizziness and mild to moderate headaches",
-          "ROS: General: No significant weight change, sleep quality remains good with 7-8 hours per night"
-        ],
-        "additions": []
-      },
-      {
-        "section": "Objective",
-        "grade": "A",
-        "summary": "This section accurately reports the key objective findings. The only omission is the patient's BMI, which is a minor detail. All additions in this section are supported by the transcript and enhance the note without introducing unsupported information.",
-        "omissions": [
-          "General: Overweight, BMI of 29"
-        ],
-        "additions": [
-          "Vital signs and physical exam performed",
-          "Awaiting results of Basic Metabolic Panel and Lipid Panel"
-        ]
-      },
-      {
-        "section": "Assessment",
-        "grade": "A",
-        "summary": "The assessment is perfectly aligned with the Ground Truth, with no omissions or additions.",
-        "omissions": [],
-        "additions": []
-      },
-      {
-        "section": "Plan",
-        "grade": "C",
-        "summary": "This section contains several moderate omissions. Specifically, the explicit ordering of the Basic Metabolic Panel and Lipid Panel, along with their reasons, is missing. Additionally, important patient education points regarding medication adherence despite concerns about side effects and reassurance about cost management strategies are omitted. These gaps make the plan meaningfully incomplete, requiring careful review.",
-        "omissions": [
-          "Medication: quantity: 30 tablets for Lisinopril",
-          "Laboratory Tests: Basic Metabolic Panel (BMP) to monitor kidney function",
-          "Laboratory Tests: Lipid Panel to assess cholesterol levels",
-          "Patient Education: Educate on the importance of medication adherence despite concerns about side effects",
-          "Patient Education: Discuss potential side effects of Lisinopril and reassured about cost management strategies"
-        ],
-        "additions": []
-      }
-    ],
-    "rubric_notes": null
-  },
-  "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "Objective: Vital signs and physical exam performed",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Now, let me check your vital signs and perform a physical exam. Your blood pressure today is 150/95 mmHg. Your heart rate and rhythm are regular, and I didn't detect any murmurs. Your abdomen is soft, non-tender, and there's no organomegaly.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: Awaiting results of Basic Metabolic Panel and Lipid Panel",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We are still awaiting the results of your Basic Metabolic Panel and Lipid Panel.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Vital signs and physical exam performed",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Now, let me check your vital signs and perform a physical exam. Your blood pressure today is 150/95 mmHg. Your heart rate and rhythm are regular, and I didn't detect any murmurs. Your abdomen is soft, non-tender, and there's no organomegaly.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Awaiting results of Basic Metabolic Panel and Lipid Panel",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We are still awaiting the results of your Basic Metabolic Panel and Lipid Panel.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    }
-  ]
+  "expert_judge": null,
+  "expert_judge_error": "Grading step missing section 'Subjective'; got ['Objective', 'Assessment', 'Plan']",
+  "addition_evidence": []
 }

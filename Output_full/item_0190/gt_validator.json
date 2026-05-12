@@ -284,95 +284,89 @@
     "plan_alignment_score": 0.6432748538011696
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is clinically usable and accurate in its core diagnosis and plan, with no unsupported or unknown additions. However, it contains multiple moderate omissions across all sections. Key details regarding the pain's daily nature, progressive worsening, and specific impact on activities are missing from the Subjective section. The Objective section omits the clinically relevant finding of 'visible swelling.' The Assessment section lacks a detailed justification for the diagnosis, and the Plan omits specific acetaminophen dosage instructions. While these issues do not render the note unsafe, they represent noticeable gaps that reduce its completeness and precision, making it meaningfully incomplete and requiring caution and review.",
+    "overall_summary": "The generated note is broadly clinically usable but has noticeable gaps and multiple moderate issues, particularly in the Assessment and Plan sections. While there are no unsupported or unknown additions, the note omits the detailed clinical justification for the diagnosis in the Assessment and lacks specific medication dosage and patient understanding/agreement in the Plan. Several important HPI details and a key physical exam finding are also missing.",
     "omissions": [
-      "Patient's retired status",
-      "Pain experienced daily",
-      "Pain progressively worsened over the past year",
-      "Difficulty engaging in physical activities she once enjoyed, such as walking and gardening",
-      "Constitutional finding: \"in no acute distress\"",
-      "Musculoskeletal finding: \"visible swelling\" (in Physical Examination)",
-      "Neurological finding: \"Grossly intact\"",
-      "Respiratory finding: \"to auscultation bilaterally\"",
-      "Detailed assessment explanation: \"The patient presents with symptoms and radiographic findings consistent with osteoarthritis, including crepitus, swelling, tenderness, and decreased range of motion in the right knee.\"",
-      "Specific acetaminophen dosage details: \"500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain\"",
-      "Physical therapy details: \"Initial session to focus on low-impact activities and gradual progression based on tolerance\"",
-      "Lifestyle advice specifics: \"such as swimming or cycling\" (for low-impact exercises)",
-      "Lifestyle advice specifics: \"to reduce stress on the knee\" (for weight management)",
-      "Follow-up detail: \"functional\" improvement",
-      "Orthopedic surgeon's name: \"Dr. Elizabeth Turner\"",
+      "Patient's pain progressively worsened over the past year",
+      "Patient's difficulty engaging in physical activities she once enjoyed, such as walking and gardening",
+      "Patient is in no acute distress",
+      "Visible swelling on right knee physical exam",
+      "Neurological exam 'Grossly intact'",
+      "Respiratory exam 'to auscultation bilaterally'",
+      "Detailed explanation of assessment: 'The patient presents with symptoms and radiographic findings consistent with osteoarthritis, including crepitus, swelling, tenderness, and decreased range of motion in the right knee.'",
+      "Medication dosage details: 'acetaminophen 500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain'",
+      "Physical Therapy details: 'Initial session to focus on low-impact activities and gradual progression based on tolerance'",
+      "Lifestyle examples for low-impact exercises: 'such as swimming or cycling'",
+      "Follow-up assessment detail: 'functional improvement'",
+      "Name of orthopedic surgeon: 'Dr. Elizabeth Turner'",
       "Patient verbalizes understanding and agrees to follow recommendations, and all questions were answered"
     ],
     "additions": [
-      "Subjective: Pain described as \"constant with occasional sharpness and a dull ache\"",
-      "Subjective: Stiffness reported \"in the morning\"",
-      "Objective: Antalgic gait explanation \"(limping to avoid pain)\"",
-      "Objective: \"Normal cardiovascular exam\"",
-      "Objective: \"Normal neurological exam\"",
-      "Objective: \"Clear respiratory exam\"",
-      "Objective: X-ray findings explicitly stating \"unilateral primary osteoarthritis of the right knee\"",
-      "Assessment: Diagnosis qualified with \"causing pain, swelling, and stiffness\""
+      "Patient describes pain as constant with occasional sharpness and a dull ache",
+      "Stiffness reported 'in the morning'",
+      "Explanation for antalgic gait: '(limping to avoid pain)'",
+      "Summary statement: 'Normal cardiovascular exam'",
+      "Summary statement: 'Normal neurological exam'",
+      "Summary statement: 'Clear respiratory exam'",
+      "Interpretation of X-ray findings within Objective section: 'suggest unilateral primary osteoarthritis of the right knee'",
+      "Brief summary of symptoms attached to diagnosis in Assessment: 'causing pain, swelling, and stiffness'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section has noticeable gaps due to the omission of several clinically important details from the History of Present Illness. These include the pain being experienced daily, its progressive worsening over the past year, and the patient's difficulty engaging in physical activities she once enjoyed, such as walking and gardening. These are moderate omissions that reduce the completeness of the patient's story.",
+        "grade": "B",
+        "summary": "The Subjective section captures the chief complaint and main symptoms but omits important details regarding the progressive worsening of pain over the past year and the patient's difficulty engaging in previously enjoyed physical activities. All additions in this section are supported by the transcript.",
         "omissions": [
-          "Patient's retired status",
-          "Pain experienced daily",
           "Pain progressively worsened over the past year",
           "Difficulty engaging in physical activities she once enjoyed, such as walking and gardening"
         ],
         "additions": [
-          "Pain described as \"constant with occasional sharpness and a dull ache\"",
-          "Stiffness reported \"in the morning\""
+          "The patient describes the pain as constant with occasional sharpness and a dull ache",
+          "Stiffness in the morning"
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly aligned, capturing key positive findings and X-ray results. However, it omits the clinically relevant musculoskeletal finding of 'visible swelling' in the right knee, which is a moderate issue. Other minor omissions include 'in no acute distress,' 'Grossly intact' for neurological, and 'to auscultation bilaterally' for respiratory, but these do not significantly impact clinical usefulness.",
+        "summary": "The Objective section includes most critical physical examination findings and X-ray results. However, it omits the clinically relevant finding of 'visible swelling' in the right knee and the general constitutional observation that the patient is 'in no acute distress.' Other omissions are minor descriptive details. All additions are supported by the transcript.",
         "omissions": [
-          "Constitutional finding: \"in no acute distress\"",
-          "Musculoskeletal finding: \"visible swelling\" (in Physical Examination)",
-          "Neurological finding: \"Grossly intact\"",
-          "Respiratory finding: \"to auscultation bilaterally\""
+          "in no acute distress",
+          "visible swelling",
+          "Grossly intact (neurological exam)",
+          "to auscultation bilaterally (respiratory exam)"
         ],
         "additions": [
-          "Antalgic gait explanation \"(limping to avoid pain)\"",
-          "\"Normal cardiovascular exam\"",
-          "\"Normal neurological exam\"",
-          "\"Clear respiratory exam\"",
-          "X-ray findings explicitly stating \"unilateral primary osteoarthritis of the right knee\""
+          "(limping to avoid pain) (explanation for antalgic gait)",
+          "Normal cardiovascular exam (summary statement)",
+          "Normal neurological exam (summary statement)",
+          "Clear respiratory exam (summary statement)",
+          "suggest unilateral primary osteoarthritis of the right knee (interpretation of X-ray findings)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section correctly identifies the diagnosis. The primary omission is the detailed explanation linking symptoms and radiographic findings (crepitus, swelling, tenderness, decreased range of motion) to the diagnosis. While the generated note does qualify the diagnosis with 'causing pain, swelling, and stiffness' (a supported addition), the full clinical justification is a moderate omission that reduces the completeness of the reasoning.",
+        "grade": "C",
+        "summary": "The Assessment section correctly identifies the diagnosis but has a major omission: the detailed explanation of how the patient's symptoms and radiographic findings support the diagnosis of osteoarthritis. This significantly reduces the completeness of the clinical reasoning documentation. The single addition in this section is supported by the transcript.",
         "omissions": [
-          "Detailed assessment explanation: \"The patient presents with symptoms and radiographic findings consistent with osteoarthritis, including crepitus, swelling, tenderness, and decreased range of motion in the right knee.\""
+          "The patient presents with symptoms and radiographic findings consistent with osteoarthritis, including crepitus, swelling, tenderness, and decreased range of motion in the right knee."
         ],
         "additions": [
-          "Diagnosis qualified with \"causing pain, swelling, and stiffness\""
+          "causing pain, swelling, and stiffness"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section outlines a comprehensive treatment strategy. The most significant omission is the specific acetaminophen dosage details ('500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain'), which is a moderate issue for medication instructions. Several other minor details are omitted, such as specific physical therapy progression, examples of low-impact exercises, the rationale for weight management, the 'functional' aspect of follow-up improvement, the orthopedic surgeon's name, and documentation of patient understanding. Despite these, the core components of the plan are present and usable.",
+        "summary": "The Plan section outlines the main treatment recommendations but omits several important details. These include the specific medication dosage (e.g., '500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain') and the crucial statement that the 'patient verbalizes understanding of the treatment plan and agrees to follow the recommendations.' Other omissions, such as specific PT initial focus, lifestyle examples, and the surgeon's name, are minor.",
         "omissions": [
-          "Specific acetaminophen dosage details: \"500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain\"",
-          "Physical therapy details: \"Initial session to focus on low-impact activities and gradual progression based on tolerance\"",
-          "Lifestyle advice specifics: \"such as swimming or cycling\" (for low-impact exercises)",
-          "Lifestyle advice specifics: \"to reduce stress on the knee\" (for weight management)",
-          "Follow-up detail: \"functional\" improvement",
-          "Orthopedic surgeon's name: \"Dr. Elizabeth Turner\"",
-          "Patient verbalizes understanding and agrees to follow recommendations, and all questions were answered"
+          "Medication dosage details: '500 mg, 2 tablets (1000 mg) every 8 hours as needed for pain'",
+          "Physical Therapy details: 'Initial session to focus on low-impact activities and gradual progression based on tolerance'",
+          "Lifestyle examples: 'such as swimming or cycling'",
+          "Follow-up assessment detail: 'functional improvement'",
+          "Referral specific name: 'Dr. Elizabeth Turner'",
+          "Patient verbalizes understanding of the treatment plan and agrees to follow the recommendations. All questions were answered."
         ],
         "additions": []
       }
@@ -382,116 +376,148 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Pain described as \"constant with occasional sharpness and a dull ache\"",
+      "addition_text": "Patient describes pain as constant with occasional sharpness and a dull ache",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It's mostly a constant, dull ache, but sometimes it gets sharper, especially when I move my knee.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pain is described as a constant, dull ache with occasional sharpness, especially with movement."
+      "matched_claim_text": "Pain is described as a constant, dull ache with occasional sharpness, especially with movement.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective: Stiffness reported \"in the morning\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, there's a lot of swelling and stiffness. It’s hard to move my knee, especially in the morning.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: Antalgic gait explanation \"(limping to avoid pain)\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I also noticed that you have an antalgic gait, which means you’re limping to avoid pain.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: \"Normal cardiovascular exam\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your cardiovascular exam is normal",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: \"Normal neurological exam\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your neurological exam is grossly intact with no focal deficits",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: \"Clear respiratory exam\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "your respiratory exam is clear with no wheezes or crackles.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: X-ray findings explicitly stating \"unilateral primary osteoarthritis of the right knee\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and the X-ray findings, it looks like you have unilateral primary osteoarthritis of the right knee. It's causing the pain, swelling, and stiffness you're experiencing.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis is unilateral primary osteoarthritis of the right knee, causing the patient's pain, swelling, and stiffness."
-    },
-    {
-      "addition_text": "Assessment: Diagnosis qualified with \"causing pain, swelling, and stiffness\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and the X-ray findings, it looks like you have unilateral primary osteoarthritis of the right knee. It's causing the pain, swelling, and stiffness you're experiencing.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis is unilateral primary osteoarthritis of the right knee, causing the patient's pain, swelling, and stiffness."
-    },
-    {
-      "addition_text": "Pain described as \"constant with occasional sharpness and a dull ache\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] It's mostly a constant, dull ache, but sometimes it gets sharper, especially when I move my knee.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pain is described as a constant, dull ache with occasional sharpness, especially with movement."
-    },
-    {
-      "addition_text": "Stiffness reported \"in the morning\"",
+      "addition_text": "Stiffness reported 'in the morning'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, there's a lot of swelling and stiffness. It’s hard to move my knee, especially in the morning. A little, but not much. It stays pretty stiff throughout the day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports significant swelling and stiffness in the right knee, particularly in the morning, which improves little throughout the day."
+      "matched_claim_text": "Patient reports significant swelling and stiffness in the right knee, particularly in the morning, which improves little throughout the day.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Antalgic gait explanation \"(limping to avoid pain)\"",
+      "addition_text": "Explanation for antalgic gait: '(limping to avoid pain)'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I also noticed that you have an antalgic gait, which means you’re limping to avoid pain.",
+      "transcript_evidence": "which means you’re limping to avoid pain.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Normal cardiovascular exam\"",
+      "addition_text": "Summary statement: 'Normal cardiovascular exam'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your cardiovascular exam is normal: your heart rate and rhythm are regular, and I don't hear any murmurs, rubs, or gallops.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Normal neurological exam\"",
+      "addition_text": "Summary statement: 'Normal neurological exam'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your neurological exam is grossly intact with no focal deficits",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Clear respiratory exam\"",
+      "addition_text": "Summary statement: 'Clear respiratory exam'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your respiratory exam is clear with no wheezes or crackles.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Interpretation of X-ray findings within Objective section: 'suggest unilateral primary osteoarthritis of the right knee'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and the X-ray findings, it looks like you have unilateral primary osteoarthritis of the right knee. It's causing the pain, swelling, and stiffness you're experiencing.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnosis is unilateral primary osteoarthritis of the right knee, causing the patient's pain, swelling, and stiffness.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Brief summary of symptoms attached to diagnosis in Assessment: 'causing pain, swelling, and stiffness'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and the X-ray findings, it looks like you have unilateral primary osteoarthritis of the right knee. It's causing the pain, swelling, and stiffness you're experiencing.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnosis is unilateral primary osteoarthritis of the right knee, causing the patient's pain, swelling, and stiffness.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "The patient describes the pain as constant with occasional sharpness and a dull ache",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] It's mostly a constant, dull ache, but sometimes it gets sharper, especially when I move my knee.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pain is described as a constant, dull ache with occasional sharpness, especially with movement.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Stiffness in the morning",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, there's a lot of swelling and stiffness. It’s hard to move my knee, especially in the morning. A little, but not much. It stays pretty stiff throughout the day.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports significant swelling and stiffness in the right knee, particularly in the morning, which improves little throughout the day.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "(limping to avoid pain) (explanation for antalgic gait)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I also noticed that you have an antalgic gait, which means you’re limping to avoid pain.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Normal cardiovascular exam (summary statement)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your cardiovascular exam is normal: your heart rate and rhythm are regular, and I don't hear any murmurs, rubs, or gallops.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Normal neurological exam (summary statement)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your neurological exam is grossly intact with no focal deficits",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Clear respiratory exam (summary statement)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "your respiratory exam is clear with no wheezes or crackles.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "X-ray findings explicitly stating \"unilateral primary osteoarthritis of the right knee\"",
+      "addition_text": "suggest unilateral primary osteoarthritis of the right knee (interpretation of X-ray findings)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and the X-ray findings, it looks like you have unilateral primary osteoarthritis of the right knee. It's causing the pain, swelling, and stiffness you're experiencing.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis is unilateral primary osteoarthritis of the right knee, causing the patient's pain, swelling, and stiffness."
+      "matched_claim_text": "Diagnosis is unilateral primary osteoarthritis of the right knee, causing the patient's pain, swelling, and stiffness.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Diagnosis qualified with \"causing pain, swelling, and stiffness\"",
+      "addition_text": "causing pain, swelling, and stiffness",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and the X-ray findings, it looks like you have unilateral primary osteoarthritis of the right knee. It's causing the pain, swelling, and stiffness you're experiencing.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis is unilateral primary osteoarthritis of the right knee, causing the patient's pain, swelling, and stiffness."
+      "matched_claim_text": "Diagnosis is unilateral primary osteoarthritis of the right knee, causing the patient's pain, swelling, and stiffness.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

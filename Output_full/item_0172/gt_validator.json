@@ -215,7 +215,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps across the Subjective, Assessment, and Plan sections due to multiple moderate to major omissions. While no unsupported or unknown additions were found, the missing clinically important details, particularly the primary suspected diagnosis, current asthma management status, and several key plan items, make the note meaningfully incomplete and require careful review.",
+    "overall_summary": "The generated note has noticeable gaps across multiple sections. The Subjective section omits significant HPI details and the entire Review of Systems. The Assessment section misses the core clinical diagnoses and interpretations, replacing them with descriptive findings. The Plan section also has several omissions regarding key referrals, public health education, and socio-economic discussions. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete and less clinically useful.",
     "omissions": [],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -223,53 +223,53 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section received a C due to several moderate omissions, including the constancy of symptoms, their impact on daily activities (difficulty going to work), the patient's sleep being affected by coughing, and the explicit mention of symptoms being of moderate severity. Minor omissions regarding tobacco, alcohol, recreational drug use, and diet also contribute to the grade.",
+        "summary": "This section has multiple omissions, including detailed aspects of the History of Present Illness (e.g., symptom constancy, social history details like tobacco/alcohol/drug use, sleep patterns, diet) and the entire Review of Systems structure with its positive findings. These omissions significantly reduce the completeness of the subjective information.",
         "omissions": [
           "Symptoms are constant",
-          "Symptoms make it difficult for her to go to work",
-          "Denies tobacco use",
-          "Alcohol consumption is rare",
-          "Does not use recreational drugs",
+          "Denial of tobacco use",
+          "Rare alcohol consumption",
+          "Denial of recreational drug use",
           "Sleep affected due to frequent coughing, averaging 5-6 hours per night",
           "Generally follows a healthy diet but occasionally consumes fast food",
-          "Symptoms are of moderate severity"
+          "Review of Systems (ROS) section structure and specific positive findings (Constitutional: Positive for fever and chills; Respiratory: Positive for difficulty breathing and cough; Musculoskeletal: Positive for body aches)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is graded A as there were no omissions or unsupported/unknown additions. It accurately reflects the GroundTruth content for a telemedicine consultation.",
+        "summary": "This section is complete and accurately reflects the Ground Truth, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section is graded C due to significant omissions of core assessment points. The note failed to include 'Suspected COVID-19 infection', 'Asthma, currently managed with albuterol inhaler', and 'Moderate impact on daily activities, necessitating rest and isolation'. While the generated note included some relevant points, these omissions represent major gaps in the clinical assessment.",
+        "summary": "This section omits key clinical assessments from the Ground Truth, specifically the suspected COVID-19 infection, the current management status of asthma, and the assessment of the impact on daily activities. While the additions are supported by the transcript, they do not compensate for the missing core assessments.",
         "omissions": [
-          "Suspected COVID-19 infection",
-          "Asthma, currently managed with albuterol inhaler",
-          "Moderate impact on daily activities, necessitating rest and isolation"
+          "Assessment of 'Suspected COVID-19 infection'",
+          "Assessment of 'Asthma, currently managed with albuterol inhaler'",
+          "Assessment of 'Moderate impact on daily activities, necessitating rest and isolation'"
         ],
         "additions": [
-          "Moderate fever, chills, body aches, and difficulty breathing (as an assessment point)",
-          "Asthma exacerbation possible due to increased albuterol inhaler use",
-          "Pending test results for COVID-19 (RT-PCR) and complete blood count (CBC)"
+          "Assessment of 'Moderate fever, chills, body aches, and difficulty breathing'",
+          "Assessment of 'Asthma exacerbation possible due to increased albuterol inhaler use'",
+          "Assessment of 'Pending test results for COVID-19 (RT-PCR) and complete blood count (CBC)'"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section received a C due to multiple moderate to major omissions. Key missing elements include the explicit 'Referral for further tests: RT-PCR for COVID-19 and complete blood count (CBC) with differential', the emphasis on 'enhanced hand hygiene, social distancing, and wearing masks', the discussion of 'challenges related to limited access to immediate quarantine facilities due to socio-economic constraints', and the critical instruction to 'monitor symptoms closely and seek immediate care if breathing difficulties worsen'.",
+        "summary": "This section omits several important components, including the explicit referral for further tests, emphasis on broader public health measures (hand hygiene, social distancing, masks), and the discussion about challenges with quarantine facilities and community aid resources. Additionally, specific follow-up instructions were partially missed.",
         "omissions": [
           "Referral for further tests: RT-PCR for COVID-19 and complete blood count (CBC) with differential",
-          "Emphasize the importance of enhanced hand hygiene, social distancing, and wearing masks to mitigate the spread of infection",
-          "Discuss challenges related to limited access to immediate quarantine facilities due to socio-economic constraints",
-          "Instruction to monitor symptoms closely and seek immediate care if breathing difficulties worsen"
+          "Emphasis on enhanced hand hygiene, social distancing, and wearing masks to mitigate the spread of infection",
+          "Discussion of challenges related to limited access to immediate quarantine facilities due to socio-economic constraints",
+          "Instruction to 'Monitor symptoms closely and seek immediate care if breathing difficulties worsen'",
+          "Instruction to 'Ensure strict isolation practices and hygiene measures'"
         ],
         "additions": [
-          "Specific examples of signs of respiratory distress (severe difficulty breathing, persistent chest pain, bluish lips or face)"
+          "Specific examples of signs of respiratory distress (severe difficulty breathing, persistent chest pain, bluish lips or face) in patient education"
         ]
       }
     ],
@@ -278,32 +278,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Moderate fever, chills, body aches, and difficulty breathing (as an assessment point)",
+      "addition_text": "Assessment of 'Moderate fever, chills, body aches, and difficulty breathing'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I've been better. My primary care doctor wanted me to see you because of this fever, chills, body aches, and difficulty breathing...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports fever, chills, body aches, and difficulty breathing."
+      "matched_claim_text": "Patient reports fever, chills, body aches, and difficulty breathing.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Asthma exacerbation possible due to increased albuterol inhaler use",
+      "addition_text": "Assessment of 'Asthma exacerbation possible due to increased albuterol inhaler use'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I’ve been using it more often because of the difficulty breathing.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The possibility of asthma exacerbation is linked to increased albuterol inhaler use."
+      "matched_claim_text": "The possibility of asthma exacerbation is linked to increased albuterol inhaler use.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Pending test results for COVID-19 (RT-PCR) and complete blood count (CBC)",
+      "addition_text": "Assessment of 'Pending test results for COVID-19 (RT-PCR) and complete blood count (CBC)'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll do an RT-PCR test for COVID-19 and a complete blood count (CBC) with differential to get a better understanding of what’s going on.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Test results are pending for COVID-19 (RT-PCR) and a complete blood count (CBC)."
+      "matched_claim_text": "Test results are pending for COVID-19 (RT-PCR) and a complete blood count (CBC).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific examples of signs of respiratory distress (severe difficulty breathing, persistent chest pain, bluish lips or face)",
+      "addition_text": "Specific examples of signs of respiratory distress (severe difficulty breathing, persistent chest pain, bluish lips or face) in patient education",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Lastly, given your history of asthma, it’s vital to recognize signs of respiratory distress that would necessitate emergency care. If you have severe difficulty breathing, persistent chest pain, or bluish lips or face, you need to seek immediate medical attention.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient will be educated on signs of respiratory distress requiring emergency care, including severe difficulty breathing, persistent chest pain, or bluish lips or face."
+      "matched_claim_text": "Patient will be educated on signs of respiratory distress requiring emergency care, including severe difficulty breathing, persistent chest pain, or bluish lips or face.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

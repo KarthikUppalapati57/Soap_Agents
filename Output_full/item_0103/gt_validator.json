@@ -286,9 +286,9 @@
     "plan_alignment_score": 0.6946107784431138
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, earning a B grade. While it accurately captures the patient's core diagnosis, symptoms, and treatment plan, there are several moderate omissions. These include specific details from the History of Present Illness regarding symptom patterns, social history, and impact on employment, as well as important rationales and patient agreement details in the Plan section. No unsupported or unknown additions were identified.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is broadly usable but contains noticeable gaps in the Subjective and Plan sections. The Subjective section omits several clinically important details regarding the patient's history of present illness, including specific symptom patterns, impact on employment, detailed lifestyle factors, and social history. The Plan section notably omits the patient's agreement to the treatment plan and the detailed rationale for psychotherapy and resource provision, which are important for documenting shared decision-making and adherence. The Objective section has a few minor omissions from the Mental Status Exam.",
     "omissions": [
       "Chief Complaint: follow-up appointment to evaluate current mental health status and efficacy of prescribed treatment regime",
       "HPI: lack of motivation as a symptom",
@@ -311,8 +311,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section receives a B grade due to several moderate omissions from the HPI. These include the lack of motivation as a symptom, the intermittent nature and duration of symptom episodes, the inability to maintain consistent employment, specific details about sleep and nutrition, sedentary lifestyle, and social history regarding smoking and drinking. The Chief Complaint detail was also omitted but is considered minor.",
+        "grade": "C",
+        "summary": "The Subjective section omits several clinically important details from the Chief Complaint and History of Present Illness. These include the specific purpose of the follow-up, details about the intermittent nature of symptoms, the patient's inability to maintain consistent employment, specific erratic sleep patterns, poor nutrition habits, sedentary lifestyle, and social history regarding smoking and drinking. These omissions significantly reduce the completeness and clinical richness of the HPI.",
         "omissions": [
           "Chief Complaint: follow-up appointment to evaluate current mental health status and efficacy of prescribed treatment regime",
           "HPI: lack of motivation as a symptom",
@@ -327,8 +327,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section receives an A grade. It accurately captures all major findings from the vital signs and physical examination. Minor omissions from the Mental Status Exam include specific details about behavior (cooperative after initial reluctance), thought content (auditory hallucinations), orientation, and memory. These do not significantly impact the clinical utility of the section.",
+        "grade": "B",
+        "summary": "The Objective section is mostly complete, but it omits a few specific details from the Mental Status Exam. These include the patient's behavior (\"Cooperative after initial reluctance\"), specific thought content (\"Auditory hallucinations\" as a distinct MSE finding), orientation (\"Oriented to person, place, and time\"), and the intactness of immediate and remote memory. While some of these are minor, the omission of \"Auditory hallucinations\" from the MSE is a moderate documentation gap.",
         "omissions": [
           "MSE: Behavior: Cooperative after initial reluctance",
           "MSE: Thought Content: Auditory hallucinations",
@@ -340,14 +340,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A grade as it is complete and accurate, with no omissions or additions identified.",
+        "summary": "The Assessment section is complete and accurately reflects the GroundTruth content without any omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section receives a B grade due to moderate omissions. These include the specific rationale for psychotherapy (to provide additional support in managing depressive and psychotic symptoms), the rationale for assisting with resources (to mitigate treatment disparities related to financial instability and health literacy), and the patient's agreement details, including initial reluctance and subsequent agreement. The core plan items are present, but these contextual details are important.",
+        "grade": "C",
+        "summary": "The Plan section omits several important details. These include the specific purpose of psychotherapy (to provide additional support in managing depressive and psychotic symptoms), the rationale for providing resources (to mitigate treatment disparities related to financial instability and health literacy), and critically, the patient's agreement to the treatment plan, including their initial reluctance and subsequent agreement after discussion. These omissions reduce the comprehensiveness of the plan, particularly regarding patient engagement and adherence.",
         "omissions": [
           "Psychotherapy: to provide additional support in managing depressive and psychotic symptoms",
           "Assist with Resources: to mitigate treatment disparities related to financial instability and health literacy",

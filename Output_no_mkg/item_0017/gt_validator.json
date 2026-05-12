@@ -227,86 +227,94 @@
     "plan_alignment_score": 0.6623376623376623
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert-clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key HPI elements, vital signs, and the core assessment and plan. However, it has several minor omissions across all sections and a couple of moderate omissions in the Subjective and Objective sections, such as the severity of nausea/vomiting and the patient's general appearance. All additions in the generated note are supported by the transcript and do not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, capturing the essential elements of the patient's presentation, objective findings, assessment, and plan. All additions made by the model were supported by the transcript and did not negatively impact the grade. However, the note contains several minor omissions across all sections, including specific descriptive details from the HPI, numerous negative findings from the ROS and PE, specific medication quantity, explicit reasons for referrals and tests, a detail from patient education, and the patient agreement statement. These omissions, while numerous, are generally minor and do not significantly compromise the clinical utility or safety of the note.",
     "omissions": [
-      "Severity of nausea/vomiting (moderate to severe)",
-      "Patient reports balanced diet but difficulty eating",
-      "Patient exercises regularly, though less frequently now",
-      "Denial of changes in bowel habits (Gastrointestinal ROS)",
-      "Denial of headaches, vision changes, or focal deficits (Neurological ROS)",
-      "Denial of chest pain, palpitations, or edema (Cardiovascular ROS)",
-      "Denial of shortness of breath, cough, or wheezing (Respiratory ROS)",
-      "General appearance: Patient appears moderately distressed due to nausea",
-      "Abdominal exam: No rebound tenderness",
-      "Cardiac exam: Regular rate and rhythm, no murmurs",
-      "\"unspecified\" qualifier for nausea with vomiting",
-      "Ondansetron quantity: 10 tablets",
-      "Reason for Gastroenterology referral: \"for persistent symptoms and abdominal pain\"",
-      "Reason for CBC: \"to check for any infections or anemia\"",
-      "Reason for Abdominal Ultrasound: \"to evaluate any potential gastrointestinal issues\"",
-      "Patient education: \"Discussed the importance of trying to maintain a balanced diet despite nausea\"",
-      "Patient Agreements: \"The patient understands and agrees with the recommended medical treatment plan\""
+      "HPI: 'moderate to severe' description of nausea/vomiting severity",
+      "HPI: 'Symptoms occur daily'",
+      "HPI: 'Reports a balanced diet but has difficulty eating due to nausea'",
+      "HPI: 'Sleep is disturbed, getting about 6-7 hours per night' (specific duration)",
+      "HPI: 'Exercises regularly, though less frequently now'",
+      "ROS: Denies changes in bowel habits",
+      "ROS: No headaches, vision changes, or focal deficits",
+      "ROS: No chest pain, palpitations, or edema",
+      "ROS: No shortness of breath, cough, or wheezing",
+      "PE: Patient appears moderately distressed due to nausea",
+      "PE: No rebound tenderness (abdominal exam)",
+      "PE: Cardiac Examination: Regular rate and rhythm, no murmurs",
+      "PE: Respiratory Examination: Clear breath sounds bilaterally, no wheezes or rales",
+      "PE: Neurological Examination: Normal; no focal deficits",
+      "Assessment: 'unspecified' (from 'Nausea with vomiting, unspecified')",
+      "Plan: Ondansetron quantity: 10 tablets",
+      "Plan: Reason for Gastroenterology referral: 'for persistent symptoms and abdominal pain'",
+      "Plan: Reason for CBC: 'to check for any infections or anemia'",
+      "Plan: Reason for Abdominal Ultrasound: 'to evaluate any potential gastrointestinal issues'",
+      "Plan: Patient education on 'trying to maintain a balanced diet despite nausea'",
+      "Plan: Patient Agreements: 'The patient understands and agrees with the recommended medical treatment plan'"
     ],
     "additions": [
-      "\"Vitals are within normal limits\"",
-      "\"No other clinically relevant findings from physical exam or lung auscultation\"",
-      "\"further investigation required due to persistent symptoms and abdominal pain\""
+      "Objective: 'Vitals are within normal limits'",
+      "Objective: 'No other clinically relevant findings from physical exam or lung auscultation'",
+      "Assessment: 'further investigation required due to persistent symptoms and abdominal pain'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section receives a B. It accurately captures the main symptoms and duration but omits the severity of nausea/vomiting (moderate to severe) and several specific denials from the Review of Systems. Minor details about diet and exercise habits are also missing. Despite these omissions, the core clinical picture is present.",
+        "summary": "The Subjective section captures the core chief complaint and major HPI elements. However, it omits several minor descriptive details from the HPI, such as the 'moderate to severe' severity, daily occurrence of symptoms, specific details about diet, sleep duration, and exercise frequency. Additionally, several negative findings from the Review of Systems (bowel habits, headaches, vision changes, chest pain, palpitations, edema, shortness of breath, cough, wheezing) were omitted. These are minor omissions that do not prevent the section from being clinically usable.",
         "omissions": [
-          "Severity of nausea/vomiting (moderate to severe)",
-          "Patient reports balanced diet but difficulty eating",
-          "Patient exercises regularly, though less frequently now",
-          "Denial of changes in bowel habits (Gastrointestinal ROS)",
-          "Denial of headaches, vision changes, or focal deficits (Neurological ROS)",
-          "Denial of chest pain, palpitations, or edema (Cardiovascular ROS)",
-          "Denial of shortness of breath, cough, or wheezing (Respiratory ROS)"
+          "HPI: 'moderate to severe' description of nausea/vomiting severity",
+          "HPI: 'Symptoms occur daily'",
+          "HPI: 'Reports a balanced diet but has difficulty eating due to nausea'",
+          "HPI: 'Sleep is disturbed, getting about 6-7 hours per night' (specific duration)",
+          "HPI: 'Exercises regularly, though less frequently now'",
+          "ROS: Denies changes in bowel habits",
+          "ROS: No headaches, vision changes, or focal deficits",
+          "ROS: No chest pain, palpitations, or edema",
+          "ROS: No shortness of breath, cough, or wheezing"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section receives a B. While it correctly includes vital signs and the key abdominal finding of mild epigastric tenderness, it omits the patient's general appearance (moderately distressed due to nausea) and specific normal findings from the cardiac exam (regular rate and rhythm, no murmurs) and abdominal exam (no rebound tenderness). The additions in this section are supported by the transcript and enhance the note.",
+        "summary": "The Objective section accurately reports the vital signs and the key finding of mild epigastric tenderness. All additions in this section were supported by the transcript and did not lower the grade. However, it omits several minor but relevant details from the physical examination, including the patient appearing 'moderately distressed due to nausea,' the absence of 'rebound tenderness,' and specific negative findings from the Cardiac, Respiratory, and Neurological examinations (e.g., 'no murmurs,' 'clear breath sounds bilaterally,' 'no focal deficits'). While the generated note includes a supported summary statement about no other clinically relevant findings, the specific details from the GroundTruth were omitted.",
         "omissions": [
-          "General appearance: Patient appears moderately distressed due to nausea",
-          "Abdominal exam: No rebound tenderness",
-          "Cardiac exam: Regular rate and rhythm, no murmurs"
+          "PE: Patient appears moderately distressed due to nausea",
+          "PE: No rebound tenderness (abdominal exam)",
+          "PE: Cardiac Examination: Regular rate and rhythm, no murmurs",
+          "PE: Respiratory Examination: Clear breath sounds bilaterally, no wheezes or rales",
+          "PE: Neurological Examination: Normal; no focal deficits"
         ],
         "additions": [
-          "\"Vitals are within normal limits\"",
-          "\"No other clinically relevant findings from physical exam or lung auscultation\""
+          "Objective: 'Vitals are within normal limits'",
+          "Objective: 'No other clinically relevant findings from physical exam or lung auscultation'"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A. It correctly identifies 'Nausea with vomiting' and includes a clinically relevant addition about the need for further investigation, which is supported by the transcript. The only omission is the 'unspecified' qualifier, which is a minor detail and does not detract from the clinical usefulness of the assessment.",
+        "summary": "The Assessment section is excellent, accurately capturing the primary diagnosis of 'Nausea with vomiting.' The only omission is the minor specifier 'unspecified.' The addition of 'further investigation required due to persistent symptoms and abdominal pain' is supported by the transcript and enhances the clinical context without penalty.",
         "omissions": [
-          "\"unspecified\" qualifier for nausea with vomiting"
+          "Assessment: 'unspecified' (from 'Nausea with vomiting, unspecified')"
         ],
         "additions": [
-          "\"further investigation required due to persistent symptoms and abdominal pain\""
+          "Assessment: 'further investigation required due to persistent symptoms and abdominal pain'"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section receives a B. It outlines the correct medication, dosage, follow-up, referrals, and orders. However, it omits several minor details, including the quantity of Ondansetron (10 tablets), specific reasons for the Gastroenterology referral, CBC, and abdominal ultrasound, a specific patient education point about maintaining a balanced diet, and the patient's agreement with the plan. The core plan remains intact and clinically sound.",
+        "summary": "The Plan section outlines the essential medical treatment, follow-up, referrals, and orders for further tests. However, it omits several minor details, including the specific quantity of Ondansetron (10 tablets), the explicit reasons for the Gastroenterology referral ('for persistent symptoms and abdominal pain'), the CBC ('to check for any infections or anemia'), and the abdominal ultrasound ('to evaluate any potential gastrointestinal issues'). A specific point of patient education ('trying to maintain a balanced diet despite nausea') and the patient agreement statement were also omitted. These omissions are minor and do not compromise the core clinical plan.",
         "omissions": [
-          "Ondansetron quantity: 10 tablets",
-          "Reason for Gastroenterology referral: \"for persistent symptoms and abdominal pain\"",
-          "Reason for CBC: \"to check for any infections or anemia\"",
-          "Reason for Abdominal Ultrasound: \"to evaluate any potential gastrointestinal issues\"",
-          "Patient education: \"Discussed the importance of trying to maintain a balanced diet despite nausea\"",
-          "Patient Agreements: \"The patient understands and agrees with the recommended medical treatment plan\""
+          "Plan: Ondansetron quantity: 10 tablets",
+          "Plan: Reason for Gastroenterology referral: 'for persistent symptoms and abdominal pain'",
+          "Plan: Reason for CBC: 'to check for any infections or anemia'",
+          "Plan: Reason for Abdominal Ultrasound: 'to evaluate any potential gastrointestinal issues'",
+          "Plan: Patient education on 'trying to maintain a balanced diet despite nausea'",
+          "Plan: Patient Agreements: 'The patient understands and agrees with the recommended medical treatment plan'"
         ],
         "additions": []
       }
@@ -316,25 +324,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"Vitals are within normal limits\"",
+      "addition_text": "Objective: 'Vitals are within normal limits'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I see your vitals are normal: your temperature is 98.6°F, blood pressure is 120/80 mm Hg, heart rate is 76 beats per minute, and respiratory rate is 16 breaths per minute.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"No other clinically relevant findings from physical exam or lung auscultation\"",
+      "addition_text": "Objective: 'No other clinically relevant findings from physical exam or lung auscultation'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your heart sounds normal with a regular rate and rhythm, and there are no murmurs. ... Your breath sounds are clear bilaterally, and there are no wheezes or rales. ... Good, everything looks normal. No focal deficits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No other clinically relevant findings from physical exam or lung auscultation."
+      "matched_claim_text": "No other clinically relevant findings from physical exam or lung auscultation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"further investigation required due to persistent symptoms and abdominal pain\"",
+      "addition_text": "Assessment: 'further investigation required due to persistent symptoms and abdominal pain'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and my examination, I think you have nausea with vomiting, but we need to investigate further. ... I'd like to refer you to Gastroenterology to evaluate your persistent symptoms and abdominal pain further.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further investigation is required due to persistent symptoms and abdominal pain."
+      "matched_claim_text": "Further investigation is required due to persistent symptoms and abdominal pain.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

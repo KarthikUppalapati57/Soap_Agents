@@ -257,9 +257,9 @@
     "plan_alignment_score": 0.6153846153846154
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note suffers from significant omissions, particularly the complete absence of the Review of Systems and Physical Examination sections, which are critical for a comprehensive clinical record. While the Assessment and Plan sections are well-captured, the lack of foundational subjective and objective data materially reduces the note's clinical usefulness and completeness. There are no unsupported or unknown additions.",
+    "overall_summary": "The note suffers from significant omissions in the Subjective and Objective sections. The entire Review of Systems and Physical Examination sections are missing, which are critical components for a comprehensive clinical record. Several important details from the History of Present Illness are also omitted. While the Assessment and Plan sections are well-captured, the substantial gaps in the foundational subjective and objective data materially reduce the overall clinical usefulness of the note. There are no unsupported or unknown additions.",
     "omissions": [
       "Chief Complaint: Annual medical examination with recent abnormal lab findings",
       "HPI: History of COPD and osteoarthritis mentioned as part of HPI introduction",
@@ -283,7 +283,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has numerous omissions, including the entire Review of Systems section, the Chief Complaint, and several important details from the History of Present Illness such as functional limitations (climbing stairs), specific sleep duration, access to fresh foods, and detailed social history (smoking cessation, alcohol frequency). While one addition was supported by the transcript, the extensive omissions make this section meaningfully incomplete.",
+        "summary": "This section has numerous omissions, including the entire Review of Systems section and several important History of Present Illness details such as specific limitations from joint pain, sleep duration, diet access, smoking history, and alcohol consumption frequency. While the chief complaint is captured, the extensive missing contextual and detailed subjective information makes this section meaningfully incomplete.",
         "omissions": [
           "Chief Complaint: Annual medical examination with recent abnormal lab findings",
           "HPI: History of COPD and osteoarthritis mentioned as part of HPI introduction",
@@ -301,7 +301,7 @@
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "The Objective section is severely incomplete due to the complete omission of the Physical Examination findings (General, Cardiovascular, Respiratory, Musculoskeletal, Neurological). This represents a major gap in the clinical documentation, significantly reducing the utility of the note. A minor detail regarding normal kidney function was also omitted.",
+        "summary": "This section is missing the entire Physical Examination, which is a critical component of an objective assessment and includes multiple findings across various systems. It also omits the detail about normal kidney function. The absence of the full Physical Examination is a major issue that significantly reduces the clinical usefulness of this section.",
         "omissions": [
           "Physical Examination section (General, Cardiovascular, Respiratory, Musculoskeletal, Neurological findings)",
           "Normal kidney function from Basic Metabolic Panel"
@@ -311,14 +311,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately captures all the Ground Truth content with no omissions or unsupported/unknown additions.",
+        "summary": "The Assessment section is complete and accurately captures all diagnoses from the Ground Truth with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is largely complete and accurate. It has only minor omissions, such as the specific name of the pulmonologist, a specific diet recommendation to reduce processed foods, and the patient's understanding and agreement statement. These do not significantly impact the clinical utility of the plan.",
+        "summary": "The Plan section is largely complete, capturing all major treatment, follow-up, lifestyle, and test recommendations. Minor omissions include the specific pulmonologist's name, the recommendation to reduce processed foods, and the patient's understanding and agreement statement, but these do not materially impact the overall clinical usefulness of the plan.",
         "omissions": [
           "Specific pulmonologist name (Dr. James Wilson)",
           "Lifestyle recommendation to reduce processed foods",
@@ -336,14 +336,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I also feel a bit tired all the time.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient feels tired all the time."
+      "matched_claim_text": "The patient feels tired all the time.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient reports feeling tired all the time",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I also feel a bit tired all the time.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient feels tired all the time."
+      "matched_claim_text": "The patient feels tired all the time.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

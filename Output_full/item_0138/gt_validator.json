@@ -235,83 +235,81 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant shortcomings, particularly in the Subjective and Assessment sections. The Subjective section omits crucial patient history regarding gout, diet, smoking, and alcohol consumption, which are highly relevant to the patient's condition. The Assessment section contains major omissions, failing to include the definitive primary diagnosis of Calculus of Kidney, and entirely missing secondary diagnoses of Chronic Gout and Hypertension with its managing medication. While the Objective and Plan sections are largely accurate with only minor omissions, the substantial gaps in patient history and diagnostic clarity materially reduce the overall clinical usefulness and reliability of the note.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Subjective and Assessment sections. Multiple moderate omissions include the patient's history of gout, detailed lifestyle factors (diet, smoking, alcohol), and two significant secondary diagnoses (Chronic Gout and Hypertension with medication). While the immediate chief complaint and primary plan are captured, these omissions make the note meaningfully incomplete for comprehensive clinical understanding.",
     "omissions": [
       "Patient's history of gout",
-      "Patient's minimal exercise due to pain",
-      "Patient's high protein and purine-rich diet",
-      "Patient's smoking one pack per day",
-      "Patient's consumption of 6-8 drinks per week",
-      "Patient's hobbies (fishing and playing chess)",
-      "Patient's characteristic of being generally cooperative but occasionally forgetting lifestyle modification advice",
       "Pain interfering with work",
-      "Definitive diagnosis of Calculus of Kidney",
-      "Secondary diagnosis of Hypertension, managed with Amlodipine 5 mg daily",
-      "\"orally\" for Allopurinol administration",
-      "Awaiting results from CT scan of abdomen and pelvis with contrast (from Plan section)",
-      "Specific name of pain management specialist: Dr. Sarah Thompson"
+      "Chronic gout (from ROS)",
+      "Minimal exercise due to pain",
+      "High protein and purine-rich diet (from ROS)",
+      "Smoking one pack per day (from ROS)",
+      "Consumes 6-8 drinks per week (from ROS)",
+      "Enjoys fishing and playing chess (from ROS)",
+      "Patient's cooperativeness and memory regarding lifestyle modification advice (from ROS)",
+      "\"with contrast\" detail for CT scan",
+      "Chronic Gout (as a secondary diagnosis)",
+      "Hypertension, managed with Amlodipine 5 mg daily (as a secondary diagnosis)",
+      "Name of pain management specialist (Dr. Sarah Thompson)"
     ],
     "additions": [
-      "\"Lab results (pending): CT scan of the abdomen and pelvis\" in Objective section",
-      "\"upon abdominal palpation\" in Objective section",
-      "\"based on symptoms and history\" in Assessment section",
-      "\"The diagnosis will be confirmed once CT results are available\" in Assessment section",
-      "\"to help flush out the kidney stone\" in Plan section"
+      "Statement that diagnosis is \"possible kidney stone based on symptoms and history\" (Assessment)",
+      "Statement that \"The diagnosis will be confirmed once CT results are available\" (Assessment)",
+      "Rationale for water intake: \"to help flush out the kidney stone\" (Plan)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has noticeable gaps, omitting important details such as the patient's history of gout, high protein and purine-rich diet, smoking habits, and alcohol consumption, all of which are clinically relevant to the patient's presentation and management. The omission of pain interfering with work is minor.",
+        "summary": "The Subjective section has several moderate omissions, including the patient's history of gout, details about pain interfering with work, and crucial lifestyle factors such as diet, smoking, and alcohol consumption. These omissions reduce the completeness of the patient's history and social context.",
         "omissions": [
-          "Patient's history of gout",
-          "Patient's minimal exercise due to pain",
-          "Patient's high protein and purine-rich diet",
-          "Patient's smoking one pack per day",
-          "Patient's consumption of 6-8 drinks per week",
-          "Patient's hobbies (fishing and playing chess)",
-          "Patient's characteristic of being generally cooperative but occasionally forgetting lifestyle modification advice",
-          "Pain interfering with work"
+          "Patient's history of gout (from HPI)",
+          "Pain interfering with work",
+          "Chronic gout (from ROS)",
+          "Minimal exercise due to pain",
+          "High protein and purine-rich diet (from ROS)",
+          "Smoking one pack per day (from ROS)",
+          "Consumes 6-8 drinks per week (from ROS)",
+          "Enjoys fishing and playing chess (from ROS)",
+          "Patient's cooperativeness and memory regarding lifestyle modification advice (from ROS)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, capturing all Ground Truth content without any omissions. All additions are supported by the transcript and therefore do not reduce the grade.",
-        "omissions": [],
+        "summary": "The Objective section is largely complete. The only omission is the minor detail of the CT scan being 'with contrast'.",
+        "omissions": [
+          "\"with contrast\" detail for CT scan (as the CT scan information is placed in this section by the model)"
+        ],
         "additions": [
-          "\"Lab results (pending): CT scan of the abdomen and pelvis\"",
-          "\"upon abdominal palpation\""
+          "Mention of \"Lab results (pending): CT scan of the abdomen and pelvis\" (This information is in GroundTruth's Plan section)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section has major omissions, failing to include the definitive primary diagnosis of Calculus of Kidney (instead stating \"possible kidney stone\") and entirely missing the secondary diagnoses of Chronic Gout and Hypertension, including its managing medication. These omissions significantly reduce the clinical usefulness and completeness of the assessment. All additions are supported by the transcript.",
+        "grade": "C",
+        "summary": "The Assessment section omits two clinically important secondary diagnoses: Chronic Gout and Hypertension, managed with Amlodipine 5 mg daily. This makes the patient's overall health status and comorbidities significantly incomplete.",
         "omissions": [
-          "Definitive diagnosis of Calculus of Kidney",
-          "Secondary diagnosis of Chronic Gout",
-          "Secondary diagnosis of Hypertension, managed with Amlodipine 5 mg daily"
+          "Chronic Gout (as a secondary diagnosis)",
+          "Hypertension, managed with Amlodipine 5 mg daily (as a secondary diagnosis)"
         ],
         "additions": [
-          "\"based on symptoms and history\"",
-          "\"The diagnosis will be confirmed once CT results are available\""
+          "Statement that diagnosis is \"possible kidney stone based on symptoms and history\"",
+          "Statement that \"The diagnosis will be confirmed once CT results are available\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is strong, with only minor omissions such as the route of Allopurinol administration (\"orally\"), the specific name of the pain management specialist, and the explicit mention of awaiting CT results (which was covered in Objective). All additions are supported by the transcript.",
+        "grade": "B",
+        "summary": "The Plan section is mostly complete and actionable. Minor omissions include the specific name of the pain management specialist (Dr. Sarah Thompson) and the 'with contrast' detail for the CT scan, which was also noted as an omission in the Objective section.",
         "omissions": [
-          "\"orally\" for Allopurinol administration",
-          "Awaiting results from CT scan of abdomen and pelvis with contrast",
-          "Specific name of pain management specialist: Dr. Sarah Thompson"
+          "Awaiting results from CT scan of abdomen and pelvis with contrast (as an item in the Plan section)",
+          "Name of pain management specialist (Dr. Sarah Thompson)"
         ],
         "additions": [
-          "\"to help flush out the kidney stone\""
+          "Rationale for water intake: \"to help flush out the kidney stone\""
         ]
       }
     ],
@@ -320,74 +318,67 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"Lab results (pending): CT scan of the abdomen and pelvis\" in Objective section",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] We are currently awaiting the results of your CT scan of the abdomen and pelvis to determine the size and location of any kidney stones.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lab results (pending): CT scan of the abdomen and pelvis"
-    },
-    {
-      "addition_text": "\"upon abdominal palpation\" in Objective section",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] (palpating) Do you feel any tenderness here in your left flank?\n\n[patient] Yes, it’s quite tender there.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tenderness in the left flank upon abdominal palpation"
-    },
-    {
-      "addition_text": "\"based on symptoms and history\" in Assessment section",
+      "addition_text": "Statement that diagnosis is \"possible kidney stone based on symptoms and history\" (Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and history, it seems like you might have a kidney stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible kidney stone based on symptoms and history."
+      "matched_claim_text": "Possible kidney stone based on symptoms and history.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"The diagnosis will be confirmed once CT results are available\" in Assessment section",
+      "addition_text": "Statement that \"The diagnosis will be confirmed once CT results are available\" (Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll confirm once we get the CT results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The diagnosis will be confirmed once CT results are available."
+      "matched_claim_text": "The diagnosis will be confirmed once CT results are available.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"to help flush out the kidney stone\" in Plan section",
+      "addition_text": "Rationale for water intake: \"to help flush out the kidney stone\" (Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] It’s also very important that you increase your water intake to 3-4 liters a day.\n\n[doctor] It will help flush out the stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increase water intake to 3-4 liters a day to help flush out the kidney stone"
+      "matched_claim_text": "Increase water intake to 3-4 liters a day to help flush out the kidney stone",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Lab results (pending): CT scan of the abdomen and pelvis\"",
+      "addition_text": "Mention of \"Lab results (pending): CT scan of the abdomen and pelvis\" (This information is in GroundTruth's Plan section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are currently awaiting the results of your CT scan of the abdomen and pelvis to determine the size and location of any kidney stones.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lab results (pending): CT scan of the abdomen and pelvis"
+      "matched_claim_text": "Lab results (pending): CT scan of the abdomen and pelvis",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"upon abdominal palpation\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] (palpating) Do you feel any tenderness here in your left flank?\n\n[patient] Yes, it’s quite tender there.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Tenderness in the left flank upon abdominal palpation"
-    },
-    {
-      "addition_text": "\"based on symptoms and history\"",
+      "addition_text": "Statement that diagnosis is \"possible kidney stone based on symptoms and history\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and history, it seems like you might have a kidney stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible kidney stone based on symptoms and history."
+      "matched_claim_text": "Possible kidney stone based on symptoms and history.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"The diagnosis will be confirmed once CT results are available\"",
+      "addition_text": "Statement that \"The diagnosis will be confirmed once CT results are available\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll confirm once we get the CT results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The diagnosis will be confirmed once CT results are available."
+      "matched_claim_text": "The diagnosis will be confirmed once CT results are available.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"to help flush out the kidney stone\"",
+      "addition_text": "Rationale for water intake: \"to help flush out the kidney stone\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] It’s also very important that you increase your water intake to 3-4 liters a day.\n\n[doctor] It will help flush out the stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increase water intake to 3-4 liters a day to help flush out the kidney stone"
+      "matched_claim_text": "Increase water intake to 3-4 liters a day to help flush out the kidney stone",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

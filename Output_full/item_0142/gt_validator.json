@@ -296,9 +296,9 @@
     "plan_alignment_score": 0.5485714285714286
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note suffers from significant omissions in the Subjective section, critically missing the patient's previous diagnoses, medication history, and allergies. While the Objective and Assessment sections are well-captured and the Plan is mostly complete, the absence of foundational historical and current medical information in the Subjective section materially reduces the clinical usefulness of the entire note.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "F",
+    "overall_summary": "The GeneratedSOAP note is severely incomplete in the Subjective section, omitting critical patient history, medications, allergies, and comprehensive social and demographic information. While the Objective and Assessment sections are strong, and the Plan section captures core actions, the extensive omissions in the Subjective section render the note unreliable and significantly reduce its overall clinical usefulness. There are no unsupported or unknown additions that would penalize the grade.",
     "omissions": [
       "HPI - Frequency (Continuous)",
       "HPI - Impact on Daily Activities (Confined to bed, unable to perform daily activities)",
@@ -339,8 +339,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section has major omissions, including the patient's previous diagnoses (Interstitial Lung Disease, Hypertension), current medication history (Losartan, home oxygen), and allergies. Additionally, details regarding the impact on daily activities, specific ROS findings, and comprehensive social/demographic information are missing. These omissions make the Subjective section meaningfully incomplete and materially reduce its clinical utility.",
+        "grade": "F",
+        "summary": "The Subjective section is severely incomplete, omitting critical information such as the patient's previous diagnoses (Interstitial Lung Disease, Hypertension), current medications (Losartan, home oxygen), and allergies. Furthermore, significant portions of the Review of Systems, Social History, Demographic Information, Patient's Behavior, and Geographical Location are entirely missing, making the section largely unusable for a comprehensive clinical picture.",
         "omissions": [
           "HPI - Frequency (Continuous)",
           "HPI - Impact on Daily Activities (Confined to bed, unable to perform daily activities)",
@@ -370,14 +370,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is accurately and completely captured, with no omissions or unsupported additions.",
+        "summary": "The Objective section is accurate and complete, capturing all vital signs and physical examination findings from the GroundTruthSOAP without any omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is well-captured. The only omission is the 'Acute' qualifier for exacerbation, which is a minor detail. All additions, such as the 'Possible' qualifier and details about further evaluations and rheumatological referral, are supported by the transcript and do not negatively impact the grade.",
+        "summary": "The Assessment section is largely accurate. The only omission is the 'Acute' qualifier for exacerbation, which is minor. All additions, including the 'Possible' qualifier and details about further evaluations and rheumatological referral, are supported by the transcript and do not reduce the grade.",
         "omissions": [
           "\"Acute\" qualifier for exacerbation"
         ],
@@ -390,7 +390,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section has several omissions, most notably the detailed patient education regarding adherence to treatment and potential side effects of prednisone. The 'Awaiting Tests/Results' section is also omitted as a distinct heading, though the tests themselves are mentioned in the Assessment. The specific purposes of the blood tests and CT scan are also omitted. Despite these, the core treatment, follow-up, and referral plans are present, making the section mostly usable.",
+        "summary": "The Plan section omits the detailed purposes for several diagnostic tests (CT scan, CBC, BMP, ABG) and the patient education regarding adherence to treatment and potential side effects of prednisone. While the core treatment and follow-up actions are present, these omissions reduce the completeness and contextual usefulness of the plan.",
         "omissions": [
           "Awaiting Tests/Results section",
           "Purpose of High-Resolution CT scan (to evaluate for progression of interstitial lung disease)",
@@ -411,42 +411,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I have Interstitial Lung Disease and Hypertension. ... [Doctor]: We’re awaiting the results from a High-Resolution CT scan of your chest to evaluate for progression of your Interstitial Lung Disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible exacerbation of Interstitial Lung Disease"
+      "matched_claim_text": "Possible exacerbation of Interstitial Lung Disease",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment - Requiring further evaluation through High-Resolution CT scan, blood work, and Arterial Blood Gas analysis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re awaiting the results from a High-Resolution CT scan of your chest to evaluate for progression of your Interstitial Lung Disease. We’ll also get blood work, including a Complete Blood Count, Basic Metabolic Panel, and Arterial Blood Gas to assess your oxygenation and rule out other conditions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further evaluation through High-Resolution CT scan, blood work (Complete Blood Count, Basic Metabolic Panel), and Arterial Blood Gas analysis."
+      "matched_claim_text": "Further evaluation through High-Resolution CT scan, blood work (Complete Blood Count, Basic Metabolic Panel), and Arterial Blood Gas analysis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment - The patient may have an underlying autoimmune condition that requires rheumatological evaluation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m also referring you to Dr. Robert Chen, a rheumatologist, for evaluation of potential underlying autoimmune conditions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient may have an underlying autoimmune condition that requires rheumatological evaluation."
+      "matched_claim_text": "The patient may have an underlying autoimmune condition that requires rheumatological evaluation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Possible\" qualifier for exacerbation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I have Interstitial Lung Disease and Hypertension. ... [Doctor]: We’re awaiting the results from a High-Resolution CT scan of your chest to evaluate for progression of your Interstitial Lung Disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible exacerbation of Interstitial Lung Disease"
+      "matched_claim_text": "Possible exacerbation of Interstitial Lung Disease",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Requiring further evaluation through High-Resolution CT scan, blood work, and Arterial Blood Gas analysis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re awaiting the results from a High-Resolution CT scan of your chest to evaluate for progression of your Interstitial Lung Disease. We’ll also get blood work, including a Complete Blood Count, Basic Metabolic Panel, and Arterial Blood Gas to assess your oxygenation and rule out other conditions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further evaluation through High-Resolution CT scan, blood work (Complete Blood Count, Basic Metabolic Panel), and Arterial Blood Gas analysis."
+      "matched_claim_text": "Further evaluation through High-Resolution CT scan, blood work (Complete Blood Count, Basic Metabolic Panel), and Arterial Blood Gas analysis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "The patient may have an underlying autoimmune condition that requires rheumatological evaluation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m also referring you to Dr. Robert Chen, a rheumatologist, for evaluation of potential underlying autoimmune conditions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient may have an underlying autoimmune condition that requires rheumatological evaluation."
+      "matched_claim_text": "The patient may have an underlying autoimmune condition that requires rheumatological evaluation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

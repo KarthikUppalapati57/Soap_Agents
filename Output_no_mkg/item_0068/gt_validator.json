@@ -240,69 +240,71 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions across multiple sections, particularly in the Objective and Assessment. Key missing information includes the patient's known medical history in the Subjective section, critical echocardiogram findings in the Objective section, and the primary diagnosis of Acute Respiratory Failure with Hypoxia in the Assessment section. While there are no unsupported additions, these substantial omissions materially reduce the clinical usefulness and completeness of the note.",
+    "overall_summary": "The generated note suffers from a critical omission of the primary diagnosis of Acute Respiratory Failure with Hypoxia in the Assessment section. Additionally, it omits important historical context (CHF and T2DM) from the HPI, key echocardiogram findings from the Objective section, Type 2 Diabetes Mellitus as a secondary condition, and a specific cardiologist referral in the Plan. These significant gaps materially reduce the clinical usefulness and completeness of the documentation.",
     "omissions": [
-      "Patient's known history of CHF and T2DM (from HPI intro)",
-      "Profound dyspnea (from Chief Complaint)",
-      "Requires assistance with basic daily activities due to breathlessness",
-      "Elevated heart rate (from ROS Cardiovascular)",
-      "Echocardiogram findings (Reduced EF 35%, suggestive of acute decompensated heart failure)",
+      "Chief Complaint: profound dyspnea",
+      "Patient's known history of congestive heart failure (CHF) and type 2 diabetes mellitus (T2DM) in HPI",
+      "Requirement for assistance with basic daily activities due to breathlessness",
+      "ROS: Elevated heart rate (Cardiovascular)",
+      "Physical Examination Findings (Cardiovascular): Elevated heart rate",
+      "Investigations: Echocardiogram findings (Reduced ejection fraction of 35%, suggestive of acute decompensated heart failure)",
       "Primary Diagnosis: Acute Respiratory Failure with Hypoxia",
-      "Secondary Condition: Type 2 diabetes mellitus (as a separate diagnosis)",
-      "Levofloxacin duration (7 days)",
+      "Secondary Condition: Type 2 diabetes mellitus (in Assessment)",
+      "Duration of Levofloxacin treatment (7 days)",
       "Referral to Respiratory Therapy for ventilator management",
       "Referral to Dr. John Smith, Cardiologist, for management of acute decompensated heart failure",
-      "Discussion of complications of existing conditions",
-      "Patient Agreements (patient understands and agrees with plan)"
+      "Patient Education: Discussion of complications of existing conditions and significance of adhering to the prescribed treatment plan",
+      "Patient Agreements: Patient understands and agrees with the recommended medical treatment plan"
     ],
     "additions": [
-      "\"Respiratory infection suspected\" in Assessment section"
+      "Suspected respiratory infection included as part of the primary assessment diagnosis"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the main complaint and worsening symptoms but omits important patient history (CHF and T2DM), the descriptor 'profound dyspnea', the patient's need for assistance with daily activities, and an elevated heart rate from the ROS.",
+        "summary": "The Subjective section omits the patient's known history of congestive heart failure and type 2 diabetes mellitus from the HPI, which is important contextual information. Minor details regarding the severity of dyspnea and a cardiovascular ROS finding are also missing.",
         "omissions": [
-          "\"Profound dyspnea\" (from Chief Complaint)",
-          "\"Known history of congestive heart failure (CHF) and type 2 diabetes mellitus (T2DM)\" (from HPI introduction)",
-          "\"Requires assistance with basic daily activities due to breathlessness\" (from HPI)",
-          "\"Elevated heart rate\" (from ROS Cardiovascular)"
+          "Chief Complaint: profound dyspnea",
+          "Patient's known history of congestive heart failure (CHF) and type 2 diabetes mellitus (T2DM)",
+          "Requirement for assistance with basic daily activities due to breathlessness",
+          "ROS: Elevated heart rate (Cardiovascular)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits a critical diagnostic finding: the echocardiogram results showing a reduced ejection fraction of 35% and suggesting acute decompensated heart failure. This significantly impacts the evidence base for the assessment.",
+        "grade": "B",
+        "summary": "The Objective section omits the crucial echocardiogram findings (reduced ejection fraction of 35%, suggestive of acute decompensated heart failure), which are essential diagnostic evidence. A minor omission of elevated heart rate from the cardiovascular physical exam findings is also present, though heart rate is captured in vital signs.",
         "omissions": [
-          "\"Echocardiogram: Reduced ejection fraction of 35%, suggestive of acute decompensated heart failure\" (from Investigations)"
+          "Physical Examination Findings (Cardiovascular): Elevated heart rate",
+          "Investigations: Echocardiogram findings (Reduced ejection fraction of 35%, suggestive of acute decompensated heart failure)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section critically omits the primary diagnosis of 'Acute Respiratory Failure with Hypoxia' and the secondary condition 'Type 2 diabetes mellitus'. While the addition of 'Respiratory infection suspected' is supported by the transcript, the absence of the primary diagnosis severely impacts the clinical utility of this section.",
+        "summary": "The Assessment section contains a major omission by completely failing to include Acute Respiratory Failure with Hypoxia as a primary diagnosis. It also omits Type 2 Diabetes Mellitus as a secondary condition. The only addition, \"suspected respiratory infection,\" is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Primary Diagnosis: \"Acute Respiratory Failure with Hypoxia\"",
-          "Secondary Condition: \"Type 2 diabetes mellitus\""
+          "Primary Diagnosis: Acute Respiratory Failure with Hypoxia",
+          "Secondary Condition: Type 2 diabetes mellitus"
         ],
         "additions": [
-          "\"Respiratory infection suspected\" (as a diagnosis in Assessment)"
+          "Suspected respiratory infection included as part of the primary assessment diagnosis"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several omissions, including the specific duration for Levofloxacin, key referrals to Respiratory Therapy and a Cardiologist (Dr. John Smith), details regarding the discussion of complications of existing conditions, and documentation of patient agreements with the treatment plan.",
+        "grade": "B",
+        "summary": "The Plan section omits a specific referral to Dr. John Smith, Cardiologist, for management of acute decompensated heart failure. Other minor omissions include the duration of Levofloxacin treatment, a referral to Respiratory Therapy, and specific details from patient education and patient agreements.",
         "omissions": [
-          "Levofloxacin duration \"to be administered for 7 days\"",
+          "Duration of Levofloxacin treatment (7 days)",
           "Referral to Respiratory Therapy for ventilator management",
           "Referral to Dr. John Smith, Cardiologist, for management of acute decompensated heart failure",
-          "Discussion of \"complications of her existing conditions\" (from Patient Education)",
-          "\"Patient Agreements: The patient understands and agrees with the recommended medical treatment plan.\""
+          "Patient Education: Discussion of complications of existing conditions and significance of adhering to the prescribed treatment plan",
+          "Patient Agreements: Patient understands and agrees with the recommended medical treatment plan"
         ],
         "additions": []
       }
@@ -312,18 +314,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"Respiratory infection suspected\" in Assessment section",
+      "addition_text": "Suspected respiratory infection included as part of the primary assessment diagnosis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll also start you on Levofloxacin 750 mg IV once daily for a suspected respiratory infection",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "with respiratory infection suspected."
-    },
-    {
-      "addition_text": "\"Respiratory infection suspected\" (as a diagnosis in Assessment)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’ll also start you on Levofloxacin 750 mg IV once daily for a suspected respiratory infection",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "with respiratory infection suspected."
+      "matched_claim_text": "with respiratory infection suspected.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

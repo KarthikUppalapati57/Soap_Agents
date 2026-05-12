@@ -233,7 +233,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically usable but has noticeable gaps, particularly in the Subjective and Assessment sections. There are multiple moderate omissions, including key details about the patient's history, social determinants of health, and specific instructions for follow-up. While no unsupported or unknown additions were found, the cumulative effect of the omissions reduces the completeness and clinical usefulness of the note, requiring careful review.",
+    "overall_summary": "The generated SOAP note is generally aligned but contains multiple moderate omissions across the Subjective, Assessment, and Plan sections. Key missing details include specific smoking history (cigarettes per day, work impact, failed attempts), detailed substance use (alcohol quantity, marijuana use), important social determinants of health in the Assessment, and critical follow-up instructions for test results and discussion of financial barriers in the Plan. All additions were supported by the transcript and did not impact the grade. The cumulative effect of these omissions results in a note that is meaningfully incomplete.",
     "omissions": [
       "Chief Complaint: Multiple cravings per day",
       "HPI: Specific number of cigarettes daily (20 cigarettes)",
@@ -265,7 +265,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has several omissions. It misses the patient's chief complaint of cravings, specific details like the 20 cigarettes smoked daily, the impact of smoking on work productivity, and previous failed attempts to quit. Additionally, specific sleep duration and the quantity of alcohol consumed on weekends, along with occasional marijuana use, are omitted from the ROS. These omissions, particularly the work impact and specific alcohol quantity, represent moderate gaps in the patient's history.",
+        "summary": "The Subjective section has several moderate omissions, including specific details about the patient's smoking history (20 cigarettes daily, work interruptions, previous failed attempts), specific sleep duration (4-5 hours), and detailed substance use (10-15 drinks on weekends, occasional marijuana use). While the general complaints are present, these missing specifics reduce the clinical completeness of the HPI and ROS.",
         "omissions": [
           "Chief Complaint: Multiple cravings per day",
           "HPI: Specific number of cigarettes daily (20 cigarettes)",
@@ -280,7 +280,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete and accurate. The only omission is the patient's general appearance (looks fatigued), which is a minor detail and does not significantly impact the clinical usefulness of this section.",
+        "summary": "The Objective section is well-captured with only one minor omission regarding the patient's general appearance (looks fatigued). All critical vital signs and physical examination findings are accurately documented.",
         "omissions": [
           "Physical Examination - General: Patient appears in no acute distress but looks fatigued"
         ],
@@ -289,7 +289,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section correctly identifies nicotine dependence, chronic bronchitis, and obesity. However, it omits several crucial social factors that contribute to the patient's condition and potential barriers to care, including low income, limited access to healthcare facilities and healthy food options, high alcohol usage, and occasional marijuana use. These are multiple moderate omissions that significantly reduce the completeness and contextual understanding of the patient's assessment.",
+        "summary": "The Assessment section has noticeable gaps due to the omission of several important contributing social factors, including low income, limited access to healthcare facilities and healthy food options, high alcohol usage, and occasional marijuana use. The specificity of nicotine dependence ('cigarettes, uncomplicated') was also omitted. These are moderate issues that make the assessment less comprehensive.",
         "omissions": [
           "Specificity of nicotine dependence ('cigarettes, uncomplicated')",
           "Social factor: low income",
@@ -301,8 +301,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is mostly comprehensive, covering medications, referrals, lifestyle changes, and follow-up. However, it omits the route of administration for medication, the explicit reasons for reducing alcohol consumption and improving sleep hygiene, and a key instruction about discussing pulmonary function and blood test results at follow-up. While it addresses financial assistance, it does not explicitly state the discussion of potential difficulties in affording medications as a barrier. All additions in this section were supported by the transcript and did not impact the grade.",
+        "grade": "C",
+        "summary": "The Plan section contains multiple moderate omissions, most notably the instruction for the patient to return for follow-up to discuss pulmonary function test and blood test results, and the explicit discussion of potential difficulties in affording medications and accessing resources. Minor omissions include the route of medication administration and the specific reasons for reducing alcohol consumption and improving sleep hygiene. All additions in this section were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "Medications: Route of administration 'oral'",
           "Additional Recommendations: Reason for reducing alcohol consumption ('to lower overall health risks')",
@@ -327,42 +327,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll schedule a follow-up appointment in 6 weeks to monitor your progress and check for any potential side effects from the medication.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks to monitor progress and address medication side effects."
+      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks to monitor progress and address medication side effects.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan - Instructions: 'immediately' for contacting the clinic",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you experience any side effects from the medication or have any questions or concerns, please contact the clinic immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan - Instructions: 'cessation process' as a specific area for questions/concerns when contacting the clinic",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If you experience any side effects from the medication or have any questions or concerns, please contact the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient should contact the clinic immediately for any questions or concerns related to the medication or cessation process."
+      "matched_claim_text": "Patient should contact the clinic immediately for any questions or concerns related to the medication or cessation process.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Follow-Up: Addressing 'concerns related to the medication' in addition to side effects",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll schedule a follow-up appointment in 6 weeks to monitor your progress and check for any potential side effects from the medication.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks to monitor progress and address medication side effects."
+      "matched_claim_text": "Schedule a follow-up appointment in 6 weeks to monitor progress and address medication side effects.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instructions: 'immediately' for contacting the clinic",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If you experience any side effects from the medication or have any questions or concerns, please contact the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient should contact the clinic immediately for any questions or concerns related to the medication or cessation process."
+      "matched_claim_text": "Patient should contact the clinic immediately for any questions or concerns related to the medication or cessation process.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instructions: 'cessation process' as a specific area for questions/concerns when contacting the clinic",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If you experience any side effects from the medication or have any questions or concerns, please contact the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient should contact the clinic immediately for any questions or concerns related to the medication or cessation process."
+      "matched_claim_text": "Patient should contact the clinic immediately for any questions or concerns related to the medication or cessation process.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

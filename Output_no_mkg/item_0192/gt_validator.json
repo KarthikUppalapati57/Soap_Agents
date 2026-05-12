@@ -241,16 +241,11 @@
     "plan_alignment_score": 0.7411167512690354
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps due to multiple moderate omissions, particularly in the Subjective and Plan sections. Key details such as pain severity, specific clinical rationale for MRI, and comprehensive patient education on joint preservation strategies are missing, making the note meaningfully incomplete and requiring careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly accurate and clinically usable, with no unsupported or unknown additions. However, it omits several minor details from the Subjective section, including pain severity (7/10), difficulty with gardening, and specific negative findings regarding trauma and other joint pain. In the Plan section, it omits some specific reasoning for the MRI order and patient education on joint preservation strategies. A minor administrative detail regarding patient understanding and agreement with the plan is also omitted.",
     "omissions": [
-      "Pain severity (7/10)",
-      "Difficulty gardening",
-      "Denies left knee or other joint pain",
-      "MRI purpose: to assess cartilage and meniscal condition due to persistent symptoms despite conservative management",
-      "Patient education on joint preservation strategies, such as avoiding high-impact activities",
-      "Patient states she understands and agrees with the treatment plan, and that all questions were answered to her satisfaction"
+      "Patient understanding and agreement with treatment plan, and all questions answered to satisfaction."
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -258,36 +253,36 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section has several minor to moderate omissions. The pain severity (7/10) is a moderate omission, while the patient's difficulty gardening and the denial of other joint pain are minor omissions. Despite these, the core HPI and ROS are present.",
+        "summary": "The Subjective section has several minor to moderate omissions, including the specific pain severity (7/10), the patient's difficulty with gardening, the denial of trauma to the knee, and the denial of other joint pain. While the core HPI is present, these details reduce the completeness of the section.",
         "omissions": [
           "Pain severity (7/10)",
-          "Difficulty gardening",
-          "Denies left knee or other joint pain"
+          "Difficulty in gardening",
+          "No history of trauma to the knee",
+          "Denial of left knee or other joint pain"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurately reflects all GroundTruth content without any omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is perfectly aligned with the GroundTruthSOAP, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurately reflects all GroundTruth content without any omissions or unsupported/unknown additions.",
+        "summary": "The Assessment section is perfectly aligned with the GroundTruthSOAP, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has multiple moderate omissions. The detailed purpose for the MRI (to assess cartilage and meniscal condition due to persistent symptoms despite conservative management) and patient education on joint preservation strategies are significant missing clinical details. The omission of patient understanding and agreement is also a minor but important detail.",
+        "grade": "B",
+        "summary": "The Plan section has minor omissions, specifically the detailed reasoning for the MRI order ('to assess cartilage and meniscal condition due to persistent symptoms despite conservative management') and patient education on joint preservation strategies such as avoiding high-impact activities. The core plan items are present, but these details are missing.",
         "omissions": [
-          "MRI purpose: to assess cartilage and meniscal condition due to persistent symptoms despite conservative management",
-          "Patient education on joint preservation strategies, such as avoiding high-impact activities",
-          "Patient states she understands and agrees with the treatment plan, and that all questions were answered to her satisfaction"
+          "Specific details for MRI order: 'to assess cartilage and meniscal condition due to persistent symptoms despite conservative management'",
+          "Patient education on joint preservation strategies, such as avoiding high-impact activities"
         ],
         "additions": []
       }

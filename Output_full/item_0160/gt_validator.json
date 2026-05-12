@@ -300,7 +300,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The note provides a generally accurate clinical picture but suffers from several omissions and one moderate unsupported addition. Key omissions include the specific duration of chest pain, the primary diagnosis, and specific cardiac enzyme details. Most significantly, the critical safety instruction regarding when to seek emergency care for worsening chest pain is entirely absent from the Plan, which materially reduces the note's clinical usefulness and safety. The unsupported alteration of a physical exam finding from \"no visible distress\" to \"minimal distress\" also introduces a factual inaccuracy.",
+    "overall_summary": "The note suffers from several moderate to major clinical omissions and one moderate unsupported addition. Key issues include the absence of the chest pain duration in Subjective, a factual inaccuracy in Objective regarding respiratory distress, the omission of the primary diagnosis in Assessment, and critically, the complete absence of emergency room instructions in the Plan section. These issues significantly reduce the clinical usefulness and safety of the note.",
     "omissions": [
       "Subjective: Chief Complaint header",
       "Subjective: History of Present Illness header",
@@ -349,7 +349,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The section omits the patient's occupation, the specific duration of chest pain (2 days), and the \"episodic\" nature of the pain. Several minor negative findings from the Review of Systems are also missing, along with formatting headers. While the core HPI is present, these omissions reduce the completeness of the subjective account.",
+        "summary": "The Subjective section omits the duration of the chest pain (2 days) and several minor details such as the patient's occupation and specific ROS denials. While the core complaints are captured, the missing duration is a moderate clinical omission.",
         "omissions": [
           "Chief Complaint header",
           "History of Present Illness header",
@@ -367,7 +367,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section includes an unsupported addition stating \"minimal distress\" during respiratory inspection, which contradicts both the Ground Truth and the Transcript that indicate \"no visible distress.\" This is a moderate factual inaccuracy. Additionally, several formatting headers and the negative finding of \"Respiratory palpation normal\" are omitted.",
+        "summary": "The Objective section contains a moderate unsupported addition where \"minimal distress\" is noted on respiratory inspection, contradicting the GroundTruth and Transcript which state \"no visible distress.\" Minor formatting and detail omissions are also present.",
         "omissions": [
           "Vital Signs header",
           "Physical Examination header",
@@ -382,8 +382,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The specific diagnosis of \"Other chest pain\" from the Ground Truth is omitted, leaving only the differential diagnoses. This is a moderate gap in the assessment. Formatting headers are also missing.",
+        "grade": "C",
+        "summary": "The Assessment section has a significant omission by failing to include the specific primary diagnosis \"Other chest pain (ICD-10: R07.89)\", only listing differential diagnoses. This represents a moderate to major gap in the clinical assessment.",
         "omissions": [
           "Diagnosis header",
           "Specific diagnosis \"Other chest pain\"",
@@ -394,7 +394,7 @@
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "This section has several minor omissions regarding medication details (e.g., \"1 tablet\" for Aspirin and Nitroglycerin, \"orally\" for Aspirin), specific cardiac enzymes (Troponin, CK-MB), and details for lifestyle modifications. Critically, it omits the essential instruction for the patient to go to the emergency room if chest pain worsens or is not relieved by nitroglycerin, which is a high-severity safety omission that materially reduces clinical usefulness.",
+        "summary": "The Plan section has a major omission of critical emergency room instructions for worsening chest pain or unrelieved pain by nitroglycerin, which is a significant safety concern. Additionally, specific cardiac enzymes (Troponin, CK-MB) are omitted from investigations, and several minor details and formatting elements are missing.",
         "omissions": [
           "Medical Treatment header",
           "Aspirin dosage detail \"1 tablet\"",
@@ -427,28 +427,36 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Follow-up purpose includes \"review new test results\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Let's schedule a follow-up in 1 week to reassess your condition and review any new test results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 1 week to reassess condition and review new test results."
+      "matched_claim_text": "Schedule a follow-up appointment in 1 week to reassess condition and review new test results.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Respiratory inspection noted \"minimal distress\" (GT had \"no visible distress\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Moving on to your respiratory system. On inspection, there's no visible distress. Palpation is normal, but I hear mild crackles in the bilateral lung bases upon auscultation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Respiratory exam showed no visible distress on inspection, normal palpation, but mild crackles in bilateral lung bases on auscultation."
+      "matched_claim_text": "Respiratory exam showed no visible distress on inspection, normal palpation, but mild crackles in bilateral lung bases on auscultation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Follow-up purpose includes \"review new test results\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Let's schedule a follow-up in 1 week to reassess your condition and review any new test results.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule a follow-up appointment in 1 week to reassess condition and review new test results."
+      "matched_claim_text": "Schedule a follow-up appointment in 1 week to reassess condition and review new test results.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

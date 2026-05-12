@@ -242,88 +242,79 @@
     "plan_alignment_score": 0.7434554973821988
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions in the Subjective section, notably the entire Review of Systems and important past medical history (hypertension, Type 2 Diabetes Mellitus). The Assessment section also omits the Differential Diagnosis. While the Objective and Plan sections are well-captured with only minor omissions, the substantial gaps in the Subjective section make the note meaningfully incomplete. There are no unsupported or unknown additions, which is a positive, but the missing clinical context warrants a C grade.",
+    "overall_summary": "The generated note has several omissions in the Subjective section, including the patient's age, race, and significant past medical history (hypertension, Type 2 Diabetes Mellitus), as well as the severity of symptoms (bedridden). The Assessment section also omits key differential diagnoses. While the Objective and Plan sections are well-captured with only minor issues, the cumulative impact of moderate omissions in Subjective and Assessment makes the note meaningfully incomplete, requiring caution and review.",
     "omissions": [
-      "History of hypertension",
-      "History of Type 2 Diabetes Mellitus",
-      "Patient bedridden most of the day due to symptoms",
-      "Specific sleep duration (only managing about 6 hours per night)",
-      "Poor diet, high in carbohydrates, low in fiber",
+      "Patient's age (62-year-old)",
+      "Patient's race/ethnicity (African American)",
+      "Known history of hypertension",
+      "Known history of Type 2 Diabetes Mellitus",
+      "Symptoms leaving patient bedridden most of the day",
+      "Poor diet (high in carbohydrates, low in fiber)",
       "Minimal exercise",
-      "Smoking history duration (one pack per day for 40 years)",
-      "Denies any drug use",
-      "Review of Systems (ROS) section",
-      "Cardiovascular ROS: No chest pain reported",
-      "Gastrointestinal ROS: No recent changes in bowel habits",
-      "Neurological ROS: No focal deficits, but persistent dizziness affecting mobility",
-      "Other systems reviewed and are negative (ROS)",
-      "Annotation for hemoglobin: (severely low)",
-      "Differential Diagnosis section",
-      "Differential Diagnosis: Other potential sources of occult blood loss (secondary consideration)",
-      "Differential Diagnosis: Chronic disease-related anemia",
-      "Purpose of gastroenterologist referral: manage the source of gastrointestinal bleeding",
-      "Dietary counseling purpose: for improving nutritional intake and managing existing chronic conditions",
-      "INSTRUCTIONS section"
+      "Smoking history duration (40 years)",
+      "Denial of drug use",
+      "No chest pain reported (from ROS)",
+      "No recent changes in bowel habits (from ROS)",
+      "No focal neurological deficits (from ROS)",
+      "Persistent dizziness affecting mobility (from ROS)",
+      "\"severely low\" qualifier for Hemoglobin level",
+      "Differential Diagnosis: Other potential sources of occult blood loss",
+      "Differential Diagnosis: Chronic disease-related anemia"
     ],
     "additions": [
-      "\"likely due to gastrointestinal bleeding\" as part of the primary diagnosis statement"
+      "\"likely due to gastrointestinal bleeding\" added to the primary diagnosis statement in Assessment"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has significant omissions, including the patient's history of hypertension and Type 2 Diabetes Mellitus, the specific duration of their smoking history, and the entire Review of Systems section with its detailed findings. These omissions create noticeable gaps in the patient's clinical picture.",
+        "summary": "This section has multiple omissions, including the patient's age, race, known history of hypertension and Type 2 Diabetes Mellitus, and the severity of symptoms (bedridden most of the day). Several minor details regarding diet, exercise, smoking duration, drug use, and ROS negatives were also omitted. These omissions represent several moderate and minor issues, making the section noticeably incomplete.",
         "omissions": [
-          "History of hypertension",
-          "History of Type 2 Diabetes Mellitus",
-          "Patient bedridden most of the day due to symptoms",
-          "Specific sleep duration (only managing about 6 hours per night)",
-          "Poor diet, high in carbohydrates, low in fiber",
+          "Patient's age (62-year-old)",
+          "Patient's race/ethnicity (African American)",
+          "Known history of hypertension",
+          "Known history of Type 2 Diabetes Mellitus",
+          "Symptoms leaving patient bedridden most of the day",
+          "Poor diet (high in carbohydrates, low in fiber)",
           "Minimal exercise",
-          "Smoking history duration (one pack per day for 40 years)",
-          "Denies any drug use",
-          "Review of Systems (ROS) section",
-          "Cardiovascular ROS: No chest pain reported",
-          "Gastrointestinal ROS: No recent changes in bowel habits",
-          "Neurological ROS: No focal deficits, but persistent dizziness affecting mobility",
-          "Other systems reviewed and are negative (ROS)"
+          "Smoking history duration (40 years)",
+          "Denial of drug use",
+          "No chest pain reported (from ROS)",
+          "No recent changes in bowel habits (from ROS)",
+          "No focal neurological deficits (from ROS)",
+          "Persistent dizziness affecting mobility (from ROS)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-captured, including all vital signs, physical examination findings, and laboratory results. The only omission is the annotation '(severely low)' for the hemoglobin level, which is a minor detail as the value itself (6.5 g/dL) clearly indicates severity.",
+        "summary": "This section is well-captured with only one minor omission: the 'severely low' qualifier for the hemoglobin level. This does not materially impact clinical usefulness.",
         "omissions": [
-          "Annotation for hemoglobin: (severely low)"
+          "\"severely low\" qualifier for Hemoglobin level"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The primary diagnosis is accurately stated. However, the entire Differential Diagnosis section, including 'Other potential sources of occult blood loss' and 'Chronic disease-related anemia,' is omitted. While the primary diagnosis is correct, the absence of the differential diagnosis represents a moderate gap in the clinical thought process.",
+        "grade": "C",
+        "summary": "This section omits two important differential diagnoses: 'Other potential sources of occult blood loss' and 'Chronic disease-related anemia'. While the primary diagnosis is present, the absence of these differentials represents moderate issues that make the assessment meaningfully incomplete. The addition in this section was supported by the transcript and thus did not reduce the grade.",
         "omissions": [
-          "Differential Diagnosis section",
-          "Differential Diagnosis: Other potential sources of occult blood loss (secondary consideration)",
+          "Differential Diagnosis: Other potential sources of occult blood loss",
           "Differential Diagnosis: Chronic disease-related anemia"
         ],
         "additions": [
-          "\"likely due to gastrointestinal bleeding\" as part of the primary diagnosis statement"
+          "\"likely due to gastrointestinal bleeding\" added to the primary diagnosis statement"
         ]
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "This section is comprehensive, capturing all immediate treatments, medications, referrals, follow-up recommendations, lifestyle modifications, and patient education points. The omissions are minor, primarily concerning the explicit purpose of the gastroenterologist referral and dietary counseling, and the structural 'INSTRUCTIONS' section, though the key instructional content is integrated into the plan.",
-        "omissions": [
-          "Purpose of gastroenterologist referral: manage the source of gastrointestinal bleeding",
-          "Dietary counseling purpose: for improving nutritional intake and managing existing chronic conditions",
-          "INSTRUCTIONS section"
-        ],
+        "summary": "This section is complete with no omissions or unsupported/unknown additions.",
+        "omissions": [],
         "additions": []
       }
     ],
@@ -332,11 +323,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"likely due to gastrointestinal bleeding\" as part of the primary diagnosis statement",
+      "addition_text": "\"likely due to gastrointestinal bleeding\" added to the primary diagnosis statement in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We suspect acute posthemorrhagic anemia, likely due to gastrointestinal bleeding.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Acute posthemorrhagic anemia likely due to gastrointestinal bleeding."
+      "matched_claim_text": "Acute posthemorrhagic anemia likely due to gastrointestinal bleeding.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"likely due to gastrointestinal bleeding\" added to the primary diagnosis statement",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We suspect acute posthemorrhagic anemia, likely due to gastrointestinal bleeding.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Acute posthemorrhagic anemia likely due to gastrointestinal bleeding.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

@@ -219,61 +219,71 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and usable. All additions were supported by the transcript and thus did not impact the grade. However, the note has several omissions across all sections. These include missing details about the patient's HPI and ROS in Subjective, a minor detail about vitals in Objective, important context for differential diagnoses in Assessment, and several specific instructions and details in the Plan. While the core clinical information is present, these omissions reduce the completeness and precision of the note.",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned, with all additions supported by the transcript. However, it has several omissions across multiple sections. The Subjective section misses important details regarding the patient's past medical history, medication use, and specific HPI descriptors. The Assessment section lacks crucial contextual qualifiers for the differential diagnoses. The Plan section omits the explicit instruction for the patient to monitor symptoms and note changes, as well as specific details for lifestyle advice and patient motivation. These omissions, while not introducing misleading content, create noticeable gaps that make the note meaningfully incomplete.",
     "omissions": [
-      "Patient's occupation as Marketing Manager",
-      "Impact of fatigue disrupting daily routine",
-      "Denial of muscle pain or weakness (in ROS)",
-      "Denial of rashes or changes in skin color (in ROS)",
-      "Vitals not available",
-      "Differential diagnoses pending test results (CMP and thyroid function tests)",
-      "Consideration of other differential diagnoses based on patient's history and reported symptoms",
-      "Acronym \"CMP\" for Comprehensive metabolic panel",
-      "Purpose of tests: \"to investigate symptoms of difficulty sleeping\"",
-      "Specific detail for caffeine reduction: \"especially in the afternoon and evening\"",
-      "Specific example for mild physical activity: \"evening walks\"",
-      "Benefits of mild physical activity: \"to improve overall well-being and potentially aid in better sleep quality\"",
-      "Instruction to monitor symptoms and note any changes or new symptoms",
-      "Patient's expressed eagerness to follow medical advice and motivation for lifestyle changes"
+      "Visit type (telemedicine, initial consultation)",
+      "Fatigue described as \"moderate\" and \"daily\"",
+      "Impact on work specifically as \"Marketing Manager\"",
+      "Headaches described as \"occasional\" in HPI",
+      "No previous diagnoses, generally healthy",
+      "Use of OTC pain relievers for headaches",
+      "Denies new medications or changes in routine",
+      "ROS: Musculoskeletal: No muscle pain or weakness",
+      "ROS: Skin: No rashes or changes in skin color",
+      "Vitals: Not available",
+      "Assessment: Mention of differential diagnoses pending CMP and thyroid function tests",
+      "Assessment: Mention that other differential diagnoses are based on patient's history and reported symptoms",
+      "Plan: Specifics of caffeine reduction: \"especially in the afternoon and evening\"",
+      "Plan: Specifics of physical activity: \"evening walks\"",
+      "Plan: Purpose of physical activity: \"improve overall well-being and potentially aid in better sleep quality\"",
+      "Plan: Referral condition: \"pending test results\"",
+      "Plan: Instructions: Patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes",
+      "Plan: Instructions: The patient should monitor her symptoms and note any changes or new symptoms that may arise"
     ],
     "additions": [
-      "\"laboratory tests\" were not conducted (in Objective)",
-      "\"Fatigue of unknown etiology\" (in Assessment)",
-      "\"further evaluation\" for specialist referral (in Plan)"
+      "Objective: \"or laboratory tests\" (in \"No specific physical exam or laboratory tests were conducted during the conversation\")",
+      "Assessment: \"Fatigue of unknown etiology\"",
+      "Plan: Lifestyle changes: \"relaxation techniques\"",
+      "Plan: Referral condition: \"If necessary\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has several omissions, including the patient's occupation as a Marketing Manager, the full impact of fatigue disrupting her daily routine, and specific denials from the Review of Systems (muscle pain/weakness, rashes/skin color changes). While the main HPI is captured, these omissions reduce the detail and completeness of the patient's reported symptoms and history.",
+        "grade": "C",
+        "summary": "The section captures the chief complaint and core HPI well but omits several important details. These include the patient's lack of previous diagnoses, use of OTC pain relievers, denial of new medications or routine changes, and specific descriptors of fatigue and its impact on work. Minor ROS details were also omitted. These omissions represent multiple moderate and minor issues.",
         "omissions": [
-          "Patient's occupation as Marketing Manager",
-          "Impact of fatigue disrupting daily routine",
-          "Denial of muscle pain or weakness (in ROS)",
-          "Denial of rashes or changes in skin color (in ROS)"
+          "Visit type (telemedicine, initial consultation)",
+          "Fatigue described as \"moderate\" and \"daily\"",
+          "Impact on work specifically as \"Marketing Manager\"",
+          "Headaches described as \"occasional\" in HPI",
+          "No previous diagnoses, generally healthy",
+          "Use of OTC pain relievers for headaches",
+          "Denies new medications or changes in routine",
+          "ROS: Musculoskeletal: No muscle pain or weakness",
+          "ROS: Skin: No rashes or changes in skin color"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured. The only omission is the specific mention of 'Vitals: Not available'. The addition regarding 'laboratory tests' not being conducted is supported by the transcript and does not lower the grade. The section accurately reflects the lack of physical examination and lab tests during the telemedicine visit.",
+        "summary": "The section accurately states that no physical examination was performed. The only omission is the explicit mention that vitals were not available, which is a minor detail.",
         "omissions": [
-          "Vitals not available"
+          "Vitals: Not available"
         ],
         "additions": [
-          "\"laboratory tests\" were not conducted (in addition to physical exam)"
+          "\"or laboratory tests\" (in \"No specific physical exam or laboratory tests were conducted during the conversation\")"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section lists the correct differential diagnoses but omits crucial context from the Ground Truth, specifically that these diagnoses are 'pending the results of CMP and thyroid function tests' and are 'based on the patient's history and reported symptoms'. This omission of the provisional nature and basis for the diagnoses is a moderate issue, making the assessment less precise. The addition of 'Fatigue of unknown etiology' is supported and does not affect the grade.",
+        "grade": "C",
+        "summary": "The section correctly lists the differential diagnoses. However, it omits important contextual information that some diagnoses are pending test results and that others are based on the patient's history and reported symptoms. These are moderate omissions that reduce the clinical precision of the assessment.",
         "omissions": [
-          "Differential diagnoses pending test results (CMP and thyroid function tests)",
-          "Consideration of other differential diagnoses based on patient's history and reported symptoms"
+          "Mention of differential diagnoses pending CMP and thyroid function tests",
+          "Mention that other differential diagnoses are based on patient's history and reported symptoms"
         ],
         "additions": [
           "\"Fatigue of unknown etiology\""
@@ -282,18 +292,18 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section contains numerous omissions. These include the acronym 'CMP', the specific purpose of tests to investigate 'difficulty sleeping', specific details for caffeine reduction ('especially in the afternoon and evening'), the example of 'evening walks' for physical activity, and the benefits of physical activity. A moderate omission is the instruction for the patient to 'monitor her symptoms and note any changes or new symptoms'. While the core plan is present, these missing details and a key instruction reduce the overall completeness and guidance provided.",
+        "summary": "The section appropriately outlines tests, lifestyle changes, and follow-up. However, it omits the explicit instruction for the patient to monitor her symptoms and note any changes, which is a moderate safety-related omission. It also misses specific details for caffeine reduction and physical activity, the purpose of physical activity, and the patient's expressed motivation, which are minor omissions.",
         "omissions": [
-          "Acronym \"CMP\" for Comprehensive metabolic panel",
-          "Purpose of tests: \"to investigate symptoms of difficulty sleeping\"",
-          "Specific detail for caffeine reduction: \"especially in the afternoon and evening\"",
-          "Specific example for mild physical activity: \"evening walks\"",
-          "Benefits of mild physical activity: \"to improve overall well-being and potentially aid in better sleep quality\"",
-          "Instruction to monitor symptoms and note any changes or new symptoms",
-          "Patient's expressed eagerness to follow medical advice and motivation for lifestyle changes"
+          "Specifics of caffeine reduction: \"especially in the afternoon and evening\"",
+          "Specifics of physical activity: \"evening walks\"",
+          "Purpose of physical activity: \"improve overall well-being and potentially aid in better sleep quality\"",
+          "Referral condition: \"pending test results\"",
+          "Instructions: Patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes",
+          "Instructions: The patient should monitor her symptoms and note any changes or new symptoms that may arise"
         ],
         "additions": [
-          "\"further evaluation\" for specialist referral (GT specifies \"pending test results\")"
+          "Lifestyle changes: \"relaxation techniques\"",
+          "Referral condition: \"If necessary\""
         ]
       }
     ],
@@ -302,46 +312,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"laboratory tests\" were not conducted (in Objective)",
+      "addition_text": "Objective: \"or laboratory tests\" (in \"No specific physical exam or laboratory tests were conducted during the conversation\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No specific physical exam or laboratory tests were conducted during the conversation."
+      "matched_claim_text": "No specific physical exam or laboratory tests were conducted during the conversation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Fatigue of unknown etiology\" (in Assessment)",
+      "addition_text": "Assessment: \"Fatigue of unknown etiology\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on what you’ve described, we need to consider several possibilities, like a sleep disorder or thyroid dysfunction. There are also other potential causes like anemia, chronic fatigue syndrome, or even depression and anxiety.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fatigue of unknown etiology, possible sleep disorder, thyroid dysfunction, anemia, chronic fatigue syndrome, depression, or anxiety."
+      "matched_claim_text": "Fatigue of unknown etiology, possible sleep disorder, thyroid dysfunction, anemia, chronic fatigue syndrome, depression, or anxiety.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"further evaluation\" for specialist referral (in Plan)",
+      "addition_text": "Plan: Lifestyle changes: \"relaxation techniques\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Try to maintain a consistent sleep schedule, reduce your caffeine intake especially in the afternoon and evening, and create a relaxing bedtime routine. ... Mild physical activity, like evening walks, can also improve your well-being and potentially help you sleep better.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recommended lifestyle changes including consistent sleep schedule, reduced caffeine intake, relaxation techniques, mild physical activity.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Referral condition: \"If necessary\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "if the test results suggest the need, we may refer you to an endocrinologist or a sleep specialist for further evaluation.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "If necessary, may refer patient to an endocrinologist or a sleep specialist for further evaluation."
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"laboratory tests\" were not conducted (in addition to physical exam)",
+      "addition_text": "\"or laboratory tests\" (in \"No specific physical exam or laboratory tests were conducted during the conversation\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No specific physical exam or laboratory tests were conducted during the conversation."
+      "matched_claim_text": "No specific physical exam or laboratory tests were conducted during the conversation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Fatigue of unknown etiology\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on what you’ve described, we need to consider several possibilities, like a sleep disorder or thyroid dysfunction. There are also other potential causes like anemia, chronic fatigue syndrome, or even depression and anxiety.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fatigue of unknown etiology, possible sleep disorder, thyroid dysfunction, anemia, chronic fatigue syndrome, depression, or anxiety."
+      "matched_claim_text": "Fatigue of unknown etiology, possible sleep disorder, thyroid dysfunction, anemia, chronic fatigue syndrome, depression, or anxiety.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"further evaluation\" for specialist referral (GT specifies \"pending test results\")",
+      "addition_text": "Lifestyle changes: \"relaxation techniques\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Try to maintain a consistent sleep schedule, reduce your caffeine intake especially in the afternoon and evening, and create a relaxing bedtime routine. ... Mild physical activity, like evening walks, can also improve your well-being and potentially help you sleep better.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Recommended lifestyle changes including consistent sleep schedule, reduced caffeine intake, relaxation techniques, mild physical activity.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Referral condition: \"If necessary\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "if the test results suggest the need, we may refer you to an endocrinologist or a sleep specialist for further evaluation.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

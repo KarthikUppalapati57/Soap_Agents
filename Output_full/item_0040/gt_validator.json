@@ -254,9 +254,9 @@
     "plan_alignment_score": 0.6382978723404256
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is broadly clinically usable but has noticeable gaps, particularly the complete omission of the Chief Complaint in the Subjective section. Additionally, several moderate clinical details are missing across the Subjective, Assessment (specific medication details), and Plan (key patient instructions) sections. While there are no unsupported or unknown additions to detract from the grade, the cumulative impact of these omissions makes the note meaningfully incomplete and necessitates careful review.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's primary complaints, objective findings, primary assessment, and the core treatment plan. However, the note contains several minor omissions and a few moderate omissions, including the explicit Chief Complaint statement, specific medication details for chronic conditions in the Assessment section, and the instruction to monitor side effects of the new medication in the Plan. A significant positive is the absence of any unsupported or unknown additions, which greatly enhances its reliability.",
     "omissions": [
       "Chief Complaint statement: Difficulty performing daily activities due to significant mobility impairment and associated symptoms.",
       "Severity of symptoms rated 8/10.",
@@ -288,8 +288,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section receives a C due to the complete omission of the Chief Complaint statement, which is a major structural and content gap. Additionally, several moderate clinical details from the HPI and ROS are missing, including the severity rating (8/10), progressive worsening of symptoms, specific sleep disturbances, and detailed exacerbation of joint pain.",
+        "grade": "B",
+        "summary": "This section omits the explicit Chief Complaint statement, the severity rating of symptoms (8/10), the progressive worsening of symptoms, details about sleep disturbances, and specific descriptions of joint pain and neurological ROS. Despite these omissions, the core complaints and their impact are adequately captured.",
         "omissions": [
           "Chief Complaint statement: Difficulty performing daily activities due to significant mobility impairment and associated symptoms.",
           "Severity of symptoms rated 8/10.",
@@ -305,7 +305,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-aligned with the Ground Truth. The few omissions are minor details, such as the patient's general appearance ('cooperative and engaged') and the full neurological orientation ('to person, place, and time'), which do not significantly impact the clinical utility of the section. All additions were supported by the transcript.",
+        "summary": "This section is highly accurate and complete. Only minor descriptive details were omitted, such as the patient's demeanor in the general examination, the full neurological orientation ('to person, place, and time'), and the absence of hepatosplenomegaly in the abdomen examination. These omissions do not impact the clinical utility of the findings.",
         "omissions": [
           "General Examination: Patient appears overweight but cooperative and engaged in conversation.",
           "Abdomen Examination: no hepatosplenomegaly.",
@@ -318,7 +318,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section receives a B because while the primary and secondary assessments are correctly identified, there are moderate omissions regarding the specific medication details (dosage and frequency) for hypertension, type 2 diabetes, and hypothyroidism. The 'previously diagnosed' status was also omitted, though less critical. The lack of these medication specifics reduces the completeness of the assessment for ongoing management.",
+        "summary": "While the primary and secondary diagnoses are correctly identified, this section omits crucial specific medication details (Lisinopril 10 mg daily, Metformin 500 mg twice daily, Levothyroxine 50 mcg daily) for the previously diagnosed chronic conditions. It also omits the 'previously diagnosed' status for these conditions, making the assessment less comprehensive regarding current management context.",
         "omissions": [
           "Specific medication details for Hypertension (Lisinopril 10 mg daily).",
           "Specific medication details for Type 2 Diabetes Mellitus (Metformin 500 mg twice daily).",
@@ -332,7 +332,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section receives a B. While most of the plan is captured, there is a moderate omission of a crucial patient instruction: 'Monitor and document any side effects or concerns related to the new medication, Orlistat'. Other minor omissions include the 'oral' route for Orlistat, 'as tolerated' for increasing exercise intensity, and the rationale for the CMP ('to monitor liver function and kidney health').",
+        "summary": "The core plan elements are present, but this section omits several minor details such as the 'oral' route for Orlistat, 'as tolerated' for increasing exercise intensity, and the specific purpose of the CMP (to monitor liver and kidney health). A moderate omission is the instruction to monitor and document any side effects or concerns related to the new medication, Orlistat, which is important for patient safety and adherence.",
         "omissions": [
           "Medical Treatment: 'oral' route for Orlistat.",
           "Exercise Plan: 'as tolerated' for increasing intensity.",
@@ -346,7 +346,7 @@
         ]
       }
     ],
-    "rubric_notes": null
+    "rubric_notes": "All additions identified in the discrepancy_lists were supported by the transcript and therefore did not reduce any section or overall grade. Grading was based solely on the identified omissions."
   },
   "expert_judge_error": null,
   "addition_evidence": [
@@ -355,56 +355,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's been really hard. I have to take frequent breaks and sometimes I just can't keep up.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and has noticed difficulty in keeping up at work."
+      "matched_claim_text": "and has noticed difficulty in keeping up at work.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: Abdomen: 'awaiting results of comprehensive metabolic panel (CMP) and HbA1c, lipid panel'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We are currently awaiting the results of your HbA1c and lipid panel, and we have also ordered a comprehensive metabolic panel (CMP).",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "awaiting results of comprehensive metabolic panel (CMP) and HbA1c, lipid panel."
+      "matched_claim_text": "awaiting results of comprehensive metabolic panel (CMP) and HbA1c, lipid panel.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Hypertension, type 2 diabetes, and hypothyroidism are described as 'contributing factors'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Additionally, your hypertension, type 2 diabetes, and hypothyroidism are contributing factors. You mentioned you have hypertension, type 2 diabetes, and hypothyroidism. Is that correct? Yes, that's right.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension, type 2 diabetes, and hypothyroidism are contributing factors."
+      "matched_claim_text": "Hypertension, type 2 diabetes, and hypothyroidism are contributing factors.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "Plan: Medical Treatment: 'for weight management' for Orlistat.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "To help manage your weight and improve your symptoms, we’ll start you on Orlistat 120 mg capsules, to be taken orally three times daily with meals containing fat.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Orlistat 120 mg capsules three times daily with meals containing fat for weight management."
+      "matched_claim_text": "Initiate Orlistat 120 mg capsules three times daily with meals containing fat for weight management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific detail about work impact: 'noticed difficulty in keeping up at work'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's been really hard. I have to take frequent breaks and sometimes I just can't keep up.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and has noticed difficulty in keeping up at work."
+      "matched_claim_text": "and has noticed difficulty in keeping up at work.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Abdomen: 'awaiting results of comprehensive metabolic panel (CMP) and HbA1c, lipid panel'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We are currently awaiting the results of your HbA1c and lipid panel, and we have also ordered a comprehensive metabolic panel (CMP).",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "awaiting results of comprehensive metabolic panel (CMP) and HbA1c, lipid panel."
+      "matched_claim_text": "awaiting results of comprehensive metabolic panel (CMP) and HbA1c, lipid panel.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Hypertension, type 2 diabetes, and hypothyroidism are described as 'contributing factors'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Additionally, your hypertension, type 2 diabetes, and hypothyroidism are contributing factors. You mentioned you have hypertension, type 2 diabetes, and hypothyroidism. Is that correct? Yes, that's right.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension, type 2 diabetes, and hypothyroidism are contributing factors."
+      "matched_claim_text": "Hypertension, type 2 diabetes, and hypothyroidism are contributing factors.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "Medical Treatment: 'for weight management' for Orlistat.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "To help manage your weight and improve your symptoms, we’ll start you on Orlistat 120 mg capsules, to be taken orally three times daily with meals containing fat.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Orlistat 120 mg capsules three times daily with meals containing fat for weight management."
+      "matched_claim_text": "Initiate Orlistat 120 mg capsules three times daily with meals containing fat for weight management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

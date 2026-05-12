@@ -261,9 +261,9 @@
     "plan_alignment_score": 0.46666666666666673
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "C",
-    "overall_summary": "The generated note captures the main clinical picture but has noticeable gaps, particularly in the Plan section. While there are no unsupported additions, numerous omissions across Subjective, Objective, and Plan sections reduce the completeness and clinical usefulness. Key omissions in the Plan include specific details for medication, follow-up on lab results, crucial patient education regarding school/sports, and the full scope of translation services for ensuring comprehension of next steps, making the note meaningfully incomplete.",
+    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Plan section. While the Subjective and Assessment sections are strong, the Objective section omits several specific physical exam findings, and the Plan section lacks crucial details regarding medication quantity, specific follow-up investigations, and comprehensive patient education. All additions were supported by the transcript, so no penalties were incurred from unsupported or unknown additions.",
     "omissions": [
       "Patient's status as a high school freshman",
       "Impact of fatigue on daily activities and ability to study",
@@ -296,8 +296,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has several minor omissions, such as the patient's status as a high school freshman and limited physical activity as a ROS item. More importantly, it omits the impact of fatigue on daily activities and ability to study, and poor quality sleep due to coughing spells, which are moderate details for the HPI/ROS.",
+        "grade": "A",
+        "summary": "The Subjective section accurately captures the chief complaint and history of present illness. Minor omissions include the patient's status as a high school freshman, the impact of fatigue on daily activities, poor sleep quality, and limited physical activity as a review of systems item. All additions were supported by the transcript and did not reduce the grade.",
         "omissions": [
           "Patient's status as a high school freshman",
           "Impact of fatigue on daily activities and ability to study",
@@ -313,7 +313,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section omits several minor but standard negative findings from the physical examination, including the patient's general appearance (alert, cooperative, appears mildly ill), absence of nasal congestion or throat exudates, no crackles in lungs, no hepatosplenomegaly, and no edema in extremities. While individually minor, their cumulative absence makes the physical exam less complete.",
+        "summary": "The Objective section includes all vital signs and key positive physical exam findings. However, it omits several specific negative findings such as no nasal congestion, no throat exudates, no crackles in lungs, no hepatosplenomegaly, no edema, and the general appearance description. These omissions make the physical examination less comprehensive.",
         "omissions": [
           "General appearance: Alert, cooperative, appears mildly ill",
           "HEENT: No nasal congestion",
@@ -327,7 +327,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is well-aligned with the Ground Truth and Transcript, with no omissions or unsupported/unknown additions.",
+        "summary": "The Assessment section is complete and accurate, capturing the patient's presentation, differential diagnoses, and relevant past medical history. The addition of 'pending test results' was supported by the transcript and did not reduce the grade.",
         "omissions": [],
         "additions": [
           "\"pending test results\" mentioned in Assessment"
@@ -336,7 +336,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has numerous omissions, including minor details like the route and quantity of acetaminophen, the specific name of the pulmonologist, and the explicit purpose of the referral. More significantly, it omits the review of blood biochemistry tests and CBC with differential, crucial patient education regarding refraining from school and team sports to prevent spreading infection, and the full scope of the translation service to ensure comprehension of potential next steps based on test outcomes. These omissions make the plan meaningfully incomplete.",
+        "summary": "The Plan section has numerous omissions that make it meaningfully incomplete. Key missing details include the quantity of acetaminophen, the specific name of the pulmonologist and the full purpose of the referral, the explicit mention of reviewing blood biochemistry and CBC with differential results, and several important patient education points (e.g., avoiding strenuous physical activity until symptoms resolve, refraining from team sports). Details about guardian education and the use of a translation service for full comprehension were also omitted.",
         "omissions": [
           "Acetaminophen route of administration (oral)",
           "Acetaminophen quantity (20 tablets)",
@@ -361,49 +361,63 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I've been feeling really sick. I have a fever, a bad cough, and I feel short of breath. ... Yes, I've had a headache and I'm really tired all the time. ... Yeah, I don’t feel like eating much.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports fever, cough, shortness of breath, headache, fatigue, and decreased appetite."
+      "matched_claim_text": "Patient reports fever, cough, shortness of breath, headache, fatigue, and decreased appetite.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Symptoms worsen during physical activity (in Subjective HPI)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It comes and goes, but it feels worse when I try to do anything active.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms worsen during physical activity."
+      "matched_claim_text": "Symptoms worsen during physical activity.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient has a history of mild asthma and uses an inhaler occasionally (in Subjective section)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I have mild asthma.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has a history of mild asthma."
+      "matched_claim_text": "Patient has a history of mild asthma.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"pending test results\" mentioned in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We're also waiting on the results of a PCR test for multiple viral pathogens, including COVID-19, Influenza, and RSV. They should be back within a couple of days.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Headache, fatigue, and decreased appetite listed as chief complaint symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I've been feeling really sick. I have a fever, a bad cough, and I feel short of breath. ... Yes, I've had a headache and I'm really tired all the time. ... Yeah, I don’t feel like eating much.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports fever, cough, shortness of breath, headache, fatigue, and decreased appetite."
+      "matched_claim_text": "Patient reports fever, cough, shortness of breath, headache, fatigue, and decreased appetite.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Symptoms worsen during physical activity",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] It comes and goes, but it feels worse when I try to do anything active.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms worsen during physical activity."
+      "matched_claim_text": "Symptoms worsen during physical activity.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient has a history of mild asthma and uses an inhaler occasionally",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I have mild asthma.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has a history of mild asthma."
+      "matched_claim_text": "Patient has a history of mild asthma.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -291,9 +291,9 @@
     "plan_alignment_score": 0.6091370558375634
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "ClinicalDocumentationReviewer",
     "overall_grade": "C",
-    "overall_summary": "The note is generally usable but has noticeable gaps. Key omissions include specific details about the patient's bowel movement frequency and the significant impact of constipation on daily activities in the Subjective section. Additionally, the Objective section omits the explicit mention of pending lab results, and the Plan section omits the specific dosage for Psyllium and the explicit listing of additional blood work. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note is broadly usable but contains multiple moderate omissions that reduce its completeness and precision. Key details regarding the patient's specific bowel movement frequency and the impact on daily activities are missing from the Subjective and Assessment sections. Additionally, the specific dosage for a prescribed medication is omitted from the Plan, which is a significant gap in treatment instructions. All additions were supported by the transcript, so they did not impact the grade.",
     "omissions": [
       "Patient's specific bowel movement frequency (once a week or less)",
       "Impact of constipation on daily activities (e.g., often calling in sick due to severe cramps)",
@@ -317,7 +317,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has noticeable gaps, specifically omitting the patient's detailed bowel movement frequency (once a week or less) and the significant impact of constipation on daily activities (calling in sick due to cramps). Minor omissions include specific ROS denials for musculoskeletal and psychiatric systems.",
+        "summary": "The Subjective section omits important details regarding the patient's specific bowel movement frequency ('once a week or less') and the significant impact of constipation on her daily activities ('often calling in sick due to severe cramps'). Minor ROS details for musculoskeletal and psychiatric systems were also omitted.",
         "omissions": [
           "Specific bowel movement frequency (once a week or less)",
           "Impact on daily activities (often calling in sick due to severe cramps)",
@@ -328,8 +328,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is mostly complete but omits the explicit mention of awaiting results for Complete Blood Count (CBC) and Comprehensive Metabolic Panel (CMP) under Investigation/Test Results. Minor physical exam details like \"tympanic with percussive sounds\" and \"normal anal tone\" were also omitted.",
+        "grade": "A",
+        "summary": "The Objective section has minor omissions related to specific physical exam findings ('tympanic with percussive sounds' and 'normal anal tone'). The pending lab results, while omitted from this section, are mentioned in the Assessment, mitigating the severity of this particular omission.",
         "omissions": [
           "Abdominal exam finding: tympanic with percussive sounds",
           "Rectal exam finding: Normal anal tone",
@@ -340,7 +340,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section is mostly aligned but omits the crucial detail regarding the constipation's significant impact on daily activities. All additions in this section were supported by the transcript and did not negatively affect the grade.",
+        "summary": "The Assessment section omits the significant impact of constipation on daily activities, which was a key part of the Ground Truth's severity description. All additions in this section were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
           "Constipation's significant impact on daily activities"
         ],
@@ -351,8 +351,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has several minor omissions, such as the specific dosage for Psyllium (1 tbsp in water), the specific doctor for gastroenterology referral, and the purpose of that referral. A moderate omission is the lack of explicit listing of CBC and CMP under \"Additional Tests.\" The statement about patient understanding and agreement was also omitted. All additions in this section were supported by the transcript.",
+        "grade": "C",
+        "summary": "The Plan section contains a moderate omission of the specific dosage for the Psyllium fiber supplement ('1 tbsp in water'), which is crucial for clear patient instructions. Several minor details were also omitted, including the specific doctor for the gastroenterology referral, the explicit purpose of the referral, and the administrative statement about patient understanding. All additions in this section were supported by the transcript.",
         "omissions": [
           "Specific dosage for Psyllium (1 tbsp in water)",
           "Referral to a specific doctor (Dr. John Smith)",
@@ -374,35 +374,45 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I only have a bowel movement once a week or even less.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Constipation likely due to decreased bowel movement frequency."
+      "matched_claim_text": "Constipation likely due to decreased bowel movement frequency.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: \"No immediate secondary causes detected\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re waiting for the results of your blood tests, the Complete Blood Count (CBC) and Comprehensive Metabolic Panel (CMP), to rule out any secondary causes for your symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No immediate secondary causes detected, but CBC and CMP results are pending for confirmation."
+      "matched_claim_text": "No immediate secondary causes detected, but CBC and CMP results are pending for confirmation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Constipation \"likely due to decreased bowel movement frequency\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I only have a bowel movement once a week or even less.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Constipation likely due to decreased bowel movement frequency."
+      "matched_claim_text": "Constipation likely due to decreased bowel movement frequency.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"No immediate secondary causes detected\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re waiting for the results of your blood tests, the Complete Blood Count (CBC) and Comprehensive Metabolic Panel (CMP), to rule out any secondary causes for your symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No immediate secondary causes detected, but CBC and CMP results are pending for confirmation."
+      "matched_claim_text": "No immediate secondary causes detected, but CBC and CMP results are pending for confirmation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Bowel diary detail: \"to note frequency and consistency of bowel movements and any other symptoms\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Additionally, I’d like you to maintain a bowel diary. Note down the frequency and consistency of your bowel movements and any other symptoms you experience.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Request a bowel diary to note frequency and consistency of bowel movements and any other symptoms."
+      "matched_claim_text": "Request a bowel diary to note frequency and consistency of bowel movements and any other symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

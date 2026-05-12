@@ -232,9 +232,9 @@
     "plan_alignment_score": 0.5420560747663551
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer_v1",
     "overall_grade": "D",
-    "overall_summary": "The generated note exhibits significant structural and content issues. It omits critical clinical details such as the specific diagnosis of Opioid Dependence, Uncomplicated, and entirely misses the Patient Education and Next Steps sections. Furthermore, essential Objective information (medical history, medications, allergies, chronic conditions) is incorrectly placed in an unsupported 'Additional information' section, which itself is an unsupported addition. These omissions and structural deviations materially reduce the note's clinical usefulness and adherence to standard documentation practices.",
+    "overall_summary": "The generated note suffers from a high-severity unsupported structural addition, the 'Additional information section,' which also contributes to major omissions from the Objective section. Key clinical details, including the specific diagnosis in Assessment and entire sections like Patient Education and Next Steps in the Plan, are also omitted. These issues collectively reduce the clinical usefulness and completeness of the note.",
     "omissions": [
       "Patient Education section",
       "Next Steps section",
@@ -264,7 +264,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section provides a good overview of the chief complaint and present illness but omits several specific details regarding the timing of symptoms, the precise impact on daily life, and granular information about sleep, diet, exercise, tobacco, alcohol, illicit drug use, and recreational activities.",
+        "summary": "The Subjective section has several minor to moderate omissions, including specific details about the worst time of symptoms, the precise impact on daily life, specific sleep, diet, exercise, tobacco, and alcohol use details, and the explicit statement of 'No illicit drug use reported.' Despite these, the core narrative is present.",
         "omissions": [
           "Worst symptoms occurring in the mornings",
           "Specific impact on daily life: unable to perform job duties effectively, trouble with daily chores",
@@ -281,7 +281,7 @@
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "The Objective section is severely incomplete, omitting all medical history, current medications, allergies, and chronic conditions from its proper place. While this information is present in an unsupported 'Additional information' section at the end of the note, its absence from the standard Objective section represents a major structural and content omission.",
+        "summary": "The Objective section has major omissions of critical clinical data, including the patient's medical history, current medications, allergies, and chronic conditions from their proper place. While this information is present in an 'Additional information' section, that section itself is an unsupported addition, indicating a significant structural and content alignment issue for the Objective section.",
         "omissions": [
           "Medical History: Chronic Lower Back Pain, Attention Deficit Hyperactivity Disorder (ADHD)",
           "Current Medications: Naltrexone 50 mg, oral, once daily, Methylphenidate 10 mg, twice daily for ADHD. Previously on OxyContin for pain management.",
@@ -295,7 +295,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section omits the specific diagnosis of 'Opioid Dependence, Uncomplicated' and lacks details regarding the patient's history of Chronic Lower Back Pain, ADHD, and the absence of illicit drug use, which are important for a comprehensive assessment.",
+        "summary": "The Assessment section omits the specific diagnosis of 'Opioid Dependence, Uncomplicated,' instead using a more general term. It also misses important contextual information such as the patient's history of Chronic Lower Back Pain and ADHD, and the finding of 'No evidence of illicit drug use.' These omissions create noticeable gaps in the clinical picture.",
         "omissions": [
           "Diagnosis: Opioid Dependence, Uncomplicated",
           "History of Chronic Lower Back Pain and ADHD",
@@ -307,8 +307,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits the entire Patient Education and Next Steps sections, which are crucial for patient understanding and follow-up. Additionally, several minor details, such as the Naltrexone prescription quantity, the specific physical therapist's name, and the precise reasons for lifestyle modifications and generic medications, are missing.",
+        "grade": "D",
+        "summary": "The Plan section contains numerous minor omissions regarding specific details like medication quantity, specific physical therapist name, and detailed descriptions of lifestyle modifications and counseling purposes. More critically, it completely omits the entire 'Patient Education' and 'Next Steps' sections, which contain crucial patient instructions and future action items, significantly reducing its clinical usefulness.",
         "omissions": [
           "Naltrexone prescription quantity of 30 tablets",
           "Follow-up monitoring for 'issues'",
@@ -338,91 +338,117 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement: Physical examination not explicitly performed during the conversation",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Physical examination not explicitly performed during the conversation."
+      "matched_claim_text": "Physical examination not explicitly performed during the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment detail: necessitating comprehensive management",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We need to address this comprehensively.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan detail: for further evaluation (regarding pending investigations)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’re awaiting the results of your MRI and liver function tests. We’ll discuss these findings during your next consultation.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan detail: immediately (regarding initiating physical therapy referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll also initiate the referral process for physical therapy immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate referral process for physical therapy immediately."
+      "matched_claim_text": "Initiate referral process for physical therapy immediately.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan detail: to help manage costs (regarding generic medications)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Financially, we’ll use generic versions of your medications to help manage costs. Does that work for you?\n\n[Patient]: Yes, that’s a relief.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Utilize generic versions of medications to help manage costs."
+      "matched_claim_text": "Utilize generic versions of medications to help manage costs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan detail: Arrange counseling for support in quitting smoking",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Great. We’ll arrange for counseling to provide consistent support and reinforce your commitment to change.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Arrange counseling for support in quitting smoking."
+      "matched_claim_text": "Arrange counseling for support in quitting smoking.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Physical examination not explicitly performed during the conversation.",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Physical examination not explicitly performed during the conversation."
+      "matched_claim_text": "Physical examination not explicitly performed during the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "necessitating comprehensive management",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on our discussion and your symptoms, it's clear you’re experiencing severe opioid withdrawal symptoms, which is significantly affecting your daily life. We need to address this comprehensively.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Opioid withdrawal syndrome leading to significant impairment in daily life, necessitating comprehensive management."
+      "matched_claim_text": "Opioid withdrawal syndrome leading to significant impairment in daily life, necessitating comprehensive management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "for further evaluation (regarding pending investigations)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’re awaiting the results of your MRI and liver function tests. We’ll discuss these findings during your next consultation.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "immediately (regarding initiating physical therapy referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll also initiate the referral process for physical therapy immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate referral process for physical therapy immediately."
+      "matched_claim_text": "Initiate referral process for physical therapy immediately.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "to help manage costs (regarding generic medications)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Financially, we’ll use generic versions of your medications to help manage costs. Does that work for you?\n\n[Patient]: Yes, that’s a relief.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Utilize generic versions of medications to help manage costs."
+      "matched_claim_text": "Utilize generic versions of medications to help manage costs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Arrange counseling for support in quitting smoking",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Great. We’ll arrange for counseling to provide consistent support and reinforce your commitment to change.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Arrange counseling for support in quitting smoking."
+      "matched_claim_text": "Arrange counseling for support in quitting smoking.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

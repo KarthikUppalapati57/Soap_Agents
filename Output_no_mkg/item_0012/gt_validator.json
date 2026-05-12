@@ -275,9 +275,9 @@
     "plan_alignment_score": 0.6550218340611353
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is broadly clinically usable but contains multiple moderate omissions across the Subjective, Objective, and Plan sections. Key details such as the specific nature of abdominal cramping, the impact on daily activities, comprehensive negative findings in the ROS and PE, pending lab results, and specific treatment dosage are missing. While there are no unsupported or unknown additions, these omissions make the note meaningfully incomplete and necessitate careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, with no unsupported or unknown additions. However, it has several minor to moderate omissions across all sections. These include specific symptom details in the Subjective section, negative physical exam findings and pending lab results in the Objective section, an explicit justification for referral in the Assessment, and specific treatment dosage, detailed patient education, and the patient's motivation notes in the Plan. While these omissions reduce the completeness of the note, they do not introduce misleading content or severely impact clinical usefulness.",
     "omissions": [
       "Subjective: 'moderate' abdominal discomfort",
       "Subjective: 'intermittent abdominal cramping that occur daily'",
@@ -304,8 +304,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section has multiple moderate omissions, including specific details about abdominal cramping, the impact on daily activities (difficulty focusing at work), lack of appetite leading to skipped meals, and the comprehensive negative review of other systems. These omissions make the HPI and ROS less complete.",
+        "grade": "B",
+        "summary": "The Subjective section omits specific details regarding the 'moderate' intensity of abdominal discomfort, the 'intermittent' and 'daily' nature of cramping, the specific impact on 'difficulty focusing at work', and the comprehensive negative review of systems for other body areas. It also partially omits the detail about 'skipped meals' due to lack of appetite.",
         "omissions": [
           "'moderate' abdominal discomfort",
           "'intermittent abdominal cramping that occur daily'",
@@ -317,8 +317,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits several important physical examination findings, such as the absence of palpable masses and the negative findings for cardiovascular, respiratory, and musculoskeletal examinations. Crucially, it also omits the status of awaiting CBC and Electrolyte panel results, which are important for ongoing investigations.",
+        "grade": "B",
+        "summary": "This section omits the negative physical examination findings of 'no palpable masses' and 'No abnormalities noted in cardiovascular, respiratory, or musculoskeletal examinations'. Crucially, it also omits the pending 'Complete Blood Count (CBC) and Electrolyte panel' results, which are important for context.",
         "omissions": [
           "Physical Examination finding 'no palpable masses'",
           "Physical Examination finding 'No abnormalities noted in cardiovascular, respiratory, or musculoskeletal examinations'",
@@ -331,7 +331,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section has one moderate omission: the explicit statement that 'Further evaluation by gastroenterology is warranted.' While the referral is mentioned in the Plan, the direct justification in the Assessment is missing, making it slightly less comprehensive.",
+        "summary": "The Assessment section omits the explicit statement that 'Further evaluation by gastroenterology is warranted', which serves as a direct justification for the referral in the plan. All additions in this section were supported by the transcript.",
         "omissions": [
           "Statement 'Further evaluation by gastroenterology is warranted'"
         ],
@@ -342,8 +342,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits the specific dosage (500 ml) for oral rehydration therapy, a key detail for treatment. It also misses a significant patient education point regarding the link between stress and GI symptoms and the importance of managing work-related stress. The entire 'Notes' section, which provided context on patient understanding and motivation, is also omitted.",
+        "grade": "B",
+        "summary": "The Plan section omits the specific '500 ml' dosage for oral rehydration therapy. It also misses key patient education points, including 'maintaining a regular meal schedule' and the detailed discussion about the 'potential link between stress and gastrointestinal symptoms'. Additionally, the entire 'Notes' section, detailing patient understanding and commitment, is omitted. All additions in this section were supported by the transcript.",
         "omissions": [
           "Treatment dosage '500 ml' for oral rehydration therapy",
           "Patient Education point 'maintaining a regular meal schedule'",
@@ -365,70 +365,90 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 118/76 mmHg, your pulse is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. All of these are within normal ranges.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal ranges: Blood pressure 118/76 mmHg, pulse 72 bpm, respiratory rate 16 breaths per minute, temperature 98.4°F."
+      "matched_claim_text": "Vital signs are within normal ranges: Blood pressure 118/76 mmHg, pulse 72 bpm, respiratory rate 16 breaths per minute, temperature 98.4°F.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Symptoms 'potentially exacerbated by stress and dehydration'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.\n[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms are consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS), potentially exacerbated by stress and dehydration."
+      "matched_claim_text": "The patient's symptoms are consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS), potentially exacerbated by stress and dehydration.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Symptoms 'consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS)'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.\n[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms are consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS), potentially exacerbated by stress and dehydration."
+      "matched_claim_text": "The patient's symptoms are consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS), potentially exacerbated by stress and dehydration.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Imaging purpose detail 'and rule out underlying issues'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ll also order an abdominal ultrasound to further evaluate your discomfort. We need to rule out any underlying issues.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order an abdominal ultrasound to evaluate discomfort and rule out underlying issues."
+      "matched_claim_text": "Order an abdominal ultrasound to evaluate discomfort and rule out underlying issues.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Patient Education action 'seeking urgent care if necessary'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "seek urgent care if necessary",
+      "transcript_evidence": "Recognize any warning signs such as severe pain, vomiting, or signs of dehydration, and seek urgent care if necessary.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Summary 'Vital signs are within normal ranges'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 118/76 mmHg, your pulse is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.4°F. All of these are within normal ranges.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal ranges: Blood pressure 118/76 mmHg, pulse 72 bpm, respiratory rate 16 breaths per minute, temperature 98.4°F."
+      "matched_claim_text": "Vital signs are within normal ranges: Blood pressure 118/76 mmHg, pulse 72 bpm, respiratory rate 16 breaths per minute, temperature 98.4°F.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Symptoms 'potentially exacerbated by stress and dehydration'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.\n[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms are consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS), potentially exacerbated by stress and dehydration."
+      "matched_claim_text": "The patient's symptoms are consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS), potentially exacerbated by stress and dehydration.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Symptoms 'consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS)'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your symptoms and medical history, we need to consider both functional and organic causes. Your increased stress, history of Irritable Bowel Syndrome, and family history of Crohn’s disease are all important factors.\n[Doctor]: During the physical examination, I noticed that you appear slightly dehydrated with dry mucous membranes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms are consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS), potentially exacerbated by stress and dehydration."
+      "matched_claim_text": "The patient's symptoms are consistent with functional gastrointestinal disturbances, such as Irritable Bowel Syndrome (IBS), potentially exacerbated by stress and dehydration.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Imaging purpose detail 'and rule out underlying issues'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ll also order an abdominal ultrasound to further evaluate your discomfort. We need to rule out any underlying issues.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order an abdominal ultrasound to evaluate discomfort and rule out underlying issues."
+      "matched_claim_text": "Order an abdominal ultrasound to evaluate discomfort and rule out underlying issues.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient Education action 'seeking urgent care if necessary'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Recognize any warning signs such as severe pain, vomiting, or signs of dehydration, and seek urgent care if necessary.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -173,23 +173,23 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable but contains multiple moderate omissions that make it meaningfully incomplete. Key issues include the repeated omission of \"bone discomfort\" in the Subjective and Assessment sections, the absence of the crucial diagnostic confirmation step in the Assessment, and the complete omission of the \"Patient Education and Counseling\" section in the Plan. Several minor details and structural elements are also missing across the note.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the main chief complaints, assessment, and treatment plan. However, it omits several clinically relevant details, including \"bone discomfort\" from the subjective section, the specific diagnostic test for Vitamin D deficiency (25-hydroxyvitamin D) in the assessment, and the precise dosage for Levothyroxine in the plan. Several minor details and formatting elements are also missing across sections. No unsupported or unknown additions were identified.",
     "omissions": [
-      "Chief Complaint section header",
-      "Bone discomfort (from CC and HPI)",
+      "Bone discomfort as a reported symptom",
       "Symptoms occur daily",
-      "Unrefreshed sleep despite sleeping 6-7 hours per night",
-      "Review of Systems section header",
-      "General physical exam findings: No acute distress; alert and cooperative",
-      "Normal physical exam finding",
-      "Diagnostic Confirmation: Awaiting blood work for Vitamin D level (25-hydroxyvitamin D)",
-      "\"oral\" route for Cholecalciferol",
-      "Specific dosage of Levothyroxine (75 mcg daily)",
-      "Patient Education and Counseling section (and its contents)",
-      "Patient Agreements section (and its content)",
-      "Instructions section header"
+      "Reduced energy levels",
+      "Patient's occupation (office worker)",
+      "Patient feels unrefreshed despite sleeping 6-7 hours per night",
+      "General physical exam findings: 'No acute distress; alert and cooperative'",
+      "Statement of 'Normal physical exam'",
+      "Specific diagnostic confirmation for Vitamin D deficiency: 'Awaiting blood work for Vitamin D level (25-hydroxyvitamin D)'",
+      "Oral route for Cholecalciferol",
+      "Levothyroxine dosage (75 mcg daily)",
+      "Reason for increasing physical activity: 'to combat the sedentary lifestyle'",
+      "Specific patient education point: 'Provide strategies to improve adherence to dietary recommendations'",
+      "Patient agreement statement: 'The patient understands and agrees with the recommended medical treatment plan'"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -197,51 +197,59 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits the patient's chief complaint of bone discomfort and its mention in the HPI and Musculoskeletal ROS. It also misses details about symptoms occurring daily and unrefreshed sleep, as well as the specific Endocrine ROS detail regarding hypothyroidism management.",
+        "summary": "The section omits \"bone discomfort\" as a reported symptom, which is a clinically relevant detail. It also misses several minor details such as daily symptom occurrence, reduced energy levels, patient's occupation, and unrefreshed sleep. The information about hypothyroidism was moved to the Assessment section, which is a structural change but not a loss of information.",
         "omissions": [
-          "Chief Complaint section header",
-          "Bone discomfort (from CC and HPI)",
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Bone discomfort as a reported symptom",
           "Symptoms occur daily",
-          "Unrefreshed sleep despite sleeping 6-7 hours per night",
-          "Review of Systems section header",
-          "Constitutional ROS details (specifically \"unrefreshed sleep\")",
-          "Musculoskeletal ROS details (specifically \"bone discomfort\")",
-          "Endocrine ROS: History of hypothyroidism, managed with Levothyroxine"
+          "Reduced energy levels",
+          "Patient's occupation (office worker)",
+          "Patient feels unrefreshed despite sleeping 6-7 hours per night",
+          "ROS Endocrine: History of hypothyroidism, managed with Levothyroxine (content moved to Assessment in Generated)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured, with only minor omissions of general physical exam findings such as \"no acute distress; alert and cooperative\" and \"normal physical exam.\"",
+        "summary": "The section omits standard general physical exam findings such as 'No acute distress; alert and cooperative' and the overall statement of a 'Normal physical exam.' These are minor omissions that do not significantly impact clinical usefulness.",
         "omissions": [
-          "General physical exam findings: No acute distress; alert and cooperative",
-          "Normal physical exam finding"
+          "General physical exam findings: 'No acute distress; alert and cooperative'",
+          "Statement of 'Normal physical exam'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section omits the specific mention of bone discomfort in the reasoning for Vitamin D deficiency. More significantly, it omits the crucial diagnostic confirmation step of awaiting blood work for Vitamin D level (25-hydroxyvitamin D).",
+        "grade": "B",
+        "summary": "The section omits the specific diagnostic confirmation plan for Vitamin D deficiency, specifically the '25-hydroxyvitamin D' test, which is a crucial detail for the assessment. It also misses 'bone discomfort' in the reasoning for the diagnosis. The addition regarding hypothyroidism is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Specific mention of \"bone discomfort\" in the reasoning for Vitamin D deficiency",
-          "Diagnostic Confirmation: Awaiting blood work for Vitamin D level (25-hydroxyvitamin D)"
+          "Specific diagnostic confirmation for Vitamin D deficiency: 'Awaiting blood work for Vitamin D level (25-hydroxyvitamin D)'",
+          "Specific symptom 'bone discomfort' in reasoning for Vitamin D deficiency"
         ],
         "additions": [
-          "Hypothyroidism is well-managed with Levothyroxine"
+          "Hypothyroidism is well-managed with Levothyroxine (content moved from Subjective ROS in GroundTruth)"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section omits the specific dosage of Levothyroxine and the \"oral\" route for Cholecalciferol. It also misses the dedicated \"Patient Education and Counseling\" section and its contents, which are important for patient adherence and understanding, though some educational elements are implicitly covered.",
+        "summary": "The section omits the specific dosage for Levothyroxine (75 mcg daily), which is a moderate clinical detail. It also misses the oral route for Cholecalciferol, a specific patient education point, the rationale for increasing physical activity, and the patient agreement statement. Several section headers are also omitted.",
         "omissions": [
-          "\"oral\" route for Cholecalciferol",
-          "Specific dosage of Levothyroxine (75 mcg daily)",
-          "Patient Education and Counseling section (and its contents)",
-          "Patient Agreements section (and its content)",
-          "Instructions section header"
+          "Medical Treatment section header",
+          "Follow-up section header",
+          "Lifestyle Modifications section header",
+          "Patient Education and Counseling section header",
+          "Monitoring and Future Considerations section header",
+          "Patient Agreements section header",
+          "Instructions section header",
+          "Oral route for Cholecalciferol",
+          "Levothyroxine dosage (75 mcg daily)",
+          "Reason for increasing physical activity: 'to combat the sedentary lifestyle'",
+          "Specific patient education point: 'Provide strategies to improve adherence to dietary recommendations'",
+          "Patient agreement statement: 'The patient understands and agrees with the recommended medical treatment plan'"
         ],
         "additions": []
       }
@@ -251,11 +259,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Hypothyroidism is well-managed with Levothyroxine",
+      "addition_text": "Hypothyroidism is well-managed with Levothyroxine (content moved from Subjective ROS in GroundTruth)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I have hypothyroidism. I'm taking Levothyroxine for it.\n[patient] It's been managed pretty well with Levothyroxine. I take 75 mcg daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypothyroidism is well-managed with Levothyroxine."
+      "matched_claim_text": "Hypothyroidism is well-managed with Levothyroxine.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

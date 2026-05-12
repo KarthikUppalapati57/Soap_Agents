@@ -230,9 +230,9 @@
     "plan_alignment_score": 0.7303370786516854
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical_reviewer_agent",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a concise summary of the patient's visit but has noticeable gaps, particularly in the Subjective section where a significant portion of the Review of Systems and several History of Present Illness details are omitted. The Objective and Plan sections also contain multiple moderate omissions, such as specific negative physical exam findings, medication quantity, and a key follow-up instruction regarding symptoms persisting beyond 5 days. There are no unsupported or unknown additions.",
+    "overall_summary": "The generated note provides a clinically usable summary of the patient's encounter, capturing the chief complaint, vital signs, key physical exam findings, primary assessment, and core treatment plan. However, it omits several specific details from the History of Present Illness regarding symptom continuity, impact on sleep, and activity restriction. Additionally, it misses a broader contextual phrase in the Assessment and a specific timeframe for follow-up in the Plan. Numerous minor omissions include section headers, denials in the Review of Systems and Physical Exam, and specific medication details. While no unsupported additions were found, the cumulative effect of multiple moderate omissions makes the note meaningfully incomplete in certain areas.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -273,7 +273,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of several specific History of Present Illness details (e.g., symptoms continuous, difficulty sleeping due to cough, activity restriction) and the complete absence of the detailed Review of Systems content, including multiple clinically relevant denials. The omission of section headers also impacts structure.",
+        "summary": "The Subjective section omits several important details from the History of Present Illness, such as the continuous nature of symptoms, difficulty falling asleep due to cough, and mild restriction in daily activities. It also misses numerous denials from the Review of Systems (e.g., weight changes, palpitations, GI symptoms, headaches, ear pain), which, while negative findings, contribute to a complete ROS. Formatting omissions for section headers were also noted.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -293,7 +293,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section captures all vital signs and key positive physical exam findings. However, it omits several negative findings (e.g., no crackles, no murmurs, no exudates) and the general appearance description ('Appears mildly fatigued but in no acute distress'), which are moderate issues. Section headers are also omitted.",
+        "summary": "The Objective section accurately captures all vital signs and key positive physical exam findings (mild wheezing, mild throat erythema). However, it omits several negative findings from the physical exam, including the patient appearing mildly fatigued but in no acute distress, absence of crackles in lungs, regular heart sounds with no murmurs, and no exudates in the throat. Formatting omissions for section headers were also noted.",
         "omissions": [
           "Physical Exam section header",
           "Vital Signs section header",
@@ -306,8 +306,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "This section is well-aligned with the Ground Truth. The only omission is 'Suspected exposure to viral communicable disease,' which is a minor detail given the core diagnosis is present. All additions are supported by the transcript and therefore do not impact the grade.",
+        "grade": "B",
+        "summary": "The Assessment section correctly identifies the likely diagnosis of a viral upper respiratory infection. However, it omits the broader contextual phrase \"Suspected exposure to viral communicable disease\" from the Ground Truth. The addition of \"based on symptoms and exam findings\" is supported by the transcript and does not impact the grade.",
         "omissions": [
           "Suspected exposure to viral communicable disease"
         ],
@@ -317,8 +317,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section captures the core plan elements, including medication, lifestyle advice, and follow-up for worsening symptoms. However, it has several moderate omissions, such as the specific 'oral' route and 'Qty: 12 tablets' for acetaminophen, the explicit purpose of the humidifier ('to reduce cough'), and the important instruction to return if symptoms persist beyond 5 days. Section headers are also omitted. All additions are supported by the transcript.",
+        "grade": "C",
+        "summary": "The Plan section outlines the core treatment, lifestyle recommendations, and follow-up instructions. However, it omits specific details for acetaminophen (oral route, quantity of 12 tablets) and the explicit purpose of using a humidifier and elevating the head (\"to reduce cough\"). A significant omission is the instruction for the patient to return if symptoms persist beyond 5 days. Several section headers were also omitted. The addition regarding immediate return for worsening symptoms is supported by the transcript.",
         "omissions": [
           "Medications section header",
           "'oral' route for Acetaminophen",
@@ -345,28 +345,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the exam, it looks like you might have a viral upper respiratory infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient might have a viral upper respiratory infection based on symptoms and exam findings."
+      "matched_claim_text": "The patient might have a viral upper respiratory infection based on symptoms and exam findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'Instruct the patient to return immediately' for worsening symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you notice any worsening symptoms, like a high fever, difficulty breathing, or if the cough persists, you need to come back immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to return immediately if experiencing high fever, difficulty breathing, or persistent cough."
+      "matched_claim_text": "Instruct the patient to return immediately if experiencing high fever, difficulty breathing, or persistent cough.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'based on symptoms and exam findings'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the exam, it looks like you might have a viral upper respiratory infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient might have a viral upper respiratory infection based on symptoms and exam findings."
+      "matched_claim_text": "The patient might have a viral upper respiratory infection based on symptoms and exam findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Instruct the patient to return immediately' for worsening symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you notice any worsening symptoms, like a high fever, difficulty breathing, or if the cough persists, you need to come back immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct the patient to return immediately if experiencing high fever, difficulty breathing, or persistent cough."
+      "matched_claim_text": "Instruct the patient to return immediately if experiencing high fever, difficulty breathing, or persistent cough.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

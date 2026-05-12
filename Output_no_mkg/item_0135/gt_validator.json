@@ -240,93 +240,95 @@
     "plan_alignment_score": 0.5633802816901409
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note provides a generally usable clinical record but suffers from significant gaps. The most critical issues are in the Assessment section, where the definitive primary diagnosis (Calculus of Kidney with ICD-10) and the secondary diagnosis (Hypertension) are omitted, reducing the note's clinical completeness and utility. The Plan section also misses important patient education and a crucial safety instruction. While the Subjective and Objective sections are mostly accurate, the severity of omissions in Assessment and Plan warrants a lower overall grade. There is one minor unsupported addition in the Subjective section.",
+    "overall_summary": "The generated note captures the primary complaint and treatment plan reasonably well. However, it suffers from significant omissions in the Assessment section, including the complete absence of the secondary diagnosis of Hypertension with its management details, and a less specific primary diagnosis. Additionally, numerous minor details from the Review of Systems, Physical Examination, and Plan (such as specific medication instructions and a key dietary recommendation) are missing. These omissions, particularly the major one in Assessment, materially reduce the clinical usefulness and completeness of the documentation.",
     "omissions": [
-      "HPI: Pain described as \"continuous with intermittent severe episodes\"",
-      "ROS: No dysuria",
-      "ROS: No chest pain, palpitations, or shortness of breath",
-      "ROS: No cough, no dyspnea",
-      "ROS: Physical activity decreased due to pain",
-      "ROS: No headaches, dizziness, or confusion",
-      "Objective: \"No other abnormalities detected\" in physical exam",
-      "Assessment: Primary Diagnosis: Calculus of Kidney",
-      "Assessment: Secondary Diagnosis: Hypertension (well-controlled on Lisinopril 10 mg daily)",
-      "Plan: Tamsulosin quantity: 30 capsules",
-      "Plan: Avoid high-protein diets that may exacerbate kidney stone formation",
-      "Plan: Educated the patient on medication use and potential side effects",
-      "Plan: Advised to seek immediate medical attention if experiencing inability to urinate",
-      "Plan: Behavioral Assessment: Patient is cooperative and willing to comply with treatment plan",
-      "Plan: Clinical Setting: Private Practice Urology Clinic",
-      "Plan: Type of Encounter: Initial Consultation"
+      "Review of Systems (ROS) details: no vomiting",
+      "Review of Systems (ROS) details: no dysuria",
+      "Review of Systems (ROS) details: no chest pain, palpitations, or shortness of breath",
+      "Review of Systems (ROS) details: no cough, no dyspnea",
+      "Review of Systems (ROS) details: physical activity decreased due to pain",
+      "Review of Systems (ROS) details: no headaches, dizziness, or confusion",
+      "Specific duration of missed work (2 days)",
+      "Detail that pain has been 'continuous with intermittent severe episodes'",
+      "Cardiovascular physical exam finding: regular rhythm",
+      "Lungs physical exam finding: clear to auscultation bilaterally",
+      "Physical exam finding: No other abnormalities detected",
+      "Primary Diagnosis: Calculus of Kidney (specific diagnosis)",
+      "Secondary Diagnosis: Hypertension (well-controlled on Lisinopril 10 mg daily)",
+      "Medication detail: Tamsulosin 'oral'",
+      "Medication detail: Tamsulosin 'quantity: 30 capsules'",
+      "Recommendation: Avoid high-protein diets that may exacerbate kidney stone formation",
+      "Patient Instruction: Educated the patient on medication use and potential side effects",
+      "Behavioral Assessment: Patient is cooperative and willing to comply with treatment plan",
+      "Clinical Setting: Private Practice Urology Clinic",
+      "Type of Encounter: Initial Consultation"
     ],
     "additions": [
-      "Subjective: Clarification \"(blood in urine)\" after hematuria",
-      "Assessment: \"Possible kidney stone based on the patient's symptoms and examination findings.\"",
-      "Plan: Purpose of Tamsulosin: \"to help pass the stone\"",
-      "Plan: Qualifier for pain relief: \"for managing pain\"",
-      "Plan: Qualifier for seeking immediate medical attention: \"if the pain becomes unbearable\""
+      "Assessment detail: 'based on the patient's symptoms and examination findings'",
+      "Plan detail: Tamsulosin 'to help pass the stone'",
+      "Plan detail: Over-the-counter pain relief 'for managing pain'",
+      "Plan detail: Seek immediate medical attention if 'the pain becomes unbearable'"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Subjective: Clarification \"(blood in urine)\" after hematuria",
-      "Clarification \"(blood in urine)\" after hematuria"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The section accurately captures the chief complaint and most of the HPI. However, it omits several minor details from the Review of Systems, primarily negative findings. There is one minor unsupported addition, \"blood in urine\" clarification, which is not explicitly stated in the transcript.",
+        "summary": "The Subjective section is mostly aligned, capturing the chief complaint and main aspects of the HPI. However, it omits several negative findings from the Review of Systems (e.g., no vomiting, no dysuria, no chest pain, no headaches) and specific details like the duration of missed work (2 days) and the nuanced description of pain as 'continuous with intermittent severe episodes'.",
         "omissions": [
-          "HPI: Pain described as \"continuous with intermittent severe episodes\"",
-          "ROS: No dysuria",
-          "ROS: No chest pain, palpitations, or shortness of breath",
-          "ROS: No cough, no dyspnea",
-          "ROS: Physical activity decreased due to pain",
-          "ROS: No headaches, dizziness, or confusion"
+          "Review of Systems (ROS) details: no vomiting",
+          "Review of Systems (ROS) details: no dysuria",
+          "Review of Systems (ROS) details: no chest pain, palpitations, or shortness of breath",
+          "Review of Systems (ROS) details: no cough, no dyspnea",
+          "Review of Systems (ROS) details: physical activity decreased due to pain",
+          "Review of Systems (ROS) details: no headaches, dizziness, or confusion",
+          "Specific duration of missed work (2 days)",
+          "Detail that pain has been 'continuous with intermittent severe episodes'"
         ],
-        "additions": [
-          "Clarification \"(blood in urine)\" after hematuria"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "This section is largely complete, accurately reflecting vital signs and key physical examination findings. The only omission is a minor general statement about no other abnormalities detected.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports vital signs and key physical examination findings. Minor omissions include specific details such as 'regular rhythm' for cardiovascular findings, 'clear to auscultation bilaterally' for lungs, and the general statement 'No other abnormalities detected'.",
         "omissions": [
-          "\"No other abnormalities detected\" in physical exam"
+          "Cardiovascular physical exam finding: regular rhythm",
+          "Lungs physical exam finding: clear to auscultation bilaterally",
+          "Physical exam finding: No other abnormalities detected"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "This section has significant omissions. It fails to include the definitive primary diagnosis of \"Calculus of Kidney (ICD-10 N20.0)\" and completely omits the secondary diagnosis of \"Hypertension (well-controlled on Lisinopril 10 mg daily)\". The generated note provides a less definitive \"Possible kidney stone\" statement. These omissions materially reduce the clinical usefulness and completeness of the assessment.",
+        "summary": "The Assessment section has significant omissions. It states 'Possible kidney stone' instead of the more definitive 'Calculus of Kidney (ICD-10 N20.0)' from the Ground Truth. More critically, it completely omits the secondary diagnosis of 'Hypertension (well-controlled on Lisinopril 10 mg daily)', which is a major clinical oversight. The single addition in this section was supported by the transcript and does not affect the grade.",
         "omissions": [
-          "Primary Diagnosis: Calculus of Kidney",
+          "Primary Diagnosis: Calculus of Kidney (specific diagnosis)",
           "Secondary Diagnosis: Hypertension (well-controlled on Lisinopril 10 mg daily)"
         ],
         "additions": [
-          "\"Possible kidney stone based on the patient's symptoms and examination findings.\""
+          "Assessment detail: 'based on the patient's symptoms and examination findings'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section includes the main treatment and investigation steps. However, it omits important patient education regarding avoiding high-protein diets and a critical safety instruction to seek immediate medical attention for inability to urinate. Several minor administrative and contextual details are also omitted.",
+        "grade": "B",
+        "summary": "The Plan section outlines the core treatment strategy, including medication, investigations, and follow-up. However, it omits several minor medication details (e.g., 'oral', 'quantity: 30 capsules') and a clinically relevant recommendation to 'Avoid high-protein diets that may exacerbate kidney stone formation'. Other minor omissions include patient education details and administrative information about the clinical setting and encounter type. All additions in this section were supported by the transcript and do not affect the grade.",
         "omissions": [
-          "Tamsulosin quantity: 30 capsules",
-          "Avoid high-protein diets that may exacerbate kidney stone formation",
-          "Educated the patient on medication use and potential side effects",
-          "Advised to seek immediate medical attention if experiencing inability to urinate",
+          "Medication detail: Tamsulosin 'oral'",
+          "Medication detail: Tamsulosin 'quantity: 30 capsules'",
+          "Recommendation: Avoid high-protein diets that may exacerbate kidney stone formation",
+          "Patient Instruction: Educated the patient on medication use and potential side effects",
           "Behavioral Assessment: Patient is cooperative and willing to comply with treatment plan",
           "Clinical Setting: Private Practice Urology Clinic",
           "Type of Encounter: Initial Consultation"
         ],
         "additions": [
-          "Purpose of Tamsulosin: \"to help pass the stone\"",
-          "Qualifier for pain relief: \"for managing pain\"",
-          "Qualifier for seeking immediate medical attention: \"if the pain becomes unbearable\""
+          "Plan detail: Tamsulosin 'to help pass the stone'",
+          "Plan detail: Over-the-counter pain relief 'for managing pain'",
+          "Plan detail: Seek immediate medical attention if 'the pain becomes unbearable'"
         ]
       }
     ],
@@ -335,74 +337,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Clarification \"(blood in urine)\" after hematuria",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: \"Possible kidney stone based on the patient's symptoms and examination findings.\"",
+      "addition_text": "Assessment detail: 'based on the patient's symptoms and examination findings'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and examination, it sounds like you might have a kidney stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible kidney stone based on the patient's symptoms and examination findings."
+      "matched_claim_text": "Possible kidney stone based on the patient's symptoms and examination findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Purpose of Tamsulosin: \"to help pass the stone\"",
+      "addition_text": "Plan detail: Tamsulosin 'to help pass the stone'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In the meantime, I recommend increasing your fluid intake to help pass the stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise increasing fluid intake to help pass the stone."
+      "matched_claim_text": "Advise increasing fluid intake to help pass the stone.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Qualifier for pain relief: \"for managing pain\"",
+      "addition_text": "Plan detail: Over-the-counter pain relief 'for managing pain'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You can take over-the-counter pain relief as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Allow over-the-counter pain relief as needed for managing pain."
+      "matched_claim_text": "Allow over-the-counter pain relief as needed for managing pain.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Qualifier for seeking immediate medical attention: \"if the pain becomes unbearable\"",
+      "addition_text": "Plan detail: Seek immediate medical attention if 'the pain becomes unbearable'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If the pain becomes unbearable or you experience fever or difficulty urinating, seek immediate medical attention.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to seek immediate medical attention if the pain becomes unbearable or they experience fever or difficulty urinating."
-    },
-    {
-      "addition_text": "Clarification \"(blood in urine)\" after hematuria",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"Possible kidney stone based on the patient's symptoms and examination findings.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Based on your symptoms and examination, it sounds like you might have a kidney stone.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible kidney stone based on the patient's symptoms and examination findings."
-    },
-    {
-      "addition_text": "Purpose of Tamsulosin: \"to help pass the stone\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: In the meantime, I recommend increasing your fluid intake to help pass the stone.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise increasing fluid intake to help pass the stone."
-    },
-    {
-      "addition_text": "Qualifier for pain relief: \"for managing pain\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You can take over-the-counter pain relief as needed.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Allow over-the-counter pain relief as needed for managing pain."
-    },
-    {
-      "addition_text": "Qualifier for seeking immediate medical attention: \"if the pain becomes unbearable\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If the pain becomes unbearable or you experience fever or difficulty urinating, seek immediate medical attention.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to seek immediate medical attention if the pain becomes unbearable or they experience fever or difficulty urinating."
+      "matched_claim_text": "Instruct patient to seek immediate medical attention if the pain becomes unbearable or they experience fever or difficulty urinating.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

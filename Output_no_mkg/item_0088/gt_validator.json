@@ -264,70 +264,63 @@
     "plan_alignment_score": 0.735483870967742
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The note is mostly clinically aligned and usable, but it has a significant omission in the Subjective section, completely lacking the detailed Review of Systems and its negative findings. Other sections are well-captured with only minor omissions. There are no unsupported or unknown additions that would lower the grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "A",
+    "overall_summary": "The generated SOAP note is highly accurate and clinically usable, capturing all major clinically important Ground Truth content. There are no unsupported or unknown additions. The note contains a few minor omissions, primarily negative findings from the Review of Systems and a specific medication quantity, but these do not significantly impact the overall clinical utility or safety of the note.",
     "omissions": [
-      "Symptoms are continuous (from HPI)",
-      "Symptoms significantly impact his ability to perform routine tasks (from HPI)",
-      "Review of Systems section and its detailed breakdown (General, ENT, Respiratory, Cardiovascular, Gastrointestinal, Neurological, Musculoskeletal)",
-      "Specific negative ROS findings: No cough, shortness of breath, wheezing; No chest pain, palpitations, edema; No nausea, vomiting, abdominal pain; No dizziness, visual disturbances; No musculoskeletal pain",
-      "Fatigue due to poor sleep quality (qualifier for fatigue in ROS)",
-      "General: Alert but uncomfortable due to pain (from Physical Examination)",
-      "No organomegaly (from Abdominal examination)",
-      "20 tablets (from Amoxicillin-Clavulanate prescription details)",
-      "After the initial course of antibiotics (from CT scan referral condition)",
-      "To accommodate his primary language (from educational materials in Mandarin)"
+      "History of Present Illness: Symptoms significantly impact his ability to perform routine tasks.",
+      "Review of Systems: Respiratory: No cough, shortness of breath, or wheezing.",
+      "Review of Systems: Cardiovascular: No chest pain, palpitations, or edema.",
+      "Review of Systems: Gastrointestinal: No nausea, vomiting, or abdominal pain.",
+      "Review of Systems: Neurological: No dizziness or visual disturbances.",
+      "Review of Systems: Musculoskeletal: No musculoskeletal pain.",
+      "Plan: Medications: 20 tablets (specific quantity)."
     ],
     "additions": [
-      "Discomfort due to pain (as a subjective symptom)",
-      "About the condition and treatment (added detail to educational materials in Mandarin)"
+      "Plan: Education: 'about the condition and treatment' (added detail to educational materials in Mandarin)."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section receives a C due to the major omission of the entire Review of Systems section, including its detailed breakdown and specific negative findings. Minor omissions include the continuity of symptoms, the impact on routine tasks, and the specific qualifier for fatigue.",
+        "grade": "B",
+        "summary": "This section accurately captures the chief complaint and key aspects of the history of present illness. However, it omits several negative findings from the Review of Systems (Respiratory, Cardiovascular, Gastrointestinal, Neurological, Musculoskeletal) and a detail about the impact of symptoms on daily tasks. While these are minor omissions, their collective absence reduces the completeness of the ROS.",
         "omissions": [
-          "Symptoms are continuous (from HPI)",
-          "Symptoms significantly impact his ability to perform routine tasks (from HPI)",
-          "Review of Systems section and its detailed breakdown (General, ENT, Respiratory, Cardiovascular, Gastrointestinal, Neurological, Musculoskeletal)",
-          "Specific negative ROS findings: No cough, shortness of breath, wheezing; No chest pain, palpitations, edema; No nausea, vomiting, abdominal pain; No dizziness, visual disturbances; No musculoskeletal pain",
-          "Fatigue due to poor sleep quality (qualifier for fatigue in ROS)"
+          "History of Present Illness: Symptoms significantly impact his ability to perform routine tasks.",
+          "Review of Systems: General: due to poor sleep quality.",
+          "Review of Systems: Respiratory: No cough, shortness of breath, or wheezing.",
+          "Review of Systems: Cardiovascular: No chest pain, palpitations, or edema.",
+          "Review of Systems: Gastrointestinal: No nausea, vomiting, or abdominal pain.",
+          "Review of Systems: Neurological: No dizziness or visual disturbances.",
+          "Review of Systems: Musculoskeletal: No musculoskeletal pain."
         ],
-        "additions": [
-          "Discomfort due to pain"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section receives an A. The only omissions are minor details: the patient's general appearance of being \"alert but uncomfortable due to pain\" and the finding of \"no organomegaly\" during the abdominal examination.",
+        "summary": "This section is largely complete, with only one minor omission regarding the patient's general appearance (alert but uncomfortable due to pain). All other vital signs and physical examination findings are accurately reported.",
         "omissions": [
-          "General: Alert but uncomfortable due to pain (from Physical Examination)",
-          "No organomegaly (from Abdominal examination)"
+          "Physical Examination: General: Alert but uncomfortable due to pain."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A, as it accurately captures all primary and secondary diagnoses from the Ground Truth with no omissions or unsupported additions.",
+        "summary": "This section is perfectly aligned with the Ground Truth, accurately listing the primary and secondary diagnoses without any omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section receives a B due to several minor omissions. These include the specific quantity of \"20 tablets\" for the medication, the condition \"after the initial course of antibiotics\" for the CT scan referral, and the reason \"to accommodate his primary language\" for the Mandarin educational materials.",
+        "grade": "A",
+        "summary": "The plan is well-structured and comprehensive, capturing all major treatment recommendations. The only omission is the specific quantity of tablets (20 tablets) for the prescribed medication, which is a minor detail. The addition regarding educational materials is supported by the transcript and therefore does not count against the grade.",
         "omissions": [
-          "20 tablets (from Amoxicillin-Clavulanate prescription details)",
-          "After the initial course of antibiotics (from CT scan referral condition)",
-          "To accommodate his primary language (from educational materials in Mandarin)"
+          "Medications: 20 tablets (specific quantity)."
         ],
         "additions": [
-          "About the condition and treatment (added detail to educational materials in Mandarin)"
+          "Education: 'about the condition and treatment' (added detail to educational materials in Mandarin)."
         ]
       }
     ],
@@ -336,25 +329,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Discomfort due to pain (as a subjective symptom)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] It's been really tough. The pain and congestion make it hard to sleep, so I'm always tired and it's difficult to focus on anything. ... I'm definitely fatigued, but I don't think I've had a fever.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports fatigue and discomfort due to pain."
-    },
-    {
-      "addition_text": "About the condition and treatment (added detail to educational materials in Mandarin)",
+      "addition_text": "Plan: Education: 'about the condition and treatment' (added detail to educational materials in Mandarin).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'll also provide you with educational materials in Mandarin to help you better understand your condition and treatment.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide educational materials in Mandarin about the condition and treatment."
+      "matched_claim_text": "Provide educational materials in Mandarin about the condition and treatment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Discomfort due to pain",
+      "addition_text": "Education: 'about the condition and treatment' (added detail to educational materials in Mandarin).",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] It's been really tough. The pain and congestion make it hard to sleep, so I'm always tired and it's difficult to focus on anything. ... I'm definitely fatigued, but I don't think I've had a fever.",
+      "transcript_evidence": "[doctor] I'll also provide you with educational materials in Mandarin to help you better understand your condition and treatment.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports fatigue and discomfort due to pain."
+      "matched_claim_text": "Provide educational materials in Mandarin about the condition and treatment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

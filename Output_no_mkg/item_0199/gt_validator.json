@@ -190,9 +190,9 @@
     "plan_alignment_score": 0.6545454545454544
   },
   "expert_judge": {
-    "model": "expert-clinical-documentation-reviewer",
+    "model": "Clinical Documentation Reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note provides a generally accurate overview of the patient's presentation, assessment, and plan. However, it has noticeable gaps, particularly in the Subjective section, where critical medical history details such as family history of non-melanoma skin cancer and known drug allergies are omitted. Additionally, the Plan section omits important patient education regarding the potential for malignancy of actinic keratosis if left untreated. All identified additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note has significant omissions, particularly in the Subjective section, where the entire Review of Systems and Medical History (including allergies, chronic conditions, and family history) are missing. While the Objective, Assessment, and Plan sections are largely accurate and well-supported, these critical gaps in patient context make the note meaningfully incomplete and necessitate caution and review. All additions in the note are supported by the transcript and do not negatively impact the grade.",
     "omissions": [
       "HPI detail: lesions primarily a cosmetic concern",
       "HPI detail: lesions do not significantly impact daily activities",
@@ -216,8 +216,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits several minor HPI details (e.g., lesions as a cosmetic concern, impact on daily activities, patient's enjoyment of gardening and concern about sun damage). More significantly, it omits the patient's family medical history (father had non-melanoma skin cancer) and known drug allergies, which are clinically material for risk assessment and patient safety. While hypertension is mentioned in the Plan, its absence from the Subjective's medical history section is a structural gap.",
+        "grade": "D",
+        "summary": "This section has major omissions, including the entire Review of Systems and Medical History sections. Crucial patient information such as previous diagnoses, chronic conditions (hypertension and its management), family medical history (non-melanoma skin cancer), and allergies are completely absent. Several HPI details providing patient context are also omitted. These significant gaps materially reduce the clinical usefulness and completeness of the subjective information.",
         "omissions": [
           "HPI detail: lesions primarily a cosmetic concern",
           "HPI detail: lesions do not significantly impact daily activities",
@@ -235,7 +235,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures all vital signs and dermatological findings. The omissions are primarily structural (missing 'Physical Examination' and 'Inspection and Palpation' headings) or involve content ('No signs of infection or systemic disease') that was moved to the Assessment section but is present in the overall note. All additions were supported by the transcript.",
+        "summary": "The Objective section accurately captures all vital signs and dermatological exam findings. Minor omissions include the 'Physical Examination' heading and 'Inspection and Palpation' section. The finding 'No signs of infection or systemic disease' was relocated to the Assessment section but is present and supported, thus not a clinical omission from the note as a whole. The addition of 'Normal vital signs' phrasing is supported by the transcript.",
         "omissions": [
           "Physical Examination section heading",
           "Inspection and Palpation section",
@@ -248,7 +248,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate, correctly identifying actinic keratosis and its likely cause. The addition of 'No signs of infection or systemic disease' was supported by the transcript and does not negatively impact the grade.",
+        "summary": "The Assessment section is accurate and complete. The addition of 'No signs of infection or systemic disease' (relocated from the GT Objective) is supported by the transcript and clinically appropriate, not reducing the grade.",
         "omissions": [],
         "additions": [
           "'No signs of infection or systemic disease' (moved from GT Objective)"
@@ -257,7 +257,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section outlines appropriate treatments and follow-up. However, it omits a crucial patient education detail regarding the potential for malignancy of actinic keratosis if left untreated. It also omits broader lifestyle recommendations beyond hypertension management. The additions were supported by the transcript.",
+        "summary": "The Plan section captures the core treatment plan, including cryotherapy, topical medication, follow-up scheduling, sun protection, and continued hypertension management. However, it omits important patient education regarding the potential for malignancy of actinic keratosis if left untreated, which is a moderate clinical omission. It also misses the explicit instruction to 'Return in 6 weeks for follow-up' and general lifestyle recommendations. All additions in this section are supported by the transcript.",
         "omissions": [
           "Patient Education detail: Discussed the nature and potential for malignancy of actinic keratosis if left untreated",
           "Lifestyle Recommendations section (including encouragement for healthy lifestyle, balanced diet, and regular exercise)",
@@ -278,49 +278,63 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, I’d like to administer cryotherapy with liquid nitrogen to the lesions. This will help to freeze and remove the abnormal cells.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cryotherapy with liquid nitrogen to remove abnormal cells."
+      "matched_claim_text": "Cryotherapy with liquid nitrogen to remove abnormal cells.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment detail: 'No signs of infection or systemic disease' (moved from Objective in GT)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: No signs of infection or systemic disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No signs of infection or systemic disease."
+      "matched_claim_text": "No signs of infection or systemic disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective detail: 'Normal vital signs' phrasing",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 130/85 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. Everything looks normal there.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan instruction detail: 'immediately' in contact instructions",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any issues with the medication or if new lesions develop, please contact the clinic immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Normal vital signs' phrasing",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 130/85 mmHg, heart rate is 72 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. Everything looks normal there.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'No signs of infection or systemic disease' (moved from GT Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: No signs of infection or systemic disease.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No signs of infection or systemic disease."
+      "matched_claim_text": "No signs of infection or systemic disease.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instruction detail: 'immediately' in contact instructions",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you have any issues with the medication or if new lesions develop, please contact the clinic immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

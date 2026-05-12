@@ -264,9 +264,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_model",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary of the encounter but suffers from several significant omissions. Key details from the History of Present Illness, the entire Review of Systems, and medical reasoning for all diagnoses in the Assessment are missing. Additionally, specific instructions for medication, the duration of self-isolation, and patient agreements are omitted from the Plan. While no unsupported additions were identified, these omissions collectively reduce the completeness and clinical utility of the documentation.",
+    "overall_summary": "The generated note has noticeable gaps, particularly in the Subjective and Assessment sections. The entire Review of Systems is omitted, and crucial medical reasoning for all diagnoses is missing from the Assessment. While there are no unsupported additions, these omissions significantly reduce the note's completeness and clinical usefulness, requiring careful review to fill in missing context and rationale.",
     "omissions": [
       "HPI detail: Symptoms have been continuous",
       "HPI detail: Symptoms have mildly affected ability to perform daily tasks",
@@ -296,7 +296,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has significant omissions, including the entire Review of Systems and several important details from the History of Present Illness, such as the patient's occupation (a key risk factor for COVID-19), the continuous nature of symptoms, their impact on daily tasks, and the denial of key symptoms like shortness of breath, chest pain, and gastrointestinal issues. These omissions make the subjective history meaningfully incomplete.",
+        "summary": "This section has significant omissions, including the entire Review of Systems, several key HPI details (e.g., symptom continuity, impact on daily tasks, denial of SOB/chest pain/GI symptoms), and important risk factors like the patient's occupation and living environment. These omissions make the section meaningfully incomplete.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "HPI detail: Symptoms have been continuous",
@@ -313,7 +313,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely complete, with only minor omissions regarding the general appearance (\"Alert, cooperative, mildly febrile\") and a specific neurological finding (\"Alert and oriented\") from the physical examination.",
+        "summary": "The Objective section is largely complete, with only minor omissions regarding general appearance ('Alert, cooperative, mildly febrile') and a specific neurological finding ('Alert and oriented'). The core vital signs and physical examination findings are well-captured.",
         "omissions": [
           "Physical Examination - General: Alert, cooperative, mildly febrile",
           "Physical Examination - Neurological: Alert and oriented"
@@ -323,7 +323,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section omits the specific diagnosis \"Suspected COVID-19 infection\" (though a similar, supported diagnosis is present) and, more critically, the medical reasoning for all three diagnoses (Suspected COVID-19, Hypertension, and Type 2 Diabetes Mellitus). This lack of reasoning reduces the clarity and completeness of the clinical assessment.",
+        "summary": "The Assessment section omits the specific diagnosis 'Suspected COVID-19 infection' in favor of a more general 'Possible viral respiratory infection' (though it does mention COVID-19 risk). More critically, all medical reasoning for the suspected COVID-19, hypertension, and Type 2 Diabetes Mellitus diagnoses is missing, which significantly impacts the clinical utility and understanding of the assessment.",
         "omissions": [
           "Specific diagnosis 'Suspected COVID-19 infection'",
           "Medical Reasoning for Suspected COVID-19: 'Awaiting PCR test results for confirmation'",
@@ -336,8 +336,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has several moderate omissions, including the specific dosage instructions for Acetaminophen, the explicit duration (\"14 days\") and reason (\"to prevent the spread of infection\") for self-isolation, and the entire Patient Agreements section, which is important for documenting patient understanding and adherence.",
+        "grade": "B",
+        "summary": "The Plan section has several moderate omissions, including the specific dosage instructions for Acetaminophen ('take 1 tablet orally every 6 hours'), the explicit duration of self-isolation ('for 14 days'), and the reason for self-isolation ('to prevent the spread of infection'). The entire Patient Agreements section is also omitted. While the core plan is present, these details are important for clarity and patient adherence.",
         "omissions": [
           "Specific dosage instruction for Acetaminophen: 'take 1 tablet orally every 6 hours'",
           "Patient Education and Counseling: 'Explained the importance of monitoring symptoms'",
@@ -357,14 +357,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Given your symptoms and your job as a delivery driver, you have a higher risk of COVID-19 exposure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible viral respiratory infection"
+      "matched_claim_text": "Possible viral respiratory infection",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Possible viral respiratory infection' as the primary diagnosis for the acute illness",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Given your symptoms and your job as a delivery driver, you have a higher risk of COVID-19 exposure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible viral respiratory infection"
+      "matched_claim_text": "Possible viral respiratory infection",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

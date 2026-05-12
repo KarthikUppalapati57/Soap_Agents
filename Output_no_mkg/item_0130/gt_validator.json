@@ -270,9 +270,9 @@
     "plan_alignment_score": 0.7348837209302326
   },
   "expert_judge": {
-    "model": "Clinical Documentation Reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly the omission of hyperlipidemia from the Assessment section, which is a major issue. Additionally, there are several moderate omissions in the Subjective section (patient's history of hyperlipidemia, family history) and the Plan section (reviewing lipid panel results, patient agreements). While the core treatment plan is present, these omissions reduce the overall completeness and clinical usefulness of the note, requiring caution and review.",
+    "overall_summary": "The generated note is broadly usable but contains noticeable gaps and multiple moderate omissions across the Subjective, Assessment, and Plan sections. Key historical details like hyperlipidemia and family history are missing from the Subjective. The Assessment omits hyperlipidemia as a diagnosis. The Plan is missing important follow-up actions (reviewing lipid panel results) and patient engagement details (patient agreements, specific education points). All additions were supported by the transcript and did not impact the grade.",
     "omissions": [
       "Patient's known history of hyperlipidemia (in HPI)",
       "Patient occasionally experiences fatigue (in HPI)",
@@ -301,8 +301,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is mostly aligned but has several omissions. These include the patient's known history of hyperlipidemia, occasional fatigue, no significant impact on daily activities, family history of heart disease and diabetes, and denial of weight loss or fever. These omissions, particularly the history of hyperlipidemia and family history, represent moderate gaps in the patient's clinical context.",
+        "grade": "C",
+        "summary": "The Subjective section has several omissions, including the patient's known history of hyperlipidemia, the occasional fatigue, the lack of impact on daily activities, and the significant family history of heart disease and diabetes. It also omits the denial of weight loss or fever from the ROS. These omissions lead to a noticeable gap in the patient's historical context.",
         "omissions": [
           "Known history of hyperlipidemia (in HPI)",
           "Patient occasionally experiences fatigue (in HPI)",
@@ -315,7 +315,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, capturing all major clinically important Ground Truth content. The only issues are minor omissions of specific physical exam details such as 'well-groomed, no distress' and 'regular rate and rhythm' for cardiovascular findings, which do not significantly impact clinical usefulness.",
+        "summary": "The Objective section is largely complete, with only minor omissions regarding the general physical exam finding of 'well-groomed, no distress' and the cardiovascular finding of 'regular rate and rhythm'.",
         "omissions": [
           "General physical exam findings: Well-groomed, no distress",
           "Cardiovascular physical exam finding: regular rate and rhythm"
@@ -324,8 +324,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section has a major omission: 'Hyperlipidemia' is completely missing as a diagnosis. This significantly reduces the clinical usefulness and completeness of the note, as it's a key diagnosed condition for the patient. The omission of 'of native coronary artery' for atherosclerotic heart disease is a minor detail omission. The addition present was supported by the transcript and did not impact the grade.",
+        "grade": "C",
+        "summary": "The Assessment section omits the diagnosis of 'Hyperlipidemia' and the detail 'of native coronary artery' for atherosclerotic heart disease. The omission of hyperlipidemia is a moderate issue, making the assessment less complete.",
         "omissions": [
           "Hyperlipidemia",
           "Atherosclerotic heart disease 'of native coronary artery'"
@@ -337,7 +337,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains several omissions, including moderate issues such as the lack of a plan to review lipid panel results upon availability and the complete absence of the 'Patient Agreements' section. Numerous minor omissions include details about statin therapy (30 tablets), encouraging hydration, the goal of dietary changes, providing resources for smoking cessation, and specific patient education points. These omissions make the plan less comprehensive regarding follow-up and patient engagement. The addition present was supported by the transcript and did not impact the grade.",
+        "summary": "The Plan section has multiple omissions, including specific details like the quantity of statin tablets, encouraging hydration, the goal of dietary changes to manage cholesterol, and providing resources for smoking cessation programs. More significantly, it omits the crucial step to review lipid panel results and adjust treatment, and the entire 'Patient Agreements' section, which covers patient understanding and motivation. It also omits specific patient education points like discussing benefits/side effects of Atorvastatin and encouraging recording home BP.",
         "omissions": [
           "Statin therapy detail: '30 tablets'",
           "Encourage hydration",
@@ -363,21 +363,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see you're here to discuss your recently diagnosed atherosclerotic heart disease of the native coronary artery without angina pectoris. [patient] I've been asymptomatic for angina. [doctor] I see you have hypertension and hyperlipidemia. Is that correct? [patient] Yes, that's right. [doctor] Based on your history and today's examination, we'll continue to manage your conditions. For your atherosclerotic heart disease, we'll initiate statin therapy with Atorvastatin 40 mg once daily. [doctor] For your hypertension, you'll continue with Losartan 50 mg daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Asymptomatic atherosclerotic heart disease and hypertension managed appropriately with medication."
+      "matched_claim_text": "Asymptomatic atherosclerotic heart disease and hypertension managed appropriately with medication.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Educational material on 'lifestyle changes' (in addition to diet and exercise)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] ...and I've provided you with educational material on a heart-healthy diet and exercise.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide educational material on heart-healthy diet, exercise, and lifestyle changes."
+      "matched_claim_text": "Provide educational material on heart-healthy diet, exercise, and lifestyle changes.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Asymptomatic atherosclerotic heart disease 'managed appropriately with medication'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see you're here to discuss your recently diagnosed atherosclerotic heart disease of the native coronary artery without angina pectoris. [patient] I've been asymptomatic for angina. [doctor] I see you have hypertension and hyperlipidemia. Is that correct? [patient] Yes, that's right. [doctor] Based on your history and today's examination, we'll continue to manage your conditions. For your atherosclerotic heart disease, we'll initiate statin therapy with Atorvastatin 40 mg once daily. [doctor] For your hypertension, you'll continue with Losartan 50 mg daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Asymptomatic atherosclerotic heart disease and hypertension managed appropriately with medication."
+      "matched_claim_text": "Asymptomatic atherosclerotic heart disease and hypertension managed appropriately with medication.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

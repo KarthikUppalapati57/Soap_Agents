@@ -261,120 +261,95 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective section, where entire sub-sections such as Review of Systems, Medical History, and Social History are missing. This materially reduces the clinical usefulness and completeness of the note. Additionally, all secondary concerns were omitted from the Assessment. While the Objective and Plan sections are better, the foundational gaps in the Subjective section and the incomplete Assessment lead to a low overall grade. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The note suffers from major omissions in the Subjective section, notably the complete absence of Medical History and Social History. These are critical components for comprehensive patient care and their absence significantly reduces the clinical usefulness and completeness of the documentation. While other sections are generally well-captured, this foundational gap warrants a lower overall grade.",
     "omissions": [
-      "Chief Complaint (CC) section header",
-      "HPI details: Patient is here for a follow-up visit",
-      "HPI details: Symptoms consistent with hypothyroidism",
-      "HPI details: Fatigue affecting ability to manage home and work activities",
-      "HPI details: Weight gain despite no significant changes in diet",
-      "HPI details: Symptoms described as moderate in severity and constant",
-      "Review of Systems (ROS) section",
-      "ROS: General: difficulty managing daily activities",
-      "Medical History section",
-      "Medical History: Previous Diagnoses: Gestational diabetes during previous pregnancy",
-      "Medical History: Family Medical History: Mother has rheumatoid arthritis, father has high cholesterol",
-      "Medical History: Medication History: Previously on insulin during pregnancy. Not currently on any medication",
-      "Medical History: Allergies: No known drug allergies",
-      "Medical History: Chronic Conditions: None",
-      "Social History section",
-      "Social History: Diet: High in sugars and fats, irregular meals",
-      "Social History: Exercise: Rarely exercises, very sedentary lifestyle",
-      "Social History: Tobacco Use: Non-smoker",
-      "Social History: Alcohol Consumption: Rarely, perhaps one drink a month",
-      "Social History: Job Status: Full-time retail clerk",
-      "Social History: Education Level: Associate degree",
-      "Social History: Socio-economic Status: Lower-middle-class",
-      "Social History: Health Literacy: Limited understanding of medical terms, often needs clarification",
-      "Physical Exam: Neck: no obvious enlargement",
-      "Physical Exam: CV: rubs, or gallops",
-      "Physical Exam: Abdomen: no hepatosplenomegaly",
-      "Assessment: Primary Diagnosis: unspecified",
-      "Assessment: Secondary Concerns: Constipation, menstrual irregularities, brittle nails, thinning hair, and fatigue",
-      "Plan: Medication: 30 tablets",
-      "Plan: Education: Explained the importance of medication adherence and regular follow-up visits",
-      "Plan: Instructions: Recommended booking an appointment with Dr. Sarah Adams for dietary advice",
-      "Plan: Instructions: Scheduled a follow-up visit in 8 weeks to assess response to treatment and adjust medication if necessary"
+      "Chief Complaint section header and content",
+      "History of Present Illness details (follow-up visit, impact on home/work activities, weight gain despite no significant diet changes, symptom severity and constancy)",
+      "Review of Systems section structure",
+      "Review of Systems detail: difficulty managing daily activities (General)",
+      "Medical History section (Previous Diagnoses, Family Medical History, Medication History, Allergies, Chronic Conditions)",
+      "Social History section (Diet, Exercise, Sleep duration, Tobacco Use, Alcohol Consumption, Job Status, Education Level, Socio-economic Status, Health Literacy)",
+      "Physical exam detail: no obvious thyroid enlargement",
+      "Physical exam detail: no cardiac rubs or gallops",
+      "Physical exam detail: lungs equal bilaterally",
+      "Physical exam detail: no hepatosplenomegaly",
+      "Qualifier 'unspecified' for hypothyroidism diagnosis",
+      "Secondary Concerns list in Assessment (constipation, menstrual irregularities, brittle nails, thinning hair, fatigue)",
+      "Medication quantity (30 tablets)",
+      "Education detail: explanation of the importance of medication adherence and regular follow-up visits",
+      "Instruction: recommendation to book an appointment with Dr. Sarah Adams for dietary advice",
+      "Follow-up detail: to assess response to treatment and adjust medication if necessary",
+      "Investigation detail: TSH and Free T4 explicitly ordered (as part of the investigation list, distinct from follow-up testing)"
     ],
     "additions": [
-      "Subjective: Patient reports feeling frustrated",
-      "Subjective: Unrefreshing sleep listed as a complaint (moved from Social History in GT)",
-      "Objective: Vital signs within normal ranges",
-      "Assessment: To be confirmed by TSH and Free T4 tests"
+      "Patient reports feeling frustrated in Subjective",
+      "Statement 'Vital signs within normal ranges' in Objective",
+      "Qualifier 'Possible' for hypothyroidism diagnosis in Assessment",
+      "Statement 'to be confirmed by TSH and Free T4 tests' in Assessment",
+      "Instruction '30 minutes before breakfast' integrated into Levothyroxine prescription line in Plan"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "D",
-        "summary": "This section has numerous and significant omissions, including the entire Review of Systems, Medical History, and Social History sections, along with several key details from the History of Present Illness. These omissions represent major gaps that materially reduce the clinical usefulness and completeness of the subjective information. All additions were supported by the transcript.",
+        "summary": "This section has major omissions, including the complete absence of the Medical History and Social History sections. These are critical for providing comprehensive patient context and their absence significantly impacts the clinical usefulness of the note. Several HPI details and ROS structural elements are also omitted.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "HPI details: Patient is here for a follow-up visit",
-          "HPI details: Symptoms consistent with hypothyroidism",
-          "HPI details: Fatigue affecting ability to manage home and work activities",
-          "HPI details: Weight gain despite no significant changes in diet",
-          "HPI details: Symptoms described as moderate in severity and constant",
-          "Review of Systems (ROS) section",
-          "ROS: General: difficulty managing daily activities",
-          "ROS: Dermatological: dry, flaky skin (present in Objective section of GeneratedSOAP)",
-          "Medical History section",
-          "Medical History: Previous Diagnoses: Gestational diabetes during previous pregnancy",
-          "Medical History: Family Medical History: Mother has rheumatoid arthritis, father has high cholesterol",
-          "Medical History: Medication History: Previously on insulin during pregnancy. Not currently on any medication",
-          "Medical History: Allergies: No known drug allergies",
-          "Medical History: Chronic Conditions: None",
-          "Social History section",
-          "Social History: Diet: High in sugars and fats, irregular meals",
-          "Social History: Exercise: Rarely exercises, very sedentary lifestyle",
-          "Social History: Tobacco Use: Non-smoker",
-          "Social History: Alcohol Consumption: Rarely, perhaps one drink a month",
-          "Social History: Job Status: Full-time retail clerk",
-          "Social History: Education Level: Associate degree",
-          "Social History: Socio-economic Status: Lower-middle-class",
-          "Social History: Health Literacy: Limited understanding of medical terms, often needs clarification"
+          "Chief Complaint section header and content",
+          "History of Present Illness details: follow-up visit",
+          "History of Present Illness details: symptoms affecting ability to manage home and work activities",
+          "History of Present Illness details: weight gain despite no significant changes in diet",
+          "History of Present Illness details: symptoms described as moderate in severity and constant",
+          "Review of Systems section structure",
+          "Review of Systems detail: difficulty managing daily activities (General)",
+          "Medical History section (Previous Diagnoses, Family Medical History, Medication History, Allergies, Chronic Conditions)",
+          "Social History section (Diet, Exercise, Sleep duration, Tobacco Use, Alcohol Consumption, Job Status, Education Level, Socio-economic Status, Health Literacy)"
         ],
         "additions": [
-          "Patient reports feeling frustrated",
-          "Unrefreshing sleep listed as a complaint (moved from Social History in GT)"
+          "Patient reports feeling frustrated"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-aligned with the GroundTruth, with only a few minor physical exam details omitted (e.g., 'no obvious enlargement' for neck, 'rubs, or gallops' for CV, 'no hepatosplenomegaly' for abdomen). The core objective findings are accurately captured. All additions were supported by the transcript.",
+        "summary": "The Objective section is well-captured. All major vital signs and physical exam findings are present. The omissions are minor descriptive details that do not impact the clinical accuracy or completeness of the section.",
         "omissions": [
-          "Physical Exam: Neck: no obvious enlargement",
-          "Physical Exam: CV: rubs, or gallops",
-          "Physical Exam: Abdomen: no hepatosplenomegaly"
+          "Physical exam detail: no obvious thyroid enlargement",
+          "Physical exam detail: no cardiac rubs or gallops",
+          "Physical exam detail: lungs equal bilaterally",
+          "Physical exam detail: no hepatosplenomegaly"
         ],
         "additions": [
-          "Vital signs within normal ranges"
+          "Statement 'Vital signs within normal ranges'"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "While the primary diagnosis of hypothyroidism is present, all secondary concerns (constipation, menstrual irregularities, brittle nails, thinning hair, and fatigue) are omitted. This constitutes a noticeable gap that makes the assessment meaningfully incomplete. All additions were supported by the transcript.",
+        "grade": "B",
+        "summary": "The primary diagnosis is present, but the section has a moderate omission of the 'Secondary Concerns list,' which includes important patient symptoms like constipation, menstrual irregularities, brittle nails, thinning hair, and fatigue. This makes the assessment less comprehensive than the Ground Truth.",
         "omissions": [
-          "Primary Diagnosis: unspecified",
-          "Secondary Concerns: Constipation, menstrual irregularities, brittle nails, thinning hair, and fatigue"
+          "Qualifier 'unspecified' for hypothyroidism diagnosis",
+          "Secondary Concerns list (constipation, menstrual irregularities, brittle nails, thinning hair, fatigue)"
         ],
         "additions": [
-          "To be confirmed by TSH and Free T4 tests"
+          "Qualifier 'Possible' for hypothyroidism diagnosis",
+          "Statement 'to be confirmed by TSH and Free T4 tests'"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned and usable, capturing the main treatment, follow-up, and lifestyle recommendations. However, it has several minor to moderate omissions, including the medication quantity ('30 tablets'), specific details about patient education regarding medication adherence and follow-up importance, and the full scope of follow-up instructions. No unsupported or unknown additions were present.",
+        "summary": "The core elements of the plan, including medication, follow-up, referral, lifestyle recommendations, and investigations, are present. There are several minor to moderate omissions, such as the medication quantity, specific details about patient education regarding adherence, and the full rationale for follow-up. However, no critical actions are missing.",
         "omissions": [
-          "Medication: 30 tablets",
-          "Education: Explained the importance of medication adherence and regular follow-up visits",
-          "Instructions: Recommended booking an appointment with Dr. Sarah Adams for dietary advice",
-          "Instructions: Scheduled a follow-up visit in 8 weeks to assess response to treatment and adjust medication if necessary"
+          "Medication quantity (30 tablets)",
+          "Education detail: explanation of the importance of medication adherence and regular follow-up visits",
+          "Instruction: recommendation to book an appointment with Dr. Sarah Adams for dietary advice",
+          "Follow-up detail: to assess response to treatment and adjust medication if necessary",
+          "Investigation detail: TSH and Free T4 explicitly ordered"
         ],
-        "additions": []
+        "additions": [
+          "Instruction '30 minutes before breakfast' integrated into Levothyroxine prescription line"
+        ]
       }
     ],
     "rubric_notes": null
@@ -382,60 +357,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Patient reports feeling frustrated",
+      "addition_text": "Patient reports feeling frustrated in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I'm actually feeling quite tired and a bit frustrated.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports feeling frustrated."
+      "matched_claim_text": "Patient reports feeling frustrated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective: Unrefreshing sleep listed as a complaint (moved from Social History in GT)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I usually sleep 7-8 hours a night, but I still wake up feeling unrefreshed.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: Vital signs within normal ranges",
+      "addition_text": "Statement 'Vital signs within normal ranges' in Objective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, those vitals are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: To be confirmed by TSH and Free T4 tests",
+      "addition_text": "Qualifier 'Possible' for hypothyroidism diagnosis in Assessment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and our examination, it appears you might have hypothyroidism.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Possible hypothyroidism.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement 'to be confirmed by TSH and Free T4 tests' in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll need to confirm this with some blood tests, including TSH and Free T4.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypothyroidism to be confirmed by TSH and Free T4 tests."
+      "matched_claim_text": "Hypothyroidism to be confirmed by TSH and Free T4 tests.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Instruction '30 minutes before breakfast' integrated into Levothyroxine prescription line in Plan",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We’ll start with a medication called Levothyroxine. I’m prescribing you 100 mcg, to be taken orally once daily. You'll need to take it on an empty stomach, preferably 30 minutes before breakfast.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Start Levothyroxine 100 mcg orally once daily, to be taken 30 minutes before breakfast.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient reports feeling frustrated",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I'm actually feeling quite tired and a bit frustrated.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports feeling frustrated."
+      "matched_claim_text": "Patient reports feeling frustrated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Unrefreshing sleep listed as a complaint (moved from Social History in GT)",
+      "addition_text": "Statement 'Vital signs within normal ranges'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I usually sleep 7-8 hours a night, but I still wake up feeling unrefreshed.",
+      "transcript_evidence": "Yes, those vitals are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Vital signs within normal ranges",
+      "addition_text": "Qualifier 'Possible' for hypothyroidism diagnosis",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Your blood pressure is 130/85 mmHg, heart rate is 68 bpm, respiratory rate is 16, and your oxygen saturation is at 98% on room air. You're afebrile. ... [doctor] Yes, those vitals are within normal ranges.",
+      "transcript_evidence": "[doctor] Based on your symptoms and our examination, it appears you might have hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal ranges (BP 130/85 mmHg, HR 68 bpm, RR 16, O2 sat 98% on room air, afebrile)."
+      "matched_claim_text": "Possible hypothyroidism.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "To be confirmed by TSH and Free T4 tests",
+      "addition_text": "Statement 'to be confirmed by TSH and Free T4 tests'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We’ll need to confirm this with some blood tests, including TSH and Free T4.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypothyroidism to be confirmed by TSH and Free T4 tests."
+      "matched_claim_text": "Hypothyroidism to be confirmed by TSH and Free T4 tests.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Instruction '30 minutes before breakfast' integrated into Levothyroxine prescription line",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We’ll start with a medication called Levothyroxine. I’m prescribing you 100 mcg, to be taken orally once daily. You'll need to take it on an empty stomach, preferably 30 minutes before breakfast.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Start Levothyroxine 100 mcg orally once daily, to be taken 30 minutes before breakfast.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

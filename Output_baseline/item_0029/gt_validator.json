@@ -2,7 +2,7 @@
   "item": "item_0029",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0029",
   "ground_truth_soap": "Subjective\n\nChief Complaint (CC): Elevated blood pressure and associated symptoms.\n\nHistory of Present Illness (HPI):\nMr. Michael Hunt is a 52-year-old Caucasian male with a known medical history of pre-hypertension and hyperlipidemia who presents for a routine check-up. The patient reports that over the past month, he has noted mild to moderate elevated blood pressure readings. He has experienced occasional headaches and dizziness occurring 2-3 times a week. These symptoms have had a mild impact on his daily activities, making him feel more tired than usual. He feels fatigued despite averaging 6-7 hours of sleep per night.\n\nReview of Systems (ROS):\n- Constitutional: Feels more tired than usual.\n- Cardiovascular: Reports elevated blood pressure readings; occasional headaches and dizziness.\n- Respiratory: No complaints.\n- Gastrointestinal: No complaints.\n- Genitourinary: No complaints.\n- Musculoskeletal: No complaints.\n- Neurological: Occasional headaches and dizziness.\n- Psychiatric: No complaints.\n- Endocrine: No complaints.\n- Hematologic: No complaints.\n- Allergic/Immunologic: No known drug allergies.\n\nObjective\n\nPhysical Examination:\n- Vital Signs:\n  - Blood Pressure: 150/95 mmHg\n  - Pulse: 78 bpm\n- Heart: Mild systolic murmur, no gallops\n- Lungs: Clear to auscultation bilaterally\n\nAssessment\nMr. Michael Hunt is a 52-year-old male with a known history of pre-hypertension and hyperlipidemia who presents with elevated blood pressure and associated symptoms such as headaches and dizziness.\n\nDiagnosis:\n- Encounter for general adult medical examination with abnormal findings:\n  - Hypertension (new diagnosis)\n  - Hyperlipidemia\n\nPlan\n- Medication Adjustment:\n  - Start on Lisinopril 10 mg, 1 tablet daily, oral route.\n  - Continue Atorvastatin 20 mg, oral daily for hyperlipidemia.\n- Lifestyle Change:\n  - Recommend dietary changes to lower salt intake.\n  - Advise regular exercise and reduced alcohol consumption.\n- Referral:\n  - Refer to Cardiologist (Dr. Sarah Johnson) for evaluation of hypertension.\n- Order for Blood Work:\n  - Hematology panel (CBC)\n  - Biochemistry (Lipid Profile, Blood Glucose)\n  - Thyroid Function Tests\n- Order for Imaging:\n  - Chest X-ray to evaluate for possible cardiopulmonary abnormalities.\n- Follow-Up Recommendations:\n  - Revisit in 6 months for follow-up examination.\n\nPatient Agreements: The patient understands and agrees with the recommended medical treatment plan.",
-  "generated_soap": "Subjective:\n- Patient reports elevated blood pressure over the past month, with occasional headaches and dizziness.\n- Fatigue and decreased sleep quality reported.\n\nObjective:\n- Blood pressure: 150/95 mmHg\n- Pulse: 78 bpm\n- Mild systolic murmur on cardiac exam\n- Lungs clear to auscultation bilaterally\n\nAssessment:\n- Hypertension likely due to pre-existing hypertension and hyperlipidemia.\n- Associated symptoms of headaches and dizziness.\n\nPlan:\n- Initiate Lisinopril 10 mg daily for hypertension management.\n- Continue Atorvastatin 20 mg daily for hyperlipidemia.\n- Lifestyle modifications: reduce salt intake, increase physical activity, and limit alcohol consumption.\n- Referral to cardiologist for further evaluation.\n- Blood work (CBC, lipid profile, blood glucose, thyroid function tests) and chest X-ray ordered.\n- Follow-up examination in 6 months.",
+  "generated_soap": "Subjective:\n- Patient reports elevated blood pressure for the past month with occasional headaches and dizziness\n- Fatigue reported due to symptoms\n- No other complaints of issues with breathing, digestion, or urination; no muscle pain or weakness, mood changes, or known drug allergies\n\nObjective:\n- Blood pressure: 150/95 mmHg\n- Pulse: 78 bpm\n- Mild systolic murmur detected on heart examination\n- Lungs clear to auscultation bilaterally\n\nAssessment:\n- Hypertension likely developing in a patient with pre-hypertension and hyperlipidemia history\n\nPlan:\n- Start Lisinopril 10 mg daily\n- Continue Atorvastatin 20 mg daily for hyperlipidemia management\n- Lower salt intake, engage in regular exercise, reduce alcohol consumption\n- Referral to cardiologist Dr. Sarah Johnson for further evaluation of hypertension\n- Order blood work including CBC, lipid profile, blood glucose, and thyroid function tests\n- Chest X-ray to evaluate for potential cardiopulmonary abnormalities\n- Follow-up examination in 6 months",
   "entities_gt": {
     "all_entities": [
       "symptoms",
@@ -60,18 +60,20 @@
   "entities_generated": {
     "all_entities": [
       "blood pressure",
-      "headaches",
+      "occasional headaches",
       "dizziness",
       "fatigue",
+      "symptoms",
+      "mood changes",
+      "drug allergies",
       "pulse",
       "mild systolic murmur",
+      "heart examination",
       "lungs",
       "hypertension",
       "hyperlipidemia",
+      "lisinopril 10 mg",
       "atorvastatin 20 mg",
-      "lifestyle modifications",
-      "reduce salt intake",
-      "blood work",
       "cbc",
       "lipid profile",
       "blood glucose",
@@ -80,10 +82,10 @@
       "follow-up examination"
     ],
     "symptoms": [
-      "headaches",
+      "occasional headaches",
       "dizziness",
       "fatigue",
-      "decreased sleep quality",
+      "mood changes",
       "mild systolic murmur"
     ],
     "medications": [
@@ -102,66 +104,68 @@
   },
   "clinical_recall_all": {
     "gt_count": 29,
-    "gen_count": 19,
-    "overlap_count": 13,
-    "recall": 0.4482758620689655,
+    "gen_count": 21,
+    "overlap_count": 14,
+    "recall": 0.4827586206896552,
     "gt_only": [
       "allergic/immunologic",
       "biochemistry",
+      "blood work",
       "dietary changes",
-      "drug allergies",
+      "headaches",
       "heart",
       "hematology panel",
       "lifestyle change",
-      "lisinopril 10 mg",
       "musculoskeletal",
       "no gallops",
       "objective physical examination",
       "pre-hypertension",
       "regular exercise",
       "respiratory",
-      "symptoms",
       "vital signs"
     ],
     "gen_only": [
       "chest x-ray",
       "fatigue",
       "follow-up examination",
-      "lifestyle modifications",
-      "reduce salt intake",
+      "heart examination",
+      "mood changes",
+      "occasional headaches",
       "thyroid function tests"
     ],
     "overlap": [
       "atorvastatin 20 mg",
       "blood glucose",
       "blood pressure",
-      "blood work",
       "cbc",
       "dizziness",
-      "headaches",
+      "drug allergies",
       "hyperlipidemia",
       "hypertension",
       "lipid profile",
+      "lisinopril 10 mg",
       "lungs",
       "mild systolic murmur",
-      "pulse"
+      "pulse",
+      "symptoms"
     ]
   },
   "clinical_recall_symptoms": {
     "gt_count": 4,
     "gen_count": 5,
-    "overlap_count": 3,
-    "recall": 0.75,
+    "overlap_count": 2,
+    "recall": 0.5,
     "gt_only": [
+      "headaches",
       "no gallops"
     ],
     "gen_only": [
-      "decreased sleep quality",
-      "fatigue"
+      "fatigue",
+      "mood changes",
+      "occasional headaches"
     ],
     "overlap": [
       "dizziness",
-      "headaches",
       "mild systolic murmur"
     ]
   },
@@ -202,143 +206,140 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.48747371613532947,
-    "overall_rouge_l_f1": 0.4303083882685799,
+    "overall_token_f1": 0.5400146464809782,
+    "overall_rouge_l_f1": 0.449787402136261,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.2459016393442623,
-        "rouge_l_f1": 0.1379310344827586
+        "token_f1": 0.3165467625899281,
+        "rouge_l_f1": 0.18556701030927833
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.761904761904762,
-        "rouge_l_f1": 0.761904761904762
+        "token_f1": 0.8372093023255814,
+        "rouge_l_f1": 0.7441860465116279
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.35294117647058826,
-        "rouge_l_f1": 0.29508196721311475
+        "token_f1": 0.2857142857142857,
+        "rouge_l_f1": 0.20689655172413793
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5891472868217054,
-        "rouge_l_f1": 0.5263157894736843
+        "token_f1": 0.7205882352941176,
+        "rouge_l_f1": 0.6625
       }
     ],
-    "assessment_alignment_score": 0.35294117647058826,
-    "plan_alignment_score": 0.5891472868217054
+    "assessment_alignment_score": 0.2857142857142857,
+    "plan_alignment_score": 0.7205882352941176
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a concise summary but suffers from significant omissions in the Subjective section, lacking detailed HPI, a comprehensive Review of Systems, and patient history. The Assessment section includes an unsupported addition regarding the causality of hypertension. While the Objective and Plan sections are mostly accurate, the overall note is meaningfully incomplete and requires careful review due to these gaps and the unsupported statement.",
+    "model": "Agent-3",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaints, vital signs, physical exam findings, and the core treatment plan. There are no unsupported or unknown additions that would negatively impact the grade. However, the note omits several minor details, structural headers, and the formal diagnosis of hyperlipidemia in the Assessment section.",
     "omissions": [
-      "Chief Complaint section header and content",
-      "History of Present Illness (HPI) section header",
-      "Review of Systems (ROS) section header and detailed content",
+      "Chief Complaint section header and content (\"Elevated blood pressure and associated symptoms\")",
+      "HPI detail: Patient presents for a routine check-up",
+      "HPI detail: Patient's known medical history of pre-hypertension and hyperlipidemia (as part of HPI introduction)",
+      "HPI detail: Blood pressure readings described as \"mild to moderate\"",
+      "HPI detail: Headaches and dizziness occurring \"2-3 times a week\"",
+      "HPI detail: Symptoms having a \"mild impact on his daily activities\"",
+      "HPI detail: Patient averaging \"6-7 hours of sleep per night\"",
+      "Structured Review of Systems (ROS) with individual categories",
+      "ROS categories explicitly stated as \"No complaints\": Endocrine, Hematologic",
       "Physical Examination section header",
+      "Vital Signs sub-header",
+      "Heart exam detail: \"no gallops\"",
+      "Assessment detail: Patient's presentation (\"presents with elevated blood pressure and associated symptoms such as headaches and dizziness\")",
       "Diagnosis section header",
-      "Patient Agreements section header and content",
-      "Patient presenting for a routine check-up",
-      "Headaches and dizziness occurring \"2-3 times a week\"",
-      "Symptoms having a \"mild impact on daily activities\"",
-      "Patient feeling \"more tired than usual\"",
-      "Averaging \"6-7 hours of sleep per night\"",
-      "\"no gallops\" in heart exam findings",
-      "\"new diagnosis\" for hypertension",
-      "Specific referral doctor's name (Dr. Sarah Johnson)",
-      "Purpose of chest X-ray (evaluate for possible cardiopulmonary abnormalities)",
-      "\"1 tablet\" for Lisinopril dosage",
-      "\"oral route\" for Lisinopril",
-      "\"oral daily\" for Atorvastatin"
+      "Diagnosis: \"Encounter for general adult medical examination with abnormal findings\"",
+      "Diagnosis: \"Hypertension (new diagnosis)\" (specifically \"new diagnosis\" qualifier)",
+      "Diagnosis: \"Hyperlipidemia\" (as a distinct diagnosis)",
+      "Plan section headers (e.g., \"Medication Adjustment\", \"Lifestyle Change\", \"Referral\", \"Order for Blood Work\", \"Order for Imaging\", \"Follow-Up Recommendations\")",
+      "Lisinopril dosage detail: \"1 tablet\"",
+      "Lisinopril route: \"oral route\"",
+      "Atorvastatin route: \"oral\"",
+      "Blood work category: \"Hematology panel\" (for CBC)",
+      "Blood work category: \"Biochemistry\" (for Lipid Profile, Blood Glucose)",
+      "\"Patient Agreements\" section and its content"
     ],
     "additions": [
-      "\"decreased sleep quality reported\" in Subjective",
-      "\"on cardiac exam\" qualifier for mild systolic murmur",
-      "\"likely due to\" phrasing in Assessment",
-      "\"for hypertension management\" for Lisinopril",
-      "\"for hyperlipidemia\" for Atorvastatin",
-      "\"increase physical activity\" in lifestyle modifications",
-      "\"further evaluation\" for cardiologist referral",
-      "\"ordered\" for blood work and chest X-ray"
+      "Objective detail: \"detected on heart examination\"",
+      "Assessment detail: \"likely developing\" (for hypertension)",
+      "Plan detail: \"management\" (for hyperlipidemia)",
+      "Plan detail: \"further\" (for evaluation of hypertension)"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "\"likely due to\" phrasing in Assessment"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section is significantly incomplete, omitting major structural components like the Chief Complaint, HPI, and a detailed Review of Systems. It also misses crucial patient history (pre-hypertension and hyperlipidemia), the reason for visit (routine check-up), specific symptom frequencies, and details about fatigue and sleep, making it a sparse and less informative account of the patient's presentation.",
+        "grade": "B",
+        "summary": "The section accurately captures the patient's chief complaints, headaches, dizziness, and fatigue. However, it omits the formal Chief Complaint header, some HPI introductory details (including the patient's known medical history in the HPI), and the structured Review of Systems, instead providing a summarized version.",
         "omissions": [
           "Chief Complaint section header and content (\"Elevated blood pressure and associated symptoms\")",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
-          "Patient's known medical history of pre-hypertension and hyperlipidemia",
-          "Patient presenting for a routine check-up",
-          "Headaches and dizziness occurring \"2-3 times a week\"",
-          "Symptoms having a \"mild impact on daily activities\"",
-          "Patient feeling \"more tired than usual\"",
-          "Averaging \"6-7 hours of sleep per night\"",
-          "Detailed Review of Systems (Constitutional, Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Musculoskeletal, Neurological, Psychiatric, Endocrine, Hematologic, Allergic/Immunologic)",
-          "No known drug allergies"
+          "HPI detail: Patient presents for a routine check-up",
+          "HPI detail: Patient's known medical history of pre-hypertension and hyperlipidemia (as part of HPI introduction)",
+          "HPI detail: Blood pressure readings described as \"mild to moderate\"",
+          "HPI detail: Headaches and dizziness occurring \"2-3 times a week\"",
+          "HPI detail: Symptoms having a \"mild impact on his daily activities\"",
+          "HPI detail: Patient averaging \"6-7 hours of sleep per night\"",
+          "Structured Review of Systems (ROS) with individual categories",
+          "ROS categories explicitly stated as \"No complaints\": Endocrine, Hematologic"
         ],
-        "additions": [
-          "\"decreased sleep quality reported\""
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures the key vital signs and physical examination findings. The omissions are minor formatting headers (Physical Examination, Vital Signs) and a small detail about heart sounds (\"no gallops\"), which do not impact the clinical utility of the documented findings.",
+        "summary": "This section is well-aligned, accurately reporting vital signs and physical exam findings. It only omits minor structural headers and the detail \"no gallops\" from the heart examination.",
         "omissions": [
           "Physical Examination section header",
-          "Vital Signs section header",
-          "\"no gallops\" in heart examination findings"
+          "Vital Signs sub-header",
+          "Heart exam detail: \"no gallops\""
         ],
         "additions": [
-          "\"on cardiac exam\" qualifier for mild systolic murmur"
+          "Objective detail: \"detected on heart examination\""
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section correctly identifies the diagnoses but omits the \"Diagnosis\" header and the \"new diagnosis\" qualifier for hypertension. A significant issue is the unsupported addition of \"likely due to\" phrasing, which introduces a causal interpretation not explicitly supported by the transcript or GroundTruth.",
+        "grade": "B",
+        "summary": "The section correctly identifies the likely development of hypertension and mentions the history of pre-hypertension and hyperlipidemia. However, it omits the detailed patient presentation, the formal diagnosis of hyperlipidemia as a distinct item, the \"new diagnosis\" qualifier for hypertension, and an administrative diagnosis.",
         "omissions": [
+          "Assessment detail: Patient's presentation (\"presents with elevated blood pressure and associated symptoms such as headaches and dizziness\")",
           "Diagnosis section header",
-          "\"new diagnosis\" for Hypertension"
+          "Diagnosis: \"Encounter for general adult medical examination with abnormal findings\"",
+          "Diagnosis: \"Hypertension (new diagnosis)\" (specifically \"new diagnosis\" qualifier)",
+          "Diagnosis: \"Hyperlipidemia\" (as a distinct diagnosis)"
         ],
         "additions": [
-          "\"likely due to\" phrasing connecting hypertension to pre-existing conditions"
+          "Assessment detail: \"likely developing\" (for hypertension)"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly comprehensive, outlining medications, lifestyle changes, referrals, orders, and follow-up. However, it omits several minor dosage specifics (\"1 tablet\", \"oral route\", \"oral daily\"), the specific name of the cardiologist (Dr. Sarah Johnson), the detailed purpose of the chest X-ray, and the entire Patient Agreements section. These are minor omissions that do not fundamentally alter the clinical plan.",
+        "summary": "The section effectively outlines the medication adjustments, lifestyle changes, referral, orders for blood work and imaging, and follow-up recommendations. It omits several sub-headers, minor medication details (e.g., \"1 tablet\", \"oral route\"), and the \"Patient Agreements\" section.",
         "omissions": [
-          "\"1 tablet\" for Lisinopril dosage",
-          "\"oral route\" for Lisinopril",
-          "\"oral daily\" for Atorvastatin",
-          "Specific name of the cardiologist (Dr. Sarah Johnson)",
-          "Purpose of chest X-ray (\"to evaluate for possible cardiopulmonary abnormalities\")",
-          "Patient Agreements section header and content (\"The patient understands and agrees with the recommended medical treatment plan\")"
+          "Plan section headers (e.g., \"Medication Adjustment\", \"Lifestyle Change\", \"Referral\", \"Order for Blood Work\", \"Order for Imaging\", \"Follow-Up Recommendations\")",
+          "Lisinopril dosage detail: \"1 tablet\"",
+          "Lisinopril route: \"oral route\"",
+          "Atorvastatin route: \"oral\"",
+          "Blood work category: \"Hematology panel\" (for CBC)",
+          "Blood work category: \"Biochemistry\" (for Lipid Profile, Blood Glucose)",
+          "\"Patient Agreements\" section and its content"
         ],
         "additions": [
-          "\"for hypertension management\" for Lisinopril",
-          "\"for hyperlipidemia\" for Atorvastatin",
-          "\"increase physical activity\" in lifestyle modifications",
-          "\"further evaluation\" for cardiologist referral",
-          "\"ordered\" for blood work and chest X-ray"
+          "Plan detail: \"management\" (for hyperlipidemia)",
+          "Plan detail: \"further\" (for evaluation of hypertension)"
         ]
       }
     ],
@@ -347,74 +348,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"decreased sleep quality reported\" in Subjective",
+      "addition_text": "Objective detail: \"detected on heart examination\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm averaging about 6-7 hours of sleep per night, but I still feel fatigued.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "I'm also hearing a mild systolic murmur, but no gallops in your heart.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Mild systolic murmur detected on heart examination, no gallops.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"on cardiac exam\" qualifier for mild systolic murmur",
+      "addition_text": "Assessment detail: \"likely developing\" (for hypertension)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I'll now check your vitals and do a physical exam. ... I'm also hearing a mild systolic murmur, but no gallops in your heart.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "it looks like you might be developing hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Hypertension likely developing.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"likely due to\" phrasing in Assessment",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"for hypertension management\" for Lisinopril",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension. I'll need to make some adjustments to your medications and lifestyle to help manage this. First, I'll start you on Lisinopril 10 mg, one tablet daily.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"for hyperlipidemia\" for Atorvastatin",
+      "addition_text": "Plan detail: \"management\" (for hyperlipidemia)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Continue taking your Atorvastatin 20 mg daily for hyperlipidemia.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Continue Atorvastatin 20 mg daily for hyperlipidemia management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"increase physical activity\" in lifestyle modifications",
+      "addition_text": "Plan detail: \"further\" (for evaluation of hypertension)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "engaging in regular exercise",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"further evaluation\" for cardiologist referral",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"ordered\" for blood work and chest X-ray",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'll also order some blood work, including a complete blood count, lipid profile, blood glucose, and thyroid function tests. Additionally, we'll get a chest X-ray to evaluate for any potential cardiopulmonary abnormalities.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"decreased sleep quality reported\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm averaging about 6-7 hours of sleep per night, but I still feel fatigued.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"likely due to\" phrasing connecting hypertension to pre-existing conditions",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Referral to cardiologist Dr. Sarah Johnson for further evaluation of hypertension.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

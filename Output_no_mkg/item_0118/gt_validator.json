@@ -216,17 +216,17 @@
     "plan_alignment_score": 0.6503067484662577
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_model",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has multiple moderate omissions that make it meaningfully incomplete. Key details regarding the severity of the chief complaint, specific functional limitations, important medical history in the ROS, the primary diagnosis, and medication dispense details are missing. There are no unsupported or unknown additions that would lower the grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the core clinical picture, including the chief complaint, key HPI elements, objective findings, differential diagnoses, and major components of the plan. However, it has several minor omissions across sections and a few moderate gaps, such as the severity of the walking difficulty and the primary diagnosis. There are no unsupported or unknown additions that detract from the note's accuracy.",
     "omissions": [],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section has several moderate omissions, including the severity of difficulty in walking ('severe difficulty'), the inability to walk more than 20 feet without assistance, and the history of Type 2 Diabetes Mellitus and hypertension in the ROS. These omissions create noticeable gaps in the patient's presenting history.",
+        "grade": "B",
+        "summary": "This section omits several important details, including the severity of the patient's difficulty in walking ('severe difficulty' and 'unable to walk more than 20 feet without assistance'). Additionally, specific details from the Musculoskeletal, Endocrine, Cardiovascular, and Neurological Review of Systems are not included.",
         "omissions": [
           "Severity of difficulty in walking: 'severe difficulty'",
           "Inability to walk more than 20 feet without assistance",
@@ -240,7 +240,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent. It accurately captures all major vital signs and physical exam findings. The omissions of 'Alert, oriented, cooperative' and 'No joint effusion or deformities observed' are minor and do not detract from the clinical usefulness of the section.",
+        "summary": "The Objective section is nearly complete, accurately capturing all vital signs and critical neurological and gait findings. Minor omissions include the general physical exam findings ('Alert, oriented, cooperative') and musculoskeletal findings ('No joint effusion or deformities observed').",
         "omissions": [
           "General physical exam findings: 'Alert, oriented, cooperative'",
           "Musculoskeletal physical exam findings: 'No joint effusion or deformities observed'"
@@ -250,7 +250,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section is mostly aligned, listing the key differential diagnoses. However, it omits the primary diagnosis of 'Difficulty in walking, not elsewhere classified' and the explicit labeling of diagnoses as 'Differential Diagnosis', which are moderate issues that reduce the completeness of the section.",
+        "summary": "The primary diagnosis, 'Difficulty in walking, not elsewhere classified,' is omitted from this section. While the differential diagnoses are present, they are not explicitly labeled as 'Differential Diagnosis,' which is a minor completeness issue.",
         "omissions": [
           "Primary diagnosis: 'Difficulty in walking, not elsewhere classified'",
           "Explicit labeling of diagnoses as 'Differential Diagnosis'"
@@ -260,7 +260,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is largely complete and actionable, including medication, physical therapy, diagnostic tests, referrals, and follow-up. The moderate omission of Gabapentin dispense quantity and duration (90 capsules for one-month) is a notable gap. Other minor omissions include the administration route, the specific purpose of the MRI, the specific orthopedic doctor's name, and the explicit reason for sleep hygiene advice.",
+        "summary": "The Plan section captures all major treatment, diagnostic, referral, and follow-up items. However, it omits several minor details such as the administration route, dispense quantity, and duration for Gabapentin, the specific purpose of the MRI, the name of the orthopedic doctor, and the specific reason for sleep hygiene advice. The addition regarding specific sleep hygiene advice is supported by the transcript and does not impact the grade.",
         "omissions": [
           "Gabapentin administration route 'orally'",
           "Gabapentin dispense quantity and duration (90 capsules for one-month)",
@@ -282,7 +282,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "improving your sleep hygiene can help manage discomfort-related insomnia. Try to keep a regular sleep schedule and avoid caffeine late in the day.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage good sleep hygiene with regular schedule and avoiding caffeine late in the day"
+      "matched_claim_text": "Encourage good sleep hygiene with regular schedule and avoiding caffeine late in the day",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

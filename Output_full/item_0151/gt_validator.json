@@ -250,8 +250,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly the explicit primary diagnosis and stage in the Assessment section, which materially reduces its clinical usefulness. Other sections, such as Subjective, Objective, and Plan, also contain noticeable gaps and multiple moderate omissions regarding patient context, detailed physical exam findings, and specific plan implementation details (e.g., prescription refills, specific referral name, detailed patient safety instructions). All identified additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note captures the main clinical picture but suffers from multiple moderate omissions across all sections. Key details such as the specific stage of CKD in the assessment, detailed physical exam findings, and comprehensive patient instructions are missing. There are no unsupported or unknown additions that would penalize the grade.",
     "omissions": [
       "Reason for visit: follow-up for hypertensive chronic kidney disease (CKD) with stage 3 CKD",
       "Impact of symptoms on daily activities (reducing energy levels, limiting physical activity)",
@@ -285,7 +285,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of the reason for visit (follow-up for hypertensive CKD stage 3), the impact of symptoms on daily activities, and specific denials from the ROS (palpitations/chest pain, depression/anxiety). While the core symptoms are captured, the missing context and detail make the section meaningfully incomplete.",
+        "summary": "The Subjective section omits important contextual details from the HPI, including the reason for the follow-up visit (hypertensive CKD stage 3), the impact of symptoms on daily activities, and the prior amlodipine use. Minor ROS denials are also missing. These omissions represent multiple moderate gaps in the patient's history.",
         "omissions": [
           "Chief Complaint section header",
           "HPI section header",
@@ -301,7 +301,7 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "While vital signs are accurately captured, the physical exam is over-summarized, leading to multiple moderate omissions. Specific details for General Appearance, HEENT, Cardiovascular, Abdomen, Extremities, and Respiratory exams are missing, reducing the clinical completeness of this section. The single addition was supported by the transcript and did not affect the grade.",
+        "summary": "While vital signs are complete, the physical exam is heavily summarized. It omits specific findings for General Appearance, HEENT, Cardiovascular, Abdomen, Extremities, and Respiratory systems, replacing them with a general statement of 'no abnormalities noted.' This loss of specific clinical detail constitutes multiple moderate omissions.",
         "omissions": [
           "Vital Signs section header",
           "Physical Exam section header",
@@ -318,8 +318,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section receives a low grade due to a major omission: the explicit primary diagnosis statement 'hypertensive chronic kidney disease, stage 3'. While the note mentions symptoms related to CKD and hypertension, the absence of the precise diagnosis and stage materially reduces the clinical usefulness of the assessment. The addition of amlodipine history was supported by the transcript and did not impact the grade.",
+        "grade": "C",
+        "summary": "The Assessment section omits the specific diagnosis of 'hypertensive chronic kidney disease, stage 3,' providing a less precise statement about symptoms related to CKD and uncontrolled hypertension. This is a moderate to major omission, significantly impacting the clarity of the primary diagnosis.",
         "omissions": [
           "Primary diagnosis statement: hypertensive chronic kidney disease, stage 3",
           "Statement: 'She continues to experience significant symptoms'"
@@ -331,7 +331,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions, including specific prescription details for Lisinopril (30 tablets with 2 refills), the specific cardiologist's name (Dr. John Smith), and important patient instructions regarding specific new symptoms to notify the clinic about (swelling, severe dizziness). Numerous minor omissions, such as medication route, purpose of labs/imaging, and patient education details, further contribute to the note's incompleteness.",
+        "summary": "The Plan is broadly outlined but omits several important details. These include specific prescription details (route, refills), the purpose of certain diagnostic tests (urinalysis, renal ultrasound), the specific name of the cardiologist, and several critical patient instructions regarding education, lifestyle encouragement, and specific symptoms to monitor. These represent multiple moderate and minor omissions.",
         "omissions": [
           "Medication section header",
           "Lisinopril route: oral",
@@ -363,14 +363,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "During the physical exam, you appear alert and oriented",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Previous use of amlodipine discontinued due to swelling",
       "supported_by_transcript": "supported",
       "transcript_evidence": "You mentioned previously using amlodipine but had to stop due to swelling, correct? ... Yes, that's right. I had to discontinue it because my legs were swelling.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient previously used amlodipine but discontinued it due to swelling."
+      "matched_claim_text": "Patient previously used amlodipine but discontinued it due to swelling.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

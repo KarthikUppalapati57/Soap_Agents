@@ -253,7 +253,145 @@
     "assessment_alignment_score": 0.360655737704918,
     "plan_alignment_score": 0.5288461538461539
   },
-  "expert_judge": null,
-  "expert_judge_error": "Grading step missing section 'Subjective'; got ['Objective', 'Assessment', 'Plan']",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a clinically usable summary, capturing the patient's main symptoms, vital signs, suspected diagnosis, and core treatment plan. However, it has noticeable gaps, particularly in the Assessment section, where the patient's past medical history and the entire differential diagnosis list are omitted. The Subjective and Plan sections also contain several minor to moderate omissions regarding patient context, detailed recommendations, and medical reasoning, which reduce the overall completeness and clinical utility of the note. All additions were supported by the transcript and did not negatively impact the grade.",
+    "omissions": [
+      "Past medical history of type 2 diabetes and hyperlipidemia",
+      "Symptoms described as \"mild to moderate\"",
+      "Mild fatigue (as a distinct symptom)",
+      "Symptoms leading to reduced productivity at factory job and an increased need for rest",
+      "Diet high in carbohydrates",
+      "Diet posing a challenge to managing his type 2 diabetes",
+      "Patient enjoys watching TV and playing video games in his free time",
+      "General appearance: \"Appears mildly fatigued but in no acute distress.\"",
+      "Cardiovascular finding: \"no murmurs or gallops.\"",
+      "Abdominal finding: \"no hepatosplenomegaly.\"",
+      "Neurological finding: \"no focal deficits.\"",
+      "Differential diagnosis: Upper respiratory infection",
+      "Differential diagnosis: Exacerbation of underlying chronic conditions",
+      "Medical Reasoning for COVID-19: \"Given his known exposure and current symptomatology, COVID-19 is highly suspected.\"",
+      "Additional Testing for COVID-19: \"If symptoms progress or persist, order a chest X-ray.\"",
+      "Lifestyle and Quarantine Recommendations: \"Use separate household items, wear a mask when near others.\"",
+      "Medical Reasoning for Type 2 Diabetes and Hyperlipidemia: \"Continue current medication regimen given his history.\"",
+      "Specifics of lifestyle changes for diabetes: \"Discuss the importance of a balanced diet and exercise in managing diabetes. Encourage reducing junk food intake and increasing physical activity post-recovery.\"",
+      "Patient Education for Diabetes/Hyperlipidemia: \"Reinforce the importance of medication adherence and routine glucose monitoring.\"",
+      "Specifics of smoking cessation discussion: \"Discuss the benefits of quitting smoking, particularly in the context of respiratory illnesses.\"",
+      "Patient agreement with the plan: \"Patient agrees with the recommended medical treatment plan and will adhere to the quarantine guidelines.\"",
+      "Follow-up detail: \"if possible\" for scheduling"
+    ],
+    "additions": [
+      "Explicitly linking disrupted sleep to cough and diabetes management concerns",
+      "Assessment point: \"Concurrent management of diabetes with poor dietary habits\"",
+      "Assessment point: \"Potential for respiratory complications due to smoking\"",
+      "Specifying follow-up \"in 10 days\""
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section captures the core symptoms and lifestyle habits but omits the patient's past medical history of type 2 diabetes and hyperlipidemia, which is a moderate omission. Several minor details regarding symptom severity, impact on productivity, specific diet characteristics, and leisure activities are also missing, making the section less comprehensive.",
+        "omissions": [
+          "Past medical history of type 2 diabetes and hyperlipidemia",
+          "Symptoms described as \"mild to moderate\"",
+          "Mild fatigue (as a distinct symptom)",
+          "Symptoms leading to reduced productivity at factory job and an increased need for rest",
+          "Diet high in carbohydrates",
+          "Diet posing a challenge to managing his type 2 diabetes",
+          "Patient enjoys watching TV and playing video games in his free time"
+        ],
+        "additions": [
+          "Explicitly linking disrupted sleep to cough and diabetes management concerns"
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is strong, accurately capturing all vital signs and positive findings like mild wheezing. The omissions are limited to minor negative findings (no murmurs/gallops, no hepatosplenomegaly, no focal deficits) and a general appearance description, which do not materially reduce the clinical usefulness of the section.",
+        "omissions": [
+          "General appearance: \"Appears mildly fatigued but in no acute distress.\"",
+          "Cardiovascular finding: \"no murmurs or gallops.\"",
+          "Abdominal finding: \"no hepatosplenomegaly.\"",
+          "Neurological finding: \"no focal deficits.\""
+        ],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "C",
+        "summary": "The Assessment section has significant gaps. It omits the patient's past medical history of type 2 diabetes and hyperlipidemia from the introductory statement, which is a moderate issue. More critically, the entire differential diagnosis list (Upper respiratory infection, Exacerbation of underlying chronic conditions) is missing, representing multiple moderate omissions that make the assessment meaningfully incomplete, despite the primary suspected diagnosis being present.",
+        "omissions": [
+          "Past medical history of type 2 diabetes and hyperlipidemia",
+          "Symptoms described as \"mild to moderate\"",
+          "Differential diagnosis: Upper respiratory infection",
+          "Differential diagnosis: Exacerbation of underlying chronic conditions"
+        ],
+        "additions": [
+          "Assessment point: \"Concurrent management of diabetes with poor dietary habits\"",
+          "Assessment point: \"Potential for respiratory complications due to smoking\""
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "B",
+        "summary": "The Plan section includes all critical actions such as ordering the COVID-19 test, prescribing Zinc, quarantine instructions, and continuing current medications. However, it has several minor to moderate omissions, including the contingency plan for a chest X-ray, specific details for quarantine (separate items, mask use), detailed medical reasoning, specific patient education points for diabetes management (medication adherence, glucose monitoring), and the specific benefits of smoking cessation. These omissions reduce the overall comprehensiveness of the plan.",
+        "omissions": [
+          "Medical Reasoning for COVID-19: \"Given his known exposure and current symptomatology, COVID-19 is highly suspected.\"",
+          "Additional Testing for COVID-19: \"If symptoms progress or persist, order a chest X-ray.\"",
+          "Lifestyle and Quarantine Recommendations: \"Use separate household items, wear a mask when near others.\"",
+          "Medical Reasoning for Type 2 Diabetes and Hyperlipidemia: \"Continue current medication regimen given his history.\"",
+          "Specifics of lifestyle changes for diabetes: \"Discuss the importance of a balanced diet and exercise in managing diabetes. Encourage reducing junk food intake and increasing physical activity post-recovery.\"",
+          "Patient Education for Diabetes/Hyperlipidemia: \"Reinforce the importance of medication adherence and routine glucose monitoring.\"",
+          "Specifics of smoking cessation discussion: \"Discuss the benefits of quitting smoking, particularly in the context of respiratory illnesses.\"",
+          "Patient agreement with the plan: \"Patient agrees with the recommended medical treatment plan and will adhere to the quarantine guidelines.\"",
+          "Follow-up detail: \"if possible\" for scheduling"
+        ],
+        "additions": [
+          "Specifying follow-up \"in 10 days\""
+        ]
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Explicitly linking disrupted sleep to cough and diabetes management concerns",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] My sleep has been pretty disrupted, to be honest. The cough wakes me up, and I’m worried about my diabetes too.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Disrupted sleep due to cough and diabetes management concerns",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment point: \"Concurrent management of diabetes with poor dietary habits\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] My diet isn't great, mostly junk food high in carbs, and I haven't been checking my blood sugar as regularly as I should. ... [doctor] Continue taking your Metformin for diabetes ... After you recover, we should discuss making some lifestyle changes, like reducing junk food and increasing physical activity. It’s important for managing your diabetes.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Concurrent management of diabetes with poor dietary habits",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment point: \"Potential for respiratory complications due to smoking\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] I smoke about half a pack of cigarettes a day. ... [doctor] Also, I want to discuss the benefits of quitting smoking, especially considering your respiratory health.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Potential for respiratory complications due to smoking",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specifying follow-up \"in 10 days\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We’ll schedule a follow-up via phone in 10 days to reassess your symptoms and discuss your test results.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up via phone in 10 days to reassess symptoms and discuss test results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

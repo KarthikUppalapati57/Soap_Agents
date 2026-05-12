@@ -219,8 +219,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions across multiple sections, particularly in the Subjective, Assessment, and Plan. Key patient history regarding chronic conditions (type 2 diabetes mellitus and hypertension) is missing from the HPI. The formal diagnosis of 'Other Chronic Pain' is omitted from the Assessment. Most critically, the Plan section fails to include the MRI imaging plan and omits vital instructions for the patient to continue their existing medications for type 2 diabetes and hypertension, which are essential for ongoing chronic disease management and patient safety. These major omissions materially reduce the clinical usefulness and reliability of the note. A minor unsupported addition ('General: Not specified' in ROS) was noted in the Subjective section.",
+    "overall_grade": "C",
+    "overall_summary": "The note has noticeable gaps and multiple moderate issues, particularly in the Subjective and Plan sections. Key patient history regarding chronic conditions (diabetes and hypertension) is omitted from the HPI, and crucial instructions for managing these conditions are missing from the Plan. The specific diagnosis is also omitted from the Assessment, and the MRI imaging plan is not fully captured. While the note is broadly usable, these omissions make it meaningfully incomplete and require careful review.",
     "omissions": [
       "Patient's history of type 2 diabetes mellitus",
       "Patient's history of hypertension",
@@ -248,7 +248,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits significant patient history regarding type 2 diabetes mellitus and hypertension from the HPI, which are crucial chronic conditions for patient context. It also misses the musculoskeletal ROS details and a minor behavioral note about patient cooperativeness. One minor unsupported addition ('General: Not specified' in ROS) is present, which does not add clinical value.",
+        "summary": "This section receives a C due to the omission of the patient's history of type 2 diabetes mellitus and hypertension from the History of Present Illness, which are significant clinical details. A minor unsupported addition, 'ROS section 'General: Not specified'', also contributes to the grade.",
         "omissions": [
           "Patient's history of type 2 diabetes mellitus (from HPI)",
           "Patient's history of hypertension (from HPI)",
@@ -263,14 +263,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurate, capturing all relevant Ground Truth content without any omissions or unsupported/unknown additions.",
+        "summary": "This section accurately captures all Ground Truth content with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section has a major omission: the formal diagnosis of 'Other Chronic Pain' (ICD-10: G89.29) is missing. While the generated note provides a descriptive statement, the absence of the formal diagnosis is a significant gap in clinical documentation.",
+        "grade": "B",
+        "summary": "This section receives a B due to the omission of the specific diagnosis 'Other Chronic Pain' (ICD-10: G89.29). While the generated note describes the condition, the specific diagnostic code is a moderate omission.",
         "omissions": [
           "Diagnosis 'Other Chronic Pain'"
         ],
@@ -281,8 +281,8 @@
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section contains several critical omissions. It completely misses the imaging plan for an MRI of the lumbar spine, which is a key diagnostic step. More importantly, it omits crucial instructions for the patient to continue their existing medications for type 2 diabetes mellitus (Metformin) and hypertension (Lisinopril), which are vital for chronic disease management and patient safety. Additional omissions include the duration of Gabapentin and specific instructions regarding reporting side effects and attending physical therapy. These are major issues that materially reduce clinical usefulness and could impact patient safety and continuity of care.",
+        "grade": "C",
+        "summary": "This section receives a C due to multiple moderate omissions. The imaging plan for an MRI of the lumbar spine is missing, as are critical instructions to continue current medications for type 2 diabetes mellitus (Metformin 500 mg twice daily) and hypertension (Lisinopril 10 mg once daily). Several minor instructions, such as Gabapentin duration and reporting side effects, are also omitted, contributing to the overall incompleteness of the plan.",
         "omissions": [
           "Imaging plan for MRI of the lumbar spine to rule out structural causes of pain",
           "Gabapentin duration of 1 month",
@@ -306,63 +306,81 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's around a 7 out of 10.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain severity is rated as 7/10."
+      "matched_claim_text": "The pain severity is rated as 7/10.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "ROS section 'General: Not specified'",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment includes 'with associated numbness in left leg'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Hi doctor, I've been having chronic lower back pain for about 6 months now.\" and \"[Patient]: Yes, I occasionally feel numbness in my left leg.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis is Lower Back Pain with associated numbness in the left leg."
+      "matched_claim_text": "Diagnosis is Lower Back Pain with associated numbness in the left leg.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "ADM — phenotype_protein — Pain"
     },
     {
       "addition_text": "Assessment includes 'awaiting MRI results for further understanding of cause'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We are still waiting for the results of your MRI of the lumbar spine. Once we have that, we can get a better understanding of what's causing your pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "MRI results of the lumbar spine are awaited for further understanding of the cause."
+      "matched_claim_text": "MRI results of the lumbar spine are awaited for further understanding of the cause.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan section 'Education'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Please try to maintain a balanced diet and incorporate light exercises as tolerated. If your pain doesn't improve or if you experience any new symptoms, contact us immediately.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Prescribe' Gabapentin in the medical treatment plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For now, I'm going to prescribe Gabapentin 300 mg, three times a day for neuropathic pain.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "with associated numbness in left leg",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Hi doctor, I've been having chronic lower back pain for about 6 months now.\" and \"[Patient]: Yes, I occasionally feel numbness in my left leg.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis is Lower Back Pain with associated numbness in the left leg."
+      "matched_claim_text": "Diagnosis is Lower Back Pain with associated numbness in the left leg.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "ADM — phenotype_protein — Pain"
     },
     {
       "addition_text": "awaiting MRI results for further understanding of cause",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We are still waiting for the results of your MRI of the lumbar spine. Once we have that, we can get a better understanding of what's causing your pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "MRI results of the lumbar spine are awaited for further understanding of the cause."
+      "matched_claim_text": "MRI results of the lumbar spine are awaited for further understanding of the cause.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'Prescribe' Gabapentin in the medical treatment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For now, I'm going to prescribe Gabapentin 300 mg, three times a day for neuropathic pain.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

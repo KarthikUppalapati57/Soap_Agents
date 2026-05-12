@@ -236,9 +236,9 @@
     "plan_alignment_score": 0.6533333333333333
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note provides a mostly accurate account of the patient's visit, capturing many key subjective and objective findings, and a comprehensive plan. However, it receives a low overall grade due to significant omissions. Most critically, the Assessment section completely omits the formal diagnosis, including the ICD-10 code, and a key piece of clinical reasoning. Additionally, important historical context (peripheral neuropathy and Type 2 Diabetes) is missing from the History of Present Illness in the Subjective section. These omissions materially reduce the clinical usefulness and completeness of the note.",
+    "model": "Clinical Documentation Reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is broadly usable but contains multiple moderate omissions that reduce its completeness and clinical utility. Key omissions include the patient's history of conditions in the HPI, specific clinical reasoning and the formal diagnosis in the Assessment, and documentation of patient education in the Plan. While no unsupported additions were found, these omissions collectively make the note meaningfully incomplete, requiring careful review.",
     "omissions": [
       "Patient's history of peripheral neuropathy and Type 2 Diabetes (as a history in HPI context)",
       "Patient appears cooperative but affected by transportation issues (from General PE)",
@@ -251,7 +251,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and most associated symptoms well. However, it omits the duration of pain (3 years) and, more significantly, the patient's history of peripheral neuropathy and Type 2 Diabetes within the HPI context. While the content of the Review of Systems is largely integrated, the explicit ROS section structure is also omitted.",
+        "summary": "This section captures the chief complaint and main symptoms well. However, it omits the duration of pain, its debilitating nature, and its impact on daily tasks. Crucially, the patient's history of peripheral neuropathy and Type 2 Diabetes is not included in the HPI context, and the explicit Review of Systems structure is missing, though the content is largely present.",
         "omissions": [
           "Pain persisted for 3 years",
           "Pain is debilitating",
@@ -264,7 +264,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-documented, accurately capturing all vital signs and key physical exam findings. Minor omissions include the observation that the patient appears cooperative and is affected by transportation issues, but these do not detract from the clinical utility of the section.",
+        "summary": "This section accurately captures all vital signs and key physical exam findings. The only omissions are minor details about the patient's general appearance ('cooperative') and the observation about transportation issues, which is addressed elsewhere in the note.",
         "omissions": [
           "Patient appears cooperative",
           "Patient affected by transportation issues"
@@ -273,8 +273,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section is significantly incomplete. While it correctly identifies chronic pain exacerbated by underlying conditions and possible spinal causes, it critically omits the formal diagnosis (including the ICD-10 code). It also misses the statement linking decreased sensation and reduced reflexes to significant neuropathic involvement, which is a key piece of clinical reasoning. These omissions materially reduce the clinical usefulness of this section.",
+        "grade": "C",
+        "summary": "The section identifies chronic pain exacerbated by underlying conditions and possible spinal causes. However, it omits the specific clinical reasoning linking decreased sensation and reduced reflexes to significant neuropathic involvement, and it completely misses the formal diagnosis, including the ICD-10 code (Other Chronic Pain, G89.29). These are significant gaps in clinical documentation.",
         "omissions": [
           "Statement that 'Decreased sensation and reduced reflexes in the lower extremities suggest significant neuropathic involvement'",
           "Diagnosis: Other Chronic Pain"
@@ -284,7 +284,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is largely comprehensive, detailing medications, lab tests, imaging, and follow-up instructions. It correctly includes discussions about transportation assistance and local food banks. Minor omissions include the explicit statement about patient education regarding conditions and treatment, and the specific reason ('due to financial constraints') for providing food bank information.",
+        "summary": "The plan accurately lists medications, lab tests, imaging, and follow-up details. It omits the documentation of patient education regarding conditions and the proposed treatment plan, which is a moderate omission. Additionally, the specific reason for providing food bank information ('due to financial constraints') is not included.",
         "omissions": [
           "Patient was educated about his conditions and the proposed treatment plan",
           "Information on local food banks provided due to financial constraints"

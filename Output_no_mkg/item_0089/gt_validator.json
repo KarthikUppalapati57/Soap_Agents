@@ -250,86 +250,78 @@
     "plan_alignment_score": 0.6174496644295302
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key HPI elements, vital signs, physical exam findings, assessment, and core treatment plan. However, there are several minor omissions, particularly in the Review of Systems and specific medication details, and a few moderate omissions regarding the impact of illness on daily activities, the importance of completing antibiotics, and specific follow-up instructions based on culture results. No unsupported or unknown additions were identified.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key aspects of the history of present illness, vital signs, physical examination findings, and the core assessment and plan. However, the note has several omissions, including details on the impact of the illness on daily activities and several denials from the Review of Systems in the Subjective section. The Plan section also omits specific medication quantities and some patient education and follow-up details. There are no unsupported or unknown additions that would introduce misleading clinical content.",
     "omissions": [
       "HPI: Impact on daily activities including eating, speaking, and resulting in missed work for 2 days",
-      "ROS: Poor sleep due to throat pain",
-      "ROS: Denies ear pain or nasal congestion",
-      "ROS: Reduced appetite, denies nausea or vomiting",
-      "ROS: Denies cough or shortness of breath",
-      "ROS: Denies dizziness or vision changes",
+      "ROS: General: poor sleep due to throat pain",
+      "ROS: ENT: Denies ear pain or nasal congestion",
+      "ROS: Gastrointestinal: Reports reduced appetite, denies nausea or vomiting",
+      "ROS: Respiratory: Denies cough or shortness of breath",
+      "ROS: Neurological: Denies dizziness or vision changes",
       "Physical Examination: General Appearance: Alert, cooperative, appears moderately ill",
-      "Medication details: Ibuprofen 'oral'",
-      "Medication details: Ibuprofen '20 tablets'",
-      "Medication details: Amoxicillin 'oral'",
-      "Medication details: Amoxicillin '30 capsules'",
-      "Patient Education: Importance of completing the full course of antibiotics",
-      "Patient Education: Specific irritant 'smoke'",
-      "Patient Agreements: Patient understands and agrees with the recommended treatment plan",
-      "Instructions: Advised to monitor symptoms",
-      "Instructions: Follow-up appointment to be scheduled if needed based on throat culture results"
+      "Plan: Medication: Ibuprofen quantity (20 tablets)",
+      "Plan: Medication: Amoxicillin quantity (30 capsules)",
+      "Plan: Patient Education and Counseling: Avoid irritants such as smoke",
+      "Plan: Patient Agreements: The patient understands and agrees with the recommended treatment plan",
+      "Plan: Instructions: Follow-up appointment to be scheduled if needed based on throat culture results"
     ],
     "additions": [
-      "Objective: Temperature conversion (38.9°C)",
-      "Plan: Ibuprofen indication 'and fever'",
-      "Plan: Amoxicillin indication 'for potential bacterial infection'",
-      "Plan: Follow-up instruction 'or with adverse reactions to medication'"
+      "Objective: Vital Signs: Temperature in Celsius (38.9°C)",
+      "Plan: Medication: Ibuprofen for fever",
+      "Plan: Medication: Amoxicillin for potential bacterial infection",
+      "Plan: Follow-Up Recommendations: Return to clinic if adverse reactions to medication occur"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly accurate but has several omissions. It misses the impact of the illness on daily activities (eating, speaking, missed work), which is a moderate omission. Additionally, several minor negative findings from the Review of Systems are omitted, such as the denial of ear pain, nasal congestion, nausea, vomiting, cough, shortness of breath, dizziness, and vision changes, as well as poor sleep due to throat pain.",
+        "summary": "The section omits details regarding the impact of the illness on daily activities, including eating, speaking, and missed work. Several denials from the Review of Systems, such as ear pain, nasal congestion, nausea, vomiting, cough, shortness of breath, dizziness, and vision changes, are also missing, making the ROS less complete. The omission of poor sleep due to throat pain is also noted.",
         "omissions": [
           "HPI: Impact on daily activities including eating, speaking, and resulting in missed work for 2 days",
-          "ROS: Poor sleep due to throat pain",
-          "ROS: Denies ear pain or nasal congestion",
-          "ROS: Reduced appetite, denies nausea or vomiting",
-          "ROS: Denies cough or shortness of breath",
-          "ROS: Denies dizziness or vision changes"
+          "ROS: General: poor sleep due to throat pain",
+          "ROS: ENT: Denies ear pain or nasal congestion",
+          "ROS: Gastrointestinal: Reports reduced appetite, denies nausea or vomiting",
+          "ROS: Respiratory: Denies cough or shortness of breath",
+          "ROS: Neurological: Denies dizziness or vision changes"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured. The only omission is the general appearance (alert, cooperative, appears moderately ill), which is a minor detail. All additions in this section were supported by the transcript and therefore did not impact the grade.",
+        "summary": "The section accurately captures vital signs and key physical examination findings. The only omission is the patient's general appearance (alert, cooperative, appears moderately ill), which is a minor detail. All additions in this section are supported by the transcript.",
         "omissions": [
           "Physical Examination: General Appearance: Alert, cooperative, appears moderately ill"
         ],
         "additions": [
-          "Temperature conversion (38.9°C)"
+          "Vital Signs: Temperature in Celsius (38.9°C)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete with no omissions or unsupported/unknown additions.",
+        "summary": "The section is complete and accurately reflects the Ground Truth, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures the core treatment but has several omissions. Minor omissions include the specific route ('oral') and quantities ('20 tablets', '30 capsules') for medications, the specific irritant 'smoke', the patient's agreement with the plan, and the general instruction to monitor symptoms. More significant moderate omissions include the crucial patient education on the importance of completing the full course of antibiotics and the specific instruction for a follow-up appointment to be scheduled based on throat culture results. All additions in this section were supported by the transcript and therefore did not impact the grade.",
+        "summary": "The section omits specific medication quantities for Ibuprofen (20 tablets) and Amoxicillin (30 capsules). Other minor omissions include the instruction to avoid irritants such as smoke, the patient's agreement with the plan, and the detail about scheduling a follow-up based on throat culture results. The core treatment plan is present, but these details are missing. All additions in this section are supported by the transcript.",
         "omissions": [
-          "Medication details: Ibuprofen 'oral'",
-          "Medication details: Ibuprofen '20 tablets'",
-          "Medication details: Amoxicillin 'oral'",
-          "Medication details: Amoxicillin '30 capsules'",
-          "Patient Education: Importance of completing the full course of antibiotics",
-          "Patient Education: Specific irritant 'smoke'",
-          "Patient Agreements: Patient understands and agrees with the recommended treatment plan",
-          "Instructions: Advised to monitor symptoms",
+          "Medication: Ibuprofen quantity (20 tablets)",
+          "Medication: Amoxicillin quantity (30 capsules)",
+          "Patient Education and Counseling: Avoid irritants such as smoke",
+          "Patient Agreements: The patient understands and agrees with the recommended treatment plan",
           "Instructions: Follow-up appointment to be scheduled if needed based on throat culture results"
         ],
         "additions": [
-          "Ibuprofen indication 'and fever'",
-          "Amoxicillin indication 'for potential bacterial infection'",
-          "Follow-up instruction 'or with adverse reactions to medication'"
+          "Medication: Ibuprofen for fever",
+          "Medication: Amoxicillin for potential bacterial infection",
+          "Follow-Up Recommendations: Return to clinic if adverse reactions to medication occur"
         ]
       }
     ],
@@ -338,60 +330,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: Temperature conversion (38.9°C)",
+      "addition_text": "Objective: Vital Signs: Temperature in Celsius (38.9°C)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your temperature is 102°F",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Ibuprofen indication 'and fever'",
+      "addition_text": "Plan: Medication: Ibuprofen for fever",
       "supported_by_transcript": "supported",
       "transcript_evidence": "For pain and fever, you can take Ibuprofen 200 mg every 6 hours as needed.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Amoxicillin indication 'for potential bacterial infection'",
+      "addition_text": "Plan: Medication: Amoxicillin for potential bacterial infection",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For the infection, I'll prescribe Amoxicillin 500 mg three times a day for 10 days.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Amoxicillin 500 mg three times a day for 10 days for potential bacterial infection."
+      "matched_claim_text": "Prescribe Amoxicillin 500 mg three times a day for 10 days for potential bacterial infection.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Follow-up instruction 'or with adverse reactions to medication'",
+      "addition_text": "Plan: Follow-Up Recommendations: Return to clinic if adverse reactions to medication occur",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you notice any adverse reactions, contact the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to return to clinic with adverse reactions to medication."
+      "matched_claim_text": "Instruct patient to return to clinic with adverse reactions to medication.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Temperature conversion (38.9°C)",
+      "addition_text": "Vital Signs: Temperature in Celsius (38.9°C)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your temperature is 102°F",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Ibuprofen indication 'and fever'",
+      "addition_text": "Medication: Ibuprofen for fever",
       "supported_by_transcript": "supported",
       "transcript_evidence": "For pain and fever, you can take Ibuprofen 200 mg every 6 hours as needed.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Amoxicillin indication 'for potential bacterial infection'",
+      "addition_text": "Medication: Amoxicillin for potential bacterial infection",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: For the infection, I'll prescribe Amoxicillin 500 mg three times a day for 10 days.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Amoxicillin 500 mg three times a day for 10 days for potential bacterial infection."
+      "matched_claim_text": "Prescribe Amoxicillin 500 mg three times a day for 10 days for potential bacterial infection.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Follow-up instruction 'or with adverse reactions to medication'",
+      "addition_text": "Follow-Up Recommendations: Return to clinic if adverse reactions to medication occur",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you notice any adverse reactions, contact the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to return to clinic with adverse reactions to medication."
+      "matched_claim_text": "Instruct patient to return to clinic with adverse reactions to medication.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

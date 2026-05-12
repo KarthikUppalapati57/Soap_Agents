@@ -220,82 +220,96 @@
     "plan_alignment_score": 0.6127167630057804
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, key aspects of the history of present illness, and the overall assessment and plan. However, there are several minor and a few moderate omissions across the Subjective, Assessment, and Plan sections, which reduce the completeness and clinical nuance compared to the GroundTruth. All additions were supported by the transcript and therefore did not negatively impact the grade.",
+    "model": "Clinical Documentation Reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned but contains multiple moderate omissions across several sections, particularly in the Subjective and Plan. While there are no unsupported or unknown additions, the cumulative effect of missing important contextual details, patient instructions, and specific test orders in the Plan section makes the note meaningfully incomplete and requires careful review. This prevents a higher grade.",
     "omissions": [
-      "Patient presenting via telemedicine for an initial consultation.",
-      "Fatigue described as moderate.",
-      "Fatigue disrupting her daily routine.",
-      "Associated symptoms (nausea, headaches) increased in frequency and severity over the past month.",
-      "Patient has no previous diagnoses and is generally healthy.",
-      "Patient occasionally takes over-the-counter pain relievers for headaches.",
-      "Patient denies any new medications or changes in her routine that could explain these symptoms.",
-      "ROS: Musculoskeletal: No muscle pain or weakness.",
-      "ROS: Skin: No rashes or changes in skin color.",
-      "Due to the nature of the telemedicine visit, no physical examination was performed.",
-      "Vitals: Not available.",
-      "Patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes."
+      "Patient presenting via telemedicine for an initial consultation",
+      "Fatigue described as 'moderate'",
+      "Fatigue disrupting daily routine",
+      "Associated symptoms (nausea, headaches) increased in frequency and severity over the past month",
+      "No previous diagnoses and generally healthy",
+      "Occasional over-the-counter pain relievers for headaches",
+      "Denies new medications or changes in routine",
+      "ROS: Musculoskeletal: No muscle pain or weakness",
+      "ROS: Skin: No rashes or changes in skin color",
+      "No physical examination performed due to telemedicine visit",
+      "Vitals: Not available",
+      "Assessment: Differential diagnoses pending results of CMP and thyroid function tests",
+      "Assessment: Differential diagnoses based on patient's history and reported symptoms",
+      "Plan: Specific timing for caffeine reduction: 'especially in the afternoon and evening'",
+      "Plan: Specific details for physical activity: 'such as evening walks to improve overall well-being and potentially aid in better sleep quality'",
+      "Plan: Referral to specialists 'pending test results'",
+      "Plan: Purpose of tests ordered: 'to investigate symptoms of fatigue and difficulty sleeping'",
+      "Plan: Instruction to monitor symptoms and note any changes or new symptoms",
+      "Plan: Patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes",
+      "Plan: Specific tests ordered (Comprehensive metabolic panel (CMP) and thyroid function tests) are not explicitly listed in the Plan section"
     ],
     "additions": [
-      "Objective: Comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms.",
-      "Plan: \"Further investigation through laboratory tests has been initiated.\""
+      "Subjective: Patient mentions trouble falling asleep and staying asleep (more specific than GT's 'difficulty sleeping')",
+      "Objective: Statement that comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms (this content belongs in Plan)",
+      "Plan: General statement: 'Further investigation through laboratory tests has been initiated'",
+      "Plan: Qualifier for referral: 'If necessary'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section receives a B. While it captures the core symptoms and their duration, it omits several moderate details such as the fatigue disrupting the patient's daily routine, the increased frequency and severity of associated symptoms over the past month, and the patient's generally healthy status with no previous diagnoses. Several minor negative ROS findings were also omitted. All additions were supported by the transcript.",
+        "summary": "The Subjective section captures the chief complaint and main HPI elements but omits several important details. These include the patient's presentation via telemedicine, the 'moderate' description of fatigue, the impact of fatigue on daily routine, the increase in frequency and severity of associated symptoms, the patient's generally healthy status with no previous diagnoses, and specific negative ROS findings for musculoskeletal and skin systems. These omissions, while not critical safety issues, reduce the completeness of the patient's history.",
         "omissions": [
-          "Patient presenting via telemedicine for an initial consultation.",
-          "Fatigue described as moderate.",
-          "Fatigue disrupting her daily routine.",
-          "Associated symptoms (nausea, headaches) increased in frequency and severity over the past month.",
-          "Patient has no previous diagnoses and is generally healthy.",
-          "Patient occasionally takes over-the-counter pain relievers for headaches.",
-          "Patient denies any new medications or changes in her routine that could explain these symptoms.",
-          "ROS: Musculoskeletal: No muscle pain or weakness.",
-          "ROS: Skin: No rashes or changes in skin color."
+          "Patient presenting via telemedicine for an initial consultation",
+          "Fatigue described as 'moderate'",
+          "Fatigue disrupting daily routine",
+          "Associated symptoms (nausea, headaches) increased in frequency and severity over the past month",
+          "No previous diagnoses and generally healthy",
+          "Occasional over-the-counter pain relievers for headaches",
+          "Denies new medications or changes in routine",
+          "ROS: Musculoskeletal: No muscle pain or weakness",
+          "ROS: Skin: No rashes or changes in skin color"
         ],
         "additions": [
-          "\"The patient also mentions trouble falling asleep and staying asleep.\""
+          "Patient mentions trouble falling asleep and staying asleep (more specific than GT's 'difficulty sleeping')"
         ]
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section receives an A. It accurately reflects that no physical examination or vitals were provided due to the telemedicine nature of the visit. The omissions regarding the lack of physical exam and vitals are minor and implicitly covered by the generated text. All additions were supported by the transcript.",
+        "grade": "B",
+        "summary": "The Objective section correctly states that information was 'Not provided in the conversation' but omits the crucial context that no physical examination was performed due to the telemedicine visit and that vitals were 'Not available'. While an addition regarding lab orders is present, it is supported by the transcript and therefore does not penalize the grade, though its placement is structurally incorrect.",
         "omissions": [
-          "Due to the nature of the telemedicine visit, no physical examination was performed.",
-          "Vitals: Not available."
+          "No physical examination performed due to telemedicine visit",
+          "Vitals: Not available"
         ],
         "additions": [
-          "\"Not provided in the conversation, but a comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms.\""
+          "Statement that comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms (this content belongs in Plan)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section receives a B. While the generated note lists all the differential diagnoses present in the GroundTruth, it omits the specific context for these diagnoses, such as 'pending the results of CMP and thyroid function tests' for sleep disorder/thyroid dysfunction, and 'based on the patient's history and reported symptoms' for other differentials. This omission of clinical reasoning is moderate.",
+        "grade": "A",
+        "summary": "The Assessment section accurately lists the differential diagnoses. The omissions are minor contextual statements about the diagnoses being pending test results and based on patient history, which do not detract from the core clinical content of the assessment.",
         "omissions": [
-          "Differential diagnoses of potential sleep disorder or thyroid dysfunction pending the results of CMP and thyroid function tests.",
-          "Consideration of other differential diagnoses such as anemia, chronic fatigue syndrome, or depression/anxiety based on the patient's history and reported symptoms."
+          "Differential diagnoses pending results of CMP and thyroid function tests",
+          "Differential diagnoses based on patient's history and reported symptoms"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section receives a B. It captures the main elements of the plan, including follow-up, lifestyle changes, and potential referrals. However, it omits the specific names of the tests ordered (CMP and thyroid function tests) under the 'Tests Ordered' sub-section, instead using a more general phrase 'Further investigation through laboratory tests has been initiated.' This is a moderate omission. Minor omissions include specific phrasing for sleep hygiene and physical activity advice, and the patient's expressed motivation. All additions were supported by the transcript.",
+        "grade": "C",
+        "summary": "The Plan section has several omissions, including important details for caffeine reduction and physical activity, and the context for specialist referrals and the purpose of tests. Critically, it omits the specific instruction for the patient to monitor symptoms and note any changes, and it fails to explicitly list the specific tests ordered (Comprehensive metabolic panel and thyroid function tests) within the Plan section itself, which is a significant gap in a clinical plan. These moderate omissions make the plan less comprehensive and require careful review.",
         "omissions": [
-          "Advise the patient on sleep hygiene practices.",
-          "Encourage mild physical activity such as evening walks to improve overall well-being and potentially aid in better sleep quality.",
-          "Comprehensive metabolic panel (CMP) and thyroid function tests to investigate symptoms of fatigue and difficulty sleeping.",
-          "The patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes."
+          "Specific timing for caffeine reduction: 'especially in the afternoon and evening'",
+          "Specific details for physical activity: 'such as evening walks to improve overall well-being and potentially aid in better sleep quality'",
+          "Referral to specialists 'pending test results'",
+          "Purpose of tests ordered: 'to investigate symptoms of fatigue and difficulty sleeping'",
+          "Instruction to monitor symptoms and note any changes or new symptoms",
+          "Patient expressed eagerness to follow medical advice and is motivated to make recommended lifestyle changes",
+          "Specific tests ordered (Comprehensive metabolic panel (CMP) and thyroid function tests) are not explicitly listed in the Plan section"
         ],
         "additions": [
-          "\"Further investigation through laboratory tests has been initiated.\""
+          "General statement: 'Further investigation through laboratory tests has been initiated'",
+          "Qualifier for referral: 'If necessary'"
         ]
       }
     ],
@@ -304,39 +318,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: Comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "A comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms."
-    },
-    {
-      "addition_text": "Plan: \"Further investigation through laboratory tests has been initiated.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further investigation through laboratory tests has been initiated."
-    },
-    {
-      "addition_text": "\"The patient also mentions trouble falling asleep and staying asleep.\"",
+      "addition_text": "Subjective: Patient mentions trouble falling asleep and staying asleep (more specific than GT's 'difficulty sleeping')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I do. I have trouble falling asleep and staying asleep.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports trouble falling asleep and staying asleep."
+      "matched_claim_text": "The patient reports trouble falling asleep and staying asleep.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Not provided in the conversation, but a comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms.\"",
+      "addition_text": "Objective: Statement that comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms (this content belongs in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "A comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms."
+      "matched_claim_text": "A comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
-      "addition_text": "\"Further investigation through laboratory tests has been initiated.\"",
+      "addition_text": "Plan: General statement: 'Further investigation through laboratory tests has been initiated'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Further investigation through laboratory tests has been initiated."
+      "matched_claim_text": "Further investigation through laboratory tests has been initiated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Qualifier for referral: 'If necessary'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "if the test results suggest the need, we may refer you to an endocrinologist or a sleep specialist for further evaluation.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Patient mentions trouble falling asleep and staying asleep (more specific than GT's 'difficulty sleeping')",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I do. I have trouble falling asleep and staying asleep.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient reports trouble falling asleep and staying asleep.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement that comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms (this content belongs in Plan)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "A comprehensive metabolic panel and thyroid function tests have been ordered to investigate potential causes for the symptoms.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
+    },
+    {
+      "addition_text": "General statement: 'Further investigation through laboratory tests has been initiated'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I’ve ordered a comprehensive metabolic panel and thyroid function tests to see if we can identify a cause for your fatigue and difficulty sleeping.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Further investigation through laboratory tests has been initiated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Qualifier for referral: 'If necessary'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "if the test results suggest the need, we may refer you to an endocrinologist or a sleep specialist for further evaluation.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

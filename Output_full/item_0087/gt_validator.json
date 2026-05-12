@@ -239,65 +239,65 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note contains several significant omissions across multiple sections, including the specific diagnosis, a critical negative rapid strep test result, and essential medication frequency details. While the note captures the main clinical picture, these omissions materially reduce its clinical usefulness and completeness, warranting a D grade.",
+    "overall_summary": "The generated SOAP note has significant omissions that materially reduce its clinical usefulness. Key missing information includes the primary diagnosis of Acute Pharyngitis in the Assessment section and the crucial negative rapid strep test result in the Objective section. While there are no unsupported additions, these major omissions make the note incomplete and less reliable for clinical decision-making.",
     "omissions": [
-      "Patient's occupation: high school teacher",
-      "Patient currently sticking to a soft food diet (in HPI)",
-      "Denial of fever (in ROS)",
+      "Patient's occupation (high school teacher)",
+      "Patient presents to Urgent Care Center",
+      "Denies fever",
       "Oropharyngeal examination finding: without exudates",
-      "Rapid strep test result: Negative",
-      "Specific diagnosis: Acute Pharyngitis, unspecified",
-      "Medication route: oral (for Hydrocodone-Acetaminophen)",
-      "Medication frequency: 1 tablet every 6 hours (for Hydrocodone-Acetaminophen)",
-      "Specific tests to review at follow-up: throat culture and CBC results",
-      "Timeframe for referral: if no improvement in symptoms within 7 days"
+      "Respiratory exam details: to auscultation bilaterally, no wheezes or crackles",
+      "Cardiovascular exam details: S1 and S2 sounds, no murmurs or extra sounds",
+      "Rapid strep test: Negative",
+      "Diagnosis: Acute Pharyngitis, unspecified",
+      "Medication dosage frequency and route: oral, 1 tablet every 6 hours",
+      "Referral condition timeframe: within 7 days"
     ],
     "additions": [
-      "Descriptive diagnosis in Assessment: Sore throat with inflammation"
+      "\"Pending results for throat culture and complete blood count\" listed under Assessment"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly complete, but omits the patient's occupation, the detail about sticking to a soft food diet, and the denial of fever, which are minor to moderate clinical details.",
+        "summary": "The Subjective section has several minor omissions, including the patient's occupation and the setting of care. The omission of 'denies fever' is a moderate clinical detail. Despite these, the core HPI and ROS are adequately captured, making the section mostly clinically aligned.",
         "omissions": [
-          "Patient's occupation: high school teacher",
-          "Patient currently sticking to a soft food diet",
-          "Denial of fever"
+          "Patient's occupation (high school teacher)",
+          "Patient presents to Urgent Care Center",
+          "Denies fever"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section omits important clinical findings, specifically the absence of exudates on oropharyngeal exam and the negative rapid strep test result, which is a critical diagnostic finding that impacts clinical decision-making.",
+        "summary": "The Objective section omits several detailed normal physical exam findings. Critically, it fails to include the negative rapid strep test result, which is a major diagnostic omission. The absence of 'without exudates' from the oropharyngeal exam is also a moderate omission. These gaps significantly impact the completeness of the objective findings.",
         "omissions": [
           "Oropharyngeal examination finding: without exudates",
-          "Rapid strep test result: Negative"
+          "Respiratory exam details: to auscultation bilaterally, no wheezes or crackles",
+          "Cardiovascular exam details: S1 and S2 sounds, no murmurs or extra sounds",
+          "Rapid strep test: Negative"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section omits the specific diagnosis of 'Acute Pharyngitis, unspecified,' replacing it with a descriptive 'Sore throat with inflammation.' While the descriptive diagnosis is supported, the absence of the formal diagnosis is a significant gap.",
+        "grade": "D",
+        "summary": "The Assessment section completely omits the primary diagnosis of 'Acute Pharyngitis, unspecified.' This is a major issue that fundamentally reduces the clinical usefulness of the note, as the core assessment is missing. The addition of pending test results is supported by the transcript and does not affect the grade.",
         "omissions": [
-          "Specific diagnosis: Acute Pharyngitis, unspecified"
+          "Diagnosis: Acute Pharyngitis, unspecified"
         ],
         "additions": [
-          "Descriptive diagnosis: Sore throat with inflammation"
+          "\"Pending results for throat culture and complete blood count\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has several omissions, most notably the critical medication frequency (1 tablet every 6 hours) for Hydrocodone-Acetaminophen and the specific timeframe for referral (within 7 days) if symptoms do not improve. It also omits the specific tests to be reviewed at follow-up. The missing medication frequency is a major issue that reduces the safety and clarity of the plan.",
+        "grade": "B",
+        "summary": "The Plan section omits specific medication dosage frequency and route ('oral, 1 tablet every 6 hours') and the timeframe for the referral condition ('within 7 days'). These are moderate to minor omissions that affect the precision and completeness of the plan, but the main components of the plan are present and usable.",
         "omissions": [
-          "Medication route: oral (for Hydrocodone-Acetaminophen)",
-          "Medication frequency: 1 tablet every 6 hours (for Hydrocodone-Acetaminophen)",
-          "Specific tests to review at follow-up: throat culture and CBC results",
-          "Timeframe for referral: if no improvement in symptoms within 7 days"
+          "Medication dosage frequency and route: oral, 1 tablet every 6 hours",
+          "Referral condition timeframe: within 7 days"
         ],
         "additions": []
       }
@@ -307,18 +307,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Descriptive diagnosis in Assessment: Sore throat with inflammation",
+      "addition_text": "\"Pending results for throat culture and complete blood count\" listed under Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] It means your throat is inflamed, which is why it's so painful.",
+      "transcript_evidence": "[doctor] We're still waiting on the throat culture results to see if there’s any bacterial infection. I’ve also ordered a complete blood count with differential to check for underlying bacterial infection. Those results are pending.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Sore throat with inflammation."
+      "matched_claim_text": "Pending results for throat culture and complete blood count.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Descriptive diagnosis: Sore throat with inflammation",
+      "addition_text": "\"Pending results for throat culture and complete blood count\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] It means your throat is inflamed, which is why it's so painful.",
+      "transcript_evidence": "[doctor] We're still waiting on the throat culture results to see if there’s any bacterial infection. I’ve also ordered a complete blood count with differential to check for underlying bacterial infection. Those results are pending.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Sore throat with inflammation."
+      "matched_claim_text": "Pending results for throat culture and complete blood count.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

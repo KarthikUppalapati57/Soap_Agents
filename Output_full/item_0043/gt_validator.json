@@ -274,116 +274,96 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps and multiple moderate issues, particularly in the Assessment section where crucial clinical reasoning and supporting details are omitted. While the Plan section is largely complete, the Subjective section misses significant structural elements and details, and the Objective section includes unsupported clinical interpretations for lipid levels. These issues collectively reduce the note's overall clinical usefulness and completeness.",
+    "overall_summary": "The generated note is mostly aligned with the Ground Truth, but the Assessment section contains a significant unsupported addition of 'Dyslipidemia' as a diagnosis, which introduces misleading clinical content. Additionally, the Assessment section omits several important clinical details regarding the impact of obesity and the nature of asthma. While other sections are generally strong with only minor omissions, the issues in the Assessment section materially reduce the note's clinical usefulness and necessitate a lower overall grade.",
     "omissions": [
-      "Chief Complaint section header and content",
-      "HPI detail: symptoms occurring daily",
-      "HPI detail: patient highly motivated to adhere to treatment plans",
-      "HPI detail: struggles due to work-related stress and lack of time",
-      "Review of Systems section header and detailed breakdown (Gastrointestinal, Musculoskeletal, Dermatological, Endocrine)",
-      "ROS detail: No significant gastrointestinal complaints",
-      "ROS detail: No joint pain or muscle weakness reported",
-      "Objective section headers (e.g., Physical Exam, Vital Signs, Investigation Results)",
-      "Abdomen physical exam detail: non-tender",
-      "Fasting Blood Sugar qualifier: slightly elevated",
-      "Lipid Profile detail: HDL 45 mg/dL",
-      "Assessment detail for Obesity: contributing to patient's fatigue and shortness of breath",
-      "Assessment detail for Obesity: worsens PCOS symptoms and increases risk for type 2 diabetes",
-      "Assessment detail for PCOS: manifestations (irregular menstrual cycles, acne, and hirsutism)",
-      "Assessment detail for PCOS: hormonal imbalances confirmed by lab results",
-      "Assessment detail for Mild Asthma: stable but exacerbated by obesity",
-      "\"Mild\" qualifier for Asthma in Assessment",
-      "Plan section headers (e.g., Medication, Lifestyle Modifications, Referral, Follow-Up, Preventative Health, Patient Education, Instructions)",
-      "Specific name of physical therapist: Dr. James Olsen",
-      "Reason for PT referral: to avoid injury",
-      "Specific action for patient education: Provided educational materials",
-      "Follow-up instruction detail: return to the clinic earlier if needed for any adverse effects"
+      "Chief Complaint statement: \"Routine check-up focused on weight management and PCOS-related symptoms.\"",
+      "Patient attributes irregular menstrual cycles, acne, and hirsutism to PCOS.",
+      "Symptoms (irregular cycles, acne, hirsutism) occur daily.",
+      "Patient is highly motivated to adhere to treatment plans.",
+      "Patient struggles due to work-related stress and lack of time.",
+      "ROS: Gastrointestinal: No significant complaints.",
+      "ROS: Musculoskeletal: No joint pain or muscle weakness reported.",
+      "Abdomen: \"non-tender\" finding.",
+      "Fasting Blood Sugar: \"slightly elevated\" qualifier.",
+      "Lipid Profile: HDL 45 mg/dL.",
+      "Obesity contributing to patient's fatigue and shortness of breath.",
+      "Obesity worsens PCOS symptoms and increases risk for type 2 diabetes.",
+      "PCOS manifests as irregular menstrual cycles, acne, and hirsutism.",
+      "PCOS hormonal imbalances confirmed by lab results.",
+      "Asthma described as \"Mild\".",
+      "Asthma described as \"Stable but exacerbated by obesity\".",
+      "Referral: Specific name of physical therapist (Dr. James Olsen).",
+      "Referral: Reason for personalized exercise regimen: \"to avoid injury\".",
+      "Instructions: \"Return to the clinic in 3 months or earlier if needed\" (part of the instruction for adverse effects)."
     ],
     "additions": [
-      "Subjective: \"Recently\" experiencing tiredness",
-      "Objective: Explicitly stating \"within normal range\" for Blood Pressure",
-      "Objective: Explicitly stating \"within normal range\" for Heart Rate",
-      "Objective: Explicitly stating \"within normal range\" for Respiratory Rate",
-      "Objective: Explicitly stating \"within normal range\" for Temperature",
-      "Objective: Explicitly stating \"Elevated\" for total cholesterol",
-      "Objective: Explicitly stating \"Elevated\" for LDL",
-      "Objective: Explicitly stating \"Elevated\" for triglycerides",
-      "Assessment: \"elevated blood sugar levels\" as a separate assessment item",
-      "Assessment: \"dyslipidemia\" as a separate assessment item"
+      "Blood pressure described as \"within normal range\" in Objective.",
+      "Heart rate described as \"within normal range\" in Objective.",
+      "Respiratory rate described as \"within normal range\" in Objective.",
+      "Temperature described as \"within normal range\" in Objective.",
+      "Elevated blood sugar levels listed as a diagnosis in Assessment.",
+      "Dyslipidemia listed as a diagnosis in Assessment."
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Objective: Explicitly stating \"Elevated\" for total cholesterol",
-      "Objective: Explicitly stating \"Elevated\" for LDL",
-      "Objective: Explicitly stating \"Elevated\" for triglycerides",
-      "Explicitly stating \"Elevated\" for total cholesterol",
-      "Explicitly stating \"Elevated\" for LDL",
-      "Explicitly stating \"Elevated\" for triglycerides"
+      "Dyslipidemia listed as a diagnosis in Assessment."
     ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has significant omissions, including the entire Chief Complaint and Review of Systems sections (headers and content). Several HPI details regarding symptom frequency, patient motivation, and struggles due to stress/time are also missing, making the subjective account meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete but omits the full Chief Complaint statement, the patient's attribution of symptoms to PCOS, the daily frequency of symptoms, and patient motivation/struggles due to stress and lack of time. It also misses negative findings for Gastrointestinal and Musculoskeletal Review of Systems. These are considered minor omissions.",
         "omissions": [
-          "Chief Complaint section header and content",
-          "HPI detail: symptoms occurring daily",
-          "HPI detail: patient highly motivated to adhere to treatment plans",
-          "HPI detail: struggles due to work-related stress and lack of time",
-          "Review of Systems section header and detailed breakdown (Gastrointestinal, Musculoskeletal, Dermatological, Endocrine)",
-          "ROS detail: No significant gastrointestinal complaints",
-          "ROS detail: No joint pain or muscle weakness reported"
+          "Chief Complaint statement: \"Routine check-up focused on weight management and PCOS-related symptoms.\"",
+          "Patient attributes irregular menstrual cycles, acne, and hirsutism to PCOS.",
+          "Symptoms (irregular cycles, acne, hirsutism) occur daily.",
+          "Patient is highly motivated to adhere to treatment plans.",
+          "Patient struggles due to work-related stress and lack of time.",
+          "ROS: Gastrointestinal: No significant complaints.",
+          "ROS: Musculoskeletal: No joint pain or muscle weakness reported."
         ],
-        "additions": [
-          "\"Recently\" experiencing tiredness"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "This section contains several minor omissions, such as the 'non-tender' abdomen detail and the specific HDL value. More critically, it includes three unsupported additions: explicitly stating 'Elevated' for total cholesterol, LDL, and triglycerides. While the values are high, the transcript does not explicitly label them as 'Elevated', representing an unsupported clinical interpretation by the model.",
+        "grade": "A",
+        "summary": "The Objective section is strong, with only minor omissions of the 'non-tender' abdomen finding, the 'slightly elevated' qualifier for fasting blood sugar, and the specific HDL value. All additions in this section were supported by the transcript and therefore do not impact the grade.",
         "omissions": [
-          "Objective section headers (e.g., Physical Exam, Vital Signs, Investigation Results)",
-          "Abdomen physical exam detail: non-tender",
-          "Fasting Blood Sugar qualifier: slightly elevated",
-          "Lipid Profile detail: HDL 45 mg/dL"
+          "Abdomen: \"non-tender\" finding.",
+          "Fasting Blood Sugar: \"slightly elevated\" qualifier.",
+          "Lipid Profile: HDL 45 mg/dL."
         ],
         "additions": [
-          "Explicitly stating \"within normal range\" for Blood Pressure",
-          "Explicitly stating \"within normal range\" for Heart Rate",
-          "Explicitly stating \"within normal range\" for Respiratory Rate",
-          "Explicitly stating \"within normal range\" for Temperature",
-          "Explicitly stating \"Elevated\" for total cholesterol",
-          "Explicitly stating \"Elevated\" for LDL",
-          "Explicitly stating \"Elevated\" for triglycerides"
+          "Blood pressure described as \"within normal range\".",
+          "Heart rate described as \"within normal range\".",
+          "Respiratory rate described as \"within normal range\".",
+          "Temperature described as \"within normal range\"."
         ]
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section suffers from major omissions of clinical reasoning and supporting details for each diagnosis. The generated note lists the diagnoses (Obesity, PCOS, Asthma) but fails to include the contributing factors, manifestations, and confirmations that provide essential context and justification, materially reducing its clinical usefulness.",
+        "grade": "C",
+        "summary": "The Assessment section has several moderate omissions, including the detailed contributions of obesity to fatigue, shortness of breath, PCOS, and diabetes risk, as well as the specific manifestation of PCOS and the stable but exacerbated nature of asthma. Critically, it includes an unsupported addition of 'Dyslipidemia' as a diagnosis, which is a high-severity issue as it introduces a diagnosis not explicitly supported by the transcript or Ground Truth.",
         "omissions": [
-          "Assessment detail for Obesity: contributing to patient's fatigue and shortness of breath",
-          "Assessment detail for Obesity: worsens PCOS symptoms and increases risk for type 2 diabetes",
-          "Assessment detail for PCOS: manifestations (irregular menstrual cycles, acne, and hirsutism)",
-          "Assessment detail for PCOS: hormonal imbalances confirmed by lab results",
-          "Assessment detail for Mild Asthma: stable but exacerbated by obesity",
-          "\"Mild\" qualifier for Asthma"
+          "Obesity contributing to patient's fatigue and shortness of breath.",
+          "Obesity worsens PCOS symptoms and increases risk for type 2 diabetes.",
+          "PCOS manifests as irregular menstrual cycles, acne, and hirsutism.",
+          "PCOS hormonal imbalances confirmed by lab results.",
+          "Asthma described as \"Mild\".",
+          "Asthma described as \"Stable but exacerbated by obesity\"."
         ],
         "additions": [
-          "\"elevated blood sugar levels\" as a separate assessment item",
-          "\"dyslipidemia\" as a separate assessment item"
+          "Elevated blood sugar levels (as a diagnosis).",
+          "Dyslipidemia (as a diagnosis)."
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned. It has several minor omissions, such as the specific name of the physical therapist, the reason for the PT referral ('to avoid injury'), and the detail about providing educational materials. However, the core treatment plan and follow-up instructions are present.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive, with only minor omissions of the physical therapist's name, the reason for the personalized exercise regimen ('to avoid injury'), and the specific instruction to return earlier if needed for adverse effects. No unsupported or unknown additions were present in this section.",
         "omissions": [
-          "Plan section headers (e.g., Medication, Lifestyle Modifications, Referral, Follow-Up, Preventative Health, Patient Education, Instructions)",
-          "Specific name of physical therapist: Dr. James Olsen",
-          "Reason for PT referral: to avoid injury",
-          "Specific action for patient education: Provided educational materials",
-          "Follow-up instruction detail: return to the clinic earlier if needed for any adverse effects"
+          "Referral: Specific name of physical therapist (Dr. James Olsen).",
+          "Referral: Reason for personalized exercise regimen: \"to avoid injury\".",
+          "Instructions: \"Return to the clinic in 3 months or earlier if needed\" (part of the instruction for adverse effects)."
         ],
         "additions": []
       }
@@ -393,144 +373,112 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: \"Recently\" experiencing tiredness",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I've been feeling really tired, even after sleeping 7-8 hours.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: Explicitly stating \"within normal range\" for Blood Pressure",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your blood pressure is 128/82 mmHg... These vitals are within normal range",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: Explicitly stating \"within normal range\" for Heart Rate",
+      "addition_text": "Blood pressure described as \"within normal range\" in Objective.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 128/82 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths/min, and your temperature is 98.6°F. These vitals are within normal range, but your BMI is a concern.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective: Explicitly stating \"within normal range\" for Respiratory Rate",
+      "addition_text": "Heart rate described as \"within normal range\" in Objective.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 128/82 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths/min, and your temperature is 98.6°F. These vitals are within normal range, but your BMI is a concern.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective: Explicitly stating \"within normal range\" for Temperature",
+      "addition_text": "Respiratory rate described as \"within normal range\" in Objective.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "your temperature is 98.6°F. These vitals are within normal range",
+      "transcript_evidence": "Your blood pressure is 128/82 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths/min, and your temperature is 98.6°F. These vitals are within normal range, but your BMI is a concern.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective: Explicitly stating \"Elevated\" for total cholesterol",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "Temperature described as \"within normal range\" in Objective.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your temperature is 98.6°F. These vitals are within normal range, but your BMI is a concern.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective: Explicitly stating \"Elevated\" for LDL",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: Explicitly stating \"Elevated\" for triglycerides",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: \"elevated blood sugar levels\" as a separate assessment item",
+      "addition_text": "Elevated blood sugar levels listed as a diagnosis in Assessment.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your fasting blood sugar is 110 mg/dL, which is slightly elevated.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: \"dyslipidemia\" as a separate assessment item",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your lipid profile shows total cholesterol at 210 mg/dL, LDL at 140 mg/dL, HDL at 45 mg/dL, and triglycerides at 190 mg/dL.",
+      "addition_text": "Dyslipidemia listed as a diagnosis in Assessment.",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Recently\" experiencing tiredness",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I've been feeling really tired, even after sleeping 7-8 hours.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explicitly stating \"within normal range\" for Blood Pressure",
+      "addition_text": "Blood pressure described as \"within normal range\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 128/82 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths/min, and your temperature is 98.6°F. These vitals are within normal range, but your BMI is a concern.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Explicitly stating \"within normal range\" for Heart Rate",
+      "addition_text": "Heart rate described as \"within normal range\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 128/82 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths/min, and your temperature is 98.6°F. These vitals are within normal range, but your BMI is a concern.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Explicitly stating \"within normal range\" for Respiratory Rate",
+      "addition_text": "Respiratory rate described as \"within normal range\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 128/82 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths/min, and your temperature is 98.6°F. These vitals are within normal range, but your BMI is a concern.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Explicitly stating \"within normal range\" for Temperature",
+      "addition_text": "Temperature described as \"within normal range\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your BMI is 32, which classifies as obese. Your blood pressure is 128/82 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths/min, and your temperature is 98.6°F. These vitals are within normal range, but your BMI is a concern.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Explicitly stating \"Elevated\" for total cholesterol",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explicitly stating \"Elevated\" for LDL",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explicitly stating \"Elevated\" for triglycerides",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"elevated blood sugar levels\" as a separate assessment item",
+      "addition_text": "Elevated blood sugar levels (as a diagnosis).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your fasting blood sugar is 110 mg/dL, which is slightly elevated.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"dyslipidemia\" as a separate assessment item",
+      "addition_text": "Dyslipidemia (as a diagnosis).",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your lipid profile shows total cholesterol at 210 mg/dL, LDL at 140 mg/dL, HDL at 45 mg/dL, and triglycerides at 190 mg/dL.",
+      "transcript_evidence": "Your lipid profile shows total cholesterol at 210 mg/dL, LDL at 140 mg/dL, HDL at 45 mg/dL, and triglycerides at 190 mg/dL. ... It's not ideal, but we can manage it.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

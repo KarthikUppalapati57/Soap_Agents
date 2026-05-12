@@ -248,7 +248,89 @@
     "assessment_alignment_score": 0.4761904761904762,
     "plan_alignment_score": 0.7272727272727274
   },
-  "expert_judge": null,
-  "expert_judge_error": "Judge returned non-JSON output: Illegal trailing comma before end of object: line 10 column 5 (char 854)",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer-v0.1",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable. It accurately captures the Assessment section and most of the Plan. However, the Subjective section has several minor omissions, primarily negative findings from the Review of Systems and some details from the History of Present Illness. The Objective section includes a minor unsupported addition of the temperature in Celsius, which was not explicitly stated in the transcript.",
+    "omissions": [
+      "Subjective: HPI: Symptoms are continuous and worsen in the evening.",
+      "Subjective: HPI: Symptoms significantly impact his ability to perform routine tasks.",
+      "Subjective: ROS: Respiratory: No cough, shortness of breath, or wheezing.",
+      "Subjective: ROS: Cardiovascular: No chest pain, palpitations, or edema.",
+      "Subjective: ROS: Gastrointestinal: No nausea, vomiting, or abdominal pain.",
+      "Subjective: ROS: Neurological: No dizziness or visual disturbances.",
+      "Subjective: ROS: Musculoskeletal: No musculoskeletal pain.",
+      "Plan: Medications: Quantity of tablets (20 tablets)."
+    ],
+    "additions": [
+      "Objective: Vital Signs: Temperature in Celsius (37°C)."
+    ],
+    "hallucinations_or_unjustified_inferences": [
+      "Vital Signs: Temperature in Celsius (37°C)."
+    ],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section omits several negative findings from the Review of Systems (Respiratory, Cardiovascular, Gastrointestinal, Neurological, Musculoskeletal) and two specific details from the History of Present Illness regarding symptom continuity/worsening and impact on routine tasks. However, the core clinical information is present.",
+        "omissions": [
+          "HPI: Symptoms are continuous and worsen in the evening.",
+          "HPI: Symptoms significantly impact his ability to perform routine tasks.",
+          "ROS: Respiratory: No cough, shortness of breath, or wheezing.",
+          "ROS: Cardiovascular: No chest pain, palpitations, or edema.",
+          "ROS: Gastrointestinal: No nausea, vomiting, or abdominal pain.",
+          "ROS: Neurological: No dizziness or visual disturbances.",
+          "ROS: Musculoskeletal: No musculoskeletal pain."
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "B",
+        "summary": "The Objective section includes an unsupported addition of the patient's temperature in Celsius (37°C). While a correct conversion, this specific value was not explicitly stated in the transcript, which only provided the Fahrenheit equivalent (98.6°F).",
+        "omissions": [],
+        "additions": [
+          "Vital Signs: Temperature in Celsius (37°C)."
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "This section accurately captures the primary and secondary diagnoses without any omissions or unsupported additions.",
+        "omissions": [],
+        "additions": []
+      },
+      {
+        "section": "Plan",
+        "grade": "A",
+        "summary": "The Plan section omits the specific quantity of tablets (20 tablets) for the prescribed medication. Otherwise, it is complete and accurate.",
+        "omissions": [
+          "Medications: Quantity of tablets (20 tablets)."
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Objective: Vital Signs: Temperature in Celsius (37°C).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your temperature is 98.6°F",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Vital Signs: Temperature in Celsius (37°C).",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

@@ -241,84 +241,139 @@
     "plan_alignment_score": 0.6770833333333333
   },
   "expert_judge": {
-    "model": "Clinical Documentation Grader",
-    "overall_grade": "A",
-    "overall_summary": "The generated SOAP note is highly accurate and clinically useful. It captures all major clinically important GroundTruth content. While there are several minor omissions, particularly in the Subjective section regarding detailed ROS and lifestyle specifics, these do not introduce misleading information or significantly impair the note's clinical utility. Crucially, there are no unsupported or unknown additions, which significantly contributes to its high quality and reliability.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a usable summary of the patient's visit but has noticeable gaps in detail across multiple sections. There are numerous omissions of specific clinical details in the Subjective and Objective sections, including detailed ROS negatives, patient lifestyle specifics, and descriptive physical exam findings. The Plan section also omits specific medication dosage and a key purpose for follow-up, and includes one unsupported addition regarding treatment adjustments.",
     "omissions": [
-      "HPI detail: symptoms worsen post-meal",
-      "ROS detail: No nausea, vomiting, diarrhea, or rectal bleeding",
-      "ROS detail: No fever or weight loss",
-      "ROS detail: No chest pain or palpitations",
-      "ROS detail: No headaches, dizziness, or syncope",
-      "ROS detail: No dysuria or hematuria",
-      "Lifestyle detail: Sleep (6-7 hours per night, varying quality)",
-      "Lifestyle detail: Diet (prefers processed foods)",
-      "Lifestyle detail: Tobacco Use (None)",
-      "Lifestyle detail: Drug Use (None)",
-      "Lifestyle detail: Recreational Activities (Enjoys reading and watching TV)",
-      "Lifestyle detail: Specific alcohol consumption frequency (1-2 drinks per week)",
-      "Physical Exam: General appearance (well-nourished, well-groomed, no apparent distress)",
-      "Physical Exam: Specific cardiovascular findings (regular rate and rhythm, no murmurs)",
-      "Physical Exam: Specific respiratory findings (breath sounds clear bilaterally)",
-      "Physical Exam: Specific neurological findings (alert and oriented, no focal deficits)",
-      "Plan: Medication dosage (17 grams)",
-      "Plan: Medication route (oral)"
+      "Chief Complaint section header",
+      "History of Present Illness (HPI) section header",
+      "Severity of constipation (moderate) in HPI",
+      "Symptoms worsen post-meal in HPI",
+      "Review of Systems (ROS) section header",
+      "Detailed ROS categories (Gastrointestinal, General, Cardiovascular, Neurological, Genitourinary)",
+      "Specific ROS negatives: No nausea, vomiting, diarrhea, rectal bleeding",
+      "Specific ROS negatives: No fever or weight loss",
+      "Specific ROS negatives: No chest pain or palpitations",
+      "Specific ROS negatives: No headaches, dizziness, or syncope",
+      "Specific ROS negatives: No dysuria or hematuria",
+      "Patient's self-reported habits and lifestyle section header",
+      "Sleep: 6-7 hours per night, varying quality",
+      "Diet: prefers processed foods",
+      "Tobacco Use: None",
+      "Drug Use: None",
+      "Recreational Activities: Enjoys reading and watching TV",
+      "Specific alcohol consumption (1-2 drinks per week)",
+      "Vital Signs section header",
+      "Physical Exam section header",
+      "General exam findings: Well-nourished, well-groomed female with no apparent distress",
+      "Specific Cardiovascular exam findings: Regular rate and rhythm, no murmurs",
+      "Specific Respiratory exam findings: Breath sounds clear bilaterally",
+      "Specific Neurological exam findings: Alert and oriented, no focal deficits",
+      "Medication Management section header",
+      "Specific dosage of Polyethylene Glycol 3350: 17 grams",
+      "Route of administration for medication: oral",
+      "Lifestyle Modifications section header",
+      "Follow-up Recommendations section header",
+      "Specific purpose of follow-up: to evaluate the response to treatment",
+      "Patient Education section header",
+      "Return Instructions section header"
     ],
-    "additions": [],
-    "hallucinations_or_unjustified_inferences": [],
+    "additions": [
+      "\"make any necessary adjustments to the treatment plan\" in follow-up recommendations",
+      "\"immediately\" for contacting clinic if symptoms worsen"
+    ],
+    "hallucinations_or_unjustified_inferences": [
+      "\"make any necessary adjustments to the treatment plan\" in follow-up recommendations"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section accurately captures the chief complaint, history of present illness, and key lifestyle factors (low fiber, sedentary, occasional alcohol). However, it omits several specific negative findings from the Review of Systems (e.g., absence of nausea, fever, chest pain, headaches, dysuria) and detailed lifestyle information (e.g., sleep quality, preference for processed foods, tobacco/drug use, recreational activities, specific alcohol frequency). While these omissions are numerous, they are individually minor and do not obscure the primary clinical picture.",
+        "grade": "C",
+        "summary": "This section has multiple omissions, including the specific detail that symptoms worsen post-meal, detailed categories and specific negatives for the Review of Systems, and several specific patient habits and lifestyle details (e.g., sleep quality, preference for processed foods, specific alcohol consumption, recreational activities). While some information is summarized, the lack of explicit detail makes the section noticeably incomplete.",
         "omissions": [
-          "HPI detail: symptoms worsen post-meal",
-          "ROS detail: No nausea, vomiting, diarrhea, or rectal bleeding",
-          "ROS detail: No fever or weight loss",
-          "ROS detail: No chest pain or palpitations",
-          "ROS detail: No headaches, dizziness, or syncope",
-          "ROS detail: No dysuria or hematuria",
-          "Lifestyle detail: Sleep (6-7 hours per night, varying quality)",
-          "Lifestyle detail: Diet (prefers processed foods)",
-          "Lifestyle detail: Tobacco Use (None)",
-          "Lifestyle detail: Drug Use (None)",
-          "Lifestyle detail: Recreational Activities (Enjoys reading and watching TV)",
-          "Lifestyle detail: Specific alcohol consumption frequency (1-2 drinks per week)"
+          "Chief Complaint section header",
+          "History of Present Illness (HPI) section header",
+          "Severity of constipation (moderate) in HPI",
+          "Symptoms worsen post-meal in HPI",
+          "Review of Systems (ROS) section header",
+          "Detailed ROS categories (Gastrointestinal, General, Cardiovascular, Neurological, Genitourinary)",
+          "Specific ROS negatives: No nausea, vomiting, diarrhea, rectal bleeding",
+          "Specific ROS negatives: No fever or weight loss",
+          "Specific ROS negatives: No chest pain or palpitations",
+          "Specific ROS negatives: No headaches, dizziness, or syncope",
+          "Specific ROS negatives: No dysuria or hematuria",
+          "Patient's self-reported habits and lifestyle section header",
+          "Sleep: 6-7 hours per night, varying quality",
+          "Diet: prefers processed foods",
+          "Tobacco Use: None",
+          "Drug Use: None",
+          "Recreational Activities: Enjoys reading and watching TV",
+          "Specific alcohol consumption (1-2 drinks per week)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is excellent, accurately presenting all vital signs and the key abdominal physical exam findings. The omissions are minor descriptive details regarding general appearance and specific findings for cardiovascular, respiratory, and neurological exams, which are appropriately summarized as 'clear' in the generated note. These do not impact the core clinical utility.",
+        "grade": "B",
+        "summary": "The Objective section accurately captures vital signs and key abdominal findings. However, it omits the general appearance of the patient and provides generalized statements for cardiovascular, respiratory, and neurological exams instead of the specific descriptive findings present in the Ground Truth.",
         "omissions": [
-          "Physical Exam: General appearance (well-nourished, well-groomed, no apparent distress)",
-          "Physical Exam: Specific cardiovascular findings (regular rate and rhythm, no murmurs)",
-          "Physical Exam: Specific respiratory findings (breath sounds clear bilaterally)",
-          "Physical Exam: Specific neurological findings (alert and oriented, no focal deficits)"
+          "Vital Signs section header",
+          "Physical Exam section header",
+          "General exam findings: Well-nourished, well-groomed female with no apparent distress",
+          "Specific Cardiovascular exam findings: Regular rate and rhythm, no murmurs",
+          "Specific Respiratory exam findings: Breath sounds clear bilaterally",
+          "Specific Neurological exam findings: Alert and oriented, no focal deficits"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the GroundTruth, capturing the diagnosis, severity, duration, and likely contributing factors without any omissions or additions. It is comprehensive and accurate.",
+        "summary": "The Assessment section is fully aligned with the Ground Truth, capturing all clinically important content without any omissions or unsupported additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is very comprehensive and accurate, detailing medication, lifestyle modifications, follow-up, and patient education. The only omissions are minor details regarding the medication dosage (specific grams) and route (oral), which do not significantly impair the clinical usefulness or safety of the plan.",
+        "grade": "C",
+        "summary": "The Plan section omits specific details such as the 17-gram dosage of Polyethylene Glycol 3350 and the oral route of administration. It also omits the specific purpose of follow-up being 'to evaluate the response to treatment'. Additionally, the phrase 'make any necessary adjustments to the treatment plan' is an unsupported addition, contributing to a lower grade for this section.",
         "omissions": [
-          "Medication dosage (17 grams)",
-          "Medication route (oral)"
+          "Medication Management section header",
+          "Specific dosage of Polyethylene Glycol 3350: 17 grams",
+          "Route of administration for medication: oral",
+          "Lifestyle Modifications section header",
+          "Follow-up Recommendations section header",
+          "Specific purpose of follow-up: to evaluate the response to treatment",
+          "Patient Education section header",
+          "Return Instructions section header"
         ],
-        "additions": []
+        "additions": [
+          "\"make any necessary adjustments to the treatment plan\" in follow-up recommendations",
+          "\"immediately\" for contacting clinic if symptoms worsen"
+        ]
       }
     ],
     "rubric_notes": null
   },
   "expert_judge_error": null,
-  "addition_evidence": []
+  "addition_evidence": [
+    {
+      "addition_text": "\"make any necessary adjustments to the treatment plan\" in follow-up recommendations",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"immediately\" for contacting clinic if symptoms worsen",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "If your symptoms get worse or you develop any new symptoms, please contact the clinic right away.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

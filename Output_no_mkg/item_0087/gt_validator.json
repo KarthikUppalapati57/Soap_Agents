@@ -243,61 +243,61 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaint, HPI, ROS, objective findings, and a comprehensive plan. While there are several minor omissions across all sections, such as specific qualifiers for symptoms, detailed physical exam findings, and some specific plan details, these do not significantly detract from the note's overall clinical utility. The Assessment section omits the formal diagnosis of \"Acute Pharyngitis\" but provides a clinically sound and transcript-supported descriptive assessment. Crucially, there are no unsupported or unknown additions that would introduce misleading clinical content.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. It accurately captures the patient's chief complaint, history of present illness, and vital signs. However, it omits specific cardiovascular exam findings in the Objective section and the explicit diagnosis of \"Acute Pharyngitis\" in the Assessment section, which are moderate issues. Several minor details, such as the patient's occupation and specific patient education points, are also omitted. All additions are supported by the transcript and do not negatively impact the grade.",
     "omissions": [
       "Patient's occupation (high school teacher)",
-      "\"Severe\" qualifier for sore throat",
-      "\"Intermittent\" qualifier for headaches",
-      "\"Severe\" qualifier for headaches",
-      "Denial of fever",
-      "\"Without exudates\" from oropharyngeal exam",
-      "\"To auscultation bilaterally, no wheezes or crackles\" from respiratory exam",
       "Cardiovascular exam findings (Normal S1 and S2 sounds, no murmurs or extra sounds)",
-      "Specific diagnosis of \"Acute Pharyngitis\"",
-      "Medication route \"oral\"",
-      "Specific name of the infectious disease specialist (Dr. James Anderson)",
-      "Referral condition timeframe \"within 7 days\"",
-      "Patient education on \"maintaining a nutritious diet suitable for current swallowing difficulties\""
+      "Specific diagnosis: Acute Pharyngitis",
+      "Medication route: oral for Hydrocodone-Acetaminophen",
+      "Specific mention of 'CBC results' for follow-up review",
+      "Specific referral name: Dr. James Anderson",
+      "Patient education on 'maintaining a nutritious diet suitable for current swallowing difficulties'"
     ],
     "additions": [
-      "\"Complete blood count with differential are pending\" (in Objective section)",
-      "Descriptive assessment: \"The patient's throat is inflamed, likely due to an underlying infection. Pending lab results will help confirm the diagnosis.\" (in Assessment section)",
-      "\"Advise the patient to return sooner if symptoms worsen or new concerns arise.\" (in Plan section)"
+      "\"complete blood count with differential are pending\" in Objective section",
+      "Descriptive assessment: \"The patient's throat is inflamed, likely due to an underlying infection. Pending lab results will help confirm the diagnosis.\"",
+      "\"Advise the patient to return sooner if symptoms worsen or new concerns arise.\" in Plan"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is largely complete but omits several minor details. These include the patient's occupation (high school teacher), the \"severe\" qualifier for sore throat, the \"intermittent\" and \"severe\" qualifiers for headaches, and the denial of fever. While these are minor omissions, they slightly reduce the completeness of the patient's history and symptom description.",
+        "grade": "A",
+        "summary": "The Subjective section is well-captured, accurately reflecting the patient's chief complaint, HPI, and ROS content. Omissions are limited to structural headers, the patient's occupation, and minor descriptive details (e.g., 'constant' sore throat, 'intermittent severe' headaches), none of which significantly impact clinical utility.",
         "omissions": [
+          "Chief Complaint section header",
+          "History of Present Illness section header",
+          "Review of Systems section header",
           "Patient's occupation (high school teacher)",
-          "\"Severe\" qualifier for sore throat",
-          "\"Intermittent\" qualifier for headaches",
-          "\"Severe\" qualifier for headaches",
-          "Denial of fever"
+          "Detail that sore throat is \"constant\"",
+          "Detail that headaches are \"intermittent severe headaches\"",
+          "ROS: HEENT (sore throat, loss of voice, difficulty swallowing) as a distinct system review",
+          "ROS: Neurological (severe intermittent headaches) as a distinct system review",
+          "ROS: General (denies fever, significant fatigue, disturbed sleep) as a distinct system review"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately presents vital signs and key physical exam findings. However, it omits some specific details from the physical exam, such as \"without exudates\" from the oropharyngeal exam, the full description of respiratory findings (\"to auscultation bilaterally, no wheezes or crackles\"), and the complete cardiovascular exam findings. These are minor omissions of specific descriptive details, but the core findings are present. The addition of \"complete blood count with differential are pending\" is supported by the transcript and does not negatively impact the grade.",
+        "summary": "The Objective section accurately reports vital signs and most physical exam findings. However, it omits the specific cardiovascular exam findings ('Normal S1 and S2 sounds, no murmurs or extra sounds'), which is a moderate omission. The mention of 'without exudates' in the HEENT exam was also omitted. The addition of 'complete blood count with differential are pending' is supported by the transcript.",
         "omissions": [
-          "\"Without exudates\" from oropharyngeal exam",
-          "\"To auscultation bilaterally, no wheezes or crackles\" from respiratory exam",
-          "Cardiovascular exam findings (Normal S1 and S2 sounds, no murmurs or extra sounds)"
+          "Vital Signs section header",
+          "Physical Exam section header",
+          "Investigation/Test Results section header",
+          "HEENT exam detail: \"without exudates\"",
+          "Cardiovascular exam findings: \"Normal S1 and S2 sounds, no murmurs or extra sounds\""
         ],
         "additions": [
-          "\"Complete blood count with differential are pending\" (added to investigations)"
+          "\"complete blood count with differential are pending\" (in Investigation/Test Results context)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section omits the specific diagnosis of \"Acute Pharyngitis, unspecified.\" Instead, it provides a descriptive assessment: \"The patient's throat is inflamed, likely due to an underlying infection. Pending lab results will help confirm the diagnosis.\" This descriptive assessment is supported by the transcript and is clinically reasonable, but the absence of the formal diagnosis is a moderate omission. However, given the supported nature of the generated content, it does not render the section unusable.",
+        "summary": "The Assessment section provides a clinically reasonable descriptive assessment that is supported by the transcript. However, it omits the specific diagnosis of 'Acute Pharyngitis' present in the Ground Truth, which is a moderate issue. The descriptive assessment itself is supported and does not reduce the grade.",
         "omissions": [
-          "Specific diagnosis of \"Acute Pharyngitis\""
+          "Specific diagnosis: Acute Pharyngitis"
         ],
         "additions": [
           "Descriptive assessment: \"The patient's throat is inflamed, likely due to an underlying infection. Pending lab results will help confirm the diagnosis.\""
@@ -305,12 +305,17 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is comprehensive and actionable. Minor omissions include the medication route \"oral,\" the specific name of the infectious disease specialist (Dr. James Anderson), the referral condition timeframe \"within 7 days,\" and specific patient education on \"maintaining a nutritious diet suitable for current swallowing difficulties.\" These are minor details that do not impede the overall clarity or safety of the plan. The addition regarding returning sooner if symptoms worsen is supported by the transcript and enhances patient safety.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive and clinically actionable, covering medications, lifestyle recommendations, follow-up, and referral. Omissions are minor details such as the medication route ('oral'), explicit mention of 'CBC results' for follow-up, the specific referral doctor's name, and a specific patient education point on diet. The addition of advice for worsening symptoms is supported by the transcript.",
         "omissions": [
-          "Medication route \"oral\"",
-          "Specific name of the infectious disease specialist (Dr. James Anderson)",
-          "Referral condition timeframe \"within 7 days\"",
+          "Medications section header",
+          "Lifestyle Recommendations section header",
+          "Follow-Up section header",
+          "Referral section header",
+          "Patient Education section header",
+          "Medication route: \"oral\" for Hydrocodone-Acetaminophen",
+          "Specific mention of \"CBC results\" for follow-up review",
+          "Specific referral name: \"Dr. James Anderson\"",
           "Patient education on \"maintaining a nutritious diet suitable for current swallowing difficulties\""
         ],
         "additions": [
@@ -323,46 +328,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"Complete blood count with differential are pending\" (in Objective section)",
+      "addition_text": "\"complete blood count with differential are pending\" in Objective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We're still waiting on the throat culture results... I’ve also ordered a complete blood count with differential... Those results are pending.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Throat culture and complete blood count with differential are pending."
-    },
-    {
-      "addition_text": "Descriptive assessment: \"The patient's throat is inflamed, likely due to an underlying infection. Pending lab results will help confirm the diagnosis.\" (in Assessment section)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It means your throat is inflamed, which is why it's so painful. The tender lymph nodes indicate your body is fighting something off",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's throat is inflamed, likely due to an underlying infection."
-    },
-    {
-      "addition_text": "\"Advise the patient to return sooner if symptoms worsen or new concerns arise.\" (in Plan section)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "And remember, if things get worse or you have any new concerns, don’t hesitate to come back sooner.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to return sooner if symptoms worsen or new concerns arise."
-    },
-    {
-      "addition_text": "\"Complete blood count with differential are pending\" (added to investigations)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We're still waiting on the throat culture results... I’ve also ordered a complete blood count with differential... Those results are pending.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Throat culture and complete blood count with differential are pending."
+      "matched_claim_text": "Throat culture and complete blood count with differential are pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Descriptive assessment: \"The patient's throat is inflamed, likely due to an underlying infection. Pending lab results will help confirm the diagnosis.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It means your throat is inflamed, which is why it's so painful. The tender lymph nodes indicate your body is fighting something off",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's throat is inflamed, likely due to an underlying infection."
+      "matched_claim_text": "The patient's throat is inflamed, likely due to an underlying infection.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Advise the patient to return sooner if symptoms worsen or new concerns arise.\" in Plan",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "And remember, if things get worse or you have any new concerns, don’t hesitate to come back sooner.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Advise patient to return sooner if symptoms worsen or new concerns arise.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"complete blood count with differential are pending\" (in Investigation/Test Results context)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We're still waiting on the throat culture results... I’ve also ordered a complete blood count with differential... Those results are pending.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Throat culture and complete blood count with differential are pending.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Advise the patient to return sooner if symptoms worsen or new concerns arise.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "And remember, if things get worse or you have any new concerns, don’t hesitate to come back sooner.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to return sooner if symptoms worsen or new concerns arise."
+      "matched_claim_text": "Advise patient to return sooner if symptoms worsen or new concerns arise.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

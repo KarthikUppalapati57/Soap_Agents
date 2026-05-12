@@ -293,113 +293,113 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note provides a generally accurate overview of the patient's visit, capturing the chief complaint, core HPI, vital signs, physical exam findings, primary assessments, and the majority of the treatment plan. However, it suffers from significant omissions, particularly the complete absence of the Review of Systems section and crucial background information like the patient's known history of hypertension and Type 2 Diabetes Mellitus in the HPI. Additionally, important assessment items such as sedentary lifestyle and tobacco use, and a key patient education point regarding medication adherence, are missing. These gaps reduce the overall completeness and clinical utility of the note, requiring careful review.",
+    "overall_summary": "The generated SOAP note provides a generally accurate overview of the patient's presentation, findings, and management plan. However, it contains multiple moderate omissions across the Subjective, Assessment, and Plan sections. Key missing information includes the patient's known history of hypertension and Type 2 Diabetes Mellitus in the HPI, several important negative findings from the Review of Systems, contributing lifestyle factors (sedentary lifestyle, tobacco use) in the Assessment, and specific details in the Plan such as the cardiologist's name, consideration for medication dosage adjustment, and documentation of patient agreement. While no unsupported additions were identified, these omissions reduce the overall completeness and clinical usefulness of the note.",
     "omissions": [
-      "HPI: Known history of hypertension",
-      "HPI: Known history of Type 2 Diabetes Mellitus",
-      "HPI: Presenting for an initial consultation",
-      "HPI: Episodes have a moderate impact on daily activities",
-      "HPI: Denies chest pain during episodes",
-      "HPI: Denies syncope during episodes",
-      "Review of Systems (ROS) section",
-      "ROS: Cardiovascular: Positive for palpitations, shortness of breath",
-      "ROS: Neurological: Denies headaches, seizures, or syncope",
-      "ROS: Respiratory: Denies cough, wheezing, or chest pain",
-      "ROS: General: Denies fever and weight changes",
-      "Objective: Cardiovascular exam finding: no murmurs or rubs",
-      "Assessment: Type 2 Diabetes Mellitus: \"Chronic condition\" detail",
-      "Assessment: Sedentary Lifestyle: Contributing to overall health decline",
-      "Assessment: Tobacco Use: Likely exacerbating symptoms and increasing cardiovascular risk",
-      "Plan: Medical Treatment: Lisinopril dosage adjustment consideration",
-      "Plan: Referral: Name of cardiologist (Dr. John Smith)",
-      "Plan: Lifestyle Modifications: Provide resources for smoking cessation programs",
-      "Plan: Lifestyle Modifications: Gradually increasing activity levels for exercise routine",
-      "Plan: Patient Education and Counseling: Importance of medication adherence and lifestyle changes in managing hypertension and diabetes",
-      "Plan: Patient Education and Counseling: Educational materials on diet and exercise \"for cardiovascular health\"",
-      "Plan: Patient Agreements section"
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Patient's known history of hypertension and Type 2 Diabetes Mellitus (in HPI)",
+      "Initial consultation (in HPI)",
+      "Moderate impact on daily activities (in HPI)",
+      "Denial of chest pain or syncope during episodes (in HPI)",
+      "Review of Systems (ROS) section header",
+      "Review of Systems details (Cardiovascular: Positive for palpitations, shortness of breath)",
+      "Review of Systems details (Neurological: Denies headaches, seizures, or syncope)",
+      "Review of Systems details (Respiratory: Denies cough, wheezing, or chest pain)",
+      "Review of Systems details (General: Denies fever and weight changes)",
+      "Vital Signs section header",
+      "Physical Examination section header",
+      "Cardiovascular exam finding: no murmurs or rubs",
+      "Respiratory exam finding: lungs clear to auscultation bilaterally",
+      "Assessment: Sedentary Lifestyle (contributing to overall health decline)",
+      "Assessment: Tobacco Use (likely exacerbating symptoms and increasing cardiovascular risk)",
+      "Assessment: Type 2 Diabetes Mellitus described as a 'chronic condition'",
+      "Medical Treatment section header",
+      "Consider dosage adjustment for Lisinopril based on further evaluation",
+      "Additional Testing section header",
+      "Referral section header",
+      "Name of cardiologist: Dr. John Smith",
+      "Lifestyle Modifications section header",
+      "Provide resources for smoking cessation programs",
+      "Gradually increasing activity levels for exercise routine",
+      "Follow-Up section header",
+      "Adjust treatment strategies (Generated says 'treatment')",
+      "Patient Education and Counseling section header",
+      "Discuss the importance of medication adherence and lifestyle changes in managing hypertension and diabetes",
+      "Educational materials on diet and exercise specifically 'for cardiovascular health'",
+      "Patient Agreements section header",
+      "Patient understands and agrees with the recommended medical treatment plan"
     ],
-    "additions": [
-      "Plan: Patient Education and Counseling: Explicitly providing educational materials on recognizing warning signs of worsening symptoms (GroundTruth mentions educating on this, but not explicitly providing materials for it)"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section accurately captures the patient's chief complaint and the main narrative of the present illness, including the nature, frequency, and impact of symptoms. However, it omits critical background information such as the patient's known history of hypertension and Type 2 Diabetes Mellitus from the HPI. Most notably, the entire Review of Systems section is missing, along with important negative symptoms like denying chest pain or syncope during episodes. These are significant omissions that make the section meaningfully incomplete.",
+        "summary": "The Subjective section accurately captures the chief complaint and details of the present illness regarding the episodes. However, it omits crucial patient history (known hypertension and Type 2 Diabetes Mellitus) and several important negative findings from the HPI (no chest pain or syncope) and Review of Systems (e.g., no headaches, seizures, cough, wheezing, fever, or weight changes). These omissions make the history less comprehensive.",
         "omissions": [
           "Chief Complaint (CC) section header",
-          "HPI: Known history of hypertension",
-          "HPI: Known history of Type 2 Diabetes Mellitus",
-          "HPI: Presenting for an initial consultation",
-          "HPI: Episodes have a moderate impact on daily activities",
-          "HPI: Denies chest pain during episodes",
-          "HPI: Denies syncope during episodes",
-          "Review of Systems (ROS) section",
-          "ROS: Cardiovascular: Positive for palpitations, shortness of breath",
-          "ROS: Neurological: Denies headaches, seizures, or syncope",
-          "ROS: Respiratory: Denies cough, wheezing, or chest pain",
-          "ROS: General: Denies fever and weight changes"
+          "History of Present Illness (HPI) section header",
+          "Patient's known history of hypertension and Type 2 Diabetes Mellitus",
+          "Initial consultation",
+          "Moderate impact on daily activities",
+          "Denial of chest pain or syncope during episodes",
+          "Review of Systems (ROS) section header",
+          "Review of Systems details (Cardiovascular: Positive for palpitations, shortness of breath)",
+          "Review of Systems details (Neurological: Denies headaches, seizures, or syncope)",
+          "Review of Systems details (Respiratory: Denies cough, wheezing, or chest pain)",
+          "Review of Systems details (General: Denies fever and weight changes)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-documented and highly accurate. It correctly reports all vital signs and most physical examination findings. The only minor omissions are the section headers and the specific detail of \"no murmurs or rubs\" during the cardiovascular examination. Overall, the section is clinically complete and useful.",
+        "summary": "The Objective section is well-aligned with the ground truth, accurately reporting vital signs and most physical examination findings. The few omissions are minor details, such as the specific phrasing 'to auscultation bilaterally' for lungs and 'no murmurs or rubs' in the cardiovascular exam, which do not significantly impact clinical utility.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
-          "Cardiovascular exam finding: no murmurs or rubs"
+          "Cardiovascular exam finding: no murmurs or rubs",
+          "Respiratory exam finding: lungs clear to auscultation bilaterally"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section correctly identifies poorly controlled hypertension, suspected cardiac arrhythmia, and stable Type 2 Diabetes Mellitus. However, it omits two distinct and clinically relevant assessment items: \"Sedentary Lifestyle: Contributing to overall health decline\" and \"Tobacco Use: Likely exacerbating symptoms and increasing cardiovascular risk.\" These omissions represent noticeable gaps in the comprehensive assessment of the patient's health.",
+        "grade": "B",
+        "summary": "The Assessment section correctly identifies the primary diagnoses of poorly controlled hypertension, suspected cardiac arrhythmia, and stable Type 2 Diabetes. However, it omits two clinically significant contributing factors: sedentary lifestyle and tobacco use, which were identified in the ground truth as exacerbating symptoms and increasing cardiovascular risk.",
         "omissions": [
-          "Type 2 Diabetes Mellitus: \"Chronic condition\" detail",
           "Sedentary Lifestyle: Contributing to overall health decline",
-          "Tobacco Use: Likely exacerbating symptoms and increasing cardiovascular risk"
+          "Tobacco Use: Likely exacerbating symptoms and increasing cardiovascular risk",
+          "Type 2 Diabetes Mellitus described as a 'chronic condition'"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is largely comprehensive, outlining continued medications, additional testing, referral to a cardiologist, lifestyle modifications, and follow-up. It includes a supported addition regarding educational materials for warning signs. However, it omits several minor details such as the consideration for Lisinopril dosage adjustment, the specific name of the cardiologist, details about providing smoking cessation resources, and the instruction to gradually increase exercise levels. A moderate omission is the education point on the importance of medication adherence and lifestyle changes in managing hypertension and diabetes. The \"Patient Agreements\" section is also missing. Despite these omissions, the core plan is well-articulated.",
+        "grade": "C",
+        "summary": "The Plan section outlines the main treatment strategies, including medication continuation, additional testing, referral, and lifestyle modifications. Nevertheless, it omits several important details, such as the specific name of the cardiologist (Dr. John Smith), the consideration for Lisinopril dosage adjustment, providing resources for smoking cessation programs, discussing the importance of medication adherence and lifestyle changes for hypertension and diabetes, and the patient's understanding and agreement with the plan. These omissions reduce the specificity and completeness of the plan.",
         "omissions": [
-          "Medical Treatment: Lisinopril dosage adjustment consideration",
-          "Referral: Name of cardiologist (Dr. John Smith)",
-          "Lifestyle Modifications: Provide resources for smoking cessation programs",
-          "Lifestyle Modifications: Gradually increasing activity levels for exercise routine",
-          "Patient Education and Counseling: Importance of medication adherence and lifestyle changes in managing hypertension and diabetes",
-          "Patient Education and Counseling: Educational materials on diet and exercise \"for cardiovascular health\"",
-          "Patient Agreements section"
+          "Medical Treatment section header",
+          "Consider dosage adjustment for Lisinopril based on further evaluation",
+          "Additional Testing section header",
+          "Referral section header",
+          "Name of cardiologist: Dr. John Smith",
+          "Lifestyle Modifications section header",
+          "Provide resources for smoking cessation programs",
+          "Gradually increasing activity levels for exercise routine",
+          "Follow-Up section header",
+          "Adjust treatment strategies (Generated says 'treatment')",
+          "Patient Education and Counseling section header",
+          "Discuss the importance of medication adherence and lifestyle changes in managing hypertension and diabetes",
+          "Educational materials on diet and exercise specifically 'for cardiovascular health'",
+          "Patient Agreements section header",
+          "Patient understands and agrees with the recommended medical treatment plan"
         ],
-        "additions": [
-          "Patient Education and Counseling: Explicitly providing educational materials on recognizing warning signs of worsening symptoms"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
   },
   "expert_judge_error": null,
-  "addition_evidence": [
-    {
-      "addition_text": "Plan: Patient Education and Counseling: Explicitly providing educational materials on recognizing warning signs of worsening symptoms (GroundTruth mentions educating on this, but not explicitly providing materials for it)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I want to educate you on recognizing warning signs of worsening symptoms and the importance of medication adherence and lifestyle changes in managing your hypertension and diabetes. I'll provide you with some educational materials on diet and exercise for cardiovascular health.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide educational materials on diet, exercise, and recognizing warning signs of worsening symptoms."
-    },
-    {
-      "addition_text": "Patient Education and Counseling: Explicitly providing educational materials on recognizing warning signs of worsening symptoms",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I want to educate you on recognizing warning signs of worsening symptoms and the importance of medication adherence and lifestyle changes in managing your hypertension and diabetes. I'll provide you with some educational materials on diet and exercise for cardiovascular health.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide educational materials on diet, exercise, and recognizing warning signs of worsening symptoms."
-    }
-  ]
+  "addition_evidence": []
 }

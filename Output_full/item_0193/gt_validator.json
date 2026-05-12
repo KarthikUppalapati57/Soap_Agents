@@ -248,52 +248,52 @@
     "plan_alignment_score": 0.5555555555555556
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate overview of the patient's condition and plan. However, it suffers from multiple moderate omissions across the Subjective, Objective, and Plan sections. Key details regarding the history of present illness (pain characteristics, severity, impact on ADLs), a significant physical exam finding (positive Lachman's test), a specific referral, and important next steps for treatment adjustment are missing. While no unsupported additions were found, these omissions collectively make the note meaningfully incomplete, requiring careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has several significant omissions that materially reduce its clinical usefulness. Key details regarding the patient's pain characteristics, severity, and impact on daily life are missing from the Subjective section. Most critically, a referral to a rheumatologist for further evaluation of potential rheumatoid arthritis is entirely omitted from the Plan, which is a major gap in patient care. Other moderate omissions include specific physical exam findings, patient education points, and next steps for treatment adjustment.",
     "omissions": [
       "Pain rating of 8/10",
       "Pain characterized by sharp, shooting sensations",
       "Pain more pronounced in the afternoon and evening",
-      "Impact of pain on gardening and longer walking activities",
+      "Pain significantly impacts his ability to engage in gardening and longer walking activities",
       "Asthma flare-ups primarily due to environmental factors such as high pollen counts",
-      "Swelling, tenderness, and warmth noted on the medial aspect of the right knee",
-      "Significant crepitus (in Objective section)",
-      "Positive Lachman's test indicating potential ligamentous involvement",
-      "Referral to Dr. Emily Carter, Rheumatologist",
-      "Patient education on the importance of adhering to medication and lifestyle changes",
-      "Next steps regarding awaiting blood work results and adjusting the treatment plan"
+      "\"significant\" qualifier for crepitus in Subjective ROS",
+      "\"medial aspect of the right knee\" in Objective physical exam",
+      "\"significant crepitus\" in Objective physical exam",
+      "\"indicating potential ligamentous involvement\" for positive Lachman's test in Objective",
+      "Referral to Dr. Emily Carter, Rheumatologist, for further evaluation of potential rheumatoid arthritis",
+      "Patient education point: importance of adhering to medication and lifestyle changes",
+      "Next Steps section: Await results of the blood work and adjust treatment plan as necessary based on findings"
     ],
     "additions": [
-      "Patient reports \"constant\" pain (GroundTruth says \"persistent\")",
-      "Objective: \"Vital signs within normal ranges\"",
-      "Assessment: \"Preliminary diagnosis\""
+      "\"Vital signs within normal ranges\" in Objective",
+      "\"Preliminary\" qualifier for diagnosis in Assessment",
+      "\"and maintaining quality of life\" as part of the explanation of osteoarthritis in Plan"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section omits several key details from the History of Present Illness, including the pain rating (8/10), specific character (sharp, shooting), temporal pattern (worse in afternoon/evening), and impact on daily activities (gardening, long walks). It also misses a detail about asthma triggers. These multiple moderate omissions make the HPI less comprehensive.",
+        "summary": "This section omits several clinically important details from the History of Present Illness, including the pain rating (8/10), its sharp, shooting character, its worsening in the afternoon/evening, and its significant impact on gardening and walking. Minor omissions include specific asthma triggers and the 'significant' qualifier for crepitus.",
         "omissions": [
           "Pain rating of 8/10",
           "Pain characterized by sharp, shooting sensations",
           "Pain more pronounced in the afternoon and evening",
-          "Impact of pain on gardening and longer walking activities",
-          "Asthma flare-ups primarily due to environmental factors such as high pollen counts"
+          "Pain significantly impacts his ability to engage in gardening and longer walking activities",
+          "Asthma flare-ups primarily due to environmental factors such as high pollen counts",
+          "\"significant\" qualifier for crepitus"
         ],
-        "additions": [
-          "Patient reports \"constant\" pain (GroundTruth says \"persistent\")"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "This section omits the specific location of swelling, tenderness, and warmth (medial aspect of the right knee), the explicit mention of significant crepitus in the physical exam findings, and the crucial finding of a positive Lachman's test indicating potential ligamentous involvement. The omission of the Lachman's test is a moderate issue, making the physical exam less complete.",
+        "grade": "B",
+        "summary": "The Objective section omits specific details from the physical examination, such as the swelling and tenderness being on the 'medial aspect of the right knee,' the 'significant crepitus,' and the clinical interpretation that the positive Lachman's test 'indicating potential ligamentous involvement.' While the addition 'Vital signs within normal ranges' is present, it is supported by the transcript and does not lower the grade.",
         "omissions": [
-          "Swelling, tenderness, and warmth noted on the medial aspect of the right knee",
-          "Significant crepitus (in Objective section)",
-          "Positive Lachman's test indicating potential ligamentous involvement"
+          "\"medial aspect of the right knee\"",
+          "\"significant crepitus\"",
+          "\"indicating potential ligamentous involvement\" for positive Lachman's test"
         ],
         "additions": [
           "\"Vital signs within normal ranges\""
@@ -302,22 +302,24 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is complete and accurate, capturing all GroundTruth content. All additions were supported by the transcript and did not reduce the grade.",
+        "summary": "The Assessment section is complete and accurate, with no omissions. The addition of the 'Preliminary' qualifier for diagnosis is supported by the transcript and does not impact the grade.",
         "omissions": [],
         "additions": [
-          "\"Preliminary diagnosis\""
+          "\"Preliminary\" qualifier for diagnosis"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section omits the specific referral to Dr. Emily Carter, Rheumatologist, and the important next steps regarding awaiting blood work results and adjusting the treatment plan. It also misses a general patient education point about adhering to medication and lifestyle changes. The missing specific referral and next steps are moderate omissions that impact the completeness of the plan.",
+        "grade": "D",
+        "summary": "This section has a major clinical omission: the referral to Dr. Emily Carter, Rheumatologist, for further evaluation of potential rheumatoid arthritis. Additionally, important patient education regarding adherence to medication and lifestyle changes, and the 'Next Steps' for awaiting blood work results and adjusting the treatment plan, are omitted. The addition 'and maintaining quality of life' is supported by the transcript and does not lower the grade.",
         "omissions": [
-          "Referral to Dr. Emily Carter, Rheumatologist",
-          "Patient education on the importance of adhering to medication and lifestyle changes",
-          "Next steps regarding awaiting blood work results and adjusting the treatment plan"
+          "Referral to Dr. Emily Carter, Rheumatologist, for further evaluation of potential rheumatoid arthritis",
+          "Patient education point: importance of adhering to medication and lifestyle changes",
+          "Next Steps section: Await results of the blood work and adjust treatment plan as necessary based on findings"
         ],
-        "additions": []
+        "additions": [
+          "\"and maintaining quality of life\" as part of the explanation of osteoarthritis"
+        ]
       }
     ],
     "rubric_notes": null
@@ -325,39 +327,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Patient reports \"constant\" pain (GroundTruth says \"persistent\")",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "It's pretty constant, but it gets worse in the afternoon and evening.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: \"Vital signs within normal ranges\"",
+      "addition_text": "\"Vital signs within normal ranges\" in Objective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] All of these are within normal ranges.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal ranges."
+      "matched_claim_text": "Vital signs are within normal ranges.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: \"Preliminary diagnosis\"",
+      "addition_text": "\"Preliminary\" qualifier for diagnosis in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on what you've told me and the examination, it seems like you might have unilateral primary osteoarthritis in your right knee. However, we’ll wait for the blood work results to confirm and rule out rheumatoid arthritis.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[doctor] Based on what you've told me and the examination, it seems like you might have unilateral primary osteoarthritis in your right knee.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Preliminary diagnosis of unilateral primary osteoarthritis in the right knee.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"and maintaining quality of life\" as part of the explanation of osteoarthritis in Plan",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Lastly, I want to explain the chronic nature of osteoarthritis. Our goal is to manage your symptoms and maintain your quality of life.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Explain the chronic nature of osteoarthritis and the goal to manage symptoms and maintain quality of life.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Vital signs within normal ranges\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] All of these are within normal ranges.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vital signs are within normal ranges."
+      "matched_claim_text": "Vital signs are within normal ranges.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Preliminary diagnosis\"",
+      "addition_text": "\"Preliminary\" qualifier for diagnosis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on what you've told me and the examination, it seems like you might have unilateral primary osteoarthritis in your right knee. However, we’ll wait for the blood work results to confirm and rule out rheumatoid arthritis.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"and maintaining quality of life\" as part of the explanation of osteoarthritis",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Lastly, I want to explain the chronic nature of osteoarthritis. Our goal is to manage your symptoms and maintain your quality of life.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Explain the chronic nature of osteoarthritis and the goal to manage symptoms and maintain quality of life.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -7,7 +7,8 @@ Inputs:
 Run from Soap_Agents/:
   uv run python scripts/visualize_gt_validator_analytics.py
 
-Writes figures to Output/analysis/ (override with --out-dir).
+Writes figures to Output/analysis/gt_validator/ (override with --out-dir), including
+histograms of judge-listed additions supported/unsupported by transcript and by PrimeKG.
 """
 
 from __future__ import annotations
@@ -267,6 +268,8 @@ def main() -> int:
     add_sup = np.array([_to_float(r.get("n_additions_supported_by_transcript")) for r in rows], dtype=float)
     add_unsup = np.array([_to_float(r.get("n_additions_unsupported_by_transcript")) for r in rows], dtype=float)
     add_unk = np.array([_to_float(r.get("n_additions_unknown_by_transcript")) for r in rows], dtype=float)
+    add_sup_pk = np.array([_to_float(r.get("n_additions_supported_by_primekg")) for r in rows], dtype=float)
+    add_unsup_pk = np.array([_to_float(r.get("n_additions_unsupported_by_primekg")) for r in rows], dtype=float)
     omit_unsup = np.array([_to_float(r.get("n_omissions_unsupported_by_transcript")) for r in rows], dtype=float)
 
     grades = [str(r.get("judge_overall_grade") or "").strip() for r in rows]
@@ -310,12 +313,30 @@ def main() -> int:
         out=out_dir / "viz_gt_judge_grade_counts.png",
     )
 
-    # 4b) Transcript unsupported counts (judge-based)
+    # 4b) Judge additions: transcript vs PrimeKG evidence (supported / unsupported counts)
+    chart_histogram(
+        add_sup,
+        xlabel="Additions supported by transcript (count)",
+        title="Distribution of judge additions supported by transcript",
+        out=out_dir / "viz_gt_additions_supported_by_transcript_hist.png",
+    )
     chart_histogram(
         add_unsup,
         xlabel="Additions unsupported by transcript (count)",
         title="Distribution of judge additions unsupported by transcript",
         out=out_dir / "viz_gt_additions_unsupported_by_transcript_hist.png",
+    )
+    chart_histogram(
+        add_sup_pk,
+        xlabel="Additions supported by PrimeKG (count)",
+        title="Distribution of judge additions supported by PrimeKG",
+        out=out_dir / "viz_gt_additions_supported_by_primekg_hist.png",
+    )
+    chart_histogram(
+        add_unsup_pk,
+        xlabel="Additions unsupported by PrimeKG (count)",
+        title="Distribution of judge additions unsupported by PrimeKG",
+        out=out_dir / "viz_gt_additions_unsupported_by_primekg_hist.png",
     )
     chart_histogram(
         omit_unsup,
@@ -345,8 +366,10 @@ def main() -> int:
         "overall_token_f1": tok_f1,
         "assessment_token_f1": assess,
         "plan_token_f1": plan,
-        "additions_supported": add_sup,
-        "additions_unsupported": add_unsup,
+        "add_sup_transcript": add_sup,
+        "add_unsup_transcript": add_unsup,
+        "add_sup_primekg": add_sup_pk,
+        "add_unsup_primekg": add_unsup_pk,
         "omissions_unsupported": omit_unsup,
     }
     labels = list(cols.keys())
@@ -364,7 +387,7 @@ def main() -> int:
     chart_correlation_heatmap(
         corr,
         labels,
-        title="Correlation: GT recall/alignment vs transcript-supported additions",
+        title="Correlation: GT recall/alignment vs addition evidence (transcript & PrimeKG)",
         out=out_dir / "viz_gt_correlation_heatmap.png",
     )
 

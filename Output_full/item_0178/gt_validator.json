@@ -236,90 +236,91 @@
     "plan_alignment_score": 0.6324786324786325
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note provides a mostly accurate summary of the patient's visit but has noticeable gaps. The Subjective section is significantly incomplete due to the omission of the entire Review of Systems and several important HPI details. The Plan section also lacks crucial medication specifics like dosage and frequency, reducing its immediate clinical utility. However, the Objective and Assessment sections are well-captured with only minor omissions. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note is broadly usable but contains noticeable gaps in the Subjective and Plan sections, and a moderate omission in the Objective section. Key omissions include significant HPI details, an important negative ROS, the specific dosage and route for Levothyroxine, and the explicit instruction to order tests. These issues make the note meaningfully incomplete, justifying an overall grade of C.",
     "omissions": [
-      "Chief Complaint (CC) of weight gain",
-      "Impact of fatigue on work and recreational activities",
-      "Patient sleeps 8-9 hours per night but still feels fatigued",
-      "Details about diet (balanced, high processed foods) in HPI",
-      "Details about sedentary lifestyle and lack of regular exercise in HPI",
-      "Smoking status (non-smoker)",
-      "Alcohol consumption (occasionally, 1-2 drinks per week)",
-      "Review of Systems (ROS) section (General, Skin, Endocrine, Neurological, Cardiovascular systems)",
-      "BMI: 26",
-      "General physical exam finding: well-nourished",
-      "Assessment qualifier: unspecified (for hypothyroidism)",
-      "Levothyroxine dosage: 50 mcg",
-      "Levothyroxine route: oral",
-      "Levothyroxine frequency: once daily",
-      "Lifestyle recommendation: reduced intake of processed foods",
-      "Lifestyle recommendation: monitor symptoms' progress"
+      "Patient's fatigue significantly impacted ability to maintain energy levels for work and recreational activities.",
+      "Patient sleeps 8-9 hours per night but still feels fatigued.",
+      "Patient's diet is balanced, though she consumes a high amount of processed foods.",
+      "Patient leads a sedentary lifestyle and does not engage in regular exercise.",
+      "Patient is a non-smoker and consumes alcohol occasionally, about 1-2 drinks per week.",
+      "Review of Systems (ROS) General: 'moderate' qualifier for fatigue.",
+      "Review of Systems (ROS) Skin: dry skin 'on arms and legs'.",
+      "Review of Systems (ROS) Endocrine: weight gain 'over the past 3 months'.",
+      "Review of Systems (ROS) Neurological: hair loss 'over the past 3 months'.",
+      "Review of Systems (ROS) Neurological: diminished energy.",
+      "Review of Systems (ROS) Cardiovascular: No chest pain or palpitations reported.",
+      "Objective: BMI: 26.",
+      "Objective: General appearance: well-nourished.",
+      "Plan: Medication details: Levothyroxine 50 mcg, oral, once daily.",
+      "Plan: Lifestyle recommendation: reduced intake of processed foods.",
+      "Plan: Lifestyle recommendation: monitor symptoms' progress.",
+      "Plan: Explicit instruction to 'Order' Thyroid Function Tests."
     ],
     "additions": [
-      "Heart rate description: 'slightly low' (instead of 'bradycardic')",
-      "Assessment qualifier: 'Likely' (for hypothyroidism)",
-      "Assessment justification: 'based on clinical presentation and pending thyroid function test results'",
-      "Tests purpose: 'to confirm diagnosis of hypothyroidism'",
-      "Condition for medication initiation: 'if diagnosis is confirmed'"
+      "Subjective: Patient reports feeling 'constantly' tired.",
+      "Assessment: Qualifier 'Likely' for hypothyroidism.",
+      "Assessment: Reasoning for assessment: 'based on clinical presentation and pending thyroid function test results'.",
+      "Plan: Purpose of tests: 'to confirm diagnosis of hypothyroidism'.",
+      "Plan: Condition for initiating Levothyroxine: 'if diagnosis is confirmed'."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section receives a C due to the major omission of the entire Review of Systems (ROS) section. Additionally, several important details from the History of Present Illness (HPI) were omitted, including the impact of fatigue on daily activities, sleep patterns, specific diet and exercise habits, and social history elements like smoking and alcohol consumption. The Chief Complaint also omitted 'weight gain'. These omissions make the section meaningfully incomplete.",
+        "summary": "This section has numerous omissions, including significant details about the impact of fatigue on daily activities, sleep patterns, specific diet and exercise habits, and social history (smoking/alcohol). Additionally, several minor ROS qualifiers and the important negative cardiovascular ROS were omitted. These multiple moderate to minor omissions reduce the completeness of the HPI.",
         "omissions": [
-          "Chief Complaint (CC) of weight gain",
-          "Impact of fatigue on work and recreational activities",
-          "Patient sleeps 8-9 hours per night but still feels fatigued",
-          "Details about diet (balanced, high processed foods) in HPI",
-          "Details about sedentary lifestyle and lack of regular exercise in HPI",
-          "Smoking status (non-smoker)",
-          "Alcohol consumption (occasionally, 1-2 drinks per week)",
-          "Review of Systems (ROS) section (General, Skin, Endocrine, Neurological, Cardiovascular systems)"
+          "Fatigue significantly impacted ability to maintain energy levels for work and recreational activities.",
+          "Patient sleeps 8-9 hours per night but still feels fatigued.",
+          "Patient's diet is balanced, though she consumes a high amount of processed foods.",
+          "Patient leads a sedentary lifestyle and does not engage in regular exercise.",
+          "Patient is a non-smoker and consumes alcohol occasionally, about 1-2 drinks per week.",
+          "Review of Systems (ROS) General: 'moderate' qualifier for fatigue.",
+          "Review of Systems (ROS) Skin: dry skin 'on arms and legs'.",
+          "Review of Systems (ROS) Endocrine: weight gain 'over the past 3 months'.",
+          "Review of Systems (ROS) Neurological: hair loss 'over the past 3 months'.",
+          "Review of Systems (ROS) Neurological: diminished energy.",
+          "Review of Systems (ROS) Cardiovascular: No chest pain or palpitations reported."
+        ],
+        "additions": [
+          "Patient reports feeling 'constantly' tired."
+        ]
+      },
+      {
+        "section": "Objective",
+        "grade": "B",
+        "summary": "The Objective section is missing the patient's BMI of 26, which is a moderate omission. A minor detail about the patient appearing 'well-nourished' was also omitted. Otherwise, the section is accurate.",
+        "omissions": [
+          "BMI: 26.",
+          "General appearance: well-nourished."
         ],
         "additions": []
       },
       {
-        "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section receives an A. It accurately captures the key vital signs and physical exam findings. The only omissions were the patient's BMI of 26 and the general physical exam finding of being 'well-nourished', which are minor details. The addition regarding heart rate description was supported by the transcript.",
-        "omissions": [
-          "BMI: 26",
-          "General physical exam finding: well-nourished"
-        ],
-        "additions": [
-          "Heart rate description: 'slightly low' (instead of 'bradycardic')"
-        ]
-      },
-      {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A. It accurately identifies hypothyroidism as the likely diagnosis. The only omission was the qualifier 'unspecified' for hypothyroidism, which is a minor detail. The additions regarding the assessment being 'Likely' and 'based on clinical presentation and pending thyroid function test results' were both supported by the transcript.",
-        "omissions": [
-          "Assessment qualifier: unspecified (for hypothyroidism)"
-        ],
+        "summary": "The Assessment section accurately reflects the GroundTruth and contains no omissions or unsupported/unknown additions. All additions in this section were supported by the transcript.",
+        "omissions": [],
         "additions": [
-          "Assessment qualifier: 'Likely' (for hypothyroidism)",
-          "Assessment justification: 'based on clinical presentation and pending thyroid function test results'"
+          "Qualifier 'Likely' for hypothyroidism.",
+          "Reasoning for assessment: 'based on clinical presentation and pending thyroid function test results'."
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section receives a B. While it outlines the general treatment strategy, it omits crucial medication details such as the Levothyroxine dosage (50 mcg), route (oral), and frequency (once daily), which are moderate issues impacting the actionability of the plan. Minor omissions include specific lifestyle recommendations like 'reduced intake of processed foods' and the instruction to 'monitor symptoms' progress'. All additions in this section were supported by the transcript.",
+        "grade": "C",
+        "summary": "This section has several moderate to major omissions. Crucially, the specific medication details for Levothyroxine (50 mcg, oral, once daily) were omitted. The explicit instruction to 'Order' Thyroid Function Tests was also missing, as were specific lifestyle recommendations regarding 'reduced intake of processed foods' and the instruction to 'monitor symptoms' progress'. These omissions significantly reduce the clinical utility and completeness of the plan.",
         "omissions": [
-          "Levothyroxine dosage: 50 mcg",
-          "Levothyroxine route: oral",
-          "Levothyroxine frequency: once daily",
-          "Lifestyle recommendation: reduced intake of processed foods",
-          "Lifestyle recommendation: monitor symptoms' progress"
+          "Medication details: Levothyroxine 50 mcg, oral, once daily.",
+          "Lifestyle recommendation: reduced intake of processed foods.",
+          "Lifestyle recommendation: monitor symptoms' progress.",
+          "Explicit instruction to 'Order' Thyroid Function Tests."
         ],
         "additions": [
-          "Tests purpose: 'to confirm diagnosis of hypothyroidism'",
-          "Condition for medication initiation: 'if diagnosis is confirmed'"
+          "Purpose of tests: 'to confirm diagnosis of hypothyroidism'.",
+          "Condition for initiating Levothyroxine: 'if diagnosis is confirmed'."
         ]
       }
     ],
@@ -328,39 +329,94 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Heart rate description: 'slightly low' (instead of 'bradycardic')",
+      "addition_text": "Subjective: Patient reports feeling 'constantly' tired.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] and your heart rate is 58 beats per minute, which is a bit on the lower side.",
+      "transcript_evidence": "[patient] I'm just really tired all the time. ... it's been going on for about three months now.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Heart rate is slightly low"
+      "matched_claim_text": "The patient reports feeling constantly tired for the past three months",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment qualifier: 'Likely' (for hypothyroidism)",
+      "addition_text": "Assessment: Qualifier 'Likely' for hypothyroidism.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] This can be associated with conditions like hypothyroidism, which seems to match your symptoms. ... This can lead to symptoms like fatigue, weight gain, dry skin, hair loss, and cold intolerance.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely hypothyroidism based on clinical presentation"
+      "matched_claim_text": "Likely hypothyroidism based on clinical presentation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment justification: 'based on clinical presentation and pending thyroid function test results'",
+      "addition_text": "Assessment: Reasoning for assessment: 'based on clinical presentation and pending thyroid function test results'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] These tests will help confirm if you have hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely hypothyroidism based on pending thyroid function test results"
+      "matched_claim_text": "Likely hypothyroidism based on pending thyroid function test results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Tests purpose: 'to confirm diagnosis of hypothyroidism'",
+      "addition_text": "Plan: Purpose of tests: 'to confirm diagnosis of hypothyroidism'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4. These tests will help confirm if you have hypothyroidism.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Pending Thyroid Function Tests (TSH, Free T3, Free T4) to confirm diagnosis of hypothyroidism"
+      "matched_claim_text": "Pending Thyroid Function Tests (TSH, Free T3, Free T4) to confirm diagnosis of hypothyroidism",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Condition for medication initiation: 'if diagnosis is confirmed'",
+      "addition_text": "Plan: Condition for initiating Levothyroxine: 'if diagnosis is confirmed'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If the tests confirm hypothyroidism, we'll start you on a medication called Levothyroxine. It's a synthetic thyroid hormone that you'll take once daily for lifelong treatment.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Levothyroxine treatment for lifelong management if diagnosis is confirmed"
+      "matched_claim_text": "Initiate Levothyroxine treatment for lifelong management if diagnosis is confirmed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Patient reports feeling 'constantly' tired.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] I'm just really tired all the time. ... it's been going on for about three months now.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient reports feeling constantly tired for the past three months",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Qualifier 'Likely' for hypothyroidism.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] This can be associated with conditions like hypothyroidism, which seems to match your symptoms. ... This can lead to symptoms like fatigue, weight gain, dry skin, hair loss, and cold intolerance.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Likely hypothyroidism based on clinical presentation",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Reasoning for assessment: 'based on clinical presentation and pending thyroid function test results'.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] These tests will help confirm if you have hypothyroidism.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Likely hypothyroidism based on pending thyroid function test results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Purpose of tests: 'to confirm diagnosis of hypothyroidism'.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] We are currently awaiting the results of your Thyroid Function Tests, including TSH, Free T3, and Free T4. These tests will help confirm if you have hypothyroidism.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Pending Thyroid Function Tests (TSH, Free T3, Free T4) to confirm diagnosis of hypothyroidism",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Condition for initiating Levothyroxine: 'if diagnosis is confirmed'.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] If the tests confirm hypothyroidism, we'll start you on a medication called Levothyroxine. It's a synthetic thyroid hormone that you'll take once daily for lifelong treatment.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Initiate Levothyroxine treatment for lifelong management if diagnosis is confirmed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

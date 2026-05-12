@@ -277,94 +277,119 @@
     "plan_alignment_score": 0.5463414634146341
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains noticeable gaps, particularly in the Assessment and Plan sections. Key omissions include specific physical exam details, the patient's asymptomatic status and family history in the assessment, and crucial medication prescription details, patient education, and agreement in the plan. While the core clinical picture is present, these omissions make the note meaningfully incomplete and require careful review. A significant strength is the absence of any unsupported or unknown additions.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. All additions are supported by the transcript and do not negatively impact the grade. However, the note has several omissions across sections. In the Subjective section, there are missing explicit HPI details regarding past medical history and the presenting complaint, as well as the detailed breakdown of the Review of Systems. The Objective section omits the patient's general appearance from the physical exam. The Plan section lacks complete prescription details for Atorvastatin (route, quantity, refills) and the entire Patient Agreements section. Despite these moderate omissions, the core clinical information and treatment plan are present, making the note clearly usable.",
     "omissions": [
-      "Patient's past medical history of hypertension (as part of HPI context)",
-      "Explicit statement that patient presents after recent blood work revealed elevated cholesterol levels (as part of HPI context)",
-      "Physical Exam - General appearance details: 'Alert and oriented, cooperative, appears slightly anxious'",
-      "Physical Exam - Specific cardiovascular exam findings: 'no murmurs, rubs, or gallops'",
-      "Physical Exam - Specific respiratory exam findings: 'to auscultation bilaterally, no wheezes, rales, or rhonchi'",
-      "Physical Exam - Specific gastrointestinal exam findings: 'Soft, non-tender, no hepatosplenomegaly'",
-      "Physical Exam - Specific musculoskeletal exam finding: 'normal range of motion'",
-      "Physical Exam - Specific neurological exam findings: 'Cranial nerves intact, no focal deficits'",
-      "Assessment - Patient is asymptomatic",
-      "Assessment - Patient's concern is due to elevated LDL and total cholesterol levels",
-      "Assessment - Family history of coronary artery disease and diabetes mellitus type 2 as a factor in assessment",
-      "Assessment - Hyperlipidemia is 'newly diagnosed'",
-      "Plan - Atorvastatin medication details: route (oral), frequency (once daily), quantity (30 tablets), and refills (2)",
-      "Plan - Specific name of dietitian (Dr. Jane Smith)",
-      "Plan - Patient education on the importance of adhering to prescribed medications and lifestyle changes to manage hyperlipidemia and reduce cardiovascular risk",
-      "Plan - Patient understanding and agreement with the treatment plan",
-      "Plan - Patient commitment to making necessary lifestyle adjustments"
+      "Chief Complaint section header and content",
+      "History of Present Illness section header",
+      "HPI content: past medical history significant for hypertension",
+      "HPI content: presents today after recent blood work revealed elevated cholesterol levels",
+      "HPI content: reports no direct symptoms related to the high cholesterol",
+      "Review of Systems section header",
+      "Detailed breakdown of Review of Systems (Constitutional, Cardiovascular, Respiratory, Gastrointestinal, Neurological, Psychological as separate bullet points)",
+      "Objective section header: Vital Signs",
+      "Objective section header: Physical Examination",
+      "Objective section header: Body Mass Index (BMI)",
+      "Objective section header: Recent Test Results",
+      "General physical exam findings: Alert and oriented, cooperative, appears slightly anxious",
+      "Cardiovascular physical exam findings: no murmurs, rubs, or gallops",
+      "Respiratory physical exam findings: no wheezes, rales, or rhonchi",
+      "Gastrointestinal physical exam findings: Soft, non-tender, no hepatosplenomegaly",
+      "Musculoskeletal physical exam findings: normal range of motion",
+      "Neurological physical exam findings: Cranial nerves intact, no focal deficits",
+      "Assessment content: asymptomatic",
+      "Assessment content: shows concern due to his elevated LDL and total cholesterol levels",
+      "Plan section header: Medical Treatment",
+      "Plan section header: Lifestyle Modifications",
+      "Plan section header: Referrals",
+      "Plan section header: Follow-Up",
+      "Plan section header: Patient Education and Counseling",
+      "Plan section header: Patient Agreements",
+      "Patient Agreements section content: The patient understands and agrees with the treatment plan, including medication, lifestyle changes, and follow-up recommendations. He is committed to making necessary lifestyle adjustments to improve his overall health.",
+      "Atorvastatin prescription details: oral, once daily, 30 tablets with 2 refills",
+      "Referral name: Dr. Jane Smith",
+      "Patient education point: Discussed the importance of adhering to prescribed medications and lifestyle changes to manage hyperlipidemia and reduce cardiovascular risk"
     ],
     "additions": [
-      "Objective - Interpretation of blood pressure as 'somewhat elevated'",
-      "Objective - Interpretation of BMI as 'just below obesity threshold'",
-      "Objective - Statement 'waiting on liver function tests' under Recent Test Results",
-      "Assessment - Explicit statement of 'increased risk for cardiovascular diseases'",
-      "Plan - Purpose of Atorvastatin: 'to help lower cholesterol levels'",
-      "Plan - Specificity of Atorvastatin side effects as 'common and severe'"
+      "Objective: Blood pressure qualifier: (somewhat elevated)",
+      "Objective: BMI qualifier: (just below obesity threshold)",
+      "Objective: 'waiting on liver function tests' in the Lipid profile description",
+      "Assessment: 'increased risk for cardiovascular diseases'",
+      "Assessment: 'Patient's psychological state is anxious about long-term health implications' (as an assessment point)",
+      "Plan: Atorvastatin qualifier: 'to help lower cholesterol levels'",
+      "Plan: More specific detail on side effects: 'common and severe side effects of Atorvastatin'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits the patient's past medical history of hypertension and the explicit statement that the patient presents due to recently revealed elevated cholesterol levels, which are important contextual details for the HPI.",
+        "summary": "The Subjective section is mostly aligned, capturing the patient's chief complaint, anxiety, and family history. However, it omits explicit details from the History of Present Illness regarding the patient's hypertension and the specific phrasing of the presenting complaint. Additionally, the detailed, structured breakdown of the Review of Systems is missing, though the denials are consolidated.",
         "omissions": [
-          "Patient's past medical history of hypertension (as part of HPI context)",
-          "Explicit statement that patient presents after recent blood work revealed elevated cholesterol levels (as part of HPI context)"
+          "Chief Complaint section header and content",
+          "History of Present Illness section header",
+          "HPI content: past medical history significant for hypertension",
+          "HPI content: presents today after recent blood work revealed elevated cholesterol levels",
+          "HPI content: reports no direct symptoms related to the high cholesterol",
+          "Review of Systems section header",
+          "Detailed breakdown of Review of Systems (Constitutional, Cardiovascular, Respiratory, Gastrointestinal, Neurological, Psychological as separate bullet points)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits several specific descriptive details from the physical examination, such as general appearance and specific findings for cardiovascular, respiratory, gastrointestinal, musculoskeletal, and neurological systems. While the overall system findings are captured, these details contribute to thoroughness.",
+        "summary": "The Objective section accurately presents vital signs, BMI, lipid profile, and general physical exam findings. All additions are supported by the transcript. However, it omits the specific general physical exam findings of the patient being 'Alert and oriented, cooperative, appears slightly anxious,' and several minor details from other physical exam systems. The section headers are also omitted.",
         "omissions": [
-          "Physical Exam - General appearance details: 'Alert and oriented, cooperative, appears slightly anxious'",
-          "Physical Exam - Specific cardiovascular exam findings: 'no murmurs, rubs, or gallops'",
-          "Physical Exam - Specific respiratory exam findings: 'to auscultation bilaterally, no wheezes, rales, or rhonchi'",
-          "Physical Exam - Specific gastrointestinal exam findings: 'Soft, non-tender, no hepatosplenomegaly'",
-          "Physical Exam - Specific musculoskeletal exam finding: 'normal range of motion'",
-          "Physical Exam - Specific neurological exam findings: 'Cranial nerves intact, no focal deficits'"
+          "Vital Signs section header",
+          "Physical Examination section header",
+          "Body Mass Index (BMI) section header",
+          "Recent Test Results section header",
+          "General physical exam findings: Alert and oriented, cooperative, appears slightly anxious",
+          "Cardiovascular physical exam findings: no murmurs, rubs, or gallops",
+          "Respiratory physical exam findings: no wheezes, rales, or rhonchi",
+          "Gastrointestinal physical exam findings: Soft, non-tender, no hepatosplenomegaly",
+          "Musculoskeletal physical exam findings: normal range of motion",
+          "Neurological physical exam findings: Cranial nerves intact, no focal deficits"
         ],
         "additions": [
-          "Interpretation of blood pressure as 'somewhat elevated'",
-          "Interpretation of BMI as 'just below obesity threshold'",
-          "Statement 'waiting on liver function tests' under Recent Test Results"
+          "Blood pressure qualifier: (somewhat elevated)",
+          "BMI qualifier: (just below obesity threshold)",
+          "'waiting on liver function tests' in the Lipid profile description"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section omits that the patient is asymptomatic and that the hyperlipidemia is newly diagnosed. Crucially, it also fails to explicitly incorporate the patient's family history of coronary artery disease and diabetes mellitus type 2 as a significant contributing factor, making the assessment meaningfully incomplete.",
+        "grade": "A",
+        "summary": "The Assessment section is strong, accurately identifying hypertension and hyperlipidemia, and incorporating the patient's anxiety about long-term health implications. All additions are supported by the transcript. The only omissions are minor details such as explicitly stating the patient is 'asymptomatic' and 'shows concern due to his elevated LDL and total cholesterol levels,' which are largely covered by other content.",
         "omissions": [
-          "Patient is asymptomatic",
-          "Patient's concern is due to elevated LDL and total cholesterol levels",
-          "Family history of coronary artery disease and diabetes mellitus type 2 as a factor in assessment",
-          "Hyperlipidemia is 'newly diagnosed'"
+          "asymptomatic",
+          "shows concern due to his elevated LDL and total cholesterol levels"
         ],
         "additions": [
-          "Explicit statement of 'increased risk for cardiovascular diseases'"
+          "increased risk for cardiovascular diseases",
+          "Patient's psychological state is anxious about long-term health implications"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits crucial details for the Atorvastatin prescription, including route, frequency, quantity, and refills. It also lacks the specific name of the dietitian and significant patient education regarding adherence to the plan, as well as the patient's explicit understanding, agreement, and commitment to the treatment.",
+        "grade": "B",
+        "summary": "The Plan section outlines the core treatment, lifestyle modifications, referral, and follow-up. All additions are supported by the transcript. However, it omits crucial prescription details for Atorvastatin (oral, once daily, 30 tablets with 2 refills) and the entire Patient Agreements section, which is important for documenting shared decision-making and adherence. The specific referral name 'Dr. Jane Smith' and a broader patient education point on adherence are also omitted.",
         "omissions": [
-          "Atorvastatin medication details: route (oral), frequency (once daily), quantity (30 tablets), and refills (2)",
-          "Specific name of dietitian (Dr. Jane Smith)",
-          "Patient education on the importance of adhering to prescribed medications and lifestyle changes to manage hyperlipidemia and reduce cardiovascular risk",
-          "Patient understanding and agreement with the treatment plan",
-          "Patient commitment to making necessary lifestyle adjustments"
+          "Medical Treatment section header",
+          "Lifestyle Modifications section header",
+          "Referrals section header",
+          "Follow-Up section header",
+          "Patient Education and Counseling section header",
+          "Patient Agreements section header and content",
+          "Atorvastatin prescription details: oral, once daily, 30 tablets with 2 refills",
+          "Referral name: Dr. Jane Smith",
+          "Patient education point: Discussed the importance of adhering to prescribed medications and lifestyle changes to manage hyperlipidemia and reduce cardiovascular risk"
         ],
         "additions": [
-          "Purpose of Atorvastatin: 'to help lower cholesterol levels'",
-          "Specificity of Atorvastatin side effects as 'common and severe'"
+          "Qualifier for Atorvastatin: 'to help lower cholesterol levels'",
+          "More specific detail on side effects: 'common and severe side effects of Atorvastatin'"
         ]
       }
     ],
@@ -373,88 +398,130 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective - Interpretation of blood pressure as 'somewhat elevated'",
+      "addition_text": "Objective: Blood pressure qualifier: (somewhat elevated)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 138/86 mmHg, which is somewhat elevated.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure is 138/86 mmHg and is somewhat elevated."
+      "matched_claim_text": "Blood pressure is 138/86 mmHg and is somewhat elevated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective - Interpretation of BMI as 'just below obesity threshold'",
+      "addition_text": "Objective: BMI qualifier: (just below obesity threshold)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your BMI is 29, putting you just below the obesity threshold.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "BMI is 29, just below the obesity threshold."
+      "matched_claim_text": "BMI is 29, just below the obesity threshold.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective - Statement 'waiting on liver function tests' under Recent Test Results",
+      "addition_text": "Objective: 'waiting on liver function tests' in the Lipid profile description",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "We’re still waiting on your liver function tests.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: I’ll order another lipid panel and liver function tests immediately...",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Monitor progress with immediate lipid panel and liver function tests.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment - Explicit statement of 'increased risk for cardiovascular diseases'",
+      "addition_text": "Assessment: 'increased risk for cardiovascular diseases'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your history of hypertension and your newly diagnosed hyperlipidemia, it’s crucial to manage these risk factors to prevent cardiovascular diseases.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension and hyperlipidemia are identified, increasing the risk for cardiovascular diseases."
+      "matched_claim_text": "Hypertension and hyperlipidemia are identified, increasing the risk for cardiovascular diseases.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan - Purpose of Atorvastatin: 'to help lower cholesterol levels'",
+      "addition_text": "Assessment: 'Patient's psychological state is anxious about long-term health implications' (as an assessment point)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Hi, Doctor. I'm doing okay, but I'm a bit anxious about my recent blood work results. ... [Patient]: Yes, I am definitely feeling anxious, especially with my family history. I’m worried about the long-term impacts on my health.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient expresses anxiety about elevated cholesterol levels and concerns regarding long-term health implications.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Atorvastatin qualifier: 'to help lower cholesterol levels'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll start by prescribing Atorvastatin 20 mg to help lower your cholesterol.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Atorvastatin 20 mg to help lower cholesterol levels."
+      "matched_claim_text": "Prescribe Atorvastatin 20 mg to help lower cholesterol levels.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan - Specificity of Atorvastatin side effects as 'common and severe'",
+      "addition_text": "Plan: More specific detail on side effects: 'common and severe side effects of Atorvastatin'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Common side effects can include muscle pain, fatigue, and digestive issues. Severe side effects are rare but can include liver or muscle damage. If you notice any unusual symptoms, contact me right away.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Inform patient about common (muscle pain, fatigue, digestive issues) and severe (liver/muscle damage) side effects of Atorvastatin, advising to contact doctor for unusual symptoms."
+      "matched_claim_text": "Inform patient about common (muscle pain, fatigue, digestive issues) and severe (liver/muscle damage) side effects of Atorvastatin, advising to contact doctor for unusual symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Interpretation of blood pressure as 'somewhat elevated'",
+      "addition_text": "Blood pressure qualifier: (somewhat elevated)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your blood pressure is 138/86 mmHg, which is somewhat elevated.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure is 138/86 mmHg and is somewhat elevated."
+      "matched_claim_text": "Blood pressure is 138/86 mmHg and is somewhat elevated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Interpretation of BMI as 'just below obesity threshold'",
+      "addition_text": "BMI qualifier: (just below obesity threshold)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your BMI is 29, putting you just below the obesity threshold.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "BMI is 29, just below the obesity threshold."
+      "matched_claim_text": "BMI is 29, just below the obesity threshold.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement 'waiting on liver function tests' under Recent Test Results",
+      "addition_text": "'waiting on liver function tests' in the Lipid profile description",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: We’re still waiting on your liver function tests.",
+      "transcript_evidence": "[Doctor]: I’ll order another lipid panel and liver function tests immediately...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Liver function tests are still pending."
+      "matched_claim_text": "Monitor progress with immediate lipid panel and liver function tests.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Explicit statement of 'increased risk for cardiovascular diseases'",
+      "addition_text": "increased risk for cardiovascular diseases",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your history of hypertension and your newly diagnosed hyperlipidemia, it’s crucial to manage these risk factors to prevent cardiovascular diseases.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension and hyperlipidemia are identified, increasing the risk for cardiovascular diseases."
+      "matched_claim_text": "Hypertension and hyperlipidemia are identified, increasing the risk for cardiovascular diseases.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Purpose of Atorvastatin: 'to help lower cholesterol levels'",
+      "addition_text": "Patient's psychological state is anxious about long-term health implications",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Hi, Doctor. I'm doing okay, but I'm a bit anxious about my recent blood work results. ... [Patient]: Yes, I am definitely feeling anxious, especially with my family history. I’m worried about the long-term impacts on my health.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient expresses anxiety about elevated cholesterol levels and concerns regarding long-term health implications.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Qualifier for Atorvastatin: 'to help lower cholesterol levels'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’ll start by prescribing Atorvastatin 20 mg to help lower your cholesterol.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Atorvastatin 20 mg to help lower cholesterol levels."
+      "matched_claim_text": "Prescribe Atorvastatin 20 mg to help lower cholesterol levels.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specificity of Atorvastatin side effects as 'common and severe'",
+      "addition_text": "More specific detail on side effects: 'common and severe side effects of Atorvastatin'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Common side effects can include muscle pain, fatigue, and digestive issues. Severe side effects are rare but can include liver or muscle damage. If you notice any unusual symptoms, contact me right away.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Inform patient about common (muscle pain, fatigue, digestive issues) and severe (liver/muscle damage) side effects of Atorvastatin, advising to contact doctor for unusual symptoms."
+      "matched_claim_text": "Inform patient about common (muscle pain, fatigue, digestive issues) and severe (liver/muscle damage) side effects of Atorvastatin, advising to contact doctor for unusual symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

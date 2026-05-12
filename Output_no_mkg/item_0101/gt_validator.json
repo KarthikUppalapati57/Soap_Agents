@@ -237,99 +237,109 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is broadly usable but contains noticeable gaps, particularly in the Subjective and Objective sections, which make it meaningfully incomplete. While there are no unsupported or unknown additions, the numerous omissions across multiple sections, including key HPI details, physical exam findings, and specific plan elements, reduce its overall clinical usefulness and completeness. The Assessment section is strong, but the other sections require careful review and supplementation.",
+    "overall_summary": "The generated SOAP note is usable but has noticeable gaps and multiple moderate issues across several sections. Key clinical details are omitted in the Subjective section, such as the crucial qualifier for thoughts of death. The Objective section is incomplete, missing important mental status examination findings and general appearance details. The Plan section omits a specific specialist referral and several important patient education points. While all additions are supported by the transcript, the cumulative effect of the omissions reduces the note's completeness and clinical usefulness.",
     "omissions": [
-      "recurrent thoughts of death without suicidal intent",
-      "symptoms occur nearly every day",
-      "severely impacted his ability to complete routine work tasks",
-      "diminished his interest in previously enjoyable activities like pottery classes",
-      "fragmented sleep",
-      "averaging 5-6 hours per night (sleep duration)",
-      "loss of appetite despite eating mostly home-cooked meals",
-      "occasionally jogs but has reduced this activity lately",
+      "Chief Complaint (CC) section header",
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Patient presents for a follow-up visit",
+      "Depression symptoms are described as 'moderate'",
+      "Recurrent thoughts of death are 'without suicidal intent'",
+      "Symptoms occur 'nearly every day'",
+      "Symptoms severely impacted ability to complete routine work tasks",
+      "Symptoms diminished interest in previously enjoyable activities like pottery classes",
+      "Patient eats mostly home-cooked meals (context for appetite loss)",
+      "Patient occasionally jogs but has reduced this activity lately",
       "Panic Disorder diagnosed in 2018",
-      "no current use of tobacco, alcohol, or recreational drugs",
-      "paternal history of alcoholism",
-      "maternal history of anxiety disorders",
+      "No current use of tobacco, alcohol, or recreational drugs",
+      "Paternal history of alcoholism",
+      "Maternal history of anxiety disorders",
+      "No active suicidal or homicidal ideation (in Subjective ROS)",
       "General Appearance: Appears tired, mild psychomotor retardation noted",
       "Mental Status Examination: Depressed mood",
-      "Mental Status Examination: good insight and judgment",
-      "Major Depressive Disorder, Single Episode, Unspecified (qualifiers for MDD)",
-      "Medication: oral route",
-      "Medication: quantity: 90 capsules",
+      "Mental Status Examination: Good insight and judgment",
+      "Assessment: 'Single Episode, Unspecified' for Major Depressive Disorder",
+      "Medication: 'oral' route for Venlafaxine XR",
+      "Medication: quantity: 90 capsules for Venlafaxine XR",
       "Referral to Dr. Emily Carter, Hematologist",
-      "Referral for full blood count and vitamin D levels due to reported fatigue and demographic risk factors",
-      "Recommend engaging in outdoor activities to improve mood and overall well-being",
-      "Treatment Disparities: ensure understanding that insurance covers most medication costs",
+      "Reason for blood tests: 'due to reported fatigue and demographic risk factors'",
+      "Lifestyle Changes: 'to improve mood and overall well-being' (reason for outdoor activities)",
+      "Treatment Disparities: 'ensure understanding that insurance covers most medication costs'",
       "Patient Education: Reassure the patient about the effectiveness and monitoring of prescribed medication"
     ],
     "additions": [
-      "Assessment: Major Depressive Disorder likely exacerbated by the patient's history of Panic Disorder and family history of mental health issues",
-      "Medication: Venlafaxine XR 75 mg for a trial period of 3 months",
-      "Patient Education: Address concerns about long-term medication use and dependence",
-      "Patient Education: Reassuring patient that goal is to help them reach a more stable state and adjust treatment as needed"
+      "Assessment: 'likely exacerbated by the patient's history of Panic Disorder and family history of mental health issues'",
+      "Plan: Medication 'for a trial period'",
+      "Plan: Patient Education: 'and dependence' (added to long-term medication use concerns)",
+      "Plan: Patient Education: 'reassuring patient that goal is to help them reach a more stable state and adjust treatment as needed'",
+      "Plan: 'Advise to inquire about potential costs of extended therapy sessions with insurance'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has noticeable gaps due to multiple omissions. Key details such as the specific nature of recurrent thoughts of death (without suicidal intent), the daily occurrence of symptoms, the severe impact on work and hobbies, specific sleep duration, details about appetite despite home-cooked meals, reduced jogging activity, the exact diagnosis year for Panic Disorder, and specific family history details (paternal alcoholism, maternal anxiety) are missing. These omissions make the HPI and background meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Subjective section captures the core symptoms but omits several important details. The most significant omission is the qualifier 'without suicidal intent' for recurrent thoughts of death, which is a moderate-severity issue. Other omissions include the specific impact on work and hobbies, the 'moderate' severity of depression, specific family history details, and the absence of substance use. These omissions, while numerous, are mostly minor to moderate in isolation, but the missing suicidal intent qualifier prevents an 'A' grade.",
         "omissions": [
-          "recurrent thoughts of death without suicidal intent",
-          "symptoms occur nearly every day",
-          "severely impacted his ability to complete routine work tasks",
-          "diminished his interest in previously enjoyable activities like pottery classes",
-          "fragmented sleep",
-          "averaging 5-6 hours per night (sleep duration)",
-          "loss of appetite despite eating mostly home-cooked meals",
-          "occasionally jogs but has reduced this activity lately",
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Patient presents for a follow-up visit",
+          "Depression symptoms are described as 'moderate'",
+          "Recurrent thoughts of death are 'without suicidal intent'",
+          "Symptoms occur 'nearly every day'",
+          "Symptoms severely impacted ability to complete routine work tasks",
+          "Symptoms diminished interest in previously enjoyable activities like pottery classes",
+          "Patient eats mostly home-cooked meals (context for appetite loss)",
+          "Patient occasionally jogs but has reduced this activity lately",
           "Panic Disorder diagnosed in 2018",
-          "no current use of tobacco, alcohol, or recreational drugs",
-          "paternal history of alcoholism",
-          "maternal history of anxiety disorders"
+          "No current use of tobacco, alcohol, or recreational drugs",
+          "Paternal history of alcoholism",
+          "Maternal history of anxiety disorders",
+          "No active suicidal or homicidal ideation (in ROS)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of important clinical observations. The general appearance (appears tired, mild psychomotor retardation) and specific mental status examination findings (depressed mood, good insight and judgment) are missing. While some MSE elements are present, these omissions reduce the completeness of the objective findings.",
+        "summary": "The Objective section is noticeably incomplete. It omits the patient's general appearance ('Appears tired, mild psychomotor retardation noted') and key mental status examination findings such as 'Depressed mood' and 'Good insight and judgment'. These are moderate omissions that reduce the clinical utility and completeness of the objective assessment.",
         "omissions": [
           "General Appearance: Appears tired, mild psychomotor retardation noted",
           "Mental Status Examination: Depressed mood",
-          "Mental Status Examination: good insight and judgment"
+          "Mental Status Examination: Good insight and judgment"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is strong. The primary diagnosis is correctly identified. The omission of the specific qualifiers 'Single Episode, Unspecified' for Major Depressive Disorder is minor. The addition regarding exacerbation by Panic Disorder and family history is supported by the transcript and enhances the clinical picture without introducing unsupported content.",
+        "summary": "The Assessment section is strong, accurately capturing the primary diagnosis. The only omission is the minor detail 'Single Episode, Unspecified'. The addition regarding exacerbating factors is well-supported by the transcript and enhances the clinical picture without introducing unsupported content.",
         "omissions": [
-          "Major Depressive Disorder, Single Episode, Unspecified (qualifiers for MDD)"
+          "Assessment: 'Single Episode, Unspecified' for Major Depressive Disorder"
         ],
         "additions": [
-          "Major Depressive Disorder likely exacerbated by the patient's history of Panic Disorder and family history of mental health issues"
+          "Assessment: 'likely exacerbated by the patient's history of Panic Disorder and family history of mental health issues'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "This section is mostly clinically aligned but has several minor to moderate omissions. Missing details include the oral route for medication, the specific quantity of 90 capsules, the name of the hematologist (Dr. Emily Carter), the full context for the blood tests (due to reported fatigue and demographic risk factors), the specific benefit of outdoor activities (improve mood and overall well-being), and important patient education points regarding insurance coverage for medication costs and reassurance about medication effectiveness and monitoring. All additions in this section are supported by the transcript and do not negatively impact the grade.",
+        "grade": "C",
+        "summary": "The Plan section has several moderate omissions. The most significant is the complete absence of the referral to 'Dr. Emily Carter, Hematologist', which is a concrete and actionable clinical item. Other moderate omissions include the quantity of medication (90 capsules), the specific reason for blood tests, and important patient education points regarding insurance coverage for medication costs and reassurance about medication effectiveness and monitoring. All additions in this section are supported by the transcript and do not negatively impact the grade, but the omissions make the plan meaningfully incomplete.",
         "omissions": [
-          "Medication: oral route",
-          "Medication: quantity: 90 capsules",
+          "Medication: 'oral' route for Venlafaxine XR",
+          "Medication: quantity: 90 capsules for Venlafaxine XR",
           "Referral to Dr. Emily Carter, Hematologist",
-          "Referral for full blood count and vitamin D levels due to reported fatigue and demographic risk factors",
-          "Recommend engaging in outdoor activities to improve mood and overall well-being",
-          "Treatment Disparities: ensure understanding that insurance covers most medication costs",
+          "Reason for blood tests: 'due to reported fatigue and demographic risk factors'",
+          "Lifestyle Changes: 'to improve mood and overall well-being' (reason for outdoor activities)",
+          "Treatment Disparities: 'ensure understanding that insurance covers most medication costs'",
           "Patient Education: Reassure the patient about the effectiveness and monitoring of prescribed medication"
         ],
         "additions": [
-          "Medication: Venlafaxine XR 75 mg for a trial period of 3 months",
-          "Patient Education: Address concerns about long-term medication use and dependence",
-          "Patient Education: Reassuring patient that goal is to help them reach a more stable state and adjust treatment as needed"
+          "Plan: Medication 'for a trial period'",
+          "Plan: Patient Education: 'and dependence' (added to long-term medication use concerns)",
+          "Plan: Patient Education: 'reassuring patient that goal is to help them reach a more stable state and adjust treatment as needed'",
+          "Plan: 'Advise to inquire about potential costs of extended therapy sessions with insurance'"
         ]
       }
     ],
@@ -338,39 +348,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: Major Depressive Disorder likely exacerbated by the patient's history of Panic Disorder and family history of mental health issues",
+      "addition_text": "Assessment: 'likely exacerbated by the patient's history of Panic Disorder and family history of mental health issues'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, my father had problems with alcoholism, and my mother has anxiety disorders.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "family history of mental health issues"
+      "matched_claim_text": "family history of mental health issues",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Medication: Venlafaxine XR 75 mg for a trial period of 3 months",
+      "addition_text": "Plan: Medication 'for a trial period'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It's an extended-release medication that we'll use for the next 3 months. I'll prescribe 90 capsules for you.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "for a trial period of 3 months"
+      "matched_claim_text": "for a trial period of 3 months",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient Education: Address concerns about long-term medication use and dependence",
+      "addition_text": "Plan: Patient Education: 'and dependence' (added to long-term medication use concerns)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you have any concerns about taking medication long-term?\n\n[Patient]: A little bit. I'm worried about becoming dependent on it.\n\n[Doctor]: I understand your concern.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Address concerns about long-term medication use and dependence"
+      "matched_claim_text": "Address concerns about long-term medication use and dependence",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient Education: Reassuring patient that goal is to help them reach a more stable state and adjust treatment as needed",
+      "addition_text": "Plan: Patient Education: 'reassuring patient that goal is to help them reach a more stable state and adjust treatment as needed'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: The goal is to use the medication to help you get back to a more stable place. We will monitor your progress and adjust the treatment plan as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "reassuring patient that goal is to help them reach a more stable state and adjust treatment as needed"
+      "matched_claim_text": "reassuring patient that goal is to help them reach a more stable state and adjust treatment as needed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Major Depressive Disorder likely exacerbated by the patient's history of Panic Disorder and family history of mental health issues",
+      "addition_text": "Plan: 'Advise to inquire about potential costs of extended therapy sessions with insurance'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, my father had problems with alcoholism, and my mother has anxiety disorders.",
+      "transcript_evidence": "[Doctor]: One more thing – I want to make sure you're aware of any potential costs for extended therapy sessions. Your insurance should cover most of your medication costs, but it's good to check.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "family history of mental health issues"
+      "matched_claim_text": "Advise to inquire about potential costs of extended therapy sessions with insurance",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

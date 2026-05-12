@@ -272,79 +272,80 @@
     "plan_alignment_score": 0.6799999999999999
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-expert",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically usable, but the Subjective section has noticeable gaps due to the complete omission of the Review of Systems and the patient's detailed medical history regarding seasonal allergies and asthma. While other sections are generally well-captured with only minor or moderate omissions, the significant incompleteness of the Subjective section prevents a higher overall grade. There are no unsupported or unknown additions that would introduce misleading clinical content.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "D",
+    "overall_summary": "The overall grade is D due to significant omissions, particularly the absence of a formal ICD-10 diagnosis in the Assessment section, which materially reduces the clinical usefulness of the note. Additionally, the Subjective section has noticeable gaps in the patient's medical history and detailed Review of Systems. While other sections are better, the critical missing diagnosis prevents a higher overall grade.",
     "omissions": [
-      "Patient's concern about developing symptoms in the future",
-      "History of seasonal allergies and asthma",
-      "Management of seasonal allergies with loratadine",
-      "Management of asthma with albuterol inhaler",
-      "Statement: 'no significant medical history of other chronic conditions beyond her asthma'",
-      "All details from Review of Systems (General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Skin)",
-      "Temperature in Celsius (37°C)",
-      "CONSTITUTIONAL: No acute distress",
-      "CV: No murmurs",
-      "RESPIRATORY: Lungs clear to auscultation bilaterally, no wheezes or crackles",
-      "SKIN: No jaundice",
-      "SKIN: No lesions observed",
-      "Assessment: History of seasonal allergies and asthma, currently well-controlled",
-      "Plan: Initiate telemedicine visits if symptoms develop",
-      "Plan: Name of Infectious Disease Specialist, Dr. Jonathan Smith"
+      "Patient's history of seasonal allergies and asthma, managed with loratadine and albuterol inhaler",
+      "Statement of no other chronic medical conditions beyond asthma",
+      "Detailed Review of Systems (General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Skin findings)",
+      "Physical exam finding: No acute distress (Constitutional)",
+      "Physical exam finding: No erythema or exudates (ENT)",
+      "Physical exam finding: Regular rate and rhythm, no murmurs (CV)",
+      "Physical exam finding: Lungs clear to auscultation bilaterally, no wheezes or crackles (Respiratory)",
+      "Physical exam finding: No jaundice (Skin)",
+      "Formal diagnosis of 'Contact with and (suspected) exposure to other viral communicable diseases'",
+      "Assessment statement: History of seasonal allergies and asthma, currently well-controlled",
+      "Reason for self-isolation: 'to minimize risk of transmission'",
+      "Instruction to initiate telemedicine visits if symptoms develop (in follow-up plan)",
+      "Name of the Infectious Disease Specialist: Dr. Jonathan Smith",
+      "Reason for ordering CBC: 'to assess for any signs of infection'"
     ],
     "additions": [
-      "Assessment: 'necessitates precautions' in the diagnosis statement"
+      "Assessment statement: 'potential exposure to a viral communicable disease necessitates precautions'",
+      "Adverb 'immediately' in the instruction to call the clinic"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has noticeable gaps, including the complete omission of the Review of Systems, which is a major component of a comprehensive Subjective note. Additionally, the patient's history of seasonal allergies and asthma, along with their management, was omitted, representing moderate issues. These omissions make the section meaningfully incomplete.",
+        "summary": "The Subjective section receives a C. It omits important details regarding the patient's history of seasonal allergies and asthma, including their management with loratadine and albuterol inhaler, and the statement of no other chronic medical conditions. Furthermore, the detailed Review of Systems findings (General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Skin) are entirely missing, creating noticeable gaps and making the section meaningfully incomplete.",
         "omissions": [
-          "Patient's concern about developing symptoms in the future",
-          "History of seasonal allergies and asthma",
-          "Management of seasonal allergies with loratadine",
-          "Management of asthma with albuterol inhaler",
-          "Statement: 'no significant medical history of other chronic conditions beyond her asthma'",
-          "All details from Review of Systems (General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Skin)"
+          "Patient's history of seasonal allergies and asthma, managed with loratadine and albuterol inhaler",
+          "Statement of no other chronic medical conditions beyond asthma",
+          "Detailed Review of Systems (General, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Skin findings)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned. It captures all vital signs and a summary of physical examination findings. Omissions are primarily specific details such as the Celsius temperature, 'No acute distress,' 'No murmurs,' and detailed respiratory and skin findings, which are considered minor to moderate issues but do not significantly alter the overall clinical picture.",
+        "summary": "The Objective section receives a B. It accurately captures vital signs and key physical examination findings. However, it omits several minor physical exam details, including 'No acute distress' (Constitutional), 'No erythema or exudates' (ENT), 'Regular rate and rhythm, no murmurs' (CV), 'Lungs clear to auscultation bilaterally, no wheezes or crackles' (Respiratory), and 'No jaundice' (Skin). These are minor omissions that do not significantly detract from the overall usability of the section.",
         "omissions": [
-          "Temperature in Celsius (37°C)",
-          "CONSTITUTIONAL: No acute distress",
-          "CV: No murmurs",
-          "RESPIRATORY: Lungs clear to auscultation bilaterally, no wheezes or crackles",
-          "SKIN: No jaundice",
-          "SKIN: No lesions observed"
+          "Physical exam finding: No acute distress (Constitutional)",
+          "Physical exam finding: No erythema or exudates (ENT)",
+          "Physical exam finding: Regular rate and rhythm, no murmurs (CV)",
+          "Physical exam finding: Lungs clear to auscultation bilaterally, no wheezes or crackles (Respiratory)",
+          "Physical exam finding: No jaundice (Skin)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "This section is mostly clinically aligned. The primary diagnosis and asymptomatic status are correctly identified. The main omission is the patient's history of seasonal allergies and asthma, currently well-controlled, which is a moderate issue as it provides important clinical context. The addition of 'necessitates precautions' is supported by the transcript and does not reduce the grade.",
+        "grade": "D",
+        "summary": "The Assessment section receives a D. The most significant issue is the omission of the formal ICD-10 diagnosis, 'Contact with and (suspected) exposure to other viral communicable diseases (ICD-10: Z20.828)', which is a major clinical gap. Additionally, the assessment statement regarding the patient's 'History of seasonal allergies and asthma, currently well-controlled' is omitted. These issues materially reduce the clinical usefulness of this section.",
         "omissions": [
+          "Formal diagnosis of 'Contact with and (suspected) exposure to other viral communicable diseases'",
           "History of seasonal allergies and asthma, currently well-controlled"
         ],
         "additions": [
-          "'necessitates precautions' in the diagnosis statement"
+          "Statement: 'potential exposure to a viral communicable disease necessitates precautions'"
         ]
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section captures all major clinically important Ground Truth content. The omissions are minor details, specifically the instruction to 'Initiate telemedicine visits if symptoms develop' and the name of the Infectious Disease Specialist, Dr. Jonathan Smith. These do not detract from the overall clinical usefulness or completeness of the plan.",
+        "grade": "B",
+        "summary": "The Plan section receives a B. It includes all major components of the plan, such as monitoring, self-isolation, medication prescription, follow-up, referral, and ordering blood work. Minor omissions include the specific reason for self-isolation ('to minimize risk of transmission'), the instruction to initiate telemedicine visits if symptoms develop, the name of the Infectious Disease Specialist ('Dr. Jonathan Smith'), and the reason for ordering CBC ('to assess for any signs of infection'). These are minor details that do not significantly impact the usability of the plan.",
         "omissions": [
-          "Initiate telemedicine visits if symptoms develop",
-          "Name of Infectious Disease Specialist, Dr. Jonathan Smith"
+          "Reason for self-isolation: 'to minimize risk of transmission'",
+          "Instruction to initiate telemedicine visits if symptoms develop (in follow-up plan)",
+          "Name of the Infectious Disease Specialist: Dr. Jonathan Smith",
+          "Reason for ordering CBC: 'to assess for any signs of infection'"
         ],
-        "additions": []
+        "additions": [
+          "Adverb 'immediately' in the instruction to call the clinic"
+        ]
       }
     ],
     "rubric_notes": null
@@ -352,18 +353,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: 'necessitates precautions' in the diagnosis statement",
+      "addition_text": "Assessment statement: 'potential exposure to a viral communicable disease necessitates precautions'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "However, given your potential exposure, we need to take some precautions.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Patient]: Yes, I was in close contact with someone who later tested positive for a viral infection.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports potential exposure to a viral communicable disease",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'necessitates precautions' in the diagnosis statement",
+      "addition_text": "Adverb 'immediately' in the instruction to call the clinic",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "However, given your potential exposure, we need to take some precautions.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: If you notice any new symptoms or your health worsens, call the clinic immediately.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Instruct patient to call the clinic immediately if new symptoms or health worsens",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement: 'potential exposure to a viral communicable disease necessitates precautions'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I was in close contact with someone who later tested positive for a viral infection.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports potential exposure to a viral communicable disease",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

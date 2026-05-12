@@ -262,88 +262,92 @@
     "plan_alignment_score": 0.6632124352331606
   },
   "expert_judge": {
-    "model": "expert-clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the core HPI, objective findings, and treatment plan. However, it has several omissions, particularly in the Subjective section, where the Chief Complaint, details on the impact of opioid use on job/social relationships, and important psychiatric ROS negative findings were missed. In the Plan section, key details like pending lab work, explicit monitoring instructions, and the overall patient summary were omitted. There were no unsupported or unknown additions that would lower the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note has noticeable gaps across multiple sections. Significant omissions in the Subjective section include the entire Review of Systems and details about the impact of opioid use on the patient's life. The Objective section is missing several important physical exam findings. In the Plan, crucial instructions regarding starting CBT, monitoring medication adherence, and pending laboratory tests are omitted, along with the overall patient summary. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Chief Complaint (CC) section header and content: 'Moderate craving and withdrawal symptoms.'",
-      "HPI: 'presents for initial consultation for opioid dependence.'",
-      "HPI: 'daily usage of opioids, impacting his job performance as a construction worker and his social relationships.'",
-      "Review of Systems (ROS) section header",
-      "ROS - Psychiatric: 'Denies hallucinations or suicidal ideation.'",
-      "ROS - Sleep: 'Poor sleep quality, typically 4-5 hours per night.'",
-      "ROS - Neurological: 'Denies headaches, dizziness, or seizures.'",
-      "Objective: Vital Signs: 'Oxygen saturation: 98% on room air'",
-      "Objective: Physical Exam: 'Cardiovascular: Normal, no murmurs or abnormal heart sounds'",
-      "Objective: Physical Exam: 'Respiratory: Clear breath sounds bilaterally, no wheezes or crackles'",
-      "Objective: Physical Exam: 'Abdomen: Soft, non-tender, no hepatosplenomegaly'",
-      "Objective: Physical Exam: 'Neurological: Alert and oriented, normal reflexes and coordination'",
-      "Objective: Laboratory Results section header",
-      "Plan: Referral: 'specializing in substance use disorders.'",
-      "Plan: 'Encouraged to make dietary changes to reduce fast food intake and join a physical activity program.'",
-      "Plan: 'Awaiting results for blood work including CBC, LFTs, and CMP.'",
-      "Plan: Instructions section header",
-      "Plan: Instructions: 'Patient is to start cognitive-behavioral therapy with Dr. Jane Smith.'",
-      "Plan: Instructions: 'Monitor withdrawal symptoms and adherence to medication.'",
-      "Plan: Overall summary: 'Overall, the patient was cooperative and expressed motivation toward the treatment plan but remains anxious about managing withdrawal symptoms.'"
+      "Patient's initial consultation for opioid dependence",
+      "Patient's daily opioid usage",
+      "Impact of opioid use on job performance as a construction worker and social relationships",
+      "Review of Systems section",
+      "ROS - Psychiatric: Denies hallucinations or suicidal ideation",
+      "ROS - Sleep: Poor sleep quality, typically 4-5 hours per night",
+      "ROS - Neurological: Denies headaches, dizziness, or seizures",
+      "ROS - General: No fever, chills, or night sweats",
+      "Vital Signs: Oxygen saturation: 98% on room air",
+      "Physical Exam: Cardiovascular: Normal, no murmurs or abnormal heart sounds",
+      "Physical Exam: Respiratory: Clear breath sounds bilaterally, no wheezes or crackles",
+      "Physical Exam: Abdomen: Soft, non-tender, no hepatosplenomegaly",
+      "Physical Exam: Neurological: Alert and oriented",
+      "Physical Exam: Neurological: normal reflexes and coordination",
+      "Referral detail: specializing in substance use disorders (for CBT)",
+      "Dietary advice: encouraged to make dietary changes to reduce fast food intake",
+      "Exercise advice: encouraged to join a physical activity program",
+      "Laboratory Tests: Awaiting results for blood work including CBC, LFTs, and CMP",
+      "Instruction: Patient is to start cognitive-behavioral therapy with Dr. Jane Smith",
+      "Instruction: Monitor withdrawal symptoms and adherence to medication",
+      "Overall summary: Patient was cooperative and expressed motivation toward the treatment plan but remains anxious about managing withdrawal symptoms"
     ],
     "additions": [
-      "Plan: Medication: 'for withdrawal symptoms and cravings.'"
+      "Assessment qualifier: 'at this stage'",
+      "Medication reason: 'for withdrawal symptoms and cravings'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has several omissions, including the Chief Complaint, details about the patient's daily opioid usage impacting job performance and social relationships, and several negative findings from the Review of Systems (Psychiatric, Sleep, Neurological, General). While the main HPI is present, these omissions represent noticeable gaps in important clinical and social context.",
+        "grade": "C",
+        "summary": "The Subjective section is noticeably incomplete due to the omission of the entire Review of Systems, including important denials of hallucinations/suicidal ideation and details about poor sleep quality. Additionally, key information about the patient's daily opioid usage and its impact on job performance and social relationships is missing.",
         "omissions": [
-          "Chief Complaint (CC) section header and content: 'Moderate craving and withdrawal symptoms.'",
-          "HPI: 'presents for initial consultation for opioid dependence.'",
-          "HPI: 'daily usage of opioids, impacting his job performance as a construction worker and his social relationships.'",
+          "Patient's initial consultation for opioid dependence",
+          "Patient's daily opioid usage",
+          "Impact of opioid use on job performance as a construction worker and social relationships",
           "Review of Systems (ROS) section header",
-          "ROS - Psychiatric: 'Denies hallucinations or suicidal ideation.'",
-          "ROS - Sleep: 'Poor sleep quality, typically 4-5 hours per night.'",
-          "ROS - Neurological: 'Denies headaches, dizziness, or seizures.'",
-          "ROS - General: 'No fever, chills, or night sweats.'"
+          "ROS - Psychiatric: Denies hallucinations or suicidal ideation",
+          "ROS - Sleep: Poor sleep quality, typically 4-5 hours per night",
+          "ROS - Neurological: Denies headaches, dizziness, or seizures",
+          "ROS - General: No fever, chills, or night sweats"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-captured. The omissions are minor, consisting of specific details like oxygen saturation, and several negative findings from the physical exam (Cardiovascular, Respiratory, Abdomen, full Neurological details). These do not significantly impact the clinical usefulness of the section.",
+        "grade": "C",
+        "summary": "The Objective section has multiple moderate omissions, including specific findings from the cardiovascular, respiratory, abdominal, and neurological physical exams (e.g., normal heart sounds, clear breath sounds, alert and oriented status, normal reflexes). The oxygen saturation vital sign was also omitted.",
         "omissions": [
-          "Vital Signs: 'Oxygen saturation: 98% on room air'",
-          "Physical Exam: 'Cardiovascular: Normal, no murmurs or abnormal heart sounds'",
-          "Physical Exam: 'Respiratory: Clear breath sounds bilaterally, no wheezes or crackles'",
-          "Physical Exam: 'Abdomen: Soft, non-tender, no hepatosplenomegaly'",
-          "Physical Exam: 'Neurological: Alert and oriented, normal reflexes and coordination'",
-          "Laboratory Results section header"
+          "Vital Signs: Oxygen saturation: 98% on room air",
+          "Physical Exam: Cardiovascular: Normal, no murmurs or abnormal heart sounds",
+          "Physical Exam: Respiratory: Clear breath sounds bilaterally, no wheezes or crackles",
+          "Physical Exam: Abdomen: Soft, non-tender, no hepatosplenomegaly",
+          "Physical Exam: Neurological: Alert and oriented",
+          "Physical Exam: Neurological: normal reflexes and coordination"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the GroundTruth, with no omissions or unsupported/unknown additions.",
+        "summary": "The Assessment section is complete and accurate. The addition of 'at this stage' was supported by the transcript and did not reduce the grade.",
         "omissions": [],
-        "additions": []
+        "additions": [
+          "Qualifier: 'at this stage'"
+        ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section contains several omissions, including the specific detail about the referral specializing in substance use disorders, encouragement for specific dietary changes and physical activity programs, the crucial mention of awaiting blood work results (CBC, LFTs, CMP), explicit instructions for starting CBT, monitoring withdrawal symptoms and medication adherence, and the overall patient summary. While the core plan is present, these omissions represent moderate gaps in comprehensive planning and patient context. The single addition was supported by the transcript and did not affect the grade.",
+        "grade": "C",
+        "summary": "The Plan section contains several moderate omissions that make it meaningfully incomplete. Key missing items include details about awaiting blood work results (CBC, LFTs, CMP), specific instructions for the patient to start CBT and to monitor withdrawal symptoms/medication adherence, and the overall summary of the patient's motivation and anxiety. The addition regarding medication reason was supported by the transcript.",
         "omissions": [
-          "Referral: 'specializing in substance use disorders.'",
-          "'Encouraged to make dietary changes to reduce fast food intake and join a physical activity program.'",
-          "'Awaiting results for blood work including CBC, LFTs, and CMP.'",
-          "Instructions section header",
-          "Instructions: 'Patient is to start cognitive-behavioral therapy with Dr. Jane Smith.'",
-          "Instructions: 'Monitor withdrawal symptoms and adherence to medication.'",
-          "Overall summary: 'Overall, the patient was cooperative and expressed motivation toward the treatment plan but remains anxious about managing withdrawal symptoms.'"
+          "Referral detail: specializing in substance use disorders (for CBT)",
+          "Dietary advice: encouraged to make dietary changes to reduce fast food intake",
+          "Exercise advice: encouraged to join a physical activity program",
+          "Laboratory Tests: Awaiting results for blood work including CBC, LFTs, and CMP",
+          "Instruction: Patient is to start cognitive-behavioral therapy with Dr. Jane Smith",
+          "Instruction: Monitor withdrawal symptoms and adherence to medication",
+          "Overall summary: Patient was cooperative and expressed motivation toward the treatment plan but remains anxious about managing withdrawal symptoms"
         ],
         "additions": [
-          "Medication: 'for withdrawal symptoms and cravings.'"
+          "Medication reason: 'for withdrawal symptoms and cravings'"
         ]
       }
     ],
@@ -352,18 +356,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Plan: Medication: 'for withdrawal symptoms and cravings.'",
+      "addition_text": "Assessment qualifier: 'at this stage'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I’m going to prescribe buprenorphine/naloxone (Suboxone) 8mg/2mg sublingual film, one film daily to help with your withdrawal symptoms and cravings.",
+      "transcript_evidence": "[Doctor]: Based on everything we’ve discussed and reviewed, it’s clear you have opioid dependence, but it’s uncomplicated at this stage.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe buprenorphine/naloxone (Suboxone) 8mg/2mg sublingual film, one film daily for withdrawal symptoms and cravings."
+      "matched_claim_text": "Opioid dependence without complications at this stage.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Medication: 'for withdrawal symptoms and cravings.'",
+      "addition_text": "Medication reason: 'for withdrawal symptoms and cravings'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m going to prescribe buprenorphine/naloxone (Suboxone) 8mg/2mg sublingual film, one film daily to help with your withdrawal symptoms and cravings.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe buprenorphine/naloxone (Suboxone) 8mg/2mg sublingual film, one film daily for withdrawal symptoms and cravings."
+      "matched_claim_text": "Prescribe buprenorphine/naloxone (Suboxone) 8mg/2mg sublingual film, one film daily for withdrawal symptoms and cravings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Qualifier: 'at this stage'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on everything we’ve discussed and reviewed, it’s clear you have opioid dependence, but it’s uncomplicated at this stage.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Opioid dependence without complications at this stage.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -214,9 +214,9 @@
     "plan_alignment_score": 0.6229508196721312
   },
   "expert_judge": {
-    "model": "clinical_reviewer_model",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the chief complaint, HPI, objective findings, assessment, and key plan elements. However, it omits several minor formatting headings and some moderate clinical details, such as specific functional limitations in the Subjective section (difficulty climbing stairs, walking more than two blocks without rest) and the status of awaiting lab results in the Plan. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, objective findings, assessment, and most of the plan. The primary issues are several minor and moderate omissions, particularly in the Subjective section regarding specific functional limitations and in the Plan section concerning the explicit mention of awaiting lab results. There are no unsupported or unknown additions, which significantly contributes to its usability.",
     "omissions": [
       "Chief Complaint (CC) heading",
       "History of Present Illness (HPI) heading",
@@ -248,7 +248,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section accurately captures the core HPI but omits several formatting headings and specific details regarding the patient's functional limitations (difficulty climbing stairs, walking more than two blocks without rest) and some ROS details. All additions were supported by the transcript.",
+        "summary": "This section omits important details regarding the patient's functional limitations, specifically difficulty climbing stairs and walking more than two blocks without rest. It also omits specific negative findings from the Review of Systems. However, the core chief complaint and general history of present illness are accurately captured. All additions in this section were supported by the transcript.",
         "omissions": [
           "Chief Complaint (CC) heading",
           "History of Present Illness (HPI) heading",
@@ -267,7 +267,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is strong, accurately presenting vital signs and physical exam findings. Omissions are limited to a minor heading and a descriptive detail for the Negative Romberg test.",
+        "summary": "This section is highly accurate and complete. The only omissions are minor formatting (the 'Neurological Exam' heading) and a small detail clarifying the negative Romberg test, neither of which impacts the clinical utility or accuracy of the findings.",
         "omissions": [
           "Neurological Exam heading",
           "Detail for Negative Romberg test: \"The patient could maintain balance with eyes closed\""
@@ -277,7 +277,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is well-aligned, accurately stating the diagnosis and differential. Minor omissions include specific phrasing like \"Not Elsewhere Classified\" and \"necessitating further evaluation.\"",
+        "summary": "This section is well-aligned with the GroundTruth. The omissions are limited to minor phrasing ('Not Elsewhere Classified' and 'necessitating further evaluation') that do not materially change the clinical meaning or completeness of the assessment.",
         "omissions": [
           "\"Not Elsewhere Classified\" from the diagnosis \"Difficulty in Walking, Not Elsewhere Classified\"",
           "\"necessitating further evaluation\" (from the end of the differential diagnosis statement)"
@@ -287,7 +287,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "While the core plan elements (medication, therapy, referrals, follow-up) are present, the section omits several formatting headings and the important clinical detail about awaiting blood work results (CBC and Vitamin B12 level). It also misses some contextual details about patient eagerness and interdisciplinary collaboration.",
+        "summary": "This section omits the explicit mention of awaiting results for the CBC and Vitamin B12 level, which is a moderate omission regarding the status of laboratory tests. Additionally, several minor contextual details and section headings are omitted. However, all critical interventions, referrals, and follow-up instructions are accurately included.",
         "omissions": [
           "Medication heading",
           "Therapy heading",
@@ -310,42 +310,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see that your arm swing is reduced while walking.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "reduced arm swing"
+      "matched_claim_text": "reduced arm swing",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"bradykinesia\" in Subjective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I also notice a mild degree of bradykinesia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "bradykinesia"
+      "matched_claim_text": "bradykinesia",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Bradykinesia"
     },
     {
       "addition_text": "\"mild to moderate\" description for tremors in Subjective section (GroundTruth only specifies \"mild\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Sometimes my hands tremble a little, and I feel like my movements are slower than they used to be.\n[Doctor]: I notice a mild resting tremor.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "mild to moderate tremors"
+      "matched_claim_text": "mild to moderate tremors",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"reduced arm swing\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I see that your arm swing is reduced while walking.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "reduced arm swing"
+      "matched_claim_text": "reduced arm swing",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"bradykinesia\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I also notice a mild degree of bradykinesia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "bradykinesia"
+      "matched_claim_text": "bradykinesia",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Bradykinesia"
     },
     {
       "addition_text": "\"mild to moderate\" description for tremors",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Sometimes my hands tremble a little, and I feel like my movements are slower than they used to be.\n[Doctor]: I notice a mild resting tremor.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "mild to moderate tremors"
+      "matched_claim_text": "mild to moderate tremors",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

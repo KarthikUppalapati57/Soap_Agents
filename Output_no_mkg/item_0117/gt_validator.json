@@ -246,37 +246,42 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note provides a mostly accurate and clinically usable summary of the patient encounter. It successfully captures the essence of the chief complaint, key HPI details, relevant ROS findings, objective examination results, differential diagnoses, and a comprehensive treatment plan. However, the note has several minor omissions, such as specific details from the HPI and ROS, some physical exam findings, and the explicit reason for the MRI. More significantly, it omits the primary diagnosis in the Assessment section and entirely misses the \"Notes\" section, which contains important social context. Despite these omissions, the note contains no unsupported or unknown additions, maintaining clinical accuracy.",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is usable but has noticeable gaps. Key omissions include the patient's history of diabetes mellitus type 2 from the Review of Systems in the Subjective section, the explicit primary diagnosis of \"Difficulty in walking, not elsewhere classified\" in the Assessment, and the entire \"Notes\" section from the Plan. Several minor details from the HPI, ROS, and physical examination were also omitted. There were no unsupported or unknown additions.",
     "omissions": [
       "Chief Complaint: Difficulty in walking",
       "HPI: initial consultation",
       "HPI: moderate to severe symptoms",
+      "HPI: occasional sharp pain in her lower back",
+      "HPI: significantly impacted her ability to perform routine activities and walk long distances",
       "HPI: increasing her risk of falls",
-      "ROS - Constitutional: approximately 5 hours per night (duration of poor sleep)",
+      "ROS - Constitutional: approximately 5 hours per night of sleep",
       "ROS - Endocrine: History of diabetes mellitus type 2, not strictly following a diabetic diet",
-      "Physical Exam - General: Well-nourished, well-developed, appears in no acute distress",
-      "Physical Exam - Cardiovascular: Normal heart sounds, no murmurs",
-      "Physical Exam - Respiratory: Clear to auscultation bilaterally",
-      "Assessment - Primary Diagnosis: Difficulty in walking, not elsewhere classified",
+      "Physical Examination - General: Well-nourished, well-developed, appears in no acute distress",
+      "Physical Examination - Cardiovascular: Normal heart sounds, no murmurs",
+      "Physical Examination - Respiratory: Clear to auscultation bilaterally",
+      "Primary Diagnosis: Difficulty in walking, not elsewhere classified",
+      "Distinction between Primary Diagnosis and Differential Diagnosis",
       "Investigations: reason for MRI (to rule out spinal causes of the symptoms)",
-      "Patient Education: benefits of physical therapy",
+      "Patient Education: Provided information on the benefits of physical therapy",
       "Patient Questions: All questions were answered, and the patient was cooperative and understanding of the plan",
-      "Notes section (entirely missing): Ms. Smith is highly cooperative with medical advice and has good access to healthcare, living in an affluent urban neighborhood with low environmental health risks. She enjoys reading and gardening, although her mobility issues have limited these activities"
+      "Notes section content (patient cooperation, access to healthcare, living environment, hobbies and limitations)"
     ],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section effectively conveys the patient's chief complaint, history of present illness, and relevant review of systems. It accurately captures the 6-month history of symptoms, their daily occurrence, impact on mobility, and poor sleep quality. However, it omits the explicit Chief Complaint field, the detail of \"initial consultation,\" the specific duration of poor sleep (5 hours), and the full context of the patient's diabetes history and non-adherence from the ROS.",
+        "grade": "C",
+        "summary": "This section has noticeable gaps. It omits the explicit Chief Complaint of \"Difficulty in walking,\" several specific details from the HPI (e.g., 'initial consultation,' 'moderate to severe symptoms,' 'significantly impacted her ability to perform routine activities and walk long distances,' 'increasing her risk of falls'), and the specific duration of poor sleep. Most significantly, it completely omits the history of diabetes mellitus type 2 and non-adherence to diet from the Review of Systems.",
         "omissions": [
           "Chief Complaint: Difficulty in walking",
           "HPI: initial consultation",
           "HPI: moderate to severe symptoms",
+          "HPI: occasional sharp pain in her lower back",
+          "HPI: significantly impacted her ability to perform routine activities and walk long distances",
           "HPI: increasing her risk of falls",
-          "ROS - Constitutional: approximately 5 hours per night (duration of poor sleep)",
+          "ROS - Constitutional: approximately 5 hours per night of sleep",
           "ROS - Endocrine: History of diabetes mellitus type 2, not strictly following a diabetic diet"
         ],
         "additions": []
@@ -284,32 +289,33 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports the patient's vital signs and the most clinically relevant physical examination findings, including decreased sensation and weakness in lower extremities, and decreased range of motion in the lumbar spine. However, it omits the general appearance (well-nourished, well-developed, no acute distress), cardiovascular exam findings (normal heart sounds, no murmurs), and respiratory exam findings (clear to auscultation bilaterally).",
+        "summary": "This section is mostly clinically aligned. It accurately captures all vital signs, BMI, and key abnormal physical examination findings (decreased sensation, decreased range of motion in lumbar spine, weakness in lower extremities). Minor omissions include general appearance details ('Well-nourished, well-developed, appears in no acute distress'), and normal cardiovascular and respiratory findings.",
         "omissions": [
-          "Physical Exam - General: Well-nourished, well-developed, appears in no acute distress",
-          "Physical Exam - Cardiovascular: Normal heart sounds, no murmurs",
-          "Physical Exam - Respiratory: Clear to auscultation bilaterally"
+          "Physical Examination - General: Well-nourished, well-developed, appears in no acute distress",
+          "Physical Examination - Cardiovascular: Normal heart sounds, no murmurs",
+          "Physical Examination - Respiratory: Clear to auscultation bilaterally"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section correctly identifies the key differential diagnoses of spinal stenosis, peripheral neuropathy, and lumbar radiculopathy. However, it omits the primary diagnosis of \"Difficulty in walking, not elsewhere classified,\" which is a significant structural and clinical omission for a complete assessment.",
+        "summary": "This section is mostly clinically aligned. It correctly identifies the differential diagnoses (spinal stenosis, peripheral neuropathy, and lumbar radiculopathy). However, it omits the explicit primary diagnosis of \"Difficulty in walking, not elsewhere classified\" and the structural distinction between primary and differential diagnoses.",
         "omissions": [
-          "Primary Diagnosis: Difficulty in walking, not elsewhere classified"
+          "Primary Diagnosis: Difficulty in walking, not elsewhere classified",
+          "Distinction between Primary Diagnosis and Differential Diagnosis"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is comprehensive, detailing referrals, investigations, physical therapy, fall prevention, medication continuation, and follow-up. It also includes patient education on diet, exercise, and fall prevention. However, it omits the explicit reason for the MRI (to rule out spinal causes), the specific mention of the benefits of physical therapy, and the patient's understanding and cooperation with the plan. Most notably, the entire \"Notes\" section, containing important social and contextual information, is missing.",
+        "summary": "This section is mostly clinically aligned and clearly usable. It accurately captures all major plan components, including referrals, investigations, physical therapy, fall prevention, medication continuation, and follow-up. Minor omissions include the specific reason for the MRI ('to rule out spinal causes of the symptoms'), a detail about patient education ('benefits of physical therapy'), and the summary of patient questions. The entire 'Notes' section, containing valuable patient context, was also omitted.",
         "omissions": [
           "Investigations: reason for MRI (to rule out spinal causes of the symptoms)",
-          "Patient Education: benefits of physical therapy",
+          "Patient Education: Provided information on the benefits of physical therapy",
           "Patient Questions: All questions were answered, and the patient was cooperative and understanding of the plan",
-          "Notes section (entirely missing): Ms. Smith is highly cooperative with medical advice and has good access to healthcare, living in an affluent urban neighborhood with low environmental health risks. She enjoys reading and gardening, although her mobility issues have limited these activities"
+          "Notes section content (patient cooperation, access to healthcare, living environment, hobbies and limitations)"
         ],
         "additions": []
       }

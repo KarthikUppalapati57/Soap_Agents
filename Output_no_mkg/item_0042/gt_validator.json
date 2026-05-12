@@ -185,9 +185,9 @@
     "plan_alignment_score": 0.3950617283950617
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary of the patient's visit, but it suffers from multiple moderate omissions, particularly in the Subjective section. The Chief Complaint is entirely missing, and significant details regarding the History of Present Illness (e.g., diet, exercise habits, specific functional limitations) and Review of Systems are omitted. While the Objective, Assessment, and Plan sections capture the main points, they also lack specific details, such as the explicit causal link in the assessment and specific components of investigations or reasons for referrals in the plan. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The note provides a clinically usable summary of the patient's visit, capturing the primary concerns, objective findings, assessment, and plan. However, it suffers from several notable omissions, particularly the complete absence of the Chief Complaint in the Subjective section. Additionally, important details regarding the patient's HPI (e.g., specific functional limitations, detailed diet/exercise habits), the precise causation in the Assessment, and specific elements of the Plan (e.g., medication dosage, specific lab tests, detailed referral reasons) are missing. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint: Obesity and associated symptoms.",
       "HPI: daily occurrences of symptoms",
@@ -233,7 +233,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has significant omissions, including the entire Chief Complaint. Key details from the History of Present Illness, such as the patient's diet, exercise habits, specific activity limitations, and social history elements (tobacco, alcohol, drugs), are missing. Additionally, most of the Review of Systems is omitted. These omissions make the section noticeably incomplete, despite the inclusion of the patient's reported fatigue severity.",
+        "summary": "The Subjective section is significantly incomplete due to the omission of the Chief Complaint, which is a major structural and content flaw. It also omits several important details from the History of Present Illness, such as specific physical activities affected (climbing stairs, carrying groceries), detailed diet and exercise habits, and the patient's sleep quality. Several Review of Systems denials were also omitted. While the core symptoms are captured, the lack of these details reduces the clinical comprehensiveness of this section.",
         "omissions": [
           "Chief Complaint: Obesity and associated symptoms.",
           "HPI: daily occurrences of symptoms",
@@ -257,7 +257,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-aligned with the Ground Truth. The vital signs (BP, BMI) and the presence of pedal edema are accurately captured. The only omissions are minor details regarding general appearance and a specific qualifier for pedal edema, which do not materially affect clinical usefulness.",
+        "summary": "The Objective section is well-captured. The vital signs and the presence of pedal edema are accurately reported. The only omissions are minor descriptive details, such as the general appearance and the 'mild bilateral' qualifier for pedal edema, which do not significantly impact the clinical utility of the section.",
         "omissions": [
           "General Appearance: No acute distress, overweight, alert.",
           "Extremities: 'Mild bilateral' qualifier for pedal edema"
@@ -267,7 +267,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment accurately identifies obesity and its contribution to fatigue and lower extremity edema. However, it omits the explicit statement that symptoms are \"likely secondary to obesity,\" which is a moderate omission of clinical reasoning. The addition of \"well-managed hypothyroidism\" is supported and enhances the note.",
+        "summary": "The Assessment section accurately identifies obesity and its contribution to fatigue and lower extremity edema. The primary omission is the explicit statement that these symptoms are 'likely secondary to obesity,' which removes a clear causal link. Other omissions, such as the 'unspecified' qualifier for obesity and 'persistent' for fatigue, are minor. The addition of 'well-managed hypothyroidism' was supported by the transcript.",
         "omissions": [
           "'unspecified' qualifier for obesity",
           "'Persistent' qualifier for fatigue",
@@ -280,7 +280,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section outlines all major interventions, including lifestyle modifications, dietitian follow-up, physical therapy referral, continued medication, and investigations. However, it omits several specific details, such as the explicit reason for the physical therapy referral and the specific components of the biochemistry panel (fasting lipid profile, fasting blood glucose, and HbA1c). These omissions, while not critical, reduce the completeness and specificity of the plan. All additions were supported by the transcript.",
+        "summary": "The Plan section outlines the key interventions, including lifestyle modifications, dietitian follow-up, physical therapy referral, continued medication, and investigations. However, it omits several clinically important specifics, such as the exact dosage of levothyroxine (75 mcg daily), the specific tests included in the biochemistry panel (fasting lipid profile, fasting blood glucose, and HbA1c), and the detailed reason for the physical therapy referral. Several contextual details about the patient's motivation and social situation were also omitted. All additions were supported by the transcript.",
         "omissions": [
           "Lifestyle Modification: 'joining a community gym membership' (specific detail for regular exercise)",
           "Follow-Up: 'to monitor dietary changes and weight management' (reason for dietitian follow-up)",
@@ -311,42 +311,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'd say about a 6 or 7. The fatigue is there every day...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports a 6-7/10 severity of fatigue"
+      "matched_claim_text": "The patient reports a 6-7/10 severity of fatigue",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: 'well-managed hypothyroidism'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's been stable. I haven't noticed any new symptoms related to my thyroid.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "well-managed hypothyroidism."
+      "matched_claim_text": "well-managed hypothyroidism.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "Plan: 'Follow-up appointment in two weeks to discuss progress and review results.'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let's set up a follow-up appointment in two weeks to discuss your progress and review the results of the biochemistry panel.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up appointment in two weeks to discuss progress and review results."
+      "matched_claim_text": "Follow-up appointment in two weeks to discuss progress and review results.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "6-7/10 severity of fatigue",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I'd say about a 6 or 7. The fatigue is there every day...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports a 6-7/10 severity of fatigue"
+      "matched_claim_text": "The patient reports a 6-7/10 severity of fatigue",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "well-managed hypothyroidism",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's been stable. I haven't noticed any new symptoms related to my thyroid.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "well-managed hypothyroidism."
+      "matched_claim_text": "well-managed hypothyroidism.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypothyroidism, congenital, nongoitrous — disease_phenotype_positive — Fatigue"
     },
     {
       "addition_text": "Follow-up appointment in two weeks to discuss progress and review results.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let's set up a follow-up appointment in two weeks to discuss your progress and review the results of the biochemistry panel.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Follow-up appointment in two weeks to discuss progress and review results."
+      "matched_claim_text": "Follow-up appointment in two weeks to discuss progress and review results.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

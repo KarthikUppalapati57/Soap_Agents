@@ -296,89 +296,72 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer-v1",
     "overall_grade": "D",
-    "overall_summary": "The note has significant omissions, particularly in the Assessment section, where two major chronic conditions (Hypertension and Type 2 Diabetes Mellitus) and their associated medical reasoning are entirely missing. While these conditions are mentioned in the Plan for medication management, their absence from the formal Assessment section materially reduces the clinical usefulness and completeness of the note. The Subjective section also omits the patient's occupation as a delivery driver, a relevant risk factor. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The note has significant issues in the Assessment section, including the omission of two chronic diagnoses (Hypertension and Type 2 Diabetes Mellitus) and an unsupported change in the primary suspected diagnosis from \"Suspected COVID-19 infection\" to the less specific \"Possible viral respiratory infection.\" While other sections are well-captured, these major omissions and the misleading unsupported addition in the Assessment materially reduce the clinical usefulness and accuracy of the note.",
     "omissions": [
-      "Patient's ability to perform daily tasks was 'mildly' affected (HPI)",
-      "Denial of 'wheezing' (ROS Respiratory)",
-      "Specific denial of 'nausea, vomiting, or diarrhea' (ROS Gastrointestinal)",
-      "Specific denial of 'dysuria or hematuria' (ROS Genitourinary)",
-      "Patient's occupation as a 'delivery driver' (HPI)",
-      "Patient lives in an 'urban area with moderate air pollution' (HPI)",
-      "General physical exam finding: 'cooperative'",
-      "General physical exam finding: 'mildly febrile'",
-      "Respiratory physical exam finding: 'no wheezing or rales'",
-      "Assessment: 'Suspected COVID-19 infection' (Generated uses 'Possible viral respiratory infection')",
-      "Medical reasoning for COVID-19: 'Awaiting PCR test results for confirmation'",
-      "Assessment: 'Hypertension'",
-      "Medical reasoning for Hypertension: 'Well-controlled on Lisinopril 10mg daily'",
-      "Assessment: 'Type 2 Diabetes Mellitus'",
-      "Medical reasoning for Type 2 Diabetes Mellitus: 'Well-managed on Metformin 500mg twice daily'",
-      "Self-isolation duration: '14 days'",
+      "Patient works in an urban area with moderate air pollution (from HPI)",
+      "Patient denies wheezing (from ROS)",
+      "Patient is cooperative (from General Physical Exam)",
+      "Absence of wheezing or rales on respiratory physical exam",
+      "Hypertension diagnosis and management details in Assessment",
+      "Type 2 Diabetes Mellitus diagnosis and management details in Assessment",
+      "Statement in Assessment about awaiting PCR test results for confirmation",
+      "Specific duration of 14 days for self-isolation",
       "Patient Agreements section"
     ],
     "additions": [
-      "Assessment reasoning: 'The presence of mild rhonchi suggests some airway obstruction or mucus, potentially due to a respiratory illness'",
-      "Plan detail: 'for diabetes management' (purpose of Metformin)",
-      "Plan detail: 'for blood pressure control' (purpose of Lisinopril)"
+      "Assessment includes reasoning for mild rhonchi (suggests airway obstruction or mucus)",
+      "Assessment diagnosis of 'Possible viral respiratory infection' (instead of 'Suspected COVID-19 infection')"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "Assessment diagnosis of 'Possible viral respiratory infection' (instead of 'Suspected COVID-19 infection')",
+      "Diagnosis of 'Possible viral respiratory infection' (instead of 'Suspected COVID-19 infection')"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "This section has a moderate omission by not including the patient's occupation as a delivery driver, which is a key risk factor for the chief complaint. It also misses some minor specific denials in the Review of Systems and the nuance of symptoms 'mildly' affecting daily tasks. Despite these, the core symptoms and denials are present, making it mostly clinically aligned.",
+        "grade": "A",
+        "summary": "The Subjective section is well-captured, with only minor omissions of contextual details regarding the patient's work environment and a specific denial of wheezing, which do not significantly impact clinical usefulness.",
         "omissions": [
-          "Chief Complaint: 'Suspected COVID-19 exposure'",
-          "Patient's ability to perform daily tasks was 'mildly' affected",
-          "Denial of 'wheezing' (from ROS Respiratory)",
-          "Specific denial of 'nausea, vomiting, or diarrhea' (from ROS Gastrointestinal)",
-          "Specific denial of 'dysuria or hematuria' (from ROS Genitourinary)",
-          "Patient's occupation as a 'delivery driver'",
-          "Patient lives in an 'urban area with moderate air pollution'"
+          "Patient works in an urban area with moderate air pollution",
+          "Patient denies wheezing"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is strong, capturing all vital signs and most physical examination findings. Minor omissions include general appearance details like 'cooperative' and 'mildly febrile,' and specific respiratory findings like 'no wheezing or rales.' These do not significantly impact the clinical utility of the section.",
+        "summary": "The Objective section is accurate and comprehensive. Minor omissions include the patient being cooperative and the explicit absence of wheezing or rales on exam, but these do not detract from the overall clinical utility.",
         "omissions": [
-          "General physical exam finding: 'cooperative'",
-          "General physical exam finding: 'mildly febrile'",
-          "Respiratory physical exam finding: 'no wheezing or rales'"
+          "Patient is cooperative (from General Physical Exam)",
+          "Absence of wheezing or rales on respiratory physical exam"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "This section contains major omissions, failing to explicitly list the patient's chronic conditions (Hypertension and Type 2 Diabetes Mellitus) and their associated medical reasoning. This significantly reduces the clinical usefulness and completeness of the assessment. Additionally, the primary diagnosis is less specific ('Possible viral respiratory infection' instead of 'Suspected COVID-19 infection').",
+        "summary": "This section contains major issues. It omits the diagnoses and management details for Hypertension and Type 2 Diabetes Mellitus. Furthermore, it includes an unsupported addition changing the primary diagnosis from \"Suspected COVID-19 infection\" to the less specific \"Possible viral respiratory infection,\" which misrepresents the clinical suspicion and rationale for testing. These issues significantly reduce the clinical usefulness and accuracy of the assessment.",
         "omissions": [
-          "Specific diagnosis: 'Suspected COVID-19 infection' (Generated uses 'Possible viral respiratory infection')",
-          "Medical reasoning for COVID-19: 'Awaiting PCR test results for confirmation'",
-          "Diagnosis: 'Hypertension'",
-          "Medical reasoning for Hypertension: 'Well-controlled on Lisinopril 10mg daily'",
-          "Diagnosis: 'Type 2 Diabetes Mellitus'",
-          "Medical reasoning for Type 2 Diabetes Mellitus: 'Well-managed on Metformin 500mg twice daily'"
+          "Hypertension diagnosis and management details",
+          "Type 2 Diabetes Mellitus diagnosis and management details",
+          "Statement about awaiting PCR test results for confirmation"
         ],
         "additions": [
-          "Assessment reasoning: 'The presence of mild rhonchi suggests some airway obstruction or mucus, potentially due to a respiratory illness'"
+          "Reasoning for mild rhonchi (suggests airway obstruction or mucus)",
+          "Diagnosis of 'Possible viral respiratory infection' (instead of 'Suspected COVID-19 infection')"
         ]
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is comprehensive, covering medical treatment, testing, follow-up, and chronic condition management. Minor omissions include the specific duration of self-isolation ('14 days') and the 'Patient Agreements' section. All additions in this section were supported by the transcript and enhanced clarity without introducing unsupported content.",
+        "grade": "B",
+        "summary": "The Plan section is mostly aligned, effectively outlining treatment, testing, and follow-up. Minor omissions include the specific 14-day duration for self-isolation and the patient agreements section, but these do not significantly impair the plan's utility.",
         "omissions": [
-          "Self-isolation duration: '14 days'",
+          "Specific duration of 14 days for self-isolation",
           "Patient Agreements section"
         ],
-        "additions": [
-          "Plan detail: 'for diabetes management' (purpose of Metformin)",
-          "Plan detail: 'for blood pressure control' (purpose of Lisinopril)"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -386,25 +369,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment reasoning: 'The presence of mild rhonchi suggests some airway obstruction or mucus, potentially due to a respiratory illness'",
+      "addition_text": "Assessment includes reasoning for mild rhonchi (suggests airway obstruction or mucus)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Yes, mild rhonchi, which are abnormal breath sounds. They can indicate some airway obstruction or mucus.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The presence of mild rhonchi suggests some airway obstruction or mucus, potentially due to a respiratory illness."
+      "matched_claim_text": "The presence of mild rhonchi suggests some airway obstruction or mucus, potentially due to a respiratory illness.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan detail: 'for diabetes management' (purpose of Metformin)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I take ... Metformin 500mg twice a day for my diabetes.",
+      "addition_text": "Assessment diagnosis of 'Possible viral respiratory infection' (instead of 'Suspected COVID-19 infection')",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan detail: 'for blood pressure control' (purpose of Lisinopril)",
+      "addition_text": "Reasoning for mild rhonchi (suggests airway obstruction or mucus)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Continue taking your Metformin 500mg twice daily for your diabetes and Lisinopril 10mg daily for your hypertension.",
+      "transcript_evidence": "[doctor] Yes, mild rhonchi, which are abnormal breath sounds. They can indicate some airway obstruction or mucus.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue taking Metformin 500mg twice daily for diabetes and Lisinopril 10mg daily for blood pressure control."
+      "matched_claim_text": "The presence of mild rhonchi suggests some airway obstruction or mucus, potentially due to a respiratory illness.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Diagnosis of 'Possible viral respiratory infection' (instead of 'Suspected COVID-19 infection')",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

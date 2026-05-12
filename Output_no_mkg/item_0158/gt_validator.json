@@ -221,58 +221,57 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps and multiple moderate omissions that reduce its completeness. Key details regarding the frequency and duration of palpitations, the unavailability of vitals and physical exam due to telemedicine, and a specific treatment recommendation for pelvic floor physiotherapy are missing. While no unsupported additions introduce misleading content, these omissions make the note meaningfully incomplete and require careful review.",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, most of the HPI, and the core assessment and plan. There are no unsupported or unknown additions. However, the note has several minor to moderate omissions across all sections, including specific details in the Subjective, important contextual information in the Objective, a key diagnosis in the Assessment, and specific recommendations and patient education in the Plan. Despite these omissions, the note remains clinically useful.",
     "omissions": [
-      "Initial postpartum consultation",
-      "Consultation via telemedicine",
-      "Palpitations occur daily",
-      "Palpitations last 5-10 minutes",
-      "Engages in brief walks when physically possible (Musculoskeletal ROS)",
-      "Vitals not available (BP, HR, Temp, RR) due to telemedicine",
-      "Physical exam not available (Uterus, Breasts, Perineum) due to remote consultation",
+      "Initial postpartum consultation via telemedicine",
+      "Cramping described as \"occasional and brief\"",
+      "Palpitations described as \"lasting 5-10 minutes\"",
+      "Musculoskeletal ROS: Engages in brief walks when physically possible",
+      "Vitals not available (telemedicine)",
+      "Physical Exam: Uterus N/A (remote consultation)",
+      "Physical Exam: Breasts N/A (remote consultation)",
+      "Physical Exam: Perineum N/A (remote consultation)",
       "Diagnosis: Single live birth",
       "Pelvic floor physiotherapy to aid postpartum recovery",
-      "Referral reason for pediatrician: for newborn care",
-      "Referral reason for cardiologist: due to palpitations",
-      "Patient education on normalcy of mild postpartum cramping",
-      "Patient education on importance of hydration",
-      "Patient understands and agrees with the recommended medical treatment plan"
+      "Patient education about the normalcy of mild postpartum cramping and importance of hydration",
+      "The patient understands and agrees with the recommended medical treatment plan"
     ],
     "additions": [
-      "Statement in Objective: Patient has not had recent blood work done"
+      "Objective: Patient has not had recent blood work done"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is missing several details, including the consultation type (initial postpartum, telemedicine), and specific characteristics of the palpitations (occur daily, last 5-10 minutes). It also omits the musculoskeletal ROS detail about brief walks. These are moderate and minor omissions that reduce the completeness of the HPI and ROS.",
+        "summary": "The Subjective section receives a B due to several minor omissions. It misses the context of an 'initial postpartum consultation via telemedicine', and specific details about the 'occasional and brief' nature of cramping and palpitations 'lasting 5-10 minutes'. Additionally, the ROS item regarding 'engaging in brief walks when physically possible' was omitted. The core HPI and other ROS items are well-captured.",
         "omissions": [
-          "Initial postpartum consultation",
-          "Consultation via telemedicine",
-          "Palpitations occur daily",
-          "Palpitations last 5-10 minutes",
-          "Engages in brief walks when physically possible (Musculoskeletal ROS)"
+          "Initial postpartum consultation via telemedicine",
+          "Cramping described as \"occasional and brief\"",
+          "Palpitations described as \"lasting 5-10 minutes\"",
+          "Musculoskeletal ROS: Engages in brief walks when physically possible"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section has significant omissions regarding the unavailability of vitals and physical exam due to the telemedicine consultation. This is crucial contextual information for a remote visit. The addition about recent blood work is supported by the transcript and does not affect the grade.",
+        "grade": "B",
+        "summary": "The Objective section receives a B due to several moderate omissions. It fails to mention that 'Vitals' and 'Physical Exam' details (Uterus, Breasts, Perineum) were 'N/A (remote consultation)', which are important contextual limitations for a telemedicine visit. The addition 'Patient has not had recent blood work done' is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Vitals not available (BP, HR, Temp, RR) due to telemedicine",
-          "Physical exam not available (Uterus, Breasts, Perineum) due to remote consultation"
+          "Vitals not available (telemedicine)",
+          "Physical Exam: Uterus N/A (remote consultation)",
+          "Physical Exam: Breasts N/A (remote consultation)",
+          "Physical Exam: Perineum N/A (remote consultation)"
         ],
         "additions": [
-          "Statement: Patient has not had recent blood work done"
+          "Patient has not had recent blood work done"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section is nearly complete, with only a minor omission of the 'Single live birth' diagnosis. The primary diagnoses are accurately captured.",
+        "grade": "B",
+        "summary": "The Assessment section receives a B due to one moderate omission: the diagnosis of 'Single live birth'. While other diagnoses are present, this is a significant piece of information for a postpartum consultation. There are no unsupported or unknown additions.",
         "omissions": [
           "Diagnosis: Single live birth"
         ],
@@ -281,13 +280,11 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section omits a specific recommendation for pelvic floor physiotherapy, which is a moderate issue. Additionally, minor details such as the specific reasons for pediatrician and cardiologist referrals, and patient education points on the normalcy of cramping and importance of hydration, are missing. These omissions reduce the comprehensiveness of the plan.",
+        "summary": "The Plan section receives a B due to several moderate omissions. It omits the recommendation for 'Pelvic floor physiotherapy to aid postpartum recovery' and specific 'Patient education about the normalcy of mild postpartum cramping and importance of hydration'. The standard closing statement 'The patient understands and agrees with the recommended medical treatment plan' was also omitted. The primary treatment, follow-up, and referral plans are well-captured.",
         "omissions": [
           "Pelvic floor physiotherapy to aid postpartum recovery",
-          "Referral reason for pediatrician: for newborn care",
-          "Referral reason for cardiologist: due to palpitations",
-          "Patient education on normalcy of mild postpartum cramping",
-          "Patient education on importance of hydration"
+          "Patient education about the normalcy of mild postpartum cramping and importance of hydration",
+          "The patient understands and agrees with the recommended medical treatment plan"
         ],
         "additions": []
       }
@@ -297,18 +294,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Statement in Objective: Patient has not had recent blood work done",
+      "addition_text": "Objective: Patient has not had recent blood work done",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you had any blood work done recently?\n\n[patient] No, not recently.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has not had recent blood work done"
+      "matched_claim_text": "Patient has not had recent blood work done",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Statement: Patient has not had recent blood work done",
+      "addition_text": "Patient has not had recent blood work done",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you had any blood work done recently?\n\n[patient] No, not recently.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has not had recent blood work done"
+      "matched_claim_text": "Patient has not had recent blood work done",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

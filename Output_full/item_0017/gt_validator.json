@@ -254,9 +254,9 @@
     "plan_alignment_score": 0.6363636363636364
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, core HPI, ROS denials, vitals, and the main assessment and plan items. However, there are several minor to moderate omissions across the Subjective, Objective, and Plan sections, including details about symptom severity, impact on daily life, specific physical exam findings, and comprehensive patient education/agreement. There are no unsupported or unknown additions that would negatively impact the grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, accurately capturing the chief complaint, primary symptoms, vital signs, main assessment, and core treatment plan. However, it has several omissions across the Subjective, Objective, and Plan sections, including details on symptom severity and impact, comprehensive physical exam findings beyond vitals and abdominal tenderness, and important patient education and agreement details in the Plan. There are no unsupported or unknown additions that would introduce misleading clinical content.",
     "omissions": [
       "Severity of nausea/vomiting (moderate to severe)",
       "Impact of symptoms on work (significantly impacting her ability to focus at work)",
@@ -284,7 +284,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several omissions, including the severity of nausea/vomiting (moderate to severe), the significant impact on work, specific sleep duration, and details about exercise habits. Minor denials from the ROS (changes in bowel habits, edema) are also missing. These omissions represent several minor and a couple of moderate issues, but the core HPI and ROS are present.",
+        "summary": "The section captures the chief complaint and primary HPI symptoms but omits details regarding the severity of nausea/vomiting, its impact on work, specific sleep duration, exercise habits, and several denied ROS symptoms (changes in bowel habits, edema). These are several minor to moderate omissions.",
         "omissions": [
           "Severity of nausea/vomiting (moderate to severe)",
           "Impact of symptoms on work (significantly impacting her ability to focus at work)",
@@ -298,7 +298,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports vitals. However, it omits several specific physical examination findings such as the patient's general appearance (moderately distressed), the absence of rebound tenderness, and detailed cardiac, respiratory, and neurological exam findings (e.g., regular rate and rhythm, clear breath sounds, no focal deficits). The addition of temperature in Celsius is supported by the transcript and does not impact the grade.",
+        "summary": "The section accurately reports vital signs and the key abdominal finding of mild epigastric tenderness. However, it omits the patient's general appearance and all other physical examination findings, including the absence of rebound tenderness, cardiac, respiratory, and neurological exam details. The addition of Celsius temperature is supported by the transcript.",
         "omissions": [
           "General appearance (patient appears moderately distressed due to nausea)",
           "Absence of rebound tenderness on abdominal exam",
@@ -313,7 +313,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate. The additional detail regarding the need for further investigation due to persistent symptoms and abdominal pain is supported by the transcript and enhances clarity without introducing unsupported information.",
+        "summary": "This section is accurate and complete, capturing the primary diagnosis. It includes a supported addition that provides useful context regarding the need for further investigation.",
         "omissions": [],
         "additions": [
           "\"further investigation required due to persistent symptoms and abdominal pain\""
@@ -322,7 +322,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section outlines the correct medication, follow-up, referrals, and orders. However, it omits the specific purposes for ordering the CBC (to check for infections or anemia) and the abdominal ultrasound (to evaluate potential GI issues). Crucially, it also omits discussions about potential medication side effects, the importance of compliance with follow-up, and the patient's understanding and agreement with the plan. These are several minor to moderate omissions related to patient education and the rationale behind orders.",
+        "summary": "The section correctly outlines the prescribed medication, referrals, and orders for further tests. However, it omits the specific purposes for the CBC and abdominal ultrasound, discussions about potential medication side effects, the importance of follow-up compliance, and the patient's understanding and agreement with the plan. These are several minor to moderate omissions related to patient education and documentation.",
         "omissions": [
           "Purpose of CBC order (to check for any infections or anemia)",
           "Purpose of Abdominal Ultrasound order (to evaluate any potential gastrointestinal issues)",
@@ -342,21 +342,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see your vitals are normal: your temperature is 98.6°F",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Temperature: 98.6°F (37°C)"
+      "matched_claim_text": "Temperature: 98.6°F (37°C)",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment detail: \"further investigation required due to persistent symptoms and abdominal pain\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and my examination, I think you have nausea with vomiting, but we need to investigate further. ... I'd like to refer you to Gastroenterology to evaluate your persistent symptoms and abdominal pain further.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: Nausea with vomiting; further investigation required due to persistent symptoms and abdominal pain."
+      "matched_claim_text": "Assessment: Nausea with vomiting; further investigation required due to persistent symptoms and abdominal pain.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Nausea and vomiting — phenotype_phenotype — Vomiting\nNausea and vomiting — phenotype_phenotype — Nausea"
     },
     {
       "addition_text": "\"further investigation required due to persistent symptoms and abdominal pain\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and my examination, I think you have nausea with vomiting, but we need to investigate further. ... I'd like to refer you to Gastroenterology to evaluate your persistent symptoms and abdominal pain further.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: Nausea with vomiting; further investigation required due to persistent symptoms and abdominal pain."
+      "matched_claim_text": "Assessment: Nausea with vomiting; further investigation required due to persistent symptoms and abdominal pain.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Nausea and vomiting — phenotype_phenotype — Vomiting\nNausea and vomiting — phenotype_phenotype — Nausea"
     }
   ]
 }

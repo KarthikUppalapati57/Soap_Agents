@@ -278,95 +278,78 @@
     "plan_alignment_score": 0.4227642276422764
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The note is unreliable due to the critical omission of the patient's past medical history (hypertension, seasonal allergies) and current medications (Lisinopril 20 mg daily, Cetirizine 10 mg daily) in the Subjective section. This missing critical GroundTruth content significantly reduces clinical usefulness and safety. While the Objective and Assessment sections are strong, the Plan section also has noticeable gaps, including the explicit ordering of investigations and specific patient education details.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a concise summary but suffers from significant omissions in the Subjective and Plan sections. Key patient history, current medications, and detailed review of systems are missing from the Subjective section, reducing its clinical utility. The Plan section omits explicit details regarding investigations, specific patient education on medication side effects, and patient agreements. Additionally, an unsupported addition regarding specific tests in the Assessment section (as per the overall additions list) represents a high-severity alignment issue, further impacting the note's accuracy and completeness.",
     "omissions": [
-      "Chief Complaint (CC) section header",
-      "History of Present Illness (HPI) section header",
-      "Review of Systems (ROS) section header",
-      "Past medical history (hypertension, seasonal allergies)",
-      "Current medications (Lisinopril 20 mg daily, Cetirizine 10 mg daily)",
-      "Patient concern about potential medication side effects",
-      "Detailed Review of Systems (ROS) findings (e.g., denials for cardiovascular, respiratory, GI, GU, neurological systems; specific sleep quality details)",
-      "Objective section sub-headers (General Appearance, HEENT, Lungs, Heart, Abdomen, Extremities)",
-      "Plan section sub-headers (Medical Treatment, Investigations, Patient Education and Counseling, Follow-up Recommendations, Lifestyle Recommendations)",
-      "Patient Agreements section"
+      "Detailed History of Present Illness (HPI) including past medical history, medications, and patient concerns",
+      "Comprehensive Review of Systems (ROS)",
+      "Specific patient education regarding common side effects of OTC medications and what to expect",
+      "Patient Agreements section",
+      "Explicit ordering of investigations (CBC, BMP) in the Plan section"
     ],
     "additions": [
-      "Temperature conversion to Celsius (38°C)",
-      "Explicit mention of CBC and BMP in the Assessment section"
+      "Temperature in Celsius (38°C)",
+      "Specific tests (CBC, BMP) mentioned in the Assessment section"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "Specific tests (CBC, BMP) mentioned in the Assessment section"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "F",
-        "summary": "The Subjective section critically omits the patient's past medical history (hypertension, seasonal allergies) and current medications (Lisinopril 20 mg daily, Cetirizine 10 mg daily). It also misses the detail that symptoms have been continuous since onset, the patient's concern about medication side effects, and several specific ROS denials and sleep quality details. The omission of past medical history and current medications constitutes missing critical GroundTruth content, rendering the note unreliable and potentially unsafe for clinical use.",
+        "grade": "C",
+        "summary": "The Subjective section has significant omissions, particularly the patient's past medical history, current medications, and patient concerns, which are critical for clinical context and safety. Multiple detailed denials from the Review of Systems are also missing, making the section substantially less comprehensive than the Ground Truth.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
-          "Patient's symptoms have been continuous since onset",
-          "Patient's history of hypertension and seasonal allergies",
+          "Chief Complaint (CC) section heading",
+          "History of Present Illness (HPI) section heading",
+          "Patient's past medical history (hypertension, seasonal allergies)",
           "Patient's current medications (Lisinopril 20 mg daily, Cetirizine 10 mg daily)",
           "Patient's concern about potential side effects of medications",
-          "ROS: Denies chest pain, palpitations",
-          "ROS: Denies shortness of breath",
-          "ROS: Denies nausea, vomiting, diarrhea",
-          "ROS: Denies dysuria, frequency",
-          "ROS: Denies dizziness, tingling, or numbness",
-          "ROS: Specific detail of poor sleep quality (averaging 5-6 hours due to discomfort)",
-          "ROS HEENT: No signs of infection"
+          "Review of Systems (ROS) section",
+          "Denial of chest pain, palpitations (Cardiovascular ROS)",
+          "Denial of shortness of breath (Respiratory ROS)",
+          "Denial of nausea, vomiting, diarrhea (Gastrointestinal ROS)",
+          "Denial of dysuria, frequency (Genitourinary ROS)",
+          "Denial of dizziness, tingling, or numbness (Neurological ROS)",
+          "Specific sleep duration (averaging 5-6 hours) and reason (due to discomfort)",
+          "HEENT ROS detail: 'No signs of infection'"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures all major clinically important objective findings. Omissions are limited to minor formatting (section headers) and one non-critical clinical detail ('No signs of infection' in HEENT). The addition of temperature conversion to Celsius is supported by the transcript and does not impact the grade.",
+        "summary": "The Objective section is largely complete, with only minor omissions related to specific sub-headings and one minor clinical detail ('No signs of infection'). The addition of temperature in Celsius is supported by the transcript and does not lower the grade.",
         "omissions": [
-          "General Appearance section header",
-          "HEENT section header",
-          "Lungs section header",
-          "Heart section header",
-          "Abdomen section header",
-          "Extremities section header",
-          "HEENT finding: No signs of infection"
+          "Specific section headings (General Appearance, HEENT, Lungs, Heart, Abdomen, Extremities)",
+          "HEENT finding: 'No signs of infection'"
         ],
         "additions": [
-          "Temperature conversion to Celsius (38°C)"
+          "Temperature in Celsius (38°C)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is clinically aligned and complete. The only omission is a minor formatting sub-header ('Illness, unspecified'). The explicit mention of 'CBC, BMP' as tests needed for further testing is supported by the transcript and does not impact the grade.",
+        "summary": "The Assessment section is well-aligned with the Ground Truth. The only omission is a minor formatting detail, and the addition of specific tests (CBC, BMP) mentioned directly in the assessment summary is supported by the transcript and does not lower the grade.",
         "omissions": [
-          "Assessment sub-header \"Illness, unspecified\""
+          "'Illness, unspecified' as a specific diagnosis heading"
         ],
         "additions": [
-          "Explicit mention of \"CBC, BMP\" as tests needed for further testing"
+          "Specific tests (CBC, BMP) mentioned directly in the assessment summary"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has noticeable gaps. It omits the explicit ordering of blood work (CBC and BMP) as an investigation, specific over-the-counter pain relief medications (acetaminophen or ibuprofen), and instructions to take pain relief 'as needed for fever and body aches.' It also misses patient education details about common side effects of OTC medications and what to expect, as well as the entire 'Patient Agreements' section. Several section headers are also omitted.",
+        "summary": "The Plan section has several moderate clinical omissions, including the explicit ordering of investigations, specific patient education details regarding over-the-counter medication side effects, and the entire Patient Agreements section. These omissions reduce the completeness and clinical utility of the plan.",
         "omissions": [
-          "Medical Treatment section header",
-          "Investigations section header",
-          "Patient Education and Counseling section header",
-          "Follow-up Recommendations section header",
-          "Lifestyle Recommendations section header",
-          "Patient Agreements section",
-          "Specific over-the-counter pain relief medications (acetaminophen or ibuprofen)",
-          "Instruction to take pain relief \"as needed for fever and body aches\"",
-          "Explicit ordering of blood work (CBC and BMP) in the Plan section",
-          "Patient education about common side effects of over-the-counter medications",
-          "Patient education about what to expect over the next few days",
-          "Patient agreement with the recommended medical treatment plan",
-          "Advice to return for follow-up if symptoms persist or if there are any new concerns"
+          "Specific section headings (Medical Treatment, Investigations, Patient Education and Counseling, Follow-up Recommendations, Lifestyle Recommendations, Patient Agreements)",
+          "Specific over-the-counter pain relief options (acetaminophen or ibuprofen)",
+          "Investigations section: 'Ordered blood work, including Complete Blood Count (CBC) and Basic Metabolic Panel (BMP), to check for underlying causes.'",
+          "Patient education detail: 'Discussed common side effects of over-the-counter medications and what to expect over the next few days.'",
+          "Patient Agreements section content"
         ],
         "additions": []
       }
@@ -376,25 +359,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Temperature conversion to Celsius (38°C)",
+      "addition_text": "Temperature in Celsius (38°C)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your temperature is 100.5°F",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Temperature: 100.5°F (38°C)"
+      "matched_claim_text": "Temperature: 100.5°F (38°C)",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fever — disease_phenotype_positive — hyperthermia, cutaneous, with headaches and nausea"
     },
     {
-      "addition_text": "Explicit mention of CBC and BMP in the Assessment section",
+      "addition_text": "Specific tests (CBC, BMP) mentioned in the Assessment section",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specific tests (CBC, BMP) mentioned directly in the assessment summary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll order some blood work, including a Complete Blood Count (CBC) and a Basic Metabolic Panel (BMP), to check for any underlying causes.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explicit mention of \"CBC, BMP\" as tests needed for further testing",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We'll order some blood work, including a Complete Blood Count (CBC) and a Basic Metabolic Panel (BMP), to check for any underlying causes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "further testing (CBC, BMP) is needed to rule out underlying causes."
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

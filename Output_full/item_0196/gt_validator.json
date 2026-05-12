@@ -182,76 +182,102 @@
     "plan_alignment_score": 0.4183006535947712
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness. Key issues include the complete absence of vital signs in the Objective section and the majority of lifestyle and preventive care recommendations in the Plan section. The Subjective section also omits the full Review of Systems and important HPI details. While the Assessment is accurate and all additions are supported by the transcript, these major omissions lead to a meaningfully incomplete and less useful clinical document.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note captures the chief complaint, core history of present illness, physical exam findings, diagnosis, and primary treatment plan. However, it has multiple moderate omissions across the Subjective, Objective, and Plan sections. Key demographic information, all vital sign measurements, and several important lifestyle and preventive care recommendations are missing. While all additions are supported by the transcript, these significant gaps make the note meaningfully incomplete and require careful review and supplementation.",
     "omissions": [
       "Chief Complaint (CC) section header",
-      "Patient described as 'pleasant' in HPI",
-      "HPI detail: lesion is constantly there, symptoms intermittent but bothersome (washing face/scratching)",
-      "Review of Systems (ROS) section",
-      "ROS General: No other complaints",
-      "Vital Signs section (Blood pressure, Heart rate, Respiratory rate, Temperature)",
-      "Physical Exam: CV: no murmurs",
-      "Physical Exam: Resp: bilaterally",
-      "Lifestyle and Preventive Care recommendations (daily sunscreen SPF 30+, protective clothing, avoid peak sun hours)",
-      "Patient cooperation/understanding: highly cooperative, expressed understanding, willingness to adhere to treatment and lifestyle changes",
-      "Discussion of importance of regular skin examinations to monitor for potential new lesions, given history and risk factors",
-      "Patient was encouraged to reduce smoking"
+      "HPI section header",
+      "ROS section header",
+      "Patient's age (65-year-old)",
+      "Patient's race (Caucasian)",
+      "Patient's gender (female)",
+      "Reason for presentation: \"presents to the dermatology clinic for the evaluation of a rough, scaly lesion on her forehead\"",
+      "Lesion is \"constantly there\"",
+      "Symptoms are \"intermittent but bothersome especially when washing her face or scratching the area\"",
+      "ROS General: \"No other complaints\"",
+      "Vital Signs section header",
+      "All specific vital sign measurements (BP, HR, RR, Temp)",
+      "Physical Exam section header",
+      "CV: \"no murmurs\"",
+      "Resp: \"bilaterally\"",
+      "Treatment Recommendations section header",
+      "Lifestyle and Preventive Care section header",
+      "Specific lifestyle recommendation: daily sunscreen with SPF 30 or higher",
+      "Specific lifestyle recommendation: wearing protective clothing (wide-brimmed hats, long sleeves, sunglasses)",
+      "Specific lifestyle recommendation: avoiding peak sun hours (10 AM to 4 PM)",
+      "Follow-Up section header",
+      "Purpose of follow-up: \"to assess the effectiveness of the treatment\"",
+      "Patient's cooperation, understanding, and willingness to adhere to treatment",
+      "Discussion about the importance of regular skin examinations to monitor for potential new lesions",
+      "Patient was \"encouraged to reduce smoking\" and \"given resources for smoking cessation counseling\" (unconditionally)"
     ],
     "additions": [
-      "Assessment: 'precancerous condition that can potentially progress to squamous cell carcinoma'",
-      "Plan: Cryotherapy detail 'to freeze the lesion with liquid nitrogen'",
-      "Plan: Smoking cessation detail 'if desired by the patient'"
+      "Assessment: \"precancerous condition that can potentially progress to squamous cell carcinoma\"",
+      "Plan: Cryotherapy detail \"to freeze the lesion with liquid nitrogen\"",
+      "Plan: Smoking cessation counseling is conditional \"if desired by the patient\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the Chief Complaint section header, the patient's description as 'pleasant', the detailed HPI context regarding the lesion's constant presence and intermittent bothersome symptoms, and the entire Review of Systems section including the 'No other complaints' detail. These omissions represent noticeable gaps in the patient's history.",
+        "summary": "The Subjective section has several minor omissions, including section headers and specific symptom details. More significantly, it omits the patient's age, race, and gender, which are moderate clinical omissions impacting the completeness of the patient's demographic profile.",
         "omissions": [
           "Chief Complaint (CC) section header",
-          "Patient described as 'pleasant'",
-          "Lesion is constantly there, and symptoms are intermittent but bothersome especially when washing her face or scratching the area",
-          "Review of Systems (ROS) section",
-          "ROS General: No other complaints"
+          "HPI section header",
+          "ROS section header",
+          "Patient's age (65-year-old)",
+          "Patient's race (Caucasian)",
+          "Patient's gender (female)",
+          "Reason for presentation: \"presents to the dermatology clinic for the evaluation of a rough, scaly lesion on her forehead\"",
+          "Lesion is \"constantly there\"",
+          "Symptoms are \"intermittent but bothersome especially when washing her face or scratching the area\"",
+          "ROS General: \"No other complaints\""
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "D",
-        "summary": "The Objective section has a major omission: the complete absence of all vital signs (blood pressure, heart rate, respiratory rate, and temperature). Minor omissions include specific details from the physical exam such as 'no murmurs' for CV and 'bilaterally' for Resp. The missing vital signs significantly reduce the clinical usefulness of this section.",
+        "grade": "C",
+        "summary": "The Objective section contains several minor structural and detail omissions. Crucially, it omits all specific vital sign measurements (BP, HR, RR, Temp), which constitutes a moderate and significant gap in objective clinical data.",
         "omissions": [
-          "Vital Signs section (Blood pressure: 130/85 mmHg, Heart rate: 72 bpm, Respiratory rate: 16 breaths/minute, Temperature: 98.5°F)",
-          "Physical Exam: CV: no murmurs",
-          "Physical Exam: Resp: bilaterally"
+          "Vital Signs section header",
+          "All specific vital sign measurements (BP, HR, RR, Temp)",
+          "Physical Exam section header",
+          "CV: \"no murmurs\"",
+          "Resp: \"bilaterally\""
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately captures the ground truth content. The addition of 'precancerous condition that can potentially progress to squamous cell carcinoma' is supported by the transcript and does not negatively impact the grade.",
+        "summary": "The Assessment section is excellent, with no omissions. The addition of 'precancerous condition that can potentially progress to squamous cell carcinoma' is fully supported by the transcript and enhances the clinical context.",
         "omissions": [],
         "additions": [
-          "'precancerous condition that can potentially progress to squamous cell carcinoma'"
+          "\"precancerous condition that can potentially progress to squamous cell carcinoma\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section has significant omissions, including all lifestyle and preventive care recommendations (daily sunscreen, protective clothing, avoiding peak sun hours). It also omits the discussion about the importance of regular skin examinations and the direct encouragement for the patient to reduce smoking. While the specific details added for cryotherapy and smoking cessation resources are supported by the transcript, the extensive omissions of preventive care and patient education materially reduce the clinical usefulness of this section.",
+        "grade": "C",
+        "summary": "The Plan section has several minor structural and detail omissions. More importantly, it omits three specific lifestyle and preventive care recommendations (sunscreen, protective clothing, avoiding peak sun hours) and a key purpose of the follow-up, which are moderate clinical omissions. All additions in this section are supported by the transcript.",
         "omissions": [
-          "Lifestyle and Preventive Care recommendations (daily sunscreen with SPF 30 or higher, wearing protective clothing, avoiding peak sun hours from 10 AM to 4 PM)",
-          "Patient was highly cooperative and expressed understanding and willingness to adhere to the prescribed treatment and lifestyle changes",
-          "Discussed the importance of regular skin examinations to monitor for potential new lesions, given her history and risk factors",
-          "Patient was encouraged to reduce smoking"
+          "Treatment Recommendations section header",
+          "Lifestyle and Preventive Care section header",
+          "Specific lifestyle recommendation: daily sunscreen with SPF 30 or higher",
+          "Specific lifestyle recommendation: wearing protective clothing (wide-brimmed hats, long sleeves, sunglasses)",
+          "Specific lifestyle recommendation: avoiding peak sun hours (10 AM to 4 PM)",
+          "Follow-Up section header",
+          "Purpose of follow-up: \"to assess the effectiveness of the treatment\"",
+          "Patient's cooperation, understanding, and willingness to adhere to treatment",
+          "Discussion about the importance of regular skin examinations to monitor for potential new lesions",
+          "Patient was \"encouraged to reduce smoking\" and \"given resources for smoking cessation counseling\" (unconditionally)"
         ],
         "additions": [
-          "Cryotherapy detail: 'to freeze the lesion with liquid nitrogen'",
-          "Smoking cessation detail: 'if desired by the patient'"
+          "Cryotherapy detail \"to freeze the lesion with liquid nitrogen\"",
+          "Smoking cessation counseling is conditional \"if desired by the patient\""
         ]
       }
     ],
@@ -260,46 +286,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: 'precancerous condition that can potentially progress to squamous cell carcinoma'",
+      "addition_text": "Assessment: \"precancerous condition that can potentially progress to squamous cell carcinoma\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] This is consistent with actinic keratosis. ... Actinic keratosis is a rough, scaly patch on the skin that develops from years of sun exposure. It is considered a precancerous condition because it can sometimes progress to squamous cell carcinoma, a type of skin cancer.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The diagnosis is Actinic keratosis, which is a precancerous condition that can potentially progress to squamous cell carcinoma."
+      "matched_claim_text": "The diagnosis is Actinic keratosis, which is a precancerous condition that can potentially progress to squamous cell carcinoma.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Cryotherapy detail 'to freeze the lesion with liquid nitrogen'",
+      "addition_text": "Plan: Cryotherapy detail \"to freeze the lesion with liquid nitrogen\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I recommend we perform cryotherapy today, which involves freezing the lesion with liquid nitrogen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cryotherapy will be initiated today to freeze the lesion with liquid nitrogen."
+      "matched_claim_text": "Cryotherapy will be initiated today to freeze the lesion with liquid nitrogen.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Smoking cessation detail 'if desired by the patient'",
+      "addition_text": "Plan: Smoking cessation counseling is conditional \"if desired by the patient\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We have resources for smoking cessation counseling if you're interested.\n\n[patient] Yes, I've been trying to cut down. That would be helpful.\n\n[doctor] Excellent. We'll get you started on that as well.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Resources for smoking cessation counseling will be provided if desired by the patient."
+      "matched_claim_text": "Resources for smoking cessation counseling will be provided if desired by the patient.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'precancerous condition that can potentially progress to squamous cell carcinoma'",
+      "addition_text": "\"precancerous condition that can potentially progress to squamous cell carcinoma\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] This is consistent with actinic keratosis. ... Actinic keratosis is a rough, scaly patch on the skin that develops from years of sun exposure. It is considered a precancerous condition because it can sometimes progress to squamous cell carcinoma, a type of skin cancer.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The diagnosis is Actinic keratosis, which is a precancerous condition that can potentially progress to squamous cell carcinoma."
+      "matched_claim_text": "The diagnosis is Actinic keratosis, which is a precancerous condition that can potentially progress to squamous cell carcinoma.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Cryotherapy detail: 'to freeze the lesion with liquid nitrogen'",
+      "addition_text": "Cryotherapy detail \"to freeze the lesion with liquid nitrogen\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I recommend we perform cryotherapy today, which involves freezing the lesion with liquid nitrogen.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cryotherapy will be initiated today to freeze the lesion with liquid nitrogen."
+      "matched_claim_text": "Cryotherapy will be initiated today to freeze the lesion with liquid nitrogen.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Smoking cessation detail: 'if desired by the patient'",
+      "addition_text": "Smoking cessation counseling is conditional \"if desired by the patient\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We have resources for smoking cessation counseling if you're interested.\n\n[patient] Yes, I've been trying to cut down. That would be helpful.\n\n[doctor] Excellent. We'll get you started on that as well.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Resources for smoking cessation counseling will be provided if desired by the patient."
+      "matched_claim_text": "Resources for smoking cessation counseling will be provided if desired by the patient.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

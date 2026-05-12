@@ -268,9 +268,9 @@
     "plan_alignment_score": 0.6756756756756758
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions in the Subjective section, including the Chief Complaint, detailed History of Present Illness (patient's medical history), and the entire Review of Systems. While other sections are generally well-captured with only minor to moderate omissions, the substantial gaps in the Subjective section make the note meaningfully incomplete and reduce its overall clinical usefulness. There are no unsupported or unknown additions that would lower the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The note suffers from significant omissions, particularly in the Subjective section, where critical patient demographics (name, age), chief complaint, detailed medical history (allergies, asthma, medications), and the entire Review of Systems are missing. The Assessment section also omits the specific diagnosis phrasing and the patient's well-controlled chronic conditions. While Objective and Plan sections are better, the extensive gaps in the Subjective section materially reduce the clinical usefulness and completeness of the note. There are no unsupported or unknown additions.",
     "omissions": [
       "Chief Complaint: Routine consultation for potential exposure to viral communicable disease.",
       "HPI section header.",
@@ -318,8 +318,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of the Chief Complaint, detailed patient history regarding seasonal allergies and asthma management, and the entire Review of Systems content. These are significant clinical omissions that make the section meaningfully incomplete.",
+        "grade": "D",
+        "summary": "This section has major omissions, including the Chief Complaint, patient's name and age, initial consultation context, detailed history of seasonal allergies and asthma with specific medications (loratadine, albuterol), and the entire Review of Systems. These omissions represent critical missing patient information, making the section severely incomplete and significantly reducing its clinical usefulness.",
         "omissions": [
           "Chief Complaint (CC) section header and content: Routine consultation for potential exposure to viral communicable disease.",
           "History of Present Illness (HPI) section header.",
@@ -341,7 +341,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned. Omissions are primarily minor structural headers (Vital Signs, Physical Examination) and slight loss of detail in physical exam findings (e.g., specific absence of erythema/exudates, murmurs, wheezes/crackles, jaundice), but the core vital signs and main physical exam observations are present.",
+        "summary": "This section is mostly aligned, with all vital signs accurately captured. Omissions are primarily descriptive details of the physical examination, such as 'No acute distress' for Constitutional, specific ENT/CV/Respiratory/Skin findings, and the temperature in Celsius. The core physical exam findings are present, making these minor issues.",
         "omissions": [
           "Vital Signs section header.",
           "Temperature in Celsius (37°C).",
@@ -357,8 +357,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section captures the primary diagnosis and the patient's asymptomatic status. However, it omits the patient's history of seasonal allergies and asthma, which is a moderate clinical detail that should be included for a comprehensive assessment.",
+        "grade": "C",
+        "summary": "This section has noticeable gaps. It omits the specific ICD-10 diagnosis phrasing ('Contact with and (suspected) exposure to other viral communicable diseases (ICD-10: Z20.828)') and the patient's history of seasonal allergies and asthma being currently well-controlled. The latter is a moderate omission as it's a relevant part of the patient's overall health status.",
         "omissions": [
           "Diagnosis header.",
           "Specific diagnosis phrasing: \"Contact with and (suspected) exposure to other viral communicable diseases.\"",
@@ -369,7 +369,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned. It has several minor structural omissions (section headers) and two moderate clinical omissions: the instruction to 'Initiate telemedicine visits if symptoms develop' and the specific name of the Infectious Disease Specialist, 'Dr. Jonathan Smith'. The addition of 'immediately' in the instruction to call the clinic is supported by the transcript and does not reduce the grade.",
+        "summary": "This section is mostly aligned. Omissions include several section headers, the detail 'to minimize risk of transmission' for self-isolation, the specific instruction to 'Initiate telemedicine visits if symptoms develop' for follow-up, the specific name 'Dr. Jonathan Smith' for the referral, and the condition 'if symptoms develop or worsen' for the referral. The addition of 'immediately' in the instruction to call the clinic is supported by the transcript and does not reduce the grade.",
         "omissions": [
           "Monitoring section header.",
           "Self-Isolation section header.",
@@ -398,14 +398,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you notice any new symptoms or your health worsens, call the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to call the clinic immediately if symptoms worsen or new symptoms develop."
+      "matched_claim_text": "Advise patient to call the clinic immediately if symptoms worsen or new symptoms develop.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier 'immediately' in the instruction to call the clinic.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you notice any new symptoms or your health worsens, call the clinic immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to call the clinic immediately if symptoms worsen or new symptoms develop."
+      "matched_claim_text": "Advise patient to call the clinic immediately if symptoms worsen or new symptoms develop.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

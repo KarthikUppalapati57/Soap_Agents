@@ -207,9 +207,9 @@
     "plan_alignment_score": 0.5576923076923077
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note contains a significant unsupported addition in the Assessment section, stating \"Likely sciatica\" when the Ground Truth and transcript indicate a definitive diagnosis of \"Sciatica.\" This introduces misleading clinical content regarding diagnostic certainty. Additionally, there are several moderate omissions across sections, including key neurological findings in the Subjective ROS, pending diagnostic results in the Objective section, and important contingency plans and patient context in the Plan section. These issues materially reduce the clinical usefulness and reliability of the note.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note provides a mostly accurate and usable clinical summary, capturing the chief complaint, history, key objective findings, diagnosis, and primary treatment plan. However, it omits several important clinical details, such as the severity of pain, specific daily activity impacts, pending lab/imaging results in the Objective section, detailed lifestyle modification guidance, and a crucial contingency plan for non-improvement. Additionally, the Assessment section includes an unsupported qualifier ('Likely') for the diagnosis, which was stated more definitively in the transcript. These omissions and the unsupported addition, while not critically compromising the note's usability, reduce its overall completeness and precision.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -256,8 +256,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits key neurological findings from the Review of Systems (Positive Straight Leg Raise, decreased strength in the left leg) and specific details regarding the severity of pain and daily activities impacted in the History of Present Illness.",
+        "grade": "B",
+        "summary": "The Subjective section captures the core HPI well but omits important details regarding the 'severe' pain, specific daily activities impacted (walking, climbing stairs, job duties), and some ROS findings (neurological findings, no fever). While the main narrative is present, these omissions reduce the completeness of the patient's subjective experience.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -274,8 +274,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits the pending X-ray and Complete Blood Count results, which are important diagnostic details typically included in this section. It also omits the 'Inspection: Visible discomfort in the left leg' detail.",
+        "grade": "B",
+        "summary": "The Objective section accurately reports the physical examination findings and vital signs. However, it omits the explicit listing of pending X-ray and Complete Blood Count results within this section, which are important objective data points in the Ground Truth.",
         "omissions": [
           "Physical Examination section header",
           "Inspection: Visible discomfort in the left leg",
@@ -292,8 +292,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section includes an unsupported addition, 'Likely sciatica,' which introduces an unwarranted qualifier to the diagnosis. The Ground Truth and transcript indicate a definitive diagnosis of 'Sciatica,' making this addition misleading regarding diagnostic certainty.",
+        "grade": "B",
+        "summary": "The Assessment section correctly identifies the diagnosis of sciatica. However, it includes an unsupported addition of the qualifier 'Likely sciatica'. The doctor's statement in the transcript was a direct diagnosis, making the 'Likely' qualifier an unsupported softening of the diagnosis.",
         "omissions": [
           "Diagnosis section header"
         ],
@@ -304,8 +304,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits the important contingency recommendation for further imaging or specialist referral if symptoms do not improve, and the overall summary paragraph detailing patient cooperation, motivation, and financial context. Several minor details regarding medication administration and lifestyle modifications are also omitted.",
+        "grade": "B",
+        "summary": "The Plan section outlines the main treatment components (medication, physical therapy, lifestyle modifications, follow-up, patient education). However, it omits several specific details such as the medication quantity ('42 capsules'), specific guidance for lifestyle modifications ('starting with light walking and gradually increasing as tolerated'), a crucial contingency plan ('potential need for further imaging or specialist referral if symptoms do not improve'), and the overall patient context paragraph.",
         "omissions": [
           "Treatment section header",
           "Medications: 'orally' for Gabapentin administration",
@@ -336,126 +336,162 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's been getting worse.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "pain that has worsened over time"
+      "matched_claim_text": "pain that has worsened over time",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: More specific description of ROM limitation: 'in the left leg during forward and backward bending, causing discomfort'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: (Attempts to bend) It's very limited and painful. ... [Patient]: Same thing, it’s quite limited and hurts.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Limited range of motion in the left leg during forward and backward bending, causing discomfort"
+      "matched_claim_text": "Limited range of motion in the left leg during forward and backward bending, causing discomfort",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: 'during physical examination' added to description of left leg strength difficulty",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: (Struggles) It's difficult.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Difficulty with left leg strength during physical examination"
+      "matched_claim_text": "Difficulty with left leg strength during physical examination",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: Summary statement 'Normal vital signs'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Blood pressure is 120/80 mmHg, heart rate is 76 bpm, respiratory rate is 16 breaths/min, and temperature is 98.6°F. Everything looks normal there.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Qualifier 'Likely sciatica'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, it looks like you have sciatica.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Explanation of sciatica: 'due to irritation or compression of the sciatic nerve, causing pain and weakness down the leg'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, it looks like you have sciatica. This is when the sciatic nerve gets irritated or compressed, causing pain and weakness down your leg.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely sciatica due to irritation or compression of the sciatic nerve, causing pain and weakness down the leg"
+      "matched_claim_text": "Likely sciatica due to irritation or compression of the sciatic nerve, causing pain and weakness down the leg",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Explicitly listing 'pending X-ray of the lumbosacral spine and Complete Blood Count' in the follow-up details",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re waiting on an X-ray of your lumbosacral spine and a Complete Blood Count. ... We’ll also review your blood work and X-ray results once they’re available.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and Complete Blood Count"
+      "matched_claim_text": "and Complete Blood Count",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'medication adherence' as a distinct item in the 'Emphasize' bullet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's important to manage your pain and adhere to the prescribed medications and physical therapy.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: 'physical therapy' as a distinct item in the 'Emphasize' bullet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m also going to refer you to physical therapy. They can show you some exercises and stretches that will help alleviate your symptoms.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Pain that has worsened over time",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's been getting worse.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "pain that has worsened over time"
+      "matched_claim_text": "pain that has worsened over time",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "More specific description of ROM limitation: 'in the left leg during forward and backward bending, causing discomfort'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: (Attempts to bend) It's very limited and painful. ... [Patient]: Same thing, it’s quite limited and hurts.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Limited range of motion in the left leg during forward and backward bending, causing discomfort"
+      "matched_claim_text": "Limited range of motion in the left leg during forward and backward bending, causing discomfort",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'during physical examination' added to description of left leg strength difficulty",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: (Struggles) It's difficult.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Difficulty with left leg strength during physical examination"
+      "matched_claim_text": "Difficulty with left leg strength during physical examination",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Summary statement 'Normal vital signs'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Blood pressure is 120/80 mmHg, heart rate is 76 bpm, respiratory rate is 16 breaths/min, and temperature is 98.6°F. Everything looks normal there.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier 'Likely sciatica'",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Explanation of sciatica: 'due to irritation or compression of the sciatic nerve, causing pain and weakness down the leg'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, it looks like you have sciatica. This is when the sciatic nerve gets irritated or compressed, causing pain and weakness down your leg.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Likely sciatica due to irritation or compression of the sciatic nerve, causing pain and weakness down the leg"
+      "matched_claim_text": "Likely sciatica due to irritation or compression of the sciatic nerve, causing pain and weakness down the leg",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Explicitly listing 'pending X-ray of the lumbosacral spine and Complete Blood Count' in the follow-up details",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We’re waiting on an X-ray of your lumbosacral spine and a Complete Blood Count. ... We’ll also review your blood work and X-ray results once they’re available.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "and Complete Blood Count"
+      "matched_claim_text": "and Complete Blood Count",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'medication adherence' as a distinct item in the 'Emphasize' bullet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's important to manage your pain and adhere to the prescribed medications and physical therapy.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'physical therapy' as a distinct item in the 'Emphasize' bullet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It's important to manage your pain and adhere to the prescribed medications and physical therapy.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

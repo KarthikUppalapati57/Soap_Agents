@@ -2,7 +2,7 @@
   "item": "item_0009",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0009",
   "ground_truth_soap": "#\nSubjective:\n\nChief Complaint (CC):\n45-year-old female presents with symptoms of a urinary tract infection.\n\nHistory of Present Illness (HPI):\nThe patient, a 45-year-old Caucasian female, reports moderate dysuria, increased urinary frequency, and lower abdominal pain for the past 3 days. She experiences constant discomfort and significant pain during urination, which has impacted her ability to concentrate at work due to frequent bathroom trips. The patient has a history of recurrent UTIs and type 2 diabetes, and her mother also had recurrent UTIs and diabetes.\n\nReview of Systems (ROS):\n\n- Constitutional: Reports feeling tired during the day due to inadequate sleep (6 hours/night).\n- Gastrointestinal: No nausea or vomiting, maintaining a high-carb diet with moderate fruits and vegetables.\n- Genitourinary: Endorses dysuria, increased urinary frequency.\n- Musculoskeletal: No significant complaints.\n- Lifestyle: Sedentary job, occasional alcohol consumption (one glass of wine per week), non-smoker, moderate health literacy.\n\nObjective:\n\nVital Signs:\n- Blood Pressure: 130/85 mmHg\n- Heart Rate: 78 bpm\n- Respiratory Rate: 16 breaths/min\n- Temperature: 98.6°F (37°C)\n\nPhysical Examination:\n- Abdominal Examination: Mild tenderness noted in the suprapubic region.\n- Genitourinary Examination: No external abnormalities detected.\n\nTest Results:\n- Urinalysis: Elevated WBCs and presence of bacteria.\n- Urine Culture: Awaiting results for antibiotic sensitivity.\n\nAssessment:\n\nUrinary Tract Infection (UTI), Site Not Specified (ICD-10: N39.0).\n\nPlan:\n\n- Medical Treatment:\n  - Prescribe Nitrofurantoin 100 mg, oral, twice daily for 7 days.\n\n- Additional Testing:\n  - Await urine culture results to determine antibiotic sensitivity and adjust treatment if necessary.\n\n- Lifestyle Changes:\n  - Encourage increased fluid intake.\n  - Advise avoiding caffeinated and alcoholic beverages.\n\n- Follow-up:\n  - Re-evaluate symptoms in 1 week to assess improvement and modify treatment if needed.\n\nPatient Education and Counseling:\n  - Explained the importance of completing the full course of antibiotics even if symptoms improve.\n  - Advised on the significance of maintaining adequate hydration and dietary adjustments to manage diabetes.\n  - Reminded the patient to take Metformin regularly to keep blood glucose levels under control.\n\nPatient agrees with the treatment plan and understood the instructions provided.",
-  "generated_soap": "Subjective:\n* The patient reports symptoms of a potential urinary tract infection (UTI) including moderate pain during urination, frequent urges to urinate, and lower abdominal pain.\n* The patient has a history of recurrent UTIs and type 2 diabetes.\n* The patient feels tired and only gets about 6 hours of sleep each night.\n* No other significant symptoms related to genitourinary, musculoskeletal, or lifestyle were reported.\n\nObjective:\n* Blood pressure: 130/85 mmHg\n* Heart rate: 78 bpm\n* Respiratory rate: 16 breaths per minute\n* Temperature: 98.6°F\n* Mild tenderness in the suprapubic region was noted during physical examination.\n* Urinalysis showed elevated white blood cells and the presence of bacteria.\n\nAssessment:\n* Likely UTI based on symptoms and urinalysis results.\n* Allergy to Penicillin.\n\nPlan:\n* Prescribe Nitrofurantoin 100 mg orally, twice daily for 7 days.\n* Increase fluid intake and avoid caffeinated and alcoholic beverages.\n* Re-evaluate symptoms in one week to assess improvement and modify treatment if necessary.\n* Continue taking Metformin regularly to manage diabetes.\n* Advise patient to complete the full course of antibiotics even if symptoms improve.\n* Encourage follow-up if symptoms worsen or if there are any concerns.",
+  "generated_soap": "Subjective:\n* The patient reports moderate pain during urination, frequent urges to urinate, and lower abdominal pain, which have been ongoing for three days\n* Patient has a history of recurrent UTIs and type 2 diabetes\n* Fatigue and poor sleep quality are reported\n* No nausea or vomiting, muscle or joint pain, or external genitourinary abnormalities\n* Sedentary lifestyle with occasional alcohol consumption\n\nObjective:\n* Blood pressure: 130/85 mmHg\n* Heart rate: 78 bpm\n* Respiratory rate: 16 breaths per minute\n* Temperature: 98.6°F\n* Mild tenderness in the suprapubic region during physical examination\n* Urinalysis shows elevated white blood cells and bacteria presence\n\nAssessment:\n* Likely urinary tract infection based on symptoms and urinalysis results\n* Allergic to Penicillin\n\nPlan:\n* Prescribe Nitrofurantoin 100 mg orally, twice daily for 7 days\n* Increase fluid intake and avoid caffeinated and alcoholic beverages\n* Continue taking Metformin regularly to manage diabetes\n* Re-evaluate symptoms in one week to modify treatment if necessary\n* Complete full course of antibiotics even if symptoms improve\n* Follow up in a week for re-evaluation",
   "entities_gt": {
     "all_entities": [
       "dysuria",
@@ -47,14 +47,15 @@
   },
   "entities_generated": {
     "all_entities": [
-      "symptoms",
-      "uti",
       "moderate pain",
       "frequent urges to urinate",
       "lower abdominal pain",
+      "recurrent utis",
       "type 2 diabetes",
+      "fatigue",
+      "poor sleep quality",
+      "muscle or joint pain",
       "blood pressure",
-      "130/85 mmhg",
       "heart rate",
       "respiratory rate",
       "temperature",
@@ -62,20 +63,25 @@
       "suprapubic region",
       "physical examination",
       "urinalysis",
-      "allergy to penicillin",
-      "modify treatment",
-      "metformin"
+      "symptoms",
+      "allergic to penicillin",
+      "nitrofurantoin 100 mg",
+      "metformin",
+      "modify treatment"
     ],
     "symptoms": [
-      "symptoms",
-      "moderate pain during urination",
+      "moderate pain",
       "frequent urges to urinate",
       "lower abdominal pain",
-      "mild tenderness"
+      "fatigue",
+      "poor sleep quality",
+      "no nausea or vomiting",
+      "muscle or joint pain",
+      "mild tenderness",
+      "symptoms"
     ],
     "medications": [
-      "penicillin",
-      "nitrofurantoin",
+      "nitrofurantoin 100 mg",
       "metformin"
     ],
     "labs": [
@@ -89,36 +95,38 @@
   },
   "clinical_recall_all": {
     "gt_count": 18,
-    "gen_count": 18,
-    "overlap_count": 9,
-    "recall": 0.5,
+    "gen_count": 21,
+    "overlap_count": 10,
+    "recall": 0.5555555555555556,
     "gt_only": [
       "abdominal examination",
       "dysuria",
       "increased urinary frequency",
       "medical treatment",
       "musculoskeletal",
-      "nitrofurantoin 100 mg",
       "presence of bacteria",
       "urine culture",
       "vital signs"
     ],
     "gen_only": [
-      "130/85 mmhg",
-      "allergy to penicillin",
+      "allergic to penicillin",
+      "fatigue",
       "frequent urges to urinate",
       "metformin",
       "moderate pain",
       "modify treatment",
+      "muscle or joint pain",
+      "poor sleep quality",
+      "recurrent utis",
       "symptoms",
-      "type 2 diabetes",
-      "uti"
+      "type 2 diabetes"
     ],
     "overlap": [
       "blood pressure",
       "heart rate",
       "lower abdominal pain",
       "mild tenderness",
+      "nitrofurantoin 100 mg",
       "physical examination",
       "respiratory rate",
       "suprapubic region",
@@ -128,7 +136,7 @@
   },
   "clinical_recall_symptoms": {
     "gt_count": 7,
-    "gen_count": 5,
+    "gen_count": 9,
     "overlap_count": 2,
     "recall": 0.2857142857142857,
     "gt_only": [
@@ -139,8 +147,12 @@
       "significant pain"
     ],
     "gen_only": [
+      "fatigue",
       "frequent urges to urinate",
-      "moderate pain during urination",
+      "moderate pain",
+      "muscle or joint pain",
+      "no nausea or vomiting",
+      "poor sleep quality",
       "symptoms"
     ],
     "overlap": [
@@ -150,18 +162,16 @@
   },
   "clinical_recall_medications": {
     "gt_count": 1,
-    "gen_count": 3,
-    "overlap_count": 0,
-    "recall": 0.0,
-    "gt_only": [
-      "nitrofurantoin 100 mg"
-    ],
+    "gen_count": 2,
+    "overlap_count": 1,
+    "recall": 1.0,
+    "gt_only": [],
     "gen_only": [
-      "metformin",
-      "nitrofurantoin",
-      "penicillin"
+      "metformin"
     ],
-    "overlap": []
+    "overlap": [
+      "nitrofurantoin 100 mg"
+    ]
   },
   "clinical_recall_labs": {
     "gt_count": 6,
@@ -183,134 +193,124 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.4623191639116793,
-    "overall_rouge_l_f1": 0.35765972616440944,
+    "overall_token_f1": 0.4845489680399434,
+    "overall_rouge_l_f1": 0.3891082356999578,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.46451612903225814,
-        "rouge_l_f1": 0.2966507177033493
+        "token_f1": 0.46153846153846156,
+        "rouge_l_f1": 0.3121951219512195
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.6966292134831461,
-        "rouge_l_f1": 0.6249999999999999
+        "token_f1": 0.6744186046511628,
+        "rouge_l_f1": 0.608695652173913
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.09090909090909091,
-        "rouge_l_f1": 0.09090909090909091
+        "token_f1": 0.24999999999999994,
+        "rouge_l_f1": 0.24999999999999994
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5972222222222222,
-        "rouge_l_f1": 0.4180790960451978
+        "token_f1": 0.5522388059701493,
+        "rouge_l_f1": 0.3855421686746988
       }
     ],
-    "assessment_alignment_score": 0.09090909090909091,
-    "plan_alignment_score": 0.5972222222222222
+    "assessment_alignment_score": 0.24999999999999994,
+    "plan_alignment_score": 0.5522388059701493
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_model",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, capturing the primary diagnosis and initial treatment plan. However, it suffers from multiple moderate omissions, particularly in the History of Present Illness (HPI) regarding symptom details and impact, and in the Plan section concerning the explicit mention of awaiting urine culture results and specific diabetes education. While there is only one minor unsupported addition, the cumulative effect of the moderate omissions makes the note meaningfully incomplete, requiring careful review for comprehensive patient care.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and usable. It accurately captures the chief complaint, HPI, vital signs, physical exam findings, and the primary assessment and treatment plan. However, there are several minor omissions across all sections, and a few moderate omissions, including the patient's family history of UTIs and diabetes, and the explicit mention of awaiting urine culture results for antibiotic sensitivity in both the Objective and Plan sections. No unsupported or unknown additions were found that would lower the grade.",
     "omissions": [
-      "Subjective: HPI: duration of symptoms (for the past 3 days)",
-      "Subjective: HPI: detail about pain (constant discomfort and significant pain during urination)",
-      "Subjective: HPI: impact on work (impacted her ability to concentrate at work due to frequent bathroom trips)",
-      "Subjective: HPI: family history of recurrent UTIs and diabetes (mother)",
-      "Subjective: ROS: Constitutional: detail about tiredness (during the day)",
-      "Subjective: ROS: Gastrointestinal: No nausea or vomiting, maintaining a high-carb diet with moderate fruits and vegetables",
-      "Subjective: ROS: Lifestyle: Sedentary job",
-      "Subjective: ROS: Lifestyle: Occasional alcohol consumption (one glass of wine per week)",
-      "Subjective: ROS: Lifestyle: Non-smoker",
-      "Subjective: ROS: Lifestyle: Moderate health literacy",
-      "Objective: Vital Signs: Celsius temperature (37°C)",
-      "Objective: Physical Examination: Genitourinary Examination: No external abnormalities detected",
-      "Objective: Test Results: Urine Culture: Awaiting results for antibiotic sensitivity",
-      "Assessment: Diagnosis detail: Site Not Specified",
-      "Plan: Additional Testing: Await urine culture results to determine antibiotic sensitivity and adjust treatment if necessary",
-      "Plan: Patient Education: Significance of maintaining adequate hydration",
-      "Plan: Patient Education: Dietary adjustments to manage diabetes",
-      "Plan: Patient agreement with the treatment plan and understanding of instructions"
+      "Patient's ability to concentrate at work impacted due to frequent bathroom trips",
+      "Family history of recurrent UTIs and diabetes (mother)",
+      "Constant discomfort (part of HPI pain description)",
+      "Specific sleep duration of 6 hours/night",
+      "Details about diet: high-carb with moderate fruits and vegetables",
+      "Specific alcohol consumption: one glass of wine per week",
+      "Smoking status: non-smoker",
+      "Moderate health literacy",
+      "Temperature in Celsius (37°C)",
+      "Genitourinary Examination: No external abnormalities detected (from Objective section)",
+      "Urine culture results awaiting for antibiotic sensitivity (from Objective section)",
+      "UTI site not specified (from Assessment section)",
+      "Awaiting urine culture results to determine antibiotic sensitivity and adjust treatment if necessary (from Plan section)",
+      "Follow-up purpose: to assess improvement (in addition to modifying treatment) (from Plan section)",
+      "Dietary adjustments to manage diabetes (from Patient Education in Plan section)",
+      "Patient agrees with the treatment plan and understood the instructions provided (from Plan section)"
     ],
     "additions": [
-      "Subjective: Qualifier 'potential' for urinary tract infection",
-      "Subjective: Summary statement 'No other significant symptoms related to genitourinary, musculoskeletal, or lifestyle were reported.'",
-      "Assessment: Reasoning for diagnosis 'Likely UTI based on symptoms and urinalysis results.'",
-      "Assessment: Allergy to Penicillin",
-      "Plan: Follow-up instruction 'Encourage follow-up if symptoms worsen or if there are any concerns.'"
+      "External genitourinary abnormalities (mentioned in Subjective, but belongs in Objective)",
+      "Assessment qualifier: 'based on symptoms and urinalysis results'",
+      "Allergic to Penicillin (in Assessment)",
+      "Redundant follow-up instruction: 'Follow up in a week for re-evaluation' (in Plan)"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Subjective: Qualifier 'potential' for urinary tract infection",
-      "Qualifier 'potential' for urinary tract infection",
-      "Summary statement 'No other significant symptoms related to genitourinary, musculoskeletal, or lifestyle were reported.'"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the chief complaint and main symptoms but omits several important details from the HPI, such as the duration of symptoms, specific pain characteristics, and the impact on work. Additionally, many minor details from the Review of Systems (ROS) and Lifestyle are missing. There is one minor unsupported addition, the qualifier 'potential' for UTI, which introduces a slight ambiguity not present in the Ground Truth.",
+        "summary": "This section has several minor omissions, such as the patient's specific sleep duration, diet details, and smoking status. A moderate omission is the absence of the patient's family history of recurrent UTIs and diabetes, which is clinically relevant. All additions in this section were supported by the transcript.",
         "omissions": [
-          "HPI: duration of symptoms (for the past 3 days)",
-          "HPI: detail about pain (constant discomfort and significant pain during urination)",
-          "HPI: impact on work (impacted her ability to concentrate at work due to frequent bathroom trips)",
-          "HPI: family history of recurrent UTIs and diabetes (mother)",
-          "ROS: Constitutional: detail about tiredness (during the day)",
-          "ROS: Gastrointestinal: No nausea or vomiting, maintaining a high-carb diet with moderate fruits and vegetables",
-          "ROS: Lifestyle: Sedentary job",
-          "ROS: Lifestyle: Occasional alcohol consumption (one glass of wine per week)",
-          "ROS: Lifestyle: Non-smoker",
-          "ROS: Lifestyle: Moderate health literacy"
+          "Patient's ability to concentrate at work impacted due to frequent bathroom trips",
+          "Family history of recurrent UTIs and diabetes (mother)",
+          "Constant discomfort (part of HPI pain description)",
+          "Specific sleep duration of 6 hours/night",
+          "Details about diet: high-carb with moderate fruits and vegetables",
+          "Specific alcohol consumption: one glass of wine per week",
+          "Smoking status: non-smoker",
+          "Moderate health literacy"
         ],
         "additions": [
-          "Qualifier 'potential' for urinary tract infection",
-          "Summary statement 'No other significant symptoms related to genitourinary, musculoskeletal, or lifestyle were reported.'"
+          "External genitourinary abnormalities (mentioned in Subjective, but belongs in Objective)"
         ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports vital signs, physical examination findings, and urinalysis results. However, it omits the Celsius temperature (a minor detail) and the crucial status of the urine culture (awaiting results for antibiotic sensitivity), which is a moderate omission impacting the completeness of the diagnostic picture.",
+        "summary": "This section has a moderate omission regarding the pending urine culture results for antibiotic sensitivity, which is important diagnostic information. Minor omissions include the temperature in Celsius and the explicit mention of no external abnormalities detected during the genitourinary examination. No unsupported or unknown additions were found.",
         "omissions": [
-          "Vital Signs: Celsius temperature (37°C)",
-          "Physical Examination: Genitourinary Examination: No external abnormalities detected",
-          "Test Results: Urine Culture: Awaiting results for antibiotic sensitivity"
+          "Temperature in Celsius (37°C)",
+          "Genitourinary Examination: No external abnormalities detected",
+          "Urine culture results awaiting for antibiotic sensitivity"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately identifying the likely diagnosis. The only omission is the minor detail 'Site Not Specified' for the UTI. All additions in this section (reasoning for diagnosis and penicillin allergy) were supported by the transcript and thus do not negatively impact the grade.",
+        "summary": "This section is well-aligned with only one minor omission: the 'UTI, Site Not Specified' detail from the ICD-10 diagnosis. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Diagnosis detail: Site Not Specified"
+          "UTI site not specified"
         ],
         "additions": [
-          "Reasoning for diagnosis 'Likely UTI based on symptoms and urinalysis results.'",
-          "Allergy to Penicillin"
+          "Assessment qualifier: 'based on symptoms and urinalysis results'",
+          "Allergic to Penicillin"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section outlines the prescribed medication and immediate follow-up, but it has several moderate omissions. Crucially, it omits the explicit instruction to await urine culture results to determine antibiotic sensitivity and adjust treatment if necessary. It also misses important patient education regarding dietary adjustments for diabetes management. These omissions reduce the comprehensiveness and clinical usefulness of the plan.",
+        "grade": "B",
+        "summary": "This section contains a moderate omission regarding the explicit plan to await urine culture results to determine antibiotic sensitivity and adjust treatment if necessary. Several minor omissions include the specific purpose of follow-up (to assess improvement), dietary adjustments for diabetes management in patient education, and the patient's agreement with the plan. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Additional Testing: Await urine culture results to determine antibiotic sensitivity and adjust treatment if necessary",
-          "Patient Education: Significance of maintaining adequate hydration",
-          "Patient Education: Dietary adjustments to manage diabetes",
-          "Patient agreement with the treatment plan and understanding of instructions"
+          "Awaiting urine culture results to determine antibiotic sensitivity and adjust treatment if necessary",
+          "Follow-up purpose: to assess improvement (in addition to modifying treatment)",
+          "Dietary adjustments to manage diabetes (from Patient Education in Plan)",
+          "Patient agrees with the treatment plan and understood the instructions provided"
         ],
         "additions": [
-          "Follow-up instruction 'Encourage follow-up if symptoms worsen or if there are any concerns.'"
+          "Redundant follow-up instruction: 'Follow up in a week for re-evaluation'"
         ]
       }
     ],
@@ -319,74 +319,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: Qualifier 'potential' for urinary tract infection",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Subjective: Summary statement 'No other significant symptoms related to genitourinary, musculoskeletal, or lifestyle were reported.'",
+      "addition_text": "External genitourinary abnormalities (mentioned in Subjective, but belongs in Objective)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Patient stated, 'No, just the dysuria and increased frequency' when asked about other genitourinary symptoms, and 'No, nothing significant there' regarding muscles or joints. Lifestyle factors were described without associated symptoms.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: I see. There were no external abnormalities detected during your genitourinary examination.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No external genitourinary abnormalities.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: Reasoning for diagnosis 'Likely UTI based on symptoms and urinalysis results.'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: Allergy to Penicillin",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I'm allergic to Penicillin.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: Follow-up instruction 'Encourage follow-up if symptoms worsen or if there are any concerns.'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Qualifier 'potential' for urinary tract infection",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Summary statement 'No other significant symptoms related to genitourinary, musculoskeletal, or lifestyle were reported.'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Reasoning for diagnosis 'Likely UTI based on symptoms and urinalysis results.'",
+      "addition_text": "Assessment qualifier: 'based on symptoms and urinalysis results'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Likely urinary tract infection based on symptoms and urinalysis results.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Allergy to Penicillin",
+      "addition_text": "Allergic to Penicillin (in Assessment)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I'm allergic to Penicillin.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Patient]: Yes, I'm allergic to Penicillin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Allergic to Penicillin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Follow-up instruction 'Encourage follow-up if symptoms worsen or if there are any concerns.'",
+      "addition_text": "Redundant follow-up instruction: 'Follow up in a week for re-evaluation' (in Plan)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "[Doctor]: We'll need to re-evaluate your symptoms in one week to see if there's any improvement and to modify the treatment if necessary. Please make sure to complete the full course of antibiotics even if you start feeling better. ... [Doctor]: Feel better soon, and we'll see you in a week for a follow-up.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Re-evaluate symptoms in one week to modify treatment if necessary, and complete full course of antibiotics even if symptoms improve. Follow up in a week for re-evaluation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Allergic to Penicillin",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Yes, I'm allergic to Penicillin.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Allergic to Penicillin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Redundant follow-up instruction: 'Follow up in a week for re-evaluation'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We'll need to re-evaluate your symptoms in one week to see if there's any improvement and to modify the treatment if necessary. Please make sure to complete the full course of antibiotics even if you start feeling better. ... [Doctor]: Feel better soon, and we'll see you in a week for a follow-up.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Re-evaluate symptoms in one week to modify treatment if necessary, and complete full course of antibiotics even if symptoms improve. Follow up in a week for re-evaluation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

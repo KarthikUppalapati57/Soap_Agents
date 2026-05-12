@@ -230,121 +230,90 @@
     "plan_alignment_score": 0.7076923076923076
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The note provides a clinically usable summary of the patient's visit, but it has noticeable gaps, particularly in the Subjective section where the entire Review of Systems is omitted and many details from the History of Present Illness are missing. The Assessment section also omits the explicit diagnosis of hyperlipidemia and some patient context. All identified additions were supported by the transcript and did not negatively impact the grade.",
+    "model": "clinical_documentation_reviewer_model",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, capturing the essential findings, assessment, and plan. However, it has several structural and detail omissions. Key issues include the absence of the Chief Complaint section, significant details from the History of Present Illness, and nearly the entire Review of Systems. Additionally, 'Hyperlipidemia' is not listed as a distinct diagnosis in the Assessment, and the 'Patient Agreements' section is omitted from the Plan. There are no unsupported or unknown additions that would lower the grade.",
     "omissions": [
-      "Explicit \"Chief Complaint (CC)\" section/heading",
-      "HPI detail: Patient presents for a routine check-up",
-      "HPI detail: Elevated blood pressure readings noted \"over the past month\"",
-      "HPI detail: Elevated blood pressure readings described as \"mild to moderate\"",
-      "HPI detail: Headaches and dizziness occurring \"2-3 times a week\"",
-      "HPI detail: Symptoms have had a mild impact on daily activities",
-      "HPI detail: Patient feels more tired than usual",
-      "HPI detail: Patient feels fatigued despite averaging 6-7 hours of sleep per night",
-      "Review of Systems (ROS) section",
-      "ROS detail: Constitutional: Feels more tired than usual",
-      "ROS detail: Respiratory: No complaints",
-      "ROS detail: Gastrointestinal: No complaints",
-      "ROS detail: Genitourinary: No complaints",
-      "ROS detail: Musculoskeletal: No complaints",
-      "ROS detail: Psychiatric: No complaints",
-      "ROS detail: Endocrine: No complaints",
-      "ROS detail: Hematologic: No complaints",
-      "ROS detail: Allergic/Immunologic: No known drug allergies",
+      "Chief Complaint section",
+      "Detailed History of Present Illness (HPI)",
+      "Full Review of Systems (ROS) section",
       "Physical Examination heading",
-      "Patient's age (52-year-old) in Assessment",
-      "Patient presents with elevated blood pressure and associated symptoms (headaches and dizziness) in Assessment",
-      "Explicit mention of \"new diagnosis\" for hypertension in Assessment",
-      "Explicit diagnosis of Hyperlipidemia in Assessment",
-      "\"1 tablet\" for Lisinopril dosage",
-      "\"oral route\" for Lisinopril",
-      "\"oral\" for Atorvastatin",
-      "\"Recommend dietary changes\" for lower salt intake",
-      "\"Advise regular exercise and reduced alcohol consumption\"",
-      "\"Hematology panel\" for CBC",
-      "\"Biochemistry\" for Lipid Profile and Blood Glucose",
-      "\"to evaluate for possible cardiopulmonary abnormalities\" for Chest X-ray",
-      "Patient Agreements section: \"The patient understands and agrees with the recommended medical treatment plan.\""
+      "Vital Signs heading",
+      "Diagnosis heading",
+      "Patient Agreements section",
+      "Specific sub-headings within the Plan section (e.g., Medication Adjustment, Lifestyle Change, Referral, Order for Blood Work, Order for Imaging, Follow-Up Recommendations)"
     ],
     "additions": [
-      "\"on heart auscultation\" for mild systolic murmur",
-      "\"likely developing\" for hypertension in Assessment",
-      "\"due to pre-existing conditions\" for hypertension in Assessment",
-      "\"further evaluation\" for cardiologist referral"
+      "\"likely developing\" qualifier for hypertension in Assessment"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section receives a C due to significant omissions. The entire Review of Systems section is missing, along with numerous details from the History of Present Illness, such as the duration and specific characteristics of elevated blood pressure readings, the frequency of headaches and dizziness, and the full impact of symptoms on daily activities. The explicit Chief Complaint heading is also omitted.",
+        "summary": "The Subjective section has noticeable gaps. It omits the Chief Complaint entirely, misses several important details from the History of Present Illness regarding the patient's presentation and impact on daily activities, and almost completely lacks the structured Review of Systems. While the core symptoms and history are present, these omissions make the section meaningfully incomplete.",
         "omissions": [
-          "Explicit \"Chief Complaint (CC)\" section/heading",
-          "HPI detail: Patient presents for a routine check-up",
-          "HPI detail: Elevated blood pressure readings noted \"over the past month\"",
-          "HPI detail: Elevated blood pressure readings described as \"mild to moderate\"",
-          "HPI detail: Headaches and dizziness occurring \"2-3 times a week\"",
-          "HPI detail: Symptoms have had a mild impact on daily activities",
-          "HPI detail: Patient feels more tired than usual",
-          "HPI detail: Patient feels fatigued despite averaging 6-7 hours of sleep per night",
-          "Review of Systems (ROS) section",
-          "ROS detail: Constitutional: Feels more tired than usual",
-          "ROS detail: Respiratory: No complaints",
-          "ROS detail: Gastrointestinal: No complaints",
-          "ROS detail: Genitourinary: No complaints",
-          "ROS detail: Musculoskeletal: No complaints",
-          "ROS detail: Psychiatric: No complaints",
-          "ROS detail: Endocrine: No complaints",
-          "ROS detail: Hematologic: No complaints",
-          "ROS detail: Allergic/Immunologic: No known drug allergies"
+          "Chief Complaint: \"Elevated blood pressure and associated symptoms.\"",
+          "HPI detail: Patient presents for a routine check-up.",
+          "HPI detail: Mild to moderate elevated blood pressure readings.",
+          "HPI detail: Symptoms had a mild impact on daily activities, making him feel more tired than usual.",
+          "HPI detail: Feels fatigued despite averaging 6-7 hours of sleep per night.",
+          "ROS: Constitutional: Feels more tired than usual.",
+          "ROS: Cardiovascular: Reports elevated blood pressure readings; occasional headaches and dizziness.",
+          "ROS: Respiratory: No complaints.",
+          "ROS: Gastrointestinal: No complaints.",
+          "ROS: Genitourinary: No complaints.",
+          "ROS: Musculoskeletal: No complaints.",
+          "ROS: Neurological: Occasional headaches and dizziness.",
+          "ROS: Psychiatric: No complaints.",
+          "ROS: Endocrine: No complaints.",
+          "ROS: Hematologic: No complaints.",
+          "ROS: Allergic/Immunologic: No known drug allergies."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section receives an A. The only omission is the 'Physical Examination' heading, which is a minor formatting detail. All reported additions were supported by the transcript.",
+        "summary": "The Objective section accurately captures all major clinically important Ground Truth content, including vital signs and physical examination findings. The only omissions are minor formatting headings ('Physical Examination' and 'Vital Signs'), which do not impact clinical usefulness.",
         "omissions": [
-          "Physical Examination heading"
+          "\"Physical Examination\" heading",
+          "\"Vital Signs\" heading"
         ],
-        "additions": [
-          "\"on heart auscultation\" for mild systolic murmur"
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section receives a B. Key omissions include the patient's age, the full description of the patient's presentation with associated symptoms, and the explicit diagnosis of hyperlipidemia. The mention of 'new diagnosis' for hypertension is also omitted. All reported additions were supported by the transcript.",
+        "summary": "The Assessment section is mostly clinically aligned. It accurately identifies the likely development of hypertension, which is a supported addition from the transcript. However, it omits 'Hyperlipidemia' as a distinct diagnosis, only mentioning it as a pre-existing condition. Other omissions, such as specific summary statement details and the 'new diagnosis' tag for hypertension, are minor.",
         "omissions": [
-          "Patient's age (52-year-old)",
-          "Patient presents with elevated blood pressure and associated symptoms (headaches and dizziness)",
-          "Explicit mention of \"new diagnosis\" for hypertension",
-          "Explicit diagnosis of Hyperlipidemia"
+          "Summary statement detail: \"presents with elevated blood pressure and associated symptoms such as headaches and dizziness.\"",
+          "Diagnosis: \"Hypertension (new diagnosis)\"",
+          "Diagnosis: \"Hyperlipidemia\""
         ],
         "additions": [
-          "\"likely developing\" for hypertension",
-          "\"due to pre-existing conditions\" for hypertension"
+          "\"likely developing\" qualifier for hypertension"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section receives a B. There are several minor omissions related to specific phrasing and details, such as '1 tablet' and 'oral route' for medications, the specific recommendations for lifestyle changes, the panel names for blood work, the rationale for the Chest X-ray, and the Patient Agreements section. All reported additions were supported by the transcript.",
+        "summary": "The Plan section is mostly complete and usable, detailing all recommended medications, lifestyle changes, referrals, orders for blood work and imaging, and follow-up. The omissions are primarily structural headings and minor dosage details. The most significant omission is the 'Patient Agreements' section, which is a standard component indicating patient understanding and consent.",
         "omissions": [
-          "\"1 tablet\" for Lisinopril dosage",
-          "\"oral route\" for Lisinopril",
-          "\"oral\" for Atorvastatin",
-          "\"Recommend dietary changes\" for lower salt intake",
-          "\"Advise regular exercise and reduced alcohol consumption\"",
-          "\"Hematology panel\" for CBC",
-          "\"Biochemistry\" for Lipid Profile and Blood Glucose",
-          "\"to evaluate for possible cardiopulmonary abnormalities\" for Chest X-ray",
-          "Patient Agreements section: \"The patient understands and agrees with the recommended medical treatment plan.\""
+          "\"Medication Adjustment\" heading",
+          "Lisinopril dosage detail: \"1 tablet daily, oral route.\"",
+          "Atorvastatin dosage detail: \"oral daily.\"",
+          "\"Lifestyle Change\" heading",
+          "\"Referral\" heading",
+          "\"Order for Blood Work\" heading",
+          "\"Hematology panel\" (as a category for CBC)",
+          "\"Biochemistry\" (as a category for Lipid Profile, Blood Glucose)",
+          "\"Order for Imaging\" heading",
+          "Chest X-ray purpose: \"to evaluate for possible cardiopulmonary abnormalities.\"",
+          "\"Follow-Up Recommendations\" heading",
+          "\"Patient Agreements: The patient understands and agrees with the recommended medical treatment plan.\""
         ],
-        "additions": [
-          "\"further evaluation\" for cardiologist referral"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -352,46 +321,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"on heart auscultation\" for mild systolic murmur",
+      "addition_text": "\"likely developing\" qualifier for hypertension in Assessment",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I'm also hearing a mild systolic murmur, but no gallops in your heart.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild systolic murmur on heart auscultation."
+      "transcript_evidence": "it looks like you might be developing hypertension",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"likely developing\" for hypertension in Assessment",
+      "addition_text": "\"likely developing\" qualifier for hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension likely developing due to pre-existing conditions (pre-hypertension and hyperlipidemia)."
-    },
-    {
-      "addition_text": "\"due to pre-existing conditions\" for hypertension in Assessment",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension likely developing due to pre-existing conditions (pre-hypertension and hyperlipidemia)."
-    },
-    {
-      "addition_text": "\"further evaluation\" for cardiologist referral",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Yes, I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to cardiologist, Dr. Sarah Johnson, for further evaluation of hypertension."
-    },
-    {
-      "addition_text": "\"likely developing\" for hypertension",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension likely developing due to pre-existing conditions (pre-hypertension and hyperlipidemia)."
-    },
-    {
-      "addition_text": "\"due to pre-existing conditions\" for hypertension",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension likely developing due to pre-existing conditions (pre-hypertension and hyperlipidemia)."
+      "matched_claim_text": "Hypertension likely developing due to pre-existing conditions (pre-hypertension and hyperlipidemia).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

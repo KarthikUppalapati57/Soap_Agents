@@ -222,9 +222,9 @@
     "plan_alignment_score": 0.5301204819277109
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains several moderate and minor omissions across the Subjective, Assessment, and Plan sections. Key missing details include the impact of constipation on daily activities, important differential diagnoses (IBS, Dehydration), and crucial conditional follow-up instructions. All additions were supported by the transcript and did not negatively impact the grade. While the note is usable, these gaps make it meaningfully incomplete in certain areas, warranting a C grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, vital signs, physical exam findings, and the core treatment plan. However, it omits several minor details across the Subjective and Plan sections, such as the specific impact of constipation on daily activities, detailed exercise habits, and specific follow-up conditions. More significantly, the Assessment section omits two important differential diagnoses, Irritable Bowel Syndrome (IBS) and Dehydration. All additions made by the model are supported by the transcript.",
     "omissions": [
       "HPI details: constipation's impact on daily activities (unable to attend work, frequently needs to rest)",
       "ROS detail: sleeping difficulty averaging 4-5 hours/night",
@@ -249,7 +249,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section omits clinically important details regarding the impact of constipation on daily activities (unable to attend work, needs to rest), specific sleep duration (4-5 hours/night), and detailed exercise habits (running thrice a week, hiking, gardening).",
+        "summary": "The Subjective section omits several details, including the specific impact of constipation on daily activities (unable to attend work, frequently needs to rest), the patient's specific sleeping difficulty (averaging 4-5 hours/night), and specific exercise and outdoor activities (running thrice a week, hiking, gardening).",
         "omissions": [
           "HPI details: constipation's impact on daily activities (unable to attend work, frequently needs to rest)",
           "ROS detail: sleeping difficulty averaging 4-5 hours/night",
@@ -262,14 +262,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is complete and accurate, with no omissions or unsupported/unknown additions.",
+        "summary": "The Objective section is complete and accurate, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section omits two differential diagnoses: Irritable Bowel Syndrome (IBS) and Dehydration, which are relevant for a comprehensive assessment of constipation.",
+        "summary": "The Assessment section omits two clinically important differential diagnoses: Irritable Bowel Syndrome (IBS) and Dehydration. The addition regarding constipation likely due to dietary factors with an underlying condition not ruled out is supported by the transcript.",
         "omissions": [
           "Differential diagnosis: Irritable Bowel Syndrome (IBS)",
           "Differential diagnosis: Dehydration"
@@ -280,8 +280,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has several omissions, including the specific conditions for follow-up (if symptoms persist or worsen), the advice to return if symptoms fail to improve, and the explicit reason for blood work (to rule out underlying conditions). It also omits the patient's receptiveness to the plan and the specific purpose of meal planning for the dietician referral.",
+        "grade": "B",
+        "summary": "The Plan section omits several minor details, including the specific condition for follow-up (if symptoms persist or worsen), the specific purpose of meal planning for the dietician referral, and the patient's receptiveness to the treatment plan. It also lacks the explicit 'Plan Summary Provided to Patient' section. All additions in this section are supported by the transcript.",
         "omissions": [
           "Reason for blood work: to rule out any underlying conditions",
           "Follow-up condition: if symptoms persist or worsen",
@@ -305,56 +305,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I still exercise regularly. I run about three times a week and enjoy outdoor activities like hiking and gardening. ... I think it's pretty balanced, but maybe I don't eat enough fiber. I mostly eat what’s convenient, sometimes it’s not the healthiest.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports regular physical activity but an unbalanced diet."
+      "matched_claim_text": "Patient reports regular physical activity but an unbalanced diet.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: constipation likely due to dietary factors, although an underlying condition cannot be ruled out pending blood test results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] maybe I don't eat enough fiber. I mostly eat what’s convenient, sometimes it’s not the healthiest. [doctor] I'll order a Complete Blood Count (CBC) and Basic Metabolic Panel (BMP) to check for any underlying conditions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Constipation likely due to dietary factors, although an underlying condition cannot be ruled out pending blood test results."
+      "matched_claim_text": "Constipation likely due to dietary factors, although an underlying condition cannot be ruled out pending blood test results.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: blood test results expected in 48 hours",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'll order a Complete Blood Count (CBC) and Basic Metabolic Panel (BMP) to check for any underlying conditions. The results should be back in about 48 hours.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order Complete Blood Count (CBC) and Basic Metabolic Panel (BMP). Results expected in 48 hours."
+      "matched_claim_text": "Order Complete Blood Count (CBC) and Basic Metabolic Panel (BMP). Results expected in 48 hours.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: purpose for increased water intake \"to stay hydrated\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Also, make sure you’re drinking plenty of water. Staying hydrated is very important when dealing with constipation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Drink plenty of water to stay hydrated."
+      "matched_claim_text": "Drink plenty of water to stay hydrated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient reports an unbalanced diet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I still exercise regularly. I run about three times a week and enjoy outdoor activities like hiking and gardening. ... I think it's pretty balanced, but maybe I don't eat enough fiber. I mostly eat what’s convenient, sometimes it’s not the healthiest.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports regular physical activity but an unbalanced diet."
+      "matched_claim_text": "Patient reports regular physical activity but an unbalanced diet.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Constipation likely due to dietary factors, although an underlying condition cannot be ruled out pending blood test results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] maybe I don't eat enough fiber. I mostly eat what’s convenient, sometimes it’s not the healthiest. [doctor] I'll order a Complete Blood Count (CBC) and Basic Metabolic Panel (BMP) to check for any underlying conditions.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Constipation likely due to dietary factors, although an underlying condition cannot be ruled out pending blood test results."
+      "matched_claim_text": "Constipation likely due to dietary factors, although an underlying condition cannot be ruled out pending blood test results.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Blood test results expected in 48 hours",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I'll order a Complete Blood Count (CBC) and Basic Metabolic Panel (BMP) to check for any underlying conditions. The results should be back in about 48 hours.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order Complete Blood Count (CBC) and Basic Metabolic Panel (BMP). Results expected in 48 hours."
+      "matched_claim_text": "Order Complete Blood Count (CBC) and Basic Metabolic Panel (BMP). Results expected in 48 hours.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Purpose for increased water intake \"to stay hydrated\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Also, make sure you’re drinking plenty of water. Staying hydrated is very important when dealing with constipation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Drink plenty of water to stay hydrated."
+      "matched_claim_text": "Drink plenty of water to stay hydrated.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

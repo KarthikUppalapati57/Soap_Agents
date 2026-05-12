@@ -218,124 +218,193 @@
     "plan_alignment_score": 0.7317073170731708
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The overall grade is F due to severe omissions of critical clinical content, particularly in the Objective and Assessment sections. The note completely omits the actual Vitamin D and Calcium lab results and their interpretations, as well as the explicit diagnoses of 'Vitamin D Deficiency, unspecified' and 'Hypertension (previous diagnosis)'. While there are no unsupported additions, these omissions render the note unreliable and unsafe for clinical use, as fundamental patient information and diagnoses are missing.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions, most critically the complete absence of the Vitamin D and Calcium lab results in the Objective section, which are fundamental to the patient's diagnosis and treatment. Additionally, the Subjective and Plan sections contain several moderate omissions of important clinical details and specific instructions. No unsupported or unknown additions were found to penalize the grade.",
     "omissions": [
-      "Patient is here for an initial consultation",
-      "Fatigue is present upon waking despite getting 6-7 hours of sleep nightly",
-      "Joint pain is intermittent",
-      "Joint pain impacts ability to maintain a consistent exercise regimen",
-      "Reduced gardening activity due to joint pain",
-      "Diet is balanced but low in dairy and no fatty fish intake",
-      "General physical exam finding: in no acute distress",
-      "HEENT physical exam finding: Normocephalic, atraumatic, oropharynx clear",
-      "Cardiovascular physical exam finding: Regular rate and rhythm, no murmurs, rubs, or gallops",
-      "Respiratory physical exam finding: Lungs clear to auscultation bilaterally",
-      "Abdomen physical exam finding: Soft, non-tender, no organomegaly",
-      "Vitamin D level: 18 ng/mL (Insufficient)",
-      "Calcium level: 9.0 mg/dL (Normal)",
-      "Assessment: Vitamin D Deficiency, unspecified",
-      "Assessment: Hypertension (previous diagnosis)",
-      "Prescription detail: 90 tablets",
-      "Patient education: Discussed the importance of Vitamin D for bone health and overall well-being"
+      "Patient is here for an initial consultation.",
+      "Fatigue is present upon waking despite getting 6-7 hours of sleep nightly.",
+      "Joint pain is intermittent.",
+      "Joint pain/muscle weakness impacts ability to maintain a consistent exercise regimen.",
+      "Patient enjoys gardening but has had to reduce this activity due to joint pain.",
+      "ROS - Sleep: 6-7 hours per night, but feels fatigued upon waking.",
+      "ROS - Diet: Balanced diet but low in dairy and no fatty fish intake.",
+      "Physical exam finding: General: \"in no acute distress\".",
+      "Physical exam finding: HEENT: \"Normocephalic, atraumatic, oropharynx clear\".",
+      "Physical exam finding: Cardiovascular: \"Regular rate and rhythm, no murmurs, rubs, or gallops\".",
+      "Physical exam finding: Respiratory: \"Lungs clear to auscultation bilaterally\".",
+      "Physical exam finding: Abdomen: \"Soft, non-tender, no organomegaly\".",
+      "Vitamin D level: 18 ng/mL (Insufficient).",
+      "Calcium level: 9.0 mg/dL (Normal).",
+      "Assessment: \"unspecified\" for Vitamin D Deficiency.",
+      "Assessment: \"(previous diagnosis)\" for Hypertension.",
+      "Plan: \"90 tablets\" for Vitamin D3 supplements.",
+      "Plan: \"Order blood work for a Vitamin D level recheck in 3 months along with Calcium levels.\"",
+      "Plan: \"Discussed the importance of Vitamin D for bone health and overall well-being.\""
     ],
     "additions": [
-      "No other reported symptoms",
-      "Head, ears, eyes, nose, throat, heart, lungs, abdomen: Normal or within expected limits",
-      "Fatigue and joint pain potentially related to Vitamin D deficiency",
-      "Hypertension controlled with Lisinopril"
+      "Subjective: \"No other reported symptoms\".",
+      "Objective: \"Head, ears, eyes, nose, throat, heart, lungs, abdomen: Normal or within expected limits\" (as a summary statement).",
+      "Assessment: \"Fatigue and joint pain potentially related to Vitamin D deficiency\".",
+      "Assessment: \"controlled with Lisinopril\" for Hypertension.",
+      "Plan: \"Reassess in 3 months for follow-up and blood work\" (redundant instruction)."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section receives a C. It has several moderate omissions, including details about the patient's initial consultation status, the specific characteristics of fatigue (upon waking despite 6-7 hours of sleep), the intermittent nature of joint pain, its impact on exercise and gardening, and specific dietary habits (low in dairy, no fatty fish). These omissions make the history of present illness less complete, though the core complaints are captured. All additions in this section were supported by the transcript.",
+        "summary": "The Subjective section omits several important details from the HPI and ROS, including the patient being an initial consultation, the specific nature of fatigue (upon waking despite sleep), the intermittent nature of joint pain, the impact on exercise and gardening, and specific dietary details (low in dairy and no fatty fish intake). These omissions reduce the completeness of the patient's history.",
         "omissions": [
-          "Patient is here for an initial consultation",
-          "Fatigue is present upon waking despite getting 6-7 hours of sleep nightly",
-          "Joint pain is intermittent",
-          "Joint pain impacts ability to maintain a consistent exercise regimen",
-          "Reduced gardening activity due to joint pain",
-          "Diet is balanced but low in dairy and no fatty fish intake"
+          "Patient is here for an initial consultation.",
+          "Fatigue is present upon waking despite getting 6-7 hours of sleep nightly.",
+          "Joint pain is intermittent.",
+          "Joint pain/muscle weakness impacts ability to maintain a consistent exercise regimen.",
+          "Patient enjoys gardening but has had to reduce this activity due to joint pain.",
+          "ROS - Sleep: 6-7 hours per night, but feels fatigued upon waking.",
+          "ROS - Diet: Balanced diet but low in dairy and no fatty fish intake."
         ],
         "additions": [
-          "No other reported symptoms"
+          "\"No other reported symptoms\"."
         ]
       },
       {
         "section": "Objective",
-        "grade": "F",
-        "summary": "The Objective section receives an F. It critically omits the actual Vitamin D level (18 ng/mL, insufficient) and Calcium level (9.0 mg/dL, normal), which are essential objective findings directly supporting the assessment and plan. While a general statement about physical exam findings being 'normal or within expected limits' is added (and supported), the specific detailed physical exam findings (e.g., 'in no acute distress', 'Normocephalic, atraumatic', 'no murmurs, rubs, or gallops') are also omitted. The absence of the lab results is a major issue that makes the note unreliable.",
+        "grade": "D",
+        "summary": "The Objective section has major omissions, most notably the complete absence of the Vitamin D level (18 ng/mL, insufficient) and Calcium level (9.0 mg/dL, normal) lab results. While physical exam findings are summarized, the lack of specific lab values critically reduces the clinical usefulness and completeness of this section.",
         "omissions": [
-          "General physical exam finding: in no acute distress",
-          "HEENT physical exam finding: Normocephalic, atraumatic, oropharynx clear",
-          "Cardiovascular physical exam finding: Regular rate and rhythm, no murmurs, rubs, or gallops",
-          "Respiratory physical exam finding: Lungs clear to auscultation bilaterally",
-          "Abdomen physical exam finding: Soft, non-tender, no organomegaly",
-          "Vitamin D level: 18 ng/mL (Insufficient)",
-          "Calcium level: 9.0 mg/dL (Normal)"
+          "General: \"in no acute distress\".",
+          "HEENT: \"Normocephalic, atraumatic, oropharynx clear\".",
+          "Cardiovascular: \"Regular rate and rhythm, no murmurs, rubs, or gallops\".",
+          "Respiratory: \"Lungs clear to auscultation bilaterally\".",
+          "Abdomen: \"Soft, non-tender, no organomegaly\".",
+          "Vitamin D level: 18 ng/mL (Insufficient).",
+          "Calcium level: 9.0 mg/dL (Normal)."
         ],
         "additions": [
-          "Head, ears, eyes, nose, throat, heart, lungs, abdomen: Normal or within expected limits"
+          "\"Head, ears, eyes, nose, throat, heart, lungs, abdomen: Normal or within expected limits\"."
         ]
       },
       {
         "section": "Assessment",
-        "grade": "F",
-        "summary": "The Assessment section receives an F. It completely omits the primary diagnoses of 'Vitamin D Deficiency, unspecified' and 'Hypertension (previous diagnosis)'. While supported additions like 'Fatigue and joint pain potentially related to Vitamin D deficiency' and 'Hypertension controlled with Lisinopril' provide context, they do not replace the explicit and formal diagnoses. The absence of these critical diagnoses makes the note unreliable and unsafe for clinical decision-making.",
+        "grade": "A",
+        "summary": "The Assessment section is strong, with only minor omissions regarding the specificity of the Vitamin D Deficiency (\"unspecified\") and Hypertension (\"previous diagnosis\"). All additions in this section were supported by the transcript.",
         "omissions": [
-          "Vitamin D Deficiency, unspecified",
-          "Hypertension (previous diagnosis)"
+          "\"unspecified\" for Vitamin D Deficiency.",
+          "\"(previous diagnosis)\" for Hypertension."
         ],
         "additions": [
-          "Fatigue and joint pain potentially related to Vitamin D deficiency",
-          "Hypertension controlled with Lisinopril"
+          "\"Fatigue and joint pain potentially related to Vitamin D deficiency\".",
+          "\"controlled with Lisinopril\" for Hypertension."
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section receives a B. It has minor omissions, specifically the prescription detail of '90 tablets' for Vitamin D3 supplements and the specific content of patient education regarding 'the importance of Vitamin D for bone health and overall well-being'. However, the core treatment, lifestyle, follow-up, and next steps are present and accurately reflect the Ground Truth. There were no unsupported additions.",
+        "summary": "The Plan section omits several moderate details, including the specific quantity of Vitamin D3 supplements (90 tablets), the explicit instruction to order blood work for Vitamin D and Calcium recheck in 3 months, and the detail about discussing the importance of Vitamin D for bone health and overall well-being with the patient.",
         "omissions": [
-          "Prescription detail: 90 tablets",
-          "Patient education: Discussed the importance of Vitamin D for bone health and overall well-being"
+          "\"90 tablets\" for Vitamin D3 supplements.",
+          "\"Order blood work for a Vitamin D level recheck in 3 months along with Calcium levels.\"",
+          "\"Discussed the importance of Vitamin D for bone health and overall well-being.\""
         ],
-        "additions": []
+        "additions": [
+          "\"Reassess in 3 months for follow-up and blood work\" (redundant instruction)."
+        ]
       }
     ],
-    "rubric_notes": null
+    "rubric_notes": "The generated note omits several specific details from the HPI and ROS, summarizing them or leaving them out. In the Objective section, it generalizes several physical exam findings into a single \"Normal or within expected limits\" statement, and completely omits the lab results. In the Assessment, it adds an interpretive link between symptoms and diagnosis and specifies the hypertension is \"controlled with Lisinopril\" rather than just a \"previous diagnosis\". In the Plan, it omits a specific detail about the supplement quantity and a patient education point, and includes a redundant follow-up instruction."
   },
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "No other reported symptoms",
+      "addition_text": "Subjective: \"No other reported symptoms\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Not really, just the fatigue and joint pain. ... [Patient]: No, none of that. (referring to fever or weight loss)",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No other reported symptoms"
+      "matched_claim_text": "No other reported symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Head, ears, eyes, nose, throat, heart, lungs, abdomen: Normal or within expected limits",
+      "addition_text": "Objective: \"Head, ears, eyes, nose, throat, heart, lungs, abdomen: Normal or within expected limits\" (as a summary statement).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: You appear alert and well-nourished. ... Your head, ears, eyes, nose, and throat all look normal. Your heart has a regular rate and rhythm with no murmurs, rubs, or gallops. Your lungs are clear to auscultation bilaterally, and your abdomen is soft and non-tender with no organomegaly.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "General appearance is alert and well-nourished, with head, ears, eyes, nose, throat, heart, lungs, and abdomen normal or within expected limits."
+      "matched_claim_text": "General appearance is alert and well-nourished, with head, ears, eyes, nose, throat, heart, lungs, and abdomen normal or within expected limits.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Fatigue and joint pain potentially related to Vitamin D deficiency",
+      "addition_text": "Assessment: \"Fatigue and joint pain potentially related to Vitamin D deficiency\".",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It means you have a Vitamin D deficiency, which could be contributing to your fatigue and joint pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fatigue and joint pain potentially related to Vitamin D deficiency"
+      "matched_claim_text": "Fatigue and joint pain potentially related to Vitamin D deficiency",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Hypertension controlled with Lisinopril",
+      "addition_text": "Assessment: \"controlled with Lisinopril\" for Hypertension.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Continue taking your Lisinopril 10 mg daily for hypertension. How has that been going?\n\n[Patient]: It's been fine, no issues there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension controlled with Lisinopril"
+      "matched_claim_text": "Hypertension controlled with Lisinopril",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: \"Reassess in 3 months for follow-up and blood work\" (redundant instruction).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We'll need to schedule a follow-up appointment in three months to reassess your Vitamin D levels and see how you're doing. ... I'll also order blood work for the recheck of your Vitamin D level and calcium levels in three months. ... We'll see you back here in three months for follow-up and blood work.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up appointment in 3 months for reassessment, including recheck of Vitamin D and calcium levels",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"No other reported symptoms\".",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Not really, just the fatigue and joint pain. ... [Patient]: No, none of that. (referring to fever or weight loss)",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No other reported symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Head, ears, eyes, nose, throat, heart, lungs, abdomen: Normal or within expected limits\".",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: You appear alert and well-nourished. ... Your head, ears, eyes, nose, and throat all look normal. Your heart has a regular rate and rhythm with no murmurs, rubs, or gallops. Your lungs are clear to auscultation bilaterally, and your abdomen is soft and non-tender with no organomegaly.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "General appearance is alert and well-nourished, with head, ears, eyes, nose, throat, heart, lungs, and abdomen normal or within expected limits.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Fatigue and joint pain potentially related to Vitamin D deficiency\".",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: It means you have a Vitamin D deficiency, which could be contributing to your fatigue and joint pain.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Fatigue and joint pain potentially related to Vitamin D deficiency",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"controlled with Lisinopril\" for Hypertension.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Continue taking your Lisinopril 10 mg daily for hypertension. How has that been going?\n\n[Patient]: It's been fine, no issues there.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Hypertension controlled with Lisinopril",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"Reassess in 3 months for follow-up and blood work\" (redundant instruction).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We'll need to schedule a follow-up appointment in three months to reassess your Vitamin D levels and see how you're doing. ... I'll also order blood work for the recheck of your Vitamin D level and calcium levels in three months. ... We'll see you back here in three months for follow-up and blood work.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Schedule follow-up appointment in 3 months for reassessment, including recheck of Vitamin D and calcium levels",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

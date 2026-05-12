@@ -198,9 +198,9 @@
     "plan_alignment_score": 0.6451612903225806
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is clinically usable but has noticeable gaps due to multiple moderate omissions across all sections. Key contextual information, such as the specific postpartum timeline, the patient's stable hypothyroidism history, pending investigations, and precise medication details (duration/dispense), are missing. While no unsupported or unknown additions were found, the cumulative effect of these omissions makes the note meaningfully incomplete, requiring caution and further review.",
+    "overall_summary": "The generated note receives a C due to numerous omissions across all sections. While there are no unsupported additions, the note significantly lacks important clinical details such as the patient's history of hypothyroidism in the HPI, specific findings of breast engorgement in the physical exam, the pending investigations for postpartum thyroiditis, crucial medication duration and dispense quantity for Levothyroxine, and specific postnatal care instructions regarding sleep management and balanced nutrition. These gaps make the note meaningfully incomplete and require careful review.",
     "omissions": [
       "Subjective: follow-up visit, 1 week postpartum",
       "Subjective: mild to moderate difficulty breastfeeding",
@@ -237,7 +237,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section omits important contextual details such as the specific postpartum timeline ('1 week postpartum') and the patient's known history of hypothyroidism with current medication. Several minor details regarding the nature of fatigue and breastfeeding difficulty are also missing, making the history less complete.",
+        "summary": "The Subjective section receives a C due to several omissions. It lacks the patient's known history of hypothyroidism in the HPI, the impact of fatigue on newborn care, and specific details from the Review of Systems regarding breast engorgement and no recent weight changes. The context of the visit being \"1 week postpartum\" is also omitted.",
         "omissions": [
           "follow-up visit, 1 week postpartum",
           "mild to moderate difficulty breastfeeding",
@@ -254,7 +254,7 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "This section omits key details from the physical examination, including the patient's general appearance ('Alert, moderately cooperative, appears fatigued') and neurological findings. More significantly, it omits the crucial information about pending investigations ('Awaiting CBC and thyroid function test results to evaluate for postpartum thyroiditis').",
+        "summary": "The Objective section receives a C due to significant omissions. It fails to include the general appearance of the patient (\"Alert, moderately cooperative, appears fatigued\"), the positive finding of breast engorgement in the physical examination, and the entire \"Investigations\" subsection detailing the awaiting CBC and thyroid function test results for postpartum thyroiditis.",
         "omissions": [
           "Physical Examination - General: Alert, moderately cooperative, appears fatigued",
           "Physical Examination - Breasts: Signs of engorgement, no erythema, tenderness",
@@ -268,7 +268,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "While the generated note identifies the key issues (engorgement, fatigue, hypothyroidism monitoring), it omits the specific postpartum timeline ('Postpartum status, 1 week'), the stability of the hypothyroidism on Levothyroxine, and the 'suspected' nature of thyroiditis pending results. This reduces the precision and completeness of the assessment.",
+        "summary": "The Assessment section receives a C. It omits the specific \"Postpartum status, 1 week\" and the detail that the patient's \"History of hypothyroidism\" is \"stable on Levothyroxine.\" The phrasing for \"Suspected postpartum thyroiditis pending blood work results\" is also less explicit than the ground truth, losing the direct diagnostic suspicion.",
         "omissions": [
           "Postpartum status, 1 week",
           "History of hypothyroidism, stable on Levothyroxine",
@@ -282,7 +282,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The plan is broadly correct but omits important specific details regarding medication duration and dispense quantity for Levothyroxine. It also misses specific postnatal care instructions (e.g., methods to manage sleep, balanced nutrition) and the comprehensive goals for the follow-up visit ('reassess thyroid function and general postpartum recovery').",
+        "summary": "The Plan section receives a C due to several clinically important omissions. It lacks the full details for Levothyroxine, specifically the duration (\"for 6 weeks\") and dispense quantity (\"Dispense 42 tablets\"). Other missing items include specific advice on managing sleep with a newborn, the importance of balanced nutrition beyond diet specifics, the full scope of the follow-up to \"reassess thyroid function and general postpartum recovery,\" and the concluding statement about patient understanding.",
         "omissions": [
           "Levothyroxine 50 mcg tablets, oral, once daily for 6 weeks. Dispense 42 tablets.",
           "Advised on methods to manage sleep with a newborn, focusing on resting when the baby sleeps.",
@@ -307,112 +307,144 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm very tired. ... Yes, I'm really exhausted. ... It's quite common to feel fatigued postpartum.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Postpartum fatigue"
+      "matched_claim_text": "Postpartum fatigue",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective: breast infection (in 'No signs of mastitis or breast infection noted')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, there's no pain, but my breasts are definitely engorged. There's no redness or anything that looks like an infection. ... Your breasts do show signs of engorgement, but there's no erythema or tenderness, which means no signs of mastitis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No signs of mastitis or breast infection noted"
+      "matched_claim_text": "No signs of mastitis or breast infection noted",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Engorgement due to breastfeeding difficulties (as a separate assessment item)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've been having some difficulty breastfeeding... My breasts feel really full and heavy... my breasts are definitely engorged. ... Your breasts do show signs of engorgement.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Engorgement due to breastfeeding difficulties"
+      "matched_claim_text": "Engorgement due to breastfeeding difficulties",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Hypothyroidism requires monitoring for postpartum thyroiditis (as a combined assessment statement)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Given your history of hypothyroidism, we'll need to keep an eye on your thyroid function. We're waiting on your CBC and thyroid function test results to evaluate for postpartum thyroiditis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypothyroidism requires monitoring for postpartum thyroiditis"
+      "matched_claim_text": "Hypothyroidism requires monitoring for postpartum thyroiditis",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: address any concerns during the follow-up visit (related to lactation consultant discussion)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "During that visit, we'll also discuss your progress with the lactation consultant and any other concerns you might have.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss progress with the lactation consultant and address any concerns during the follow-up visit"
+      "matched_claim_text": "Discuss progress with the lactation consultant and address any concerns during the follow-up visit",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: for patient's understanding (related to educational materials)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Also, I've provided some educational materials on postpartum thyroiditis for you.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide educational materials on postpartum thyroiditis for patient's understanding"
+      "matched_claim_text": "Provide educational materials on postpartum thyroiditis for patient's understanding",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: if needed (related to community resources)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We also have community resources available for low-income families and public assistance programs. I'll give you that information as well, in case you need additional support.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Offer community resources for low-income families and public assistance programs if needed"
+      "matched_claim_text": "Offer community resources for low-income families and public assistance programs if needed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Advise patient to seek help immediately (for PPD/fatigue monitoring)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you notice any signs of postpartum depression or worsening fatigue, please let us know immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to seek help immediately if experiencing signs of postpartum depression or worsening fatigue"
+      "matched_claim_text": "Advise patient to seek help immediately if experiencing signs of postpartum depression or worsening fatigue",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "excessive fatigue",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm feeling alright, but I've been having some difficulty breastfeeding and I'm very tired. ... Well, it's been a week since I had my baby, and I've been finding it hard to get a good latch. ... Yes, I'm really exhausted.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports difficulty breastfeeding and excessive fatigue since postpartum"
+      "matched_claim_text": "Patient reports difficulty breastfeeding and excessive fatigue since postpartum",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "breast infection (in 'No signs of mastitis or breast infection noted')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, there's no pain, but my breasts are definitely engorged. There's no redness or anything that looks like an infection. ... Your breasts do show signs of engorgement, but there's no erythema or tenderness, which means no signs of mastitis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No signs of mastitis or breast infection noted"
+      "matched_claim_text": "No signs of mastitis or breast infection noted",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Engorgement due to breastfeeding difficulties (as a separate assessment item)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've been having some difficulty breastfeeding... My breasts feel really full and heavy... my breasts are definitely engorged. ... Your breasts do show signs of engorgement.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Engorgement due to breastfeeding difficulties"
+      "matched_claim_text": "Engorgement due to breastfeeding difficulties",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Hypothyroidism requires monitoring for postpartum thyroiditis (as a combined assessment statement)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Given your history of hypothyroidism, we'll need to keep an eye on your thyroid function. We're waiting on your CBC and thyroid function test results to evaluate for postpartum thyroiditis.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypothyroidism requires monitoring for postpartum thyroiditis"
+      "matched_claim_text": "Hypothyroidism requires monitoring for postpartum thyroiditis",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "address any concerns during the follow-up visit (related to lactation consultant discussion)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "During that visit, we'll also discuss your progress with the lactation consultant and any other concerns you might have.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss progress with the lactation consultant and address any concerns during the follow-up visit"
+      "matched_claim_text": "Discuss progress with the lactation consultant and address any concerns during the follow-up visit",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "for patient's understanding (related to educational materials)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Also, I've provided some educational materials on postpartum thyroiditis for you.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide educational materials on postpartum thyroiditis for patient's understanding"
+      "matched_claim_text": "Provide educational materials on postpartum thyroiditis for patient's understanding",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "if needed (related to community resources)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We also have community resources available for low-income families and public assistance programs. I'll give you that information as well, in case you need additional support.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Offer community resources for low-income families and public assistance programs if needed"
+      "matched_claim_text": "Offer community resources for low-income families and public assistance programs if needed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Advise patient to seek help immediately (for PPD/fatigue monitoring)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you notice any signs of postpartum depression or worsening fatigue, please let us know immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise patient to seek help immediately if experiencing signs of postpartum depression or worsening fatigue"
+      "matched_claim_text": "Advise patient to seek help immediately if experiencing signs of postpartum depression or worsening fatigue",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

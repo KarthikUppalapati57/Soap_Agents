@@ -275,9 +275,9 @@
     "plan_alignment_score": 0.6499999999999999
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, core history of present illness, most review of systems, vital signs, physical exam findings, assessment, and the majority of the treatment plan. There are several minor omissions, including specific details about the patient's job, social impact of opioid use, precise sleep duration, and some specific lifestyle counseling advice. Moderate omissions include the daily usage of opioids, neurological exam findings, and the explicit instruction for the patient to start cognitive-behavioral therapy. The note also includes one minor unsupported summary statement regarding vital signs, though the individual vital signs reported are accurate. No high-severity unsupported additions are present.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Subjective and Plan sections. There are multiple moderate omissions, including key details about the patient's history of present illness (e.g., daily opioid usage, impact on social relationships, duration of back pain), specific sleep quality, neurological exam findings, and important patient instructions and overall summary in the Plan. While there is one unsupported addition in the Objective section, it does not introduce misleading clinical content as the detailed vital signs are provided and are within normal limits. The cumulative effect of the moderate omissions makes the note meaningfully incomplete, requiring caution and review.",
     "omissions": [
       "Patient's job as a construction worker",
       "Impact of opioid use on social relationships",
@@ -304,8 +304,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section captures the core HPI and ROS content, including chief complaint, opioid dependence duration, cravings, withdrawal symptoms, and denial of major psychiatric/general symptoms. However, it omits several specific details such as the patient's job as a construction worker, the impact on social relationships, daily opioid usage, and the specific duration of poor sleep (4-5 hours). The denial of headaches, dizziness, or seizures in the neurological ROS is also omitted. While these are numerous, most are minor details or formatting, with a few moderate omissions. No unsupported or unknown additions are present in this section.",
+        "grade": "C",
+        "summary": "This section has multiple moderate omissions, including the patient's job as a construction worker, the impact of opioid use on social relationships, the duration of chronic lower back pain (two years), daily opioid usage, and specific poor sleep quality (4-5 hours per night). It also omits the denial of headaches, dizziness, or seizures. These omissions result in a less complete and detailed history of present illness and review of systems.",
         "omissions": [
           "Chief Complaint section header",
           "History of Present Illness section header",
@@ -330,7 +330,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports vital signs, most physical exam findings, urine drug screen results, and pending blood work. However, it omits the neurological exam findings (alert and oriented, normal reflexes and coordination), which is a moderate omission. The section also includes an unsupported summary statement, \"Vital signs within normal limits,\" which is an interpretation not explicitly stated in the transcript. However, as the individual vital signs reported are indeed within normal ranges, this unsupported addition is considered minor in severity as it does not introduce misleading clinical content.",
+        "summary": "This section omits the neurological exam findings (alert and oriented, normal reflexes and coordination). It also includes one unsupported addition, the summary statement \"Vital signs within normal limits.\" While the individual vital signs are listed and are indeed normal, the summary statement itself is not explicitly supported by the transcript. However, this unsupported addition does not introduce misleading clinical content.",
         "omissions": [
           "Neurological exam findings: Alert and oriented, normal reflexes and coordination"
         ],
@@ -342,7 +342,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the Ground Truth and contains no omissions or unsupported/unknown additions. The addition of \"at this stage\" is explicitly supported by the transcript.",
+        "summary": "This section is perfectly aligned with the ground truth, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": [
           "\"at this stage\" qualifier"
@@ -350,8 +350,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section captures all major components of the treatment plan, including medication, follow-up schedule, referral, and general lifestyle counseling. However, it omits specific advice to reduce fast food intake and join a physical activity program (minor omissions). More importantly, it omits the explicit instruction for the patient to start cognitive-behavioral therapy with Dr. Jane Smith, which is a moderate omission as it is a key patient action item. Several section headers are also omitted. No unsupported or unknown additions are present in this section.",
+        "grade": "C",
+        "summary": "This section has several moderate omissions, including the specific instruction for the patient to start cognitive-behavioral therapy with Dr. Jane Smith, and the overall patient summary regarding their cooperation, motivation, and anxiety about managing withdrawal symptoms. Minor omissions include specific advice to reduce fast food intake and join a physical activity program. These omissions create noticeable gaps in patient instructions and the overall clinical picture of the patient's engagement.",
         "omissions": [
           "\"Lifestyle Counseling\" section header",
           "\"Smoking Cessation\" section header",
@@ -380,84 +380,108 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"at this stage\" qualifier in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on everything we’ve discussed and reviewed, it’s clear you have opioid dependence, but it’s uncomplicated at this stage.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Opioid dependence, uncomplicated at this stage."
+      "matched_claim_text": "Opioid dependence, uncomplicated at this stage.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "opioid dependence, susceptibility to, 1"
     },
     {
       "addition_text": "\"to manage withdrawal symptoms and cravings\" as a reason for buprenorphine/naloxone",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m going to prescribe buprenorphine/naloxone (Suboxone) 8mg/2mg sublingual film, one film daily to help with your withdrawal symptoms and cravings.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe buprenorphine/naloxone (Suboxone) 8mg/2mg sublingual film, one film daily to manage withdrawal symptoms and cravings."
+      "matched_claim_text": "Prescribe buprenorphine/naloxone (Suboxone) 8mg/2mg sublingual film, one film daily to manage withdrawal symptoms and cravings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"to provide additional support\" as a reason for CBT referral",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’m also referring you to Dr. Jane Smith for cognitive-behavioral therapy (CBT). She specializes in substance use disorders and can provide additional support.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Refer the patient to Dr. Jane Smith for cognitive-behavioral therapy (CBT) to provide additional support."
+      "matched_claim_text": "Refer the patient to Dr. Jane Smith for cognitive-behavioral therapy (CBT) to provide additional support.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Patient reports general health feeling off due to opioid use, but otherwise no other symptoms mentioned.\" in Subjective",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My appetite is okay, but my general health feels off because of the opioid use.\n[Doctor]: Have you experienced any other symptoms like headaches, dizziness, or seizures?\n[Patient]: No, none of those. Just the anxiety, restlessness, and insomnia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports general health feeling off due to opioid use, but otherwise no other symptoms mentioned."
+      "matched_claim_text": "Patient reports general health feeling off due to opioid use, but otherwise no other symptoms mentioned.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"blood work results pending (CBC, LFTs, CMP)\" in Objective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We also have your urine drug screen results. It’s positive for opioids, but negative for other substances. We are still waiting on your blood work results, including CBC, LFTs, and CMP.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Urine drug screen positive for opioids, but negative for other substances; blood work results pending (CBC, LFTs, CMP)."
+      "matched_claim_text": "Urine drug screen positive for opioids, but negative for other substances; blood work results pending (CBC, LFTs, CMP).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Patient reports general health feeling off due to opioid use, but otherwise no other symptoms mentioned.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My appetite is okay, but my general health feels off because of the opioid use.\n[Doctor]: Have you experienced any other symptoms like headaches, dizziness, or seizures?\n[Patient]: No, none of those. Just the anxiety, restlessness, and insomnia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient reports general health feeling off due to opioid use, but otherwise no other symptoms mentioned."
+      "matched_claim_text": "Patient reports general health feeling off due to opioid use, but otherwise no other symptoms mentioned.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Vital signs within normal limits\" summary statement",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"blood work results pending (CBC, LFTs, CMP)\" in the Laboratory Results section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We also have your urine drug screen results. It’s positive for opioids, but negative for other substances. We are still waiting on your blood work results, including CBC, LFTs, and CMP.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Urine drug screen positive for opioids, but negative for other substances; blood work results pending (CBC, LFTs, CMP)."
+      "matched_claim_text": "Urine drug screen positive for opioids, but negative for other substances; blood work results pending (CBC, LFTs, CMP).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"at this stage\" qualifier",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on everything we’ve discussed and reviewed, it’s clear you have opioid dependence, but it’s uncomplicated at this stage.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Opioid dependence, uncomplicated at this stage."
+      "matched_claim_text": "Opioid dependence, uncomplicated at this stage.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "opioid dependence, susceptibility to, 1"
     },
     {
       "addition_text": "\"Discuss lifestyle changes including establishing healthy sleep patterns, adopting a balanced diet, incorporating regular physical exercise, reducing tobacco use, and considering smoking cessation programs.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I’d also like to discuss some lifestyle changes. Establishing healthy sleep patterns is crucial. Try to adopt a balanced diet and incorporate regular physical exercise into your routine. Reducing tobacco use and considering smoking cessation programs will also benefit you.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss lifestyle changes including establishing healthy sleep patterns, adopting a balanced diet, incorporating regular physical exercise, reducing tobacco use, and considering smoking cessation programs."
+      "matched_claim_text": "Discuss lifestyle changes including establishing healthy sleep patterns, adopting a balanced diet, incorporating regular physical exercise, reducing tobacco use, and considering smoking cessation programs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Schedule follow-up appointment in one week to assess response to buprenorphine/naloxone, monitor withdrawal symptoms, and ensure medication adherence.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Please return to the clinic in one week for a follow-up. We’ll assess your response to the buprenorphine/naloxone, monitor your withdrawal symptoms, and ensure you’re adhering to the medication.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in one week to assess response to buprenorphine/naloxone, monitor withdrawal symptoms, and ensure medication adherence."
+      "matched_claim_text": "Schedule follow-up appointment in one week to assess response to buprenorphine/naloxone, monitor withdrawal symptoms, and ensure medication adherence.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

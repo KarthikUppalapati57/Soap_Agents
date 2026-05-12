@@ -2,7 +2,7 @@
   "item": "item_0104",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0104",
   "ground_truth_soap": "#\nSubjective:\n\nChief Complaint (CC):\nDepressed mood and associated symptoms.\n\nHistory of Present Illness (HPI):\nSofia Hernandez is a 32-year-old Hispanic female who presents for an initial psychiatric consultation due to experiencing severe depressive symptoms over the past 4 weeks. The patient describes a consistent depressed mood, characterized by a lack of interest in previously enjoyable activities, significant insomnia, a substantial reduction in appetite, and persistent fatigue. She has also been battling feelings of worthlessness and severe difficulty concentrating. This has led to considerable impairment in her daily activities, where she is unable to perform at work, avoids social interactions, and neglects personal hygiene.\n\nReview of Systems (ROS):\n\n- Psychiatric: Reports severe depression, insomnia, lack of appetite, fatigue, feelings of worthlessness, and difficulty concentrating.\n- Constitutional: No unexplained weight loss or fever.\n- Neurological: No complaints of headaches or other neurological symptoms.\n- GI: No gastrointestinal symptoms.\n\nObjective:\n- No physical examinations or vital signs performed in this initial psychiatric consultation.\n\nAssessment:\n- Diagnosis: Major Depressive Disorder, Single Episode, Unspecified (ICD-10 F32.9)\n\nPlan:\nMedication: \n   - Start Sertraline 50 mg tablets, once daily, oral, for 3 months. Quantity: 90 tablets.\n   \nFollow-up Recommendations: \n   - Follow-up appointment in 2 weeks for medication adjustment and therapy evaluation.\n   \nReferrals: \n   - Referral to Cognitive Behavioral Therapist, Dr. Susan Miller, for therapy sessions.\n\nPatient Education and Lifestyle Recommendations:\n   - Educate the patient about the importance of medication adherence and potential side effects of Sertraline.\n   - Encourage maintaining a regular sleep schedule and balanced diet despite current symptoms.\n   - Recommend trying to engage in light physical activity, such as short walks, to improve mood and energy levels.\n   \nSupport and Resources:\n   - Provide information on support groups and mental health resources within the community.\n   - Encourage the patient to reach out to family members or trusted individuals for support during this period.\n\nSofia Hernandez agreed to the treatment plan and showed a willingness to commit to both pharmacologic and non-pharmacologic therapeutic strategies.\n#",
-  "generated_soap": "Subjective:\n- Patient reports feelings of severe depression for the past 4 weeks, with associated symptoms of anhedonia, insomnia, fatigue, difficulty concentrating, and feelings of worthlessness.\n\nObjective:\n- No physical examination findings reported in the conversation.\n\nAssessment:\n- Severe depressive episode.\n\nPlan:\n- Initiate treatment with Sertraline 50mg once daily for a 3-month course, followed by reassessment.\n- Refer patient to Cognitive Behavioral Therapist Dr. Susan Miller.\n- Encourage regular sleep schedule, balanced diet, light physical activity, and engagement in support groups or community mental health resources.\n- Schedule follow-up appointment in 2 weeks to evaluate response to treatment and therapy.",
+  "generated_soap": "Subjective:\n- Patient presents with symptoms of severe depressive disorder for the past 4 weeks, including feelings of worthlessness, lack of enjoyment in activities, insomnia, anorexia, and fatigue\n\nObjective:\n- No abnormalities noted during physical examination\n- Mental status evaluation reveals symptoms consistent with major depressive disorder\n\nAssessment:\n- Severe Major Depressive Disorder (MDD) based on patient's self-reported symptoms\n\nPlan:\n- Initiate treatment with Sertraline 50mg daily for 3 months, followed by reassessment\n- Referral to Cognitive Behavioral Therapist, Dr. Susan Miller\n- Encourage regular sleep schedule, balanced diet, light physical activity, and engagement in support groups or community mental health resources\n- Schedule follow-up appointment in 2 weeks for medication and therapy review\n- Encourage patient to reach out to family members or friends for additional emotional support during this time",
   "entities_gt": {
     "all_entities": [
       "depressed mood",
@@ -45,42 +45,46 @@
   },
   "entities_generated": {
     "all_entities": [
-      "severe depression",
-      "anhedonia",
-      "insomnia",
-      "fatigue",
-      "difficulty concentrating",
+      "severe depressive disorder",
       "feelings of worthlessness",
-      "physical examination findings",
-      "assessment",
-      "severe depressive episode",
-      "treatment",
-      "sertraline 50mg",
+      "lack of enjoyment in activities",
+      "insomnia",
+      "anorexia",
+      "fatigue",
+      "physical examination",
+      "mental status evaluation",
+      "symptoms",
+      "major depressive disorder",
+      "severe major depressive disorder",
+      "mdd",
+      "initiate treatment",
       "reassessment"
     ],
     "symptoms": [
-      "anhedonia",
+      "feelings of worthlessness",
+      "lack of enjoyment in activities",
       "insomnia",
-      "fatigue",
-      "difficulty concentrating",
-      "feelings of worthlessness"
+      "anorexia",
+      "fatigue"
     ],
     "medications": [
       "sertraline 50mg"
     ],
-    "labs": []
+    "labs": [
+      "mental status evaluation"
+    ]
   },
   "clinical_recall_all": {
     "gt_count": 20,
-    "gen_count": 12,
+    "gen_count": 14,
     "overlap_count": 4,
     "recall": 0.2,
     "gt_only": [
       "depressed mood",
+      "difficulty concentrating",
       "gastrointestinal symptoms",
       "lack of appetite",
       "lack of interest in previously enjoyable activities",
-      "major depressive disorder",
       "medication adjustment",
       "neurological",
       "sertraline",
@@ -94,38 +98,41 @@
       "vital signs"
     ],
     "gen_only": [
-      "anhedonia",
-      "assessment",
-      "physical examination findings",
+      "anorexia",
+      "initiate treatment",
+      "lack of enjoyment in activities",
+      "mdd",
+      "mental status evaluation",
+      "physical examination",
       "reassessment",
-      "sertraline 50mg",
-      "severe depression",
-      "severe depressive episode",
-      "treatment"
+      "severe depressive disorder",
+      "severe major depressive disorder",
+      "symptoms"
     ],
     "overlap": [
-      "difficulty concentrating",
       "fatigue",
       "feelings of worthlessness",
-      "insomnia"
+      "insomnia",
+      "major depressive disorder"
     ]
   },
   "clinical_recall_symptoms": {
     "gt_count": 8,
     "gen_count": 5,
-    "overlap_count": 4,
-    "recall": 0.5,
+    "overlap_count": 3,
+    "recall": 0.375,
     "gt_only": [
+      "difficulty concentrating",
       "lack of appetite",
       "lack of interest in previously enjoyable activities",
       "severe difficulty concentrating",
       "substantial reduction in appetite"
     ],
     "gen_only": [
-      "anhedonia"
+      "anorexia",
+      "lack of enjoyment in activities"
     ],
     "overlap": [
-      "difficulty concentrating",
       "fatigue",
       "feelings of worthlessness",
       "insomnia"
@@ -146,152 +153,129 @@
   },
   "clinical_recall_labs": {
     "gt_count": 1,
-    "gen_count": 0,
+    "gen_count": 1,
     "overlap_count": 0,
     "recall": 0.0,
     "gt_only": [
       "vital signs"
     ],
-    "gen_only": [],
+    "gen_only": [
+      "mental status evaluation"
+    ],
     "overlap": []
   },
   "structural_alignment": {
-    "overall_token_f1": 0.34929742388758783,
-    "overall_rouge_l_f1": 0.26807142433661674,
+    "overall_token_f1": 0.3180359714971612,
+    "overall_rouge_l_f1": 0.24155450669888467,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3114754098360656,
-        "rouge_l_f1": 0.17964071856287425
+        "token_f1": 0.30399999999999994,
+        "rouge_l_f1": 0.17751479289940827
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3,
-        "rouge_l_f1": 0.3
+        "token_f1": 0.14285714285714288,
+        "rouge_l_f1": 0.14285714285714288
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.28571428571428575,
-        "rouge_l_f1": 0.28571428571428575
+        "token_f1": 0.2608695652173913,
+        "rouge_l_f1": 0.2608695652173913
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5,
-        "rouge_l_f1": 0.306930693069307
+        "token_f1": 0.5644171779141105,
+        "rouge_l_f1": 0.38497652582159625
       }
     ],
-    "assessment_alignment_score": 0.28571428571428575,
-    "plan_alignment_score": 0.5
+    "assessment_alignment_score": 0.2608695652173913,
+    "plan_alignment_score": 0.5644171779141105
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, most notably the complete formal diagnosis in the Assessment section. Additionally, the Subjective section lacks detailed information regarding the patient's functional impairment and a comprehensive Review of Systems, while the Plan section omits crucial patient education on medication adherence and side effects, as well as specific instructions for providing support resources. All additions were supported by the transcript and did not negatively impact the grade, but the numerous and clinically material omissions reduce the overall usefulness of the note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is broadly clinically usable but contains several noticeable gaps due to omissions. Key missing details include the patient's functional impairment in the HPI, the explicit documentation that no physical examination was performed in the Objective section, and crucial patient education regarding potential medication side effects in the Plan. While all identified additions were supported by the transcript, the cumulative impact of these omissions reduces the completeness and safety of the documentation, warranting a 'C' grade.",
     "omissions": [
-      "Chief Complaint section header and content (\"Depressed mood and associated symptoms.\")",
-      "HPI detail: reason for visit \"initial psychiatric consultation\"",
-      "HPI detail: \"substantial reduction in appetite\"",
-      "HPI detail: \"considerable impairment in her daily activities\"",
-      "HPI detail: \"unable to perform at work\"",
-      "HPI detail: \"avoids social interactions\"",
-      "HPI detail: \"neglects personal hygiene\"",
-      "Review of Systems (ROS) section header",
-      "ROS: Constitutional (No unexplained weight loss or fever)",
-      "ROS: Neurological (No complaints of headaches or other neurological symptoms)",
-      "ROS: GI (No gastrointestinal symptoms)",
-      "Objective detail: \"or vital signs performed\"",
-      "Objective detail: \"in this initial psychiatric consultation\"",
-      "Assessment detail: \"Diagnosis:\" header",
-      "Assessment detail: \"Major Depressive Disorder\"",
-      "Assessment detail: \"Single Episode\"",
-      "Assessment detail: \"Unspecified\"",
-      "Plan detail: Medication formulation (\"tablets\")",
-      "Plan detail: Medication route (\"oral\")",
-      "Plan detail: Medication quantity (\"Quantity: 90 tablets.\")",
-      "Plan detail: Referral detail \"for therapy sessions\"",
-      "Plan detail: Patient education about medication adherence and potential side effects of Sertraline",
-      "Plan detail: Encouragement for maintaining sleep schedule and balanced diet \"despite current symptoms\"",
-      "Plan detail: Specific examples for light physical activity \"such as short walks\"",
-      "Plan detail: Purpose of physical activity \"to improve mood and energy levels\"",
-      "Plan detail: Instruction to \"Provide information on support groups and mental health resources within the community\"",
-      "Plan detail: Encouragement to reach out to family members or trusted individuals for support",
-      "Plan detail: Concluding statement about patient agreement and willingness to commit to strategies"
+      "HPI detail: inability to perform at work, avoids social interactions, neglects personal hygiene (impairment in daily activities)",
+      "ROS: Constitutional (no unexplained weight loss or fever)",
+      "ROS: Neurological (no headaches or other neurological symptoms)",
+      "ROS: GI (no gastrointestinal symptoms)",
+      "Objective: statement that no physical examinations or vital signs were performed",
+      "Assessment: diagnosis detail 'Single Episode, Unspecified'",
+      "Plan: medication quantity (90 tablets)",
+      "Plan: patient education on potential side effects of Sertraline",
+      "Plan: patient agreement to treatment plan and willingness to commit to pharmacologic and non-pharmacologic therapeutic strategies"
     ],
     "additions": [
-      "Plan detail: \"followed by reassessment\" after 3-month medication course",
-      "Plan detail: Encouragement for \"engagement in support groups or community mental health resources\" (as a patient action)"
+      "Objective: Mental status evaluation reveals symptoms consistent with major depressive disorder",
+      "Assessment: 'Severe' qualifier for Major Depressive Disorder",
+      "Assessment: 'based on patient's self-reported symptoms'",
+      "Plan: 'followed by reassessment' for Sertraline treatment"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section omits the Chief Complaint header and content, several important details regarding the patient's functional impairment in the HPI (e.g., unable to perform at work, avoids social interactions, neglects personal hygiene), and the full Review of Systems content and header. While core symptoms are present, these omissions reduce the comprehensiveness of the patient's history.",
+        "summary": "This section has several omissions, most notably the detailed description of the patient's considerable impairment in daily activities (inability to perform at work, avoids social interactions, neglects personal hygiene) from the HPI. Additionally, the Chief Complaint header and content, as well as the full Review of Systems (Constitutional, Neurological, GI), are omitted, making the section meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint section header and content (\"Depressed mood and associated symptoms.\")",
-          "HPI detail: reason for visit \"initial psychiatric consultation\"",
-          "HPI detail: \"substantial reduction in appetite\"",
-          "HPI detail: \"considerable impairment in her daily activities\"",
-          "HPI detail: \"unable to perform at work\"",
-          "HPI detail: \"avoids social interactions\"",
-          "HPI detail: \"neglects personal hygiene\"",
+          "Chief Complaint (CC) section header and content ('Depressed mood and associated symptoms')",
+          "HPI detail: 'initial psychiatric consultation'",
+          "HPI detail: 'consistent depressed mood'",
+          "HPI detail: 'severe difficulty concentrating'",
+          "HPI detail: 'considerable impairment in her daily activities, where she is unable to perform at work, avoids social interactions, and neglects personal hygiene'",
           "Review of Systems (ROS) section header",
-          "ROS: Constitutional (No unexplained weight loss or fever)",
-          "ROS: Neurological (No complaints of headaches or other neurological symptoms)",
-          "ROS: GI (No gastrointestinal symptoms)"
+          "ROS content: 'Constitutional: No unexplained weight loss or fever'",
+          "ROS content: 'Neurological: No complaints of headaches or other neurological symptoms'",
+          "ROS content: 'GI: No gastrointestinal symptoms'"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "This section is largely accurate, with only minor omissions regarding the specific phrasing of \"or vital signs performed\" and \"in this initial psychiatric consultation.\" These do not materially affect the clinical meaning.",
+        "grade": "B",
+        "summary": "The primary issue in this section is the omission of the statement that no physical examinations or vital signs were performed, which is important for clarity in a psychiatric consultation. The addition regarding mental status evaluation was supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "\"or vital signs performed\"",
-          "\"in this initial psychiatric consultation\""
+          "Statement that no physical examinations or vital signs were performed in this initial psychiatric consultation"
         ],
-        "additions": []
+        "additions": [
+          "Mental status evaluation reveals symptoms consistent with major depressive disorder"
+        ]
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "This section has a major omission by not including the full formal diagnosis of \"Major Depressive Disorder, Single Episode, Unspecified (ICD-10 F32.9),\" instead only stating \"Severe depressive episode.\" This significantly reduces the clinical usefulness and completeness of the diagnosis.",
+        "grade": "A",
+        "summary": "This section is well-aligned with the Ground Truth. The only omission is the minor detail 'Single Episode, Unspecified' from the diagnosis. All additions in this section were supported by the transcript and do not impact the grade.",
         "omissions": [
-          "\"Diagnosis:\" header",
-          "\"Major Depressive Disorder\"",
-          "\"Single Episode\"",
-          "\"Unspecified\""
+          "Diagnosis detail: 'Single Episode, Unspecified'"
         ],
-        "additions": []
+        "additions": [
+          "'Severe' qualifier for Major Depressive Disorder",
+          "'based on patient's self-reported symptoms'"
+        ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section contains multiple omissions, including specific medication details (formulation, route, quantity), crucial patient education on medication adherence and potential side effects of Sertraline, and specific instructions for providing support resources and encouraging family involvement. These omissions reduce the completeness and safety aspects of the treatment plan. All additions in this section were supported by the transcript.",
+        "summary": "This section has a significant omission regarding patient education on the potential side effects of Sertraline, which is a critical safety and adherence detail. Other minor omissions include the medication quantity (90 tablets), the 'oral' route, and the patient's agreement to the treatment plan. All additions in this section were supported by the transcript and do not reduce the grade.",
         "omissions": [
-          "Medication formulation (\"tablets\")",
-          "Medication route (\"oral\")",
-          "Medication quantity (\"Quantity: 90 tablets.\")",
-          "Referral detail: \"for therapy sessions\"",
-          "Patient education about medication adherence and potential side effects of Sertraline",
-          "Encouragement for maintaining sleep schedule and balanced diet \"despite current symptoms\"",
-          "Specific examples for light physical activity \"such as short walks\"",
-          "Purpose of physical activity \"to improve mood and energy levels\"",
-          "Instruction to \"Provide information on support groups and mental health resources within the community\"",
-          "Encouragement to reach out to family members or trusted individuals for support",
-          "Concluding statement about patient agreement and willingness to commit to strategies"
+          "Medication detail: 'oral' route",
+          "Medication quantity: '90 tablets'",
+          "Patient education about the importance of medication adherence and potential side effects of Sertraline",
+          "Provider action to 'Provide information on support groups and mental health resources within the community'",
+          "Patient agreement to the treatment plan and willingness to commit to both pharmacologic and non-pharmacologic therapeutic strategies"
         ],
         "additions": [
-          "\"followed by reassessment\" after 3-month medication course",
-          "Encouragement for \"engagement in support groups or community mental health resources\" (as a patient action)"
+          "Medication instruction: 'followed by reassessment'"
         ]
       }
     ],
@@ -300,32 +284,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Plan detail: \"followed by reassessment\" after 3-month medication course",
+      "addition_text": "Objective: Mental status evaluation reveals symptoms consistent with major depressive disorder",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Have you been experiencing any feelings of worthlessness or difficulty concentrating?\n[Patient]: Yes, definitely. I feel worthless all the time and I can't concentrate on anything. It's really affecting my daily life.\n[Doctor]: ...based on what you've told me, it sounds like you're experiencing severe depressive symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Mental status evaluation reveals symptoms consistent with major depressive disorder.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: 'Severe' qualifier for Major Depressive Disorder",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: ...it sounds like you're experiencing severe depressive symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Severe Major Depressive Disorder (MDD) is diagnosed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: 'based on patient's self-reported symptoms'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: ...based on what you've told me, it sounds like you're experiencing severe depressive symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnosis is based on patient's self-reported symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: 'followed by reassessment' for Sertraline treatment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I'd like to start you on a medication called Sertraline.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Initiate treatment with Sertraline.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Mental status evaluation reveals symptoms consistent with major depressive disorder",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Have you been experiencing any feelings of worthlessness or difficulty concentrating?\n[Patient]: Yes, definitely. I feel worthless all the time and I can't concentrate on anything. It's really affecting my daily life.\n[Doctor]: ...based on what you've told me, it sounds like you're experiencing severe depressive symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Mental status evaluation reveals symptoms consistent with major depressive disorder.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'Severe' qualifier for Major Depressive Disorder",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: ...it sounds like you're experiencing severe depressive symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Severe Major Depressive Disorder (MDD) is diagnosed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'based on patient's self-reported symptoms'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: ...based on what you've told me, it sounds like you're experiencing severe depressive symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnosis is based on patient's self-reported symptoms.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Medication instruction: 'followed by reassessment'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll start with a 3-month course and reassess after that.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan detail: Encouragement for \"engagement in support groups or community mental health resources\" (as a patient action)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'll also provide you with information on support groups and mental health resources in the community. It's important to have a support system.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"followed by reassessment\" after 3-month medication course",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We'll start with a 3-month course and reassess after that.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Encouragement for \"engagement in support groups or community mental health resources\" (as a patient action)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'll also provide you with information on support groups and mental health resources in the community. It's important to have a support system.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

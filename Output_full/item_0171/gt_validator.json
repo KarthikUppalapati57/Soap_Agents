@@ -222,104 +222,92 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Assessment and Plan sections. Key omissions include the primary diagnosis of COVID-19 exposure, formal diagnoses of chronic conditions, specific medication dosages for chronic conditions, and the instruction for a rapid antigen test. While there are no unsupported additions, these omissions make the note meaningfully incomplete and require careful review.",
+    "model": "expert_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has several major omissions that significantly reduce its clinical usefulness and completeness. Key issues include the complete absence of the Review of Systems, the primary COVID-19 exposure diagnosis, and specific medication dosage instructions for symptomatic treatment. Additionally, important COVID-19 lifestyle recommendations and detailed chronic condition management advice are missing. There is one unsupported addition where quarantine information is incorrectly placed in the Objective section, which is a moderate alignment issue.",
     "omissions": [
-      "Patient's high level of health literacy",
-      "Patient's cooperativeness with medical advice",
-      "Review of Systems: No weight loss",
-      "Review of Systems: No cough, shortness of breath, or chest tightness",
-      "Review of Systems: No nausea, vomiting, or diarrhea",
-      "Review of Systems: No headaches or changes in neurological status",
-      "Primary diagnosis of 'Contact with and (suspected) exposure to COVID-19'",
-      "Diagnosis of 'Chronic Migraine' (as a condition, not just management adherence)",
-      "Diagnosis of 'GERD (Gastroesophageal Reflux Disease)' (as a condition, not just management adherence)",
-      "Acetaminophen maximum daily dose (8 tablets in 24 hours)",
-      "Rapid Antigen Test for COVID-19 if symptoms develop",
-      "Lifestyle Recommendations: social distancing, hand hygiene, mask usage",
-      "Specific medication and dosage for Chronic Migraine (Sumatriptan 100 mg)",
-      "Specific management for Chronic Migraine (regular sleep, balanced diet, exercise)",
-      "Specific medication and dosage for GERD (Omeprazole 20 mg daily)",
-      "Specific management for GERD (avoid foods that trigger reflux such as spicy foods and alcohol)",
-      "Lifestyle Counseling: Tobacco and Alcohol (abstain from smoking; occasional alcohol consumption acceptable)",
-      "Patient Agreements (understanding, agreement, commitment to adherence)"
+      "Detailed HPI information (29-year-old non-binary, high health literacy, very cooperative)",
+      "Entire Review of Systems (ROS) section with detailed negative findings (Constitutional, Respiratory, Gastrointestinal, Neurological)",
+      "Full diagnosis of 'Contact with and (suspected) exposure to COVID-19' in Assessment",
+      "Specific acetaminophen dosage (500 mg), frequency (every 6 hours), and maximum (8 tablets in 24 hours) for symptomatic treatment",
+      "Specific COVID-19 test type: Rapid Antigen Test",
+      "COVID-19 lifestyle recommendations: social distancing, hand hygiene, and mask usage",
+      "Detailed chronic migraine management: regular sleep, balanced diet, and exercise",
+      "Detailed GERD management: avoidance of specific trigger foods (spicy foods, alcohol)",
+      "Tobacco and Alcohol counseling details: abstain from smoking; occasional alcohol consumption is acceptable",
+      "Patient Agreements section and its content"
     ],
     "additions": [
-      "Chronic migraine management details in Subjective",
-      "GERD management details in Subjective",
-      "Penicillin allergy in Subjective",
-      "Occasional marijuana use in Subjective",
-      "Patient quarantining for 14 days in Objective",
-      "Anxiety related to COVID-19 exposure as an Assessment item",
-      "Good adherence to chronic migraine management and GERD treatment as an Assessment item",
-      "Penicillin allergy in Assessment",
-      "Explicit instruction to 'monitor for symptoms' in Plan",
-      "Explicit instruction to 'Encourage patient to contact clinic if symptoms or concerns arise' in Plan"
+      "Quarantine information included in the Objective section",
+      "Qualifier 'as per CDC guidelines' for quarantine",
+      "Assessment of 'Good adherence to chronic migraine management and GERD treatment'",
+      "General instruction to 'monitor for symptoms' in Plan",
+      "Instruction to 'Encourage patient to contact clinic if symptoms or concerns arise'"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "Quarantine information included in the Objective section"
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The Subjective section accurately captures the chief complaint and present illness. Minor omissions include specific details from the Review of Systems (e.g., absence of weight loss, cough, GI issues, headaches) and patient characteristics like health literacy and cooperativeness. No unsupported additions were identified.",
+        "grade": "C",
+        "summary": "This section has a major omission with the complete absence of the Review of Systems, which is a standard and important part of subjective documentation. Minor HPI details regarding the patient's demographics, health literacy, and cooperativeness were also omitted.",
         "omissions": [
-          "Patient's high level of health literacy",
-          "Patient's cooperativeness with medical advice",
-          "Review of Systems: No weight loss",
-          "Review of Systems: No cough, shortness of breath, or chest tightness",
-          "Review of Systems: No nausea, vomiting, or diarrhea",
-          "Review of Systems: No headaches or changes in neurological status"
+          "Chief Complaint section header",
+          "HPI details: 29-year-old non-binary individual, high level of health literacy, very cooperative with medical advice",
+          "Review of Systems (ROS) section and its detailed findings: Constitutional (no fever, chills, weight loss), Respiratory (no cough, shortness of breath, or chest tightness), Gastrointestinal (no nausea, vomiting, or diarrhea), Neurological (no headaches or changes in neurological status)"
         ],
         "additions": [
-          "History of chronic migraines managed with Sumatriptan and good lifestyle habits",
-          "History of GERD managed with Omeprazole and avoidance of trigger foods",
-          "Allergic to Penicillin",
-          "Occasional marijuana use"
+          "History of chronic migraines managed with Sumatriptan and good lifestyle habits (present in GT Assessment/Plan)",
+          "History of GERD managed with Omeprazole and avoidance of trigger foods (present in GT Assessment/Plan)",
+          "Allergic to Penicillin (present in GT Plan)",
+          "Occasional marijuana use (present in GT Plan)"
         ]
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is complete with no omissions or unsupported additions. It correctly states that no physical exam was performed due to telemedicine and accurately includes the patient's current quarantine status, which was supported by the transcript.",
+        "grade": "B",
+        "summary": "The section correctly states that no physical exam was performed. However, it includes an unsupported addition of quarantine information, which is misplaced in the Objective section instead of the Plan. While the information itself is correct, its incorrect placement is a moderate alignment issue.",
         "omissions": [],
         "additions": [
-          "Patient is quarantining for 14 days as per CDC guidelines"
+          "Patient is quarantining for 14 days as per CDC guidelines (present in GT Plan)",
+          "Qualifier 'as per CDC guidelines'"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has significant omissions, including the primary diagnosis of \"Contact with and (suspected) exposure to COVID-19\" and the formal diagnoses of Chronic Migraine and GERD. While related adherence is mentioned, the core diagnoses are absent, making this section meaningfully incomplete. No unsupported additions were identified.",
+        "grade": "D",
+        "summary": "This section has major omissions, failing to include the primary diagnosis of 'Contact with and (suspected) exposure to COVID-19'. It also omits the chronic conditions of Chronic Migraine and GERD as formal diagnoses, which are important for a comprehensive assessment.",
         "omissions": [
           "Diagnosis: Contact with and (suspected) exposure to COVID-19",
           "Chronic Conditions: Chronic Migraine",
           "Chronic Conditions: GERD (Gastroesophageal Reflux Disease)"
         ],
         "additions": [
-          "Anxiety related to COVID-19 exposure",
           "Good adherence to chronic migraine management and GERD treatment",
-          "Allergic to Penicillin"
+          "Allergic to Penicillin (present in GT Plan)"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section is missing several important details, including the instruction for a rapid antigen test if symptoms develop, specific medication dosages for chronic migraines (Sumatriptan 100 mg) and GERD (Omeprazole 20 mg daily), and detailed lifestyle recommendations (e.g., social distancing, hand hygiene, mask usage). These omissions represent multiple moderate issues that reduce the clinical usefulness of the plan. No unsupported additions were identified.",
+        "grade": "D",
+        "summary": "This section contains a major omission of specific acetaminophen dosage, frequency, and maximum limits, which are critical for safe medication instructions. Several moderate omissions include the specific COVID-19 test type and important lifestyle recommendations for COVID-19 management. Minor details regarding chronic migraine and GERD management, tobacco/alcohol counseling, and patient agreements were also omitted.",
         "omissions": [
-          "Symptomatic Treatment: ... with a maximum of 8 tablets in 24 hours (for acetaminophen)",
-          "Tests: Rapid Antigen Test for COVID-19 if symptoms develop",
-          "Lifestyle Recommendations: Emphasized the importance of social distancing, hand hygiene, and mask usage",
-          "Chronic Migraine: Medication (Sumatriptan 100 mg as needed)",
-          "Chronic Migraine: Management (Maintain regular sleep, balanced diet, and exercise)",
-          "GERD: Medication (Omeprazole 20 mg daily)",
-          "GERD: Management (Avoid foods that trigger reflux such as spicy foods and alcohol)",
-          "Lifestyle Counseling: Tobacco and Alcohol (Continue to abstain from smoking; occasional alcohol consumption is acceptable)",
-          "Patient Agreements (understanding, agreement, commitment to adherence)"
+          "Specific acetaminophen dosage (500 mg), frequency (every 6 hours), and maximum (8 tablets in 24 hours)",
+          "COVID-19 test type: Rapid Antigen Test for COVID-19 if symptoms develop",
+          "COVID-19 lifestyle recommendations: social distancing, hand hygiene, and mask usage",
+          "Chronic Migraine medication details: Sumatriptan 100 mg as needed for migraines",
+          "Chronic Migraine management details: Maintain regular sleep, balanced diet, and exercise",
+          "GERD medication details: Omeprazole 20 mg daily",
+          "GERD management details: Avoid foods that trigger reflux such as spicy foods and alcohol",
+          "Allergy Consideration section and its content: Allergy to Penicillin: Documented and acknowledged",
+          "Lifestyle Counseling section header",
+          "Tobacco and Alcohol counseling: Continue to abstain from smoking; occasional alcohol consumption is acceptable",
+          "Patient Agreements section and its content: The patient understands and agrees with the recommended medical treatment plan. They are cooperative and committed to adhering to quarantine guidelines and follow-up instructions."
         ],
         "additions": [
-          "Monitor for symptoms (as part of quarantine instruction)",
-          "Encourage patient to contact clinic if symptoms or concerns arise"
+          "General instruction to 'monitor for symptoms'",
+          "Instruction to 'Encourage patient to contact clinic if symptoms or concerns arise'"
         ]
       }
     ],
@@ -328,137 +316,121 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Chronic migraine management details in Subjective",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I take Sumatriptan 100 mg when I get a migraine. Yes, I try to stick to a routine. Yes, that's right. Spicy foods usually do. I try to avoid them. Perfect. Continue with that as needed. Good. Continue with the Omeprazole.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Good adherence to chronic migraine management and GERD treatment"
-    },
-    {
-      "addition_text": "GERD management details in Subjective",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Regarding your GERD, you're taking Omeprazole 20 mg daily, correct? Yes, that's right. Spicy foods usually do. I try to avoid them.",
+      "addition_text": "Quarantine information included in the Objective section",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Penicillin allergy in Subjective",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I'm definitely allergic to Penicillin.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Occasional marijuana use in Subjective",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I use it occasionally, but not very often.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Occasional marijuana use"
-    },
-    {
-      "addition_text": "Patient quarantining for 14 days in Objective",
+      "addition_text": "Qualifier 'as per CDC guidelines' for quarantine",
       "supported_by_transcript": "supported",
       "transcript_evidence": "You should be quarantining for 14 days from the date of exposure. Are you able to do that? ... Yes, I can do that. I’ve already started quarantining.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is quarantining for 14 days as per CDC guidelines"
+      "matched_claim_text": "Patient is quarantining for 14 days as per CDC guidelines",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Anxiety related to COVID-19 exposure as an Assessment item",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm doing alright, just a bit anxious. I found out four days ago that I was exposed to someone who tested positive for COVID-19. I'm really worried about it. But I'm very anxious about potentially developing symptoms.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anxiety related to COVID-19 exposure"
-    },
-    {
-      "addition_text": "Good adherence to chronic migraine management and GERD treatment as an Assessment item",
+      "addition_text": "Assessment of 'Good adherence to chronic migraine management and GERD treatment'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I take Sumatriptan 100 mg when I get a migraine. Yes, I try to stick to a routine. Yes, that's right. Spicy foods usually do. I try to avoid them. Perfect. Continue with that as needed. Good. Continue with the Omeprazole.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Good adherence to chronic migraine management and GERD treatment"
+      "matched_claim_text": "Good adherence to chronic migraine management and GERD treatment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Penicillin allergy in Assessment",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I'm definitely allergic to Penicillin.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Explicit instruction to 'monitor for symptoms' in Plan",
+      "addition_text": "General instruction to 'monitor for symptoms' in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you do develop symptoms, it's important to manage them appropriately. So, to sum up, you'll continue to quarantine for the full 14 days, monitor for any symptoms...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitor for symptoms"
+      "matched_claim_text": "Monitor for symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Explicit instruction to 'Encourage patient to contact clinic if symptoms or concerns arise' in Plan",
+      "addition_text": "Instruction to 'Encourage patient to contact clinic if symptoms or concerns arise'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you start experiencing any symptoms, please reach out, and we can arrange for a rapid antigen test for COVID-19. Remember, if you develop any symptoms or have any concerns, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to contact clinic if symptoms or concerns arise"
+      "matched_claim_text": "Encourage patient to contact clinic if symptoms or concerns arise",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "History of chronic migraines managed with Sumatriptan and good lifestyle habits",
+      "addition_text": "History of chronic migraines managed with Sumatriptan and good lifestyle habits (present in GT Assessment/Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I see that you have chronic migraines.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "History of chronic migraines"
+      "matched_claim_text": "History of chronic migraines",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "History of GERD managed with Omeprazole and avoidance of trigger foods",
+      "addition_text": "History of GERD managed with Omeprazole and avoidance of trigger foods (present in GT Assessment/Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Now, regarding your GERD, you're taking Omeprazole 20 mg daily, correct?",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "History of GERD"
+      "matched_claim_text": "History of GERD",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Allergic to Penicillin",
+      "addition_text": "Allergic to Penicillin (present in GT Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I see that you have a documented allergy to Penicillin. Is that still the case? ... Yes, I'm definitely allergic to Penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Allergic to Penicillin"
+      "matched_claim_text": "Allergic to Penicillin",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Occasional marijuana use",
+      "addition_text": "Occasional marijuana use (present in GT Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I use it occasionally, but not very often.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Occasional marijuana use"
+      "matched_claim_text": "Occasional marijuana use",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient is quarantining for 14 days as per CDC guidelines",
+      "addition_text": "Patient is quarantining for 14 days as per CDC guidelines (present in GT Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "You should be quarantining for 14 days from the date of exposure. Are you able to do that? ... Yes, I can do that. I’ve already started quarantining.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is quarantining for 14 days as per CDC guidelines"
+      "matched_claim_text": "Patient is quarantining for 14 days as per CDC guidelines",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Anxiety related to COVID-19 exposure",
+      "addition_text": "Qualifier 'as per CDC guidelines'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm doing alright, just a bit anxious. I found out four days ago that I was exposed to someone who tested positive for COVID-19. I'm really worried about it. But I'm very anxious about potentially developing symptoms.",
+      "transcript_evidence": "You should be quarantining for 14 days from the date of exposure. Are you able to do that? ... Yes, I can do that. I’ve already started quarantining.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anxiety related to COVID-19 exposure"
+      "matched_claim_text": "Patient is quarantining for 14 days as per CDC guidelines",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Good adherence to chronic migraine management and GERD treatment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, I take Sumatriptan 100 mg when I get a migraine. Yes, I try to stick to a routine. Yes, that's right. Spicy foods usually do. I try to avoid them. Perfect. Continue with that as needed. Good. Continue with the Omeprazole.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Good adherence to chronic migraine management and GERD treatment"
+      "matched_claim_text": "Good adherence to chronic migraine management and GERD treatment",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Monitor for symptoms (as part of quarantine instruction)",
+      "addition_text": "General instruction to 'monitor for symptoms'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "If you do develop symptoms, it's important to manage them appropriately. So, to sum up, you'll continue to quarantine for the full 14 days, monitor for any symptoms...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Monitor for symptoms"
-    },
-    {
-      "addition_text": "Encourage patient to contact clinic if symptoms or concerns arise",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "If you start experiencing any symptoms, please reach out, and we can arrange for a rapid antigen test for COVID-19. Remember, if you develop any symptoms or have any concerns, don't hesitate to contact us.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to contact clinic if symptoms or concerns arise"
+      "matched_claim_text": "Monitor for symptoms",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

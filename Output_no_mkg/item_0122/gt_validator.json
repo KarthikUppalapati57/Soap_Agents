@@ -243,36 +243,51 @@
     "plan_alignment_score": 0.5147058823529412
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note contains multiple moderate to major clinical omissions across all sections. Key missing information includes the patient's history of chronic conditions in the Subjective, the status of pending thyroid function tests in the Objective, detailed medical reasoning and current status for both diagnoses in the Assessment, and critically, the instruction to continue amlodipine for hypertension in the Plan. These omissions materially reduce the clinical usefulness and completeness of the note.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The note demonstrates noticeable gaps and multiple moderate to major issues, particularly the omission of the patient's history of hypertension and hypothyroidism in the Subjective section. While the core clinical problems are identified in the Assessment, the lack of foundational history and specific details in the Assessment and Plan sections make the note meaningfully incomplete and require careful review. The single addition was supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Chief Complaint section header",
-      "History of Present Illness section header",
-      "Review of Systems section header",
-      "Patient’s Habits and Lifestyle section header",
-      "Investigations/Test Results section header",
-      "Medical Outcome section header",
-      "Patient Agreements section header"
+      "History of hypertension and hypothyroidism (from HPI)",
+      "Moderate severity and impact of symptoms on daily activities (from HPI)",
+      "All Review of Systems details (denials for fever/chills, nausea/vomiting/abdominal pain, heat/cold intolerance, chest pain/palpitations, shortness of breath/cough)",
+      "Tobacco use, alcohol consumption, drug use, recreational activities (from Habits and Lifestyle)",
+      "Specific cardiovascular exam findings (Normal S1 and S2, no murmurs, rubs, or gallops)",
+      "Specific respiratory exam findings (Clear to auscultation bilaterally, no wheezing, rales, or rhonchi)",
+      "Specific abdominal exam findings (Soft, non-tender, no organomegaly)",
+      "Specific extremities exam finding (pulses 2+ bilaterally)",
+      "Details about awaiting thyroid function tests (TSH, Free T4, T3) from previous visit (from Investigations/Test Results)",
+      "Numbered problem list in Assessment",
+      "Current Status for Hypothyroidism in Assessment (Awaiting thyroid function test results to guide further management)",
+      "Current Status for Hypertension in Assessment (Stable but requires lifestyle modifications and continued monitoring)",
+      "Patient Education and Counseling details for Hypothyroidism (medication adherence, impact of diet/exercise)",
+      "Specific lifestyle recommendation for Hypothyroidism (reduce salt intake)",
+      "Follow-up Tests for Hypothyroidism (Thyroid function tests ordered (TSH, Free T4, T3))",
+      "Patient Education and Counseling details for Hypertension (emphasized need to monitor BP at home, adhere to low-sodium diet)",
+      "Specific medication and dosage for Hypertension (amlodipine 5 mg once daily)",
+      "Medical Outcome section",
+      "Patient Agreements section"
     ],
     "additions": [
-      "Address any concerns between visits by contacting the office"
+      "Instruction to contact office for concerns between visits (in Plan)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the patient's history of hypertension and hypothyroidism, the moderate impact of symptoms on daily activities, and several details from the Review of Systems and Patient's Habits and Lifestyle. These omissions reduce the completeness of the patient's background.",
+        "summary": "The Subjective section has a major omission of the patient's history of hypertension and hypothyroidism from the HPI, which is critical foundational information. It also omits the severity and impact of symptoms and numerous details from the Review of Systems and Patient's Habits and Lifestyle.",
         "omissions": [
-          "Patient's history of hypertension and hypothyroidism",
-          "Symptoms occurring daily",
-          "Moderate impact of symptoms on daily activities, making it difficult to perform routine tasks",
-          "Constitutional ROS (denies fever or chills)",
-          "Gastrointestinal ROS (denies nausea, vomiting, or abdominal pain)",
-          "Endocrine ROS (denies heat/cold intolerance)",
-          "Cardiovascular ROS (denies chest pain, palpitations)",
-          "Respiratory ROS (denies shortness of breath or cough)",
+          "Chief Complaint (CC) label",
+          "History of Present Illness (HPI) label",
+          "Patient's history of hypertension and hypothyroidism (from HPI)",
+          "Severity and impact of symptoms (moderate symptoms, moderate impact on daily activities) (from HPI)",
+          "Review of Systems (ROS) label",
+          "Constitutional ROS: Denies fever or chills",
+          "Gastrointestinal ROS: Denies nausea, vomiting, or abdominal pain",
+          "Endocrine ROS: Denies heat/cold intolerance",
+          "Cardiovascular ROS: Denies chest pain, palpitations",
+          "Respiratory ROS: Denies shortness of breath or cough",
+          "Patient’s Habits and Lifestyle label",
           "Tobacco Use: None",
           "Alcohol Consumption: Rarely, on special occasions only",
           "Drug Use: None",
@@ -282,43 +297,49 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits detailed cardiovascular, abdominal, and extremity physical exam findings, as well as the crucial information about awaiting thyroid function test results from a previous visit. This makes the objective findings less comprehensive.",
+        "grade": "B",
+        "summary": "The Objective section is missing specific details of normal cardiovascular, respiratory, abdominal, and extremity exams. It also omits the specific names of the thyroid function tests that are awaiting results. However, the core findings are present.",
         "omissions": [
-          "Cardiovascular physical exam findings (Normal S1 and S2. No murmurs, rubs, or gallops.)",
-          "Abdomen physical exam findings (Soft, non-tender, no organomegaly.)",
-          "Extremities physical exam finding (pulses 2+ bilaterally)",
-          "Awaiting thyroid function tests (TSH, Free T4, and T3) from the previous visit"
+          "Vital Signs label",
+          "Physical Exam label",
+          "Cardiovascular exam details: Normal S1 and S2. No murmurs, rubs, or gallops",
+          "Respiratory exam details: Clear to auscultation bilaterally. No wheezing, rales, or rhonchi",
+          "Abdomen exam details: Soft, non-tender, no organomegaly",
+          "Extremities exam details: pulses 2+ bilaterally",
+          "Investigations/Test Results label",
+          "Details about awaiting thyroid function tests (TSH, Free T4, and T3) from the previous visit"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section omits the detailed medical reasoning and current status for both hypothyroidism and hypertension. This significantly reduces the clinical depth and completeness of the assessment for both conditions.",
+        "summary": "The Assessment section omits the \"Current Status\" for both hypothyroidism and hypertension, which are important components of a complete assessment. It also lacks specific details in the medical reasoning for both conditions, such as the physical exam finding for hypothyroidism and the specific blood pressure reading and medication for hypertension.",
         "omissions": [
-          "Specific diagnosis numbers (1. Hypothyroidism, 2. Hypertension)",
-          "Medical Reasoning for hypothyroidism (patient's symptoms consistent with hypothyroidism, physical examination shows mild thyroid enlargement)",
-          "Current Status for hypothyroidism (awaiting thyroid function test results to guide further management)",
-          "Medical Reasoning for hypertension (blood pressure remains elevated at 140/90 mmHg despite being on amlodipine)",
-          "Current Status for hypertension (stable but requires lifestyle modifications and continued monitoring)"
+          "Numbered problem list (1. Hypothyroidism, 2. Hypertension)",
+          "Specific mention of physical exam finding (mild thyroid enlargement) in Hypothyroidism medical reasoning",
+          "Current Status for Hypothyroidism: Awaiting thyroid function test results to guide further management",
+          "Specific blood pressure reading (140/90 mmHg) and medication name (amlodipine) in Hypertension medical reasoning",
+          "Current Status for Hypertension: Stable but requires lifestyle modifications and continued monitoring"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section omits specific patient education details for hypothyroidism, the explicit ordering of thyroid function tests, and critically, the instruction to continue amlodipine 5 mg once daily for hypertension. The omission of the amlodipine instruction is a major gap in the treatment plan.",
+        "grade": "C",
+        "summary": "The Plan section has several moderate omissions, including specific patient education details for both conditions, the specific follow-up thyroid function tests, and the precise medication and dosage for hypertension. The generated note does capture the essence of many plan items but lacks the detail and structure of the Ground Truth. The single addition was supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Patient Education and Counseling for hypothyroidism (Discussed the importance of medication adherence and the impact of diet and exercise on thyroid function)",
-          "Lifestyle Recommendations for hypothyroidism (reduce salt intake)",
-          "Lifestyle Recommendations for hypothyroidism (reducing processed foods)",
-          "Follow-up Tests for hypothyroidism (Thyroid function tests ordered (TSH, Free T4, T3) to monitor thyroid levels)",
-          "Medical Treatment for hypertension (Continue current medication regimen of amlodipine 5 mg once daily)",
-          "Patient Agreements content (The patient understands and agrees with the recommended medical treatment plan and lifestyle changes)"
+          "Problem-specific headings (Hypothyroidism:, Hypertension:)",
+          "Patient Education and Counseling for Hypothyroidism: Discussed the importance of medication adherence and the impact of diet and exercise on thyroid function",
+          "Specific lifestyle recommendation for Hypothyroidism: reduce salt intake",
+          "Follow-up Tests for Hypothyroidism: Thyroid function tests ordered (TSH, Free T4, T3) to monitor thyroid levels",
+          "Patient Education and Counseling for Hypertension: Emphasized the need to monitor blood pressure at home and adhere to a low-sodium diet",
+          "Specific medication and dosage for Hypertension: amlodipine 5 mg once daily",
+          "Medical Outcome section",
+          "Patient Agreements section"
         ],
         "additions": [
-          "Address any concerns between visits by contacting the office"
+          "Instruction to contact office for concerns between visits by contacting the office"
         ]
       }
     ],
@@ -327,11 +348,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Address any concerns between visits by contacting the office",
+      "addition_text": "Instruction to contact office for concerns between visits (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Remember, if you have any concerns before our next visit, feel free to contact the office.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Address any concerns between visits by contacting the office"
+      "matched_claim_text": "Address any concerns between visits by contacting the office",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Instruction to contact office for concerns between visits by contacting the office",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Remember, if you have any concerns before our next visit, feel free to contact the office.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Address any concerns between visits by contacting the office",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -256,101 +256,99 @@
     "plan_alignment_score": 0.646341463414634
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_model",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is broadly clinically usable but contains noticeable gaps, particularly in the Subjective section. Multiple moderate omissions in the History of Present Illness (HPI) regarding symptom progression, impact on daily life, severity, and frequency make the patient's story meaningfully incomplete. Additionally, the Assessment section omits the crucial introductory summary of the patient's presentation. The Objective and Plan sections are strong, with only minor omissions. There are no unsupported or unknown additions to lower the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, accurately capturing the patient's chief complaint, vital signs, and the core assessment and plan. However, it has several moderate omissions across all sections. These include specific details from the History of Present Illness, several negative findings from the Review of Systems and Physical Examination, a precise summary of the patient's symptoms in the Assessment, and important patient engagement details in the Plan. There are no unsupported or unknown additions that would negatively impact the grade.",
     "omissions": [
-      "Patient's symptoms started with a mild cough, followed by increasing fatigue and occasional headaches.",
-      "Fatigue reducing energy levels and causing difficulty concentrating at work as an administrative assistant.",
-      "Symptoms described as mild to moderate in severity.",
-      "Symptoms occur daily.",
-      "ROS: Cardiovascular: No palpitations.",
-      "ROS: Gastrointestinal: No nausea, vomiting, or abdominal pain.",
-      "ROS: Musculoskeletal: No joint pain or muscle aches.",
-      "Social History: Patient feels unrested from sleep.",
-      "Social History: Diet: Mixed diet, includes some fast food.",
-      "Social History: Tobacco Use: None.",
-      "Social History: Drug Use: None.",
-      "Social History: Recreational Activities: Enjoys watching TV and reading.",
-      "Medication History: Takes loratadine 10 mg daily for allergies (as a reported history in Subjective).",
-      "Physical Exam: General: Well-appearing female.",
-      "Physical Exam: HEENT: No nasal discharge, no lymphadenopathy.",
-      "Physical Exam: Chest/Lungs: Clear to auscultation bilaterally, no wheezing or crackles.",
-      "Physical Exam: Cardiovascular: No murmurs, rubs, or gallops.",
-      "Physical Exam: Abdomen: No hepatosplenomegaly.",
-      "Assessment: Patient presenting with mild to moderate fatigue, occasional headaches, and a mild cough of two weeks duration.",
-      "Plan: Multivitamin route 'orally'.",
-      "Plan: Discuss the importance of lifestyle modifications on overall health.",
-      "Plan: Patient verbalizes understanding of the treatment plan and agrees to follow the recommendations.",
-      "Plan: Patient is generally compliant with medical advice.",
-      "Plan: All questions were answered to her satisfaction today."
+      "Subjective: HPI detail: symptoms started with cough, then fatigue, then headaches",
+      "Subjective: HPI detail: fatigue reduces energy, causes difficulty concentrating at work as an administrative assistant",
+      "Subjective: HPI detail: symptoms are mild to moderate in severity",
+      "Subjective: HPI detail: symptoms occur daily",
+      "Subjective: ROS: No palpitations or chest pain (Cardiovascular)",
+      "Subjective: ROS: No nausea, vomiting, or abdominal pain (Gastrointestinal)",
+      "Subjective: ROS: No joint pain or muscle aches (Musculoskeletal)",
+      "Subjective: Social History: Diet is mixed, includes some fast food",
+      "Subjective: Social History: No tobacco use",
+      "Subjective: Social History: No drug use",
+      "Subjective: Social History: Enjoys watching TV and reading (recreational activities)",
+      "Subjective: Medication History: Takes loratadine 10 mg daily for allergies",
+      "Objective: PE: General: Well-appearing female",
+      "Objective: PE: HEENT: No nasal discharge",
+      "Objective: PE: HEENT: No lymphadenopathy",
+      "Objective: PE: Chest/Lungs: Clear to auscultation bilaterally",
+      "Objective: PE: Chest/Lungs: No wheezing or crackles",
+      "Objective: PE: Cardiovascular: No murmurs, rubs, or gallops",
+      "Objective: PE: Abdomen: No hepatosplenomegaly",
+      "Assessment: Specific symptoms: mild to moderate fatigue, occasional headaches, and a mild cough of two weeks duration",
+      "Plan: Multivitamin administration route \"orally\"",
+      "Plan: Patient education to \"Discuss the importance of lifestyle modifications on overall health\"",
+      "Plan: Patient verbalizes understanding and agrees to follow recommendations",
+      "Plan: Patient is generally compliant with medical advice",
+      "Plan: All questions were answered to patient's satisfaction"
     ],
     "additions": [
-      "Objective: 'Vital signs within normal limits'.",
-      "Plan: Including 'gradually increasing physical activity' as part of the resources provided."
+      "Objective: \"Vital signs within normal limits\" (interpretive statement)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has multiple moderate omissions, including key details from the HPI such as the sequence of symptom onset, the impact of fatigue on work, and the severity and daily occurrence of symptoms. Several minor details from the Review of Systems, Social History, and Medication History are also missing, making the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The section captures the chief complaint and main symptoms but omits several specific details from the HPI, such as the progression of symptoms, the impact of fatigue on work, and the severity and daily occurrence of symptoms. Additionally, some negative findings from the ROS and specific social history details were not included, along with the specific medication in the Medication History section.",
         "omissions": [
-          "Chief Complaint: 'initial consultation'.",
-          "HPI: Symptoms started with mild cough, followed by increasing fatigue and occasional headaches.",
-          "HPI: Fatigue reducing energy levels and causing difficulty concentrating at work as an administrative assistant.",
-          "HPI: Symptoms described as mild to moderate in severity.",
-          "HPI: Symptoms occur daily.",
-          "ROS: Cardiovascular: No palpitations.",
-          "ROS: Gastrointestinal: No nausea, vomiting, or abdominal pain.",
-          "ROS: Musculoskeletal: No joint pain or muscle aches.",
-          "Social History: Patient feels unrested from sleep.",
-          "Social History: Diet: Mixed diet, includes some fast food.",
-          "Social History: Tobacco Use: None.",
-          "Social History: Drug Use: None.",
-          "Social History: Recreational Activities: Enjoys watching TV and reading.",
-          "Medication History: Takes loratadine 10 mg daily for allergies (as a reported history)."
+          "HPI detail: symptoms started with cough, then fatigue, then headaches",
+          "HPI detail: fatigue reduces energy, causes difficulty concentrating at work as an administrative assistant",
+          "HPI detail: symptoms are mild to moderate in severity",
+          "HPI detail: symptoms occur daily",
+          "ROS: No palpitations or chest pain (Cardiovascular)",
+          "ROS: No nausea, vomiting, or abdominal pain (Gastrointestinal)",
+          "ROS: No joint pain or muscle aches (Musculoskeletal)",
+          "Social History: Diet is mixed, includes some fast food",
+          "Social History: No tobacco use",
+          "Social History: No drug use",
+          "Social History: Enjoys watching TV and reading (recreational activities)",
+          "Medication History: Takes loratadine 10 mg daily for allergies"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "This section is well-aligned with the Ground Truth. It accurately captures all vital signs and the main positive findings of the physical examination. The few omissions are minor negative findings from specific physical exam systems, which do not materially reduce the clinical usefulness. All additions are supported by the transcript.",
+        "grade": "B",
+        "summary": "The section accurately reports vital signs and general physical exam findings. However, it omits several specific negative findings from the HEENT, Chest/Lungs, Cardiovascular, and Abdomen sections of the physical examination, reducing the completeness of the documentation. The addition of 'Vital signs within normal limits' is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "Physical Exam: General: Well-appearing female.",
-          "Physical Exam: HEENT: No nasal discharge, no lymphadenopathy.",
-          "Physical Exam: Chest/Lungs: Clear to auscultation bilaterally, no wheezing or crackles.",
-          "Physical Exam: Cardiovascular: No murmurs, rubs, or gallops.",
-          "Physical Exam: Abdomen: No hepatosplenomegaly."
+          "PE: General: Well-appearing female",
+          "PE: HEENT: No nasal discharge",
+          "PE: HEENT: No lymphadenopathy",
+          "PE: Chest/Lungs: Clear to auscultation bilaterally",
+          "PE: Chest/Lungs: No wheezing or crackles",
+          "PE: Cardiovascular: No murmurs, rubs, or gallops",
+          "PE: Abdomen: No hepatosplenomegaly"
         ],
         "additions": [
-          "'Vital signs within normal limits'."
+          "\"Vital signs within normal limits\" (interpretive statement)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The section accurately identifies the potential contributing factors to the patient's symptoms. However, it omits the important introductory summary statement that reiterates the patient's presenting symptoms (mild to moderate fatigue, occasional headaches, and mild cough of two weeks duration), which is a moderate gap in the overall assessment statement.",
+        "summary": "The section correctly identifies the possible contributing factors for the patient's symptoms but omits the specific summary of the patient's presentation, including the mild to moderate fatigue, occasional headaches, and mild cough of two weeks duration.",
         "omissions": [
-          "Patient presenting with mild to moderate fatigue, occasional headaches, and a mild cough of two weeks duration."
+          "Specific symptoms: mild to moderate fatigue, occasional headaches, and a mild cough of two weeks duration"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "This section is comprehensive and captures all major components of the treatment plan, including rest, hydration, nutrition, medication, and follow-up. The omissions are minor details such as the route of multivitamin administration and specific statements about patient understanding and compliance. All additions are supported by the transcript.",
+        "grade": "B",
+        "summary": "The section outlines the key treatment recommendations effectively. However, it omits the specific administration route for the multivitamin, a detail about the patient education provided, and crucial documentation regarding the patient's understanding, agreement, compliance, and satisfaction with the plan.",
         "omissions": [
-          "Vitamin Supplementation: 'orally' (route of administration).",
-          "Patient Education: 'Discuss the importance of lifestyle modifications on overall health'.",
-          "Patient verbalizes understanding of the treatment plan and agrees to follow the recommendations.",
-          "Patient is generally compliant with medical advice.",
-          "All questions were answered to her satisfaction today."
+          "Multivitamin administration route \"orally\"",
+          "Patient education to \"Discuss the importance of lifestyle modifications on overall health\"",
+          "Patient verbalizes understanding and agrees to follow recommendations",
+          "Patient is generally compliant with medical advice",
+          "All questions were answered to patient's satisfaction"
         ],
-        "additions": [
-          "Including 'gradually increasing physical activity' as part of the resources provided."
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -358,32 +356,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: 'Vital signs within normal limits'.",
+      "addition_text": "Objective: \"Vital signs within normal limits\" (interpretive statement)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your vital signs are looking good. Blood pressure is 120/80 mmHg, heart rate is 70 bpm, respiratory rate is 16 breaths per minute, temperature is 98.6°F, and oxygen saturation is 98% on room air.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: Including 'gradually increasing physical activity' as part of the resources provided.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I’ll provide you with resources on sleep hygiene and maintaining a balanced diet. I also encourage you to gradually increase your physical activity as tolerated.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Resources will be provided on sleep hygiene, maintaining a balanced diet, and gradually increasing physical activity."
-    },
-    {
-      "addition_text": "'Vital signs within normal limits'.",
+      "addition_text": "\"Vital signs within normal limits\" (interpretive statement)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your vital signs are looking good. Blood pressure is 120/80 mmHg, heart rate is 70 bpm, respiratory rate is 16 breaths per minute, temperature is 98.6°F, and oxygen saturation is 98% on room air.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Including 'gradually increasing physical activity' as part of the resources provided.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I’ll provide you with resources on sleep hygiene and maintaining a balanced diet. I also encourage you to gradually increase your physical activity as tolerated.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Resources will be provided on sleep hygiene, maintaining a balanced diet, and gradually increasing physical activity."
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

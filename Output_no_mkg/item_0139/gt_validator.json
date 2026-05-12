@@ -238,7 +238,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Subjective and Assessment sections. Key details regarding the history of present illness, such as the specific pain quality (\"sharp\"), duration (\"over the past 3 weeks\"), frequency (\"multiple times a day\"), and impact on daily activities, were omitted. The Assessment section also lacked the explicit primary diagnosis of \"Calculus of the kidney\" and both differential diagnoses. While all additions were supported by the transcript and did not negatively impact the grade, the cumulative effect of these omissions makes the note meaningfully incomplete in critical areas.",
+    "overall_summary": "The generated note provides a generally accurate overview but suffers from several moderate omissions, particularly in the Assessment section. While there are no unsupported or unknown additions, the absence of the definitive primary diagnosis and differential diagnoses in the Assessment section significantly reduces the completeness and clinical utility of the note. Additionally, the Subjective and Plan sections are missing several important details, making the note less comprehensive than the Ground Truth.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -280,8 +280,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has multiple moderate omissions, including specific pain quality (\"sharp\"), duration (\"over the past 3 weeks\"), frequency (\"multiple times a day\"), and the significant impact of pain on daily activities. It also omits \"Poor sleep due to pain\" from the ROS. These omissions create noticeable gaps in the patient's history.",
+        "grade": "B",
+        "summary": "The Subjective section captures the chief complaint and main associated symptoms but omits several important details from the History of Present Illness, such as the specific pain quality ('sharp'), duration ('over the past 3 weeks'), frequency ('multiple times a day'), and the impact on daily activities. It also misses the ROS detail about 'Poor sleep due to pain'. These omissions, while not critical, make the HPI less comprehensive. The addition of 'no fevers or chills' is supported by the transcript and does not penalize the grade.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -300,8 +300,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section is mostly aligned, accurately capturing vital signs, physical exam findings, and lab results. The main omission is the important detail from urinalysis that there were \"no signs of infection,\" which is clinically relevant for differential diagnosis. The general appearance of the patient (\"mild distress\") was also omitted, along with minor formatting details.",
+        "grade": "A",
+        "summary": "The Objective section is well-aligned, accurately reporting vital signs, key physical exam findings (left flank tenderness, positive CVA tenderness), and lab results (normal renal function, microscopic hematuria). The omissions are minor descriptive details such as the patient appearing in 'mild distress' and the 'on palpation' detail for abdominal exam, and 'no other significant physical exam findings noted'. The omission of 'no signs of infection' from the urinalysis is also minor.",
         "omissions": [
           "Vitals section header",
           "Physical Exam section header",
@@ -316,7 +316,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "This section has significant omissions, lacking the explicit primary diagnosis of \"Calculus of the kidney\" and both differential diagnoses (\"Urinary tract infection (unlikely due to absence of infection signs)\" and \"renal colic secondary to obstruction by kidney stone\"). While it correctly identifies a \"Suspected kidney stone,\" the absence of a definitive primary diagnosis and the full differential makes the assessment meaningfully incomplete.",
+        "summary": "The Assessment section is significantly incomplete due to the omission of the definitive primary diagnosis ('Calculus of the kidney') and both differential diagnoses ('Urinary tract infection (unlikely due to absence of infection signs)' and 'renal colic secondary to obstruction by kidney stone'). The generated note only states 'Suspected kidney stone', which is less precise and complete than the Ground Truth. The addition about 'pending confirmation by non-contrast CT scan' is supported by the transcript and does not penalize the grade, but it does not compensate for the missing core diagnostic information.",
         "omissions": [
           "Primary diagnosis: \"Calculus of the kidney.\"",
           "Differential diagnosis: \"Urinary tract infection (unlikely due to absence of infection signs)\"",
@@ -329,7 +329,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section is mostly complete, including all major plan items such as medication, lifestyle modifications, referrals, and follow-up. The primary moderate omission is the explicit statement that a non-contrast CT scan was \"Ordered... to assess the size and location of the kidney stone,\" which was present in the Ground Truth. Other omissions were minor details like medication dosage specifics (\"1 tablet\") and section headers.",
+        "summary": "The Plan section captures most of the critical actions but omits several specific details. These include the exact dosage detail for Tamsulosin ('1 tablet'), the full description of the imaging order's purpose ('to assess the size and location of the kidney stone'), the specific purpose of the dietitian referral ('for dietary modifications to prevent the formation of future stones'), and the strong emphasis on smoking cessation ('Strongly advised smoking cessation'). While the core plan is present, these omissions reduce the overall detail and completeness.",
         "omissions": [
           "Medications section header",
           "Tamsulosin dosage detail: \"1 tablet\"",
@@ -355,28 +355,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you had any fevers or chills?\n\n[patient] No, none of that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has not experienced fevers or chills."
+      "matched_claim_text": "The patient has not experienced fevers or chills.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment detail: \"pending confirmation by non-contrast CT scan of abdomen and pelvis.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it sounds like you might have a kidney stone. We'll need to do some imaging to confirm.\n\n[doctor] We'll do a non-contrast CT scan of your abdomen and pelvis to see the size and position of the kidney stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected kidney stone, pending confirmation by non-contrast CT scan of abdomen and pelvis."
+      "matched_claim_text": "Suspected kidney stone, pending confirmation by non-contrast CT scan of abdomen and pelvis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific negative symptom: \"The patient has not experienced fevers or chills.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you had any fevers or chills?\n\n[patient] No, none of that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient has not experienced fevers or chills."
+      "matched_claim_text": "The patient has not experienced fevers or chills.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Detail about pending confirmation: \"pending confirmation by non-contrast CT scan of abdomen and pelvis.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it sounds like you might have a kidney stone. We'll need to do some imaging to confirm.\n\n[doctor] We'll do a non-contrast CT scan of your abdomen and pelvis to see the size and position of the kidney stone.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected kidney stone, pending confirmation by non-contrast CT scan of abdomen and pelvis."
+      "matched_claim_text": "Suspected kidney stone, pending confirmation by non-contrast CT scan of abdomen and pelvis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

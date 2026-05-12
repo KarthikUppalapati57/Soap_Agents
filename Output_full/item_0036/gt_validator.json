@@ -266,9 +266,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a usable clinical summary but suffers from several moderate to major issues. Key structural elements and detailed clinical context are omitted, particularly in the Subjective section. A significant unsupported addition in the Subjective section misrepresents the patient's functional status. Furthermore, critical details for anemia management (specific blood work) and important patient instructions are missing from the Plan.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The note contains a significant unsupported addition in the Subjective section, stating that symptoms 'interfere with daily activities,' which directly contradicts the GroundTruth's indication that the patient 'has been able to maintain her daily activities, though with reduced stamina.' This is a high-severity, misleading clinical statement. Additionally, there are numerous moderate omissions across the Subjective, Assessment, and Plan sections, including specific details from the ROS and Habits/Lifestyle, supporting symptoms for diagnoses, detailed blood work orders, and important patient safety instructions. These issues materially reduce the clinical usefulness and accuracy of the note.",
     "omissions": [
       "Chief Complaint (CC) section and content (follow-up for anemia treatment and COPD management)",
       "History of Present Illness (HPI) section header",
@@ -294,8 +294,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section omits several structural headers (Chief Complaint, HPI, ROS, Habits and Lifestyle) and many specific details from the ROS and Habits and Lifestyle sections. A major concern is the unsupported addition stating symptoms 'interfere with daily activities,' which directly contradicts the GroundTruth and misrepresents the patient's functional status.",
+        "grade": "D",
+        "summary": "This section has a critical unsupported addition stating that symptoms 'interfere with daily activities,' which misrepresents the patient's functional status compared to the GroundTruth. There are also multiple omissions of specific details from the ROS and Habits/Lifestyle, reducing the completeness of the patient's history.",
         "omissions": [
           "Chief Complaint (CC) section and content (follow-up for anemia treatment and COPD management)",
           "History of Present Illness (HPI) section header",
@@ -317,7 +317,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is largely accurate. The only omissions are minor details regarding the general appearance ('alert and oriented') and specific abdominal findings ('Soft, non-tender, no organomegaly'), which are summarized as 'normal' in the generated note.",
+        "summary": "The Objective section is well-aligned with only minor omissions of specific descriptive terms ('alert and oriented,' 'soft, non-tender, no organomegaly') that do not significantly impact clinical usefulness.",
         "omissions": [
           "Physical Examination: General Appearance detail 'alert and oriented'",
           "Physical Examination: Abdominal specific findings 'Soft, non-tender, no organomegaly' (Generated summarizes as 'normal')"
@@ -327,7 +327,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "While the diagnoses are correct, the section omits the specific symptoms that support both the Iron Deficiency Anemia and Chronic Obstructive Pulmonary Disease diagnoses, reducing the clinical justification and completeness of the assessment.",
+        "summary": "While the diagnoses are correctly identified, this section omits the specific symptoms and exam findings that support both the Iron Deficiency Anemia and COPD diagnoses. This reduces the clinical justification and completeness of the assessment.",
         "omissions": [
           "Specific symptoms supporting Iron Deficiency Anemia diagnosis (mild fatigue, occasional dizziness, pallor)",
           "Specific symptoms supporting Chronic Obstructive Pulmonary Disease (COPD) diagnosis (persistent shortness of breath, diminished breath sounds, wheezing noted on exam)"
@@ -337,7 +337,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has several moderate to major omissions. Crucially, the detailed ordered blood work for anemia management (Complete Blood Count, Iron studies, Reticulocyte count) is missing. Other omissions include the specific nutritionist's name, the recommendation for regular monitoring of COPD lung function, acknowledgement of socio-economic considerations, and important patient instructions regarding when to return sooner or contact the clinic.",
+        "summary": "The Plan section has several moderate omissions, including the detailed components of the ordered blood work, the specific name of the nutritionist, the recommendation for 'Regular monitoring of COPD lung function,' and crucial patient instructions like 'Return sooner if symptoms worsen' and 'Contact the clinic with any questions.' The omission of geographical/socio-economic considerations also reduces the holistic nature of the plan.",
         "omissions": [
           "Ordered blood work details (Complete Blood Count (CBC), Iron studies including Serum Iron, Total Iron Binding Capacity (TIBC), Ferritin levels, and Reticulocyte count)",
           "Specific name of nutritionist (Dr. Leslie Green)",
@@ -358,14 +358,18 @@
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement that symptoms 'interfere with daily activities' (GroundTruth states patient 'has been able to maintain her daily activities, though with reduced stamina')",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

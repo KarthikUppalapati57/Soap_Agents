@@ -208,9 +208,9 @@
     "plan_alignment_score": 0.655367231638418
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical_documentation_reviewer_agent",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps that make it meaningfully incomplete. Key omissions include important details from the History of Present Illness (duration of opioid dependence, impact on daily life) and a significant portion of the Review of Systems. In the Plan section, crucial patient education regarding medication adherence, support groups, and safety instructions for contacting the clinic about new medication side effects are missing. While there are no unsupported or unknown additions, the volume and clinical materiality of the omissions reduce the overall usefulness and completeness of the documentation.",
+    "overall_summary": "The generated SOAP note is missing several clinically important details, particularly in the Subjective and Plan sections. Key omissions include the Chief Complaint, significant HPI details regarding the impact of opioid use, and crucial patient education and safety instructions in the Plan. While there are no unsupported additions, the numerous and material omissions reduce the overall clinical usefulness and completeness of the note.",
     "omissions": [
       "Chief Complaint section header and content: 'Follow-up after initial emergency visit related to opioid overdose.'",
       "HPI detail: '14-month history of opioid dependence.'",
@@ -242,7 +242,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of the Chief Complaint, the 14-month duration of opioid dependence, and the significant impact of opioid use on the patient's work, social life, and family activities. Additionally, the entire Review of Systems section header is omitted, along with specific denials for suicidal ideation, hallucinations, genitourinary, musculoskeletal, and neurological symptoms, and details about the gastrointestinal system.",
+        "summary": "This section has multiple moderate omissions. The Chief Complaint and important HPI details regarding the 14-month history of opioid dependence and its impact on the patient's ability to work, social isolation, and family activities are missing. Additionally, the Review of Systems section header and several specific ROS details, including the absence of suicidal ideation or hallucinations, are omitted, making the patient's history meaningfully incomplete.",
         "omissions": [
           "Chief Complaint section header and content: 'Follow-up after initial emergency visit related to opioid overdose.'",
           "HPI detail: '14-month history of opioid dependence.'",
@@ -260,8 +260,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section is mostly clinically aligned. It omits the statement about the physical examination not being performed due to telemedicine and the explicit listing of 'Previous Diagnoses' and 'Chronic Conditions' as separate entries, though the conditions themselves are mentioned. These are minor omissions that do not significantly impact clinical usefulness.",
+        "grade": "A",
+        "summary": "This section has only minor omissions, such as the statement about the physical examination not being performed due to telemedicine and redundant listings of previous/chronic diagnoses. These do not materially impact the clinical usefulness of the section. All additions in this section are supported by the transcript.",
         "omissions": [
           "Statement about physical examination not performed due to telemedicine.",
           "Detail: 'Previous Diagnoses: Hypothyroidism, Obstructive Sleep Apnea (OSA)'",
@@ -274,7 +274,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section accurately captures the major clinically important content. The omissions are minor details regarding the management of hypothyroidism and obstructive sleep apnea, which are adequately addressed in the Plan section.",
+        "summary": "This section has only minor omissions related to the management details of hypothyroidism and obstructive sleep apnea, which are appropriately covered in the Plan section. These omissions do not detract from the core assessment statements. There are no unsupported additions.",
         "omissions": [
           "Assessment for Hypothyroidism: 'The condition is managed with levothyroxine.'",
           "Assessment for Obstructive Sleep Apnea: 'Managed with CPAP.'"
@@ -284,7 +284,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has noticeable gaps due to the omission of important patient education regarding adherence to medication and follow-up, and encouragement for support group participation. Crucially, it also omits instructions for the patient to contact the clinic for concerns or side effects from the new medication, which is a moderate safety issue. Minor omissions include the detail to 'adjust treatment as necessary' for OSA, the 'Patient Agreements' statement, the immediate initiation of the rehabilitation program, and encouragement for exercise and diet.",
+        "summary": "This section contains several moderate omissions. Important patient education regarding adherence to medication, follow-up plans, and encouragement for support group participation is missing. Crucial safety instructions about contacting the clinic for concerns or side effects from new medication are also omitted. These gaps reduce the completeness and safety aspects of the treatment plan.",
         "omissions": [
           "Opioid Dependence - Patient Education: 'Discussed the importance of adherence to medication and follow-up plans. Encouraged participation in support groups.'",
           "Obstructive Sleep Apnea: 'adjust treatment as necessary.'",
@@ -305,28 +305,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You have an ibuprofen allergy, correct?\n[patient] Yes, that’s right.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No reported allergies to medications other than ibuprofen"
+      "matched_claim_text": "No reported allergies to medications other than ibuprofen",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective detail: 'Diagnosis: Opioid dependence'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see you’re here for a follow-up after an emergency visit related to an opioid overdose. Is that correct?\n[patient] Yes, that's right.\n[patient] I've been using opioids for about 14 months now... Daily. I crave them every day, and it’s hard to stop.\n[doctor] Let's discuss your assessment. You have moderate severity of opioid dependence... Does that sound right?\n[patient] Yes, it does.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis: Opioid dependence"
+      "matched_claim_text": "Diagnosis: Opioid dependence",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Detail: 'No reported allergies to medications other than ibuprofen'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You have an ibuprofen allergy, correct?\n[patient] Yes, that’s right.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No reported allergies to medications other than ibuprofen"
+      "matched_claim_text": "No reported allergies to medications other than ibuprofen",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Detail: 'Diagnosis: Opioid dependence'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I see you’re here for a follow-up after an emergency visit related to an opioid overdose. Is that correct?\n[patient] Yes, that's right.\n[patient] I've been using opioids for about 14 months now... Daily. I crave them every day, and it’s hard to stop.\n[doctor] Let's discuss your assessment. You have moderate severity of opioid dependence... Does that sound right?\n[patient] Yes, it does.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis: Opioid dependence"
+      "matched_claim_text": "Diagnosis: Opioid dependence",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

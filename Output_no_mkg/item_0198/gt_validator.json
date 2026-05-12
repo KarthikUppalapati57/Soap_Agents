@@ -212,9 +212,9 @@
     "plan_alignment_score": 0.6280193236714976
   },
   "expert_judge": {
-    "model": "expert-clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has noticeable gaps and multiple moderate omissions, particularly in the Assessment and Plan sections. Crucially, it omits the patient's family history of melanoma and several related patient education and safety instructions. While there are no unsupported or unknown additions, the cumulative effect of these omissions makes the note meaningfully incomplete, requiring caution and review.",
+    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Assessment and Plan sections. While the core diagnosis and treatment plan are present, the omission of critical details like the patient's family history of melanoma and comprehensive patient education regarding risks and follow-up instructions significantly reduces its clinical completeness and usefulness. All identified additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "\"moderate discomfort\" from sunlight exposure",
       "\"symptoms have been persistent with periods of exacerbation\"",
@@ -248,7 +248,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor omissions, including the patient's 'moderate discomfort' from sunlight exposure, the 'persistent with periods of exacerbation' nature of symptoms, and 'Minimal physical activity due to COPD'. While these provide important context, the core chief complaint and history of present illness are captured, making it mostly clinically aligned.",
+        "summary": "The Subjective section has several minor omissions, including details about the 'moderate discomfort' from sunlight, the 'persistent with periods of exacerbation' nature of symptoms, and 'minimal physical activity due to COPD'. A minor detail about COPD management in ROS was also omitted. However, the main chief complaint and history of present illness are well-captured.",
         "omissions": [
           "\"moderate discomfort\" from sunlight exposure",
           "\"symptoms have been persistent with periods of exacerbation\"",
@@ -261,8 +261,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section omits the specific vital sign values (temperature, blood pressure, heart rate, respiratory rate). However, it includes a supported addition stating that these values were 'within normal range,' which captures the clinical significance. This is considered a minor omission as the key clinical takeaway is preserved.",
+        "grade": "B",
+        "summary": "The Objective section omits the specific vital sign values (temperature, blood pressure, heart rate, respiratory rate). While it correctly states that these values are 'within normal range', the absence of the exact numbers is a moderate omission for clinical documentation.",
         "omissions": [
           "Specific vital sign values (Temperature: 98.6°F, Blood Pressure: 135/85 mmHg, Heart Rate: 76 beats per minute, Respiratory Rate: 18 breaths per minute)"
         ],
@@ -273,7 +273,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has noticeable gaps. It omits the detailed description of Actinic Keratosis as 'Multiple erythematous, scaly plaques on the scalp and neck consistent with actinic keratosis.' More significantly, it completely misses the critical 'History of Melanoma in Family: Mother had melanoma,' which is a major risk factor and a key piece of clinical information. This omission materially reduces the completeness of the assessment.",
+        "summary": "The Assessment section has two moderate omissions. It lacks the detailed description of Actinic Keratosis as 'Multiple erythematous, scaly plaques on the scalp and neck consistent with actinic keratosis'. More critically, it omits the 'History of Melanoma in Family: Mother had melanoma', which is a significant piece of information for risk assessment and future care planning.",
         "omissions": [
           "Description of Actinic Keratosis as \"Multiple erythematous, scaly plaques on the scalp and neck consistent with actinic keratosis\"",
           "\"History of Melanoma in Family: Mother had melanoma\""
@@ -289,7 +289,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions, particularly in patient education and specific instructions. It misses explicit instructions to 'Educate on the potential risks of further sun exposure and the need for regular skin checks due to family history of melanoma' (a critical omission given the missing family history in Assessment), 'Call the clinic if there are any concerns or adverse effects from treatment' (a safety instruction), and 'Stay indoors during peak UV hours and avoid potential environmental hazards related to pesticide exposure.' These omissions make the plan meaningfully incomplete regarding comprehensive patient guidance and safety.",
+        "summary": "The Plan section contains numerous omissions related to patient education and specific instructions. Key missing elements include education on melanoma risks and the need for regular skin checks due to family history, reinforcement of chronic condition management, dietary advice for diabetes, and crucial safety instructions like calling the clinic for adverse effects or avoiding pesticide exposure. These omissions make the plan less comprehensive and potentially impact patient safety and adherence.",
         "omissions": [
           "\"Discuss the importance of sun protection and the use of prescribed medication\"",
           "\"Educate on the potential risks of further sun exposure and the need for regular skin checks due to family history of melanoma\"",
@@ -306,7 +306,7 @@
         ]
       }
     ],
-    "rubric_notes": "All additions identified in the discrepancy_lists were supported by the transcript, therefore, no additions contributed to grade reduction. Grading was based solely on omissions."
+    "rubric_notes": null
   },
   "expert_judge_error": null,
   "addition_evidence": [
@@ -315,91 +315,117 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: The COPD is mostly under control with the inhaler, but I do get breathless sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Reports occasional breathlessness due to COPD."
+      "matched_claim_text": "Reports occasional breathlessness due to COPD.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Within normal range for temperature, blood pressure, heart rate, and respiratory rate during vital signs check\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Your temperature is 98.6°F, blood pressure is 135/85 mmHg, heart rate is 76 beats per minute, and respiratory rate is 18 breaths per minute. ... [Doctor]: Yes, these numbers are within a normal range.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Within normal range for temperature, blood pressure, heart rate, and respiratory rate during vital signs check."
+      "matched_claim_text": "Within normal range for temperature, blood pressure, heart rate, and respiratory rate during vital signs check.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"likely due to long-term sun exposure\" for Actinic Keratosis",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: These findings are consistent with a condition called Actinic Keratosis. It's caused by long-term exposure to sunlight and can sometimes become tender.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Actinic Keratosis likely due to long-term sun exposure."
+      "matched_claim_text": "Actinic Keratosis likely due to long-term sun exposure.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"under control\" for COPD",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: The COPD is mostly under control with the inhaler, but I do get breathless sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "COPD under control with Albuterol inhaler but occasional breathlessness."
+      "matched_claim_text": "COPD under control with Albuterol inhaler but occasional breathlessness.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"but occasional breathlessness\" for COPD",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: The COPD is mostly under control with the inhaler, but I do get breathless sometimes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "COPD under control with Albuterol inhaler but occasional breathlessness."
+      "matched_claim_text": "COPD under control with Albuterol inhaler but occasional breathlessness.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Butobarbital — contraindication — COPD, severe early onset"
     },
     {
       "addition_text": "\"Well-managed\" for Type 2 Diabetes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My diabetes is managed with Metformin, but I try to watch what I eat too.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Well-managed Type 2 Diabetes with Metformin and dietary management."
+      "matched_claim_text": "Well-managed Type 2 Diabetes with Metformin and dietary management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"and dietary management\" for Type 2 Diabetes",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My diabetes is managed with Metformin, but I try to watch what I eat too.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Well-managed Type 2 Diabetes with Metformin and dietary management."
+      "matched_claim_text": "Well-managed Type 2 Diabetes with Metformin and dietary management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for removal of patches\" (after cryotherapy in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll start with cryotherapy on the affected areas of your scalp and neck. This involves freezing the patches to remove them.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cryotherapy on affected areas of scalp and neck for removal of patches."
+      "matched_claim_text": "Cryotherapy on affected areas of scalp and neck for removal of patches.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Continue managing COPD with Albuterol inhaler and Type 2 Diabetes with Metformin and dietary management\" (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Continue managing your Type 2 Diabetes with Metformin and your COPD with Albuterol. It's also important to follow a balanced diet to help manage your diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue managing COPD with Albuterol inhaler and Type 2 Diabetes with Metformin and dietary management."
+      "matched_claim_text": "Continue managing COPD with Albuterol inhaler and Type 2 Diabetes with Metformin and dietary management.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"if needed (patient reports history of smoking)\" (after smoking cessation support in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We can also provide resources and support for maintaining a smoke-free lifestyle if you have a history of smoking.\n\n[Patient]: I quit smoking a few years ago, but sometimes it's hard.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide resources for smoking cessation support if needed (patient reports history of smoking)."
+      "matched_claim_text": "Provide resources for smoking cessation support if needed (patient reports history of smoking).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for removal of patches\" (after cryotherapy)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll start with cryotherapy on the affected areas of your scalp and neck. This involves freezing the patches to remove them.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Cryotherapy on affected areas of scalp and neck for removal of patches."
+      "matched_claim_text": "Cryotherapy on affected areas of scalp and neck for removal of patches.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Continue managing COPD with Albuterol inhaler and Type 2 Diabetes with Metformin and dietary management\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Continue managing your Type 2 Diabetes with Metformin and your COPD with Albuterol. It's also important to follow a balanced diet to help manage your diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue managing COPD with Albuterol inhaler and Type 2 Diabetes with Metformin and dietary management."
+      "matched_claim_text": "Continue managing COPD with Albuterol inhaler and Type 2 Diabetes with Metformin and dietary management.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"if needed (patient reports history of smoking)\" (after smoking cessation support)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We can also provide resources and support for maintaining a smoke-free lifestyle if you have a history of smoking.\n\n[Patient]: I quit smoking a few years ago, but sometimes it's hard.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Provide resources for smoking cessation support if needed (patient reports history of smoking)."
+      "matched_claim_text": "Provide resources for smoking cessation support if needed (patient reports history of smoking).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

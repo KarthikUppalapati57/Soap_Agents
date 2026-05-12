@@ -250,73 +250,85 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned but contains multiple moderate issues that reduce its completeness and usefulness. Key issues include an unsupported addition of 'chills' to the Chief Complaint, a moderate omission of urine dipstick results in the Objective section, and significant omissions in the Plan, notably the specific reassessment instruction and the entire Patient Agreements section. These issues make the note meaningfully incomplete and require careful review.",
+    "overall_summary": "The note is broadly usable but has several moderate issues that reduce its completeness and accuracy. Key omissions include the entire Review of Systems and Patient Agreements sections, as well as important details regarding the urine culture and follow-up rationale. A significant unsupported addition places objective urine dipstick results within the Assessment section, which is a high-severity alignment issue.",
     "omissions": [
+      "Specific frequency of urination (every 30 minutes) in HPI",
+      "Review of Systems (ROS) section, including denials of flank pain, fever, nausea, vomiting, abdominal pain, chest pain, palpitations, muscle aches, and joint pain",
+      "Test Results section in Objective, specifically 'Urine dipstick: Positive for leukocytes and nitrites'",
+      "Diagnosis detail: 'site not specified'",
       "Differential Diagnosis: None",
+      "Explicit instruction for a 'Return visit in 7 days' for reassessment",
+      "Investigations section as a distinct heading",
+      "Details of urine culture: 'to confirm bacterial etiology and antibiotic resistance pattern'",
+      "Route of administration for Ciprofloxacin (oral)",
+      "Quantity of Ciprofloxacin tablets (14 tablets)",
+      "Detail about fluid intake purpose: 'to assist with flushing the urinary system'",
+      "Reason for regular follow-ups: 'due to recurrent UTIs'",
+      "Qualifier for exercise: 'moderate'",
       "Patient Agreements section"
     ],
     "additions": [
-      "\"confirmed by positive urine dipstick test for leukocytes and nitrites\" in Assessment",
-      "\"Chronic hypertension present\" in Assessment"
+      "Chills listed in Chief Complaint (moved from ROS in GroundTruth)",
+      "Urine dipstick test results listed in Assessment (moved from Objective in GroundTruth)",
+      "Chronic hypertension listed in Assessment (moved from Plan/monitoring in GroundTruth)",
+      "The phrase 'in 7 days' applied to the urine culture and sensitivity test (GroundTruth applies 'in 7 days' to the return visit, not the culture itself)"
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Chief Complaint includes \"chills\""
+      "Chills listed in Chief Complaint (moved from ROS in GroundTruth)",
+      "Urine dipstick test results listed in Assessment (moved from Objective in GroundTruth)"
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section receives a C due to several minor omissions of negative findings in the Review of Systems (e.g., denial of flank pain, fever, GI, CV, MSK symptoms). More significantly, the Chief Complaint includes 'chills' as an unsupported addition, which is a moderate-severity alignment issue as it was not present in the Ground Truth Chief Complaint.",
+        "summary": "This section receives a C due to the significant omission of the entire Review of Systems (ROS) section, which includes several denials of symptoms. Additionally, the specific frequency of urination (every 30 minutes) was omitted from the HPI. The addition of 'chills' to the Chief Complaint is an unsupported re-categorization from the ROS.",
         "omissions": [
-          "HPI: Specific frequency of urination (every 30 minutes)",
-          "ROS: Genitourinary system review (denial of flank pain)",
-          "ROS: Constitutional system review (denial of fever)",
-          "ROS: Gastrointestinal system review (denial of nausea, vomiting, and abdominal pain)",
-          "ROS: Cardiovascular system review (denial of chest pain and palpitations)",
-          "ROS: Musculoskeletal system review (denial of muscle aches and joint pain)"
+          "Specific frequency of urination (every 30 minutes) in HPI",
+          "Review of Systems (ROS) section, including denials of flank pain, fever, nausea, vomiting, abdominal pain, chest pain, palpitations, muscle aches, and joint pain"
         ],
         "additions": [
-          "Chief Complaint includes \"chills\""
+          "Chills listed in Chief Complaint (moved from ROS in GroundTruth)"
         ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section receives a B. The primary issue is a moderate omission of the urine dipstick test results (positive for leukocytes and nitrites), which is a crucial diagnostic finding present in the Ground Truth. While other elements are accurate, this omission impacts the completeness of the objective findings.",
+        "grade": "A",
+        "summary": "This section is well-aligned. The only omission is the 'Test Results' heading and the explicit listing of urine dipstick results, but this information is present in the GeneratedSOAP, albeit moved to the Assessment section. This is a minor structural omission within the Objective section itself.",
         "omissions": [
-          "Test Results: Urine dipstick positive for leukocytes and nitrites"
+          "Test Results section, specifically 'Urine dipstick: Positive for leukocytes and nitrites'"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section receives an A. It has only minor omissions, specifically the absence of 'Differential Diagnosis: None' and the detail 'site not specified' for the UTI diagnosis. All additions in this section were supported by the transcript and therefore do not reduce the grade.",
+        "grade": "C",
+        "summary": "This section receives a C primarily due to a high-severity unsupported addition: the urine dipstick test results are listed here. Objective test results should not be part of the diagnostic assessment. Minor omissions include the diagnosis detail 'site not specified' and the explicit mention of 'Differential Diagnosis: None'.",
         "omissions": [
-          "Differential Diagnosis: None",
-          "\"site not specified\" for UTI diagnosis"
+          "Diagnosis detail: 'site not specified'",
+          "Differential Diagnosis: None"
         ],
         "additions": [
-          "\"confirmed by positive urine dipstick test for leukocytes and nitrites\"",
-          "\"Chronic hypertension present\""
+          "Urine dipstick test results listed in Assessment (moved from Objective in GroundTruth)",
+          "Chronic hypertension listed in Assessment (moved from Plan/monitoring in GroundTruth)"
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section receives a C due to multiple omissions. There are several minor omissions regarding details like the 'oral' route for Ciprofloxacin, quantity of tablets, purpose of urine culture, and specific details for fluid intake and exercise. More critically, there are two moderate omissions: the specific instruction for a 'Return visit in 7 days for reassessment' and the complete absence of the 'Patient Agreements' section, which confirms patient understanding and adherence to the plan.",
+        "summary": "This section receives a C due to numerous omissions. These include the entire 'Patient Agreements' section, the 'Investigations' heading, and important details about the urine culture (e.g., 'to confirm bacterial etiology and antibiotic resistance pattern'). Other omissions include the route and quantity of Ciprofloxacin, the purpose of fluid intake, the reason for regular follow-ups ('due to recurrent UTIs'), and the qualifier 'moderate' for exercise.",
         "omissions": [
-          "Medical Treatment: \"oral\" route of administration for Ciprofloxacin",
-          "Medical Treatment: Quantity of Ciprofloxacin (14 tablets)",
-          "Follow-up Recommendations: \"Return visit in 7 days for reassessment\"",
-          "Investigations: Purpose of urine culture (\"to confirm bacterial etiology and antibiotic resistance pattern\")",
-          "Patient Education: Detail for fluid intake (\"to assist with flushing the urinary system\")",
-          "Lifestyle and Preventative Care: Reason for regular follow-ups (\"due to recurrent UTIs\")",
-          "Lifestyle and Preventative Care: \"moderate\" qualifier for exercise",
+          "Explicit instruction for a 'Return visit in 7 days' for reassessment",
+          "Investigations section as a distinct heading",
+          "Details of urine culture: 'to confirm bacterial etiology and antibiotic resistance pattern'",
+          "Route of administration for Ciprofloxacin (oral)",
+          "Quantity of Ciprofloxacin tablets (14 tablets)",
+          "Detail about fluid intake purpose: 'to assist with flushing the urinary system'",
+          "Reason for regular follow-ups: 'due to recurrent UTIs'",
+          "Qualifier for exercise: 'moderate'",
           "Patient Agreements section"
         ],
         "additions": [
-          "Follow-up Recommendations: \"in 7 days\" for urine culture and sensitivity test"
+          "The phrase 'in 7 days' applied to the urine culture and sensitivity test (GroundTruth applies 'in 7 days' to the return visit, not the culture itself)"
         ]
       }
     ],
@@ -325,46 +337,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"confirmed by positive urine dipstick test for leukocytes and nitrites\" in Assessment",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "confirmed by positive urine dipstick test for leukocytes and nitrites"
-    },
-    {
-      "addition_text": "\"Chronic hypertension present\" in Assessment",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic hypertension present"
-    },
-    {
-      "addition_text": "Chief Complaint includes \"chills\"",
+      "addition_text": "Chills listed in Chief Complaint (moved from ROS in GroundTruth)",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"confirmed by positive urine dipstick test for leukocytes and nitrites\"",
+      "addition_text": "Urine dipstick test results listed in Assessment (moved from Objective in GroundTruth)",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Chronic hypertension listed in Assessment (moved from Plan/monitoring in GroundTruth)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "confirmed by positive urine dipstick test for leukocytes and nitrites"
+      "transcript_evidence": "Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Chronic hypertension present\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic hypertension present"
-    },
-    {
-      "addition_text": "Follow-up Recommendations: \"in 7 days\" for urine culture and sensitivity test",
+      "addition_text": "The phrase 'in 7 days' applied to the urine culture and sensitivity test (GroundTruth applies 'in 7 days' to the return visit, not the culture itself)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’d like you to come back in 7 days for a reassessment. We'll also do a urine culture and sensitivity test to identify the bacteria causing the infection and check for antibiotic resistance.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Urine culture and sensitivity test in 7 days"
+      "matched_claim_text": "Urine culture and sensitivity test in 7 days",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

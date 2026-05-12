@@ -249,7 +249,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary of the patient encounter. However, it omits several details from the Ground Truth, including specific HPI context regarding the delivery time and symptom constancy, the absence of postpartum hemorrhage in the objective findings, and important patient history details in the assessment. While all additions were supported by the transcript, the cumulative effect of multiple moderate and minor omissions reduces the overall completeness of the documentation.",
+    "overall_summary": "The generated note provides a clinically usable summary but is significantly incomplete due to numerous omissions across all sections. Key missing information includes the Chief Complaint, specific HPI context, several Review of Systems details, specific objective findings, crucial patient history and delivery details in the Assessment, and several important elements in the Plan such as routine care, explicit mention of no additional testing, and patient agreement. No unsupported or unknown additions were identified that would penalize the grade.",
     "omissions": [
       "Chief Complaint: Postpartum follow-up",
       "HPI detail: delivered a single live birth 8 hours ago without complications",
@@ -277,7 +277,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The section captures the patient's main complaints but omits the chief complaint, specific details about the delivery time and the constancy of symptoms in the HPI, and several historical details from the Review of Systems regarding sleep, diet, and exercise during pregnancy.",
+        "summary": "The Subjective section omits the Chief Complaint, specific details regarding the delivery time and expected nature of symptoms in the HPI, and several items from the Review of Systems including sleep quality, diet, and exercise. While the core subjective complaints are present, the lack of these contextual details makes the section noticeably incomplete.",
         "omissions": [
           "Chief Complaint: Postpartum follow-up",
           "HPI detail: delivered a single live birth 8 hours ago without complications",
@@ -295,7 +295,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section accurately reports vital signs and most physical exam findings. However, it omits specific details about the lochia type (rubra) and, more importantly, the finding of no signs of postpartum hemorrhage.",
+        "summary": "The Objective section omits specific details from the Genitourinary exam, namely the character of the lochia ('rubra') and the explicit absence of postpartum hemorrhage. While the overall objective findings are mostly present, these are moderate omissions of clinically relevant details.",
         "omissions": [
           "Genitourinary exam detail: Lochia rubra",
           "Genitourinary exam detail: no signs of postpartum hemorrhage"
@@ -305,7 +305,7 @@
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The assessment correctly identifies normal postpartum recovery. However, it omits crucial contextual details such as the specific time of delivery and the patient's unremarkable previous medical history, making the assessment less comprehensive.",
+        "summary": "The Assessment section is meaningfully incomplete, omitting crucial details about the patient's delivery (single live birth without complications 8 hours ago) and her medical history (no chronic conditions, unremarkable previous medical history). These omissions reduce the comprehensiveness and context of the assessment.",
         "omissions": [
           "Delivery details: delivered a single live birth without complications 8 hours ago",
           "Medical history: no chronic conditions and an unremarkable previous medical history"
@@ -314,8 +314,8 @@
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The plan section is largely complete, capturing key medical treatments, referrals, lifestyle advice, and follow-up instructions. It omits several minor administrative details, such as the explicit statement of routine postpartum care, no additional testing, and specific referral doctor details, but these do not significantly impact the clinical utility of the plan.",
+        "grade": "C",
+        "summary": "The Plan section has multiple moderate omissions, including the general instruction for 'Routine postpartum care,' the explicit statement that 'Additional Testing: None indicated at this time,' specific details for the lactation consultant referral (Specialty, Doctor), the 'Patient Agreements' statement, and the instruction for the patient to 'continue to monitor postpartum symptoms.' These omissions affect the completeness and clarity of the plan.",
         "omissions": [
           "Routine postpartum care",
           "Additional Testing: None indicated at this time",
@@ -335,28 +335,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your breasts show mild engorgement",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild breast engorgement observed"
+      "matched_claim_text": "Mild breast engorgement observed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Struggling with breastfeeding (as a subjective complaint)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’ve been struggling a bit with breastfeeding.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Struggling with breastfeeding"
+      "matched_claim_text": "Struggling with breastfeeding",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "mild breast engorgement (as a subjective complaint)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your breasts show mild engorgement",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild breast engorgement observed"
+      "matched_claim_text": "Mild breast engorgement observed",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Struggling with breastfeeding (as a subjective complaint)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’ve been struggling a bit with breastfeeding.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Struggling with breastfeeding"
+      "matched_claim_text": "Struggling with breastfeeding",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

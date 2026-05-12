@@ -2,7 +2,7 @@
   "item": "item_0003",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0003",
   "ground_truth_soap": "Subjective:\n\nChief Complaint (CC):  \nModerate knee pain, stiffness, and occasional swelling in the left knee, persisting for 3 months.\n\nHistory of Present Illness (HPI):  \nThe patient, named Mary Johnson, is a 58-year-old Caucasian female presenting with a 3-month history of moderate pain, stiffness, and occasional swelling in her left knee. The pain is constant and exacerbated by walking and prolonged standing, significantly impacting daily activities and limiting previous exercise routines, including daily walks. The patient denies any recent trauma or injury to the knee, and there is no history of previous knee surgeries. Currently, she takes Lisinopril 10 mg daily for hypertension and Atorvastatin 20 mg daily for hyperlipidemia. There are no known allergies. \n\nReview of Systems (ROS):  \n- Musculoskeletal: Reports moderate joint pain, stiffness, and occasional swelling in the left knee.  \n- Cardiovascular: Managed hypertension with Lisinopril, no recent chest pain or palpitations.  \n- General: No recent weight loss or fever.  \n- Other systems: Negative.\n\nObjective:\n\nPhysical Examination:\n\n- Inspection: Mild swelling present in the left knee.\n- Palpation: Tenderness over the medial joint line of the left knee.\n- Range of Motion: Limited with crepitus noted on movement.\n- Special Tests: Positive McMurray test indicating possible meniscal involvement.\n\nVital Signs Reviewed:\n- Blood Pressure: 130/80 mmHg\n- Heart Rate: 72 bpm\n- Respiratory Rate: 16 breaths per minute\n- Temperature: 98.6°F\n\nAssessment:\n\nDiagnosis:\nPrimary Osteoarthritis of the left knee (ICD-10: M17.12)\n\nConsidering the patient's symptoms and physical examination findings, primary osteoarthritis of the left knee is the most likely diagnosis. The positive McMurray test suggests possible meniscal involvement which needs further evaluation through imaging.\n\nPlan:\n\nTreatment:\nMedication: \n   - Prescribe Acetaminophen 500 mg tablets, oral, 1-2 tablets every 6 hours as needed for pain, with a maximum of 8 tablets in 24 hours.\nPhysical Therapy:\n   - Referral to Physical Therapy for knee strengthening and mobility exercises.\n\nFollow-Up:\n- Follow-up appointment in 6 weeks to monitor progress and reassess pain and function.\n\nReferral and Additional Testing:\n- Referral to Physical Therapy for targeted exercises.\n- Order MRI of the left knee to evaluate the extent of joint degeneration and rule out other pathologies such as meniscal tears.\n\nPatient Education and Lifestyle Advice:\n- Educate the patient on the importance of adherence to prescribed pain management and physical therapy.\n- Encourage low-impact activities like swimming or cycling that minimize knee stress.\n- Advise weight management and a balanced diet to support joint health.\n\nPatient Agreements:\n- The patient understands and agrees with the recommended medical treatment plan. She is cooperative and willing to follow through with the prescribed regimen and follow-up appointments.\n\nThe patient is well-educated, has a high health literacy level, and lives in an urban area with access to necessary healthcare facilities.",
-  "generated_soap": "Subjective:\nThe patient reports moderate pain, stiffness, and occasional swelling in their left knee for the past three months. The pain is constant and worsens with walking or standing for long periods.\n\nObjective:\nMild swelling in the left knee, tenderness over the medial joint line, positive McMurray test, crepitus (grinding noise), normal vital signs.\n\nAssessment:\nPrimary osteoarthritis in the left knee with potential meniscal involvement.\n\nPlan:\n- Prescribe Acetaminophen 500 mg as needed for pain relief.\n- Refer to physical therapy for strengthening and mobility exercises.\n- Schedule a follow-up appointment in 6 weeks to reassess pain and function.\n- Order an MRI for the left knee to assess joint degeneration and meniscal tears.\n- Discuss lifestyle changes such as low-impact activities, maintaining a healthy weight, and a balanced diet for joint health.",
+  "generated_soap": "Subjective:\nThe patient presents with a 3-month history of moderate left knee pain, stiffness, and occasional swelling. The pain is constant but worsens with walking or standing for long periods. The patient rates the pain as typically around a 5 or 6, but it can reach an 8 on bad days.\n\nObjective:\nMild swelling in left knee; tenderness over the medial joint line; positive McMurray test; crepitus heard during range of motion assessment; normal vital signs (BP: 130/80 mmHg, HR: 72 bpm, RR: 16 bpm, T: 98.6°F).\n\nAssessment:\nPrimary osteoarthritis in left knee with potential meniscal involvement.\n\nPlan:\n- Prescribe Acetaminophen 500 mg as needed for pain management (max 8 tablets/24 hours)\n- Refer patient to physical therapy for knee strengthening and mobility exercises\n- Schedule follow-up appointment in 6 weeks to reassess pain and function\n- Order MRI for left knee to assess joint degeneration and meniscal tears\n- Discuss lifestyle modifications, including low-impact activities, maintaining a healthy weight, and balanced diet for joint health.",
   "entities_gt": {
     "all_entities": [
       "chief complaint",
@@ -72,20 +72,20 @@
   },
   "entities_generated": {
     "all_entities": [
+      "left knee",
       "pain",
       "stiffness",
       "occasional swelling",
-      "left knee",
       "mild swelling",
       "tenderness",
       "medial joint line",
       "mcmurray test",
-      "crepitus",
       "normal vital signs",
+      "bp",
+      "hr",
       "primary osteoarthritis",
       "acetaminophen 500 mg",
       "physical therapy",
-      "strengthening and mobility exercises",
       "mri"
     ],
     "symptoms": [
@@ -103,20 +103,24 @@
     ],
     "labs": [
       "mcmurray test",
+      "crepitus heard during range of motion assessment",
       "normal vital signs",
+      "bp",
+      "hr",
       "mri"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 34,
     "gen_count": 15,
-    "overlap_count": 8,
-    "recall": 0.23529411764705882,
+    "overlap_count": 7,
+    "recall": 0.20588235294117646,
     "gt_only": [
       "acetaminophen 500 mg tablets",
       "atorvastatin 20 mg",
       "blood pressure",
       "chief complaint",
+      "crepitus",
       "heart rate",
       "hypertension",
       "imaging",
@@ -142,15 +146,15 @@
     ],
     "gen_only": [
       "acetaminophen 500 mg",
+      "bp",
+      "hr",
       "medial joint line",
       "mri",
       "normal vital signs",
       "primary osteoarthritis",
-      "strengthening and mobility exercises",
       "tenderness"
     ],
     "overlap": [
-      "crepitus",
       "left knee",
       "mcmurray test",
       "mild swelling",
@@ -206,7 +210,7 @@
   },
   "clinical_recall_labs": {
     "gt_count": 6,
-    "gen_count": 3,
+    "gen_count": 6,
     "overlap_count": 1,
     "recall": 0.16666666666666666,
     "gt_only": [
@@ -217,6 +221,9 @@
       "temperature"
     ],
     "gen_only": [
+      "bp",
+      "crepitus heard during range of motion assessment",
+      "hr",
       "mri",
       "normal vital signs"
     ],
@@ -225,154 +232,118 @@
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.40695443479858523,
-    "overall_rouge_l_f1": 0.3178365349738905,
+    "overall_token_f1": 0.4454020426560472,
+    "overall_rouge_l_f1": 0.3472114622570103,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3389830508474576,
-        "rouge_l_f1": 0.2054054054054054
+        "token_f1": 0.33082706766917297,
+        "rouge_l_f1": 0.24390243902439027
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.45333333333333325,
-        "rouge_l_f1": 0.4146341463414634
+        "token_f1": 0.6304347826086956,
+        "rouge_l_f1": 0.5050505050505051
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.3111111111111111,
-        "rouge_l_f1": 0.2545454545454545
+        "token_f1": 0.27272727272727276,
+        "rouge_l_f1": 0.2222222222222222
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.5243902439024389,
-        "rouge_l_f1": 0.3967611336032389
+        "token_f1": 0.5476190476190476,
+        "rouge_l_f1": 0.4176706827309236
       }
     ],
-    "assessment_alignment_score": 0.3111111111111111,
-    "plan_alignment_score": 0.5243902439024389
+    "assessment_alignment_score": 0.27272727272727276,
+    "plan_alignment_score": 0.5476190476190476
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary but suffers from multiple moderate omissions across the Subjective, Objective, and Plan sections. Key missing information includes patient's current medications and allergies, specific vital sign values, a significant physical exam finding (limited range of motion), and crucial dosage details for the prescribed Acetaminophen. While all additions are supported by the transcript, the cumulative impact of these omissions makes the note meaningfully incomplete and requires careful review.",
+    "overall_summary": "The generated note has several significant omissions, particularly in the Subjective and Plan sections. Key missing information includes the patient's current medications, allergies, the entire Review of Systems, and the specific dosage frequency for Acetaminophen. While the core diagnosis and treatment plan are present, these omissions create noticeable gaps that make the note meaningfully incomplete and require careful review.",
     "omissions": [
-      "Chief Complaint (CC) section heading",
-      "History of Present Illness (HPI) section heading",
-      "Review of Systems (ROS) section heading",
-      "Impact of pain on daily activities and limiting previous exercise routines, including daily walks",
+      "Impact of pain on daily activities and limiting previous exercise routines (daily walks)",
       "Denial of recent trauma or injury to the knee",
       "No history of previous knee surgeries",
-      "Current medication: Lisinopril 10 mg daily for hypertension",
-      "Current medication: Atorvastatin 20 mg daily for hyperlipidemia",
+      "Current medications: Lisinopril 10 mg daily for hypertension and Atorvastatin 20 mg daily for hyperlipidemia",
       "No known allergies",
-      "ROS - Cardiovascular: Managed hypertension with Lisinopril, no recent chest pain or palpitations",
-      "ROS - General: No recent weight loss or fever",
-      "ROS - Other systems: Negative",
-      "Physical Examination section heading",
-      "Inspection, Palpation, Range of Motion, Special Tests sub-headings under Physical Examination",
+      "Review of Systems (ROS) section",
       "Limited range of motion",
-      "Specific vital sign values (BP 130/80 mmHg, HR 72 bpm, RR 16 breaths per minute, Temp 98.6°F)",
-      "Diagnosis section heading",
-      "Statement: 'Considering the patient's symptoms and physical examination findings, primary osteoarthritis of the left knee is the most likely diagnosis.'",
-      "Statement: 'which needs further evaluation through imaging' regarding meniscal involvement in Assessment",
-      "Treatment section heading",
-      "Medication details for Acetaminophen: 'tablets, oral, 1-2 tablets every 6 hours as needed for pain, with a maximum of 8 tablets in 24 hours.'",
-      "Physical Therapy section heading (under Treatment)",
-      "Follow-Up section heading",
-      "Purpose of follow-up: 'to monitor progress'",
-      "Referral and Additional Testing section heading",
-      "Redundant 'Referral to Physical Therapy for targeted exercises' entry in Plan",
-      "MRI purpose: 'rule out other pathologies'",
-      "Patient Education and Lifestyle Advice section heading",
-      "Patient education on the importance of adherence to prescribed pain management and physical therapy",
+      "Interpretation of positive McMurray test: indicating possible meniscal involvement",
+      "Diagnostic reasoning statement in Assessment: 'Considering the patient's symptoms and physical examination findings, primary osteoarthritis of the left knee is the most likely diagnosis.'",
+      "Implication of meniscal involvement in Assessment: 'which needs further evaluation through imaging.'",
+      "Specific dosage frequency for Acetaminophen: '1-2 tablets every 6 hours'",
+      "Additional purpose for MRI: 'rule out other pathologies'",
+      "Patient education point: 'importance of adherence to prescribed pain management and physical therapy'",
       "Patient Agreements section",
-      "Patient's health literacy level, living situation, and access to healthcare facilities"
+      "Details about patient's health literacy, urban living, and access to healthcare facilities"
     ],
     "additions": [
-      "'(grinding noise)' after crepitus in Objective",
-      "'normal vital signs' in Objective (instead of specific values)",
-      "'for pain relief' after Acetaminophen 500 mg in Plan",
-      "'Discuss lifestyle changes such as' in Plan"
+      "Patient rates the pain as typically around a 5 or 6, but it can reach an 8 on bad days",
+      "Statement that vital signs are 'normal'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits several clinically important details, including the impact of pain on daily activities, denial of trauma/surgery, current medications (Lisinopril, Atorvastatin), and known allergies. The Review of Systems is also significantly condensed. These omissions, particularly regarding medications and allergies, are moderate in severity as they impact patient safety and the completeness of the clinical picture.",
+        "summary": "This section has multiple moderate to major omissions. It fails to include the impact of pain on daily activities, denial of trauma/surgery, the patient's current medications (Lisinopril, Atorvastatin), known allergies, and the entire Review of Systems section. These omissions significantly reduce the completeness and clinical utility of the subjective information.",
         "omissions": [
-          "Chief Complaint (CC) section heading",
-          "History of Present Illness (HPI) section heading",
-          "Review of Systems (ROS) section heading",
           "Impact of pain on daily activities and limiting previous exercise routines, including daily walks",
           "Denial of recent trauma or injury to the knee",
           "No history of previous knee surgeries",
-          "Current medication: Lisinopril 10 mg daily for hypertension",
-          "Current medication: Atorvastatin 20 mg daily for hyperlipidemia",
+          "Current medications: Lisinopril 10 mg daily for hypertension and Atorvastatin 20 mg daily for hyperlipidemia",
           "No known allergies",
-          "ROS - Cardiovascular: Managed hypertension with Lisinopril, no recent chest pain or palpitations",
-          "ROS - General: No recent weight loss or fever",
-          "ROS - Other systems: Negative"
+          "Review of Systems (ROS) section (including Cardiovascular, General, and Other systems details)"
         ],
-        "additions": []
+        "additions": [
+          "Patient rates the pain as typically around a 5 or 6, but it can reach an 8 on bad days"
+        ]
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section accurately captures the key physical exam findings. However, it omits the specific vital sign values, summarizing them as 'normal vital signs,' and also misses the important finding of 'limited range of motion.' These are moderate omissions, though the core findings are present. All additions in this section are supported by the transcript.",
+        "grade": "A",
+        "summary": "The Objective section is well-aligned with the Ground Truth. The only omissions are 'Limited range of motion' and the explicit interpretation of the positive McMurray test, which is largely covered by the mention of the test itself and the subsequent assessment of meniscal involvement. The supported addition of 'normal' vital signs does not impact the grade.",
         "omissions": [
-          "Physical Examination section heading",
-          "Inspection, Palpation, Range of Motion, Special Tests sub-headings under Physical Examination",
           "Limited range of motion",
-          "Specific vital sign values (BP 130/80 mmHg, HR 72 bpm, RR 16 breaths per minute, Temp 98.6°F)"
+          "Interpretation of positive McMurray test: indicating possible meniscal involvement"
         ],
         "additions": [
-          "'(grinding noise)' after crepitus",
-          "'normal vital signs' (instead of specific values)"
+          "Statement that vital signs are 'normal'"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately capturing the primary diagnosis and potential meniscal involvement. The omissions are minor, primarily consisting of section headings and explanatory text, which do not detract from the core clinical assessment.",
+        "summary": "The Assessment section accurately captures the primary diagnosis and potential meniscal involvement. The omitted explicit diagnostic reasoning statement and the implication for further imaging are minor, as the core diagnostic conclusion and the need for imaging are clearly conveyed.",
         "omissions": [
-          "Diagnosis section heading",
-          "Statement: 'Considering the patient's symptoms and physical examination findings, primary osteoarthritis of the left knee is the most likely diagnosis.'",
-          "Statement: 'which needs further evaluation through imaging' regarding meniscal involvement"
+          "Diagnostic reasoning statement: 'Considering the patient's symptoms and physical examination findings, primary osteoarthritis of the left knee is the most likely diagnosis.'",
+          "Implication of meniscal involvement: 'which needs further evaluation through imaging.'"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section outlines the main treatment components but critically omits the detailed dosage and frequency instructions for Acetaminophen, which is a moderate to high-severity safety concern. Several other omissions are minor, relating to section headings, specific purposes of follow-up/MRI, and patient education/agreement details. All additions in this section are supported by the transcript.",
+        "grade": "B",
+        "summary": "The Plan section has a moderate omission regarding the specific dosage frequency for Acetaminophen ('1-2 tablets every 6 hours'), which is important for clear prescribing. Other omissions, such as the additional purpose for MRI ('rule out other pathologies'), a specific patient education point, the Patient Agreements section, and patient contextual details, are minor. The overall plan is clinically sound despite these gaps.",
         "omissions": [
-          "Treatment section heading",
-          "Medication details for Acetaminophen: 'tablets, oral, 1-2 tablets every 6 hours as needed for pain, with a maximum of 8 tablets in 24 hours.'",
-          "Physical Therapy section heading (under Treatment)",
-          "Follow-Up section heading",
-          "Purpose of follow-up: 'to monitor progress'",
-          "Referral and Additional Testing section heading",
-          "Redundant 'Referral to Physical Therapy for targeted exercises' entry",
-          "MRI purpose: 'rule out other pathologies'",
-          "Patient Education and Lifestyle Advice section heading",
-          "Patient education on the importance of adherence to prescribed pain management and physical therapy",
+          "Specific dosage frequency for Acetaminophen: '1-2 tablets every 6 hours'",
+          "Additional purpose for MRI: 'rule out other pathologies'",
+          "Patient education point: 'importance of adherence to prescribed pain management and physical therapy'",
           "Patient Agreements section",
-          "Patient's health literacy level, living situation, and access to healthcare facilities"
+          "Details about patient's health literacy, urban living, and access to healthcare facilities"
         ],
-        "additions": [
-          "'for pain relief' after Acetaminophen 500 mg",
-          "'Discuss lifestyle changes such as'"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -380,60 +351,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "'(grinding noise)' after crepitus in Objective",
+      "addition_text": "Patient rates the pain as typically around a 5 or 6, but it can reach an 8 on bad days",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I can hear some crepitus, like a grinding noise, when you move it.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "transcript_evidence": "I’d say it’s usually around a 5 or 6, but it can go up to an 8 on bad days.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient rates the pain as typically around a 5 or 6, but it can reach an 8 on bad days.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'normal vital signs' in Objective (instead of specific values)",
+      "addition_text": "Statement that vital signs are 'normal'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your blood pressure is 130/80 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All within normal limits.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'for pain relief' after Acetaminophen 500 mg in Plan",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "First, I’m going to prescribe Acetaminophen 500 mg tablets. You can take 1-2 tablets every 6 hours as needed for pain, but no more than 8 tablets in 24 hours.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'Discuss lifestyle changes such as' in Plan",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I also want to talk to you about some lifestyle changes. Low-impact activities like swimming or cycling can help minimize knee stress. And maintaining a healthy weight can reduce the load on your knees. Excellent. A balanced diet is also important for joint health. Make sure you’re eating plenty of fruits, vegetables, and lean proteins.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'(grinding noise)' after crepitus",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I can hear some crepitus, like a grinding noise, when you move it.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'normal vital signs' (instead of specific values)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your blood pressure is 130/80 mmHg, heart rate is 72 beats per minute, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. All within normal limits.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'for pain relief' after Acetaminophen 500 mg",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "First, I’m going to prescribe Acetaminophen 500 mg tablets. You can take 1-2 tablets every 6 hours as needed for pain, but no more than 8 tablets in 24 hours.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "'Discuss lifestyle changes such as'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I also want to talk to you about some lifestyle changes. Low-impact activities like swimming or cycling can help minimize knee stress. And maintaining a healthy weight can reduce the load on your knees.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

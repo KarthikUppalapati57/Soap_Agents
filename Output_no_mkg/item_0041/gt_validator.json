@@ -264,7 +264,7 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a basic outline of the patient's visit but suffers from significant omissions, particularly in the Subjective and Plan sections. The Subjective section lacks crucial details regarding the history of present illness, social history, and patient concerns. The Plan section omits important patient education, resources, and specific details about follow-up and investigations. While there are no unsupported or unknown additions, the numerous omissions make the note meaningfully incomplete and requiring careful review.",
+    "overall_summary": "The generated note provides a usable summary of the patient's visit but suffers from noticeable gaps, particularly in the Subjective and Plan sections. The Subjective section omits many clinically relevant details from the History of Present Illness, social history, and patient concerns. The Plan section lacks specific details regarding follow-up purposes, specific investigations, and crucial patient instructions related to education, resources, and medication adherence. While the core clinical information is present, these omissions make the note meaningfully incomplete and less comprehensive.",
     "omissions": [
       "initial consultation",
       "significant weight gain over the past five years",
@@ -305,7 +305,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has numerous omissions, including key details about the history of present illness (duration of weight gain, impact on mobility/sleep, diet, exercise), social history (tobacco, alcohol, drug use), and patient concerns (overwhelmed by lifestyle changes, medication cost). While the chief complaint and PCOS history are present, the lack of detail makes this section significantly incomplete.",
+        "summary": "This section has numerous omissions, including significant details about the patient's weight gain timeline, impact on mobility and sleep, detailed diet and exercise habits, social history (tobacco, alcohol, drugs), specific PCOS management, family history details, and patient's expressed concerns about lifestyle changes and medication costs. These omissions result in a significantly less comprehensive History of Present Illness.",
         "omissions": [
           "initial consultation",
           "significant weight gain over the past five years",
@@ -326,7 +326,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section omits the general appearance, specific physical exam findings like 'no murmurs' and 'Clear to auscultation bilaterally,' and the detailed list of specific blood tests and imaging awaiting results. However, the core vital signs and physical exam findings are accurately captured, and the fact that tests are pending is mentioned in the Plan section.",
+        "summary": "This section is mostly aligned, capturing key vitals and physical examination findings. However, it omits the general appearance ('Morbidly obese female'), specific findings like 'no murmurs' and 'Clear to auscultation bilaterally', and the detailed listing of blood work and imaging awaiting results (though these are mentioned in the Plan section).",
         "omissions": [
           "General Appearance: Morbidly obese female",
           "no murmurs (cardiovascular)",
@@ -339,7 +339,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section omits the specific ICD-10 diagnosis code, the contributing lifestyle factors (poor diet, lack of exercise), and the increased risk due to family history. The core diagnosis and the contribution of PCOS are present, but these omissions reduce the completeness of the assessment.",
+        "summary": "The core assessment is present, identifying severe obesity, joint pain, sleep apnea, and the contribution of PCOS. However, it omits the specific ICD-10 diagnosis code, the explicit mention that lifestyle factors exacerbate the condition, and that family history increases the risk for metabolic disorders. These are moderate omissions that reduce the completeness of the assessment.",
         "omissions": [
           "Diagnosis: Obesity, unspecified",
           "likely exacerbated by lifestyle factors including poor diet and lack of exercise",
@@ -350,7 +350,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has numerous omissions, including details about the purpose of follow-ups and referrals, the specific list of blood tests, and the purpose of the abdominal ultrasound. Most significantly, it omits almost all of the 'Instructions' from the GroundTruth, which includes patient education, resources, and addressing medication adherence concerns. The single addition, '(with close monitoring) for Phentermine medication,' is supported by the transcript and does not reduce the grade.",
+        "summary": "This section has multiple moderate to major omissions. While the main plan items (lifestyle, medication, referral, follow-up, awaiting results) are present, it lacks specific details regarding the purpose of follow-ups ('for weight management and monitoring', 'provide ongoing support and education'), the specific names of blood tests to be awaited, and the purpose of the abdominal ultrasound ('to evaluate for fatty liver disease'). Crucially, all patient instructions related to education, resources for food/exercise, and addressing medication adherence concerns are omitted, as is the specific return to clinic instruction. The single addition was supported by the transcript and therefore did not impact the grade.",
         "omissions": [
           "for weight management and monitoring (from follow-up recommendations)",
           "and provide ongoing support and education (from follow-up recommendations)",
@@ -376,7 +376,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, it's generally safe, but we'll monitor you closely.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Close monitoring will be performed for Phentermine."
+      "matched_claim_text": "Close monitoring will be performed for Phentermine.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

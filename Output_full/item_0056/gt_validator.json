@@ -220,7 +220,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but contains noticeable gaps, particularly in the Assessment and Plan sections. Key omissions include the differential diagnosis, the order for additional blood tests, and the detailed patient summary. While the core diagnosis and treatment plan are present, these missing elements make the note meaningfully incomplete and would require careful review and additions by a clinician. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note provides a generally accurate overview but contains multiple moderate omissions and several minor ones. Key missing information includes the patient's differential diagnoses in the Assessment, the order for blood work (CBC, BMP) in the Plan, and details about the severe impact of constipation on daily activities in the Subjective section. All additions were supported by the transcript and did not impact the grade.",
     "omissions": [
       "HPI detail: Constipation has been intermittent throughout the day",
       "HPI detail: Constipation has severely impacted daily activities (unable to attend work, frequently needs to rest)",
@@ -246,8 +246,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is missing several details from the HPI and ROS, including the intermittent nature and severe impact of constipation on daily activities, decreased appetite, specific sleep duration, and specific exercise frequency. While the chief complaint and main symptoms are present, these omissions reduce the completeness of the patient's story.",
+        "grade": "C",
+        "summary": "The Subjective section omits important details regarding the severity and impact of the constipation, such as it being intermittent throughout the day and severely impacting daily activities (unable to attend work, frequently needs to rest). It also misses the associated symptom of decreased appetite and specific details about sleep duration and exercise frequency.",
         "omissions": [
           "Constipation has been intermittent throughout the day",
           "Constipation has severely impacted daily activities (unable to attend work, frequently needs to rest)",
@@ -263,14 +263,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is complete and accurately reflects the ground truth, with no omissions or unsupported additions.",
+        "summary": "The Objective section is complete and accurately reflects the GroundTruthSOAP, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section is missing the entire differential diagnosis, which is a significant clinical omission. While the primary diagnosis is present, the absence of a differential diagnosis reduces the clinical utility and completeness of this section.",
+        "summary": "The Assessment section omits the entire differential diagnosis, which includes Irritable Bowel Syndrome (IBS), dietary fiber deficiency, and dehydration. This represents a noticeable gap in the clinical reasoning documented.",
         "omissions": [
           "Differential Diagnosis (Irritable Bowel Syndrome (IBS), Dietary fiber deficiency, Dehydration)"
         ],
@@ -281,7 +281,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several significant omissions, including the order for additional blood tests (CBC, BMP), specific conditions for follow-up (if symptoms persist or worsen), and the entire patient summary provided to the patient. These omissions represent noticeable gaps in diagnostic planning, patient instructions, and communication, making the plan less comprehensive and potentially less effective.",
+        "summary": "The Plan section omits the order for additional tests (monitoring blood work with CBC, BMP) to rule out underlying conditions, which is a moderate issue. It also misses several minor details such as the specific dietician's name, the specific reason for dietician referral (meal planning), the condition for follow-up ('if symptoms persist or worsen'), and the detailed patient summary provided.",
         "omissions": [
           "Specific dietician name (Dr. Emily Johnson)",
           "Specific reason for dietician referral: 'meal planning'",
@@ -305,56 +305,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you had any changes in your daily routine or diet recently?\n\n[patient] Not really.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "History of Present Illiance (HPI): No recent changes in daily routine or diet"
+      "matched_claim_text": "History of Present Illiance (HPI): No recent changes in daily routine or diet",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective HPI: Diet may lack sufficient fiber",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I think it's pretty balanced, but maybe I don't eat enough fiber.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diet may lack sufficient fiber"
+      "matched_claim_text": "Diet may lack sufficient fiber",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Diagnosis includes 'likely due to low fiber intake'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on everything so far, it seems like you are constipated. ... [patient] I think it's pretty balanced, but maybe I don't eat enough fiber.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: Constipation likely due to low fiber intake"
+      "matched_claim_text": "Assessment: Constipation likely due to low fiber intake",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Reason for dietician referral: 'to prevent future constipation episodes'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’m also going to refer you to a dietician. They can help you plan meals and educate you on fiber-rich diets. This should help prevent future episodes of constipation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Refer patient to a dietician for education on fiber-rich diets to prevent future constipation episodes"
+      "matched_claim_text": "Plan: Refer patient to a dietician for education on fiber-rich diets to prevent future constipation episodes",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "No recent changes in daily routine or diet",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Have you had any changes in your daily routine or diet recently?\n\n[patient] Not really.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "History of Present Illiance (HPI): No recent changes in daily routine or diet"
+      "matched_claim_text": "History of Present Illiance (HPI): No recent changes in daily routine or diet",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Diet may lack sufficient fiber",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I think it's pretty balanced, but maybe I don't eat enough fiber.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diet may lack sufficient fiber"
+      "matched_claim_text": "Diet may lack sufficient fiber",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Diagnosis includes 'likely due to low fiber intake'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on everything so far, it seems like you are constipated. ... [patient] I think it's pretty balanced, but maybe I don't eat enough fiber.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: Constipation likely due to low fiber intake"
+      "matched_claim_text": "Assessment: Constipation likely due to low fiber intake",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Reason for dietician referral: 'to prevent future constipation episodes'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’m also going to refer you to a dietician. They can help you plan meals and educate you on fiber-rich diets. This should help prevent future episodes of constipation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Refer patient to a dietician for education on fiber-rich diets to prevent future constipation episodes"
+      "matched_claim_text": "Plan: Refer patient to a dietician for education on fiber-rich diets to prevent future constipation episodes",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

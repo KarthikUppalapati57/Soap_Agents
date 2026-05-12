@@ -256,9 +256,9 @@
     "plan_alignment_score": 0.5714285714285714
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, capturing the key subjective complaints, objective findings, assessment, and plan. However, it has several minor and moderate omissions. These include specific details about the delivery in HPI and Assessment, the absence of postpartum hemorrhage in the Objective section, and the patient's past medical history in the Assessment. Additionally, several minor administrative and contextual details are omitted from the Plan. All additions were supported by the transcript and did not negatively impact the grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. It accurately captures the patient's chief complaints, key subjective symptoms, objective findings, and the core plan for postpartum recovery. However, there are several minor and a few moderate omissions across all sections, particularly regarding specific HPI details, a crucial negative finding in the physical exam (no postpartum hemorrhage), and comprehensive patient history in the Assessment. All additions made by the model were supported by the transcript and therefore did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint: Postpartum follow-up",
       "HPI details: delivered a single live birth 8 hours ago without complications",
@@ -285,7 +285,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly clinically aligned, capturing the patient's main complaints. However, it omits the Chief Complaint, specific details about the delivery in the HPI, and several minor details from the Review of Systems regarding sleep, diet, and exercise. All additions were supported by the transcript.",
+        "summary": "The Subjective section captures the main symptoms but omits the Chief Complaint 'Postpartum follow-up' and specific HPI details such as the exact time of delivery and lack of complications. Several minor ROS details regarding sleep quality, diet, and exercise during pregnancy were also omitted. All additions in this section were supported by the transcript and did not reduce the grade.",
         "omissions": [
           "Chief Complaint: Postpartum follow-up",
           "HPI details: delivered a single live birth 8 hours ago without complications",
@@ -302,7 +302,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned, accurately reporting vital signs and key physical examination findings. However, it omits the important negative finding of 'no signs of postpartum hemorrhage' and the mild pelvic soreness from the physical exam. There were no unsupported or unknown additions.",
+        "summary": "The Objective section is largely accurate, but it omits the clinically important negative finding of 'no signs of postpartum hemorrhage' from the Genitourinary exam. The omission of 'Mild soreness in the pelvic area' from the Musculoskeletal exam is minor as it was captured elsewhere. There were no unsupported or unknown additions.",
         "omissions": [
           "Physical Exam: Genitourinary: no signs of postpartum hemorrhage",
           "Physical Exam: Musculoskeletal: Mild soreness in the pelvic area"
@@ -312,7 +312,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section captures the core diagnosis of normal postpartum recovery. However, it omits moderate details regarding the patient's delivery specifics and her unremarkable previous medical history and lack of chronic conditions, which are important for a comprehensive assessment. The diagnosis section header was also omitted. There were no unsupported or unknown additions.",
+        "summary": "The Assessment section correctly identifies normal postpartum recovery but omits key patient context, specifically that the patient 'delivered a single live birth without complications 8 hours ago' and 'has no chronic conditions and an unremarkable previous medical history'. The omission of the 'Diagnosis section header' is a minor formatting issue. There were no unsupported or unknown additions.",
         "omissions": [
           "Patient details: delivered a single live birth without complications 8 hours ago",
           "Patient history: She has no chronic conditions and an unremarkable previous medical history",
@@ -323,7 +323,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly clinically aligned and actionable, including key medical treatment, referral, lifestyle advice, and follow-up. However, it omits several minor details such as 'Routine postpartum care,' 'None indicated at this time' for additional testing, specific details of the lactation consultant referral, patient agreement, and instructions to continue monitoring symptoms. There were no unsupported or unknown additions.",
+        "summary": "The Plan section includes all major treatment components, such as continuing prenatal vitamins, referral to a lactation consultant, lifestyle advice, and follow-up scheduling. However, it omits several minor details, including the explicit mention of 'Routine postpartum care', 'Additional Testing: None indicated at this time', specific details of the specialist referral (Reason, Specialty, Doctor), and the patient agreement and specific instructions to monitor symptoms. There were no unsupported or unknown additions.",
         "omissions": [
           "Medical Treatment: Routine postpartum care",
           "Additional Testing: None indicated at this time",
@@ -343,28 +343,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I’m experiencing some mild fatigue and soreness in my pelvic area. I also have some mild uterine cramping and lochia. [Doctor]: I did notice some mild soreness in your pelvic area... your lochia is at the rubra stage, which is normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild pelvic area discomfort and lochia at the rubra stage"
+      "matched_claim_text": "Mild pelvic area discomfort and lochia at the rubra stage",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: Difficulty with breastfeeding (present in Plan in GT, but added to Subjective in Generated)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: That sounds helpful. I’ve been struggling a bit with breastfeeding.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Difficulty with breastfeeding"
+      "matched_claim_text": "Difficulty with breastfeeding",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Mild pelvic area discomfort and lochia at the rubra stage (detail 'rubra stage' moved from Objective to Subjective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I’m experiencing some mild fatigue and soreness in my pelvic area. I also have some mild uterine cramping and lochia. [Doctor]: I did notice some mild soreness in your pelvic area... your lochia is at the rubra stage, which is normal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild pelvic area discomfort and lochia at the rubra stage"
+      "matched_claim_text": "Mild pelvic area discomfort and lochia at the rubra stage",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Difficulty with breastfeeding (present in Plan in GT, but added to Subjective in Generated)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: That sounds helpful. I’ve been struggling a bit with breastfeeding.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Difficulty with breastfeeding"
+      "matched_claim_text": "Difficulty with breastfeeding",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

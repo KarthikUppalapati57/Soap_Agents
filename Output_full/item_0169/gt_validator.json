@@ -235,9 +235,9 @@
     "plan_alignment_score": 0.748971193415638
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally usable clinical summary but suffers from numerous structural omissions (section and sub-section headers) and several moderate clinical content omissions across all sections. Key missing details include specific ROS denials, full physical exam findings, the status of hypertension control, and important patient education and safety instructions in the Plan. There is one minor unsupported addition (a section header). These issues collectively reduce the completeness and utility of the note, warranting a C grade.",
+    "overall_summary": "The generated SOAP note is broadly usable but contains numerous omissions across all sections, making it meaningfully incomplete. Key omissions include the full Review of Systems, specific lab results within the Objective section, the controlled status of hypertension with its medication in the Assessment, and important patient education regarding medication adherence and instructions for contacting the clinic in the Plan. There is one minor unsupported addition of a section header in the Plan.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -290,7 +290,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section omits standard section headers (CC, HPI, ROS) and the detailed system-by-system review of systems, instead providing a general statement. While the core HPI is present, the lack of specific ROS denials makes it less comprehensive than the Ground Truth.",
+        "summary": "The Subjective section omits several section headers (CC, HPI, ROS) and the full Review of Systems details, including general, cardiovascular, respiratory, gastrointestinal, neurological, and musculoskeletal findings. It also omits the detail that the patient is presenting for a follow-up visit.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -308,7 +308,7 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "This section omits standard headers for Vital Signs, Physical Exam, and Lab Results. It also omits specific cardiovascular physical exam findings (regular rate and rhythm, no murmurs or gallops) and the documentation that gastrointestinal, neurological, and musculoskeletal exams were not assessed. The specific lab results are also omitted from this section, though they appear in the Assessment.",
+        "summary": "The Objective section omits several section headers (Vital Signs, Physical Exam, Lab Results, Comprehensive Lipid Panel) and the specific details of the cardiovascular physical exam (regular rate and rhythm, no murmurs or gallops). It also omits the explicit documentation that gastrointestinal, neurological, and musculoskeletal exams were not assessed, and the specific lab results for the lipid panel from the Objective section.",
         "omissions": [
           "Vital Signs section header",
           "Physical Exam section header",
@@ -327,7 +327,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The section omits the distinction between primary and secondary diagnoses and the crucial detail that hypertension is \"controlled with Lisinopril 10mg OD.\" It also omits \"unspecified\" for hyperlipidemia. However, it includes supported additions that clarify the diagnoses.",
+        "summary": "The Assessment section omits the distinction between primary and secondary diagnoses, the \"unspecified\" detail for hyperlipidemia, and the important clinical detail that hypertension is currently controlled with Lisinopril 10mg OD.",
         "omissions": [
           "Distinction between Primary and Secondary Diagnoses",
           "Hypertension noted as \"controlled with Lisinopril 10mg OD\"",
@@ -341,7 +341,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section omits several standard sub-section headers and the medication route \"oral\" for Atorvastatin. More significantly, it omits important patient education regarding the importance of medication adherence for both hypertension and hyperlipidemia, and a key instruction to contact the clinic for concerns about the new medication or worsening symptoms. It also includes one unsupported section header.",
+        "summary": "The Plan section omits several section and sub-section headers (Lifestyle Recommendations, Tobacco Use, Alcohol Consumption, Referrals, Follow-up, Instructions) and the medication route \"oral\" for Atorvastatin. It also omits the patient education point about the importance of medication adherence for both hypertension and hyperlipidemia, and the instruction to contact the clinic for concerns regarding new medication or worsening symptoms. One unsupported addition is the \"Follow-up Recommendations\" section header.",
         "omissions": [
           "Medication route: \"oral\" for Atorvastatin",
           "Lifestyle Recommendations section header",
@@ -371,112 +371,144 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your heart has a regular rate and rhythm, no murmurs or gallops, and your lungs are clear to auscultation bilaterally.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lungs and heart are clear to auscultation bilaterally."
+      "matched_claim_text": "Lungs and heart are clear to auscultation bilaterally.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"(BP elevated)\" detail for Hypertension (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "managing your hypertension; Your blood pressure today is 150/90 mmHg",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: Hypertension (BP elevated)."
+      "matched_claim_text": "Assessment: Hypertension (BP elevated).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"(elevated total cholesterol, LDL, triglycerides; low HDL)\" detail for Hyperlipidemia (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "your lipid panel shows elevated total cholesterol, elevated LDL, low HDL, and elevated triglycerides; managing your hypertension and hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: Hyperlipidemia (elevated total cholesterol, LDL, triglycerides; low HDL)."
+      "matched_claim_text": "Assessment: Hyperlipidemia (elevated total cholesterol, LDL, triglycerides; low HDL).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Atorvastatin goal includes \"managing hypertension\" (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "especially for managing your hypertension and hyperlipidemia; to re-evaluate your lipid levels and blood pressure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Goal of reducing lipid levels and managing hypertension."
+      "matched_claim_text": "Plan: Goal of reducing lipid levels and managing hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific examples of Atorvastatin side effects: \"such as muscle pain or weakness\" (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Be aware of potential side effects of Atorvastatin, such as muscle pain or weakness",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient Education: Inform patient about potential side effects of Atorvastatin, such as muscle pain or weakness."
+      "matched_claim_text": "Patient Education: Inform patient about potential side effects of Atorvastatin, such as muscle pain or weakness.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Medical Treatment\" section header (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We’ll start you on Atorvastatin 20 mg, which you’ll take once daily.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Follow-up Recommendations\" section header (in Plan)",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Lifestyle Modifications\" section header (in Plan)",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "It’s important to adhere to these lifestyle changes and your medication regimen, especially for managing your hypertension and hyperlipidemia.",
+      "transcript_evidence": "Additionally, I want to encourage you to engage in moderate-intensity physical activity for at least 150 minutes per week. ... Let’s also talk about your diet. I recommend adopting a heart-healthy diet rich in fruits, vegetables, whole grains, and lean proteins. ... I strongly advise reducing cigarette smoking with the goal to quit. ... For alcohol, try to limit your intake to no more than 2 beers per weekend.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Heart clear to auscultation bilaterally\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your heart has a regular rate and rhythm, no murmurs or gallops, and your lungs are clear to auscultation bilaterally.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lungs and heart are clear to auscultation bilaterally."
+      "matched_claim_text": "Lungs and heart are clear to auscultation bilaterally.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"(BP elevated)\" detail for Hypertension",
       "supported_by_transcript": "supported",
       "transcript_evidence": "managing your hypertension; Your blood pressure today is 150/90 mmHg",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: Hypertension (BP elevated)."
+      "matched_claim_text": "Assessment: Hypertension (BP elevated).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"(elevated total cholesterol, LDL, triglycerides; low HDL)\" detail for Hyperlipidemia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "your lipid panel shows elevated total cholesterol, elevated LDL, low HDL, and elevated triglycerides; managing your hypertension and hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment: Hyperlipidemia (elevated total cholesterol, LDL, triglycerides; low HDL)."
+      "matched_claim_text": "Assessment: Hyperlipidemia (elevated total cholesterol, LDL, triglycerides; low HDL).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Atorvastatin goal includes \"managing hypertension\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "especially for managing your hypertension and hyperlipidemia; to re-evaluate your lipid levels and blood pressure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Plan: Goal of reducing lipid levels and managing hypertension."
+      "matched_claim_text": "Plan: Goal of reducing lipid levels and managing hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Specific examples of Atorvastatin side effects: \"such as muscle pain or weakness\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Be aware of potential side effects of Atorvastatin, such as muscle pain or weakness",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient Education: Inform patient about potential side effects of Atorvastatin, such as muscle pain or weakness."
+      "matched_claim_text": "Patient Education: Inform patient about potential side effects of Atorvastatin, such as muscle pain or weakness.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Medical Treatment\" section header",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Follow-up Recommendations\" section header",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Lifestyle Modifications\" section header",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It’s important to adhere to these lifestyle changes and your medication regimen, especially for managing your hypertension and hyperlipidemia.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

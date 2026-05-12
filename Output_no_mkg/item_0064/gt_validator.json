@@ -233,9 +233,9 @@
     "plan_alignment_score": 0.6627906976744186
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate summary of the patient's visit, capturing the chief complaint, key HPI elements, positive physical exam findings, and the primary assessment. However, it omits several minor details from the Subjective and Objective sections, including various ROS negatives and general physical exam observations. More significantly, the Plan section has moderate omissions regarding crucial patient education on recognizing worsening symptoms and specific follow-up instructions if symptoms persist beyond 5 days, which reduces the note's completeness and clinical usefulness without careful review.",
+    "overall_summary": "The generated note is broadly usable but contains noticeable gaps due to multiple omissions across the Subjective, Objective, and Plan sections. Key details regarding the patient's history of present illness, a comprehensive review of systems, specific physical exam findings, and important patient education and follow-up instructions are missing. There are no unsupported or unknown additions to penalize.",
     "omissions": [
       "Patient reports symptoms have been continuous",
       "Patient reports difficulty falling asleep due to cough",
@@ -262,8 +262,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section accurately captures the chief complaint and core HPI details. However, it omits several minor details, including the continuous nature of symptoms, difficulty sleeping due to cough, mild activity restriction, and numerous negative findings from the Review of Systems (e.g., denies weight loss/gain, shortness of breath, palpitations, nausea, headaches, ear pain).",
+        "grade": "C",
+        "summary": "This section has noticeable gaps due to the omission of several details from the History of Present Illness, such as symptom continuity, difficulty sleeping due to cough, and activity restriction. Additionally, numerous denials from the Review of Systems (e.g., weight changes, shortness of breath, palpitations, GI symptoms, headaches, ear pain, sinus congestion) are missing, making the section meaningfully incomplete.",
         "omissions": [
           "Patient reports symptoms have been continuous",
           "Patient reports difficulty falling asleep due to cough",
@@ -279,8 +279,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section correctly identifies key positive physical exam findings and vital signs. However, it omits several minor negative findings from the physical exam, such as the patient appearing mildly fatigued but in no acute distress, absence of crackles, regular heart sounds, and no exudates in the throat.",
+        "grade": "C",
+        "summary": "The Objective section omits several physical exam findings, including the patient's general appearance (mildly fatigued but in no acute distress), the absence of crackles on respiratory auscultation, regular heart sounds, and the absence of exudates in the throat. While key positive findings are present, these omissions reduce the completeness of the physical examination documentation.",
         "omissions": [
           "Physical Exam General: Patient appears mildly fatigued but in no acute distress",
           "Physical Exam Respiratory: No crackles heard on auscultation",
@@ -292,7 +292,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is largely accurate, identifying a \"Suspected viral upper respiratory infection.\" The only omission is the broader context of \"Suspected exposure to viral communicable disease,\" which is a minor detail given the primary diagnosis is present.",
+        "summary": "This section is nearly complete, with only a minor omission of the phrase 'Suspected exposure to viral communicable disease.' The core assessment of 'Suspected viral upper respiratory infection' is accurately captured.",
         "omissions": [
           "Suspected exposure to viral communicable disease"
         ],
@@ -301,7 +301,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section includes the main medication prescription and general supportive care. However, it has moderate omissions, specifically lacking crucial patient education on recognizing signs of worsening symptoms (high fever, difficulty breathing, persistent cough) and the specific instruction to return if symptoms persist beyond 5 days. Minor omissions include the route of administration (\"oral\") and quantity (\"12 tablets\") for acetaminophen, and the recommendation to \"maintain a balanced diet.\" These omissions reduce the completeness and safety of the plan.",
+        "summary": "The Plan section contains multiple moderate omissions. Minor details like the medication route ('oral') and quantity ('Qty: 12 tablets'), and advice to 'Maintain a balanced diet' are missing. More importantly, crucial patient education on 'recognizing signs of worsening symptoms (high fever, difficulty breathing, or persistent cough)' and specific follow-up advice to 'return if symptoms worsen or persist beyond 5 days' are omitted, which significantly impacts the clinical usefulness of the plan.",
         "omissions": [
           "Medications: Acetaminophen route \"oral\"",
           "Medications: Acetaminophen quantity \"Qty: 12 tablets\"",

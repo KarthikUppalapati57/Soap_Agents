@@ -264,76 +264,70 @@
     "plan_alignment_score": 0.6666666666666667
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. All additions are supported by the transcript and therefore do not negatively impact the grade. The note accurately captures the chief complaint, key symptoms, vital signs, and significant physical exam findings. The Assessment section is complete. However, the Plan section has several omissions, including specific medication details (e.g., \"orally,\" \"as needed\"), the rationale for imaging, and, more significantly, crucial information regarding tailored patient instructions for basic health literacy and the strategy to address potential adherence challenges due to limited resources and support. These moderate omissions in the Plan section prevent an 'A' grade.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable. It accurately captures the chief complaint, HPI, vital signs, and key physical exam findings. All additions made by the model are supported by the transcript and do not negatively impact the grade. However, the note has several minor omissions, such as specific medication details (route, dosage, frequency) and the purpose of the echocardiogram. Additionally, there are moderate omissions regarding the impact of the patient's symptoms on daily activities and the crucial aspect of addressing potential adherence challenges and treatment disparities due to limited resources and support.",
     "omissions": [
-      "difficulty in maintaining physical activity due to",
-      "moderate shortness of breath",
-      "particularly with physical exertion",
-      "impacting her ability to perform routine household chores and exercise",
-      "Normal heart sounds",
-      "Abdominal: No abnormalities detected on palpation.",
-      "orally (for Metoprolol)",
-      "20 mg daily (for Atorvastatin)",
-      "as needed (for Albuterol inhaler)",
-      "to assess heart function and structure (for Echocardiogram)",
-      "Simplified instructions were provided to accommodate the patient's basic health literacy.",
-      "Address potential adherence challenges due to limited resources and support, and ensure follow-up to monitor and support the patient's progress."
+      "Patient's ability to perform routine household chores and exercise is impacted.",
+      "Normal heart sounds on cardiovascular exam.",
+      "No abdominal abnormalities detected on palpation.",
+      "Metoprolol administration route 'orally'.",
+      "Atorvastatin dosage '20 mg daily'.",
+      "Albuterol inhaler frequency 'as needed'.",
+      "Purpose of Echocardiogram: 'to assess heart function and structure'.",
+      "Simplified instructions provided to accommodate patient's basic health literacy.",
+      "Addressing potential adherence challenges due to limited resources and support, and ensuring follow-up to monitor and support patient's progress."
     ],
     "additions": [
-      "suspected based on symptoms and examination (qualifier for Atherosclerotic heart disease)",
-      "COPD suspected due to wheezing and decreased breath sounds",
-      "lipid profile blood test"
+      "Atherosclerotic heart disease 'suspected based on symptoms and examination'.",
+      "COPD suspected due to wheezing and decreased breath sounds (in Assessment).",
+      "Lipid profile blood test ordered."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "A",
-        "summary": "The section accurately captures the chief complaint and key symptoms. The omissions are minor descriptive details regarding the exact phrasing of the chief complaint, the specific triggers, and the full extent of the impact on daily activities, but the core clinical picture is preserved.",
+        "grade": "B",
+        "summary": "The Subjective section has one moderate omission regarding the patient's ability to perform routine household chores and exercise being impacted by their symptoms. All other clinically important content is captured.",
         "omissions": [
-          "difficulty in maintaining physical activity due to",
-          "moderate shortness of breath",
-          "particularly with physical exertion",
-          "impacting her ability to perform routine household chores and exercise"
+          "Patient's ability to perform routine household chores and exercise is impacted."
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The section accurately reports all vital signs and significant physical exam findings. The omissions of normal heart sounds and the normal abdominal exam are minor and do not detract from the overall clinical utility or accuracy of the documented abnormal findings.",
+        "grade": "B",
+        "summary": "The Objective section has two minor omissions: 'Normal heart sounds on cardiovascular exam' and 'No abdominal abnormalities detected on palpation'. However, all major physical exam findings and vital signs are accurately reported.",
         "omissions": [
-          "Normal heart sounds",
-          "Abdominal: No abnormalities detected on palpation."
+          "Normal heart sounds on cardiovascular exam.",
+          "No abdominal abnormalities detected on palpation."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The section perfectly aligns with the Ground Truth, with no omissions or unsupported/unknown additions. All additions are supported by the transcript and enhance clarity.",
+        "summary": "The Assessment section is excellent, with no omissions or unsupported/unknown additions. All content is accurately reflected and supported by the transcript.",
         "omissions": [],
         "additions": [
-          "suspected based on symptoms and examination (qualifier for Atherosclerotic heart disease)",
-          "COPD suspected due to wheezing and decreased breath sounds"
+          "Atherosclerotic heart disease 'suspected based on symptoms and examination'.",
+          "COPD suspected due to wheezing and decreased breath sounds."
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The section captures the main components of the plan, including medications, referrals, lifestyle recommendations, and imaging. However, it omits important details regarding medication administration (e.g., \"orally,\" \"as needed\"), the rationale for imaging, and crucial aspects of patient education and support, specifically the tailoring of instructions for health literacy and the plan to address adherence challenges due to limited resources. These latter omissions are moderate in severity.",
+        "summary": "The Plan section contains several minor omissions, including the administration route for Metoprolol, the dosage for Atorvastatin, the frequency for Albuterol, and the specific purpose of the Echocardiogram. A moderate omission is the lack of detail regarding simplified instructions for patient health literacy and addressing potential adherence challenges and treatment disparities. All additions in this section are supported by the transcript.",
         "omissions": [
-          "orally (for Metoprolol)",
-          "20 mg daily (for Atorvastatin)",
-          "as needed (for Albuterol inhaler)",
-          "to assess heart function and structure (for Echocardiogram)",
-          "Simplified instructions were provided to accommodate the patient's basic health literacy.",
-          "Address potential adherence challenges due to limited resources and support, and ensure follow-up to monitor and support the patient's progress."
+          "Metoprolol administration route 'orally'.",
+          "Atorvastatin dosage '20 mg daily'.",
+          "Albuterol inhaler frequency 'as needed'.",
+          "Purpose of Echocardiogram: 'to assess heart function and structure'.",
+          "Simplified instructions provided to accommodate patient's basic health literacy.",
+          "Addressing potential adherence challenges due to limited resources and support, and ensuring follow-up to monitor and support patient's progress."
         ],
         "additions": [
-          "lipid profile blood test"
+          "Lipid profile blood test ordered."
         ]
       }
     ],
@@ -342,25 +336,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "suspected based on symptoms and examination (qualifier for Atherosclerotic heart disease)",
+      "addition_text": "Atherosclerotic heart disease 'suspected based on symptoms and examination'.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and examination, I suspect atherosclerotic heart disease of the native coronary artery without angina pectoris.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Atherosclerotic heart disease of the native coronary artery without angina pectoris suspected based on symptoms and examination"
+      "matched_claim_text": "Atherosclerotic heart disease of the native coronary artery without angina pectoris suspected based on symptoms and examination",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "COPD suspected due to wheezing and decreased breath sounds",
+      "addition_text": "COPD suspected due to wheezing and decreased breath sounds (in Assessment).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I hear wheezing and decreased breath sounds at the bases of your lungs. ... and I'll prescribe an Albuterol inhaler for your COPD.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "COPD suspected due to wheezing and decreased breath sounds"
+      "matched_claim_text": "COPD suspected due to wheezing and decreased breath sounds",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "lipid profile blood test",
+      "addition_text": "Lipid profile blood test ordered.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll need an echocardiogram to assess your heart's function and structure. ... We'll also order an echocardiogram and a lipid profile blood test.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order echocardiogram and lipid profile blood test"
+      "matched_claim_text": "Order echocardiogram and lipid profile blood test",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "COPD suspected due to wheezing and decreased breath sounds.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I hear wheezing and decreased breath sounds at the bases of your lungs. ... and I'll prescribe an Albuterol inhaler for your COPD.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "COPD suspected due to wheezing and decreased breath sounds",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

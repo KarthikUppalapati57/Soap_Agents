@@ -224,9 +224,9 @@
     "plan_alignment_score": 0.6628571428571428
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "Clinical Documentation Reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, but it contains several moderate omissions across multiple sections. While all major clinically important Ground Truth content is captured, the note lacks specific details regarding family history, substance use screening, key mental status exam findings, and comprehensive patient education elements. No unsupported or unknown additions were identified that would lower the grade.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, capturing the core elements of the patient's presentation, diagnosis, and plan. A significant strength is the absence of any unsupported or unknown additions. However, the note receives a B due to several moderate omissions across the Subjective and Objective sections, including important details regarding functional impairment, social/family history, and key mental status examination findings. While these omissions reduce the completeness of the documentation, they do not introduce misleading content or severely compromise clinical utility.",
     "omissions": [
       "symptoms occur nearly every day",
       "severely impacted his ability to complete routine work tasks",
@@ -263,7 +263,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several moderate omissions, including the patient's family history of alcoholism and anxiety disorders, and the absence of a specific statement about current tobacco, alcohol, or recreational drug use. Minor omissions include specific details about the impact on routine work tasks, pottery classes, and the exact sleep duration. The structural omission of the ROS section is noted, though much of its content is integrated into the HPI.",
+        "summary": "The Subjective section is mostly complete but omits several important details. Moderate omissions include the severe impact on work tasks, the patient's lack of tobacco/alcohol/drug use, and paternal/maternal family history of alcoholism and anxiety disorders, respectively. Minor omissions include specific details like symptoms occurring nearly every day, pottery classes, specific sleep duration, eating home-cooked meals, and reduced jogging activity. The structural omission of the 'Review of Systems (ROS) section' is noted, though most of its content is integrated elsewhere.",
         "omissions": [
           "symptoms occur nearly every day",
           "severely impacted his ability to complete routine work tasks",
@@ -283,7 +283,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits two moderate, clinically important findings from the Mental Status Examination: 'mild psychomotor retardation noted' and 'good insight and judgment'. The omission of 'General Appearance: Appears tired' is minor. While the note includes 'appropriate affect' (which was supported by the transcript), the missing key observations reduce the completeness of the objective assessment.",
+        "summary": "The Objective section captures key mental status examination findings but has moderate omissions. Specifically, 'mild psychomotor retardation noted' and 'good insight and judgment' are important missing details. Minor omissions include 'General Appearance: Appears tired' and 'Depressed mood' as a direct finding, though mood is implied by congruent affect.",
         "omissions": [
           "General Appearance: Appears tired",
           "mild psychomotor retardation noted",
@@ -297,7 +297,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately capturing the primary diagnosis. The only omissions are minor specifiers for Major Depressive Disorder ('Single Episode' and 'Unspecified'), which do not materially impact the clinical usefulness of the diagnosis. All additions in this section were supported by the transcript.",
+        "summary": "The Assessment section accurately identifies the Major Depressive Disorder. The omissions of the specifiers 'Single Episode' and 'Unspecified' are minor and do not detract from the clinical accuracy or usefulness of the diagnosis.",
         "omissions": [
           "Single Episode (for Major Depressive Disorder)",
           "Unspecified (for Major Depressive Disorder)"
@@ -308,8 +308,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section contains several moderate omissions related to patient education and financial counseling, specifically 'ensure understanding that insurance covers most medication costs' and 'Reassure the patient about the effectiveness and monitoring of prescribed medication'. The rationale for blood tests also omits 'demographic risk factors'. Minor omissions include the 'oral' route of administration for Venlafaxine XR and the specific name of the hematologist. All additions in this section were supported by the transcript.",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive and clinically sound. All omissions are minor details, such as the 'oral' route of administration for Venlafaxine XR, the specific name of the hematologist, the full justification for blood tests (demographic risk factors), and specific patient education points about insurance coverage and reassurance regarding medication effectiveness. These do not impact the safety or core utility of the treatment plan.",
         "omissions": [
           "oral route of administration for Venlafaxine XR",
           "specific referral to Dr. Emily Carter, Hematologist",
@@ -333,42 +333,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Not great. I wake up multiple times during the night and only get about 5-6 hours of sleep in total.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Sleep disturbances with multiple nighttime awakenings and reduced total sleep hours"
+      "matched_claim_text": "Sleep disturbances with multiple nighttime awakenings and reduced total sleep hours",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "appropriate affect",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your affect seems congruent with that. Your speech is coherent, and your thought process appears logical.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Coherent speech, logical thought process, appropriate affect congruent with reported mood"
+      "matched_claim_text": "Coherent speech, logical thought process, appropriate affect congruent with reported mood",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "diagnosis justification: based on symptoms and history of Panic Disorder",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It sounds like you're experiencing several classic symptoms of depression. Based on what you've told me, it seems you are dealing with Major Depressive Disorder.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Major Depressive Disorder based on symptoms and history of Panic Disorder"
+      "matched_claim_text": "Major Depressive Disorder based on symptoms and history of Panic Disorder",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "panic disorder without or with agoraphobia — disease_disease — anxiety disorder"
     },
     {
       "addition_text": "reason for blood tests: to rule out other causes of fatigue",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'm going to order some blood tests, including a full blood count and vitamin D levels, to rule out any other potential causes of your fatigue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order blood tests for full blood count and vitamin D levels to rule out other causes of fatigue"
+      "matched_claim_text": "Order blood tests for full blood count and vitamin D levels to rule out other causes of fatigue",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "adjust treatment plan as needed (in follow-up)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll also schedule a follow-up in 8 weeks to see how you're responding to the medication and monitor for any side effects.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up in 8 weeks to monitor response, adjust treatment plan as needed, and assess for side effects"
+      "matched_claim_text": "Schedule follow-up in 8 weeks to monitor response, adjust treatment plan as needed, and assess for side effects",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "and dependence (added to concerns about long-term medication use)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Do you have any concerns about taking medication long-term?\n\n[Patient]: A little bit. I'm worried about becoming dependent on it.\n\n[Doctor]: I understand your concern. The goal is to use the medication to help you get back to a more stable place. We will monitor your progress and adjust the treatment plan as needed.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Address patient's concerns about long-term medication use and dependence"
+      "matched_claim_text": "Address patient's concerns about long-term medication use and dependence",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

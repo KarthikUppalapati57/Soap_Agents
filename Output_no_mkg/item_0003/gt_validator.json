@@ -259,9 +259,9 @@
     "plan_alignment_score": 0.5635359116022098
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Subjective section, where critical information such as current medications, allergies, and a complete Review of Systems are omitted. While the Objective, Assessment, and core Plan are mostly accurate, these omissions make the note meaningfully incomplete and require careful review. There are no unsupported or unknown additions impacting the grade.",
+    "overall_summary": "The generated note provides a reasonable summary of the chief complaint, physical exam findings, diagnosis, and core treatment plan for the patient's left knee osteoarthritis. However, it suffers from significant omissions, particularly in the Subjective section, where critical patient information such as current medications, known allergies, and the entire Review of Systems is missing. The Plan section also omits the \"Patient Agreements\" section and important details regarding patient education on adherence. While the core clinical problem is addressed, these gaps make the note meaningfully incomplete and necessitate careful review for comprehensive patient care and safety.",
     "omissions": [
       "Impact of pain on daily activities and limiting previous exercise routines (including daily walks)",
       "Patient denies recent trauma or injury to the knee",
@@ -294,7 +294,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has significant omissions, including the patient's current medications, known allergies, the impact of pain on daily activities, and the entire Review of Systems section. These omissions represent noticeable gaps that make the section meaningfully incomplete, despite the core chief complaint and some HPI details being present.",
+        "summary": "The Subjective section has multiple significant omissions. Critical patient information such as current medications (Lisinopril, Atorvastatin) and known allergies are entirely missing, which are major safety and clinical utility concerns. The entire Review of Systems (ROS) section is also omitted, along with important HPI details like the impact of pain on daily activities and the denial of recent trauma or previous knee surgeries. These omissions make the section meaningfully incomplete.",
         "omissions": [
           "Impact of pain on daily activities and limiting previous exercise routines, including daily walks",
           "Denies recent trauma or injury to the knee",
@@ -313,7 +313,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned. The primary omission is the detail regarding 'Limited range of motion with crepitus noted on movement.' Other key physical examination findings and vital signs are accurately captured.",
+        "summary": "The Objective section is mostly complete, accurately capturing inspection, palpation, special tests, and vital signs. The primary omission is the important physical examination finding of 'Limited range of motion with crepitus noted on movement', which is a key indicator for osteoarthritis.",
         "omissions": [
           "Range of Motion: Limited with crepitus noted on movement"
         ],
@@ -324,7 +324,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, capturing the primary diagnosis and the mention of possible meniscal involvement. The only omission is a minor detail about meniscal involvement needing further evaluation through imaging, which is implicitly addressed by the MRI order in the Plan.",
+        "summary": "The Assessment section accurately identifies the primary diagnosis of osteoarthritis of the left knee with possible meniscal involvement. The only omission is the explicit statement that meniscal involvement needs further evaluation through imaging, though this is implied and addressed in the Plan.",
         "omissions": [
           "Statement that meniscal involvement needs further evaluation through imaging"
         ],
@@ -332,8 +332,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section accurately captures the core treatment plan, including medication, physical therapy referral, follow-up, and MRI order. However, it omits details regarding patient education on adherence to treatment, the full Patient Agreements section, and specific patient context, which are moderate gaps in comprehensive documentation.",
+        "grade": "C",
+        "summary": "The Plan section captures the core treatment, follow-up, and referral details. However, it omits the entire 'Patient Agreements' section, which includes important details about patient understanding and willingness to comply with the plan. Other omissions include specific patient education on adherence to pain management and physical therapy, the explicit purpose of a balanced diet ('to support joint health'), and specific examples of low-impact activities (swimming or cycling). These omissions reduce the comprehensiveness of the patient education and engagement aspects of the plan.",
         "omissions": [
           "Acetaminophen medication route 'oral'",
           "MRI purpose to 'rule out other pathologies'",
@@ -359,21 +359,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I’d say it’s usually around a 5 or 6, but it can go up to an 8 on bad days.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is rated as 5-8 on a scale of 1-10."
+      "matched_claim_text": "The pain is rated as 5-8 on a scale of 1-10.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement that vital signs showed 'no abnormalities'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] All within normal limits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "no abnormalities in vital signs"
+      "matched_claim_text": "no abnormalities in vital signs",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Balanced diet details: 'rich in fruits, vegetables, and lean proteins'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Excellent. A balanced diet is also important for joint health. Make sure you’re eating plenty of fruits, vegetables, and lean proteins.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage a balanced diet rich in fruits, vegetables, and lean proteins."
+      "matched_claim_text": "Encourage a balanced diet rich in fruits, vegetables, and lean proteins.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

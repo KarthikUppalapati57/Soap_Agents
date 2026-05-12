@@ -217,9 +217,9 @@
     "plan_alignment_score": 0.6847826086956522
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective and Objective sections. Key missing information includes the patient's full Review of Systems, detailed self-reported habits and lifestyle (diet, exercise, tobacco, alcohol, sleep), current medications, and allergies. While the Assessment and core Plan are well-captured, the absence of critical historical and safety data makes the note meaningfully incomplete and requires careful review. There are no unsupported or unknown additions that would lower the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has no unsupported or unknown additions, which is excellent. However, it suffers from significant omissions, particularly in the Objective section, where critical information such as patient allergies, current medications, and past medical history (hypertension) are missing. The Subjective section also omits the patient's joint pain from the HPI and numerous lifestyle details. While the Assessment and Plan sections are well-captured with only minor omissions, the severe gaps in the Objective section materially reduce the note's clinical usefulness and could pose safety concerns.",
     "omissions": [
       "Patient's joint pain in subjective HPI",
       "Patient's pain and fatigue are 'almost daily'",
@@ -260,7 +260,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has numerous omissions, including details about joint pain, the daily frequency of symptoms, specifics of the patient's occupation, denials of new medications/infections/weight changes, and the complete absence of the Review of Systems and Patient’s Self-Reported Habits and Lifestyle sections. These missing details, especially regarding diet, exercise, tobacco, alcohol, and sleep, make the subjective history significantly incomplete.",
+        "summary": "This section omits the patient's joint pain from the History of Present Illness, which is a significant symptom. Additionally, it misses numerous details from the Review of Systems (e.g., psychological status) and Patient's Self-Reported Habits and Lifestyle (e.g., sleep, diet specifics, exercise, tobacco/alcohol use, recreational activities), making the subjective account less comprehensive. There are no unsupported or unknown additions.",
         "omissions": [
           "Patient's joint pain in HPI",
           "Pain and fatigue are 'almost daily'",
@@ -280,8 +280,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits critical information such as the patient's current medications (Amlodipine), allergies (Penicillin), detailed medical history (previous diagnoses, family history, chronic conditions), and general physical examination findings. The absence of medication and allergy information is a significant safety concern and makes the note meaningfully incomplete. All additions in this section were supported by the transcript.",
+        "grade": "D",
+        "summary": "This section has major omissions that significantly impact clinical usefulness and patient safety. Critical information such as current medications (Amlodipine), drug allergies (Penicillin), and previous diagnoses (Hypertension) are entirely missing. Details from the family medical history and general physical examination findings are also omitted. All additions in this section are supported by the transcript and do not reduce the grade.",
         "omissions": [
           "Medication History details: Current Medications (Amlodipine, 5 mg daily for hypertension)",
           "Medication History details: Allergies (Penicillin)",
@@ -298,7 +298,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is largely accurate, with only a minor omission of the 'unspecified' qualifier for the Vitamin D deficiency. The additions of 'Suspected' and the etiology/symptom linkage were supported by the transcript and do not detract from the quality.",
+        "summary": "This section accurately captures the suspected diagnosis of Vitamin D deficiency and its linkage to the patient's symptoms. The only omission is the 'unspecified' qualifier for the ICD-10 code, which is a minor detail. All additions in this section are supported by the transcript and do not reduce the grade.",
         "omissions": [
           "Qualifier: 'unspecified' for Vitamin D deficiency"
         ],
@@ -309,8 +309,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section is mostly complete, capturing all major elements of the treatment, follow-up, and investigations. There are several minor omissions regarding specific details (e.g., oral route, tablet quantity, specific panel name, detailed purpose of referrals/exercise) and one moderate omission regarding patient education on adhering to the prescribed medication regimen and maintaining follow-up appointments. These omissions do not fundamentally alter the plan but reduce its completeness.",
+        "grade": "A",
+        "summary": "This section is comprehensive, including all major components of the treatment plan, investigations, referrals, and lifestyle recommendations. The omissions are limited to minor details such as the oral route and tablet quantity for supplements, the specific purpose of the nutritionist referral, the type of blood work (biochemistry panel), and specific wording for patient education and disparity actions. There are no unsupported or unknown additions.",
         "omissions": [
           "Treatment detail: 'oral route' for Vitamin D3 supplements",
           "Treatment detail: '180 tablets' for Vitamin D3 supplements",
@@ -332,56 +332,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Alright. Your neurological exam is normal with no focal deficits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Neurological exam: Normal with no focal deficits"
+      "matched_claim_text": "Neurological exam: Normal with no focal deficits",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Objective - Musculoskeletal exam detail: 'and joints' (as in 'in muscles and joints')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let’s check your muscles and joints. I see there's mild tenderness but no swelling or deformity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild tenderness but no swelling or deformity in muscles and joints"
+      "matched_claim_text": "Mild tenderness but no swelling or deformity in muscles and joints",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment qualifier: 'Suspected' for Vitamin D deficiency",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, I suspect you might have a Vitamin D deficiency. This can cause muscular pain, joint pain, and fatigue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue"
+      "matched_claim_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment etiology/symptom linkage: 'causing muscular pain, joint pain, and fatigue'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, I suspect you might have a Vitamin D deficiency. This can cause muscular pain, joint pain, and fatigue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue"
+      "matched_claim_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Neurological exam qualifier: 'Normal with' (as in 'Normal with no focal deficits')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Alright. Your neurological exam is normal with no focal deficits.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Neurological exam: Normal with no focal deficits"
+      "matched_claim_text": "Neurological exam: Normal with no focal deficits",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Musculoskeletal exam detail: 'and joints' (as in 'in muscles and joints')",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let’s check your muscles and joints. I see there's mild tenderness but no swelling or deformity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild tenderness but no swelling or deformity in muscles and joints"
+      "matched_claim_text": "Mild tenderness but no swelling or deformity in muscles and joints",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier: 'Suspected' for Vitamin D deficiency",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, I suspect you might have a Vitamin D deficiency. This can cause muscular pain, joint pain, and fatigue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue"
+      "matched_claim_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Etiology/symptom linkage: 'causing muscular pain, joint pain, and fatigue'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, I suspect you might have a Vitamin D deficiency. This can cause muscular pain, joint pain, and fatigue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue"
+      "matched_claim_text": "Suspected Vitamin D deficiency causing muscular pain, joint pain, and fatigue",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

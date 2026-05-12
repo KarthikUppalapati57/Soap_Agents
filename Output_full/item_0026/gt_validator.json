@@ -275,9 +275,9 @@
     "plan_alignment_score": 0.5945945945945946
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note has significant omissions in the Subjective and Objective sections, specifically missing the entire Review of Systems and Physical Examination. While the Assessment and Plan sections are largely accurate and complete, these foundational data gaps make the note meaningfully incomplete and reduce its overall clinical usefulness. There are no unsupported or unknown additions that would further lower the grade.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note suffers from significant omissions in the Subjective and Objective sections, specifically the complete absence of the Review of Systems and Physical Examination. While the Assessment is accurate and the Plan is largely complete with only minor omissions, the missing foundational clinical data in the initial sections materially reduces the overall clinical usefulness and completeness of the note, making it difficult to use without significant additional review.",
     "omissions": [
       "Review of Systems (ROS) section",
       "Physical Examination section",
@@ -290,8 +290,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section receives a C due to the major omission of the entire Review of Systems (ROS) section. Additionally, several moderate omissions include specific details about the patient's diet, smoking history, and alcohol consumption from the History of Present Illness (HPI).",
+        "grade": "D",
+        "summary": "The Subjective section has significant omissions, including the entire Review of Systems and several important details from the History of Present Illness regarding diet, smoking history, and alcohol consumption. These omissions make the section meaningfully incomplete and reduce its clinical utility.",
         "omissions": [
           "Chief Complaint detail: 'with recent abnormal lab findings'",
           "HPI detail: Joint pain limiting 'climbing stairs'",
@@ -305,8 +305,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section receives a C due to the major omission of the entire Physical Examination section. A minor detail regarding 'Normal kidney function' from the Basic Metabolic Panel was also omitted.",
+        "grade": "D",
+        "summary": "The Objective section has a major omission, completely lacking the Physical Examination findings. This significantly reduces the clinical usefulness and completeness of the section, as key objective data is missing.",
         "omissions": [
           "Entire Physical Examination section (General, Cardiovascular, Respiratory, Musculoskeletal, Neurological findings)",
           "Investigation/Test Results detail: 'Normal kidney function' from Basic Metabolic Panel"
@@ -316,7 +316,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section receives an A. There are no omissions, and the single addition, 'Potential sleep disturbances related to pain and breathing difficulties,' is fully supported by the transcript and therefore does not reduce the grade.",
+        "summary": "The Assessment section is well-aligned with the Ground Truth. The single addition regarding potential sleep disturbances is supported by the transcript and therefore does not reduce the grade.",
         "omissions": [],
         "additions": [
           "Potential sleep disturbances related to pain and breathing difficulties"
@@ -325,7 +325,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section receives a B. It has several minor omissions, such as the 'orally' detail for medications, specific examples of low-impact exercises and their benefits, and the reason for the PFT. A moderate omission is the absence of the patient understanding and agreement statement at the end of the plan.",
+        "summary": "The Plan section is mostly complete and clinically usable. It has several minor omissions, such as specific medication administration details, the exact reason for follow-up blood work, and specific examples and benefits of lifestyle recommendations. One moderate omission is the detailed diet modification.",
         "omissions": [
           "Medication detail: 'orally' for Metformin",
           "Medication detail: 'orally' for Lisinopril",
@@ -348,14 +348,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My sleep has also been affected because of the pain.\n[Patient]: I have shortness of breath when I exert myself, which I think is because of my COPD.\n[Doctor]: To help with your sleep, establish a regular sleep schedule and manage your pain before bedtime.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Potential sleep disturbances related to pain and breathing difficulties"
+      "matched_claim_text": "Potential sleep disturbances related to pain and breathing difficulties",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Potential sleep disturbances related to pain and breathing difficulties",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: My sleep has also been affected because of the pain.\n[Patient]: I have shortness of breath when I exert myself, which I think is because of my COPD.\n[Doctor]: To help with your sleep, establish a regular sleep schedule and manage your pain before bedtime.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Potential sleep disturbances related to pain and breathing difficulties"
+      "matched_claim_text": "Potential sleep disturbances related to pain and breathing difficulties",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

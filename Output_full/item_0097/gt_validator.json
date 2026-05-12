@@ -268,7 +268,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, primarily in the Subjective section. Key details from the Chief Complaint and History of Present Illness are omitted, and the entire 'Patient’s Self-Reported Habits and Lifestyle' section is missing, which significantly reduces the completeness of the patient's background. Minor omissions are also present in the Objective and Plan sections, but no unsupported or unknown additions were found.",
+    "overall_summary": "The generated note is broadly usable but has noticeable gaps due to multiple moderate omissions, primarily in the Subjective and Plan sections. Key details from the Chief Complaint and History of Present Illness, the entire Patient's Self-Reported Habits and Lifestyle section, and specific lifestyle recommendations in the Plan were omitted. While no unsupported or unknown additions were found to penalize the grade, the cumulative effect of these omissions makes the note meaningfully incomplete, requiring careful review.",
     "omissions": [
       "Specific details of Chief Complaint (desire to quit smoking, strong nicotine cravings, irritability when attempting cessation)",
       "Specific smoking history (10 years, 10 cigarettes/day)",
@@ -292,7 +292,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has multiple moderate to major omissions. Significant details from the Chief Complaint and History of Present Illness are missing, including specific smoking history and the impact of anxiety on daily activities. The entire 'Patient’s Self-Reported Habits and Lifestyle' section is omitted, which represents a substantial gap in patient context.",
+        "summary": "The Subjective section has multiple moderate omissions. It lacks specific details from the Chief Complaint (desire to quit smoking, cravings, irritability) and History of Present Illness (smoking duration, daily consumption, specific impact of anxiety on work). Additionally, the entire 'Patient’s Self-Reported Habits and Lifestyle' section, which provides valuable context, was omitted. These gaps reduce the completeness and clinical richness of the subjective account.",
         "omissions": [
           "Chief Complaint: \"desire to quit smoking\", \"strong nicotine cravings\", \"irritability when attempting cessation\"",
           "HPI: Smoking duration (10 years), current cigarette consumption (10 cigarettes per day)",
@@ -305,8 +305,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section is mostly clinically aligned. It has several minor omissions related to specificity, such as the 'mildly obese' general finding and more detailed cardiovascular and respiratory exam findings (e.g., 'no murmurs or gallops', 'to auscultation bilaterally'). However, the core findings are present.",
+        "grade": "A",
+        "summary": "The Objective section is excellent, accurately capturing all major findings. The only omissions are minor descriptive phrases from the physical examination (e.g., 'mildly obese,' 'no murmurs or gallops,' 'to auscultation bilaterally'), which do not detract from the clinical utility of the section.",
         "omissions": [
           "General physical exam finding: \"Mildly obese\"",
           "Cardiovascular exam finding: \"no murmurs or gallops\"",
@@ -317,7 +317,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section captures all major clinically important Ground Truth content. The only omission is the specific BMI value (34) for obesity, which is a minor detail as the diagnosis of obesity is correctly included. No unsupported or unknown additions were found.",
+        "summary": "The Assessment section is highly accurate, correctly identifying all diagnoses. The only omission is the specific BMI value (34) for obesity, which is a minor detail as the diagnosis itself is present and a supported meta-commentary addresses the BMI context.",
         "omissions": [
           "BMI value for Obesity (34)"
         ],
@@ -328,7 +328,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned and usable, but it contains several minor to moderate omissions. Specific lifestyle recommendations for nicotine dependence (stress reduction, sleep hygiene) are missing. Minor omissions include the instruction to 'continue yoga classes' for obesity and details about discussing health risks during patient education, as well as patient agreement documentation. No unsupported or unknown additions were found.",
+        "summary": "The Plan section captures the core medical treatments and general recommendations but has several minor to moderate omissions. Specifically, it omits detailed lifestyle recommendations for nicotine dependence (stress reduction techniques like mindfulness and yoga, sleep hygiene), the explicit mention of discussing health risks, and the patient's agreement with the plan. While the main plan is intact, these omissions reduce its comprehensiveness.",
         "omissions": [
           "Nicotine Dependence Lifestyle Recommendations: stress reduction techniques such as mindfulness and yoga, and improve sleep hygiene",
           "Obesity Physical Activity: \"Continue yoga classes\"",
@@ -349,28 +349,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Lastly, your BMI indicates obesity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Obesity (BMI not explicitly stated but implied by doctor's recommendation for nutritional counseling)."
+      "matched_claim_text": "Obesity (BMI not explicitly stated but implied by doctor's recommendation for nutritional counseling).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan item: \"provide additional support as needed\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I also want to discuss the health risks associated with smoking and the benefits of quitting. I'll provide resources for smoking cessation support groups and apps to track your progress and manage cravings.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the benefits of quitting smoking and provide additional support as needed."
+      "matched_claim_text": "Emphasize the benefits of quitting smoking and provide additional support as needed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Meta-commentary: \"(BMI not explicitly stated but implied by doctor's recommendation for nutritional counseling)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Lastly, your BMI indicates obesity.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Obesity (BMI not explicitly stated but implied by doctor's recommendation for nutritional counseling)."
+      "matched_claim_text": "Obesity (BMI not explicitly stated but implied by doctor's recommendation for nutritional counseling).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"provide additional support as needed\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I also want to discuss the health risks associated with smoking and the benefits of quitting. I'll provide resources for smoking cessation support groups and apps to track your progress and manage cravings.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the benefits of quitting smoking and provide additional support as needed."
+      "matched_claim_text": "Emphasize the benefits of quitting smoking and provide additional support as needed.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -212,9 +212,9 @@
     "plan_alignment_score": 0.6206896551724138
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note provides a generally coherent summary of the patient's visit. However, it suffers from significant omissions, most notably the complete absence of the critical Vitamin D and Calcium lab results in the Objective section, which are foundational to the patient's diagnosis and treatment plan. Additionally, the Assessment section omits the direct diagnosis of \"Vitamin D Deficiency, unspecified,\" instead offering an interpretation. While other sections have minor to moderate omissions regarding specific details of the HPI, physical exam findings, and plan specifics, the missing lab results are a major flaw that materially reduces the clinical usefulness and completeness of the documentation.",
+    "overall_summary": "The generated note contains major omissions that significantly reduce its clinical usefulness. Crucial lab results for Vitamin D and Calcium, including their values and interpretations, are entirely missing from the Objective section. In the Assessment, the direct diagnosis of \"Vitamin D Deficiency, unspecified\" is omitted and replaced by an interpretive statement. These issues represent material gaps in the documentation. Additionally, the Subjective and Plan sections have several minor to moderate omissions regarding patient history details and specific plan instructions.",
     "omissions": [],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
@@ -222,7 +222,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section has several minor to moderate omissions, including details about the chronicity of symptoms, the specific impact of joint pain on daily activities (exercise regimen, gardening), and dietary information relevant to Vitamin D intake. While the core chief complaint and history of present illness are captured, these omissions reduce the completeness and context of the patient's subjective experience.",
+        "summary": "The Subjective section omits several minor to moderate details from the History of Present Illness and Review of Systems, such as the chronic nature of symptoms, the impact on exercise and gardening, and specific dietary habits relevant to Vitamin D. However, the core complaints and their general characteristics are captured. There are no unsupported or unknown additions.",
         "omissions": [
           "initial consultation",
           "chronic (describing fatigue and joint pain)",
@@ -238,7 +238,7 @@
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "This section contains major omissions. It broadly summarizes physical exam findings as 'normal' instead of listing specific details (e.g., HEENT, Cardiovascular, Respiratory, Abdomen findings). Most critically, it completely omits the Vitamin D and Calcium lab results, which are essential objective evidence for the patient's condition and subsequent management. The absence of these critical lab values severely impacts the clinical usefulness and completeness of the note.",
+        "summary": "The Objective section has major omissions, failing to include the specific Vitamin D and Calcium lab results and their interpretations, which are critical for clinical context. Additionally, specific findings from the HEENT, Cardiovascular, Respiratory, and Abdominal physical examinations are generalized rather than explicitly stated, though the summary indicates normal findings.",
         "omissions": [
           "in no acute distress (from General appearance)",
           "Specific HEENT findings: Normocephalic, atraumatic, oropharynx clear",
@@ -254,8 +254,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "This section omits the direct, formal diagnosis of \"Vitamin D Deficiency, unspecified.\" Instead, it states that \"Fatigue and joint pain may be related to Vitamin D deficiency.\" While this interpretation is supported by the transcript, the lack of a formal diagnosis is a noticeable gap. The detail that hypertension was a \"previous diagnosis\" is also omitted.",
+        "grade": "D",
+        "summary": "The Assessment section contains a major omission by not directly stating the diagnosis of \"Vitamin D Deficiency, unspecified\" as present in the Ground Truth. Instead, it offers an interpretive statement that the symptoms \"may be related to Vitamin D deficiency.\" While this interpretation is supported by the transcript, the absence of the direct diagnosis is a significant clinical gap.",
         "omissions": [
           "Vitamin D Deficiency, unspecified (as a direct diagnosis)",
           "(previous diagnosis) for Hypertension"
@@ -268,7 +268,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section has several minor omissions, including the specific quantity of medication (90 tablets), the precise duration for sun exposure (\"for at least 15 minutes daily\"), and details regarding patient education (discussion of importance, provision of pamphlet). The instruction to \"Order blood work for a Vitamin D level recheck in 3 months along with Calcium levels\" is also omitted as a distinct instruction, though the follow-up mentions reassessing levels. Despite these, the essential components of the treatment plan are present.",
+        "summary": "The Plan section has several minor to moderate omissions, including the specific quantity of Vitamin D3 tablets, the daily duration for sun exposure, and explicit patient education points such as discussing the importance of Vitamin D and providing a pamphlet. The instruction to order blood work is also less distinct than in the Ground Truth. No unsupported or unknown additions are present.",
         "omissions": [
           "90 tablets (quantity for Vitamin D3 supplements)",
           "for at least 15 minutes daily (duration for sun exposure)",
@@ -288,21 +288,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Do you have any other general symptoms like fever or weight loss?\n\n[Patient]: No, none of that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient denies other general symptoms like fever or weight loss."
+      "matched_claim_text": "Patient denies other general symptoms like fever or weight loss.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Fatigue and joint pain may be related to Vitamin D deficiency (as an interpretation rather than a direct diagnosis)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It means you have a Vitamin D deficiency, which could be contributing to your fatigue and joint pain. We'll need to address that.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Fatigue and joint pain may be related to Vitamin D deficiency."
+      "matched_claim_text": "Fatigue and joint pain may be related to Vitamin D deficiency.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Fatigue — phenotype_phenotype — Episodic fatigue, Fatigue — phenotype_phenotype — Chronic fatigue"
     },
     {
       "addition_text": "controlled by Lisinopril 10 mg daily (qualifier for Hypertension)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Continue taking your Lisinopril 10 mg daily for hypertension. How has that been going?\n\n[Patient]: It's been fine, no issues there.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension is controlled by Lisinopril 10 mg daily."
+      "matched_claim_text": "Hypertension is controlled by Lisinopril 10 mg daily.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

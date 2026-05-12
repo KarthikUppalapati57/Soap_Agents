@@ -261,9 +261,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps, particularly in the Subjective and Objective sections, which make it meaningfully incomplete. Key HPI details and a significant portion of the Review of Systems are omitted. Several physical examination findings are also missing. While there are no unsupported additions, the numerous omissions reduce the overall clinical usefulness and necessitate caution and review.",
+    "overall_summary": "The generated note is usable but has noticeable gaps, particularly in the Subjective and Plan sections. The Subjective section omits several clinically important HPI details, including the patient's acknowledgment of smoking's impact on activities, prior quit attempts, and struggles with diet, along with a positive psychiatric ROS finding. The Plan section misses specific details for treatments, referrals, and tests, and notably omits the entire 'Patient Agreements' section. The Objective and Assessment sections are more complete, with only minor omissions. There are no unsupported or unknown additions that would reduce the grade.",
     "omissions": [
       "Patient acknowledges smoking habit affects physical activities",
       "Patient has made several unsuccessful attempts to quit smoking",
@@ -293,7 +293,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has significant omissions, including key HPI details such as the patient acknowledging their smoking habit affects physical activities, unsuccessful attempts to quit, and struggles with diet. Furthermore, a large portion of the Review of Systems is missing, making this section noticeably incomplete.",
+        "summary": "This section has multiple moderate omissions, including key HPI details such as the patient acknowledging how smoking affects physical activities, prior unsuccessful attempts to quit, and struggles with a balanced diet. Several minor ROS details are also omitted, along with the clinically relevant positive finding of stress related to smoking cessation efforts. The presence of a supported addition does not impact the grade.",
         "omissions": [
           "Patient acknowledges smoking habit affects physical activities",
           "Patient has made several unsuccessful attempts to quit smoking",
@@ -311,8 +311,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits several important physical examination findings. Specifically, details regarding the cardiovascular (regular rate and rhythm, no murmurs), abdominal (soft, non-tender, no masses, bowel sounds present), and musculoskeletal (no edema, no obvious deformities) exams are missing, reducing the completeness of the clinical picture.",
+        "grade": "B",
+        "summary": "This section is mostly complete, with only a few minor omissions from the physical examination details (Cardiovascular, Abdominal, Musculoskeletal findings). The critical vital signs and respiratory findings are accurately captured.",
         "omissions": [
           "Physical Exam: Cardiovascular (regular rate and rhythm, no murmurs)",
           "Physical Exam: Abdominal (soft, non-tender, no masses, bowel sounds present)",
@@ -323,7 +323,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is well-aligned with only a minor omission regarding the detail that early signs of emphysema are 'to be confirmed with imaging and spirometry'.",
+        "summary": "This section is highly accurate and complete, with only a single minor omission regarding a clarifying detail for the differential diagnosis of early signs of emphysema (to be confirmed with imaging and spirometry). All primary and differential diagnoses are otherwise fully captured.",
         "omissions": [
           "Differential diagnosis detail for early signs of emphysema (to be confirmed with imaging and spirometry)"
         ],
@@ -331,8 +331,8 @@
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section contains several minor omissions, such as specific details for nicotine patch application, the need to evaluate additional interventions during follow-up, the specific pulmonologist's name, and the detailed purpose of spirometry and chest X-ray. Additionally, the entire 'Patient Agreements' section is omitted, which is a moderate gap.",
+        "grade": "C",
+        "summary": "This section contains several minor omissions regarding specific details of the nicotine patch application, follow-up evaluation, specific pulmonologist name, and the explicit purposes of spirometry and chest X-ray. A moderate omission is the complete absence of the 'Patient Agreements' section, which is important for documenting patient understanding and consent to the plan.",
         "omissions": [
           "Nicotine patch application detail (applied once daily to the upper body)",
           "Follow-up detail (evaluate the need for additional interventions)",
@@ -353,14 +353,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "hyperlipidemia, also controlled on your current medication.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has a history of controlled hyperlipidemia."
+      "matched_claim_text": "Patient has a history of controlled hyperlipidemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "History of controlled hyperlipidemia",
       "supported_by_transcript": "supported",
       "transcript_evidence": "hyperlipidemia, also controlled on your current medication.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient has a history of controlled hyperlipidemia."
+      "matched_claim_text": "Patient has a history of controlled hyperlipidemia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

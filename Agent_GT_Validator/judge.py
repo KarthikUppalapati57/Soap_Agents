@@ -8,6 +8,7 @@ from google.genai import Client, types
 from pydantic import ValidationError
 
 from .addition_evidence import build_addition_evidence
+from .primekg_evidence import enrich_addition_evidence_primekg
 from .schemas import (
     AdditionEvidence,
     ExpertJudgeDiscrepancies,
@@ -61,6 +62,7 @@ You receive:
 1) The same GroundTruthSOAP, GeneratedSOAP, and Transcript as before (for context when writing summaries).
 2) discrepancy_lists: omissions, additions, and per-section omissions/additions from a prior review step.
 3) addition_evidence: for many additions, transcript support status from an automated check (supported | unsupported | unknown).
+   Each entry may also include supported_by_primekg and primekg_evidence (PrimeKG / Agent-3 MKG overlap). These are for analysis only.
 
 Grading inputs (ONLY these may lower a grade):
 - All omissions in discrepancy_lists (GT-fabricated items were already excluded in the prior step).
@@ -71,6 +73,8 @@ Severity note:
 - Even a small number of unsupported additions can justify dropping below B if they introduce misleading clinical content.
 
 **Supported additions:** additions with supported_by_transcript == **supported** must NOT reduce any section or overall grade. They may appear in the text for transparency but are clinically grounded in the Transcript.
+
+**PrimeKG fields:** Do NOT use supported_by_primekg or primekg_evidence to remove penalties from additions that are unsupported or unknown on the transcript. Letter grades follow transcript-grounded addition rules above.
 
 If an addition has no entry in addition_evidence, treat it as **unknown** for grading (conservative).
 
@@ -336,6 +340,8 @@ def judge_against_ground_truth(
     evidence_model: str | None = None,
     agent3_claims: list[dict[str, Any]] | None = None,
     allow_evidence_gemini_fallback: bool = True,
+    allow_primekg_evidence: bool = True,
+    agent3_document: dict[str, Any] | None = None,
 ) -> tuple[ExpertJudgeReport, list[AdditionEvidence]]:
     """
     Two-phase expert judge:
@@ -374,6 +380,15 @@ def judge_against_ground_truth(
         ]
     else:
         addition_evidence = []
+
+    if adds and allow_primekg_evidence:
+        addition_evidence = enrich_addition_evidence_primekg(
+            addition_evidence,
+            generated_soap=generated_soap,
+            agent3_claims=agent3_claims if isinstance(agent3_claims, list) else [],
+            parsed_output=agent3_document if isinstance(agent3_document, dict) else None,
+            enabled=True,
+        )
 
     grading = judge_assign_grades(
         discrepancies=disc,

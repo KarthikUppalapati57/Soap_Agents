@@ -277,90 +277,89 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally accurate overview of the patient's visit. However, it has several moderate omissions, particularly in the Plan section, which impact the completeness of patient education, monitoring instructions (blood glucose and blood pressure logs), and crucial patient context regarding low health literacy and being overwhelmed. The Subjective section also omits the patient's reported difficulty with household chores due to diabetes. There is one minor unsupported addition of a temperature unit conversion in the Objective section. While no major safety issues or misleading content are introduced, the cumulative effect of these omissions makes the note meaningfully incomplete in key areas of patient management and communication.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned but has noticeable gaps, particularly in the Plan section. While the core medical interventions are present, numerous important details regarding patient education, monitoring instructions, specific referral names, and crucial context about patient comprehension are omitted. The Subjective section also misses several minor but relevant details. No unsupported or unknown additions were found to penalize the grade.",
     "omissions": [
       "Chief Complaint: Patient presents for chronic disease management.",
-      "HPI detail: Reports moderate difficulty in managing household chores (related to diabetes).",
-      "HPI detail: Dizziness (moderate, daily).",
-      "HPI detail: Shortness of breath (while walking, daily).",
-      "ROS detail: Cardiovascular: no chest pain.",
-      "ROS detail: Gastrointestinal: No abdominal pain, nausea, or vomiting.",
-      "ROS detail: Neurological: No headaches or visual disturbances.",
-      "ROS detail: General: No recent weight gain or loss.",
-      "Physical Exam - General: Appears tired, slight pallor.",
-      "Plan - Type 2 Diabetes: Monitoring: Regular blood glucose log to be maintained.",
-      "Plan - Asthma: Referral to pulmonologist Dr. Regina Davis (specific doctor's name).",
-      "Plan - Lifestyle and Education: Dietary Advice: focus on reducing processed foods.",
-      "Plan - Patient Education and Counseling: Emphasized the importance of medication adherence.",
-      "Plan - Patient Education and Counseling: Discussed the impact of diet and exercise on overall health.",
-      "Plan - Patient Education and Counseling: Addressed concerns due to low health literacy by simplifying medical instructions and ensuring comprehension.",
-      "Plan - Community and Social Support: Advised exploring local food banks and community gardens.",
-      "Plan - Community and Social Support: Encouraged participation in community wellness programs to improve diet and physical activity.",
-      "Plan - Follow-Up Instructions: Monitor symptoms and maintain a log of blood pressure and blood glucose levels.",
-      "Final note: The patient was cooperative but seemed overwhelmed by medical instructions; thus, additional time was taken to ensure understanding and provide clear, manageable steps."
+      "HPI: Reports moderate difficulty in managing household chores (related to diabetes).",
+      "Subjective report of mild wheezing.",
+      "Subjective report of shortness of breath occurring 'while walking'.",
+      "ROS: Cardiovascular: no chest pain.",
+      "ROS: Gastrointestinal: No abdominal pain, nausea, or vomiting.",
+      "ROS: Neurological: No headaches or visual disturbances.",
+      "ROS: General: No recent weight gain or loss.",
+      "Physical Examination: General: Appears tired, slight pallor.",
+      "Plan: Type 2 Diabetes Monitoring: Regular blood glucose log to be maintained.",
+      "Plan: Asthma Referral: Specific pulmonologist's name (Dr. Regina Davis).",
+      "Plan: Asthma Further Test: Reason for Chest X-ray ('for respiratory symptoms evaluation').",
+      "Plan: Lifestyle and Education: Specific dietary advice to 'focus on reducing processed foods'.",
+      "Plan: Patient Education and Counseling: Emphasized the importance of medication adherence.",
+      "Plan: Patient Education and Counseling: Discussed the impact of diet and exercise on overall health.",
+      "Plan: Patient Education and Counseling: Addressed concerns due to low health literacy by simplifying medical instructions and ensuring comprehension.",
+      "Plan: Community and Social Support: Advised exploring local food banks and community gardens.",
+      "Plan: Community and Social Support: Encouraged participation in community wellness programs to improve diet and physical activity.",
+      "Plan: Follow-Up Instructions: Monitor symptoms and maintain a log of blood pressure and blood glucose levels.",
+      "Overall note about patient's comprehension: 'The patient was cooperative but seemed overwhelmed by medical instructions; thus, additional time was taken to ensure understanding and provide clear, manageable steps.'"
     ],
     "additions": [
-      "Objective: Temperature unit (37°C).",
-      "Assessment: Lifestyle factors contributing to symptoms (stress, poor diet).",
-      "Assessment: Possible undiagnosed asthma exacerbations."
+      "Objective: Vitals: Temperature in Celsius (37°C).",
+      "Assessment: Lifestyle factors contributing to symptoms (stress, poor diet)."
     ],
     "hallucinations_or_unjustified_inferences": [
-      "Objective: Temperature unit (37°C).",
-      "Temperature unit (37°C)."
+      "Vitals: Temperature in Celsius (37°C)."
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "This section has several minor omissions, including negative findings from the Review of Systems and specific details about the dizziness and shortness of breath. A moderate omission is the patient's reported difficulty managing household chores due to diabetes, which is clinically relevant for functional status. Despite these, the core subjective complaints and history are captured.",
+        "summary": "The Subjective section has several minor omissions, including the chief complaint context, a specific HPI detail about managing household chores, and multiple items from the Review of Systems (e.g., no chest pain, no abdominal pain, no headaches, no weight changes). While the main complaints are captured, these omissions reduce the overall completeness of the patient's subjective report.",
         "omissions": [
           "Chief Complaint: Patient presents for chronic disease management.",
-          "HPI detail: Reports moderate difficulty in managing household chores (related to diabetes).",
-          "HPI detail: Dizziness (moderate, daily).",
-          "HPI detail: Shortness of breath (while walking, daily).",
-          "ROS detail: Cardiovascular: no chest pain.",
-          "ROS detail: Gastrointestinal: No abdominal pain, nausea, or vomiting.",
-          "ROS detail: Neurological: No headaches or visual disturbances.",
-          "ROS detail: General: No recent weight gain or loss."
+          "HPI: Reports moderate difficulty in managing household chores (related to diabetes).",
+          "Subjective report of mild wheezing.",
+          "Subjective report of shortness of breath occurring 'while walking'.",
+          "ROS: Cardiovascular: no chest pain.",
+          "ROS: Gastrointestinal: No abdominal pain, nausea, or vomiting.",
+          "ROS: Neurological: No headaches or visual disturbances.",
+          "ROS: General: No recent weight gain or loss."
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is largely accurate. It has one minor omission regarding the patient's general appearance (appears tired, slight pallor) and one minor unsupported addition of a temperature unit conversion (37°C). These issues are minor and do not significantly impact the clinical usefulness of the section.",
+        "summary": "The Objective section is well-aligned. It has only one minor omission regarding the patient's general appearance ('Appears tired, slight pallor'). The addition of temperature in Celsius is considered supported as it is a direct conversion from the Fahrenheit temperature provided in the transcript.",
         "omissions": [
-          "Physical Exam - General: Appears tired, slight pallor."
+          "Physical Examination: General: Appears tired, slight pallor."
         ],
         "additions": [
-          "Temperature unit (37°C)."
+          "Vitals: Temperature in Celsius (37°C)."
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is excellent with no omissions or unsupported/unknown additions. All generated content is clinically relevant and supported by the transcript.",
+        "summary": "The Assessment section is excellent, with no omissions or unsupported/unknown additions. All content is clinically aligned and supported by the transcript.",
         "omissions": [],
         "additions": [
-          "Lifestyle factors contributing to symptoms (stress, poor diet).",
-          "Possible undiagnosed asthma exacerbations."
+          "Lifestyle factors contributing to symptoms (stress, poor diet)."
         ]
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section contains multiple moderate omissions that significantly reduce its completeness and usefulness. Key omissions include the instruction for regular blood glucose and blood pressure monitoring, documentation of addressing low health literacy, and the important patient context about being overwhelmed and requiring simplified instructions. Several minor omissions also exist regarding specific dietary advice, community resources, and general counseling points. These gaps make the plan meaningfully incomplete, especially concerning patient education and follow-up monitoring.",
+        "summary": "The Plan section has numerous moderate to significant omissions that make it meaningfully incomplete. Key missing details include specific monitoring instructions (blood glucose log, blood pressure log), the specific pulmonologist's name, the reason for the Chest X-ray, detailed dietary advice, and several crucial patient education and counseling points (medication adherence, impact of diet/exercise, addressing low health literacy). Furthermore, specific community and social support recommendations and the important overall note about the patient's comprehension are absent. These omissions significantly impact the actionable detail and patient-centeredness of the plan.",
         "omissions": [
-          "Type 2 Diabetes: Monitoring: Regular blood glucose log to be maintained.",
-          "Asthma: Referral to pulmonologist Dr. Regina Davis (specific doctor's name).",
-          "Lifestyle and Education: Dietary Advice: focus on reducing processed foods.",
+          "Type 2 Diabetes Monitoring: Regular blood glucose log to be maintained.",
+          "Asthma Referral: Specific pulmonologist's name (Dr. Regina Davis).",
+          "Asthma Further Test: Reason for Chest X-ray ('for respiratory symptoms evaluation').",
+          "Lifestyle and Education: Specific dietary advice to 'focus on reducing processed foods'.",
           "Patient Education and Counseling: Emphasized the importance of medication adherence.",
           "Patient Education and Counseling: Discussed the impact of diet and exercise on overall health.",
           "Patient Education and Counseling: Addressed concerns due to low health literacy by simplifying medical instructions and ensuring comprehension.",
           "Community and Social Support: Advised exploring local food banks and community gardens.",
           "Community and Social Support: Encouraged participation in community wellness programs to improve diet and physical activity.",
           "Follow-Up Instructions: Monitor symptoms and maintain a log of blood pressure and blood glucose levels.",
-          "Final note: The patient was cooperative but seemed overwhelmed by medical instructions; thus, additional time was taken to ensure understanding and provide clear, manageable steps."
+          "Overall note about patient's comprehension: 'The patient was cooperative but seemed overwhelmed by medical instructions; thus, additional time was taken to ensure understanding and provide clear, manageable steps.'"
         ],
         "additions": []
       }
@@ -370,46 +369,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: Temperature unit (37°C).",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "Objective: Vitals: Temperature in Celsius (37°C).",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your temperature is 98.6 degrees Fahrenheit.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Lifestyle factors contributing to symptoms (stress, poor diet).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Not really, I've been stressed and eating poorly. [Doctor]: I recommend seeking community resources to help improve your diet... Stress management techniques can be very beneficial...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle factors contributing to symptoms (stress, poor diet)."
+      "matched_claim_text": "Lifestyle factors contributing to symptoms (stress, poor diet).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: Possible undiagnosed asthma exacerbations.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I use an Albuterol inhaler as needed. I have mild wheezing sometimes. [Doctor]: I hear an irregular heartbeat and some mild wheezing. [Doctor]: For your asthma, I want to refer you to Dr. Regina Davis, a pulmonologist, for further evaluation. We'll also get that chest X-ray done.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible undiagnosed asthma exacerbations."
-    },
-    {
-      "addition_text": "Temperature unit (37°C).",
+      "addition_text": "Vitals: Temperature in Celsius (37°C).",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Lifestyle factors contributing to symptoms (stress, poor diet).",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Not really, I've been stressed and eating poorly. [Doctor]: I recommend seeking community resources to help improve your diet... Stress management techniques can be very beneficial...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle factors contributing to symptoms (stress, poor diet)."
-    },
-    {
-      "addition_text": "Possible undiagnosed asthma exacerbations.",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I use an Albuterol inhaler as needed. I have mild wheezing sometimes. [Doctor]: I hear an irregular heartbeat and some mild wheezing. [Doctor]: For your asthma, I want to refer you to Dr. Regina Davis, a pulmonologist, for further evaluation. We'll also get that chest X-ray done.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible undiagnosed asthma exacerbations."
+      "matched_claim_text": "Lifestyle factors contributing to symptoms (stress, poor diet).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

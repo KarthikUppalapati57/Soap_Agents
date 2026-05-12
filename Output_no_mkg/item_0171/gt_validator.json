@@ -224,9 +224,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps, particularly in the Subjective and Plan sections. Key omissions include the Chief Complaint, detailed Review of Systems, specific COVID-19 diagnostic testing, and comprehensive lifestyle recommendations for both COVID-19 and chronic conditions. While all additions are supported by the transcript, the numerous omissions make the note meaningfully incomplete and require careful review.",
+    "overall_summary": "The note provides a generally accurate overview of the patient's visit, with all additions being supported by the transcript. However, it suffers from multiple moderate omissions, particularly in the Subjective section where the Chief Complaint and detailed Review of Systems are missing, and in the Plan section where crucial COVID-19 management details (rapid antigen test, lifestyle recommendations), non-pharmacological advice for chronic conditions, and the patient agreement are absent. These gaps make the note meaningfully incomplete, requiring careful review.",
     "omissions": [
       "Chief Complaint: Exposure to COVID-19",
       "HPI detail: high level of health literacy",
@@ -259,7 +259,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has several omissions, including the Chief Complaint and detailed negative Review of Systems for constitutional, respiratory, gastrointestinal, and neurological systems. While the core HPI is present, these omissions make the subjective assessment less comprehensive than the Ground Truth.",
+        "summary": "The Subjective section omits the Chief Complaint and a significant portion of the detailed Review of Systems (Constitutional, Respiratory, Gastrointestinal, Neurological), which are important for a complete clinical picture. While some HPI details are present, the lack of a full ROS is a noticeable gap that makes the section meaningfully incomplete.",
         "omissions": [
           "Chief Complaint: Exposure to COVID-19",
           "HPI detail: high level of health literacy",
@@ -274,14 +274,14 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is perfectly aligned with the Ground Truth, accurately stating that no physical exam was performed due to telemedicine.",
+        "summary": "The Objective section is complete and accurate, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent. It captures the primary diagnosis and chronic conditions, and all additional details regarding management and allergies are fully supported by the transcript. There are no omissions or unsupported additions in this section.",
+        "summary": "The Assessment section is complete and accurate. All included information is supported by the transcript, and there are no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": [
           "Anxiety related to exposure (as a diagnosis/problem)",
@@ -294,7 +294,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has multiple omissions that reduce its completeness. It misses the recommendation for a Rapid Antigen Test if symptoms develop and important COVID-19 lifestyle recommendations (social distancing, hand hygiene, mask usage). Additionally, specific dosages/frequencies for chronic medications, detailed lifestyle management for migraines and GERD, advice to abstain from smoking, and the patient agreements section are omitted. While one addition is supported, the numerous omissions make the plan less comprehensive.",
+        "summary": "The Plan section has several moderate omissions, including key COVID-19 management details (Rapid Antigen Test, Lifestyle Recommendations), specific non-pharmacological advice for chronic migraines and GERD, and the important Patient Agreements section. While core medication plans are present, the missing details reduce the completeness and overall usefulness of the plan.",
         "omissions": [
           "Rapid Antigen Test for COVID-19 if symptoms develop",
           "Lifestyle Recommendations: Emphasized the importance of social distancing, hand hygiene, and mask usage",
@@ -321,84 +321,108 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient] I'm doing alright, just a bit anxious. ... I'm really worried about it. ... But I'm very anxious about potentially developing symptoms. ... Just the anxiety, really. That's been the main thing. ... [Doctor] Understandable. Anxiety can certainly be heightened in situations like this.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anxiety related to exposure"
+      "matched_claim_text": "Anxiety related to exposure",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Chronic migraines managed with Sumatriptan and lifestyle modifications (management details in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] Now, let's discuss your chronic conditions. I see that you have chronic migraines. Are you currently taking any medication for that? [Patient] Yes, I take Sumatriptan 100 mg when I get a migraine. [Doctor] Perfect. Continue with that as needed. It's also important to maintain regular sleep, a balanced diet, and regular exercise to help manage your migraines.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic migraines managed with Sumatriptan and lifestyle modifications"
+      "matched_claim_text": "Chronic migraines managed with Sumatriptan and lifestyle modifications",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: GERD managed with Omeprazole and avoidance of trigger foods (management details in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] Now, regarding your GERD, you're taking Omeprazole 20 mg daily, correct? [Patient] Yes, that's right. [Doctor] Good. Continue with the Omeprazole and try to avoid foods that trigger your reflux, like spicy foods and alcohol. Is there anything specific that tends to trigger your reflux? [Patient] Spicy foods usually do. I try to avoid them.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "GERD managed with Omeprazole and avoidance of trigger foods"
+      "matched_claim_text": "GERD managed with Omeprazole and avoidance of trigger foods",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Documented Penicillin allergy (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] Excellent. I see that you have a documented allergy to Penicillin. Is that still the case? [Patient] Yes, I'm definitely allergic to Penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Documented Penicillin allergy"
+      "matched_claim_text": "Documented Penicillin allergy",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Occasional alcohol consumption, marijuana use (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] And what about alcohol consumption? [Patient] I drink occasionally, but not too much.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Occasional alcohol consumption"
+      "matched_claim_text": "Occasional alcohol consumption",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Encourage patient to contact for symptoms or concerns",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] If you start experiencing any symptoms, please reach out, and we can arrange for a rapid antigen test for COVID-19. ... Remember, if you develop any symptoms or have any concerns, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to contact for symptoms or concerns."
+      "matched_claim_text": "Encourage patient to contact for symptoms or concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Anxiety related to exposure (as a diagnosis/problem)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient] I'm doing alright, just a bit anxious. ... I'm really worried about it. ... But I'm very anxious about potentially developing symptoms. ... Just the anxiety, really. That's been the main thing. ... [Doctor] Understandable. Anxiety can certainly be heightened in situations like this.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Anxiety related to exposure"
+      "matched_claim_text": "Anxiety related to exposure",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Chronic migraines managed with Sumatriptan and lifestyle modifications (management details in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] Now, let's discuss your chronic conditions. I see that you have chronic migraines. Are you currently taking any medication for that? [Patient] Yes, I take Sumatriptan 100 mg when I get a migraine. [Doctor] Perfect. Continue with that as needed. It's also important to maintain regular sleep, a balanced diet, and regular exercise to help manage your migraines.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic migraines managed with Sumatriptan and lifestyle modifications"
+      "matched_claim_text": "Chronic migraines managed with Sumatriptan and lifestyle modifications",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "GERD managed with Omeprazole and avoidance of trigger foods (management details in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] Now, regarding your GERD, you're taking Omeprazole 20 mg daily, correct? [Patient] Yes, that's right. [Doctor] Good. Continue with the Omeprazole and try to avoid foods that trigger your reflux, like spicy foods and alcohol. Is there anything specific that tends to trigger your reflux? [Patient] Spicy foods usually do. I try to avoid them.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "GERD managed with Omeprazole and avoidance of trigger foods"
+      "matched_claim_text": "GERD managed with Omeprazole and avoidance of trigger foods",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Documented Penicillin allergy (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] Excellent. I see that you have a documented allergy to Penicillin. Is that still the case? [Patient] Yes, I'm definitely allergic to Penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Documented Penicillin allergy"
+      "matched_claim_text": "Documented Penicillin allergy",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Occasional alcohol consumption, marijuana use (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] And what about alcohol consumption? [Patient] I drink occasionally, but not too much.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Occasional alcohol consumption"
+      "matched_claim_text": "Occasional alcohol consumption",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Encourage patient to contact for symptoms or concerns",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor] If you start experiencing any symptoms, please reach out, and we can arrange for a rapid antigen test for COVID-19. ... Remember, if you develop any symptoms or have any concerns, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage patient to contact for symptoms or concerns."
+      "matched_claim_text": "Encourage patient to contact for symptoms or concerns.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

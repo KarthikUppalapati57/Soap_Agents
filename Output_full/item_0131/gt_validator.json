@@ -247,9 +247,9 @@
     "plan_alignment_score": 0.5828571428571429
   },
   "expert_judge": {
-    "model": "Expert Clinical Documentation Reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned, with strong Subjective and Assessment sections. However, the Objective section has a moderate omission regarding the use of accessory muscles. The Plan section contains several moderate to major omissions, particularly concerning detailed patient instructions, strategies for addressing health literacy, encouragement to utilize local resources despite a food desert, and a critical section on addressing treatment disparities. These omissions significantly reduce the comprehensiveness and clinical usefulness of the patient care plan, leading to a lower overall grade. All identified additions were supported by the transcript and did not impact the grade.",
+    "overall_summary": "The generated note provides a generally accurate summary of the patient's subjective and objective findings, and the assessment is complete. However, the Plan section has significant omissions, particularly regarding detailed patient instructions, addressing health literacy, and the entire 'Treatment Disparities' section, which are crucial for comprehensive patient care and adherence. There is also a moderate omission in the Objective section regarding the use of accessory muscles. All identified additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Subjective: shortness of breath occurs daily",
       "Subjective: ROS - denies fever or weight loss",
@@ -280,7 +280,7 @@
       {
         "section": "Subjective",
         "grade": "A",
-        "summary": "The section accurately captures the chief complaint and history of present illness. Minor omissions include specific negative review of systems findings (denial of fever, weight loss, chest pain, nausea/vomiting, joint pain/swelling) and the daily frequency of shortness of breath, but these do not detract from the overall clinical picture. All additions were supported by the transcript.",
+        "summary": "The section accurately captures the chief complaint and most of the history of present illness. There are several minor omissions from the Review of Systems, such as denials of fever, weight loss, chest pain, nausea, vomiting, and joint pain or swelling. All additions were supported by the transcript.",
         "omissions": [
           "shortness of breath occurs daily",
           "ROS - denies fever or weight loss",
@@ -296,7 +296,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The section accurately reports vital signs and most physical exam findings. However, it omits the clinically relevant finding of 'use of accessory muscles' during respiration, which is a moderate issue. The omission of 'No abnormalities detected on palpation (Abdominal)' is minor.",
+        "summary": "Most objective findings are present. However, the note omits the clinically significant finding of the patient's use of accessory muscles for breathing, which is a moderate issue, and the normal abdominal exam finding, which is minor.",
         "omissions": [
           "Physical Exam - use of accessory muscles (Respiratory)",
           "Physical Exam - No abnormalities detected on palpation (Abdominal)"
@@ -306,7 +306,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is excellent, accurately reflecting the primary diagnosis. The addition of 'COPD is also suspected based on the patient's symptoms' is supported by the transcript and enhances the clinical picture without introducing unsupported content. There are no omissions.",
+        "summary": "The assessment is complete and accurate, with no omissions or penalizable additions. All additions were supported by the transcript.",
         "omissions": [],
         "additions": [
           "COPD is also suspected based on the patient's symptoms"
@@ -315,7 +315,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has several significant omissions that impact its clinical usefulness and comprehensiveness. While medications, referrals, lifestyle recommendations, and imaging orders are present, the note omits crucial details regarding patient instructions (importance of adherence, simplified instructions, encouragement to use local resources despite food desert challenges) and the entire 'Treatment Disparities' section. These omissions represent multiple moderate to major gaps in patient-centered care planning and support strategies. Minor omissions include specific medication details (route, dosage, frequency) and the purpose of the echocardiogram. The addition of 'order lipid profile blood test' is supported by the transcript.",
+        "summary": "The Plan section has several omissions, including specific medication details (route, dosage, frequency) and the purpose of the echocardiogram. More significantly, it omits crucial patient instructions regarding adherence, simplified instructions for health literacy, and encouragement to use local resources despite living in a food desert. The entire 'Treatment Disparities' section, which addresses potential adherence challenges and follow-up support, is also missing, representing a major gap in the plan. All additions were supported by the transcript.",
         "omissions": [
           "Medications - Metoprolol route 'orally'",
           "Medications - Atorvastatin dosage '20 mg daily'",
@@ -340,56 +340,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "I get short of breath every day, especially when I try to do any physical activity.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Subjective: wheezing mentioned in the HPI-like summary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, no chest pain. Just the shortness of breath, some wheezing, and occasional dizziness.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: COPD is also suspected based on the patient's symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: ...and I'll prescribe an Albuterol inhaler for your COPD.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: order lipid profile blood test",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll also order an echocardiogram and a lipid profile blood test.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "dyspnea at rest",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "wheezing mentioned in the HPI-like summary",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, no chest pain. Just the shortness of breath, some wheezing, and occasional dizziness.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "COPD is also suspected based on the patient's symptoms",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I'll prescribe an Albuterol inhaler for your COPD.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "order lipid profile blood test",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll also order an echocardiogram and a lipid profile blood test.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

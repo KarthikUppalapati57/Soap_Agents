@@ -222,70 +222,63 @@
     "plan_alignment_score": 0.5859872611464967
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a generally usable clinical summary but contains several moderate omissions across multiple sections, particularly in the Plan, where crucial details about awaiting urine culture results for treatment adjustment and dietary advice for diabetes management are missing. The Subjective and Objective sections also have noticeable gaps, though the Assessment is largely complete. One minor unsupported addition was identified in the Subjective section.",
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, accurately capturing the chief complaint, diagnosis, and primary treatment plan. However, it has several omissions across the Subjective, Objective, and Plan sections. These include specific details about the severity of the patient's pain, family history, specific dietary habits, the pending urine culture results, and detailed patient education regarding diabetes management. All additions present in the note were supported by the transcript and therefore did not negatively impact the grade.",
     "omissions": [
-      "Patient experiences constant discomfort during urination",
-      "Patient's mother had recurrent UTIs and diabetes",
-      "Patient maintains a high-carb diet with moderate fruits and vegetables",
-      "Patient is a non-smoker",
-      "Patient has moderate health literacy",
-      "No external abnormalities detected during genitourinary examination",
-      "Awaiting urine culture results to determine antibiotic sensitivity",
-      "UTI site not specified",
-      "Advised on dietary adjustments to manage diabetes",
-      "Patient agrees with the treatment plan and understood the instructions provided"
+      "HPI: Constant discomfort and significant pain during urination",
+      "HPI: Mother also had recurrent UTIs and diabetes",
+      "ROS: Gastrointestinal: High-carb diet with moderate fruits and vegetables",
+      "ROS: Genitourinary: Endorses dysuria, increased urinary frequency",
+      "ROS: Lifestyle: Non-smoker",
+      "ROS: Lifestyle: Moderate health literacy",
+      "Objective: Physical Examination: No external abnormalities detected (Genitourinary)",
+      "Objective: Test Results: Urine Culture: Awaiting results for antibiotic sensitivity",
+      "Plan: Patient Education and Counseling: Advised on the significance of maintaining adequate hydration and dietary adjustments to manage diabetes",
+      "Plan: Patient agrees with the treatment plan and understood the instructions provided"
     ],
     "additions": [
-      "ROS summary includes 'or other symptoms'",
-      "Vital signs are 'all within normal ranges'",
-      "Patient is allergic to Penicillin (in Objective section)",
-      "Diagnosis of UTI based on symptoms and urinalysis results",
-      "Allergy to Penicillin necessitates prescribing an alternative antibiotic (Nitrofurantoin)",
-      "Reason for fluid intake/avoiding certain beverages: 'to help flush out bacteria and reduce irritation'",
-      "Qualifier for completing antibiotics: 'even if symptoms improve prematurely'",
-      "Advise patient to contact the doctor if symptoms worsen or if there are any other concerns"
+      "Objective: Vital Signs: \"(all within normal ranges)\"",
+      "Objective: Patient is allergic to Penicillin",
+      "Assessment: Diagnosis of UTI based on symptoms and urinalysis results",
+      "Assessment: Allergy to Penicillin necessitates prescribing an alternative antibiotic (Nitrofurantoin)",
+      "Plan: Lifestyle Changes: \"to help flush out bacteria and reduce irritation\"",
+      "Plan: Advise patient to contact the doctor if symptoms worsen or if there are any other concerns"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "ROS summary includes 'or other symptoms'"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits several minor to moderate details from the HPI and ROS, including the patient's constant discomfort during urination, family history of UTIs and diabetes, specific dietary habits, non-smoker status, and health literacy. It also includes one minor unsupported addition regarding 'or other symptoms' in the ROS summary.",
+        "summary": "The Subjective section has several omissions, including the constant discomfort and significant pain during urination, the patient's mother's history of recurrent UTIs and diabetes, specific details about the high-carb diet, the non-smoker status, and moderate health literacy. While the core HPI and ROS are present, these missing details reduce the completeness of the section.",
         "omissions": [
-          "Patient experiences constant discomfort during urination",
-          "Patient's mother had recurrent UTIs and diabetes",
-          "Patient maintains a high-carb diet with moderate fruits and vegetables",
-          "Patient is a non-smoker",
-          "Patient has moderate health literacy"
+          "HPI: Constant discomfort and significant pain during urination",
+          "HPI: Mother also had recurrent UTIs and diabetes",
+          "ROS: Gastrointestinal: High-carb diet with moderate fruits and vegetables",
+          "ROS: Genitourinary: Endorses dysuria, increased urinary frequency",
+          "ROS: Lifestyle: Non-smoker",
+          "ROS: Lifestyle: Moderate health literacy"
         ],
-        "additions": [
-          "ROS summary includes 'or other symptoms'"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section omits important physical examination findings (no external abnormalities detected during genitourinary examination) and the status of pending urine culture results for antibiotic sensitivity, which is a moderate omission.",
+        "summary": "The Objective section has two omissions: the absence of external abnormalities detected during the genitourinary examination and the crucial detail that urine culture results are awaiting for antibiotic sensitivity. The additions in this section were supported by the transcript and did not affect the grade.",
         "omissions": [
-          "No external abnormalities detected during genitourinary examination",
-          "Awaiting urine culture results to determine antibiotic sensitivity"
+          "Physical Examination: No external abnormalities detected (Genitourinary)",
+          "Test Results: Urine Culture: Awaiting results for antibiotic sensitivity"
         ],
         "additions": [
-          "Vital signs are 'all within normal ranges'",
+          "Vital Signs: \"(all within normal ranges)\"",
           "Patient is allergic to Penicillin"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is largely accurate, with only a minor omission regarding the specificity of the UTI diagnosis (site not specified).",
-        "omissions": [
-          "UTI site not specified"
-        ],
+        "summary": "The Assessment section is complete with no omissions. All additions were supported by the transcript and accurately reflect information from the encounter, thus not impacting the grade.",
+        "omissions": [],
         "additions": [
           "Diagnosis of UTI based on symptoms and urinalysis results",
           "Allergy to Penicillin necessitates prescribing an alternative antibiotic (Nitrofurantoin)"
@@ -293,16 +286,14 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has significant omissions, including the critical detail about awaiting urine culture results to determine antibiotic sensitivity and adjust treatment if necessary. It also omits advice on dietary adjustments for diabetes management and the patient's agreement with the treatment plan, making the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The Plan section has omissions regarding the detailed patient education about the significance of maintaining adequate hydration and dietary adjustments to manage diabetes, and the patient's agreement with the treatment plan. The additions in this section were supported by the transcript and did not affect the grade.",
         "omissions": [
-          "Await urine culture results to determine antibiotic sensitivity and adjust treatment if necessary",
-          "Advised on dietary adjustments to manage diabetes",
+          "Patient Education and Counseling: Advised on the significance of maintaining adequate hydration and dietary adjustments to manage diabetes",
           "Patient agrees with the treatment plan and understood the instructions provided"
         ],
         "additions": [
-          "Reason for fluid intake/avoiding certain beverages: 'to help flush out bacteria and reduce irritation'",
-          "Qualifier for completing antibiotics: 'even if symptoms improve prematurely'",
+          "Lifestyle Changes: \"to help flush out bacteria and reduce irritation\"",
           "Advise patient to contact the doctor if symptoms worsen or if there are any other concerns"
         ]
       }
@@ -312,67 +303,112 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "ROS summary includes 'or other symptoms'",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Vital signs are 'all within normal ranges'",
+      "addition_text": "Objective: Vital Signs: \"(all within normal ranges)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: No, those seem normal for me.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient states these vital signs seem normal for them."
+      "matched_claim_text": "Patient states these vital signs seem normal for them.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Patient is allergic to Penicillin (in Objective section)",
+      "addition_text": "Objective: Patient is allergic to Penicillin",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I'm allergic to Penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is allergic to Penicillin."
+      "matched_claim_text": "Patient is allergic to Penicillin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Diagnosis of UTI based on symptoms and urinalysis results",
+      "addition_text": "Assessment: Diagnosis of UTI based on symptoms and urinalysis results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Diagnosis of UTI is based on symptoms and urinalysis results."
+      "matched_claim_text": "Diagnosis of UTI is based on symptoms and urinalysis results.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Allergy to Penicillin necessitates prescribing an alternative antibiotic (Nitrofurantoin)",
+      "addition_text": "Assessment: Allergy to Penicillin necessitates prescribing an alternative antibiotic (Nitrofurantoin)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I initially planned to prescribe Amoxicillin, but given your allergy, I'll prescribe Nitrofurantoin instead.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Due to Penicillin allergy, Nitrofurantoin was chosen as an alternative antibiotic."
+      "matched_claim_text": "Due to Penicillin allergy, Nitrofurantoin was chosen as an alternative antibiotic.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Reason for fluid intake/avoiding certain beverages: 'to help flush out bacteria and reduce irritation'",
+      "addition_text": "Plan: Lifestyle Changes: \"to help flush out bacteria and reduce irritation\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: In addition to the medication, I recommend increasing your fluid intake and avoiding caffeinated and alcoholic beverages. This will help flush out the bacteria and reduce irritation.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient advised to increase fluid intake and avoid caffeinated and alcoholic beverages to help flush out bacteria and reduce irritation."
+      "matched_claim_text": "Patient advised to increase fluid intake and avoid caffeinated and alcoholic beverages to help flush out bacteria and reduce irritation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Qualifier for completing antibiotics: 'even if symptoms improve prematurely'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Please make sure to complete the full course of antibiotics even if you start feeling better.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient encouraged to complete the full course of antibiotics even if symptoms improve prematurely."
-    },
-    {
-      "addition_text": "Advise patient to contact the doctor if symptoms worsen or if there are any other concerns",
+      "addition_text": "Plan: Advise patient to contact the doctor if symptoms worsen or if there are any other concerns",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient advised to contact the doctor if symptoms worsen or if there are any other concerns."
+      "matched_claim_text": "Patient advised to contact the doctor if symptoms worsen or if there are any other concerns.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Vital Signs: \"(all within normal ranges)\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: No, those seem normal for me.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient states these vital signs seem normal for them.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient is allergic to Penicillin",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I'm allergic to Penicillin.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient is allergic to Penicillin."
+      "matched_claim_text": "Patient is allergic to Penicillin.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Diagnosis of UTI based on symptoms and urinalysis results",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Based on your symptoms and the urinalysis, it looks like you have a urinary tract infection.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Diagnosis of UTI is based on symptoms and urinalysis results.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Allergy to Penicillin necessitates prescribing an alternative antibiotic (Nitrofurantoin)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I initially planned to prescribe Amoxicillin, but given your allergy, I'll prescribe Nitrofurantoin instead.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Due to Penicillin allergy, Nitrofurantoin was chosen as an alternative antibiotic.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Lifestyle Changes: \"to help flush out bacteria and reduce irritation\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: In addition to the medication, I recommend increasing your fluid intake and avoiding caffeinated and alcoholic beverages. This will help flush out the bacteria and reduce irritation.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient advised to increase fluid intake and avoid caffeinated and alcoholic beverages to help flush out bacteria and reduce irritation.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Advise patient to contact the doctor if symptoms worsen or if there are any other concerns",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: If you have any concerns or if your symptoms worsen, don't hesitate to contact us.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient advised to contact the doctor if symptoms worsen or if there are any other concerns.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

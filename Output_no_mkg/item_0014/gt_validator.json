@@ -289,107 +289,75 @@
     "plan_alignment_score": 0.5076142131979696
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps and multiple moderate to major issues. Key omissions include the entire Review of Systems, several important HPI details (e.g., symptom severity, frequency, specific denials), and critical medication dosage and safety instructions in the Plan. While there is only one minor unsupported addition (Celsius temperature), the cumulative effect of the omissions makes the note meaningfully incomplete and requires careful review.",
+    "overall_summary": "The generated note provides a generally accurate overview but contains several moderate omissions, including details about the patient's occasional chest pain, the severity and daily occurrence of symptoms, and specific dosage instructions for Acetaminophen. Additionally, there is one minor unsupported addition regarding temperature units. These issues collectively reduce the completeness and clinical utility, requiring caution and further review.",
     "omissions": [
-      "Chief Complaint: generalized weakness",
-      "HPI detail: symptoms described as moderate to severe",
-      "HPI detail: symptoms occurring daily",
-      "HPI detail: occasional chest pain",
-      "HPI detail: denies any recent respiratory infections",
-      "HPI detail: difficulty sleeping due to symptoms",
-      "HPI detail: no history of fever or weight loss",
-      "Entire Review of Systems (ROS) section",
-      "ROS detail: denies hemoptysis",
-      "ROS detail: no palpitations or syncope",
-      "ROS detail: no nausea, vomiting, or abdominal pain",
-      "ROS detail: no headache, dizziness, or changes in vision",
-      "Physical Exam detail: General appearance 'in no acute distress'",
-      "Physical Exam detail: Respiratory 'Lungs clear bilaterally'",
-      "Physical Exam detail: Cardiovascular 'no murmurs noted'",
-      "Physical Exam detail: Abdominal 'no organomegaly'",
-      "Physical Exam detail: Extremities 'No edema'",
-      "Assessment: Directly stating 'Persistent cough and shortness of breath' as a diagnosed problem",
-      "Plan: Acetaminophen dosage details 'oral, every 4-6 hours as needed, up to 4 times a day'",
-      "Plan: Reason for Chest X-ray 'for evaluation of persistent cough and shortness of breath'",
-      "Plan: Specific education about 'importance of not exceeding the recommended dose' for Acetaminophen",
-      "Plan: Referrals section 'No immediate referrals but will consider based on follow-up test results'",
-      "Plan: Concluding statement about patient's reception to the plan"
+      "Signature block (Dr. [Your Name], General Physician)",
+      "Closing statement about patient's cooperation, receptiveness, frustration, and understanding"
     ],
-    "additions": [
-      "Subjective: 'causing fatigue and tiredness' (moved from ROS to HPI summary)",
-      "Subjective: 'occasionally accompanied by wheezing' (moved from ROS to HPI summary)",
-      "Objective: Temperature in Celsius '(37°C)'",
-      "Assessment: 'possibly indicative of an underlying respiratory condition'",
-      "Plan: 'Encourage the patient to contact the doctor if changes or concerns arise before the follow-up appointment'"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [
-      "Temperature in Celsius '(37°C)'"
+      "Temperature in Celsius (37°C)"
     ],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has significant omissions, including the entire Review of Systems (ROS) section and several important HPI details such as symptom severity (\"moderate to severe\"), frequency (\"daily\"), presence of \"occasional chest pain,\" denial of \"recent respiratory infections,\" \"difficulty sleeping,\" and absence of \"fever or weight loss.\" These omissions make the patient's history meaningfully incomplete.",
+        "summary": "The Subjective section has multiple moderate omissions, notably the patient's occasional chest pain, the severity (moderate to severe) and daily occurrence of symptoms, and the explicit mention of generalized weakness as a chief complaint. Numerous minor denials from the Review of Systems are also omitted, making the patient's history less comprehensive.",
         "omissions": [
-          "Chief Complaint: generalized weakness",
-          "HPI detail: symptoms described as moderate to severe",
-          "HPI detail: symptoms occurring daily",
-          "HPI detail: occasional chest pain",
-          "HPI detail: denies any recent respiratory infections",
-          "HPI detail: difficulty sleeping due to symptoms",
-          "HPI detail: no history of fever or weight loss",
-          "Entire Review of Systems (ROS) section",
-          "ROS detail: denies hemoptysis",
-          "ROS detail: no palpitations or syncope",
-          "ROS detail: no nausea, vomiting, or abdominal pain",
-          "ROS detail: no headache, dizziness, or changes in vision"
+          "Chief Complaint section header",
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Generalized weakness as part of the initial chief complaint",
+          "Severity of symptoms (moderate to severe, occurring daily)",
+          "Occasional chest pain (from HPI and ROS)",
+          "Denial of recent respiratory infections",
+          "Difficulty sleeping due to symptoms",
+          "Denial of fever or weight loss (from HPI and ROS)",
+          "Denial of hemoptysis",
+          "Denial of palpitations or syncope",
+          "Denial of nausea, vomiting, or abdominal pain",
+          "Denial of headache, dizziness, or changes in vision"
         ],
-        "additions": [
-          "'causing fatigue and tiredness' (moved from ROS to HPI summary)",
-          "'occasionally accompanied by wheezing' (moved from ROS to HPI summary)"
-        ]
+        "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "This section is mostly aligned, with only minor omissions from the physical exam, such as the patient being \"in no acute distress,\" \"lungs clear bilaterally,\" \"no murmurs noted,\" \"no organomegaly,\" and \"no edema.\" The addition of \"Temperature in Celsius (37°C)\" is present but is a minor, non-clinically impactful unsupported addition.",
+        "grade": "A",
+        "summary": "The Objective section is largely accurate, capturing all vital signs and key physical exam findings. It has only minor descriptive omissions and one minor unsupported addition of Celsius temperature, which does not significantly impact clinical utility.",
         "omissions": [
-          "Physical Exam detail: General appearance 'in no acute distress'",
-          "Physical Exam detail: Respiratory 'Lungs clear bilaterally'",
-          "Physical Exam detail: Cardiovascular 'no murmurs noted'",
-          "Physical Exam detail: Abdominal 'no organomegaly'",
-          "Physical Exam detail: Extremities 'No edema'"
+          "\"in no acute distress\" (from General appearance)",
+          "\"bilaterally\" (from Lungs clear bilaterally)",
+          "\"no murmurs noted\" (from Cardiovascular)",
+          "\"no organomegaly\" (from Abdominal)",
+          "\"No edema\" (from Extremities)"
         ],
         "additions": [
-          "Temperature in Celsius '(37°C)'"
+          "Temperature in Celsius (37°C)"
         ]
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "This section has a moderate omission by not directly stating \"Persistent cough and shortness of breath\" as a diagnosed problem with its associated code, instead using softer language like \"symptoms are consistent with... possibly indicative.\" However, it is still clinically usable and does not introduce misleading content.",
-        "omissions": [
-          "Directly stating 'Persistent cough and shortness of breath' as a diagnosed problem"
-        ],
+        "grade": "A",
+        "summary": "The Assessment section is excellent, with no omissions and no penalizable additions. It accurately reflects the GroundTruth assessment.",
+        "omissions": [],
         "additions": [
-          "'possibly indicative of an underlying respiratory condition'"
+          "\"possibly indicative of an underlying respiratory condition\" for cough and shortness of breath"
         ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section contains several moderate omissions, including specific Acetaminophen dosage details (\"oral, every 4-6 hours as needed, up to 4 times a day\") and crucial safety education about \"not exceeding the recommended dose.\" Additionally, the entire \"Referrals\" section is omitted. These gaps reduce the completeness and safety of the plan.",
+        "grade": "B",
+        "summary": "The Plan section has a moderate omission regarding the specific dosage frequency and limit for Acetaminophen, which is an important safety detail. Other omissions, such as the route of administration and the referrals section, are minor. The addition in this section is supported by the transcript and does not reduce the grade.",
         "omissions": [
-          "Acetaminophen dosage details 'oral, every 4-6 hours as needed, up to 4 times a day'",
-          "Reason for Chest X-ray 'for evaluation of persistent cough and shortness of breath'",
-          "Specific education about 'importance of not exceeding the recommended dose' for Acetaminophen",
-          "Referrals section 'No immediate referrals but will consider based on follow-up test results'",
-          "Concluding statement about patient's reception to the plan"
+          "Dosage frequency/limit for Acetaminophen (every 4-6 hours as needed, up to 4 times a day)",
+          "Route of administration for Acetaminophen (oral)",
+          "Specific reason for Chest X-ray (\"for evaluation of persistent cough and shortness of breath\")",
+          "Referrals section (including \"No immediate referrals but will consider based on follow-up test results\")"
         ],
         "additions": [
-          "'Encourage the patient to contact the doctor if changes or concerns arise before the follow-up appointment'"
+          "Instruction to contact doctor if changes or concerns arise before the follow-up appointment"
         ]
       }
     ],
@@ -398,74 +366,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: 'causing fatigue and tiredness' (moved from ROS to HPI summary)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I feel weak and tired all the time.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and causing fatigue and tiredness."
-    },
-    {
-      "addition_text": "Subjective: 'occasionally accompanied by wheezing' (moved from ROS to HPI summary)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Occasionally, yes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and occasionally accompanied by wheezing."
-    },
-    {
-      "addition_text": "Objective: Temperature in Celsius '(37°C)'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Your temperature is 98.6°F",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Assessment: 'possibly indicative of an underlying respiratory condition'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, you have a persistent cough and shortness of breath. ... Additionally, we’ll get a Chest X-ray to further evaluate your persistent cough and shortness of breath.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms are consistent with a persistent cough and shortness of breath, possibly indicative of an underlying respiratory condition."
-    },
-    {
-      "addition_text": "Plan: 'Encourage the patient to contact the doctor if changes or concerns arise before the follow-up appointment'",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: If you notice any changes or have concerns, don’t hesitate to call or message me through the patient portal.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage the patient to contact the doctor if changes or concerns arise before the follow-up appointment."
-    },
-    {
-      "addition_text": "'causing fatigue and tiredness' (moved from ROS to HPI summary)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I feel weak and tired all the time.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and causing fatigue and tiredness."
-    },
-    {
-      "addition_text": "'occasionally accompanied by wheezing' (moved from ROS to HPI summary)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Occasionally, yes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "and occasionally accompanied by wheezing."
-    },
-    {
-      "addition_text": "Temperature in Celsius '(37°C)'",
+      "addition_text": "Temperature in Celsius (37°C)",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'possibly indicative of an underlying respiratory condition'",
+      "addition_text": "\"possibly indicative of an underlying respiratory condition\" for cough and shortness of breath",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the physical exam, you have a persistent cough and shortness of breath. ... Additionally, we’ll get a Chest X-ray to further evaluate your persistent cough and shortness of breath.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms are consistent with a persistent cough and shortness of breath, possibly indicative of an underlying respiratory condition."
+      "matched_claim_text": "The patient's symptoms are consistent with a persistent cough and shortness of breath, possibly indicative of an underlying respiratory condition.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'Encourage the patient to contact the doctor if changes or concerns arise before the follow-up appointment'",
+      "addition_text": "Instruction to contact doctor if changes or concerns arise before the follow-up appointment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you notice any changes or have concerns, don’t hesitate to call or message me through the patient portal.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage the patient to contact the doctor if changes or concerns arise before the follow-up appointment."
+      "matched_claim_text": "Encourage the patient to contact the doctor if changes or concerns arise before the follow-up appointment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

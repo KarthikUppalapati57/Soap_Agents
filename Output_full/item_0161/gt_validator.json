@@ -278,9 +278,9 @@
     "plan_alignment_score": 0.0
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note exhibits significant omissions across the Subjective, Objective, and Plan sections. The Subjective section notably omits the entire Review of Systems and several key HPI details. The Objective section critically misses the ECG finding of ST depression, which is a major diagnostic piece of information. The Plan section also lacks specific lifestyle advice, detailed test purposes, specific cardiac biomarkers, and patient education instructions. No unsupported or unknown additions were identified. These omissions collectively result in a note that is meaningfully incomplete and requires careful review.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions that materially reduce its clinical usefulness. Most notably, the critical ECG finding of ST depression and the associated urgent cardiologist review are missing from the Objective section. The Subjective section also lacks a complete Review of Systems and important details about the impact of the patient's condition on daily activities. While the Assessment is well-captured, the Plan omits key lifestyle advice and specific patient instructions. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Patient's occupation (construction worker)",
       "Chest pain severely limiting ability to perform job duties and normal daily activities",
@@ -326,7 +326,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section is missing the patient's occupation, the severe impact of chest pain on job duties and daily activities, and details regarding a high-stress lifestyle with inadequate sleep. Crucially, the entire Review of Systems (ROS) section, including its header and all specific findings (cardiovascular, respiratory, GI, musculoskeletal, neurological), was omitted.",
+        "summary": "The Subjective section has noticeable gaps, including the complete omission of the detailed Review of Systems (Cardiovascular, Respiratory, Gastrointestinal, Musculoskeletal, Neurological) and specific findings within it. It also misses important HPI context regarding the patient's occupation, the severe limitation of job duties, and details about a high-stress lifestyle with inadequate sleep. These omissions make the section meaningfully incomplete.",
         "omissions": [
           "Patient's occupation (construction worker)",
           "Chest pain severely limiting ability to perform job duties and normal daily activities",
@@ -343,7 +343,7 @@
       {
         "section": "Objective",
         "grade": "D",
-        "summary": "The Objective section omits several key details, including the respiratory rate and general appearance from vitals, and general and neurological findings from the physical exam. Most significantly, the crucial ECG finding of ST depression and the need for urgent cardiologist review were entirely omitted, which are major diagnostic details that materially reduce clinical usefulness.",
+        "summary": "The Objective section contains a major omission: the critical ECG finding of ST depression and the urgent need for cardiologist review. This diagnostic information is crucial for patient management and its absence materially reduces the clinical usefulness of the note. Additionally, minor omissions include the respiratory rate and details about the patient's general appearance (distress, anxiety) from both vitals and physical exam.",
         "omissions": [
           "VITALS section header",
           "Respiratory rate (as a vital sign)",
@@ -361,7 +361,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is nearly complete, with the only omission being the 'Diagnosis' sub-header, which is a minor formatting issue.",
+        "summary": "The Assessment section is well-captured. The only omission is a minor structural sub-header ('Diagnosis'). All additions in this section were supported by the transcript and did not reduce the grade.",
         "omissions": [
           "\"Diagnosis\" sub-header"
         ],
@@ -372,7 +372,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several omissions, including sub-headers for Medication, Lifestyle Change, Referral, Imaging, Tests, Follow-up, and Instructions. Key clinical details such as advising on improving diet and sleep habits, the specific purpose of the stress test (to evaluate functional capacity and detect ischemia), specific cardiac biomarkers (Troponin I, CK-MB), and patient education on medication adherence and follow-up appointments were also omitted.",
+        "summary": "The Plan section has several minor to moderate omissions. It misses the advice on improving diet and sleep habits, the specific cardiac biomarkers (Troponin I, CK-MB), and the instruction on the importance of adhering to prescribed medications and follow-up appointments. Several structural sub-headers are also omitted. While the core plan is present, these missing details reduce its completeness and usefulness. All additions in this section were supported by the transcript and did not reduce the grade.",
         "omissions": [
           "Medication sub-header",
           "Losartan prescribed for \"potential hypertension\"",
@@ -404,42 +404,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Let's check your vitals. Your blood pressure is 140/95 mmHg. That's quite high.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Blood pressure is 140/95 mmHg, which is high."
+      "matched_claim_text": "Blood pressure is 140/95 mmHg, which is high.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Suspected\" qualifier for chest pain in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's really bad. It feels like it's radiating to my left arm, and it's been going on for the past week.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The chest pain has been ongoing for a week."
+      "matched_claim_text": "The chest pain has been ongoing for a week.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "CRH — phenotype_protein — Chest pain"
     },
     {
       "addition_text": "Losartan prescribed for \"blood pressure management\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'm also prescribing Losartan 50 mg once daily to help with your blood pressure.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Losartan 50 mg once daily is prescribed for blood pressure management."
+      "matched_claim_text": "Losartan 50 mg once daily is prescribed for blood pressure management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"CAD/ACS rule-out\" in referral",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'm referring you to Dr. Nguyen, a cardiologist, for an urgent evaluation to rule out CAD and for better management of your chest pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "An urgent referral to a cardiologist, Dr. Nguyen, is made for evaluation and CAD/ACS rule-out."
+      "matched_claim_text": "An urgent referral to a cardiologist, Dr. Nguyen, is made for evaluation and CAD/ACS rule-out.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"as soon as possible\" for arranging stress test and blood tests",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We need to order a Stress Test to evaluate the functional capacity of your heart and detect any ischemia.\n[Doctor]: We'll also need blood tests, including cardiac biomarkers, Complete Blood Count (CBC), lipid profile, and HbA1c.\n[Doctor]: We'll arrange for them as soon as possible.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "A stress test and blood tests (cardiac biomarkers, Complete Blood Count (CBC), lipid profile, HbA1c) are to be arranged as soon as possible."
+      "matched_claim_text": "A stress test and blood tests (cardiac biomarkers, Complete Blood Count (CBC), lipid profile, HbA1c) are to be arranged as soon as possible.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Suspected\" qualifier for chest pain",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: It's really bad. It feels like it's radiating to my left arm, and it's been going on for the past week.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The chest pain has been ongoing for a week."
+      "matched_claim_text": "The chest pain has been ongoing for a week.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "CRH — phenotype_protein — Chest pain"
     }
   ]
 }

@@ -250,68 +250,64 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. All additions were supported by the transcript and did not negatively impact the grade. However, the note has several omissions, including the patient's pain severity (7/10) in the Subjective section, the absence of warmth on palpation in the Objective section, and the rationale for ordering the MRI (persistent symptoms despite conservative management) in the Plan section. Other minor omissions include details about pain improvement with rest, the patient's enjoyment of gardening, specific joint preservation education, and documentation of patient understanding of the plan.",
+    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the majority of the patient's presentation, physical exam, assessment, and plan. The primary issues are several minor omissions across the Subjective, Objective, and Plan sections, including the patient's pain severity (7/10) in the HPI, specific palpation findings, and details regarding MRI rationale and patient education. All identified additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
-      "Pain severity 7/10",
-      "Pain improves 'somewhat' with rest",
-      "Limited range of motion (in HPI narrative)",
-      "Patient enjoys gardening",
-      "Warmth noted on palpation of right knee joint",
-      "Rationale for MRI: 'due to persistent symptoms despite conservative management'",
-      "Patient education on joint preservation strategies, such as avoiding high-impact activities",
-      "Patient understanding and agreement with the treatment plan, and all questions answered to satisfaction"
+      "Patient's pain severity (7/10)",
+      "Explicit mention of 'limited range of motion' in the HPI section",
+      "Tenderness specifically noted on palpation of the right knee joint",
+      "Warmth noted on palpation of the right knee",
+      "Reason for MRI: 'due to persistent symptoms despite conservative management'",
+      "Patient education on 'joint preservation strategies, such as avoiding high-impact activities'",
+      "Statement about patient understanding and agreement with the treatment plan, and all questions being answered"
     ],
     "additions": [
-      "Qualifier 'approximately' for two-year history",
-      "Addition of 'or injury' in 'no history of trauma or injury'",
-      "Interpretation of vital signs as 'within normal limits'",
-      "Basis for diagnosis: 'based on symptoms and physical examination findings'"
+      "Mention of 'injury' in addition to 'trauma' in the HPI",
+      "Statement 'Vital signs within normal limits' in the Objective section",
+      "Qualifier 'based on symptoms and physical examination findings' in the Assessment section"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has a moderate omission regarding the pain severity (7/10) and several minor omissions, such as the pain improving 'somewhat' with rest, limited range of motion in the HPI narrative, and the patient's enjoyment of gardening. Despite these, the core HPI is present and clinically usable.",
+        "summary": "The Subjective section is missing the patient's reported pain severity of 7/10, which is a moderate omission for the HPI. It also omits the explicit mention of 'limited range of motion' in the HPI, though this is captured elsewhere in the note.",
         "omissions": [
-          "Pain severity 7/10",
-          "Pain improves 'somewhat' with rest",
-          "Limited range of motion (in HPI narrative)",
-          "Patient enjoys gardening"
+          "Patient's pain severity (7/10)",
+          "Explicit mention of 'limited range of motion' in the HPI section"
         ],
         "additions": [
-          "Qualifier 'approximately' for two-year history",
-          "Addition of 'or injury' in 'no history of trauma or injury'"
+          "Mention of 'injury' in addition to 'trauma' in the HPI"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is well-captured with only one minor omission: the absence of 'warmth noted' during palpation of the right knee joint. All other critical physical exam findings and vital signs are accurately documented.",
+        "summary": "The Objective section accurately captures the physical exam findings, with only minor omissions regarding the specific mention of tenderness on palpation of the right knee joint and warmth noted on palpation.",
         "omissions": [
-          "Warmth noted on palpation of right knee joint"
+          "Tenderness specifically noted on palpation of the right knee joint",
+          "Warmth noted on palpation of the right knee"
         ],
         "additions": [
-          "Interpretation of vital signs as 'within normal limits'"
+          "Statement 'Vital signs within normal limits' in the Objective section"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the GroundTruth, containing no omissions or unsupported/unknown additions. The diagnosis is accurately stated.",
+        "summary": "The Assessment section is complete and accurate, with no omissions or unsupported additions.",
         "omissions": [],
         "additions": [
-          "Basis for diagnosis: 'based on symptoms and physical examination findings'"
+          "Qualifier 'based on symptoms and physical examination findings' in the Assessment section"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section has a moderate omission regarding the rationale for ordering the MRI ('due to persistent symptoms despite conservative management'). It also omits patient education on joint preservation strategies and the documentation of patient understanding and agreement with the treatment plan. The core treatment plan, however, is well-documented.",
+        "summary": "The Plan section omits the specific rationale for the MRI ('due to persistent symptoms despite conservative management'), a key patient education point on 'joint preservation strategies, such as avoiding high-impact activities', and the administrative detail about patient understanding and agreement with the treatment plan. These are minor omissions.",
         "omissions": [
-          "Rationale for MRI: 'due to persistent symptoms despite conservative management'",
-          "Patient education on joint preservation strategies, such as avoiding high-impact activities",
-          "Patient understanding and agreement with the treatment plan, and all questions answered to satisfaction"
+          "Reason for MRI: 'due to persistent symptoms despite conservative management'",
+          "Patient education on 'joint preservation strategies, such as avoiding high-impact activities'",
+          "Statement about patient understanding and agreement with the treatment plan, and all questions being answered"
         ],
         "additions": []
       }
@@ -321,32 +317,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Qualifier 'approximately' for two-year history",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] It's been about two years now.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Symptoms have been present for approximately two years."
-    },
-    {
-      "addition_text": "Addition of 'or injury' in 'no history of trauma or injury'",
+      "addition_text": "Mention of 'injury' in addition to 'trauma' in the HPI",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Is there any history of trauma or injury to your knee?\n\n[patient] No, there's no history of trauma.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "There is no history of trauma or injury to the knee."
+      "matched_claim_text": "There is no history of trauma or injury to the knee.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Interpretation of vital signs as 'within normal limits'",
+      "addition_text": "Statement 'Vital signs within normal limits' in the Objective section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, your vital signs are within normal limits.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Basis for diagnosis: 'based on symptoms and physical examination findings'",
+      "addition_text": "Qualifier 'based on symptoms and physical examination findings' in the Assessment section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on my examination and your symptoms, it looks like you have unilateral primary osteoarthritis in your right knee.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Unilateral primary osteoarthritis in the right knee based on symptoms and physical examination findings."
+      "matched_claim_text": "Unilateral primary osteoarthritis in the right knee based on symptoms and physical examination findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

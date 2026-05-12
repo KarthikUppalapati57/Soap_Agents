@@ -271,9 +271,9 @@
     "plan_alignment_score": 0.6448087431693988
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note receives a C due to multiple moderate issues and numerous minor omissions. Key moderate issues include the absence of the ICD-10 code, the impact of palpitations on the patient's life, and several crucial patient education and agreement details in the Plan section. The Subjective section also contains an unsupported structural addition. While Objective and Assessment are strong, the cumulative effect of these omissions and the unsupported addition reduces the overall clinical usefulness and completeness of the note.",
+    "overall_summary": "The note provides a mostly accurate and usable summary of the patient encounter. However, it has several minor omissions and a few moderate omissions, particularly in the Plan section regarding patient education on medication side effects and reassurance, and in the Subjective section regarding the impact of palpitations on the patient's daily life. The omission of the ICD-10 code is also a moderate issue. There is one minor unsupported structural addition in the Subjective section. These issues collectively reduce the completeness and clinical utility, warranting a C grade.",
     "omissions": [
       "Patient age (45-year-old)",
       "Patient sex (female)",
@@ -287,7 +287,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor omissions, including the severity and specific frequency of palpitations, and the impact on work and concentration. It also misses minor ROS details. Additionally, there is an unsupported structural addition regarding the consolidated denial list for ROS items, which is considered a moderate alignment issue.",
+        "summary": "The Subjective section accurately captures the chief complaint and many HPI details. However, it omits the severity (\"moderate\") and specific frequency (\"several episodes per day\") of palpitations, and importantly, the impact on the patient's ability to concentrate at work (a moderate omission). Minor ROS details like \"no weight loss\" and \"no changes in thirst\" are also omitted. There is one unsupported structural addition regarding the consolidated denial list, which is a minor alignment issue. Despite these, the core subjective information is present.",
         "omissions": [
           "Chief Complaint section header",
           "History of Present Illness section header",
@@ -307,7 +307,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is strong, accurately capturing vital signs, physical examination findings, and ECG results. Minor omissions include section headers and some general and neurological physical examination details.",
+        "summary": "The Objective section is largely accurate and complete. It correctly reports vital signs, physical examination findings, and ECG results. Minor omissions include section headers, the general appearance (\"Alert, no acute distress\"), and the \"non-focal\" aspect of the neurological exam. These are minor details and do not significantly impact the clinical usefulness of the section. All additions were supported by the transcript.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -322,7 +322,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is well-aligned with the Ground Truth, accurately stating the primary diagnosis and differential diagnoses. Minor omissions are limited to section headers.",
+        "summary": "The Assessment section is highly accurate and complete, clearly stating the primary diagnosis and differential diagnoses. The only omissions are minor section headers. All additions were supported by the transcript. This section demonstrates excellent alignment with the Ground Truth.",
         "omissions": [
           "Primary Diagnosis section header",
           "Differential Diagnosis section header"
@@ -334,7 +334,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has noticeable gaps, including the omission of several section headers, specific Metoprolol prescription details (oral, 30 tablets), and critically, important patient education points such as discussing potential side effects and providing reassurance. The patient agreement statement is also missing, making the plan meaningfully incomplete.",
+        "summary": "The Plan section accurately lists the prescribed medication, further investigations, and referrals. However, it has several minor omissions, including prescription details (\"oral\", \"30 tablets\") and various section headers. More significantly, it omits two moderate, clinically important patient education points: discussion of Metoprolol's potential side effects and reassurance about the systematic evaluation and management plan. The explicit documentation of patient agreement is also omitted. These moderate omissions regarding patient safety and counseling significantly reduce the completeness and usefulness of the Plan.",
         "omissions": [
           "Medical Treatment section header",
           "Further Investigation section header",
@@ -361,35 +361,45 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "No, I haven't had any changes in weight, appetite, or energy levels.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Denial of 'chest pain'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "No chest pain or previous heart conditions",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Consolidated denial list structure for ROS items",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "The phrase 'The doctor reviewed' in relation to ECG results",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I also reviewed your electrocardiogram (ECG) results, and it shows a normal sinus rhythm.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The doctor reviewed an ECG that showed a normal sinus rhythm."
+      "matched_claim_text": "The doctor reviewed an ECG that showed a normal sinus rhythm.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Explicit statement that differential diagnoses 'need to be ruled out'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] However, we still need to rule out other possible causes like arrhythmias, hyperthyroidism, and electrolyte imbalances.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "however, arrhythmias, hyperthyroidism, and electrolyte imbalances need to be ruled out."
+      "matched_claim_text": "however, arrhythmias, hyperthyroidism, and electrolyte imbalances need to be ruled out.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -266,7 +266,90 @@
     "assessment_alignment_score": 0.4590163934426229,
     "plan_alignment_score": 0.5306122448979591
   },
-  "expert_judge": null,
-  "expert_judge_error": "Judge returned non-JSON output: Expecting property name enclosed in double quotes: line 11 column 5 (char 886)",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical-documentation-reviewer-v1",
+    "overall_grade": "C",
+    "overall_summary": "The generated note captures the main clinical picture and core plan elements but suffers from several moderate to significant omissions. Key details from the physical examination and the documentation of initial investigations are missing from the Objective section. The Plan section notably omits crucial patient education regarding existing medications, risk factor management, and patient agreements, including financial barriers, making it meaningfully incomplete.",
+    "omissions": [
+      "Review of Systems (ROS) section",
+      "Investigations section (within Objective)",
+      "Patient Education and Counseling section",
+      "Patient Agreements section",
+      "Details of cardiovascular exam (no murmurs, rubs, or gallops)",
+      "Lifestyle factors (smoking, poor diet) contributing to clinical suspicion in Assessment",
+      "Counseling on adhering to prescribed medications for hypertension and hyperlipidemia",
+      "Counseling on monitoring and managing risk factors vigilantly, including regular follow-up appointments",
+      "Patient understanding and agreement with treatment plan and lifestyle modifications",
+      "Potential concerns regarding financial barriers to accessing specialist care"
+    ],
+    "additions": [
+      "Temperature conversion to Celsius (37°C)"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "B",
+        "summary": "The Subjective section is mostly complete, capturing the chief complaint and history of present illness. Minor omissions include the daily occurrence of pain, average sleep duration, and the full Review of Systems section, but these do not significantly detract from the clinical utility.",
+        "omissions": [
+          "Pain occurring daily",
+          "Sleep averages around 6 hours per night",
+          "Review of Systems (ROS) section"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "C",
+        "summary": "This section omits important details from the physical examination, such as specific cardiovascular, respiratory, and musculoskeletal findings. Crucially, the entire 'Investigations' subsection, documenting blood samples drawn, is missing. The only addition (temperature conversion) is supported by the transcript and does not impact the grade.",
+        "omissions": [
+          "No murmurs, rubs, or gallops (details of cardiovascular exam)",
+          "Clear to auscultation bilaterally (detail for respiratory exam)",
+          "No tenderness to palpation over the chest wall (detail for musculoskeletal exam)",
+          "Investigations section (including documentation of blood samples drawn for Biochemistry panel, CBC, and cardiac enzymes)"
+        ],
+        "additions": [
+          "Temperature conversion to Celsius (37°C)"
+        ]
+      },
+      {
+        "section": "Assessment",
+        "grade": "B",
+        "summary": "The core assessment is present, identifying a possible cardiac issue. However, it omits the contribution of the patient's symptoms and lifestyle factors (smoking, poor diet) to the clinical suspicion, which is a moderate gap in the rationale for the diagnosis.",
+        "omissions": [
+          "Patient's symptoms and lifestyle factors, including smoking and a poor diet, also contribute to the clinical suspicion"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Plan",
+        "grade": "D",
+        "summary": "This section has several significant omissions. It lacks details regarding the quantity of prescribed medication, the specific rationale for diagnostic tests, and finer points of lifestyle recommendations. Most critically, the entire 'Patient Education and Counseling' and 'Patient Agreements' sections are absent, leading to the omission of discussions on adherence to existing medications, vigilant risk factor management, patient understanding, and financial barriers to care. These omissions materially reduce the clinical usefulness of the plan.",
+        "omissions": [
+          "Nitroglycerin quantity: 30 tablets",
+          "Reason for diagnostic tests: to investigate the cardiac and non-cardiac causes of the chest pain",
+          "Dietary changes detail: increasing intake of fruits and vegetables",
+          "Exercise recommendation detail: with gradual increments as tolerated",
+          "Patient Education and Counseling section (including discussion of adhering to prescribed medications for hypertension and hyperlipidemia (Lisinopril 10 mg daily and Atorvastatin 20 mg daily))",
+          "Patient Education and Counseling section (including advice on monitoring and managing risk factors vigilantly, including regular follow-up appointments)",
+          "Patient Agreements section (including patient understanding and agreement with recommended medical treatment plan and lifestyle modifications)",
+          "Patient Agreements section (including potential concerns regarding financial barriers to accessing specialist care, to be addressed during follow-up)"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Temperature conversion to Celsius (37°C)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "your temperature is 98.6 degrees Fahrenheit",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Temperature: 98.6°F (37°C).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

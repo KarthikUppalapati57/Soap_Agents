@@ -274,80 +274,89 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable. It accurately captures the core symptoms, physical exam findings, diagnosis, and treatment plan. There are no unsupported or unknown additions, which is a significant strength. However, the note has several moderate omissions, particularly in the Subjective section regarding the specific frequency of urination and its impact on daily activities, and in the Plan section, where the purpose of the urine culture and the entire 'Patient Agreements' section are missing. These omissions reduce the completeness of the documentation but do not render the note unsafe or unreliable.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a mostly accurate clinical picture but contains several omissions and one unsupported addition that reduce its overall completeness and reliability. The Subjective section includes an unsupported addition describing blood in urine as 'occasional,' which is not supported by the transcript and could be misleading. Additionally, the Subjective and Plan sections have multiple omissions, including specific details about the patient's symptoms and the entire 'Patient Agreements' section, which is crucial for documenting patient understanding and adherence to the treatment plan. These issues make the note meaningfully incomplete and require careful review.",
     "omissions": [
-      "urination frequency of every 30 minutes",
-      "difficulty concentrating at work",
-      "disrupted sleep",
-      "denies flank pain",
-      "UTI site not specified",
-      "Differential Diagnosis: None",
-      "Ciprofloxacin tablets (missing 'tablets' qualifier)",
-      "Ciprofloxacin quantity (14 tablets)",
-      "purpose of urine culture and sensitivity test (confirm bacterial etiology and antibiotic resistance pattern)",
-      "reason for fluid intake (assist with flushing urinary system)",
-      "suggested balanced diet and regular moderate exercise",
-      "Patient Agreements section"
+      "HPI: Increased frequency of urination described as \"every 30 minutes\"",
+      "HPI: Impact on daily activities including \"difficulty concentrating at work\"",
+      "HPI: Impact on daily activities including \"disrupted sleep\"",
+      "Assessment: Diagnosis detail: \"site not specified\"",
+      "Assessment: \"Differential Diagnosis: None\"",
+      "Plan: Medical Treatment: \"tablets, oral\" for Ciprofloxacin",
+      "Plan: Medical Treatment: \"Quantity: 14 tablets\" for Ciprofloxacin",
+      "Plan: Investigations: Purpose of urine culture and sensitivity test (\"to confirm bacterial etiology and antibiotic resistance pattern\")",
+      "Plan: Patient Education: Reason for fluid intake (\"to assist with flushing the urinary system\")",
+      "Plan: Lifestyle and Preventative Care: \"Suggested maintaining a balanced diet and regular moderate exercise.\"",
+      "Plan: Entire \"Patient Agreements\" section, including patient understanding and agreement with the medical treatment plan",
+      "Plan: Patient understanding of follow-up visit and urine culture test",
+      "Plan: Reminder of importance of adhering to prescribed medication regimen",
+      "Plan: Reminder of returning for the follow-up appointment in 7 days"
     ],
     "additions": [
-      "pain rated as 7 or 8 out of 10",
-      "occasional blood in urine",
-      "reasoning for UTI diagnosis (symptoms, physical exam, urine dipstick results)",
-      "monitoring of chronic hypertension as a purpose of the 7-day follow-up appointment",
-      "emphasis on follow-ups for managing recurrent UTIs and chronic conditions like hypertension"
+      "Subjective: Pain rated as \"7 or 8 out of 10\"",
+      "Subjective: Blood in urine described as \"occasional\"",
+      "Assessment: Statement that \"symptoms and physical exam suggest a urinary tract infection (UTI)\"",
+      "Assessment: Justification for diagnosis: \"The presence of leukocytes and nitrites in the urine further supports this diagnosis.\"",
+      "Plan: Explicitly linking \"monitoring of chronic hypertension\" to the follow-up appointment",
+      "Plan: Phrasing \"managing recurrent UTIs and chronic conditions like hypertension\" in the context of emphasizing importance of completing antibiotics and follow-ups"
     ],
-    "hallucinations_or_unjustified_inferences": [],
+    "hallucinations_or_unjustified_inferences": [
+      "Subjective: Blood in urine described as \"occasional\"",
+      "Blood in urine described as \"occasional\""
+    ],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section has several moderate omissions, including the specific urination frequency of 'every 30 minutes' and the impact on daily activities such as 'difficulty concentrating at work' and 'disrupted sleep'. The denial of flank pain is also omitted. While the main symptoms are captured, these missing details reduce the completeness of the History of Present Illness. There are no unsupported or unknown additions.",
+        "grade": "C",
+        "summary": "This section has several omissions, including the specific frequency of urination ('every 30 minutes') and the impact on daily activities ('difficulty concentrating at work,' 'disrupted sleep'). A significant issue is the unsupported addition of 'occasional' to the description of blood in urine, which misrepresents a key symptom and is not grounded in the transcript.",
         "omissions": [
-          "urination frequency of every 30 minutes",
-          "difficulty concentrating at work",
-          "disrupted sleep",
-          "denies flank pain"
+          "HPI: Increased frequency of urination described as \"every 30 minutes\"",
+          "HPI: Impact on daily activities including \"difficulty concentrating at work\"",
+          "HPI: Impact on daily activities including \"disrupted sleep\""
         ],
         "additions": [
-          "pain rated as 7 or 8 out of 10",
-          "occasional blood in urine"
+          "Pain rated as \"7 or 8 out of 10\"",
+          "Blood in urine described as \"occasional\""
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, with no omissions or unsupported/unknown additions. All vital signs, physical exam findings, and test results are accurately documented.",
+        "summary": "The Objective section is complete and accurate, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "The Assessment section is strong, with only minor omissions such as the specific 'UTI site not specified' qualifier and the absence of a 'Differential Diagnosis: None' statement. These are minor documentation details and do not impact clinical usefulness. There are no unsupported or unknown additions.",
+        "grade": "B",
+        "summary": "This section omits the specific diagnosis detail 'site not specified' (part of the ICD-10 code) and the statement 'Differential Diagnosis: None.' While minor, these omissions reduce the completeness of the assessment.",
         "omissions": [
-          "UTI site not specified",
-          "Differential Diagnosis: None"
+          "Diagnosis detail: \"site not specified\"",
+          "\"Differential Diagnosis: None\""
         ],
         "additions": [
-          "reasoning for UTI diagnosis (symptoms, physical exam, urine dipstick results)"
+          "Statement that \"symptoms and physical exam suggest a urinary tract infection (UTI)\"",
+          "Justification for diagnosis: \"The presence of leukocytes and nitrites in the urine further supports this diagnosis.\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section contains several omissions, including the specific purpose of the urine culture and sensitivity test (confirm bacterial etiology and antibiotic resistance pattern) and the entire 'Patient Agreements' section. Other minor omissions include the quantity of Ciprofloxacin and details about general lifestyle advice. While the core treatment plan is present, the missing rationale for the investigation and the patient agreement documentation are moderate gaps.",
+        "grade": "C",
+        "summary": "The Plan section has numerous omissions, including the quantity of prescribed Ciprofloxacin ('14 tablets'), the detailed purpose of the urine culture and sensitivity test, and the reason for fluid intake. Most notably, the entire 'Patient Agreements' section, which covers patient understanding, agreement with the plan, and adherence reminders, is missing. These omissions significantly impact the completeness and clinical usefulness of the plan.",
         "omissions": [
-          "Ciprofloxacin tablets (missing 'tablets' qualifier)",
-          "Ciprofloxacin quantity (14 tablets)",
-          "purpose of urine culture and sensitivity test (confirm bacterial etiology and antibiotic resistance pattern)",
-          "reason for fluid intake (assist with flushing urinary system)",
-          "suggested balanced diet and regular moderate exercise",
-          "Patient Agreements section"
+          "Medical Treatment: \"tablets, oral\" for Ciprofloxacin",
+          "Medical Treatment: \"Quantity: 14 tablets\" for Ciprofloxacin",
+          "Investigations: Purpose of urine culture and sensitivity test (\"to confirm bacterial etiology and antibiotic resistance pattern\")",
+          "Patient Education: Reason for fluid intake (\"to assist with flushing the urinary system\")",
+          "Lifestyle and Preventative Care: \"Suggested maintaining a balanced diet and regular moderate exercise.\"",
+          "Entire \"Patient Agreements\" section, including patient understanding and agreement with the medical treatment plan",
+          "Patient understanding of follow-up visit and urine culture test",
+          "Reminder of importance of adhering to prescribed medication regimen",
+          "Reminder of returning for the follow-up appointment in 7 days"
         ],
         "additions": [
-          "monitoring of chronic hypertension as a purpose of the 7-day follow-up appointment",
-          "emphasis on follow-ups for managing recurrent UTIs and chronic conditions like hypertension"
+          "Explicitly linking \"monitoring of chronic hypertension\" to the follow-up appointment",
+          "Phrasing \"managing recurrent UTIs and chronic conditions like hypertension\" in the context of emphasizing importance of completing antibiotics and follow-ups"
         ]
       }
     ],
@@ -356,39 +365,112 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "pain rated as 7 or 8 out of 10",
+      "addition_text": "Subjective: Pain rated as \"7 or 8 out of 10\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I’d say it’s around a 7 or 8.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is rated as 7 or 8 out of 10."
+      "matched_claim_text": "The pain is rated as 7 or 8 out of 10.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "ADM — phenotype_protein — Pain, AKT1 — phenotype_protein — Pain, ALB — phenotype_protein — Pain, AQP1 — phenotype_protein — Pain, AVP — phenotype_protein — Pain, BDKRB1 — phenotype_protein — Pain, BDKRB2 — phenotype_protein — Pain, CACNA2D1 — phenotype_protein — Pain, CNR1 — phenotype_protein — Pain, COMT — phenotype_protein — Pain, CRH — phenotype_protein — Pain, CSF2 — phenotype_protein — Pain, CSF3 — phenotype_protein — Pain, DRD2 — phenotype_protein — Pain, EDN1 — phenotype_protein — Pain, GCH1 — phenotype_protein — Pain, GRIN1 — phenotype_protein — Pain, HCRT — phenotype_protein — Pain"
     },
     {
-      "addition_text": "occasional blood in urine",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient] I'm experiencing some pretty bad pain when I urinate. ... It's been happening for the past three days. It really hurts when I pee, and I have to go a lot more often than usual. And there's blood in my urine.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports experiencing severe pain during urination for the past three days, accompanied by an increased frequency of urination and occasional blood in urine."
+      "addition_text": "Subjective: Blood in urine described as \"occasional\"",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "reasoning for UTI diagnosis (symptoms, physical exam, urine dipstick results)",
+      "addition_text": "Assessment: Statement that \"symptoms and physical exam suggest a urinary tract infection (UTI)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The symptoms and physical exam suggest a urinary tract infection (UTI)."
+      "matched_claim_text": "The symptoms and physical exam suggest a urinary tract infection (UTI).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "monitoring of chronic hypertension as a purpose of the 7-day follow-up appointment",
+      "addition_text": "Assessment: Justification for diagnosis: \"The presence of leukocytes and nitrites in the urine further supports this diagnosis.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites. ... It indicates that you likely have an infection in your urinary tract.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The presence of leukocytes and nitrites in the urine further supports this diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Plan: Explicitly linking \"monitoring of chronic hypertension\" to the follow-up appointment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] I’d like you to come back in 7 days for a reassessment. We'll also do a urine culture and sensitivity test to identify the bacteria causing the infection and check for antibiotic resistance. ... we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Arrange a follow-up appointment in 7 days for reassessment, urine culture and sensitivity test, and monitoring of chronic hypertension."
+      "matched_claim_text": "Arrange a follow-up appointment in 7 days for reassessment, urine culture and sensitivity test, and monitoring of chronic hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "emphasis on follow-ups for managing recurrent UTIs and chronic conditions like hypertension",
+      "addition_text": "Plan: Phrasing \"managing recurrent UTIs and chronic conditions like hypertension\" in the context of emphasizing importance of completing antibiotics and follow-ups",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] It's very important that you complete the full course of antibiotics, even if you start to feel better. ... Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize the importance of completing the full course of antibiotics and returning for follow-up appointments in managing recurrent UTIs and chronic conditions like hypertension."
+      "matched_claim_text": "Emphasize the importance of completing the full course of antibiotics and returning for follow-up appointments in managing recurrent UTIs and chronic conditions like hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pain rated as \"7 or 8 out of 10\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] I’d say it’s around a 7 or 8.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The pain is rated as 7 or 8 out of 10.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "ADM — phenotype_protein — Pain, AKT1 — phenotype_protein — Pain, ALB — phenotype_protein — Pain, AQP1 — phenotype_protein — Pain, AVP — phenotype_protein — Pain, BDKRB1 — phenotype_protein — Pain, BDKRB2 — phenotype_protein — Pain, CACNA2D1 — phenotype_protein — Pain, CNR1 — phenotype_protein — Pain, COMT — phenotype_protein — Pain, CRH — phenotype_protein — Pain, CSF2 — phenotype_protein — Pain, CSF3 — phenotype_protein — Pain, DRD2 — phenotype_protein — Pain, EDN1 — phenotype_protein — Pain, GCH1 — phenotype_protein — Pain, GRIN1 — phenotype_protein — Pain, HCRT — phenotype_protein — Pain"
+    },
+    {
+      "addition_text": "Blood in urine described as \"occasional\"",
+      "supported_by_transcript": "unsupported",
+      "transcript_evidence": null,
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement that \"symptoms and physical exam suggest a urinary tract infection (UTI)\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might have a urinary tract infection.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The symptoms and physical exam suggest a urinary tract infection (UTI).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Justification for diagnosis: \"The presence of leukocytes and nitrites in the urine further supports this diagnosis.\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I’ll confirm that with a urine dipstick test, which shows positive for leukocytes and nitrites. ... It indicates that you likely have an infection in your urinary tract.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The presence of leukocytes and nitrites in the urine further supports this diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Explicitly linking \"monitoring of chronic hypertension\" to the follow-up appointment",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I’d like you to come back in 7 days for a reassessment. We'll also do a urine culture and sensitivity test to identify the bacteria causing the infection and check for antibiotic resistance. ... we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Arrange a follow-up appointment in 7 days for reassessment, urine culture and sensitivity test, and monitoring of chronic hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Phrasing \"managing recurrent UTIs and chronic conditions like hypertension\" in the context of emphasizing importance of completing antibiotics and follow-ups",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] It's very important that you complete the full course of antibiotics, even if you start to feel better. ... Since you have recurrent UTIs, we’ll discuss the importance of regular follow-ups and monitoring your chronic hypertension.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Emphasize the importance of completing the full course of antibiotics and returning for follow-up appointments in managing recurrent UTIs and chronic conditions like hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

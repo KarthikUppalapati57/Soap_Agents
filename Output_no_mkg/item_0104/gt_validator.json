@@ -193,93 +193,86 @@
     "plan_alignment_score": 0.5625
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions across multiple sections, particularly in the Subjective, Assessment, and Plan sections. The most critical issue is the complete absence of a formal diagnosis in the Assessment section, which materially reduces the clinical usefulness of the note. Additionally, important details regarding the patient's functional impairment, specific ROS findings, medication quantity, and crucial patient education points are missing. All additions were supported by the transcript and did not impact the grade.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a clinically usable plan and accurately captures the patient's chief complaint and main symptoms. However, it omits the formal ICD-10 diagnosis in the Assessment section, which is a major gap. Additionally, the Subjective section lacks detailed information regarding the patient's functional impairment and a complete Review of Systems. All additions were supported by the transcript and did not incur penalties.",
     "omissions": [
-      "Patient's substantial reduction in appetite",
-      "Patient's persistent fatigue",
-      "Considerable impairment in daily activities",
-      "Inability to perform at work due to symptoms",
-      "Avoidance of social interactions due to symptoms",
-      "Neglect of personal hygiene due to symptoms",
-      "Constitutional ROS: No unexplained weight loss or fever",
-      "Neurological ROS: No complaints of headaches or other neurological symptoms",
-      "GI ROS: No gastrointestinal symptoms",
-      "\"or vital signs\" in Objective section",
-      "Specific diagnosis: Major Depressive Disorder, Single Episode, Unspecified",
-      "Medication route: oral",
-      "Medication quantity: 90 tablets",
-      "\"for therapy sessions\" in referral details",
-      "Patient education on the importance of medication adherence",
+      "Chief Complaint section header and content (\"Depressed mood and associated symptoms\")",
+      "History of Present Illness section header",
+      "Review of Systems section header",
+      "Detailed HPI content regarding impairment (unable to perform at work, avoids social interactions, neglects personal hygiene)",
+      "Detailed ROS content (Constitutional, Neurological, GI)",
+      "Medication quantity (90 tablets)",
+      "Patient education on medication adherence",
       "Patient education on potential side effects of Sertraline",
-      "\"despite current symptoms\" for lifestyle recommendations",
-      "Specific example for physical activity: \"such as short walks\"",
-      "Purpose of physical activity: \"to improve mood and energy levels\"",
-      "Encouragement to reach out to family members or trusted individuals for support",
-      "Patient's agreement to the treatment plan and willingness to commit to both pharmacologic and non-pharmacologic therapeutic strategies"
+      "Recommendation to reach out to family/trusted individuals for support",
+      "Statement about patient agreement to the treatment plan"
     ],
     "additions": [
       "\"anhedonia\" in Subjective section",
-      "\"followed by reassessment\" in medication plan"
+      "\"followed by reassessment\" in Plan section for medication"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section omits several clinically important details from the HPI, including the patient's substantial reduction in appetite, persistent fatigue, and the considerable impairment in daily activities (inability to perform at work, avoidance of social interactions, neglect of personal hygiene). It also completely omits the Review of Systems content regarding constitutional, neurological, and GI symptoms. These are multiple moderate omissions that make the section meaningfully incomplete.",
+        "summary": "The section effectively summarizes the patient's chief complaint and core depressive symptoms. However, it omits important details regarding the patient's functional impairment in daily activities (work, social, hygiene) and the full Review of Systems (Constitutional, Neurological, GI), making the clinical picture less complete. The addition of 'anhedonia' was supported by the transcript.",
         "omissions": [
-          "Patient's substantial reduction in appetite",
-          "Patient's persistent fatigue",
-          "Considerable impairment in daily activities",
-          "Inability to perform at work due to symptoms",
-          "Avoidance of social interactions due to symptoms",
-          "Neglect of personal hygiene due to symptoms",
-          "Constitutional ROS: No unexplained weight loss or fever",
-          "Neurological ROS: No complaints of headaches or other neurological symptoms",
-          "GI ROS: No gastrointestinal symptoms"
+          "Chief Complaint section header and content (\"Depressed mood and associated symptoms\")",
+          "History of Present Illness section header",
+          "Specific symptom: substantial reduction in appetite",
+          "Specific symptom: persistent fatigue",
+          "Impairment in daily activities: unable to perform at work",
+          "Impairment in daily activities: avoids social interactions",
+          "Impairment in daily activities: neglects personal hygiene",
+          "Review of Systems section header",
+          "Review of Systems - Constitutional: No unexplained weight loss or fever",
+          "Review of Systems - Neurological: No complaints of headaches or other neurological symptoms",
+          "Review of Systems - GI: No gastrointestinal symptoms"
         ],
         "additions": [
-          "\"anhedonia\" in symptom list"
+          "\"anhedonia\""
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The only omission in this section is the phrase \"or vital signs,\" which is a minor detail and does not impact the clinical usefulness of the statement that no physical examination was performed.",
+        "summary": "This section accurately states that no physical examination was performed. The omissions are minor and do not impact the clinical utility of the section. The addition of 'during this conversation' was supported by the transcript.",
         "omissions": [
-          "\"or vital signs\" in Objective section"
+          "Mention of \"vital signs\" not performed",
+          "Context \"initial psychiatric consultation\""
         ],
-        "additions": []
+        "additions": [
+          "\"during this conversation\""
+        ]
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "This section has a major omission: the specific diagnosis of \"Major Depressive Disorder, Single Episode, Unspecified (ICD-10 F32.9)\". Instead, it provides a descriptive statement of \"Severe depressive symptoms as described by the patient.\" Missing the formal diagnosis materially reduces the clinical usefulness of the Assessment section.",
+        "summary": "This section is significantly incomplete due to the omission of the formal ICD-10 diagnosis (Major Depressive Disorder, Single Episode, Unspecified). While severe depressive symptoms are noted, the lack of a specific diagnosis is a major clinical gap. The addition of 'as described by the patient' was supported by the transcript.",
         "omissions": [
           "Specific diagnosis: Major Depressive Disorder, Single Episode, Unspecified"
         ],
-        "additions": []
+        "additions": [
+          "\"as described by the patient\""
+        ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "This section has several moderate omissions, including the medication quantity (90 tablets) and critical patient education points such as the importance of medication adherence and potential side effects of Sertraline. Minor omissions include the medication route, specific details for therapy sessions, and the encouragement to reach out to family for support. The cumulative effect of these omissions makes the plan less comprehensive and potentially less effective for patient care.",
+        "grade": "B",
+        "summary": "The Plan section is well-structured and captures all major components of the treatment plan, including medication, follow-up, referral, and lifestyle recommendations. Minor omissions include the specific medication quantity, route, explicit mention of medication adherence and side effects education, and the patient's agreement statement. Despite these minor omissions, the core plan is clinically sound and usable. The addition of 'followed by reassessment' for medication was supported by the transcript.",
         "omissions": [
-          "Medication route: oral",
-          "Medication quantity: 90 tablets",
-          "\"for therapy sessions\" in referral details",
-          "Patient education on the importance of medication adherence",
-          "Patient education on potential side effects of Sertraline",
-          "\"despite current symptoms\" for lifestyle recommendations",
-          "Specific example for physical activity: \"such as short walks\"",
-          "Purpose of physical activity: \"to improve mood and energy levels\"",
-          "Encouragement to reach out to family members or trusted individuals for support",
-          "Patient's agreement to the treatment plan and willingness to commit to both pharmacologic and non-pharmacologic therapeutic strategies"
+          "Medication detail: \"oral\" route",
+          "Medication detail: \"Quantity: 90 tablets\"",
+          "Referral detail: \"for therapy sessions\"",
+          "Patient education: \"Educate the patient about the importance of medication adherence\"",
+          "Patient education: \"potential side effects of Sertraline\"",
+          "Support/Resources: \"Encourage the patient to reach out to family members or trusted individuals for support during this period.\"",
+          "Patient agreement statement: \"Sofia Hernandez agreed to the treatment plan and showed a willingness to commit to both pharmacologic and non-pharmacologic therapeutic strategies.\""
         ],
         "additions": [
-          "\"followed by reassessment\" in medication plan"
+          "\"followed by reassessment\" for medication"
         ]
       }
     ],
@@ -292,21 +285,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "I don't enjoy anything anymore.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"followed by reassessment\" in medication plan",
+      "addition_text": "\"followed by reassessment\" in Plan section for medication",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll start with a 3-month course and reassess after that.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"anhedonia\" in symptom list",
+      "addition_text": "\"anhedonia\"",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "I don't enjoy anything anymore.",
+      "transcript_evidence": "[Patient]: I don't enjoy anything anymore.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient reports anhedonia.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"during this conversation\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": null,
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No physical examination was performed during this conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"as described by the patient\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: Hmm, based on what you've told me, it sounds like you're experiencing severe depressive symptoms.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Assessment: Severe depressive symptoms as described by the patient.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"followed by reassessment\" for medication",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We'll start with a 3-month course and reassess after that.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

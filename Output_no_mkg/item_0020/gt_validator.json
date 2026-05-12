@@ -228,8 +228,8 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, present illness, and key objective findings. All additions are supported by the transcript, which is a strong positive. However, the note has several minor omissions, particularly in the Review of Systems and specific details within the Plan section. Additionally, it omits the patient's general appearance of being in moderate distress and the impact of pain on work tasks, which are moderate clinical details. Despite these omissions, the note remains a reliable and useful clinical document.",
+    "overall_grade": "C",
+    "overall_summary": "The generated note is broadly usable but contains several omissions that reduce its completeness and clinical precision. Key omissions in the Subjective section include the impact of pain on work tasks and the denial of bowel/bladder incontinence, which are clinically important for a patient presenting with lower back pain and neurological symptoms. The Plan section also omits specific timing for an MRI and detailed next steps for monitoring treatment. All identified additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Impact of pain on performing work tasks (from HPI)",
       "Denial of history of trauma (from HPI)",
@@ -259,8 +259,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section captures the core history of present illness well. However, it omits several minor denials from the Review of Systems (e.g., trauma, recent injuries, bowel/bladder incontinence, chest pain, shortness of breath, abdominal pain) and a moderate detail regarding the impact of pain on performing work tasks. All additions in this section are supported by the transcript.",
+        "grade": "C",
+        "summary": "This section has noticeable gaps due to several omissions. Clinically important details such as the impact of pain on performing work tasks and the denial of bowel or bladder incontinence are missing. Additionally, several minor denials from the Review of Systems (e.g., history of trauma, recent injuries, chest pain, shortness of breath, abdominal pain) were omitted. The single addition was supported by the transcript.",
         "omissions": [
           "Impact of pain on performing work tasks",
           "Denial of history of trauma",
@@ -277,7 +277,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately reports vitals and key physical exam findings related to the lumbar spine and neurological assessment. However, it omits the clinically relevant observation of the patient appearing in moderate distress due to pain. Minor specific findings for the cardiovascular and respiratory exams, as well as the location of normal sensation and motor strength, are also omitted. All additions in this section are supported by the transcript.",
+        "summary": "The Objective section is mostly aligned, capturing all vital signs and major physical exam findings. However, it omits several minor specific details, such as the patient appearing in moderate distress due to pain, the specific findings for cardiovascular and respiratory exams (Normal S1/S2, no murmurs; Clear to auscultation bilaterally), and the location 'in the lower extremities' for normal sensation and motor strength. The single addition was supported by the transcript.",
         "omissions": [
           "General appearance: Patient appears in moderate distress due to pain",
           "Specific findings for Cardiovascular exam: Normal S1 and S2, no murmurs",
@@ -291,7 +291,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, with no omissions or unsupported/unknown additions based on the provided discrepancy lists. The generated assessment of 'Possible lumbar issue' is fully supported by the transcript.",
+        "summary": "This section is excellent, with no omissions or unsupported/unknown additions. The generated content accurately reflects the Ground Truth and is fully supported by the transcript.",
         "omissions": [],
         "additions": [
           "Assessment of 'Possible lumbar issue'"
@@ -300,7 +300,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section captures all major components, including medication, referrals, follow-up, lifestyle recommendations, and patient education. However, it omits several minor but useful details such as the route and quantity for the Ibuprofen prescription, the specific doctor's name for the Orthopedics referral, the exact timing for the MRI if no improvement, and the recommendation to maintain a balanced diet. It also misses some administrative and patient engagement notes.",
+        "summary": "The Plan section is mostly complete but has several minor and moderate omissions. Minor omissions include the route and quantity for the Ibuprofen prescription, the specific name for the Orthopedics referral, and the recommendation to maintain a balanced diet. More moderately important omissions include the specific timing ('in 4 weeks') for the MRI of the lumbar spine and the detailed next steps for monitoring treatment and making adjustments based on symptoms and physical exam findings. There were no additions in this section.",
         "omissions": [
           "Route 'oral' for Ibuprofen prescription",
           "Quantity '30 tablets' for Ibuprofen prescription",
@@ -322,42 +322,54 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Sitting for long periods and walking seem to make it worse. I also have a hard time sleeping because of the pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is exacerbated by sitting for long periods, walking, and sleeping."
+      "matched_claim_text": "The pain is exacerbated by sitting for long periods, walking, and sleeping.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement that vitals are 'within normal ranges' (in Objective)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, those are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment of 'Possible lumbar issue' (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might be dealing with lower back pain possibly due to a lumbar issue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible lumbar issue causing lower back pain."
+      "matched_claim_text": "Possible lumbar issue causing lower back pain.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Pain exacerbated by sleeping",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Sitting for long periods and walking seem to make it worse. I also have a hard time sleeping because of the pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The pain is exacerbated by sitting for long periods, walking, and sleeping."
+      "matched_claim_text": "The pain is exacerbated by sitting for long periods, walking, and sleeping.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Statement that vitals are 'within normal ranges'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Yes, those are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment of 'Possible lumbar issue'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might be dealing with lower back pain possibly due to a lumbar issue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible lumbar issue causing lower back pain."
+      "matched_claim_text": "Possible lumbar issue causing lower back pain.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

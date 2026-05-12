@@ -292,94 +292,80 @@
     "plan_alignment_score": 0.5374449339207048
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-v1",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note provides a good overview of the patient's presentation, vital signs, primary assessment, and treatment plan. However, it suffers from several significant omissions, including the entire Review of Systems section, detailed lab results (ABG, CBC, D-dimer), the patient's secondary diagnosis of well-managed Type 2 Diabetes Mellitus, and the crucial Patient Agreements section. While the core clinical plan is present, these gaps make the note meaningfully incomplete and require careful review.",
-    "omissions": [
-      "Chief Complaint: unable to complete sentences",
-      "HPI: significant difficulty breathing",
-      "HPI: unable to perform her daily activities and has been bedridden due to her symptoms",
-      "Review of Systems (ROS) section",
-      "Objective Physical Examination: General: diaphoretic",
-      "Objective Physical Examination: Cardiovascular: Tachycardia, regular rhythm",
-      "Objective Physical Examination: Neurological: no focal deficits",
-      "Objective Results: Arterial Blood Gas (ABG) values (pH 7.29, PaCO2 55 mmHg, PaO2 50 mmHg on room air)",
-      "Objective Results: Complete Blood Count (CBC): Elevated WBC",
-      "Objective Results: D-dimer: Within normal range",
-      "Assessment: Secondary Diagnosis: Type 2 Diabetes Mellitus, well-managed with current medications",
-      "Plan: Follow-up: Recheck patient daily to assess response to treatment and adjust as needed",
-      "Plan: Follow-up: Consider step-down to nasal cannula as weaning becomes possible",
-      "Plan: Imaging and Tests: Chest X-ray purpose 'to determine the cause of respiratory failure'",
-      "Plan: Imaging and Tests: Chest X-ray details 'Modality: X-ray, Area: Chest'",
-      "Plan: Imaging and Tests: Blood Work purpose 'to monitor progress'",
-      "Plan: Patient Education and Counseling: Asthma management detail 'especially considering the high pollution in her urban environment'",
-      "Plan: Patient Education and Counseling: Specific lifestyle modifications for diabetes 'such as dietary changes and potential low-impact exercises'",
-      "Plan: Patient Agreements section"
-    ],
-    "additions": [
-      "Subjective: The symptoms have come on suddenly and worsened.",
-      "Subjective: reports stable blood sugar levels"
-    ],
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The note provides a reasonable overview of the patient's condition and treatment plan, but it suffers from a critical omission of arterial blood gas results in the Objective section, which significantly reduces its clinical utility for managing acute respiratory failure. Additionally, there are numerous minor and several moderate omissions across all sections, particularly in the Subjective and Plan sections, affecting completeness. All additions were supported by the transcript and did not negatively impact the grade.",
+    "omissions": [],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section has several omissions, most notably the entire Review of Systems, which is a major gap in the documentation. There are also moderate omissions in the HPI regarding the patient's inability to perform daily activities. All additions are supported by the transcript and do not negatively impact the grade.",
+        "summary": "This section has numerous omissions, including patient demographics (age, race), important details about the patient's activity limitations (unable to perform daily activities, bedridden), and several negative findings from the Review of Systems. While the core chief complaint and history of present illness are present, the volume of missing details makes the section noticeably incomplete.",
         "omissions": [
           "Chief Complaint: unable to complete sentences",
-          "HPI: significant difficulty breathing",
-          "HPI: unable to perform her daily activities and has been bedridden due to her symptoms",
-          "ROS: Constitutional: Reports moderate respiratory distress, diaphoretic.",
-          "ROS: Respiratory: Complains of severe dyspnea, cough with sputum, reduced breath sounds.",
-          "ROS: Cardiovascular: Reports tachycardia, denies chest pain.",
-          "ROS: Gastrointestinal: Denies nausea or vomiting.",
-          "ROS: Musculoskeletal: Denies muscle pain or joint swelling.",
-          "ROS: Neurological: Denies headaches or dizziness."
+          "History of Present Illness: patient age (58-year-old)",
+          "History of Present Illness: patient race (Asian female)",
+          "History of Present Illness: patient unable to perform daily activities",
+          "History of Present Illness: patient bedridden due to symptoms",
+          "Review of Systems: Constitutional: moderate respiratory distress",
+          "Review of Systems: Constitutional: diaphoretic",
+          "Review of Systems: Respiratory: reduced breath sounds",
+          "Review of Systems: Cardiovascular: denies chest pain",
+          "Review of Systems: Gastrointestinal: denies nausea or vomiting",
+          "Review of Systems: Musculoskeletal: denies muscle pain or joint swelling",
+          "Review of Systems: Neurological: denies headaches or dizziness"
         ],
         "additions": [
-          "The symptoms have come on suddenly and worsened.",
-          "reports stable blood sugar levels"
+          "HPI: symptoms have worsened",
+          "HPI: reports stable blood sugar levels"
         ]
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The section accurately captures vital signs and key physical exam findings. However, it omits specific details from the physical exam (diaphoretic, regular rhythm, no focal deficits) and, more significantly, all the detailed lab results (ABG values, elevated WBC, normal D-dimer), which are clinically important moderate omissions.",
+        "grade": "D",
+        "summary": "This section receives a low grade due to the critical omission of the complete Arterial Blood Gas (ABG) results, which are essential for managing acute respiratory failure. The absence of elevated WBC and D-dimer results, along with some minor physical examination details, further detracts from the completeness and clinical usefulness of this section.",
         "omissions": [
           "Physical Examination: General: diaphoretic",
           "Physical Examination: Cardiovascular: Tachycardia, regular rhythm",
           "Physical Examination: Neurological: no focal deficits",
-          "Results: Arterial Blood Gas (ABG) values (pH 7.29, PaCO2 55 mmHg, PaO2 50 mmHg on room air)",
-          "Results: Complete Blood Count (CBC): Elevated WBC",
-          "Results: D-dimer: Within normal range"
+          "Results: Arterial Blood Gas (pH 7.29, PaCO2 55 mmHg, PaO2 50 mmHg on room air)",
+          "Results: Complete Blood Count (Elevated WBC)",
+          "Results: D-dimer (Within normal range)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The primary diagnosis is correctly identified. However, the secondary diagnosis of Type 2 Diabetes Mellitus, including its management status, is omitted. This is a moderate gap in the patient's overall assessment, making the section meaningfully incomplete.",
+        "grade": "B",
+        "summary": "The primary diagnosis is accurately captured. However, the omission of the secondary diagnosis, Type 2 Diabetes Mellitus with its management status, is a moderate gap in providing a comprehensive assessment of the patient's conditions.",
         "omissions": [
-          "Secondary Diagnoses: Type 2 Diabetes Mellitus, well-managed with current medications."
+          "Primary Diagnosis qualifier: 'likely secondary to' severe asthma exacerbation",
+          "Secondary Diagnoses: Type 2 Diabetes Mellitus, well-managed with current medications"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The generated plan covers all the main treatment interventions, referrals, and imaging/tests. However, it omits several specific details regarding follow-up, the purpose/modality of tests, and specific patient education points. Most notably, the entire 'Patient Agreements' section, which confirms patient understanding and cooperation, is missing, representing a moderate to major omission.",
+        "grade": "B",
+        "summary": "The core treatment plan is well-documented, including oxygen therapy, medications, and monitoring. However, there are several minor omissions regarding specific follow-up details, the purpose of imaging/tests, specific patient education examples, and the patient's agreement and emotional state, which collectively reduce the overall completeness of the plan.",
         "omissions": [
-          "Follow-up: Recheck patient daily to assess response to treatment and adjust as needed.",
-          "Follow-up: Consider step-down to nasal cannula as weaning becomes possible.",
-          "Imaging and Tests: Chest X-ray purpose 'to determine the cause of respiratory failure'.",
-          "Imaging and Tests: Chest X-ray details 'Modality: X-ray, Area: Chest'.",
-          "Imaging and Tests: Blood Work purpose 'to monitor progress'.",
-          "Patient Education and Counseling: Asthma management detail 'especially considering the high pollution in her urban environment'.",
-          "Patient Education and Counseling: Specific lifestyle modifications for diabetes 'such as dietary changes and potential low-impact exercises'.",
-          "Patient Agreements: The entire section, including patient understanding, agreement, anxiety, cooperation, and diligence."
+          "Follow-up: Recheck patient daily to assess response to treatment and adjust as needed",
+          "Follow-up: Consider step-down to nasal cannula as weaning becomes possible",
+          "Referral: Specific name of respiratory therapist (Dr. John Smith)",
+          "Imaging and Tests: Chest X-ray purpose 'to determine the cause of respiratory failure'",
+          "Imaging and Tests: Chest X-ray modality and area (X-ray, Chest)",
+          "Imaging and Tests: Blood Work purpose 'to monitor progress'",
+          "Patient Education: detail about 'high pollution in her urban environment'",
+          "Patient Education: specific examples of lifestyle modifications for diabetes (dietary changes, low-impact exercises)",
+          "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan. She expresses anxiety but is cooperative and diligent in following medical advice."
         ],
-        "additions": []
+        "additions": [
+          "Phrasing 'Immediate steps will include...'",
+          "Emphasis on 'crucial' adherence to asthma and diabetes management",
+          "Phrasing 'additional laboratory tests'"
+        ]
       }
     ],
     "rubric_notes": null
@@ -387,32 +373,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Subjective: The symptoms have come on suddenly and worsened.",
+      "addition_text": "HPI: symptoms have worsened",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: It just came on so suddenly...",
+      "transcript_evidence": "[Patient]: ...and it’s been getting worse.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The symptoms have come on suddenly."
+      "matched_claim_text": "The symptoms have worsened.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Subjective: reports stable blood sugar levels",
+      "addition_text": "HPI: reports stable blood sugar levels",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: Yes, I do. But my blood sugar levels have been stable.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports stable blood sugar levels."
+      "matched_claim_text": "The patient reports stable blood sugar levels.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "The symptoms have come on suddenly and worsened.",
+      "addition_text": "Phrasing 'Immediate steps will include...'",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: It just came on so suddenly...",
+      "transcript_evidence": "[Doctor]: We’ll start with oxygen therapy using a non-rebreather mask at 10 liters per minute to improve your oxygen levels.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The symptoms have come on suddenly."
+      "matched_claim_text": "Immediate steps will include oxygen therapy using a non-rebreather mask at 10 liters per minute.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "reports stable blood sugar levels",
+      "addition_text": "Emphasis on 'crucial' adherence to asthma and diabetes management",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "[Patient]: Yes, I do. But my blood sugar levels have been stable.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports stable blood sugar levels."
+      "transcript_evidence": "It’s crucial that you adhere to your asthma management plan... We’ll also discuss lifestyle modifications to manage your diabetes... It’s important to stay diligent in following medical advice.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Phrasing 'additional laboratory tests'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "We’ll also repeat some blood work, including a complete blood count, D-dimer, and arterial blood gas analysis.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

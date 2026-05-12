@@ -294,104 +294,87 @@
     "plan_alignment_score": 0.7031250000000001
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions in the Subjective section, failing to capture crucial patient history, lifestyle details, and the entire Review of Systems. The Assessment section is also critically flawed by omitting established diagnoses (Type 2 diabetes mellitus, hypertension, Stage 3 chronic kidney disease) and instead stating them as 'suspected,' which introduces misleading clinical content. While the Objective and Plan sections are more aligned, the major gaps in patient history and the misrepresentation of diagnostic certainty severely reduce the overall clinical usefulness and reliability of the note.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note has significant omissions in the Subjective section, including the patient's established history of Type 2 diabetes mellitus and Stage 3 chronic kidney disease, and the entire Review of Systems. A major issue is present in the Assessment section, where the patient's known diagnoses of hypertensive chronic kidney disease (Stage 3), Type 2 diabetes mellitus, and hypertension are presented as merely 'suspected' rather than confirmed, which materially reduces the clinical usefulness and accuracy of the note. While the Objective and Plan sections are largely complete with only minor omissions, the substantial gaps in historical context and the misrepresentation of core diagnoses lead to a C grade.",
     "omissions": [
-      "History of Type 2 diabetes mellitus",
-      "History of Stage 3 chronic kidney disease",
-      "Symptoms impacting ability to stand and walk for prolonged periods",
-      "Sleep duration (7 hours per night)",
-      "Diet details (high in vegetables and lean proteins with moderate sodium intake)",
-      "Exercise details (walking for 30 minutes twice a week)",
+      "Patient's history of Type 2 diabetes mellitus and Stage 3 chronic kidney disease (mentioned in HPI of GroundTruth)",
+      "Impact of leg swelling and fatigue on ability to stand and walk for prolonged periods",
+      "Patient sleeps 7 hours per night but is often disrupted due to nocturia",
+      "Patient's diet details (high in vegetables and lean proteins with moderate sodium intake)",
+      "Patient's exercise routine (walking for 30 minutes twice a week)",
       "Patient is highly cooperative with medical advice",
-      "Current Metformin dosage (500 mg twice daily)",
-      "No known allergies",
-      "Review of Systems (ROS) section details (e.g., denies fever/weight loss, denies chest pain/palpitations, denies SOB/cough, denies nausea/vomiting/diarrhea, denies dysuria/hematuria, denies headaches/dizziness/seizures, reports good glycemic control, denies depression/anxiety)",
-      "Physical Exam: General appearance (Well-nourished, well-developed in no acute distress)",
-      "Physical Exam: Cardiovascular (no murmurs)",
-      "Physical Exam: Respiratory (bilaterally)",
-      "Investigations/Test Results: \"Blood work and renal ultrasound results are pending.\"",
-      "Assessment: Specific diagnosis of Type 2 diabetes mellitus",
-      "Assessment: Specific diagnosis of Hypertension",
-      "Assessment: \"hypertensive chronic kidney disease (Stage 3)\" (Generated states \"suspected\")",
-      "Assessment: \"difficulty in managing his blood pressure and chronic kidney disease\"",
-      "Assessment: \"moderate leg swelling and fatigue which are impacting his daily activities\"",
-      "Plan: Imaging purpose (to assess kidney size and structure)",
-      "Plan: Patient understands and agrees with the proposed treatment plan.",
-      "Plan: Continue monitoring and adherence to lifestyle modifications."
+      "Patient manages conditions with Amlodipine 10 mg daily and Metformin 500 mg twice daily",
+      "Patient has no known allergies",
+      "Entire Review of Systems section",
+      "General physical exam findings: Well-nourished, well-developed, in no acute distress",
+      "Cardiovascular physical exam finding: no murmurs",
+      "Investigations/Test Results: Blood work and renal ultrasound results are pending",
+      "Specific diagnoses in Assessment: hypertensive chronic kidney disease (Stage 3), Type 2 diabetes mellitus, and hypertension",
+      "Assessment of patient's current presentation: difficulty in managing blood pressure and chronic kidney disease",
+      "Assessment of symptoms impacting daily activities: moderate leg swelling and fatigue impacting daily activities",
+      "Purpose of renal ultrasound: to assess kidney size and structure",
+      "Patient understanding and agreement with the proposed treatment plan",
+      "Instruction to continue monitoring and adherence to lifestyle modifications"
     ],
     "additions": [
-      "Assessment: \"Hypertension and chronic kidney disease are suspected based on the patient's symptoms and physical examination findings.\" (GroundTruth states these as established diagnoses)",
-      "Objective: \"mild edema in lower extremities\" included in the abdomen description (misplaced content)."
+      "Application of 'for approximately 5 years' to difficulty managing blood pressure and nocturia (GroundTruth only applies it to leg swelling and fatigue)",
+      "Statement in Assessment that Hypertension and chronic kidney disease 'are suspected based on the patient's symptoms and physical examination findings'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section has numerous and significant omissions. It fails to include the patient's history of Type 2 diabetes mellitus and Stage 3 chronic kidney disease, which are core diagnoses. The entire Review of Systems (ROS) section is missing, leading to the omission of many clinically relevant details about various body systems. Additionally, important HPI details such as the impact of symptoms on daily activities, sleep duration, diet, exercise, current Metformin dosage, and absence of allergies are omitted. These omissions make the Subjective section largely incomplete and reduce its clinical utility.",
+        "grade": "C",
+        "summary": "The Subjective section has several significant omissions, including the patient's core diagnoses (Type 2 diabetes mellitus, Stage 3 chronic kidney disease) from the HPI and the entire Review of Systems. While some symptoms are captured, the lack of historical context and a full ROS makes this section meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint: \"kidney function\" (Generated CC only mentions BP, fatigue, leg swelling, nocturia)",
-          "HPI: History of Type 2 diabetes mellitus",
-          "HPI: History of Stage 3 chronic kidney disease",
-          "HPI: Symptoms impacting ability to stand and walk for prolonged periods",
-          "HPI: Sleep duration (7 hours per night)",
-          "HPI: Diet details (high in vegetables and lean proteins with moderate sodium intake)",
-          "HPI: Exercise details (walking for 30 minutes twice a week)",
+          "Chief Complaint: 'Difficulty managing blood pressure and kidney function' (Generated only mentions BP, fatigue, swelling, nocturia)",
+          "HPI: History of Type 2 diabetes mellitus and Stage 3 chronic kidney disease",
+          "HPI: Impact of leg swelling and fatigue on ability to stand and walk for prolonged periods",
+          "HPI: Patient sleeps 7 hours per night but is often disrupted due to nocturia",
+          "HPI: Patient's diet details (high in vegetables and lean proteins with moderate sodium intake)",
+          "HPI: Patient's exercise routine (walking for 30 minutes twice a week)",
           "HPI: Patient is highly cooperative with medical advice",
-          "HPI: Current Metformin dosage (500 mg twice daily)",
-          "HPI: No known allergies",
-          "Review of Systems (ROS) section entirely missing, including:",
-          "Constitutional: Denies fever or weight loss.",
-          "Cardiovascular: Denies chest pain or palpitations.",
-          "Respiratory: Denies shortness of breath or cough.",
-          "Gastrointestinal: Denies nausea, vomiting, or diarrhea.",
-          "Genitourinary: Denies dysuria or hematuria.",
-          "Neurological: Denies headaches, dizziness, or seizures.",
-          "Endocrine: Reports good glycemic control with current medications.",
-          "Musculoskeletal: Reports occasional leg swelling with prolonged standing.",
-          "Psychiatric: Denies depression or anxiety."
+          "HPI: Patient manages conditions with Amlodipine 10 mg daily and Metformin 500 mg twice daily",
+          "HPI: Patient has no known allergies",
+          "Entire Review of Systems section"
         ],
-        "additions": []
+        "additions": [
+          "Application of 'for approximately 5 years' to difficulty managing blood pressure and nocturia (GroundTruth only applies it to leg swelling and fatigue)"
+        ]
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly complete and accurate. Minor omissions include details from the physical examination such as the general appearance ('Well-nourished, well-developed in no acute distress'), the absence of murmurs, and the 'bilaterally' descriptor for lung auscultation. The note also omits the important context that 'Blood work and renal ultrasound results are pending.' All additions in this section were supported by the transcript and therefore did not lower the grade.",
+        "summary": "The Objective section is mostly complete, accurately capturing vital signs and key physical exam findings. It omits some general physical appearance details and the status of pending investigations, but these are minor issues.",
         "omissions": [
-          "Physical Examination: General appearance (Well-nourished, well-developed in no acute distress)",
-          "Physical Examination: Cardiovascular (no murmurs)",
-          "Physical Examination: Respiratory (to auscultation bilaterally)",
-          "Investigations/Test Results: \"Blood work and renal ultrasound results are pending.\""
+          "Physical Examination: General findings (Well-nourished, well-developed, in no acute distress)",
+          "Physical Examination: Cardiovascular finding (no murmurs)",
+          "Investigations/Test Results: 'Blood work and renal ultrasound results are pending'"
         ],
-        "additions": [
-          "Physical Examination: \"mild edema in lower extremities\" included in the abdomen description (misplaced content)."
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "This section contains major omissions that introduce misleading clinical content. It omits the specific established diagnoses of Type 2 diabetes mellitus, hypertension, and 'hypertensive chronic kidney disease (Stage 3).' Instead, the generated note states that 'Hypertension and chronic kidney disease are suspected,' which fundamentally misrepresents the patient's known medical history and diagnostic certainty. This change from established diagnoses to 'suspected' significantly reduces the clinical usefulness and reliability of the assessment. Other omissions include the patient's 'difficulty in managing his blood pressure and chronic kidney disease' and the impact of 'moderate leg swelling and fatigue' on daily activities.",
+        "summary": "The Assessment section has a major issue by presenting the patient's established diagnoses (hypertensive chronic kidney disease Stage 3, Type 2 diabetes mellitus, hypertension) as merely 'suspected' rather than confirmed. This significantly reduces the clinical usefulness and accuracy of the assessment. It also omits details about the patient's current presentation and the impact of symptoms.",
         "omissions": [
-          "Specific diagnosis of Type 2 diabetes mellitus",
-          "Specific diagnosis of Hypertension",
-          "Specific diagnosis of \"hypertensive chronic kidney disease (Stage 3)\" (Generated states \"suspected\")",
-          "\"difficulty in managing his blood pressure and chronic kidney disease\"",
-          "\"moderate leg swelling and fatigue which are impacting his daily activities\""
+          "Specific diagnoses: hypertensive chronic kidney disease (Stage 3), Type 2 diabetes mellitus, and hypertension",
+          "Patient's current presentation: difficulty in managing his blood pressure and chronic kidney disease",
+          "Impact of symptoms on daily activities: moderate leg swelling and fatigue impacting daily activities"
         ],
         "additions": [
-          "\"Hypertension and chronic kidney disease are suspected based on the patient's symptoms and physical examination findings.\" (GroundTruth states these as established diagnoses)"
+          "Statement that Hypertension and chronic kidney disease 'are suspected based on the patient's symptoms and physical examination findings'"
         ]
       },
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is largely comprehensive and accurate. The core elements of medication adjustments, referrals, further tests, and follow-up are well-captured. Minor omissions include the specific purpose of the imaging ('to assess kidney size and structure'), the statement that the 'Patient understands and agrees with the proposed treatment plan,' and the instruction to 'Continue monitoring and adherence to lifestyle modifications.' These are minor details that do not significantly detract from the overall clinical usefulness of the plan.",
+        "summary": "The Plan section is largely complete, accurately listing medication adjustments, referrals, further tests, and follow-up. It has only minor omissions regarding the specific purpose of the renal ultrasound and patient agreement/adherence instructions.",
         "omissions": [
-          "Imaging purpose (to assess kidney size and structure)",
-          "Patient understands and agrees with the proposed treatment plan.",
-          "Continue monitoring and adherence to lifestyle modifications."
+          "Purpose of renal ultrasound: 'to assess kidney size and structure'",
+          "Patient understands and agrees with the proposed treatment plan",
+          "Instruction to continue monitoring and adherence to lifestyle modifications"
         ],
         "additions": []
       }
@@ -401,32 +384,31 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: \"Hypertension and chronic kidney disease are suspected based on the patient's symptoms and physical examination findings.\" (GroundTruth states these as established diagnoses)",
+      "addition_text": "Application of 'for approximately 5 years' to difficulty managing blood pressure and nocturia (GroundTruth only applies it to leg swelling and fatigue)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] I'm doing alright, Doc. Just having some trouble with my blood pressure and feeling tired a lot.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient presents with difficulty managing blood pressure and experiencing fatigue.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Statement in Assessment that Hypertension and chronic kidney disease 'are suspected based on the patient's symptoms and physical examination findings'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Just having some trouble with my blood pressure and feeling tired a lot.\n[patient] My legs also swell up occasionally, and it’s been going on for about five years now.\n[patient] I usually get about 7 hours, but I wake up often because I need to use the bathroom.\n[doctor] On physical examination, your blood pressure is 150/95 mmHg.\n[doctor] You do have mild edema in your lower extremities.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The suspicion of hypertension and chronic kidney disease is based on the patient's symptoms and physical examination findings."
+      "matched_claim_text": "The suspicion of hypertension and chronic kidney disease is based on the patient's symptoms and physical examination findings.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Objective: \"mild edema in lower extremities\" included in the abdomen description (misplaced content).",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] You do have mild edema in your lower extremities.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "There is mild edema in lower extremities."
-    },
-    {
-      "addition_text": "Physical Examination: \"mild edema in lower extremities\" included in the abdomen description (misplaced content).",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] You do have mild edema in your lower extremities.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "There is mild edema in lower extremities."
-    },
-    {
-      "addition_text": "\"Hypertension and chronic kidney disease are suspected based on the patient's symptoms and physical examination findings.\" (GroundTruth states these as established diagnoses)",
+      "addition_text": "Statement that Hypertension and chronic kidney disease 'are suspected based on the patient's symptoms and physical examination findings'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Just having some trouble with my blood pressure and feeling tired a lot.\n[patient] My legs also swell up occasionally, and it’s been going on for about five years now.\n[patient] I usually get about 7 hours, but I wake up often because I need to use the bathroom.\n[doctor] On physical examination, your blood pressure is 150/95 mmHg.\n[doctor] You do have mild edema in your lower extremities.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The suspicion of hypertension and chronic kidney disease is based on the patient's symptoms and physical examination findings."
+      "matched_claim_text": "The suspicion of hypertension and chronic kidney disease is based on the patient's symptoms and physical examination findings.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

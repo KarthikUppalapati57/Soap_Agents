@@ -191,82 +191,71 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and clearly usable, accurately capturing the chief complaint, objective findings, and the main components of the assessment and plan. A significant strength is the absence of any unsupported or unknown additions. However, the note has several moderate omissions, including key patient demographics (age, sex, ethnicity) in the Subjective section, the explicit diagnostic status in the Assessment, and important details regarding patient education and socio-economic considerations in the Plan. Additionally, several minor administrative and specific clinical details are missing.",
-    "omissions": [
-      "Interpreter Used: Yes, for Spanish translation.",
-      "Patient Agreements: The patient’s mother understands and agrees with the recommended medical treatment plan.",
-      "Signed by: Dr. [Physician's Name]",
-      "Date: [Current Date]",
-      "Community Health Center"
-    ],
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable, accurately capturing the main clinical picture. All additions were supported by the transcript and did not incur any penalties. However, the note has several omissions across multiple sections. The Subjective section omits details regarding the reason for visit, symptom characteristics, sleep duration, diet preferences, and exercise habits. The Objective section has minor omissions of specific measurements. The Assessment section omits the explicit statement that the diagnosis is awaiting confirmation. The Plan section omits specific details of patient education and counseling, and important socio-economic considerations.",
+    "omissions": [],
     "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section captures the core symptoms of fatigue and pale skin, along with some ROS details. However, it omits critical patient demographics (age, sex, ethnicity) and the explicit structural headers for Chief Complaint, History of Present Illness, and Review of Systems. Several specific details regarding symptom duration, frequency, impact, sleep, diet, and exercise are also missing, making the section noticeably incomplete despite the presence of the main complaint. All additions were supported by the transcript.",
+        "grade": "B",
+        "summary": "The Subjective section has several omissions, including the reason for visit (routine check-up), specific details about symptom duration, frequency, and impact, sleep duration, diet preferences, and exercise habits. These omissions reduce the completeness of the patient's history. All additions were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
-          "Chief Complaint (CC) section header and content",
-          "History of Present Illness (HPI) section header and content",
-          "Review of Systems (ROS) section header and content",
-          "Patient's age (6-year-old)",
-          "Patient's sex (female)",
-          "Patient's ethnicity (Hispanic)",
-          "Reason for visit (routine check-up)",
-          "Duration of symptoms (last month)",
-          "Frequency of symptoms (once or twice a week)",
-          "Impact of symptoms on daily activities (minimal impact)",
-          "Sleep duration (approximately 9 hours per night)",
-          "Dietary preferences (prefers carbohydrates, less interested in vegetables and meats)",
-          "Exercise habits (plays outside intermittently, not regularly involved in sports)"
+          "Chief Complaint (CC) statement as a structured field",
+          "Reason for visit: routine check-up (as part of HPI context)",
+          "Duration of symptoms: 'for the last month'",
+          "Frequency of symptoms: 'once or twice a week'",
+          "Impact of symptoms on daily activities: 'minimal impact on daily activities'",
+          "Sleep duration: 'Approximately 9 hours per night'",
+          "Diet preferences: 'Prefers carbohydrates, less interested in vegetables and meats'",
+          "Exercise habits: 'Plays outside intermittently, not regularly involved in sports'"
         ],
         "additions": [
-          "Specific denial of symptoms: 'No history of fever, cough, difficulty breathing'",
-          "Description of skin as 'mildly pale' (GroundTruth uses 'pale skin' in Subjective)"
+          "Qualifier 'mildly' for pale skin",
+          "Specific negative ROS: 'No history of fever, cough, difficulty breathing'"
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is excellent, accurately capturing all major vital signs and physical examination findings. The omissions are limited to minor details such as specific height and weight measurements and a minor HEENT observation, which do not detract from the overall clinical usefulness. All additions were supported by the transcript.",
+        "summary": "The Objective section is well-captured with only minor omissions of specific measurements (height and weight) and a general HEENT finding. All additions were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
-          "Height (42 inches)",
-          "Weight (40 pounds)",
-          "HEENT detail: 'no other abnormalities' (after 'Slightly pale conjunctiva')"
+          "Height measurement: '42 inches'",
+          "Weight measurement: '40 pounds'",
+          "HEENT finding: 'no other abnormalities' (beyond pale conjunctiva)"
         ],
         "additions": [
-          "Summary statement: 'Vitals within normal range'"
+          "General statement about vitals: 'Vitals within normal range'"
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment correctly identifies the possible diagnosis of mild iron-deficiency anemia based on symptoms and examination findings. However, it omits the crucial detail 'Awaiting CBC with differential results to confirm,' which is a moderate issue as it removes clarity on the diagnostic status. Other omissions regarding the explicit basis of 'patient’s history' and specific symptoms are minor. All additions were supported by the transcript.",
+        "summary": "The Assessment section correctly identifies the possible diagnosis. However, it omits the crucial detail that the diagnosis is 'Awaiting CBC with differential results to confirm,' which is a moderate omission impacting the clarity of the diagnostic status. The inclusion of 'examination findings' as a basis for assessment was supported by the transcript.",
         "omissions": [
-          "Basis for assessment: 'patient’s history'",
-          "Specific symptoms supporting assessment: 'pale skin and occasional fatigue'",
-          "Diagnostic plan/status: 'Awaiting CBC with differential results to confirm.'"
+          "Specific reasoning for anemia consideration: 'patient’s history'",
+          "Confirmation status: 'Awaiting CBC with differential results to confirm'"
         ],
         "additions": [
-          "Basis for assessment: 'examination findings'"
+          "Inclusion of 'examination findings' as a basis for assessment"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section outlines the key actions, including ordering a CBC, providing educational materials, referring to a nutritionist, scheduling follow-up, and mentioning community resources. However, it omits important details such as the nutritionist's name, specific mention of 'physical activity' in educational materials, and the detailed patient education and counseling content. A moderate omission is the lack of the socio-economic consideration regarding potential follow-up delays, which is important for comprehensive care planning. All additions were supported by the transcript.",
+        "summary": "The Plan section outlines the key actions but has several omissions. These include the lack of specific details in patient education and counseling, the omission of the nutritionist's name, and the important socio-economic considerations regarding potential follow-up delays. Minor omissions include 'physical activity' in educational materials, adjusting the treatment plan detail, interpreter use, and patient agreements. All additions were supported by the transcript and did not negatively impact the grade.",
         "omissions": [
-          "Educational materials on 'physical activity'",
-          "Name of nutritionist (Dr. Lydia Green)",
-          "Purpose of nutritionist referral: 'for diet assessment and planning' (Generated says 'for diet plan creation', missing 'assessment')",
-          "Type of follow-up: 'next routine check-up'",
-          "Action after CBC review: 'adjust treatment plan as necessary'",
-          "Detailed patient education and counseling: 'Discussed with mother the importance of a balanced diet, particularly the inclusion of iron-rich foods. Provided strategies to improve dietary habits and increase physical activity.'",
-          "Socio-economic consideration: 'Aware of potential follow-up delays due to socio-economic factors'"
+          "Inclusion of 'physical activity' in educational materials provided",
+          "Specific name of nutritionist: 'Dr. Lydia Green'",
+          "Detail about adjusting treatment plan based on CBC results: 'adjust treatment plan as necessary'",
+          "Specific patient education and counseling details: 'Discussed with mother the importance of a balanced diet, particularly the inclusion of iron-rich foods. Provided strategies to improve dietary habits and increase physical activity.'",
+          "Socio-economic considerations detail: 'Aware of potential follow-up delays due to socio-economic factors'",
+          "'Interpreter Used: Yes, for Spanish translation.'",
+          "'Patient Agreements: The patient’s mother understands and agrees with the recommended medical treatment plan.'"
         ],
         "additions": [
-          "Purpose of follow-up: 'to check progress'"
+          "Specific purpose for CBC: 'to confirm diagnosis'",
+          "Specific purpose for follow-up: 'to check progress'"
         ]
       }
     ],
@@ -275,39 +264,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Specific denial of symptoms: 'No history of fever, cough, difficulty breathing'",
+      "addition_text": "Qualifier 'mildly' for pale skin",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: I do notice that she looks mildly pale.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "mildly pale appearance",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specific negative ROS: 'No history of fever, cough, difficulty breathing'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient's mother]: No, nothing like that. (referring to fever, cough, difficulty breathing) ... [patient's mother]: No, none at all. (referring to tobacco, alcohol, or drug use)",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No history of fever, cough, difficulty breathing, tobacco, alcohol, or drug use"
+      "matched_claim_text": "No history of fever, cough, difficulty breathing, tobacco, alcohol, or drug use",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Description of skin as 'mildly pale' (GroundTruth uses 'pale skin' in Subjective)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[patient's mother]: Well, she's been a bit more tired than usual and her skin looks a little pale sometimes. ... She seems tired once or twice a week ... Just the occasional tiredness and pale skin.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mother reports occasional fatigue and mildly pale skin in the patient"
-    },
-    {
-      "addition_text": "Summary statement: 'Vitals within normal range'",
+      "addition_text": "General statement about vitals: 'Vitals within normal range'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Everything looks within normal range.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Vitals within normal range"
+      "matched_claim_text": "Vitals within normal range",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Basis for assessment: 'examination findings'",
+      "addition_text": "Inclusion of 'examination findings' as a basis for assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on the examination and your description of her symptoms, it seems she might have mild iron-deficiency anemia.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Purpose of follow-up: 'to check progress'",
+      "addition_text": "Specific purpose for CBC: 'to confirm diagnosis'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: To confirm this, we'll need to do a blood test, specifically a Complete Blood Count (CBC) with differential.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Order Complete Blood Count (CBC) with differential to confirm diagnosis",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Specific purpose for follow-up: 'to check progress'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: We'll also schedule a follow-up appointment in six months to check on her progress and review the CBC results once they are available.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Schedule follow-up appointment in six months to check progress and review CBC results"
+      "matched_claim_text": "Schedule follow-up appointment in six months to check progress and review CBC results",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

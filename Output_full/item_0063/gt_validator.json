@@ -276,95 +276,86 @@
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the core clinical picture, chief complaint, and treatment plan. All additions are well-supported by the transcript and do not negatively impact the grade. However, the note has several minor to moderate omissions, including specific symptom descriptors (e.g., 'moderate' fatigue, 'mild' cough), detailed constancy/intermittency of symptoms, several negative findings from the Review of Systems, and the differential diagnoses in the Assessment section. While some information was structurally shifted between sections (e.g., comorbidities, investigations), the information itself was retained and supported.",
+    "overall_summary": "The generated note is clinically usable and well-structured, with no unsupported or unknown additions, which is a significant strength. However, it receives a 'B' due to several omissions, particularly in the Subjective, Assessment, and Plan sections. Key omissions include specific negative findings in the Review of Systems, differential diagnoses in the Assessment, and the precise placement of investigations/tests and some patient education details in the Plan section as per the Ground Truth. While some omitted content is present elsewhere in the generated note, its absence from the Ground Truth's specified section counts as an omission.",
     "omissions": [
-      "Patient's fatigue described as \"moderate\"",
-      "Patient's cough described as \"mild\"",
-      "Constancy/intermittency of specific symptoms (fatigue constant, sore throat constant, dry cough intermittent)",
-      "No fever reported (in ROS)",
-      "No shortness of breath (in ROS)",
-      "No nasal congestion or ear pain (in ROS)",
-      "Waking up frequently at night due to sore throat (specific detail of disturbed sleep)",
-      "General appearance: \"Alert and oriented, appears tired\"",
-      "Neurological finding: \"Non-focal\"",
-      "Differential diagnoses: viral pharyngitis and early viral upper respiratory tract infection",
-      "Comorbid conditions: Hypertension (well-controlled with lisinopril), eczema (stable) (from Assessment section)",
-      "\"oral\" route for Ibuprofen",
-      "Lifestyle modification: \"avoiding strenuous activities\"",
-      "Lifestyle modification: \"as tolerated\" for gentle exercises",
-      "Additional patient education: importance of attending follow-up appointments and adherence to medical advice",
-      "Investigations/Tests: Awaiting results from CBC and PCR test (from Plan section)",
-      "Investigations/Tests: Chest X-ray if respiratory symptoms develop (from Plan section)"
+      "Symptoms are constant for fatigue and sore throat, while the dry cough is intermittent.",
+      "Review of Systems: no fever reported",
+      "Review of Systems: no shortness of breath",
+      "Review of Systems: no nasal congestion, or ear pain",
+      "Review of Systems: waking up frequently at night due to sore throat",
+      "Physical Examination - General: Alert and oriented, appears tired.",
+      "Assessment: Differential diagnoses include viral pharyngitis and early viral upper respiratory tract infection.",
+      "Plan - Medications: 'oral' route for Ibuprofen",
+      "Plan - Lifestyle Modifications: 'avoiding strenuous activities'",
+      "Plan - Lifestyle Modifications: 'as tolerated' for gentle exercises",
+      "Plan - Additional Notes: Patient education on the importance of attending follow-up appointments and adherence to medical advice.",
+      "Plan - Additional Notes: Provided information about the symptoms (as part of patient education)."
     ],
     "additions": [
-      "OTC cold medications \"only slightly helpful\"",
-      "Comorbid conditions (hypertension, eczema) listed in Subjective section (from Assessment section in GT)",
-      "Vital signs are \"within normal limits\" (summary statement)",
-      "Neurological summary: \"everything looks good\"",
-      "Pending lab results for CBC and PCR test to identify specific viruses (from Plan section in GT)",
-      "If respiratory symptoms develop, a chest X-ray may be considered (from Plan section in GT)",
-      "\"to aid recovery\" (in lifestyle modifications)"
+      "Subjective: 'but finds them only slightly helpful' regarding over-the-counter cold medications.",
+      "Objective: 'Vital signs are within normal limits' summary statement.",
+      "Objective: 'everything looks good' subjective interpretation in neurological exam.",
+      "Plan: 'to aid recovery' phrase added to lifestyle modifications."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section has several minor to moderate omissions. These include the specific descriptors for fatigue ('moderate') and cough ('mild'), the detailed constancy/intermittency of symptoms (fatigue constant, sore throat constant, dry cough intermittent), and several important negative findings from the Review of Systems (no fever, no shortness of breath, no nasal congestion or ear pain). The specific detail about disturbed sleep ('waking up frequently at night due to sore throat') was also omitted. All additions in this section were supported by the transcript.",
+        "summary": "This section omits several important negative findings from the Review of Systems (e.g., no fever, no shortness of breath, no nasal congestion/ear pain) and specific symptom characteristics regarding constancy/intermittency. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Patient's fatigue described as \"moderate\"",
-          "Patient's cough described as \"mild\"",
-          "Constancy/intermittency of specific symptoms (fatigue constant, sore throat constant, dry cough intermittent)",
-          "No fever reported",
-          "No shortness of breath",
-          "No nasal congestion or ear pain",
-          "Waking up frequently at night due to sore throat"
+          "Symptoms are constant for fatigue and sore throat, while the dry cough is intermittent.",
+          "Review of Systems: no fever reported.",
+          "Review of Systems: no shortness of breath.",
+          "Review of Systems: no nasal congestion, or ear pain.",
+          "Review of Systems: waking up frequently at night due to sore throat."
         ],
         "additions": [
-          "OTC cold medications \"only slightly helpful\"",
-          "Comorbid conditions (hypertension, eczema) listed in Subjective"
+          "Patient reports using over-the-counter cold medications occasionally but finds them only slightly helpful.",
+          "The patient has hypertension well-controlled with lisinopril and stable eczema."
         ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is strong with only minor omissions. These include the general appearance description ('Alert and oriented, appears tired') and the specific neurological finding ('Non-focal'). All additions in this section were supported by the transcript.",
+        "summary": "This section is highly accurate, with only a minor omission regarding the patient's general appearance (\"Alert and oriented, appears tired\"). All additions in this section were supported by the transcript.",
         "omissions": [
-          "General appearance: \"Alert and oriented, appears tired\"",
-          "Neurological finding: \"Non-focal\""
+          "Physical Examination - General: Alert and oriented, appears tired."
         ],
         "additions": [
-          "Vital signs are \"within normal limits\" (summary statement)",
-          "Neurological summary: \"everything looks good\""
+          "Vital signs are within normal limits.",
+          "Neurologically, everything looks good."
         ]
       },
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section has a moderate omission of the differential diagnoses (viral pharyngitis and early viral upper respiratory tract infection), which are important for clinical reasoning. The comorbid conditions were omitted from this section but were appropriately captured and supported in the Subjective section. Similarly, investigations/tests were moved from the Plan section to Assessment, but these additions were supported by the transcript and do not lower the grade.",
+        "summary": "This section omits the differential diagnoses (viral pharyngitis and early viral upper respiratory tract infection). While comorbid conditions (hypertension, eczema) are present in the Subjective section of the generated note, their explicit listing in the Assessment section, as per the Ground Truth, is omitted. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Differential diagnoses: viral pharyngitis and early viral upper respiratory tract infection",
-          "Comorbid conditions: Hypertension (well-controlled with lisinopril), eczema (stable)"
+          "Differential diagnoses include viral pharyngitis and early viral upper respiratory tract infection.",
+          "Comorbid conditions: Hypertension (well-controlled with lisinopril), eczema (stable)."
         ],
         "additions": [
-          "Pending lab results for CBC and PCR test to identify specific viruses",
-          "If respiratory symptoms develop, a chest X-ray may be considered"
+          "Pending lab results for CBC and PCR test to identify specific viruses.",
+          "If respiratory symptoms develop, a chest X-ray may be considered."
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section contains several minor omissions, such as the 'oral' route for Ibuprofen and specific details for lifestyle modifications ('avoiding strenuous activities', 'as tolerated' for gentle exercises). There is also a moderate omission regarding additional patient education on the importance of attending follow-up appointments and adherence to medical advice. Investigations/tests were omitted from this section but were captured and supported in the Assessment section. All additions in this section were supported by the transcript.",
+        "summary": "This section omits the 'oral' route for Ibuprofen and some specific details in patient education and lifestyle modifications. The investigations/tests (CBC, PCR, Chest X-ray), while present in the Assessment section of the generated note, are omitted from the Plan section as specified in the Ground Truth. The importance of attending follow-up appointments and adherence to medical advice is also omitted. All additions in this section were supported by the transcript.",
         "omissions": [
-          "\"oral\" route for Ibuprofen",
-          "Lifestyle modification: \"avoiding strenuous activities\"",
-          "Lifestyle modification: \"as tolerated\" for gentle exercises",
-          "Additional patient education: importance of attending follow-up appointments and adherence to medical advice",
-          "Investigations/Tests: Awaiting results from CBC and PCR test",
-          "Investigations/Tests: Chest X-ray if respiratory symptoms develop"
+          "Medications: 'oral' route for Ibuprofen.",
+          "Investigations/Tests: Awaiting results from CBC and PCR test.",
+          "Investigations/Tests: Chest X-ray if respiratory symptoms develop.",
+          "Patient Education: Discussed the importance of staying hydrated and taking medications as prescribed.",
+          "Lifestyle Modifications: 'avoiding strenuous activities'.",
+          "Lifestyle Modifications: 'as tolerated' for gentle exercises.",
+          "Additional Notes: Patient education on the importance of attending follow-up appointments and adherence to medical advice.",
+          "Additional Notes: Provided information about the symptoms."
         ],
         "additions": [
-          "\"to aid recovery\" (in lifestyle modifications)"
+          "Advise the patient to rest, maintain a balanced diet, and engage in gentle exercises like yoga to aid recovery."
         ]
       }
     ],
@@ -373,74 +364,103 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "OTC cold medications \"only slightly helpful\"",
+      "addition_text": "Subjective: 'but finds them only slightly helpful' regarding over-the-counter cold medications.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] Yes, I've been using over-the-counter cold medications occasionally... They help a little bit, but not much.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient reports using over-the-counter cold medications occasionally, finding them only slightly helpful."
+      "matched_claim_text": "The patient reports using over-the-counter cold medications occasionally, finding them only slightly helpful.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Comorbid conditions (hypertension, eczema) listed in Subjective section (from Assessment section in GT)",
+      "addition_text": "Objective: 'Vital signs are within normal limits' summary statement.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I have hypertension. It's well controlled with lisinopril. I also have eczema, but it's stable.",
+      "transcript_evidence": "First, your vital signs look good.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Vital signs are \"within normal limits\" (summary statement)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "First, your vital signs look good. Your blood pressure is 128/76 mmHg, heart rate is 78 beats per minute, respiratory rate is 18 breaths per minute, temperature is 98.6°F (37°C), and oxygen saturation is 98% on room air.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Neurological summary: \"everything looks good\"",
+      "addition_text": "Objective: 'everything looks good' subjective interpretation in neurological exam.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Neurologically, everything looks good; cranial nerves II-XII are intact.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Pending lab results for CBC and PCR test to identify specific viruses (from Plan section in GT)",
+      "addition_text": "Plan: 'to aid recovery' phrase added to lifestyle modifications.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "A balanced diet and gentle exercises like yoga can help you recover.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Patient reports using over-the-counter cold medications occasionally but finds them only slightly helpful.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I've been using over-the-counter cold medications occasionally... They help a little bit, but not much.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient reports using over-the-counter cold medications occasionally, finding them only slightly helpful.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "The patient has hypertension well-controlled with lisinopril and stable eczema.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] Yes, I have hypertension. It's well controlled with lisinopril. I also have eczema, but it's stable.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient has hypertension, well-controlled with lisinopril, and stable eczema.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Vital signs are within normal limits.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "First, your vital signs look good. Your blood pressure is 128/76 mmHg, heart rate is 78 beats per minute, respiratory rate is 18 breaths per minute, temperature is 98.6°F (37°C), and oxygen saturation is 98% on room air.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Neurologically, everything looks good.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Neurologically, everything looks good; cranial nerves II-XII are intact.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Pending lab results for CBC and PCR test to identify specific viruses.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We'll need to run some tests to be sure. I'm ordering a complete blood count (CBC) and a PCR test to identify any specific viruses.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lab results for CBC and PCR test are pending to identify specific viruses."
+      "matched_claim_text": "Lab results for CBC and PCR test are pending to identify specific viruses.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "If respiratory symptoms develop, a chest X-ray may be considered (from Plan section in GT)",
+      "addition_text": "If respiratory symptoms develop, a chest X-ray may be considered.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] If respiratory symptoms develop, we'll consider doing a chest X-ray.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If respiratory symptoms develop, a chest X-ray may be considered."
+      "matched_claim_text": "If respiratory symptoms develop, a chest X-ray may be considered.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"to aid recovery\" (in lifestyle modifications)",
+      "addition_text": "Advise the patient to rest, maintain a balanced diet, and engage in gentle exercises like yoga to aid recovery.",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Rest is important, so avoid any strenuous activities. A balanced diet and gentle exercises like yoga can help you recover.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Comorbid conditions (hypertension, eczema) listed in Subjective",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Yes, I have hypertension. It's well controlled with lisinopril. I also have eczema, but it's stable.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Pending lab results for CBC and PCR test to identify specific viruses",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] We'll need to run some tests to be sure. I'm ordering a complete blood count (CBC) and a PCR test to identify any specific viruses.",
+      "transcript_evidence": "[doctor] Rest is important, so avoid any strenuous activities. A balanced diet and gentle exercises like yoga can help you recover.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lab results for CBC and PCR test are pending to identify specific viruses."
-    },
-    {
-      "addition_text": "If respiratory symptoms develop, a chest X-ray may be considered",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] If respiratory symptoms develop, we'll consider doing a chest X-ray.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "If respiratory symptoms develop, a chest X-ray may be considered."
+      "matched_claim_text": "Advise the patient to rest, maintain a balanced diet, and engage in gentle exercises like yoga to aid recovery.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

@@ -2,10 +2,14 @@ from __future__ import annotations
 
 import os
 import re
+import threading
 import pandas as pd
 from dotenv import load_dotenv
 
-load_dotenv()   
+load_dotenv()
+
+# GLiNER / torch inference is not verified thread-safe across concurrent callers.
+_GLINER_PREDICT_LOCK = threading.Lock()
 
 _gliner_model = None
 _gliner_model_id: str | None = None
@@ -87,7 +91,8 @@ def extract_medical_terms(
     seen: set[str] = set()
     ordered: list[str] = []
     for chunk in _chunk_text(text, max_chunk_chars):
-        ents = model.predict_entities(chunk, list(lab), threshold=threshold)
+        with _GLINER_PREDICT_LOCK:
+            ents = model.predict_entities(chunk, list(lab), threshold=threshold)
         for e in ents:
             t = (e.get("text") or "").strip()
             if not t:

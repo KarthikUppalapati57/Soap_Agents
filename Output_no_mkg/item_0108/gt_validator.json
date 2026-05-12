@@ -205,9 +205,9 @@
     "plan_alignment_score": 0.7818181818181817
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, but it has noticeable gaps in the Subjective section, which reduce its completeness. While the Objective, Assessment, and Plan sections are generally well-captured with only minor to moderate omissions, the significant number of omissions in the Subjective section, particularly regarding the HPI and ROS details, makes the note meaningfully incomplete in its initial patient presentation. All additions were supported by the transcript and did not negatively impact the grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the patient's chief complaint, key HPI elements, objective findings, and the core treatment plan. All additions are supported by the transcript and do not negatively impact the grade. However, the note has several minor to moderate omissions, particularly in the Subjective section regarding detailed functional limitations and specific ROS findings, and in the Assessment section regarding precise phrasing of the patient's history and the detailed reasoning for progression. Despite these omissions, the note remains clinically sound and does not contain misleading information.",
     "omissions": [
       "chronic disease management of lumbar spinal stenosis",
       "intermittent pain",
@@ -231,8 +231,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section has several minor to moderate omissions. Key details such as the patient's need for assistance with mobility, inability to walk for more than five minutes without resting, specific pain triggers (prolonged walking/standing), and dietary restrictions for CKD were omitted. These omissions create noticeable gaps in the patient's history and impact on daily life.",
+        "grade": "B",
+        "summary": "The Subjective section captures the main complaints and symptoms but omits several important details. These include the specific triggers for pain, the patient's need for assistance with mobility, the inability to walk for more than five minutes without resting, and specific dietary restrictions related to CKD. While the core information is present, these omissions reduce the completeness of the HPI and ROS.",
         "omissions": [
           "Chief Complaint: chronic disease management of lumbar spinal stenosis",
           "HPI: intermittent pain",
@@ -247,7 +247,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "This section is well-captured with only one minor omission regarding the vital signs being 'as recorded in the patient's chart'. The clinically relevant physical examination findings are accurately included.",
+        "summary": "The Objective section is excellent, accurately reflecting all clinically relevant findings from the Ground Truth. The only omission is the phrase 'as recorded in the patient's chart' for vital signs, which is a minor detail and does not impact the clinical usefulness of the section.",
         "omissions": [
           "Vital Signs: as recorded in the patient's chart"
         ],
@@ -256,7 +256,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "This section has two omissions: 'history of lumbar spinal stenosis' and 'currently experiencing increased pain and degenerative symptoms suggesting progression'. While the core assessment of progression or nerve impingement is present, the latter omission is moderate as it provides more context to the current state. The additions of 'Chronic kidney disease (stage 2)' and 'Hypertension managed with medication' were supported by the transcript and do not lower the grade.",
+        "summary": "The Assessment section correctly identifies the progression of lumbar spinal stenosis and differential diagnoses. It includes supported additions of chronic kidney disease and hypertension, which are clinically relevant. However, it omits the explicit mention of 'history of lumbar spinal stenosis' and the detailed phrasing 'currently experiencing increased pain and degenerative symptoms suggesting progression,' which slightly reduces the precision of the assessment's introductory context.",
         "omissions": [
           "history of lumbar spinal stenosis",
           "currently experiencing increased pain and degenerative symptoms suggesting progression"
@@ -269,7 +269,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section has several minor omissions, including the specific quantity of Oxycodone (60 tablets), the general referral to 'Neurosurgery' (though Dr. Lee is mentioned), and the 'Patient Agreements' statement. The core treatment plan, including medication adjustment, referral, lifestyle change, and follow-up, is accurately captured.",
+        "summary": "The Plan section is largely complete, outlining the medication adjustment, referral, lifestyle change, and follow-up. However, it omits minor but important documentation details such as the 'quantity 60 tablets' for Oxycodone and the explicit 'Patient Agreements' statement regarding understanding and agreement with the plan. The core actions of the plan are well-captured.",
         "omissions": [
           "Medication Adjustment: quantity 60 tablets",
           "Referral: Refer to Neurosurgery",
@@ -287,28 +287,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have chronic kidney disease, stage 2.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic kidney disease (stage 2)."
+      "matched_claim_text": "Chronic kidney disease (stage 2).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Hypertension managed with medication listed in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have hypertension, but it's managed with medication.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension managed with medication."
+      "matched_claim_text": "Hypertension managed with medication.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Chronic kidney disease (stage 2)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have chronic kidney disease, stage 2.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Chronic kidney disease (stage 2)."
+      "matched_claim_text": "Chronic kidney disease (stage 2).",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Hypertension managed with medication",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Patient]: I have hypertension, but it's managed with medication.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Hypertension managed with medication."
+      "matched_claim_text": "Hypertension managed with medication.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

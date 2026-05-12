@@ -2,7 +2,7 @@
   "item": "item_0108",
   "output_dir": "/home/ashtondy/School/cs/cs429/Soap_Agents/Output_baseline/item_0108",
   "ground_truth_soap": "#\n\nSubjective:\n\nChief Complaint (CC):\nThe patient, a 70-year-old Asian male named Mr. Kenji Tanaka, presents for chronic disease management of lumbar spinal stenosis with a pain severity of 8/10.\n\nHistory of Present Illness (HPI):\n- Duration: The patient has been experiencing severe, intermittent pain for the past 3 years.\n- Frequency: Pain is triggered by prolonged walking or standing, requiring frequent rest periods.\n- Associated Symptoms: Reports numbness and weakness in both legs.\n- Impact on Daily Activities: The patient needs assistance for mobility and cannot walk for more than five minutes without resting.\n\nReview of Systems (ROS):\n- Constitutional: Reports poor sleep frequently disrupted by pain. No recent weight loss or fever.\n- Musculoskeletal: Significant pain in the lower back, decreased range of motion, and tenderness on palpation.\n- Neurological: Decreased strength and sensation in lower extremities, no reflexes noted.\n- Cardiovascular: History of hypertension, managed with medication.\n- Renal: Chronic Kidney Disease Stage 2, dietary restrictions for low potassium and phosphorus.\n- Gastrointestinal: No changes in bowel habits.\n\nObjective:\n- Vital Signs: Stable, as recorded in the patient's chart.\n- Physical Examination:\n  - Lumbar Spine: Decreased range of motion, significant tenderness on palpation.\n  - Neurological: Decreased strength and sensation in lower extremities, no deep tendon reflexes.\n\nAssessment:\nThe patient has a history of lumbar spinal stenosis, currently experiencing increased pain and degenerative symptoms suggesting progression. Differential diagnoses include nerve impingement or worsening of spinal stenosis.\n\nPlan:\n- Medication Adjustment: Increase Oxycodone to 10 mg oral, every 6 hours as needed for severe pain, quantity 60 tablets.\n- Referral: Refer to Neurosurgery for potential surgical intervention with Dr. Robert Lee.\n- Lifestyle Change: Advise the use of a walker to reduce fall risk and strain on the back.\n- Follow-Up: Schedule a follow-up in 6 weeks to review MRI results and discuss further treatment plans.\n\nPatient Agreements: The patient understands and agrees with the recommended medical treatment plan.",
-  "generated_soap": "Subjective:\n- The patient presents with a 3-year history of severe lower back pain (8/10), associated with numbness and weakness in both legs, decreased range of motion, and tenderness on palpation.\n- The pain worsens with prolonged walking or standing and affects the patient's daily activities and sleep.\n\nObjective:\n- Vital signs are stable.\n- Decreased range of motion and significant tenderness on palpation of the lumbar spine.\n- Decreased strength, sensation, and deep tendon reflexes in lower extremities.\n\nAssessment:\n- Progression of lumbar spinal stenosis or nerve impingement.\n\nPlan:\n- Increase Oxycodone to 10 mg orally every 6 hours as needed for severe pain.\n- Prescribe a walker to reduce fall risk and lessen the strain on the back.\n- Referral to neurosurgeon Dr. Robert Lee for potential surgical intervention.\n- Schedule follow-up appointment in six weeks to review MRI results and discuss further treatment plans.",
+  "generated_soap": "Subjective:\n- Patient presents with chronic, severe lower back pain (3 years), aggravated by prolonged standing/walking, associated with numbness, weakness, and decreased sensation in both legs.\n- Poor sleep due to pain.\n\nObjective:\n- Decreased range of motion and significant tenderness on palpation of lumbar spine.\n- Decreased strength and sensation in lower extremities; no deep tendon reflexes noted.\n- Stable vital signs.\n\nAssessment:\n- Progression of lumbar spinal stenosis or nerve impingement.\n- Controlled hypertension, chronic kidney disease stage 2.\n\nPlan:\n- Increase Oxycodone to 10 mg orally every 6 hours as needed for severe pain (60 tablets prescribed).\n- Referral to a neurosurgeon (Dr. Robert Lee) for potential surgical intervention.\n- Use of walker to reduce fall risk and lessen strain on back.\n- Follow-up appointment in six weeks to review MRI results and discuss further treatment plans.",
   "entities_gt": {
     "all_entities": [
       "chronic disease management",
@@ -43,16 +43,19 @@
   "entities_generated": {
     "all_entities": [
       "severe lower back pain",
-      "numbness and weakness",
+      "numbness",
+      "weakness",
+      "decreased sensation",
+      "poor sleep",
       "decreased range of motion",
-      "tenderness on palpation",
-      "vital signs",
       "significant tenderness",
       "lumbar spine",
-      "decreased strength",
-      "sensation",
+      "decreased strength and sensation",
+      "stable vital signs",
       "lumbar spinal stenosis",
       "nerve impingement",
+      "controlled hypertension",
+      "chronic kidney disease stage 2",
       "oxycodone",
       "severe pain",
       "mri results",
@@ -60,77 +63,89 @@
     ],
     "symptoms": [
       "severe lower back pain",
-      "numbness and weakness",
+      "numbness",
+      "weakness",
+      "decreased sensation",
+      "poor sleep due to pain",
       "decreased range of motion",
-      "vital signs",
-      "decreased strength",
+      "significant tenderness",
+      "decreased strength and sensation in lower extremities",
+      "stable vital signs",
       "severe pain"
     ],
     "medications": [
       "oxycodone"
     ],
     "labs": [
-      "vital signs",
+      "stable vital signs",
+      "controlled hypertension",
       "mri results"
     ]
   },
   "clinical_recall_all": {
     "gt_count": 14,
-    "gen_count": 15,
-    "overlap_count": 7,
-    "recall": 0.5,
+    "gen_count": 18,
+    "overlap_count": 6,
+    "recall": 0.42857142857142855,
     "gt_only": [
       "chronic disease management",
       "decreased strength and sensation in lower extremities",
       "degenerative symptoms",
       "lower back",
-      "numbness",
       "pain",
-      "significant tenderness on palpation"
+      "significant tenderness on palpation",
+      "tenderness on palpation",
+      "vital signs"
     ],
     "gen_only": [
-      "decreased strength",
+      "chronic kidney disease stage 2",
+      "controlled hypertension",
+      "decreased sensation",
+      "decreased strength and sensation",
       "nerve impingement",
-      "numbness and weakness",
-      "sensation",
+      "poor sleep",
       "severe lower back pain",
       "severe pain",
       "significant tenderness",
-      "treatment plans"
+      "stable vital signs",
+      "treatment plans",
+      "weakness"
     ],
     "overlap": [
       "decreased range of motion",
       "lumbar spinal stenosis",
       "lumbar spine",
       "mri results",
-      "oxycodone",
-      "tenderness on palpation",
-      "vital signs"
+      "numbness",
+      "oxycodone"
     ]
   },
   "clinical_recall_symptoms": {
     "gt_count": 9,
-    "gen_count": 6,
-    "overlap_count": 2,
-    "recall": 0.2222222222222222,
+    "gen_count": 10,
+    "overlap_count": 3,
+    "recall": 0.3333333333333333,
     "gt_only": [
-      "decreased strength and sensation in lower extremities",
       "degenerative symptoms",
-      "numbness",
       "pain",
       "poor sleep",
       "significant tenderness on palpation",
-      "tenderness on palpation"
+      "tenderness on palpation",
+      "vital signs"
     ],
     "gen_only": [
-      "decreased strength",
-      "numbness and weakness",
+      "decreased sensation",
+      "poor sleep due to pain",
       "severe lower back pain",
-      "severe pain"
+      "severe pain",
+      "significant tenderness",
+      "stable vital signs",
+      "weakness"
     ],
     "overlap": [
       "decreased range of motion",
-      "vital signs"
+      "decreased strength and sensation in lower extremities",
+      "numbness"
     ]
   },
   "clinical_recall_medications": {
@@ -146,55 +161,178 @@
   },
   "clinical_recall_labs": {
     "gt_count": 3,
-    "gen_count": 2,
-    "overlap_count": 2,
-    "recall": 0.6666666666666666,
+    "gen_count": 3,
+    "overlap_count": 1,
+    "recall": 0.3333333333333333,
     "gt_only": [
-      "stable"
-    ],
-    "gen_only": [],
-    "overlap": [
-      "mri results",
+      "stable",
       "vital signs"
+    ],
+    "gen_only": [
+      "controlled hypertension",
+      "stable vital signs"
+    ],
+    "overlap": [
+      "mri results"
     ]
   },
   "structural_alignment": {
-    "overall_token_f1": 0.6244541054323662,
-    "overall_rouge_l_f1": 0.4274395003903201,
+    "overall_token_f1": 0.5828288652975109,
+    "overall_rouge_l_f1": 0.4428947612063586,
     "by_section": [
       {
         "section": "Subjective",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.4347826086956521,
-        "rouge_l_f1": 0.24761904761904763
+        "token_f1": 0.33112582781456956,
+        "rouge_l_f1": 0.19791666666666669
       },
       {
         "section": "Objective",
         "gt_present": true,
         "gen_present": true,
         "token_f1": 0.8214285714285714,
-        "rouge_l_f1": 0.5573770491803278
+        "rouge_l_f1": 0.6229508196721312
       },
       {
         "section": "Assessment",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.48484848484848486,
-        "rouge_l_f1": 0.3333333333333333
+        "token_f1": 0.4,
+        "rouge_l_f1": 0.27906976744186046
       },
       {
         "section": "Plan",
         "gt_present": true,
         "gen_present": true,
-        "token_f1": 0.7567567567567567,
-        "rouge_l_f1": 0.5714285714285715
+        "token_f1": 0.7787610619469026,
+        "rouge_l_f1": 0.6716417910447762
       }
     ],
-    "assessment_alignment_score": 0.48484848484848486,
-    "plan_alignment_score": 0.7567567567567567
+    "assessment_alignment_score": 0.4,
+    "plan_alignment_score": 0.7787610619469026
   },
-  "expert_judge": null,
-  "expert_judge_error": "Judge returned non-JSON output: Expecting property name enclosed in double quotes: line 11 column 5 (char 1219)",
-  "addition_evidence": []
+  "expert_judge": {
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. While the Subjective section has several moderate omissions, including specific pain severity, detailed functional limitations, and comprehensive ROS for comorbidities, the Objective, Assessment, and Plan sections are strong with only minor omissions. Crucially, there are no unsupported or unknown additions, which significantly contributes to the note's reliability and usability.",
+    "omissions": [
+      "Chief Complaint: chronic disease management of lumbar spinal stenosis",
+      "Chief Complaint: pain severity 8/10",
+      "HPI: intermittent pain",
+      "HPI: requiring frequent rest periods due to pain",
+      "HPI: needs assistance for mobility",
+      "HPI: cannot walk for more than five minutes without resting",
+      "ROS Constitutional: No recent weight loss or fever",
+      "ROS Musculoskeletal: decreased range of motion (from Subjective ROS)",
+      "ROS Musculoskeletal: tenderness on palpation (from Subjective ROS)",
+      "ROS Neurological: no reflexes noted (from Subjective ROS)",
+      "ROS Cardiovascular: History of hypertension, managed with medication",
+      "ROS Renal: Chronic Kidney Disease Stage 2, dietary restrictions for low potassium and phosphorus",
+      "ROS Gastrointestinal: No changes in bowel habits",
+      "Objective: vital signs 'as recorded in the patient's chart'",
+      "Assessment: explicit statement of 'history of lumbar spinal stenosis'",
+      "Assessment: currently experiencing increased pain and degenerative symptoms (suggesting progression)",
+      "Plan: Patient Agreements: The patient understands and agrees with the recommended medical treatment plan"
+    ],
+    "additions": [
+      "Assessment: Controlled hypertension",
+      "Assessment: Chronic kidney disease stage 2"
+    ],
+    "hallucinations_or_unjustified_inferences": [],
+    "section_grades": [
+      {
+        "section": "Subjective",
+        "grade": "C",
+        "summary": "The Subjective section has numerous omissions, including key details from the Chief Complaint (pain severity 8/10, chronic disease management context) and significant functional limitations from HPI (needs assistance for mobility, cannot walk more than 5 minutes). Several ROS items, including important comorbidities like hypertension and CKD Stage 2, are also omitted from this section. The sheer number of omissions, including several moderate ones, makes this section noticeably incomplete.",
+        "omissions": [
+          "Chief Complaint: chronic disease management of lumbar spinal stenosis",
+          "Chief Complaint: pain severity 8/10",
+          "HPI: intermittent pain",
+          "HPI: requiring frequent rest periods due to pain",
+          "HPI: needs assistance for mobility",
+          "HPI: cannot walk for more than five minutes without resting",
+          "ROS Constitutional: No recent weight loss or fever",
+          "ROS Musculoskeletal: decreased range of motion",
+          "ROS Musculoskeletal: tenderness on palpation",
+          "ROS Neurological: no reflexes noted",
+          "ROS Cardiovascular: History of hypertension, managed with medication",
+          "ROS Renal: Chronic Kidney Disease Stage 2, dietary restrictions for low potassium and phosphorus",
+          "ROS Gastrointestinal: No changes in bowel habits"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Objective",
+        "grade": "A",
+        "summary": "The Objective section is largely complete, with only a minor omission regarding the specific phrasing about vital signs being 'as recorded in the patient's chart'. The generated note states 'Stable vital signs,' which is clinically equivalent and supported by the transcript.",
+        "omissions": [
+          "vital signs 'as recorded in the patient's chart'"
+        ],
+        "additions": []
+      },
+      {
+        "section": "Assessment",
+        "grade": "A",
+        "summary": "The Assessment section accurately identifies the primary diagnosis and differential. The additions of 'Controlled hypertension' and 'Chronic kidney disease stage 2' are supported by the transcript and enhance the clinical picture without being misleading. The omissions are minor, primarily related to explicit phrasing rather than missing core clinical facts.",
+        "omissions": [
+          "explicit statement of 'history of lumbar spinal stenosis'",
+          "currently experiencing increased pain and degenerative symptoms (suggesting progression)"
+        ],
+        "additions": [
+          "Controlled hypertension",
+          "Chronic kidney disease stage 2"
+        ]
+      },
+      {
+        "section": "Plan",
+        "grade": "A",
+        "summary": "The Plan section is comprehensive and accurately reflects all key treatment decisions, referrals, and follow-up instructions. The only omission is the formal 'Patient Agreements' statement, which is a minor documentation detail and does not detract from the clinical utility of the plan itself.",
+        "omissions": [
+          "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan"
+        ],
+        "additions": []
+      }
+    ],
+    "rubric_notes": null
+  },
+  "expert_judge_error": null,
+  "addition_evidence": [
+    {
+      "addition_text": "Assessment: Controlled hypertension",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I have hypertension, but it's managed with medication.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has controlled hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: Chronic kidney disease stage 2",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I have chronic kidney disease, stage 2.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has chronic kidney disease stage 2.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Controlled hypertension",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I have hypertension, but it's managed with medication.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has controlled hypertension.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Chronic kidney disease stage 2",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: I have chronic kidney disease, stage 2.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Patient has chronic kidney disease stage 2.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    }
+  ]
 }

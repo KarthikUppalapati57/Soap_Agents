@@ -215,101 +215,104 @@
     "plan_alignment_score": 0.5961538461538461
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Subjective section, where the Chief Complaint, detailed History of Present Illness, comprehensive Review of Systems, and most lifestyle habits are missing. The Assessment and Plan sections also contain multiple moderate omissions, reducing the overall completeness and clinical usefulness of the note. There are no unsupported or unknown additions.",
+    "model": "clinical_documentation_reviewer_v1",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note is broadly clinically usable but has noticeable gaps, particularly in the Subjective section. While the Objective, Assessment, and Plan sections are mostly aligned, the extensive omissions in the Subjective section, including the entire Review of Systems and many lifestyle details, make the note meaningfully incomplete for a preventive health screening. All additions in the note were supported by the transcript and did not reduce the grade.",
     "omissions": [
-      "Chief Complaint: Patient reports for a routine preventive health screening",
-      "HPI: No significant medical history",
-      "HPI: No current medications",
-      "HPI: Patient expresses a proactive approach to his health and appreciates the importance of regular screenings",
-      "ROS: Constitutional (denies fever, chills, weight loss)",
-      "ROS: Respiratory (denies cough or shortness of breath)",
-      "ROS: Cardiovascular (denies chest pain or palpitations)",
-      "ROS: Gastrointestinal (denies nausea, vomiting, or abdominal pain)",
-      "ROS: Genitourinary (denies dysuria, hematuria, or genital lesions)",
-      "ROS: Neurological (denies headaches, dizziness, or weakness)",
-      "ROS: Psychiatric (reports good mood and no signs of depression or anxiety)",
-      "Habits: Good sleep quality, 7-8 hours per night",
-      "Habits: Maintains a balanced diet with occasional fast food",
-      "Habits: Engages in moderate-intensity aerobic exercise 3 times per week",
-      "Habits: No recreational drug use",
-      "Habits: Enjoys hiking and reading",
-      "Objective: Physical Examination: Not applicable for this visit",
-      "Assessment: Presenting for a routine preventive health screening",
+      "Chief Complaint: Patient reports for a routine preventive health screening.",
+      "HPI: no significant medical history or current medications",
+      "HPI: patient expresses a proactive approach to his health and appreciates the importance of regular screenings",
+      "Review of Systems (ROS) details for Constitutional (denies fever, chills, weight loss)",
+      "Review of Systems (ROS) details for Respiratory (denies cough or shortness of breath)",
+      "Review of Systems (ROS) details for Cardiovascular (denies chest pain or palpitations)",
+      "Review of Systems (ROS) details for Gastrointestinal (denies nausea, vomiting, or abdominal pain)",
+      "Review of Systems (ROS) details for Genitourinary (denies dysuria, hematuria, or genital lesions)",
+      "Review of Systems (ROS) details for Neurological (denies headaches, dizziness, or weakness)",
+      "Review of Systems (ROS) details for Psychiatric (reports good mood and no signs of depression or anxiety)",
+      "Lifestyle: good sleep quality, 7-8 hours per night",
+      "Lifestyle: Maintains a balanced diet with occasional fast food",
+      "Lifestyle: Engages in moderate-intensity aerobic exercise 3 times per week",
+      "Lifestyle: specific tobacco use quantity (1 pack of cigarettes per week)",
+      "Lifestyle: No recreational drug use",
+      "Lifestyle: Enjoys hiking and reading",
+      "Objective: Physical Examination: Not applicable for this visit.",
+      "Assessment: presenting for a routine preventive health screening",
       "Assessment: Primary concerns revolve around lifestyle habits",
-      "Assessment: Primary concerns revolve around routine STI screening",
-      "Plan: Encourage continuation of balanced diet and regular exercise",
+      "Plan: Continue current lifestyle: Encourage continuation of balanced diet and regular exercise.",
       "Plan: Discuss the benefits of quitting smoking",
-      "Plan: Offer resources for smoking cessation",
-      "Plan: Perform biochemistry and immunology tests (for blood work)",
+      "Plan: Blood work to perform biochemistry and immunology tests",
       "Plan: Provided patient with educational materials on STI prevention",
-      "Plan: Emphasized the importance of maintaining healthy lifestyle habits",
-      "Plan: Patient Agreements (patient understands and agrees with the recommended preventive screening plan and follow-up schedule)"
+      "Plan: Emphasized the importance of maintaining healthy lifestyle habits.",
+      "Plan: Patient Agreements: The patient understands and agrees with the recommended preventive screening plan and follow-up schedule."
     ],
     "additions": [
-      "Objective: General appearance: Not assessed during the conversation"
+      "Objective: General appearance: Not assessed during the conversation.",
+      "Objective: Vital signs: Not explicitly mentioned in the conversation.",
+      "Assessment: No acute or chronic medical concerns were identified based on the patient's report.",
+      "Assessment: The patient may benefit from education on STI prevention."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "D",
-        "summary": "The Subjective section is severely incomplete, omitting the Chief Complaint, detailed HPI (no significant medical history, no current medications, proactive approach), the entire Review of Systems (Constitutional, Respiratory, Cardiovascular, Gastrointestinal, Genitourinary, Neurological, Psychiatric), and most of the patient's self-reported habits and lifestyle details (sleep, diet, exercise, no recreational drug use, recreational activities). This represents a major gap in documentation.",
+        "summary": "The Subjective section has major omissions, including the entire Review of Systems (ROS) and many details from the History of Present Illness (HPI) (e.g., no significant medical history, no current medications, proactive approach) and lifestyle habits (e.g., sleep quality, diet details, exercise frequency, specific tobacco quantity, no recreational drug use, recreational activities). While it captures the patient feeling well and some key habits, the extensive missing information significantly reduces the clinical usefulness and completeness of the subjective history for a preventive screening.",
         "omissions": [
-          "Chief Complaint: Patient reports for a routine preventive health screening",
-          "HPI: No significant medical history",
-          "HPI: No current medications",
-          "HPI: Patient expresses a proactive approach to his health and appreciates the importance of regular screenings",
-          "ROS: Constitutional (denies fever, chills, weight loss)",
-          "ROS: Respiratory (denies cough or shortness of breath)",
-          "ROS: Cardiovascular (denies chest pain or palpitations)",
-          "ROS: Gastrointestinal (denies nausea, vomiting, or abdominal pain)",
-          "ROS: Genitourinary (denies dysuria, hematuria, or genital lesions)",
-          "ROS: Neurological (denies headaches, dizziness, or weakness)",
-          "ROS: Psychiatric (reports good mood and no signs of depression or anxiety)",
-          "Habits: Good sleep quality, 7-8 hours per night",
-          "Habits: Maintains a balanced diet with occasional fast food",
-          "Habits: Engages in moderate-intensity aerobic exercise 3 times per week",
-          "Habits: No recreational drug use",
-          "Habits: Enjoys hiking and reading"
+          "Chief Complaint: Patient reports for a routine preventive health screening.",
+          "HPI: no significant medical history or current medications",
+          "HPI: patient expresses a proactive approach to his health and appreciates the importance of regular screenings",
+          "Review of Systems (ROS) details for Constitutional (denies fever, chills, weight loss)",
+          "Review of Systems (ROS) details for Respiratory (denies cough or shortness of breath)",
+          "Review of Systems (ROS) details for Cardiovascular (denies chest pain or palpitations)",
+          "Review of Systems (ROS) details for Gastrointestinal (denies nausea, vomiting, or abdominal pain)",
+          "Review of Systems (ROS) details for Genitourinary (denies dysuria, hematuria, or genital lesions)",
+          "Review of Systems (ROS) details for Neurological (denies headaches, dizziness, or weakness)",
+          "Review of Systems (ROS) details for Psychiatric (reports good mood and no signs of depression or anxiety)",
+          "Lifestyle: good sleep quality, 7-8 hours per night",
+          "Lifestyle: Maintains a balanced diet with occasional fast food",
+          "Lifestyle: Engages in moderate-intensity aerobic exercise 3 times per week",
+          "Lifestyle: specific tobacco use quantity (1 pack of cigarettes per week)",
+          "Lifestyle: No recreational drug use",
+          "Lifestyle: Enjoys hiking and reading"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is largely accurate, with only a minor omission regarding the physical examination being not applicable. The single addition was supported by the transcript and therefore did not impact the grade.",
+        "summary": "The Objective section is well-aligned. It accurately notes that general appearance and vital signs were not assessed, which is supported by the transcript. The only omission is the explicit statement that a physical examination was not applicable for this visit, which is a minor detail.",
         "omissions": [
-          "Physical Examination: Not applicable for this visit"
+          "Physical Examination: Not applicable for this visit."
         ],
         "additions": [
-          "General appearance: Not assessed during the conversation"
+          "General appearance: Not assessed during the conversation.",
+          "Vital signs: Not explicitly mentioned in the conversation."
         ]
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has several moderate omissions, failing to explicitly state the patient is presenting for a routine preventive health screening and that primary concerns revolve around lifestyle habits and routine STI screening. This reduces the clarity of the visit's purpose and scope.",
+        "grade": "B",
+        "summary": "The Assessment section has moderate omissions, failing to explicitly state that the patient is presenting for a routine preventive health screening and that primary concerns revolve around lifestyle habits. These are key components of the assessment for this type of visit. All additions in this section were supported by the transcript.",
         "omissions": [
-          "Presenting for a routine preventive health screening",
-          "Primary concerns revolve around lifestyle habits",
-          "Primary concerns revolve around routine STI screening"
+          "presenting for a routine preventive health screening",
+          "Primary concerns revolve around lifestyle habits"
         ],
-        "additions": []
+        "additions": [
+          "No acute or chronic medical concerns were identified based on the patient's report.",
+          "The patient may benefit from education on STI prevention."
+        ]
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section contains multiple moderate omissions, including encouraging continuation of balanced diet and regular exercise, discussing the benefits of quitting smoking, offering resources for smoking cessation, specifying biochemistry and immunology tests for blood work, providing educational materials on STI prevention, emphasizing the importance of maintaining healthy lifestyle habits, and documenting patient agreements.",
+        "grade": "B",
+        "summary": "The Plan section has several omissions, including encouraging continuation of a balanced diet and regular exercise, explicitly discussing the benefits of quitting smoking (beyond just providing materials), details about the type of blood tests (biochemistry and immunology), providing STI prevention materials, emphasizing healthy lifestyle habits, and documenting patient agreement with the plan. These omissions, particularly the lack of explicit discussion of smoking cessation benefits and patient agreement, represent moderate gaps in the plan.",
         "omissions": [
-          "Continue current lifestyle: Encourage continuation of balanced diet and regular exercise",
+          "Continue current lifestyle: Encourage continuation of balanced diet and regular exercise.",
           "Discuss the benefits of quitting smoking",
-          "Offer resources for smoking cessation",
-          "Perform biochemistry and immunology tests (for blood work)",
+          "Blood work to perform biochemistry and immunology tests",
           "Provided patient with educational materials on STI prevention",
-          "Emphasized the importance of maintaining healthy lifestyle habits",
-          "Patient Agreements: The patient understands and agrees with the recommended preventive screening plan and follow-up schedule"
+          "Emphasized the importance of maintaining healthy lifestyle habits.",
+          "Patient Agreements: The patient understands and agrees with the recommended preventive screening plan and follow-up schedule."
         ],
         "additions": []
       }
@@ -319,18 +322,76 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: General appearance: Not assessed during the conversation",
+      "addition_text": "Objective: General appearance: Not assessed during the conversation.",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "General appearance was not assessed during the conversation."
+      "matched_claim_text": "General appearance was not assessed during the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "General appearance: Not assessed during the conversation",
+      "addition_text": "Objective: Vital signs: Not explicitly mentioned in the conversation.",
       "supported_by_transcript": "supported",
       "transcript_evidence": null,
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "General appearance was not assessed during the conversation."
+      "matched_claim_text": "Vital signs were not explicitly mentioned in the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: No acute or chronic medical concerns were identified based on the patient's report.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Sure, I’m 25 years old and I don’t have any significant medical history. I’m not currently on any medications either. No, I feel fine. I just want to make sure everything is okay. No, none of those. No, I don’t have any respiratory issues. No, my heart feels fine. No, my stomach's been good. No, everything’s normal there. No, none of those either. I feel good. No depression or anxiety.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No acute or chronic medical concerns were identified based on the patient's report.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Assessment: The patient may benefit from education on STI prevention.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’ll also talk about STI prevention and the importance of regular health screenings.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient may benefit from education on STI prevention.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "General appearance: Not assessed during the conversation.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": null,
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "General appearance was not assessed during the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Vital signs: Not explicitly mentioned in the conversation.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": null,
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Vital signs were not explicitly mentioned in the conversation.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "No acute or chronic medical concerns were identified based on the patient's report.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Patient]: Sure, I’m 25 years old and I don’t have any significant medical history. I’m not currently on any medications either. No, I feel fine. I just want to make sure everything is okay. No, none of those. No, I don’t have any respiratory issues. No, my heart feels fine. No, my stomach's been good. No, everything’s normal there. No, none of those either. I feel good. No depression or anxiety.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "No acute or chronic medical concerns were identified based on the patient's report.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "The patient may benefit from education on STI prevention.",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[Doctor]: We’ll also talk about STI prevention and the importance of regular health screenings.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient may benefit from education on STI prevention.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

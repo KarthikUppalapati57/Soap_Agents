@@ -230,9 +230,9 @@
     "plan_alignment_score": 0.7464788732394365
   },
   "expert_judge": {
-    "model": "expert_clinical_documentation_reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The overall note is usable but has noticeable gaps, primarily due to the complete omission of the Review of Systems (ROS) in the Subjective section. While there are no unsupported or unknown additions, the significant amount of missing clinical detail in the Subjective section, combined with numerous minor omissions in the Objective and Plan sections, reduces the note's completeness and clinical utility, warranting a 'C' grade.",
+    "overall_summary": "The generated note has significant omissions, primarily the entire Review of Systems section in the Subjective part, which makes the note meaningfully incomplete. While other sections are generally well-captured with only minor to moderate omissions, the absence of a complete ROS is a major gap. There are no unsupported or unknown additions, which is a positive aspect, but the substantial missing content in the Subjective section reduces the overall clinical usefulness and completeness of the note.",
     "omissions": [
       "No significant medical history, family medical history, or allergies to report",
       "Parents are college graduates and exhibit moderate health literacy",
@@ -262,8 +262,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "This section receives a 'C' due to several moderate omissions and one major omission. Key details from the History of Present Illness, such as medical/family history, allergies, and developmental trajectory, are missing. Most significantly, the entire Review of Systems (ROS) section is omitted, which represents a substantial gap in the clinical documentation.",
+        "grade": "D",
+        "summary": "This section has major omissions, including the entire Review of Systems (ROS) section, which is a critical component of a comprehensive note. Additionally, important details such as medical history, family history, allergies, and developmental trajectory are missing. These omissions significantly reduce the clinical usefulness and completeness of the Subjective section.",
         "omissions": [
           "No significant medical history, family medical history, or allergies to report",
           "Parents are college graduates and exhibit moderate health literacy",
@@ -278,7 +278,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly clinically aligned, but it has numerous minor omissions. While the overall findings of a normal physical examination are captured, many specific descriptive details from the HEENT, Respiratory, Cardiovascular, and Skin exams are missing. These omissions, though minor individually, are collectively significant enough to prevent an 'A' grade.",
+        "summary": "The Objective section captures the overall normal findings of the physical examination. However, it omits several specific descriptive details, such as 'playful,' 'in no distress,' specific findings for HEENT (e.g., 'without lesions,' 'no discharge'), 'to auscultation' for lungs, specific absence of 'wheezes, rales, or rhonchi,' 'gallops, or rubs,' and a detailed description of the skin. While these are mostly minor, their cumulative effect reduces the thoroughness of the documentation.",
         "omissions": [
           "Playful",
           "In no distress",
@@ -299,7 +299,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section is well-aligned with the GroundTruth. The only omission is the phrase 'Patient presenting for a routine wellness check,' which is a minor contextual detail and does not detract from the core clinical assessment.",
+        "summary": "This section is well-aligned with the Ground Truth. The only omission is the phrase 'Patient presenting for a routine wellness check,' which is a minor detail as the generated assessment still clearly conveys the child's healthy status and the context of the visit.",
         "omissions": [
           "Patient presenting for a routine wellness check"
         ],
@@ -307,8 +307,8 @@
       },
       {
         "section": "Plan",
-        "grade": "A",
-        "summary": "The Plan section is largely complete and clinically sound. The omissions are minor, including the specific components of the balanced diet advice and the documentation that 'Parents understand and agree with the treatment and follow-up plan.' These do not materially reduce the clinical usefulness of the plan.",
+        "grade": "B",
+        "summary": "The Plan section is mostly complete and clinically sound. However, it omits the specific components of the balanced diet (fruits, vegetables, whole grains, and lean proteins) that were advised to the parents, which is a moderate omission as it removes useful detail from the patient education. The omission of the statement 'Parents understand and agree with the treatment and follow-up plan' is minor but important for documenting patient engagement.",
         "omissions": [
           "Specific components of balanced diet (fruits, vegetables, whole grains, and lean proteins)",
           "Parents understand and agree with the treatment and follow-up plan"
@@ -325,21 +325,27 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "His diet is pretty balanced; he eats fruits, vegetables, whole grains, and lean proteins.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"or abnormalities\" (in Cardiovascular Physical Exam)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Heart sounds regular, no murmurs, gallops, or rubs.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Well-nourished",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[mother]: His diet is pretty balanced; he eats fruits, vegetables, whole grains, and lean proteins.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The parents report that he has been well-nourished."
+      "matched_claim_text": "The parents report that he has been well-nourished.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

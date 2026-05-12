@@ -238,84 +238,106 @@
     "plan_alignment_score": 0.6440677966101696
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The note has major omissions in the Subjective section, including the entire Chief Complaint and Review of Systems, along with significant details from the History of Present Illness. While the Objective and Assessment sections are mostly accurate, the Plan section also contains several minor and moderate omissions, such as specific rationales for tests, details on patient education, and the entire Patient Agreements section. The extensive missing subjective data materially reduces the clinical usefulness and completeness of the note.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a reasonable overview but suffers from numerous omissions across all sections. The Subjective section lacks detailed lifestyle factors and several important negative findings from the Review of Systems. The Objective section omits crucial administrative details such as medication history, allergies, and chronic conditions. In the Plan section, critical details like medication frequency, specific justifications for ordered tests, advice on reducing alcohol intake, and important patient agreement/doubts are missing. While the note is broadly usable, these omissions make it meaningfully incomplete and require careful review. There are no unsupported or unknown additions that would negatively impact the grade.",
     "omissions": [
-      "Chief Complaint section",
-      "History of Present Illness details (moderate severity, intermittent occurrence, diet, exercise, smoking, alcohol, no recreational drugs)",
-      "Review of Systems section",
-      "Medication History section",
-      "Allergies section",
-      "Chronic Conditions section",
-      "Patient Education and Counseling details (importance of healthy diet/activity, benefits of reducing alcohol)",
-      "Potential referral to a dietitian or a smoking cessation specialist",
-      "Patient Agreements section"
+      "HPI: moderate severity of symptoms",
+      "HPI: symptoms occur intermittently multiple times per day",
+      "HPI: diet high in carbohydrates and processed foods",
+      "HPI: rarely exercises",
+      "HPI: smokes half a pack of cigarettes a day",
+      "HPI: consumes 3-4 beers per week",
+      "HPI: denies recreational drug use",
+      "ROS: Cardiovascular: Denies chest pain",
+      "ROS: Respiratory: Denies shortness of breath and cough",
+      "ROS: Gastrointestinal: Denies vomiting, abdominal pain, diarrhea, or constipation",
+      "ROS: Neurological: Denies headaches or vision changes",
+      "ROS: Musculoskeletal: Denies joint pain or muscle weakness",
+      "ROS: Psychiatric: Reports feeling stressed but denies depression or anxiety",
+      "Objective: Physical Examination: General Appearance: Appears fatigued",
+      "Objective: Medication History: None",
+      "Objective: Allergies: None",
+      "Objective: Chronic Conditions: None reported",
+      "Assessment: Patient presents with nausea, dizziness, and occasional lightheadedness of unspecified origin",
+      "Assessment: Symptoms could be multifactorial",
+      "Assessment: Slightly elevated BP as a contributing factor to multifactorial symptoms",
+      "Plan: Medical Treatment: Ondansetron frequency \"every 8 hours\"",
+      "Plan: Additional Testing: Specific reason for ECG (\"To rule out any cardiac issues\")",
+      "Plan: Additional Testing: Specific reason for Comprehensive Metabolic Panel (\"For possible metabolic disturbances\")",
+      "Plan: Additional Testing: Specific reason for Hemoglobin A1c (\"To screen for diabetes, given the family history of Type 2 diabetes\")",
+      "Plan: Patient Education and Counseling: Discuss importance of healthy diet and regular physical activity",
+      "Plan: Patient Education and Counseling: Advise on benefits of reducing alcohol intake",
+      "Plan: Follow-Up: Discuss potential referral to a dietitian or smoking cessation specialist if needed",
+      "Plan: Patient Agreements: Patient understands and agrees with treatment plan and acknowledges importance of lifestyle changes",
+      "Plan: Patient Agreements: Patient expresses moderate doubts about effectiveness but is willing to try recommendations"
     ],
     "additions": [
-      "Discussion of stress reduction through activities like meditation, yoga, or hobbies as a specific plan item"
+      "Plan: Discuss stress reduction through activities like meditation, yoga, or hobbies"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "This section has major omissions, including the entire Chief Complaint and Review of Systems sections. Additionally, significant details from the History of Present Illness, such as symptom severity, frequency, and specific lifestyle factors (diet, exercise, smoking, alcohol, drug use), are missing. These omissions materially reduce the clinical usefulness of the subjective information.",
+        "grade": "C",
+        "summary": "The Subjective section has numerous omissions, including detailed lifestyle factors (diet, exercise, smoking, alcohol, recreational drug use) from the HPI and several important negative findings from the Review of Systems (denial of chest pain, shortness of breath, cough, vomiting, abdominal pain, headaches, vision changes, joint pain, muscle weakness, depression, and anxiety). While the chief complaint and some HPI details are present, these omissions significantly reduce the comprehensiveness of the patient's history.",
         "omissions": [
-          "Chief Complaint section header and content",
-          "History of Present Illness section header",
-          "\"moderate severity\" of symptoms",
-          "Symptoms occur \"intermittently multiple times per day\"",
-          "Patient's diet is \"high in carbohydrates and processed foods\"",
-          "Patient \"rarely exercises\"",
-          "Patient \"smokes half a pack of cigarettes a day\"",
-          "Patient \"consumes 3-4 beers per week\"",
-          "Patient \"does not use recreational drugs\"",
-          "Review of Systems section header and all content (Constitutional, Cardiovascular, Respiratory, Gastrointestinal, Neurological, Musculoskeletal, Psychiatric details)"
+          "HPI: moderate severity of symptoms",
+          "HPI: symptoms occur intermittently multiple times per day",
+          "HPI: diet high in carbohydrates and processed foods",
+          "HPI: rarely exercises",
+          "HPI: smokes half a pack of cigarettes a day",
+          "HPI: consumes 3-4 beers per week",
+          "HPI: denies recreational drug use",
+          "ROS: Cardiovascular: Denies chest pain",
+          "ROS: Respiratory: Denies shortness of breath and cough",
+          "ROS: Gastrointestinal: Denies vomiting, abdominal pain, diarrhea, or constipation",
+          "ROS: Neurological: Denies headaches or vision changes",
+          "ROS: Musculoskeletal: Denies joint pain or muscle weakness",
+          "ROS: Psychiatric: Reports feeling stressed but denies depression or anxiety"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly clinically aligned. Minor omissions include 'Appears fatigued' from General Appearance and 'bilaterally' for lungs. Structural sections like Medication History, Allergies, and Chronic Conditions are omitted, but their content in the Ground Truth was 'None', making these less severe clinical gaps.",
+        "summary": "The Objective section omits important administrative details such as \"Medication History: None\", \"Allergies: None\", and \"Chronic Conditions: None reported\". It also misses the observation \"Appears fatigued\" from the General Appearance in the Physical Examination, although fatigue is mentioned in the Subjective. These are moderate omissions for a complete objective record.",
         "omissions": [
-          "\"Appears fatigued\" from General Appearance",
-          "\"bilaterally\" for lungs clear to auscultation",
-          "Medication History section",
-          "Allergies section",
-          "Chronic Conditions section"
+          "Physical Examination: General Appearance: Appears fatigued",
+          "Medication History: None",
+          "Allergies: None",
+          "Chronic Conditions: None reported"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "A",
-        "summary": "This section captures all major clinically important content. The omissions are minor contextual phrases such as 'of unspecified origin', 'these symptoms could be multifactorial', and 'along with his slightly elevated BP' as a contributing factor. The core differential diagnosis and contributing lifestyle factors are well-represented.",
+        "grade": "B",
+        "summary": "The Assessment section is missing the explicit statement that the patient's symptoms are of \"unspecified origin\" and that they \"could be multifactorial\". It also does not explicitly link the \"slightly elevated BP\" as a contributing factor to the multifactorial symptoms. While the generated note covers the differential diagnoses and implies multifactorial causes, these omissions reduce the precision and completeness of the assessment.",
         "omissions": [
-          "\"of unspecified origin\" regarding symptoms",
-          "\"these symptoms could be multifactorial\"",
-          "\"along with his slightly elevated BP\" as a contributing factor to symptoms"
+          "Patient presents with nausea, dizziness, and occasional lightheadedness of unspecified origin",
+          "Symptoms could be multifactorial",
+          "Slightly elevated BP as a contributing factor to multifactorial symptoms"
         ],
         "additions": []
       },
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "This section has several minor and moderate omissions. Minor issues include missing details for Ondansetron (route, frequency) and specific rationales for ordered tests. More significant omissions include the absence of patient education details regarding diet/activity and alcohol reduction, the potential referral to specialists, and the entire Patient Agreements section. The supported addition of stress reduction does not impact the grade.",
+        "summary": "The Plan section contains several clinically significant omissions. It misses the specific frequency for Ondansetron (\"every 8 hours\"), detailed justifications for the ordered tests (ECG, CMP, Hemoglobin A1c), advice on reducing alcohol intake, and the potential for referral to specialists. Crucially, it also omits the patient's agreement with the plan and their expressed doubts, which are important for shared decision-making. The single addition in this section is supported by the transcript and does not negatively impact the grade.",
         "omissions": [
-          "\"oral\" route for Ondansetron",
-          "\"every 8 hours\" frequency for Ondansetron",
-          "Specific reason for ECG: \"To rule out any cardiac issues\"",
-          "Specific reason for Comprehensive Metabolic Panel: \"For possible metabolic disturbances\"",
-          "Specific reason for Hemoglobin A1c: \"To screen for diabetes, given the family history of Type 2 diabetes\"",
-          "Patient Education and Counseling item: \"Discuss the importance of a healthy diet and regular physical activity.\"",
-          "Patient Education and Counseling item: \"Advise on the benefits of reducing alcohol intake.\"",
-          "Follow-Up item: \"Discuss potential referral to a dietitian or a smoking cessation specialist if needed.\"",
-          "Patient Agreements section"
+          "Medical Treatment: Ondansetron frequency \"every 8 hours\"",
+          "Additional Testing: Specific reason for ECG (\"To rule out any cardiac issues\")",
+          "Additional Testing: Specific reason for Comprehensive Metabolic Panel (\"For possible metabolic disturbances\")",
+          "Additional Testing: Specific reason for Hemoglobin A1c (\"To screen for diabetes, given the family history of Type 2 diabetes\")",
+          "Patient Education and Counseling: Discuss importance of healthy diet and regular physical activity",
+          "Patient Education and Counseling: Advise on benefits of reducing alcohol intake",
+          "Follow-Up: Discuss potential referral to a dietitian or smoking cessation specialist if needed",
+          "Patient Agreements: Patient understands and agrees with treatment plan and acknowledges importance of lifestyle changes",
+          "Patient Agreements: Patient expresses moderate doubts about effectiveness but is willing to try recommendations"
         ],
         "additions": [
-          "\"Discuss stress reduction through activities like meditation, yoga, or hobbies.\""
+          "Discuss stress reduction through activities like meditation, yoga, or hobbies"
         ]
       }
     ],
@@ -324,18 +346,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Discussion of stress reduction through activities like meditation, yoga, or hobbies as a specific plan item",
+      "addition_text": "Plan: Discuss stress reduction through activities like meditation, yoga, or hobbies",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Reducing stress through activities like meditation, yoga, or even hobbies can be very beneficial.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss stress reduction through activities like meditation, yoga, or hobbies."
+      "matched_claim_text": "Discuss stress reduction through activities like meditation, yoga, or hobbies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Discuss stress reduction through activities like meditation, yoga, or hobbies.\"",
+      "addition_text": "Discuss stress reduction through activities like meditation, yoga, or hobbies",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Reducing stress through activities like meditation, yoga, or even hobbies can be very beneficial.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Discuss stress reduction through activities like meditation, yoga, or hobbies."
+      "matched_claim_text": "Discuss stress reduction through activities like meditation, yoga, or hobbies.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

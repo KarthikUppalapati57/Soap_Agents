@@ -284,110 +284,105 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The note captures the main clinical picture but has noticeable gaps in the Subjective and Assessment sections. Several details regarding past medical history, social history, and review of systems are omitted, and all differential diagnoses are missing. Minor unsupported additions are present but do not introduce misleading clinical content.",
+    "overall_summary": "The generated SOAP note is mostly clinically usable but has noticeable gaps, particularly in the Subjective and Assessment sections. Key omissions include detailed past medical history, social history, and a comprehensive review of systems in the Subjective section, and the complete absence of differential diagnoses in the Assessment section. While all additions were supported by the transcript and thus did not lower the grade, the numerous omissions make the note meaningfully incomplete and require careful review.",
     "omissions": [
-      "Chief Complaint (CC) section heading",
-      "History of Present Illness (HPI) section heading",
-      "Review of Systems (ROS) section heading",
-      "History of seasonal influenza (last episode 2 years ago)",
-      "Mild asthma",
-      "Occasionally uses antihistamines for seasonal allergies",
-      "Denies any drug allergies",
-      "Malaise (from Constitutional ROS)",
-      "Denies shortness of breath (from Respiratory ROS)",
-      "Denies joint pain (from Musculoskeletal ROS)",
-      "Balanced diet, high in fruits and vegetables (from Diet ROS)",
-      "Regularly jogs 3 times per week (from Exercise ROS)",
-      "Tobacco Use: None (from ROS)",
-      "Alcohol Consumption: Social drinker, approximately 2 beers per week (from ROS)",
-      "Drug Use: None (from ROS)",
-      "General: Slight dehydration noted",
-      "Physical Exam: No signs of acute respiratory distress",
-      "Primary Diagnosis heading",
-      "Differential Diagnoses heading",
-      "Differential Diagnosis: Viral upper respiratory infection",
-      "Differential Diagnosis: Asthma exacerbation secondary to viral infection",
-      "Differential Diagnosis: Bacterial pharyngitis (less likely due to clear discharge and viral presentation)",
-      "Patient Education and Counseling: Discussed nature of influenza infection and the importance of completing the antiviral medication regimen",
-      "Follow-Up: Immediate follow-up with Dr. Anna Lee as soon as possible",
-      "Investigations: \"in virology and immunology\" for blood work"
+      "Subjective: Chief Complaint (CC) section header",
+      "Subjective: History of Present Illness (HPI) section header",
+      "Subjective: Symptoms continuous since onset",
+      "Subjective: History of seasonal influenza (last episode 2 years ago)",
+      "Subjective: Mild asthma",
+      "Subjective: Occasional antihistamine use for seasonal allergies",
+      "Subjective: Denial of drug allergies",
+      "Subjective: Review of Systems (ROS) section header",
+      "Subjective: Constitutional ROS: malaise",
+      "Subjective: Respiratory ROS: denial of shortness of breath",
+      "Subjective: ENT ROS: swollen throat",
+      "Subjective: Musculoskeletal ROS: denial of joint pain",
+      "Subjective: Diet: balanced, high in fruits and vegetables",
+      "Subjective: Exercise: regularly jogs 3 times per week",
+      "Subjective: Tobacco Use: none",
+      "Subjective: Alcohol Consumption: social drinker, approximately 2 beers per week",
+      "Subjective: Drug Use: none",
+      "Objective: General observation: Febrile",
+      "Objective: General observation: Slight dehydration noted",
+      "Objective: Physical Exam: no signs of acute respiratory distress",
+      "Assessment: Primary Diagnosis section header",
+      "Assessment: Differential Diagnoses section header",
+      "Assessment: Differential Diagnosis: Viral upper respiratory infection",
+      "Assessment: Differential Diagnosis: Asthma exacerbation secondary to viral infection",
+      "Assessment: Differential Diagnosis: Bacterial pharyngitis (less likely due to clear discharge and viral presentation)",
+      "Plan: Investigations detail: \"in virology and immunology to identify specific viral markers\"",
+      "Plan: Patient Education: discussion of nature of influenza infection and importance of completing antiviral medication regimen",
+      "Plan: Follow-Up: immediate follow-up with Dr. Anna Lee as soon as possible"
     ],
     "additions": [
-      "Objective: \"mmHg\" for BP",
-      "Objective: \"bpm\" for HR",
-      "Objective: \"of the lungs\" for wheezing",
-      "Objective: \"Diagnostic Tests: pending blood work results for viral markers and immune response assessment\" (content from GT Plan, placed in Objective)",
-      "Assessment: \"with upper respiratory symptoms and asthma history necessitating specialist consultation\" (as a single combined statement)",
-      "Plan: \"Patient Agreement: Ensure the patient understands the treatment plan and instructions\""
+      "Objective: Diagnostic Tests: pending blood work results for viral markers and immune response assessment",
+      "Assessment: \"with upper respiratory symptoms and asthma history necessitating specialist consultation\" (added to primary diagnosis)",
+      "Plan: Patient Agreement: Ensure the patient understands the treatment plan and instructions"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Objective: \"mmHg\" for BP",
-      "Objective: \"bpm\" for HR",
-      "\"mmHg\" for BP",
-      "\"bpm\" for HR"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "This section omits several important details from the patient's history, including past medical history (influenza, asthma), allergies, and various elements of the Review of Systems (e.g., malaise, diet, exercise, social history). This makes the section meaningfully incomplete.",
+        "summary": "This section has numerous omissions, including the Chief Complaint and History of Present Illness section headers, details about symptoms being continuous, past medical history (seasonal influenza, mild asthma), medication use (antihistamines), drug allergies, and a significant portion of the Review of Systems (malaise, denial of shortness of breath/joint pain, diet, exercise, tobacco, alcohol, and drug use). These omissions create noticeable gaps, making the section meaningfully incomplete despite capturing the core chief complaint and present illness symptoms.",
         "omissions": [
-          "Chief Complaint (CC) section heading",
-          "History of Present Illness (HPI) section heading",
-          "Review of Systems (ROS) section heading",
+          "Chief Complaint (CC) section header",
+          "History of Present Illness (HPI) section header",
+          "Symptoms continuous since onset",
           "History of seasonal influenza (last episode 2 years ago)",
           "Mild asthma",
           "Occasionally uses antihistamines for seasonal allergies",
-          "Denies any drug allergies",
-          "Malaise (from Constitutional ROS)",
-          "Denies shortness of breath (from Respiratory ROS)",
-          "Denies joint pain (from Musculoskeletal ROS)",
-          "Balanced diet, high in fruits and vegetables (from Diet ROS)",
-          "Regularly jogs 3 times per week (from Exercise ROS)",
-          "Tobacco Use: None (from ROS)",
-          "Alcohol Consumption: Social drinker, approximately 2 beers per week (from ROS)",
-          "Drug Use: None (from ROS)"
+          "Denies drug allergies",
+          "Review of Systems (ROS) section header",
+          "Constitutional ROS: malaise",
+          "Respiratory ROS: denial of shortness of breath",
+          "ENT ROS: swollen throat",
+          "Musculoskeletal ROS: denial of joint pain",
+          "Diet: balanced, high in fruits and vegetables",
+          "Exercise: regularly jogs 3 times per week",
+          "Tobacco Use: none",
+          "Alcohol Consumption: social drinker, approximately 2 beers per week",
+          "Drug Use: none"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "This section is mostly aligned with the Ground Truth. It has minor omissions like 'slight dehydration noted' and 'no signs of acute respiratory distress.' There are also minor unsupported additions related to units (mmHg, bpm) which are formatting issues.",
+        "summary": "This section is mostly aligned, but it omits the general observations of 'Febrile' (though temperature is provided) and 'Slight dehydration noted,' as well as the important negative finding of 'no signs of acute respiratory distress' from the physical exam. All additions in this section were supported by the transcript and did not impact the grade. The remaining content is accurate and clinically usable, but the omissions represent moderate issues.",
         "omissions": [
-          "General: Slight dehydration noted",
-          "Physical Exam: No signs of acute respiratory distress"
+          "General observation: Febrile",
+          "General observation: Slight dehydration noted",
+          "Physical Exam: no signs of acute respiratory distress"
         ],
         "additions": [
-          "\"mmHg\" for BP",
-          "\"bpm\" for HR",
-          "\"of the lungs\" for wheezing",
-          "\"Diagnostic Tests: pending blood work results for viral markers and immune response assessment\" (content from GT Plan, placed in Objective)"
+          "Diagnostic Tests: pending blood work results for viral markers and immune response assessment"
         ]
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "This section omits all differential diagnoses, which represents a significant gap in the clinical reasoning presented. The primary diagnosis is correctly identified.",
+        "summary": "This section omits the Primary Diagnosis and Differential Diagnoses section headers, and critically, all three differential diagnoses (Viral upper respiratory infection, Asthma exacerbation secondary to viral infection, Bacterial pharyngitis). While the primary diagnosis is correctly identified, the complete absence of differential diagnoses represents a significant gap in clinical reasoning and makes the section meaningfully incomplete. All additions were supported by the transcript and did not impact the grade.",
         "omissions": [
-          "Primary Diagnosis heading",
-          "Differential Diagnoses heading",
+          "Primary Diagnosis section header",
+          "Differential Diagnoses section header",
           "Differential Diagnosis: Viral upper respiratory infection",
           "Differential Diagnosis: Asthma exacerbation secondary to viral infection",
           "Differential Diagnosis: Bacterial pharyngitis (less likely due to clear discharge and viral presentation)"
         ],
         "additions": [
-          "\"with upper respiratory symptoms and asthma history necessitating specialist consultation\" (as a single combined statement)"
+          "\"with upper respiratory symptoms and asthma history necessitating specialist consultation\" (added to primary diagnosis)"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "This section is mostly aligned, capturing the key treatment, investigations, referrals, and patient education. Minor omissions include a specific detail about patient education regarding completing medication and an immediate follow-up instruction.",
+        "summary": "This section is mostly aligned, but it omits specific details for investigations ('in virology and immunology to identify specific viral markers'), important patient education points (discussion of the nature of influenza infection and the importance of completing the antiviral medication regimen), and the urgency of follow-up with the specialist ('immediate follow-up with Dr. Anna Lee as soon as possible'). All additions in this section were supported by the transcript and did not impact the grade. These omissions represent several minor to moderate issues, but the core treatment plan is present and usable.",
         "omissions": [
-          "Patient Education and Counseling: Discussed nature of influenza infection and the importance of completing the antiviral medication regimen",
-          "Follow-Up: Immediate follow-up with Dr. Anna Lee as soon as possible",
-          "Investigations: \"in virology and immunology\" for blood work"
+          "Investigations detail: \"in virology and immunology to identify specific viral markers\"",
+          "Patient Education: discussion of nature of influenza infection and importance of completing antiviral medication regimen",
+          "Follow-Up: immediate follow-up with Dr. Anna Lee as soon as possible"
         ],
         "additions": [
           "Patient Agreement: Ensure the patient understands the treatment plan and instructions"
@@ -399,88 +394,58 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: \"mmHg\" for BP",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: \"bpm\" for HR",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Objective: \"of the lungs\" for wheezing",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I can hear mild wheezing upon auscultation of your lungs",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild wheezing upon auscultation of the lungs"
-    },
-    {
-      "addition_text": "Objective: \"Diagnostic Tests: pending blood work results for viral markers and immune response assessment\" (content from GT Plan, placed in Objective)",
+      "addition_text": "Objective: Diagnostic Tests: pending blood work results for viral markers and immune response assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are still waiting for blood work results to identify specific viral markers and assess your immune response.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "pending blood work results for viral markers and immune response assessment"
+      "matched_claim_text": "pending blood work results for viral markers and immune response assessment",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: \"with upper respiratory symptoms and asthma history necessitating specialist consultation\" (as a single combined statement)",
+      "addition_text": "Assessment: \"with upper respiratory symptoms and asthma history necessitating specialist consultation\" (added to primary diagnosis)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I have a sore throat, cough, runny nose, and headache... [doctor] Your throat looks red and swollen, and you have a clear nasal discharge.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "with upper respiratory symptoms"
+      "matched_claim_text": "with upper respiratory symptoms",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan: \"Patient Agreement: Ensure the patient understands the treatment plan and instructions\"",
+      "addition_text": "Plan: Patient Agreement: Ensure the patient understands the treatment plan and instructions",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Do you have any questions about what we've discussed?\n\n[patient] No, I think I understand everything. I'll make sure to follow your advice.\n\n[doctor] Great. I'm glad you're on board with the plan.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Ensure the patient understands the treatment plan and instructions"
+      "matched_claim_text": "Ensure the patient understands the treatment plan and instructions",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"mmHg\" for BP",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"bpm\" for HR",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"of the lungs\" for wheezing",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I can hear mild wheezing upon auscultation of your lungs",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild wheezing upon auscultation of the lungs"
-    },
-    {
-      "addition_text": "\"Diagnostic Tests: pending blood work results for viral markers and immune response assessment\" (content from GT Plan, placed in Objective)",
+      "addition_text": "Diagnostic Tests: pending blood work results for viral markers and immune response assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] We are still waiting for blood work results to identify specific viral markers and assess your immune response.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "pending blood work results for viral markers and immune response assessment"
+      "matched_claim_text": "pending blood work results for viral markers and immune response assessment",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"with upper respiratory symptoms and asthma history necessitating specialist consultation\" (as a single combined statement)",
+      "addition_text": "\"with upper respiratory symptoms and asthma history necessitating specialist consultation\" (added to primary diagnosis)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[patient] I have a sore throat, cough, runny nose, and headache... [doctor] Your throat looks red and swollen, and you have a clear nasal discharge.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "with upper respiratory symptoms"
+      "matched_claim_text": "with upper respiratory symptoms",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient Agreement: Ensure the patient understands the treatment plan and instructions",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Do you have any questions about what we've discussed?\n\n[patient] No, I think I understand everything. I'll make sure to follow your advice.\n\n[doctor] Great. I'm glad you're on board with the plan.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Ensure the patient understands the treatment plan and instructions"
+      "matched_claim_text": "Ensure the patient understands the treatment plan and instructions",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

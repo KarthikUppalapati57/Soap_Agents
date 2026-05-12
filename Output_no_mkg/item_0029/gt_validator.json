@@ -232,7 +232,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note presents a mixed performance. While the Objective and Plan sections are largely accurate and complete with only minor issues, the Subjective section has noticeable gaps in detailed HPI and a comprehensive Review of Systems. The most significant issue lies in the Assessment section, where definitive diagnoses for hypertension and hyperlipidemia are omitted, and the new diagnosis of hypertension is replaced with a less certain 'possible development'. This materially reduces the clinical usefulness and accuracy of the note's diagnostic summary, making the note meaningfully incomplete and requiring caution.",
+    "overall_summary": "The generated note provides a generally accurate summary of the patient's visit, capturing key subjective complaints, objective findings, and the treatment plan. However, the overall grade is lowered due to noticeable gaps in the Assessment section, specifically the omission of hyperlipidemia as a diagnosis and a less definitive statement regarding hypertension compared to the Ground Truth. Additionally, there are several minor omissions of specific details and formatting across sections, and one minor unsupported addition in the Plan.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -274,7 +274,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section captures the main complaints but omits several specific details from the HPI, such as the mild-to-moderate nature of headaches, feeling off-balance from dizziness, mild impact on daily activities, and fatigue despite adequate sleep. Additionally, the detailed, system-by-system Review of Systems from the Ground Truth is largely absent, which is a moderate omission. Despite these gaps, the core subjective complaints are present, making the section mostly usable.",
+        "summary": "The Subjective section accurately captures the patient's chief complaint, elevated blood pressure, and associated symptoms like headaches and dizziness. However, it omits specific details regarding the severity of headaches and dizziness, the mild impact on daily activities, and the patient's fatigue despite adequate sleep. The detailed Review of Systems breakdown is also omitted, though the key clinical points are present.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -291,7 +291,7 @@
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is highly accurate and complete. It correctly captures the vital signs and key physical examination findings. The only omissions are minor formatting headers and the detail 'no gallops' from the heart exam, which do not detract from the clinical utility of the section. There are no unsupported or unknown additions.",
+        "summary": "The Objective section is highly accurate, correctly reporting vital signs and physical examination findings. The only omissions are minor formatting headers and the specific detail that \"no gallops\" were heard during the heart exam.",
         "omissions": [
           "Physical Examination section header",
           "Vital Signs section header",
@@ -303,8 +303,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section has major issues. It omits the initial summary statement of the patient's presentation and, more critically, the definitive diagnoses of 'Hypertension (new diagnosis)' and 'Hyperlipidemia'. Instead, it states 'Possible development of hypertension'. While this 'possible development' is supported by the transcript, the Ground Truth explicitly establishes a new diagnosis of hypertension and lists hyperlipidemia as a diagnosis. This change from definitive diagnoses to a less certain statement and the complete omission of hyperlipidemia as a diagnosis significantly reduce the clinical usefulness and accuracy of the assessment.",
+        "grade": "C",
+        "summary": "The Assessment section has noticeable gaps. It omits the definitive diagnosis of \"Hypertension (new diagnosis)\" from the Ground Truth, instead stating \"Possible development of hypertension,\" which is less definitive. Crucially, it also omits \"Hyperlipidemia\" as a diagnosis, despite it being a known medical history and a diagnosis in the Ground Truth. These omissions significantly impact the completeness of the diagnostic summary.",
         "omissions": [
           "Assessment includes \"Presents with elevated blood pressure and associated symptoms such as headaches and dizziness.\"",
           "Diagnosis section header",
@@ -318,7 +318,7 @@
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly comprehensive, detailing medication adjustments, lifestyle changes, referral, blood work, imaging, and follow-up. Omissions are primarily minor formatting headers, specific medication route details ('1 tablet daily, oral route' for Lisinopril, 'oral daily' for Atorvastatin), the specific purpose of the Chest X-ray, and the patient agreement statement. There is one minor unsupported addition, 'complete blood count' as a parenthetical for CBC, which is not clinically misleading. Overall, the plan is clearly usable, but the minor omissions and the unsupported addition prevent an 'A' grade.",
+        "summary": "The Plan section accurately outlines the medication adjustments, lifestyle changes, referral, and orders for blood work and imaging. It omits minor details such as specific medication routes and the clinical purpose of the chest X-ray. There is one minor unsupported addition, \"complete blood count\" as a parenthetical for CBC, which is not clinically misleading. The omission of the \"Patient Agreements\" is also a minor administrative detail.",
         "omissions": [
           "Medication Adjustment section header",
           "Lifestyle Change section header",
@@ -349,91 +349,117 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'm also hearing a mild systolic murmur, but no gallops in your heart.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild systolic murmur on cardiac examination."
+      "matched_claim_text": "Mild systolic murmur on cardiac examination.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Possible development of hypertension\" in Assessment (vs. GT's \"Hypertension (new diagnosis)\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible development of hypertension due to history of pre-hypertension and hyperlipidemia."
+      "matched_claim_text": "Possible development of hypertension due to history of pre-hypertension and hyperlipidemia.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for hypertension management\" in Plan (Lisinopril)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, I'll start you on Lisinopril 10 mg, one tablet daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Lisinopril 10 mg daily for hypertension management."
+      "matched_claim_text": "Initiate Lisinopril 10 mg daily for hypertension management.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for hyperlipidemia management\" in Plan (Atorvastatin)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Continue taking your Atorvastatin 20 mg daily for hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue Atorvastatin 20 mg daily for hyperlipidemia management."
+      "matched_claim_text": "Continue Atorvastatin 20 mg daily for hyperlipidemia management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Lifestyle modifications:\" as a header/label in Plan",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll also need to make some lifestyle changes. I recommend lowering your salt intake, engaging in regular exercise, and reducing alcohol consumption.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"further evaluation of hypertension\" in Plan (referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to cardiologist, Dr. Sarah Johnson, for further evaluation of hypertension."
+      "matched_claim_text": "Referral to cardiologist, Dr. Sarah Johnson, for further evaluation of hypertension.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"complete blood count\" as a parenthetical for CBC",
       "supported_by_transcript": "unsupported",
       "transcript_evidence": null,
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"on cardiac examination\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I'm also hearing a mild systolic murmur, but no gallops in your heart.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild systolic murmur on cardiac examination."
+      "matched_claim_text": "Mild systolic murmur on cardiac examination.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Possible development of hypertension\" (vs. GT's \"Hypertension (new diagnosis)\")",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Given your history of pre-hypertension and hyperlipidemia, it looks like you might be developing hypertension.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Possible development of hypertension due to history of pre-hypertension and hyperlipidemia."
+      "matched_claim_text": "Possible development of hypertension due to history of pre-hypertension and hyperlipidemia.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for hypertension management\" (Lisinopril)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: First, I'll start you on Lisinopril 10 mg, one tablet daily.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Initiate Lisinopril 10 mg daily for hypertension management."
+      "matched_claim_text": "Initiate Lisinopril 10 mg daily for hypertension management.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for hyperlipidemia management\" (Atorvastatin)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Continue taking your Atorvastatin 20 mg daily for hyperlipidemia.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Continue Atorvastatin 20 mg daily for hyperlipidemia management."
+      "matched_claim_text": "Continue Atorvastatin 20 mg daily for hyperlipidemia management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Lifestyle modifications:\" as a header/label",
       "supported_by_transcript": "supported",
       "transcript_evidence": "We'll also need to make some lifestyle changes. I recommend lowering your salt intake, engaging in regular exercise, and reducing alcohol consumption.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"further evaluation of hypertension\" (referral)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Yes, I'll refer you to a cardiologist, Dr. Sarah Johnson, for a more in-depth evaluation of your hypertension.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Referral to cardiologist, Dr. Sarah Johnson, for further evaluation of hypertension."
+      "matched_claim_text": "Referral to cardiologist, Dr. Sarah Johnson, for further evaluation of hypertension.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

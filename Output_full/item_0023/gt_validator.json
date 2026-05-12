@@ -282,9 +282,9 @@
     "plan_alignment_score": 0.7171717171717172
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned but has several notable omissions, particularly in the Subjective, Assessment, and Plan sections. While all additions were supported by the transcript and did not negatively impact the grade, the absence of key HPI details, a secondary diagnosis in Assessment, and a crucial referral in the Plan significantly reduce the note's completeness and clinical usefulness. The Objective section is well-captured.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated SOAP note has significant omissions across multiple sections, particularly in the Assessment and Plan. Key clinical details such as the patient's secondary diagnosis (COPD), the definitive nature of the primary diagnosis, and a critical referral to a pain management specialist are missing. Additionally, important HPI and ROS details, as well as some physical examination findings, are omitted. These issues materially reduce the clinical usefulness and completeness of the note.",
     "omissions": [
       "HPI detail: Pain worsens with prolonged standing or walking",
       "HPI detail: Pain significantly impacts daily activities (walking short distances, climbing stairs, standing for long periods)",
@@ -310,8 +310,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section omits several important HPI details regarding aggravating factors (pain worsens with prolonged standing/walking), functional impact (struggles with daily activities, interrupted sleep), and specific neurological findings from the ROS. These omissions, while not critical safety issues, reduce the comprehensiveness of the patient's reported symptoms and their impact on daily life.",
+        "grade": "C",
+        "summary": "The Subjective section omits several important details from the History of Present Illness, including how pain worsens with prolonged standing/walking, its significant impact on daily activities, and sleep interruption. It also misses key neurological findings and the general complaint of difficulty sleeping from the Review of Systems. These omissions create noticeable gaps in the patient's reported symptoms and their impact.",
         "omissions": [
           "HPI detail: Pain worsens with prolonged standing or walking",
           "HPI detail: Pain significantly impacts daily activities (walking short distances, climbing stairs, standing for long periods)",
@@ -323,8 +323,8 @@
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is well-captured. The omissions are minor details such as 'Cooperative but appears anxious,' 'No visible deformities,' 'No obvious motor deficits,' and a specific special test finding, none of which materially impact the clinical usefulness of the section.",
+        "grade": "B",
+        "summary": "The Objective section has several minor omissions from the Physical Examination, such as the patient appearing anxious, the absence of visible deformities, no obvious motor deficits, and the positive finding for mild weakness in foot dorsiflexion. While the core findings are present, these omissions make the physical examination less comprehensive.",
         "omissions": [
           "Physical Examination General: Cooperative but appears anxious",
           "Physical Examination Musculoskeletal Inspection: No visible deformities",
@@ -335,8 +335,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "C",
-        "summary": "The Assessment section has two moderate omissions: the secondary diagnosis of Chronic Obstructive Pulmonary Disease (COPD) and the definitive nature of the primary diagnosis, instead stating the patient 'may have' spinal stenosis. The omission of a significant comorbidity and the reduced certainty of the primary diagnosis are noticeable gaps that make the note meaningfully incomplete.",
+        "grade": "D",
+        "summary": "The Assessment section has major omissions. It fails to include Chronic Obstructive Pulmonary Disease (COPD) as a secondary condition, which is a significant clinical oversight. Furthermore, it softens the primary diagnosis of spinal stenosis from a definitive statement in the Ground Truth to 'may have' in the generated note, reducing diagnostic certainty. The single addition in this section is supported by the transcript and does not impact the grade negatively.",
         "omissions": [
           "Secondary Conditions: Chronic Obstructive Pulmonary Disease (COPD), managed with Albuterol inhaler as needed",
           "Definitive nature of the primary diagnosis (Generated states 'may have' instead of a direct diagnosis)"
@@ -348,7 +348,7 @@
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section contains a major omission: the referral to a Pain Management Specialist for further evaluation and management. This is a critical component for chronic lower back pain with radiating symptoms and significantly reduces the clinical usefulness of the plan. Other omissions, such as medication quantity and a concluding statement, are minor in comparison.",
+        "summary": "The Plan section contains major omissions that materially reduce its clinical usefulness. Most critically, it omits the referral to a Pain Management Specialist for further evaluation and management of chronic lower back pain. Other omissions include the medication quantity, patient education on adherence to therapy and medication, and the concluding statement. The single addition in this section is supported by the transcript and does not impact the grade negatively.",
         "omissions": [
           "Medications detail: quantity: 14 tablets",
           "Patient Education: Discuss the importance of adherence to physical therapy and medication",
@@ -369,28 +369,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the physical examination, it seems like you might have spinal stenosis in the lumbar region.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient may have spinal stenosis in the lumbar region based on the symptoms and physical examination findings."
+      "matched_claim_text": "The patient may have spinal stenosis in the lumbar region based on the symptoms and physical examination findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan Follow-Up Recommendations: Advice to contact healthcare provider if symptoms worsen before follow-up",
       "supported_by_transcript": "supported",
       "transcript_evidence": "One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms worsen before the follow-up, advise the patient to contact the healthcare provider."
+      "matched_claim_text": "If symptoms worsen before the follow-up, advise the patient to contact the healthcare provider.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Reasoning for diagnosis: 'based on the symptoms and physical examination findings'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and the physical examination, it seems like you might have spinal stenosis in the lumbar region.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient may have spinal stenosis in the lumbar region based on the symptoms and physical examination findings."
+      "matched_claim_text": "The patient may have spinal stenosis in the lumbar region based on the symptoms and physical examination findings.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Follow-Up Recommendations: Advice to contact healthcare provider if symptoms worsen before follow-up",
       "supported_by_transcript": "supported",
       "transcript_evidence": "One more thing, if you have any concerns or if your symptoms worsen before the follow-up, don't hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "If symptoms worsen before the follow-up, advise the patient to contact the healthcare provider."
+      "matched_claim_text": "If symptoms worsen before the follow-up, advise the patient to contact the healthcare provider.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

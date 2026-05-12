@@ -303,9 +303,9 @@
     "plan_alignment_score": 0.46739130434782605
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note demonstrates significant deficiencies, particularly in the Plan section, which contains major omissions related to patient safety and critical clinical context. While other sections like Assessment are strong, and Subjective and Objective have moderate omissions, the high-severity issues in the Plan, such as missing instructions for returning to the emergency department and the reason for antibiotic choice (penicillin allergy), materially reduce the note's clinical usefulness and reliability, warranting an overall grade of D.",
+    "overall_summary": "The note has several minor and moderate omissions across the Subjective and Objective sections. While the Assessment section is largely complete, the Plan section contains multiple moderate to major omissions. Crucial details such as the reason for antibiotic choice (penicillin allergy), comprehensive patient education on recognizing worsening infection, completing antibiotics, hydration, diet, and critical return instructions are missing. These omissions significantly impact patient safety and the clinical usefulness of the note, leading to a low overall grade.",
     "omissions": [
       "Patient's description of pain as \"constant\"",
       "Patient's symptoms severely limited daily activities, bedridden for past two days",
@@ -339,7 +339,7 @@
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits several details regarding the patient's experience, including the constant nature of the pain, the severe limitation of daily activities (bedridden for two days), the patient's frustration with healthcare access, and the impact on sleep. Additionally, the structured Review of Systems section and the explicit denial of gastrointestinal symptoms are missing. While the core HPI is present, these omissions reduce the completeness of the patient's subjective experience.",
+        "summary": "This section has several minor omissions, including the patient's description of pain as 'constant,' frustration regarding healthcare access, and poor sleep pattern. A moderate omission is the lack of detail regarding how symptoms severely limited daily activities and being bedridden. The entire Review of Systems (ROS) section is omitted, including the denial of nausea, vomiting, and diarrhea, which is a structural gap but some key positive findings are captured in HPI.",
         "omissions": [
           "Description of pain as \"constant\"",
           "Symptoms severely limited daily activities, bedridden for past two days",
@@ -353,7 +353,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section omits the temperature in Celsius, the general appearance of the patient (uncomfortable and in distress), and the specific finding of \"no rebound tenderness or guarding\" in the abdomen. Crucially, the entire \"LABORATORY TESTS\" subsection, including the pending status of urinalysis, CBC, and BMP, is omitted from this section, although the ordering of these labs is later added to the Plan.",
+        "summary": "This section omits the patient's general appearance (uncomfortable and in distress), which is a moderate issue. Minor omissions include the temperature in Celsius and the negative findings of no rebound tenderness or guarding in the abdomen. The 'LABORATORY TESTS' section is entirely omitted, and the status of pending lab results (urinalysis, CBC, BMP) is missing from this section, though the ordering of these labs is moved to the Plan.",
         "omissions": [
           "Temperature in Celsius (38.4°C)",
           "General appearance: Patient appears uncomfortable and in distress due to pain",
@@ -367,7 +367,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is largely complete. It omits minor qualifiers such as \"site not specified\" for the primary diagnosis and \"further evaluation needed based on lab results\" for secondary considerations. The generated note's addition of \"based on the patient's symptoms and vital signs\" is supported by the transcript and does not negatively impact the grade.",
+        "summary": "This section is largely complete. Minor omissions include the specificity 'site not specified' for the primary diagnosis and 'further evaluation needed based on lab results' for secondary considerations. All additions in this section were supported by the transcript and thus do not impact the grade.",
         "omissions": [
           "Primary Diagnosis: \"site not specified\"",
           "Secondary Considerations: \"further evaluation needed based on lab results\""
@@ -379,7 +379,7 @@
       {
         "section": "Plan",
         "grade": "D",
-        "summary": "The Plan section has significant omissions that materially reduce its clinical usefulness and safety. It fails to mention the crucial reason for prescribing Ciprofloxacin (due to penicillin allergy). Important patient education details are missing, including dietary changes, hydration emphasis, information on recognizing worsening infection symptoms, and the importance of completing antibiotics. Furthermore, critical safety instructions regarding when to return to the emergency department for worsening symptoms are entirely omitted. The absence of the \"Patient Agreements\" section and specific urologist name are also noted.",
+        "summary": "This section has numerous moderate to major omissions that significantly impact patient safety and comprehensive care. Key missing details include the critical reason for Ciprofloxacin prescription (penicillin allergy), comprehensive patient education on dietary changes, hydration, recognizing symptoms of worsening infection, and the importance of completing antibiotics. Crucial instructions for returning to the emergency department if symptoms worsen are also omitted. All additions in this section were supported by the transcript and thus do not impact the grade.",
         "omissions": [
           "Reason for Ciprofloxacin: \"due to the patient’s penicillin allergy\"",
           "Specific name of Urologist (Dr. John Smith)",
@@ -404,28 +404,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I've ordered a urinalysis, complete blood count, and basic metabolic panel.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order urinalysis, complete blood count, and basic metabolic panel"
+      "matched_claim_text": "Order urinalysis, complete blood count, and basic metabolic panel",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment qualifier: \"based on the patient's symptoms and vital signs\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It suggests you might have a urinary tract infection, possibly involving your kidneys given your back pain and fever.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suggests a possible urinary tract infection involving the kidneys based on the patient's symptoms and vital signs."
+      "matched_claim_text": "Suggests a possible urinary tract infection involving the kidneys based on the patient's symptoms and vital signs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Qualifier: \"based on the patient's symptoms and vital signs\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: It suggests you might have a urinary tract infection, possibly involving your kidneys given your back pain and fever.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Suggests a possible urinary tract infection involving the kidneys based on the patient's symptoms and vital signs."
+      "matched_claim_text": "Suggests a possible urinary tract infection involving the kidneys based on the patient's symptoms and vital signs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Order urinalysis, complete blood count, and basic metabolic panel (moved from Objective section in GT)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: I've ordered a urinalysis, complete blood count, and basic metabolic panel.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order urinalysis, complete blood count, and basic metabolic panel"
+      "matched_claim_text": "Order urinalysis, complete blood count, and basic metabolic panel",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

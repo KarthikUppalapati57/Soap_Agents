@@ -242,8 +242,8 @@
   },
   "expert_judge": {
     "model": "clinical-documentation-reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The note has significant omissions across multiple sections, particularly in the Subjective and Plan. While some sections are mostly accurate, the Plan section omits crucial patient education and safety instructions, including when to seek emergency care, which renders the note unsafe and unreliable for comprehensive patient management.",
+    "overall_grade": "D",
+    "overall_summary": "The generated note has significant omissions, particularly in the Subjective and Plan sections. Key details about the patient's symptoms, their impact on daily life, and crucial patient education and safety instructions (e.g., signs of dehydration, ER instructions for worsening symptoms) are missing. While some sections are better, the major gaps in patient guidance and safety information materially reduce the note's clinical usefulness and could pose safety risks.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -282,7 +282,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits several important details regarding the severity and impact of the patient's symptoms, such as the frequency of vomiting, constant nausea, and the disruption to sleep and daily activities. It also misses the section headers.",
+        "summary": "This section omits several important details regarding the frequency of vomiting, the constant feeling of nausea, and the significant impact on the patient's daily life, including disrupted sleep, inability to perform chores, and missed work. These omissions make the HPI meaningfully incomplete.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -298,7 +298,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately captures vital signs and the primary abdominal exam findings. However, it omits the general appearance (\"Appears anxious and uncomfortable\") and the \"Other Systems: Unremarkable\" finding, along with the section headers. These are minor omissions.",
+        "summary": "This section accurately captures the vital signs and key physical exam findings. The omissions are minor, primarily consisting of formatting headers and general observations like 'Appears anxious and uncomfortable' and 'Other Systems: Unremarkable', which do not significantly impact clinical utility.",
         "omissions": [
           "Vital Signs section header",
           "Physical Exam section header",
@@ -310,7 +310,7 @@
       {
         "section": "Assessment",
         "grade": "B",
-        "summary": "The Assessment section correctly identifies the suspected link to chronic conditions. However, it omits the specific diagnosis \"Nausea with vomiting, unspecified\" and the section header. The addition of \"Suspected\" is supported by the transcript and does not impact the grade.",
+        "summary": "The section correctly identifies the suspected relationship between nausea/vomiting and chronic conditions. The addition of 'Suspected' is supported by the transcript. However, it omits the specific diagnosis 'Nausea with vomiting, unspecified (ICD-10 R11.2)', which is a moderate gap in documentation.",
         "omissions": [
           "Diagnosis section header",
           "Specific diagnosis: \"Nausea with vomiting, unspecified\""
@@ -321,8 +321,8 @@
       },
       {
         "section": "Plan",
-        "grade": "F",
-        "summary": "The Plan section has numerous critical omissions. It fails to include explicit instructions for hydration with electrolyte solutions, the entire Patient Education section (including medication adherence and signs of dehydration), and the entire Instructions section, which contains vital safety advice on when to go to the emergency room. These omissions significantly compromise patient safety and the clinical usefulness of the note.",
+        "grade": "D",
+        "summary": "This section has major omissions that materially reduce its clinical usefulness and safety. Entire sections for 'Patient Education' and 'Instructions' are missing, which include critical information on medication adherence, signs of dehydration, and when to seek immediate medical care (e.g., severe abdominal pain, blood in vomit, severe dehydration). The omission of specific advice on hydration with electrolyte solutions is also a significant gap.",
         "omissions": [
           "Medications section header",
           "Dispense 30 tablets (for Promethazine)",
@@ -351,14 +351,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on what you've told me and the examination, I suspect the nausea and vomiting could be related to your chronic conditions...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Nausea and vomiting are suspected to be related to chronic conditions."
+      "matched_claim_text": "Nausea and vomiting are suspected to be related to chronic conditions.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"Suspected\" before nausea and vomiting",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on what you've told me and the examination, I suspect the nausea and vomiting could be related to your chronic conditions...",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Nausea and vomiting are suspected to be related to chronic conditions."
+      "matched_claim_text": "Nausea and vomiting are suspected to be related to chronic conditions.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

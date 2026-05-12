@@ -193,109 +193,92 @@
     "plan_alignment_score": 0.7349397590361446
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions in the Assessment section, failing to include the patient's diagnoses of Hypertension and Hyperlipidemia. While other sections are generally well-captured with only minor omissions and no unsupported additions, the critical gaps in the Assessment materially reduce the clinical usefulness and completeness of the documentation.",
+    "overall_summary": "The generated note has significant omissions, particularly in the Assessment section where two secondary diagnoses (Hypertension and Hyperlipidemia) are entirely missing. While other sections are mostly complete, this major omission in a critical section materially reduces the clinical usefulness of the note. Minor omissions of detail and structural headings are also present across other sections, but no unsupported or unknown additions were found to lower the grade.",
     "omissions": [
       "Chief Complaint (CC) heading",
       "History of Present Illness (HPI) heading",
       "Review of Systems (ROS) section",
-      "\"mild to moderate\" description of fatigue and muscle weakness",
-      "\"The symptoms are present daily.\"",
-      "\"Other systems: Negative except as noted.\" (from ROS)",
       "Vital Signs heading",
       "Physical Examination heading",
-      "General appearance: \"Appears mildly fatigued but in no acute distress.\"",
-      "Cardiovascular exam findings: \"Regular rate and rhythm, no murmurs.\"",
-      "Neurological exam findings: \"Alert and oriented, no gross neurological deficits.\"",
-      "\"Primary:\" and \"Secondary:\" headings/categorization in Assessment",
-      "Diagnosis of Hypertension (from Assessment)",
-      "Diagnosis of Hyperlipidemia (from Assessment)",
-      "\"Unspecified\" qualifier for Vitamin D Deficiency",
-      "\"Medication:\" heading (Plan)",
-      "\"Laboratory Tests:\" heading (Plan)",
-      "\"Lifestyle Modifications:\" heading (Plan)",
-      "\"Follow-up:\" heading (Plan)",
-      "\"Patient Education:\" heading (Plan)",
-      "\"Instructions:\" heading (Plan)",
-      "\"Suggest more outdoor activities to increase sun exposure.\" (from Lifestyle Modifications in Plan)",
-      "\"Educate on potential sources of Vitamin D\" (from Patient Education in Plan)",
-      "\"If symptoms persist or worsen, they should contact the clinic sooner.\" (from Instructions in Plan)"
+      "Medication heading",
+      "Laboratory Tests heading",
+      "Lifestyle Modifications heading",
+      "Follow-up heading",
+      "Patient Education heading",
+      "Instructions heading",
+      "Severity of fatigue/weakness (mild to moderate) in HPI",
+      "Frequency of symptoms (present daily) in HPI",
+      "General appearance findings (Appears mildly fatigued but in no acute distress)",
+      "Cardiovascular exam findings (Regular rate and rhythm, no murmurs)",
+      "Secondary diagnosis: Hypertension",
+      "Secondary diagnosis: Hyperlipidemia",
+      "Qualifier 'Unspecified' for Vitamin D Deficiency",
+      "Specific instruction: If symptoms persist or worsen, they should contact the clinic sooner",
+      "Specific patient education point: Educate on potential sources of Vitamin D"
     ],
     "additions": [
-      "\"normal neurological status\" (in Objective, as a summary of neurological findings)",
-      "\"Probable\" qualifier for Vitamin D deficiency (in Assessment)",
-      "\"based on symptoms and examination findings\" explanation (in Assessment)",
-      "\"Initiate treatment with\" (instead of \"Start\" in Plan)",
-      "\"to check\" (for lab tests in Plan)"
+      "Qualifier 'Probable' for Vitamin D deficiency in Assessment",
+      "Justification 'based on symptoms and examination findings' in Assessment"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "\"Initiate treatment with\" (instead of \"Start\" in Plan)"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section omits standard headings for Chief Complaint, History of Present Illness, and Review of Systems. It also omits the formal Review of Systems section itself, integrating its content into the HPI-like paragraph, and misses the specific 'Other systems: Negative except as noted' statement. Minor descriptive details like 'mild to moderate' and 'present daily' are also omitted.",
+        "summary": "The Subjective section captures the main HPI elements but omits specific details like the 'mild to moderate' severity and 'daily' frequency of symptoms. The entire Review of Systems section is omitted structurally, though its core content regarding fatigue, muscle weakness, and bone pain is integrated into the HPI.",
         "omissions": [
           "Chief Complaint (CC) heading",
           "History of Present Illness (HPI) heading",
           "Review of Systems (ROS) section",
-          "\"mild to moderate\" description of fatigue and muscle weakness",
-          "\"The symptoms are present daily.\"",
-          "\"Other systems: Negative except as noted.\""
+          "Severity of fatigue/weakness (mild to moderate)",
+          "Frequency of symptoms (present daily)"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section accurately captures all vital signs and key physical examination findings. It omits minor formatting headings and some specific phrasing for general appearance and cardiovascular findings, but the core clinical information is present. The neurological findings are summarized as 'normal neurological status,' which is supported by the transcript.",
+        "summary": "The Objective section accurately includes all vital signs and key musculoskeletal and neurological exam findings. Minor omissions include the general appearance findings ('Appears mildly fatigued but in no acute distress') and cardiovascular exam findings ('Regular rate and rhythm, no murmurs'), but these do not significantly impact the clinical utility of the section.",
         "omissions": [
           "Vital Signs heading",
           "Physical Examination heading",
-          "General appearance: \"Appears mildly fatigued but in no acute distress.\"",
-          "Cardiovascular exam findings: \"Regular rate and rhythm, no murmurs.\"",
-          "Neurological exam findings: \"Alert and oriented, no gross neurological deficits.\""
+          "General appearance findings (Appears mildly fatigued but in no acute distress)",
+          "Cardiovascular exam findings (Regular rate and rhythm, no murmurs)"
         ],
-        "additions": [
-          "\"normal neurological status\""
-        ]
+        "additions": []
       },
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The Assessment section critically omits the patient's pre-existing diagnoses of Hypertension and Hyperlipidemia, which are major clinical omissions. It also omits minor formatting for primary/secondary categorization and the 'Unspecified' qualifier for Vitamin D Deficiency. The additions of 'Probable' and 'based on symptoms and examination findings' are supported by the transcript and do not negatively impact the grade.",
+        "summary": "The Assessment section correctly identifies the primary diagnosis of Vitamin D deficiency, with the 'Probable' qualifier and justification being supported by the transcript. However, it critically omits the secondary diagnoses of Hypertension and Hyperlipidemia, which are important ongoing conditions mentioned in the Ground Truth. This is a major omission that significantly reduces the clinical completeness and usefulness of the assessment.",
         "omissions": [
-          "\"Primary:\" and \"Secondary:\" headings/categorization",
-          "Diagnosis of Hypertension",
-          "Diagnosis of Hyperlipidemia",
-          "\"Unspecified\" qualifier for Vitamin D Deficiency"
+          "Primary/Secondary headings",
+          "Secondary diagnosis: Hypertension",
+          "Secondary diagnosis: Hyperlipidemia",
+          "Qualifier 'Unspecified' for Vitamin D Deficiency"
         ],
         "additions": [
-          "\"Probable\" qualifier for Vitamin D deficiency",
-          "\"based on symptoms and examination findings\" explanation"
+          "Qualifier 'Probable' for Vitamin D deficiency",
+          "Justification 'based on symptoms and examination findings'"
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section omits several sub-headings for different categories of the plan. It also omits a specific instruction to contact the clinic if symptoms worsen and slightly rephrases or implies some patient education points rather than stating them explicitly as in the Ground Truth. All identified additions are supported by the transcript and do not reduce the grade.",
+        "summary": "The Plan section is largely comprehensive, covering medication, lab tests, lifestyle modifications, follow-up, and patient education. However, it omits several structural headings and a specific instruction regarding contacting the clinic sooner if symptoms persist or worsen, which is a moderate safety-related omission. The patient education point on 'potential sources of Vitamin D' is also omitted as a distinct point, though some sources are mentioned elsewhere.",
         "omissions": [
-          "\"Medication:\" heading",
-          "\"Laboratory Tests:\" heading",
-          "\"Lifestyle Modifications:\" heading",
-          "\"Follow-up:\" heading",
-          "\"Patient Education:\" heading",
-          "\"Instructions:\" heading",
-          "\"Suggest more outdoor activities to increase sun exposure.\"",
-          "\"Educate on potential sources of Vitamin D\"",
-          "\"If symptoms persist or worsen, they should contact the clinic sooner.\""
+          "Medication heading",
+          "Laboratory Tests heading",
+          "Lifestyle Modifications heading",
+          "Follow-up heading",
+          "Patient Education heading",
+          "Instructions heading",
+          "Specific instruction: If symptoms persist or worsen, they should contact the clinic sooner",
+          "Specific patient education point: Educate on potential sources of Vitamin D"
         ],
-        "additions": [
-          "\"Initiate treatment with\"",
-          "\"to check\""
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -303,74 +286,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "\"normal neurological status\" (in Objective, as a summary of neurological findings)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "And neurologically, you're alert and oriented with no gross neurological deficits.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"Probable\" qualifier for Vitamin D deficiency (in Assessment)",
+      "addition_text": "Qualifier 'Probable' for Vitamin D deficiency in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the examination, I suspect you might have a vitamin D deficiency. This can cause fatigue, muscle weakness, and bone pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Probable Vitamin D deficiency based on symptoms and examination findings"
+      "matched_claim_text": "Probable Vitamin D deficiency based on symptoms and examination findings",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"based on symptoms and examination findings\" explanation (in Assessment)",
+      "addition_text": "Justification 'based on symptoms and examination findings' in Assessment",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the examination, I suspect you might have a vitamin D deficiency. This can cause fatigue, muscle weakness, and bone pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Probable Vitamin D deficiency based on symptoms and examination findings"
+      "matched_claim_text": "Probable Vitamin D deficiency based on symptoms and examination findings",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Initiate treatment with\" (instead of \"Start\" in Plan)",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"to check\" (for lab tests in Plan)",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I'm also going to order some laboratory tests to check your 25-hydroxyvitamin D level and your calcium level.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"normal neurological status\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: You have mild diffuse muscle tenderness, but no focal deficits. ... And neurologically, you're alert and oriented with no gross neurological deficits.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mild diffuse muscle tenderness, no focal deficits, and normal neurological status"
-    },
-    {
-      "addition_text": "\"Probable\" qualifier for Vitamin D deficiency",
+      "addition_text": "Qualifier 'Probable' for Vitamin D deficiency",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the examination, I suspect you might have a vitamin D deficiency. This can cause fatigue, muscle weakness, and bone pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Probable Vitamin D deficiency based on symptoms and examination findings"
+      "matched_claim_text": "Probable Vitamin D deficiency based on symptoms and examination findings",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"based on symptoms and examination findings\" explanation",
+      "addition_text": "Justification 'based on symptoms and examination findings'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and the examination, I suspect you might have a vitamin D deficiency. This can cause fatigue, muscle weakness, and bone pain.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Probable Vitamin D deficiency based on symptoms and examination findings"
-    },
-    {
-      "addition_text": "\"Initiate treatment with\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "We're going to start you on Cholecalciferol (Vitamin D3) 2000 IU, to be taken orally once daily for 6 months.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"to check\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I'm also going to order some laboratory tests to check your 25-hydroxyvitamin D level and your calcium level.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": "Probable Vitamin D deficiency based on symptoms and examination findings",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

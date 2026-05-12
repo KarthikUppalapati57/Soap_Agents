@@ -253,9 +253,9 @@
     "plan_alignment_score": 0.52
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
+    "model": "clinical-documentation-reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note has noticeable gaps and multiple moderate to major omissions across all sections, making it meaningfully incomplete. Key omissions include the patient's history of hypertension and hypothyroidism in the Subjective section, the pending thyroid function test results in the Objective section, detailed medical reasoning and current status for both conditions in the Assessment, and the explicit ordering of follow-up tests in the Plan. While no unsupported additions were found, the cumulative effect of these omissions reduces the clinical usefulness and completeness of the note, requiring caution and further review.",
+    "overall_summary": "The generated note has noticeable gaps, particularly in the Assessment section, where detailed medical reasoning and current status for both hypothyroidism and hypertension are omitted. The Subjective section also misses crucial patient history regarding chronic conditions. While there are no unsupported additions, the cumulative effect of multiple moderate omissions makes the note meaningfully incomplete and requires careful review.",
     "omissions": [
       "Patient's history of hypertension and hypothyroidism",
       "Severity of symptoms (moderate impact on daily activities)",
@@ -278,8 +278,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits the patient's crucial history of hypertension and hypothyroidism, which is a significant gap in the HPI. It also lacks the detailed review of systems and comprehensive lifestyle habits, making the section less complete and clinically useful.",
+        "grade": "B",
+        "summary": "The Subjective section omits the patient's history of hypertension and hypothyroidism, which is a significant contextual detail. Several minor details from the Review of Systems and Patient's Habits and Lifestyle are also missing.",
         "omissions": [
           "Patient's history of hypertension and hypothyroidism",
           "Severity of symptoms (moderate impact on daily activities)",
@@ -297,8 +297,8 @@
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section omits specific normal findings from the physical exam, instead providing a general statement. More importantly, it fails to mention that thyroid function tests are awaiting results from a previous visit, which is crucial context for the assessment and plan.",
+        "grade": "B",
+        "summary": "The Objective section omits the specific details of the cardiovascular, respiratory, abdominal, and extremity exams, summarizing them as 'within normal limits' instead of providing the Ground Truth detail. More importantly, it omits the crucial information about awaiting thyroid function test results.",
         "omissions": [
           "Cardiovascular exam findings: Normal S1 and S2. No murmurs, rubs, or gallops.",
           "Specific respiratory findings: Clear to auscultation bilaterally. No wheezing, rales, or rhonchi.",
@@ -310,8 +310,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "D",
-        "summary": "The Assessment section is significantly lacking in detail. It omits the specific medical reasoning for both hypothyroidism and hypertension, and critically fails to state that thyroid function test results are still pending to guide further management. This makes the assessment meaningfully incomplete and less clinically useful.",
+        "grade": "C",
+        "summary": "The Assessment section significantly omits the detailed medical reasoning and current status for both hypothyroidism and hypertension. These are critical components for a comprehensive assessment, making the generated note meaningfully incomplete in this section.",
         "omissions": [
           "Medical reasoning for hypothyroidism: Symptoms (fatigue, weight gain, constipation) consistent with hypothyroidism. Physical exam shows mild thyroid enlargement.",
           "Current status for hypothyroidism: Awaiting thyroid function test results to guide further management.",
@@ -322,8 +322,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits specific patient education details regarding medication adherence and the impact of diet/exercise on thyroid function. A significant omission is the explicit ordering of thyroid function tests (TSH, Free T4, T3) to monitor levels, which is a crucial action item. The single addition was supported by the transcript and did not impact the grade.",
+        "grade": "B",
+        "summary": "The Plan section omits specific patient education details for hypothyroidism and the explicit ordering of thyroid function tests, which is a concrete action item. A minor omission is the patient agreement statement. The single addition in this section is supported by the transcript and does not impact the grade.",
         "omissions": [
           "Patient education for hypothyroidism: Discussed importance of medication adherence and impact of diet and exercise on thyroid function.",
           "Follow-up Tests for hypothyroidism: Thyroid function tests ordered (TSH, Free T4, T3) to monitor thyroid levels.",
@@ -343,7 +343,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "Doctor: \"Remember, if you have any concerns before our next visit, feel free to contact the office.\"",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient was informed to contact the office if any concerns arise before the next visit."
+      "matched_claim_text": "The patient was informed to contact the office if any concerns arise before the next visit.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

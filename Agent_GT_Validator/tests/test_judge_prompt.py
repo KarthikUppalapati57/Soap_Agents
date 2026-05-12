@@ -14,6 +14,7 @@ class TestJudgePrompt(unittest.TestCase):
         g = judge._prompt_grading("GT", "GEN", "TR", "{}", "[]")
         self.assertIn("supported_by_transcript", g)
         self.assertIn("unsupported", g.lower())
+        self.assertIn("supported_by_primekg", g)
         self.assertNotIn("hallucinations_or_unjustified_inferences", g)
 
 

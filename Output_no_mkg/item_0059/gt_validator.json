@@ -213,78 +213,65 @@
     "plan_alignment_score": 0.704225352112676
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has a significant omission of the entire Review of Systems section in the Subjective part, which makes the note meaningfully incomplete. Additionally, there are several moderate omissions in the Plan section, including specific medication administration details and the full rationale for laboratory testing. All additions in the note are supported by the transcript and do not negatively impact the grade.",
+    "model": "clinical-documentation-reviewer",
+    "overall_grade": "B",
+    "overall_summary": "The generated note provides a good summary of the chief complaint, history of present illness, objective findings, and a comprehensive plan. However, the Subjective section significantly omits the detailed Review of Systems content from the Ground Truth, which represents a noticeable gap in the patient's reported symptoms and denials. The Plan section also has a few minor omissions regarding medication details, testing rationale, and specific patient education points. All additions were supported by the transcript.",
     "omissions": [
-      "Chief Complaint section header",
-      "History of Present Illness section header",
-      "Detail: Constipation occurs daily",
-      "Entire Review of Systems section (Constitutional, Gastrointestinal, Genitourinary, Cardiovascular, Respiratory, Neurological, Psychiatric details)",
-      "Vitals: SpO2 \"on room air\"",
-      "Physical Exam: Specific cardiovascular findings (no murmurs, rubs, or gallops)",
-      "Physical Exam: Specific respiratory findings (no wheezes, rales, or rhonchi)",
-      "Physical Exam: Specific neurological findings (alert and oriented, cranial nerves II-XII grossly intact)",
-      "Assessment: Diagnosis qualifier \"unspecified\"",
-      "Plan: Medication administration details (\"powder mixed in 4-8 oz of beverage, taken orally\")",
-      "Plan: Specific rationale for further testing (\"to rule out any underlying electrolyte imbalances or anemia\")",
-      "Plan: Specific patient education point (\"addressing concerns about the effectiveness of fiber supplements\")"
+      "\"CHIEF COMPLAINT\" section header",
+      "\"HISTORY OF PRESENT ILLNESS\" section header",
+      "\"REVIEW OF SYSTEMS\" section header",
+      "\"PHYSICAL EXAM\" section header"
     ],
-    "additions": [
-      "Assessment: Association of constipation with \"abdominal discomfort and bloating\"",
-      "Assessment: Statement \"No evident red flags on physical examination or vital signs.\"",
-      "Plan: Action \"Order complete blood count (CBC) and basic metabolic panel (BMP)\" (instead of \"Await CBC and BMP results\")"
-    ],
+    "additions": [],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has a major omission of the entire Review of Systems, which significantly impacts the completeness of the clinical documentation. Minor details like the daily occurrence of constipation and specific section headers are also omitted.",
+        "summary": "The section effectively captures the chief complaint and history of present illness. However, it completely omits the detailed Review of Systems content present in the Ground Truth, which includes denials for constitutional, gastrointestinal, genitourinary, cardiovascular, respiratory, neurological, and psychiatric symptoms. This constitutes a significant gap in the documentation.",
         "omissions": [
-          "Chief Complaint section header",
-          "History of Present Illness section header",
-          "Detail: Constipation occurs daily",
-          "Entire Review of Systems section (Constitutional, Gastrointestinal, Genitourinary, Cardiovascular, Respiratory, Neurological, Psychiatric details)"
+          "Constipation occurring daily",
+          "Constitutional ROS: Denies fever, chills, or weight loss",
+          "Gastrointestinal ROS: Denies hematochezia or melena",
+          "Genitourinary ROS: Denies any urinary symptoms",
+          "Cardiovascular ROS: Denies chest pain or palpitations",
+          "Respiratory ROS: Denies shortness of breath or cough",
+          "Neurological ROS: Denies headaches or dizziness",
+          "Psychiatric ROS: Reports interrupted sleep, but denies depression or anxiety"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section is comprehensive and accurate. The only omissions are minor details such as the \"on room air\" qualifier for SpO2 and specific negative findings in the cardiovascular, respiratory, and neurological physical exams.",
+        "summary": "This section is well-aligned with the Ground Truth, accurately reporting vital signs and physical examination findings. The only omission is the minor detail \"on room air\" for SpO2.",
         "omissions": [
-          "Vitals: SpO2 \"on room air\"",
-          "Physical Exam: Specific cardiovascular findings (no murmurs, rubs, or gallops)",
-          "Physical Exam: Specific respiratory findings (no wheezes, rales, or rhonchi)",
-          "Physical Exam: Specific neurological findings (alert and oriented, cranial nerves II-XII grossly intact)"
+          "SpO2 \"on room air\""
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is excellent, accurately reflecting the diagnosis. The only omission is a minor qualifier (\"unspecified\") for the diagnosis. All additions are supported by the transcript and enhance the clinical picture.",
+        "summary": "The assessment accurately reflects the diagnosis. The two additions, \"with abdominal discomfort and bloating\" and \"No evident red flags on physical examination or vital signs,\" are both supported by the transcript and do not reduce the grade. The only omission is the minor detail \"unspecified\" for constipation.",
         "omissions": [
-          "Diagnosis qualifier \"unspecified\""
+          "Diagnosis \"unspecified\" for constipation"
         ],
         "additions": [
-          "Association of constipation with \"abdominal discomfort and bloating\"",
-          "Statement \"No evident red flags on physical examination or vital signs.\""
+          "\"with abdominal discomfort and bloating\"",
+          "\"No evident red flags on physical examination or vital signs\""
         ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section is mostly complete but omits moderate details regarding specific medication administration instructions (e.g., \"powder mixed in 4-8 oz of beverage, taken orally\") and the full rationale for ordering further testing (e.g., \"to rule out any underlying electrolyte imbalances or anemia\"). A minor patient education point is also missing. All additions are supported by the transcript.",
+        "summary": "The plan outlines appropriate recommendations and orders. However, it omits specific details such as the instruction to mix Miralax in 4-8 oz of beverage, the rationale for CBC and BMP (to rule out electrolyte imbalances or anemia), and the specific patient education point about addressing concerns regarding fiber supplement effectiveness. These are minor to moderate omissions of detail.",
         "omissions": [
-          "Medication administration details (\"powder mixed in 4-8 oz of beverage, taken orally\")",
-          "Specific rationale for further testing (\"to rule out any underlying electrolyte imbalances or anemia\")",
-          "Specific patient education point (\"addressing concerns about the effectiveness of fiber supplements\")"
+          "Medication detail: \"mixed in 4-8 oz of beverage\"",
+          "Further testing detail: \"to rule out any underlying electrolyte imbalances or anemia\"",
+          "Patient education detail: \"addressing concerns about the effectiveness of fiber supplements\""
         ],
-        "additions": [
-          "Action \"Order complete blood count (CBC) and basic metabolic panel (BMP)\" (instead of \"Await CBC and BMP results\")"
-        ]
+        "additions": []
       }
     ],
     "rubric_notes": null
@@ -292,46 +279,22 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment: Association of constipation with \"abdominal discomfort and bloating\"",
+      "addition_text": "\"with abdominal discomfort and bloating\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it looks like you have constipation. [patient] Yes, I feel bloated and have some abdominal discomfort.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Constipation with abdominal discomfort and bloating."
+      "matched_claim_text": "Constipation with abdominal discomfort and bloating.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: Statement \"No evident red flags on physical examination or vital signs.\"",
+      "addition_text": "\"No evident red flags on physical examination or vital signs\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] All of these look good. [doctor] Have you had any fever, chills, or weight loss recently? [patient] No, none of those. [doctor] Any blood in your stool or black, tarry stools? [patient] No, nothing like that. [doctor] Any chest pain or palpitations? [patient] No, my heart feels fine. [doctor] Any shortness of breath or cough? [patient] No, my breathing is normal. [doctor] Have you had any headaches or dizziness? [patient] No, none.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "No evident red flags on physical examination or vital signs."
-    },
-    {
-      "addition_text": "Plan: Action \"Order complete blood count (CBC) and basic metabolic panel (BMP)\" (instead of \"Await CBC and BMP results\")",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I've ordered a complete blood count (CBC) and basic metabolic panel (BMP) to rule out any underlying issues like electrolyte imbalances or anemia.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order complete blood count (CBC) and basic metabolic panel (BMP) to rule out underlying issues."
-    },
-    {
-      "addition_text": "Association of constipation with \"abdominal discomfort and bloating\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it looks like you have constipation. [patient] Yes, I feel bloated and have some abdominal discomfort.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Constipation with abdominal discomfort and bloating."
-    },
-    {
-      "addition_text": "Statement \"No evident red flags on physical examination or vital signs.\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] All of these look good. [doctor] Have you had any fever, chills, or weight loss recently? [patient] No, none of those. [doctor] Any blood in your stool or black, tarry stools? [patient] No, nothing like that. [doctor] Any chest pain or palpitations? [patient] No, my heart feels fine. [doctor] Any shortness of breath or cough? [patient] No, my breathing is normal. [doctor] Have you had any headaches or dizziness? [patient] No, none.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "No evident red flags on physical examination or vital signs."
-    },
-    {
-      "addition_text": "Action \"Order complete blood count (CBC) and basic metabolic panel (BMP)\" (instead of \"Await CBC and BMP results\")",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[doctor] I've ordered a complete blood count (CBC) and basic metabolic panel (BMP) to rule out any underlying issues like electrolyte imbalances or anemia.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Order complete blood count (CBC) and basic metabolic panel (BMP) to rule out underlying issues."
+      "matched_claim_text": "No evident red flags on physical examination or vital signs.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

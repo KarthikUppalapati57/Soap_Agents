@@ -305,95 +305,79 @@
     "plan_alignment_score": 0.6304347826086957
   },
   "expert_judge": {
-    "model": "expert-clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The overall grade is D due to significant omissions in the Subjective section, including the Chief Complaint and nearly the entire Review of Systems. While the Objective, Assessment, and Plan sections are better, the extensive missing foundational subjective data materially reduces the clinical usefulness and completeness of the note. There were no unsupported or unknown additions to negatively impact the grade.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note has significant omissions, particularly the entire Review of Systems section, which is a major structural and content gap. Additionally, important clinical details such as the impact of syncope on daily activities, specific social history details, and the medical reasoning for syncope in the Assessment are missing. While there are no unsupported additions, the volume and clinical materiality of the omissions make the note meaningfully incomplete, requiring careful review.",
     "omissions": [
-      "Chief Complaint: Syncope and collapse",
-      "HPI: Patient's past medical history (asthma and hyperlipidemia) in the introductory sentence",
-      "HPI: Description of syncope episodes as 'moderate to severe'",
-      "HPI: Impact of episodes causing patient to cease all activities due to fear of collapse",
-      "HPI: Patient struggles with insomnia, averaging only 4-5 hours of sleep per night",
-      "HPI: Patient's diet is high in protein and low in carbohydrates",
-      "HPI: Patient engages in light yoga three times a week, enjoys gardening and playing chess",
-      "HPI: Patient smokes one pack of cigarettes per week",
-      "HPI: Patient consumes 3-4 glasses of wine per week",
-      "HPI: Patient denies any drug use",
-      "ROS: Constitutional: Endorses fatigue due to insomnia; denies fever or weight loss",
-      "ROS: Eyes: Blurred vision during episodes of syncope (already mentioned in HPI, but explicitly listed in ROS)",
-      "ROS: Respiratory: Denies cough or chest pain (already mentioned in HPI, but explicitly listed in ROS)",
-      "ROS: Cardiovascular: Denies chest pain or palpitations (already mentioned in HPI, but explicitly listed in ROS)",
-      "ROS: Gastrointestinal: Nausea associated with syncope; denies abdominal pain or changes in bowel habits",
-      "ROS: Neurological: Endorses syncope and blurred vision; denies headaches, seizures, or focal deficits",
-      "ROS: Psychiatric: Denies depression or anxiety but is concerned about syncope episodes",
-      "Assessment: Patient's history of asthma and hyperlipidemia in the summary statement",
-      "Assessment: Specific problem heading 'Syncope and Collapse'",
-      "Assessment: Medical Reasoning: 'Multiple episodes of syncope with associated symptoms without clear etiology'",
-      "Plan: Hydration and Electrolyte Balance section",
-      "Plan: Recommendation for oral rehydration salts to maintain adequate hydration and electrolyte balance",
-      "Plan: Encouragement of adherence to a balanced diet",
-      "Plan: Patient Agreements: The patient understands and agrees with the recommended medical treatment plan"
+      "Severity of syncope (moderate to severe)",
+      "Impact of syncope on daily activities (causing her to cease all activities temporarily due to the fear of collapse)",
+      "Insomnia details: averaging only 4-5 hours of sleep per night",
+      "Patient's diet (high in protein and low in carbohydrates)",
+      "Patient's exercise (light yoga three times a week) and hobbies (gardening and playing chess)",
+      "Specific social history details: smoking one pack of cigarettes per week, consuming 3-4 glasses of wine per week, denies drug use",
+      "Entire Review of Systems (ROS) section, including specific endorsements/denials for Constitutional, Gastrointestinal, Neurological, and Psychiatric systems",
+      "Medical Reasoning for syncope in Assessment (Multiple episodes of syncope with associated symptoms without clear etiology)",
+      "Hydration and Electrolyte Balance plan (Oral rehydration salts to maintain adequate hydration and electrolyte balance)",
+      "Encourage adherence to a balanced diet in Plan",
+      "Specific dosage for Atorvastatin (20 mg once daily)",
+      "Patient Agreements (The patient understands and agrees with the recommended medical treatment plan)"
     ],
     "additions": [
-      "Plan: Specific details for improving sleep hygiene: 'by maintaining a regular sleep schedule and creating a relaxing bedtime routine'"
+      "In Plan, additional details for improving sleep hygiene: 'by maintaining a regular sleep schedule and creating a relaxing bedtime routine'",
+      "In Assessment, 'Further investigation is needed to clarify the diagnosis.'"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "D",
-        "summary": "The Subjective section receives a D due to numerous and clinically significant omissions. The Chief Complaint of 'Syncope and collapse' is entirely missing. Key details from the History of Present Illness, such as the patient's past medical history in the introductory sentence, the 'moderate to severe' description of syncope, the impact on daily activities, insomnia details, and significant social history (smoking, alcohol intake), are omitted. Furthermore, almost the entire Review of Systems is missing, including constitutional, eyes, respiratory, cardiovascular, gastrointestinal, neurological, and psychiatric details. These omissions represent major gaps that make the section meaningfully incomplete.",
+        "grade": "C",
+        "summary": "This section has numerous omissions, most notably the complete absence of the structured Review of Systems (ROS) section. While some ROS items are integrated into the HPI, the comprehensive review is missing. Other moderate omissions include the severity of syncope, its impact on daily activities, specific social history details (smoking/alcohol intake), and detailed insomnia information. These gaps make the Subjective section meaningfully incomplete.",
         "omissions": [
-          "Chief Complaint: Syncope and collapse",
-          "HPI: Patient's past medical history (asthma and hyperlipidemia) in the introductory sentence",
-          "HPI: Description of syncope episodes as 'moderate to severe'",
-          "HPI: Impact of episodes causing patient to cease all activities due to fear of collapse",
-          "HPI: Patient struggles with insomnia, averaging only 4-5 hours of sleep per night",
-          "HPI: Patient's diet is high in protein and low in carbohydrates",
-          "HPI: Patient engages in light yoga three times a week, enjoys gardening and playing chess",
-          "HPI: Patient smokes one pack of cigarettes per week",
-          "HPI: Patient consumes 3-4 glasses of wine per week",
-          "HPI: Patient denies any drug use",
-          "ROS: Constitutional: Endorses fatigue due to insomnia; denies fever or weight loss",
-          "ROS: Eyes: Blurred vision during episodes of syncope",
-          "ROS: Respiratory: Denies cough or chest pain",
-          "ROS: Cardiovascular: Denies chest pain or palpitations",
-          "ROS: Gastrointestinal: Nausea associated with syncope; denies abdominal pain or changes in bowel habits",
-          "ROS: Neurological: Endorses syncope and blurred vision; denies headaches, seizures, or focal deficits",
-          "ROS: Psychiatric: Denies depression or anxiety but is concerned about syncope episodes"
+          "Chief Complaint: 'Syncope and collapse'",
+          "Past medical history (asthma and hyperlipidemia) explicitly stated in HPI introductory sentence",
+          "Severity of syncope (moderate to severe)",
+          "Impact on daily activities (causing her to cease all activities temporarily due to the fear of collapse)",
+          "Insomnia details: averaging only 4-5 hours of sleep per night",
+          "Patient's diet (high in protein and low in carbohydrates)",
+          "Patient's exercise (light yoga three times a week) and hobbies (gardening and playing chess)",
+          "Specific social history details: smoking one pack of cigarettes per week, consuming 3-4 glasses of wine per week, denies drug use",
+          "Entire Review of Systems (ROS) section, including specific endorsements/denials for Constitutional, Gastrointestinal, Neurological, and Psychiatric systems"
         ],
-        "additions": []
+        "additions": [
+          "Integration of some ROS items into HPI: 'The patient also mentions wheezing associated with asthma, but no chest pain or palpitations.'"
+        ]
       },
       {
         "section": "Objective",
         "grade": "A",
-        "summary": "The Objective section receives an A as there are no omissions or unsupported/unknown additions. All vital signs and physical examination findings from the GroundTruth are accurately captured.",
+        "summary": "The Objective section is perfectly aligned with the GroundTruthSOAP, with no omissions or unsupported/unknown additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Assessment",
-        "grade": "B",
-        "summary": "The Assessment section receives a B. It omits the patient's history of asthma and hyperlipidemia from the summary statement and the specific problem heading 'Syncope and Collapse'. Additionally, the medical reasoning 'Multiple episodes of syncope with associated symptoms without clear etiology' is missing. While the core differential diagnosis is present, these omissions reduce the completeness and contextual detail of the assessment.",
+        "grade": "C",
+        "summary": "This section omits the patient summary and, more critically, the detailed medical reasoning for syncope, which provides essential context for the differential diagnoses. While the addition regarding further investigation is supported, the missing clinical reasoning represents a moderate to major gap in the assessment's completeness.",
         "omissions": [
-          "Patient's history of asthma and hyperlipidemia in the summary statement",
-          "Specific problem heading 'Syncope and Collapse'",
-          "Medical Reasoning: 'Multiple episodes of syncope with associated symptoms without clear etiology'"
+          "Patient summary (Ms. Sandra Williams is a 45-year-old female with a history of asthma and hyperlipidemia, presenting with syncope and collapse episodes)",
+          "Medical Reasoning: Multiple episodes of syncope with associated symptoms without clear etiology"
         ],
-        "additions": []
+        "additions": [
+          "'Further investigation is needed to clarify the diagnosis.'"
+        ]
       },
       {
         "section": "Plan",
         "grade": "B",
-        "summary": "The Plan section receives a B. It omits the 'Hydration and Electrolyte Balance' section and the specific recommendation for 'oral rehydration salts'. The encouragement for 'adherence to a balanced diet' and the 'Patient Agreements' are also missing. The addition regarding specific details for improving sleep hygiene was supported by the transcript and therefore did not negatively impact the grade.",
+        "summary": "The Plan section has several omissions, including the specific recommendation for oral rehydration salts for hydration and electrolyte balance, the encouragement of a balanced diet, and the specific dosage for Atorvastatin. While the additional details for sleep hygiene are supported, the missing specific intervention and medication dosage are moderate issues, making the plan slightly less comprehensive.",
         "omissions": [
-          "Hydration and Electrolyte Balance section",
-          "Recommendation for oral rehydration salts to maintain adequate hydration and electrolyte balance",
-          "Encouragement of adherence to a balanced diet",
+          "Hydration and Electrolyte Balance: Oral rehydration salts to maintain adequate hydration and electrolyte balance",
+          "Encourage adherence to a balanced diet",
+          "Specific dosage for Atorvastatin (20 mg once daily)",
           "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan"
         ],
         "additions": [
-          "Specific details for improving sleep hygiene: 'by maintaining a regular sleep schedule and creating a relaxing bedtime routine'"
+          "Additional details for improving sleep hygiene: 'by maintaining a regular sleep schedule and creating a relaxing bedtime routine'"
         ]
       }
     ],
@@ -402,18 +386,49 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Plan: Specific details for improving sleep hygiene: 'by maintaining a regular sleep schedule and creating a relaxing bedtime routine'",
+      "addition_text": "In Plan, additional details for improving sleep hygiene: 'by maintaining a regular sleep schedule and creating a relaxing bedtime routine'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Improving your sleep hygiene can help address the insomnia. Try to maintain a regular sleep schedule and create a relaxing bedtime routine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Improve sleep hygiene by maintaining a regular sleep schedule and creating a relaxing bedtime routine."
+      "matched_claim_text": "Improve sleep hygiene by maintaining a regular sleep schedule and creating a relaxing bedtime routine.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Specific details for improving sleep hygiene: 'by maintaining a regular sleep schedule and creating a relaxing bedtime routine'",
+      "addition_text": "In Assessment, 'Further investigation is needed to clarify the diagnosis.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I want to run some tests to get a clearer picture.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Further investigation is needed to clarify the diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Integration of some ROS items into HPI: 'The patient also mentions wheezing associated with asthma, but no chest pain or palpitations.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[patient] I have wheezing, especially when I breathe out forcefully, but no cough or chest pain. [doctor] I see you have asthma and hyperlipidemia.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "The patient also mentions wheezing associated with asthma.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "'Further investigation is needed to clarify the diagnosis.'",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "[doctor] I want to run some tests to get a clearer picture.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Further investigation is needed to clarify the diagnosis.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Additional details for improving sleep hygiene: 'by maintaining a regular sleep schedule and creating a relaxing bedtime routine'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Improving your sleep hygiene can help address the insomnia. Try to maintain a regular sleep schedule and create a relaxing bedtime routine.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Improve sleep hygiene by maintaining a regular sleep schedule and creating a relaxing bedtime routine."
+      "matched_claim_text": "Improve sleep hygiene by maintaining a regular sleep schedule and creating a relaxing bedtime routine.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

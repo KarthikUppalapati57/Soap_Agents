@@ -220,9 +220,9 @@
     "plan_alignment_score": 0.6769230769230771
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note provides the core clinical information but has noticeable gaps due to multiple moderate omissions across the Subjective, Objective, and Plan sections. Key omissions include the structured Review of Systems (though most content is integrated into HPI), the impact of symptoms on daily tasks, several important negative findings from the physical examination, and crucial details regarding patient education on adherence and patient agreements. No unsupported additions were identified. While the note is clinically usable, these omissions make it meaningfully incomplete and necessitate careful review.",
+    "overall_summary": "The generated note captures the primary clinical information, including the chief complaint, key HPI symptoms, vital signs, assessment, and core plan. However, it exhibits multiple moderate omissions across the Subjective, Objective, and Plan sections. These include the complete Review of Systems, several important negative physical examination findings, and the detailed patient agreements section. While the note is broadly usable, these gaps make it meaningfully incomplete. There are no unsupported or unknown additions that would further lower the grade.",
     "omissions": [
       "Chief Complaint (CC) heading",
       "History of Present Illness (HPI) heading",
@@ -250,7 +250,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section omits the structured Review of Systems, though most of its positive findings are integrated into the History of Present Illness. However, it specifically misses the negative finding regarding 'no muscle or joint pain' and the important detail about the 'impact of symptoms on daily tasks, necessitating frequent rest,' which provides crucial context for the patient's functional status.",
+        "summary": "The Subjective section accurately captures the chief complaint and main HPI symptoms. However, it omits the structured Review of Systems (ROS) and the detail regarding the impact of symptoms on daily tasks, which are moderate omissions that reduce the completeness of the patient's subjective experience.",
         "omissions": [
           "Chief Complaint (CC) heading",
           "History of Present Illness (HPI) heading",
@@ -262,7 +262,7 @@
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section omits several important negative findings from the physical examination, specifically regarding the cardiovascular (no murmurs, rubs, or gallops), respiratory (clear to auscultation bilaterally, no wheezing, rales, or rhonchi), and abdominal (no hepatosplenomegaly) systems. While positive findings and vital signs are present, these omissions reduce the completeness of the clinical picture.",
+        "summary": "The Objective section includes vital signs and key positive physical exam findings. However, it omits several important negative findings from the cardiovascular (no murmurs, rubs, or gallops), respiratory (clear to auscultation bilaterally, no wheezing, rales, or rhonchi), and abdominal (no hepatosplenomegaly) examinations. These are moderate omissions that are crucial for a comprehensive clinical picture.",
         "omissions": [
           "Vital Signs heading",
           "Physical Examination heading",
@@ -276,14 +276,14 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is perfectly aligned with the Ground Truth, with no omissions or unsupported additions.",
+        "summary": "The Assessment section is perfectly aligned with the ground truth, with no omissions or additions.",
         "omissions": [],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section omits the explicit mention of the 'importance of adherence to iron supplementation' in patient education. It also entirely misses the 'Patient Agreements' section, which documents the patient's understanding, keenness to follow recommendations, and agreement to return for follow-up and lab evaluation. The addition of advising the patient to contact the clinic if concerns arise is supported by the transcript and does not reduce the grade.",
+        "grade": "B",
+        "summary": "The Plan section includes the core medical treatment, investigations, dietary recommendations, and follow-up schedule. However, it omits specific patient education on the importance of adherence to iron supplementation and the entire patient agreements section, which details patient understanding and commitment. The single addition, 'Advise the patient to contact the clinic if any concerns arise before the follow-up appointment,' is supported by the transcript and does not impact the grade.",
         "omissions": [
           "Medical Treatment heading",
           "Patient education: importance of adherence to iron supplementation",
@@ -307,7 +307,9 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If anything comes up before then, don’t hesitate to contact us.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Advise the patient to contact the clinic if any concerns arise before the follow-up appointment."
+      "matched_claim_text": "Advise the patient to contact the clinic if any concerns arise before the follow-up appointment.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

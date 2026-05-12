@@ -301,9 +301,9 @@
     "plan_alignment_score": 0.53125
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer",
-    "overall_grade": "F",
-    "overall_summary": "The overall note is unsafe and unreliable, primarily due to the critical omission of all primary diagnoses (Type 2 Diabetes Mellitus, Hypertension, Hyperlipidemia) from the Assessment section. The Subjective section is also severely incomplete, missing the patient's past medical history, Review of Systems, and lifestyle details. Furthermore, the Plan section omits crucial components such as Patient Education and Counseling and Patient Agreements, significantly reducing the note's clinical usefulness and completeness.",
+    "model": "expert_clinical_documentation_reviewer",
+    "overall_grade": "D",
+    "overall_summary": "The generated SOAP note suffers from numerous significant omissions across all sections. Key missing elements include the patient's full past medical history, a comprehensive review of systems, detailed lifestyle information, established chronic diagnoses (Type 2 Diabetes Mellitus, Hypertension, Hyperlipidemia), and critical components of the plan such as medical reasoning, additional testing details, patient education, and patient agreements. These omissions materially reduce the clinical usefulness and completeness of the documentation.",
     "omissions": [
       "Chief Complaint (CC) section header",
       "History of Present Illness (HPI) section header",
@@ -341,7 +341,7 @@
       {
         "section": "Subjective",
         "grade": "D",
-        "summary": "The Subjective section is significantly incomplete, omitting crucial patient context such as past medical history (hypertension, type 2 diabetes mellitus, hyperlipidemia), the entire Review of Systems, and the Patient’s Self-Reported Habits and Lifestyle section. This results in a substantial loss of clinically important information.",
+        "summary": "This section is severely incomplete, omitting the patient's past medical history, the reason for the visit, detailed characterization of symptoms (e.g., moderate dizziness predominantly when standing up), the entire Review of Systems, and all details regarding the patient's self-reported habits and lifestyle. These are major omissions that significantly hinder a comprehensive understanding of the patient's background and current presentation.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -369,8 +369,8 @@
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section is mostly aligned but has several minor omissions, including the patient's specific weight and height, and some detailed findings from the cardiovascular, respiratory, and neurological exams. A moderate omission is the lack of specific pending blood work details (HbA1c, lipid panel, etc.) from the Results section.",
+        "grade": "C",
+        "summary": "While vital signs and some physical exam findings are present, this section omits specific patient measurements (weight, height), detailed findings from cardiovascular, respiratory, and neurological exams (e.g., no murmurs, lungs clear to auscultation, alert and oriented), and critically, the entire list of pending blood work results (HbA1c, lipid panel, fasting glucose, serum creatinine, and eGFR).",
         "omissions": [
           "Patient's weight (92 kg)",
           "Patient's height (175 cm)",
@@ -385,8 +385,8 @@
       },
       {
         "section": "Assessment",
-        "grade": "F",
-        "summary": "The Assessment section is critically flawed, completely omitting all primary diagnoses: Type 2 Diabetes Mellitus (uncontrolled), Hypertension, and Hyperlipidemia. This makes the section unsafe and unreliable as it fails to capture the patient's core medical problems.",
+        "grade": "D",
+        "summary": "The Assessment section is significantly flawed by the omission of the patient's established chronic diagnoses: uncontrolled Type 2 Diabetes Mellitus, Hypertension, and Hyperlipidemia. It also misses the assessment of lifestyle non-adherence contributing to poor disease control. This makes the assessment incomplete and fails to capture the full scope of the patient's conditions.",
         "omissions": [
           "Diagnosis: Type 2 Diabetes Mellitus, uncontrolled",
           "Diagnosis: Hypertension",
@@ -397,8 +397,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section has noticeable gaps, including the omission of the entire Patient Education and Counseling section and Patient Agreements. It also lacks specific details for additional testing (specific blood work to await) and the explicit goals for antihypertensive medication adjustment. While some medical reasoning content was moved to the Assessment, the structured sections and comprehensive details are missing.",
+        "grade": "D",
+        "summary": "This section is highly incomplete, omitting entire critical components such as Medical Reasoning, Additional Testing details (specific blood work awaited for evaluation and adjustment), Patient Education and Counseling, and Patient Agreements. While some treatment recommendations are present, the lack of rationale, specific details for medication adjustments, patient education on managing conditions, and confirmation of patient understanding severely limits its clinical utility.",
         "omissions": [
           "Medical Reasoning section",
           "Reasoning for dizziness (orthostatic hypotension, medication/diabetes)",

@@ -304,9 +304,9 @@
     "plan_alignment_score": 0.6142857142857142
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "expert_clinical_documentation_reviewer",
     "overall_grade": "D",
-    "overall_summary": "The generated note has significant omissions, particularly in the Assessment section, where prediabetes and hyperlipidemia are not explicitly assessed as distinct problems with their medical reasoning. This materially reduces the clinical usefulness and completeness of the note. Additionally, the Objective and Plan sections have several moderate omissions, including detailed physical exam findings, explicit test orders, and patient education details. There are no unsupported or unknown additions.",
+    "overall_summary": "The generated note has significant omissions across multiple sections. The Subjective section misses key HPI and ROS details, including past medical history and lifestyle factors. The Assessment section critically omits two existing diagnoses (prediabetes, hyperlipidemia) and their medical reasoning, as well as the chief complaint of fatigue. The Plan section fails to explicitly list the ordered blood work and thyroid ultrasound, which are crucial clinical actions. These major omissions materially reduce the clinical usefulness of the note.",
     "omissions": [
       "Chief Complaint (CC) section heading",
       "History of Present Illness (HPI) section heading",
@@ -352,8 +352,8 @@
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The section captures the chief complaint and main HPI details but omits important past medical history, specific lifestyle details (sleep, alcohol, diet, exercise), and several review of systems denials. The addition of objective findings is supported by the transcript.",
+        "grade": "C",
+        "summary": "The Subjective section omits significant details from the History of Present Illness, including past medical history of prediabetes and hyperlipidemia, sleep duration and quality, and specific dietary and exercise habits. Several Review of Systems details, such as the denial of recent illnesses and the psychological assessment, are also missing.",
         "omissions": [
           "Chief Complaint (CC) section heading",
           "History of Present Illness (HPI) section heading",
@@ -376,7 +376,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "Vital signs are accurately captured. However, several normal physical examination findings, including cardiovascular, respiratory, abdominal, and neurological details, are omitted.",
+        "summary": "The Objective section has several minor omissions from the physical examination, including the patient's general appearance of being tired, and specific cardiovascular, respiratory, abdominal, and neurological findings. However, key vital signs and the thyroid exam findings are present.",
         "omissions": [
           "Physical Examination: General Appearance: 'appears tired'",
           "Physical Examination: Cardiovascular findings (regular rhythm, no murmurs)",
@@ -389,7 +389,7 @@
       {
         "section": "Assessment",
         "grade": "D",
-        "summary": "The assessment is significantly incomplete due to the omission of prediabetes and hyperlipidemia as distinct problems with their medical reasoning. The detailed medical reasoning for possible thyroid dysfunction is also missing, reducing the clarity of the clinical thought process.",
+        "summary": "The Assessment section has major omissions, failing to list prediabetes and hyperlipidemia as distinct problems with their corresponding medical reasoning. Moderate fatigue, the chief complaint, is also not explicitly listed as a distinct problem. This significantly reduces the clinical completeness and usefulness of the assessment.",
         "omissions": [
           "Encounter for general adult medical examination with abnormal findings",
           "Moderate fatigue as a distinct problem",
@@ -406,8 +406,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The plan omits the explicit listing of ordered tests (blood work and thyroid ultrasound) within the Plan section, and lacks detailed patient education points regarding thyroid issues, compliance, and resources. The specific name of the endocrinologist is also missing.",
+        "grade": "D",
+        "summary": "The Plan section critically omits the explicit listing of ordered tests, including the biochemistry panel, TSH, Free T4, Free T3, and thyroid ultrasound. It also misses the specific name of the endocrinologist and detailed patient education points, significantly impacting the completeness of the actionable plan.",
         "omissions": [
           "Specific name of endocrinologist (Dr. John Smith)",
           "Tests Ordered section heading",
@@ -431,28 +431,36 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "You appear mildly overweight and you look a bit tired. When I palpate your thyroid, it feels slightly enlarged but non-tender.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mildly overweight appearance with mildly enlarged non-tender thyroid on examination"
+      "matched_claim_text": "Mildly overweight appearance with mildly enlarged non-tender thyroid on examination",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Assessment: Explicitly listing laboratory tests (biochemistry panel, TSH, Free T4, Free T3) and thyroid ultrasound as part of required further evaluation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m going to order some blood tests including a biochemistry panel, thyroid-stimulating hormone (TSH), Free T4, and Free T3. I also want to get a thyroid ultrasound to check for any structural abnormalities.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Requires further evaluation with laboratory tests (biochemistry panel, TSH, Free T4, Free T3) and thyroid ultrasound"
+      "matched_claim_text": "Requires further evaluation with laboratory tests (biochemistry panel, TSH, Free T4, Free T3) and thyroid ultrasound",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Inclusion of objective physical exam findings (mildly overweight appearance with mildly enlarged non-tender thyroid on examination)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "You appear mildly overweight and you look a bit tired. When I palpate your thyroid, it feels slightly enlarged but non-tender.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Mildly overweight appearance with mildly enlarged non-tender thyroid on examination"
+      "matched_claim_text": "Mildly overweight appearance with mildly enlarged non-tender thyroid on examination",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Explicitly listing laboratory tests (biochemistry panel, TSH, Free T4, Free T3) and thyroid ultrasound as part of required further evaluation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m going to order some blood tests including a biochemistry panel, thyroid-stimulating hormone (TSH), Free T4, and Free T3. I also want to get a thyroid ultrasound to check for any structural abnormalities.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Requires further evaluation with laboratory tests (biochemistry panel, TSH, Free T4, Free T3) and thyroid ultrasound"
+      "matched_claim_text": "Requires further evaluation with laboratory tests (biochemistry panel, TSH, Free T4, Free T3) and thyroid ultrasound",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

@@ -284,7 +284,7 @@
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is mostly clinically aligned but has noticeable gaps and multiple moderate issues, particularly in the Subjective and Plan sections. The Subjective section omits many HPI details and a comprehensive Review of Systems. The Plan section misses important patient education regarding iron absorption, the specific purpose of the GI referral, and detailed safety instructions for emergency care. There are no unsupported or unknown additions that would significantly lower the grade further.",
+    "overall_summary": "The generated note captures the core clinical picture, including the chief complaint, main diagnosis, and primary treatment plan. However, it suffers from numerous omissions across all sections. Key missing details include important negative findings in the Subjective section (e.g., denial of recent blood loss, GI symptoms), the status of pending iron studies in Objective, and crucial patient education and safety instructions in the Plan (e.g., iron absorption advice, specific reason for GI referral, detailed ER warning signs). While there are no unsupported additions, the cumulative effect of these moderate omissions makes the note meaningfully incomplete and requires careful review.",
     "omissions": [
       "Patient demographic detail: office manager",
       "HPI: Symptoms constant and significantly impacted ability to perform routine tasks at work and home",
@@ -325,7 +325,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The Subjective section has numerous omissions, including important HPI details about symptom impact, denials of key medical history (medications, infections, blood loss), and a comprehensive set of ROS denials. These collective absences make the HPI and ROS meaningfully incomplete.",
+        "summary": "This section has numerous omissions, including several clinically relevant negative findings (e.g., denial of recent blood loss, no chest pain/palpitations, no GI symptoms like melena) and details about the impact of symptoms. While the chief complaint is present, the extensive missing context and denials make the section noticeably incomplete.",
         "omissions": [
           "Chief Complaint (CC) section header",
           "History of Present Illness (HPI) section header",
@@ -354,7 +354,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section is mostly complete, accurately capturing vital signs, key physical exam findings, and lab results. It has several minor omissions from the physical exam (pale conjunctiva, musculoskeletal details, neurological detail) and one moderate omission regarding the pending iron studies, which are crucial for the diagnostic workup.",
+        "summary": "The vital signs and key lab results (hemoglobin, hematocrit) are accurately captured. However, the section omits the physical exam finding of 'Pale conjunctiva' and, more significantly, the crucial information about 'awaiting results: Iron studies to assess for iron deficiency,' which is a moderate gap in diagnostic context.",
         "omissions": [
           "Vital Signs section header",
           "Physical Examination section header",
@@ -370,7 +370,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is strong, accurately identifying Posthemorrhagic Anemia. The only omission is the 'Acute' qualifier, which is minor. The addition of 'Low blood pressure and elevated heart rate' is supported by the transcript and therefore does not count against the grade.",
+        "summary": "The primary diagnosis of 'Posthemorrhagic anemia' is correctly identified. The only omission is the 'Acute' qualifier, which is a minor detail. The addition of 'Low blood pressure and elevated heart rate' is supported by the transcript and does not negatively impact the grade.",
         "omissions": [
           "'Acute' qualifier for Posthemorrhagic Anemia"
         ],
@@ -381,7 +381,7 @@
       {
         "section": "Plan",
         "grade": "C",
-        "summary": "The Plan section has several moderate omissions that reduce its clinical usefulness. These include important patient education regarding taking iron supplements with vitamin C, the specific purpose of the GI referral (to identify and treat bleeding sources), and detailed examples of worsening symptoms that warrant an ER visit. While the core plan is present, these missing details are clinically significant.",
+        "summary": "While the main treatment, follow-up, and referral are present, this section omits several important patient education and safety details. These include advice on taking iron supplements with vitamin C, the specific reason for the gastroenterology referral, a detailed list of iron-rich foods, and specific examples of worsening symptoms that warrant an ER visit. These are moderate omissions that reduce the completeness and safety of the plan.",
         "omissions": [
           "Medical Treatment section header",
           "Advised patient to take iron supplements with vitamin C or orange juice to enhance absorption",
@@ -407,14 +407,18 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "It means you have low blood pressure and a high heart rate.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Low blood pressure and elevated heart rate"
+      "matched_claim_text": "Low blood pressure and elevated heart rate",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypotensive disorder — disease_phenotype_positive — Low-to-normal blood pressure"
     },
     {
       "addition_text": "Low blood pressure and elevated heart rate",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It means you have low blood pressure and a high heart rate.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Low blood pressure and elevated heart rate"
+      "matched_claim_text": "Low blood pressure and elevated heart rate",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "hypotensive disorder — disease_phenotype_positive — Low-to-normal blood pressure"
     }
   ]
 }

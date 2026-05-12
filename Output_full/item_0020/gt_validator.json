@@ -220,92 +220,106 @@
     "plan_alignment_score": 0.6238532110091742
   },
   "expert_judge": {
-    "model": "clinical_documentation_reviewer_v1",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated note is usable but has noticeable gaps, particularly the complete omission of the Review of Systems section in Subjective and two major chronic diagnoses (Hypertension, Hyperlipidemia) in Assessment. While there are no unsupported additions, these significant omissions make the note meaningfully incomplete and warrant a C grade.",
+    "overall_summary": "The generated note effectively captures the chief complaint, history of present illness, physical exam findings, and a comprehensive plan for the patient's lower back pain. However, the Assessment section has significant omissions, failing to include the patient's chronic conditions of hypertension and hyperlipidemia. The Subjective section also omits some clinically relevant details, such as the constant nature of the pain with intermittent exacerbations and the denial of bowel/bladder incontinence. While the core management of the back pain is well-documented, the missing comorbidities in the Assessment represent a noticeable gap that reduces the overall clinical completeness and usefulness of the note, warranting a 'C' grade.",
     "omissions": [
       "Chief Complaint (CC) section header",
-      "HPI detail: pain is constant with intermittent exacerbations",
-      "HPI detail: pain impacts performing work tasks",
-      "HPI detail: no history of trauma",
-      "Review of Systems (ROS) section (Constitutional, Musculoskeletal, Neurological, Cardiovascular, Respiratory, Gastrointestinal details)",
-      "Physical Exam detail: Patient appears in moderate distress due to pain",
-      "Physical Exam detail: Normal S1 and S2, no murmurs (specific cardiovascular findings)",
-      "Physical Exam detail: Clear to auscultation bilaterally (specific respiratory findings)",
-      "Diagnosis: Hypertension - controlled on Lisinopril",
-      "Diagnosis: Hyperlipidemia",
-      "Medication detail: Ibuprofen 'oral'",
-      "Medication detail: Ibuprofen 'quantity: 30 tablets'",
-      "Referral detail: physical therapy 'for back strengthening exercises'",
-      "Follow-up detail: 'to assess pain and response to treatment'",
-      "Referral detail: Orthopedics 'with Dr. John Smith'",
-      "MRI timing: 'if no improvement in 4 weeks'",
-      "Lifestyle Recommendation: Encourage exercises to strengthen core muscles",
-      "Lifestyle Recommendation: Patient advised to maintain a balanced diet",
-      "Patient Education: Advised on proper body mechanics and techniques to avoid strain on the back",
-      "Additional Notes section (including 'The patient is cooperative and motivated to follow medical advice' and 'Discussed the potential need for further evaluation if symptoms do not improve as expected')",
-      "Next Steps section (including 'Monitor response to treatment and make necessary adjustments based on symptoms and physical exam findings at the next visit')"
+      "History of Present Illness (HPI) section header",
+      "Review of Systems (ROS) section header",
+      "Pain is constant with intermittent exacerbations",
+      "Difficulty sleeping due to the pain (from HPI)",
+      "No history of trauma",
+      "ROS - Constitutional: Reports poor sleep due to pain",
+      "ROS - Musculoskeletal: Denies recent injuries",
+      "ROS - Neurological: Denies bowel or bladder incontinence",
+      "ROS - Cardiovascular: Denies chest pain or palpitations",
+      "ROS - Respiratory: Denies shortness of breath",
+      "ROS - Gastrointestinal: No abdominal pain, nausea, or vomiting",
+      "Physical Exam - General: Patient appears in moderate distress due to pain",
+      "Physical Exam - Cardiovascular: Normal S1 and S2, no murmurs",
+      "Physical Exam - Respiratory: Clear to auscultation bilaterally",
+      "Assessment: Hypertension - controlled on Lisinopril",
+      "Assessment: Hyperlipidemia",
+      "Assessment: Definitive diagnosis of \"Lower back pain\"",
+      "Plan - Medications: Ibuprofen \"oral\", \"quantity: 30 tablets\"",
+      "Plan - Referrals: Physical therapy specific goal \"for back strengthening exercises\"",
+      "Plan - Referrals: Orthopedics referral to specific doctor \"Dr. John Smith\"",
+      "Plan - Referrals: MRI timing \"in 4 weeks\"",
+      "Plan - Lifestyle: \"Encourage exercises to strengthen core muscles\"",
+      "Plan - Lifestyle: \"Patient advised to maintain a balanced diet\"",
+      "Plan - Patient Education: \"Advised on proper body mechanics and techniques to avoid strain on the back\"",
+      "Plan - Additional Notes: \"The patient is cooperative and motivated to follow medical advice\"",
+      "Plan - Additional Notes: \"Discussed the potential need for further evaluation if symptoms do not improve as expected\"",
+      "Plan - Next Steps: \"Monitor response to treatment and make necessary adjustments based on symptoms and physical exam findings at the next visit\""
     ],
     "additions": [
-      "Objective: 'Vitals are within normal limits'",
-      "Assessment: 'The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain'"
+      "Objective: \"Vitals are within normal limits\" summary statement",
+      "Assessment: \"The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain\""
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "C",
-        "summary": "The Subjective section omits the entire Review of Systems (ROS) section, which is a major gap. Additionally, several moderate details from the History of Present Illness (HPI) are missing, including the pain being constant with intermittent exacerbations, its impact on work tasks, and the absence of trauma history.",
+        "grade": "B",
+        "summary": "The Subjective section captures the core HPI details well. However, it omits several minor details such as the pain being 'constant with intermittent exacerbations' and 'no history of trauma'. More significantly, it omits the denial of 'bowel or bladder incontinence' from the ROS, which is a moderate clinical omission. Other ROS denials are minor omissions. Despite these, the section is mostly clinically aligned and usable.",
         "omissions": [
           "Chief Complaint (CC) section header",
-          "HPI detail: pain is constant with intermittent exacerbations",
-          "HPI detail: pain impacts performing work tasks",
-          "HPI detail: no history of trauma",
-          "Review of Systems (ROS) section (Constitutional, Musculoskeletal, Neurological, Cardiovascular, Respiratory, Gastrointestinal details)"
+          "History of Present Illness (HPI) section header",
+          "Review of Systems (ROS) section header",
+          "Pain is constant with intermittent exacerbations",
+          "Difficulty sleeping due to the pain (from HPI)",
+          "No history of trauma",
+          "ROS - Constitutional: Reports poor sleep due to pain",
+          "ROS - Musculoskeletal: Denies recent injuries",
+          "ROS - Neurological: Denies bowel or bladder incontinence",
+          "ROS - Cardiovascular: Denies chest pain or palpitations",
+          "ROS - Respiratory: Denies shortness of breath",
+          "ROS - Gastrointestinal: No abdominal pain, nausea, or vomiting"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "B",
-        "summary": "The Objective section has a moderate omission regarding the patient appearing in moderate distress due to pain. There are also minor omissions in the specific phrasing of cardiovascular (Normal S1 and S2, no murmurs) and respiratory (Clear to auscultation bilaterally) findings, although the general findings are present. The addition of 'Vitals are within normal limits' is supported by the transcript and does not reduce the grade.",
+        "grade": "A",
+        "summary": "The Objective section is comprehensive and accurate. It includes all vital signs and key physical exam findings. The omissions are minor observational details (e.g., 'patient appears in moderate distress') or normal findings (e.g., 'Normal S1 and S2, no murmurs', 'Clear to auscultation bilaterally') that do not detract from the clinical utility. All additions in this section are supported by the transcript and therefore do not impact the grade.",
         "omissions": [
-          "Physical Exam detail: Patient appears in moderate distress due to pain",
-          "Physical Exam detail: Normal S1 and S2, no murmurs (specific cardiovascular findings)",
-          "Physical Exam detail: Clear to auscultation bilaterally (specific respiratory findings)"
+          "Physical Exam - General: Patient appears in moderate distress due to pain",
+          "Physical Exam - Cardiovascular: Normal S1 and S2, no murmurs",
+          "Physical Exam - Respiratory: Clear to auscultation bilaterally"
         ],
         "additions": [
-          "'Vitals are within normal limits'"
+          "\"Vitals are within normal limits\" summary statement"
         ]
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section has major omissions, failing to include two significant chronic diagnoses: Hypertension (controlled on Lisinopril) and Hyperlipidemia. This significantly reduces the completeness and clinical usefulness of the assessment. The addition of 'The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain' is supported by the transcript and does not reduce the grade.",
+        "summary": "The Assessment section has significant omissions, failing to include the patient's chronic conditions of 'Hypertension - controlled on Lisinopril' and 'Hyperlipidemia'. These are moderate to high-severity omissions that make the note meaningfully incomplete regarding the patient's overall health status. The generated diagnosis of 'possible lumbar-related lower back pain' is slightly less definitive than the Ground Truth's 'Lower back pain (ICD-10: M54.5)'. The addition in this section is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Diagnosis: Hypertension - controlled on Lisinopril",
-          "Diagnosis: Hyperlipidemia"
+          "Hypertension - controlled on Lisinopril",
+          "Hyperlipidemia",
+          "Definitive diagnosis of \"Lower back pain\""
         ],
         "additions": [
-          "'The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain'"
+          "\"The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain\""
         ]
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section contains numerous minor omissions of specific details, such as medication route and quantity, the specific purpose of physical therapy, the full name of the orthopedic referral, and the specific 4-week timing for MRI consideration. Additionally, entire 'Additional Notes' and 'Next Steps' sections are omitted, which contained some useful context and reiteration of the plan. Despite these, the core plan elements are present, making it mostly clinically aligned.",
+        "grade": "A",
+        "summary": "The Plan section is very strong, capturing all major components of the treatment strategy, including medication, referrals, follow-up, lifestyle recommendations, and patient education. The omissions are primarily minor details such as specific medication instructions ('oral', 'quantity: 30 tablets'), the specific goal for physical therapy ('for back strengthening exercises'), the name of the orthopedic doctor, or the exact timing for an MRI ('in 4 weeks'). These minor omissions do not materially reduce the clinical usefulness of the plan.",
         "omissions": [
-          "Medication detail: Ibuprofen 'oral'",
-          "Medication detail: Ibuprofen 'quantity: 30 tablets'",
-          "Referral detail: physical therapy 'for back strengthening exercises'",
-          "Follow-up detail: 'to assess pain and response to treatment'",
-          "Referral detail: Orthopedics 'with Dr. John Smith'",
-          "MRI timing: 'if no improvement in 4 weeks'",
-          "Lifestyle Recommendation: Encourage exercises to strengthen core muscles",
-          "Lifestyle Recommendation: Patient advised to maintain a balanced diet",
-          "Patient Education: Advised on proper body mechanics and techniques to avoid strain on the back",
-          "Additional Notes section (including 'The patient is cooperative and motivated to follow medical advice' and 'Discussed the potential need for further evaluation if symptoms do not improve as expected')",
-          "Next Steps section (including 'Monitor response to treatment and make necessary adjustments based on symptoms and physical exam findings at the next visit')"
+          "Ibuprofen medication details: \"oral\", \"quantity: 30 tablets\"",
+          "Physical therapy specific goal: \"for back strengthening exercises\"",
+          "Orthopedics referral to specific doctor: \"Dr. John Smith\"",
+          "MRI timing: \"in 4 weeks\"",
+          "Lifestyle recommendation: \"Encourage exercises to strengthen core muscles\"",
+          "Lifestyle recommendation: \"Patient advised to maintain a balanced diet\"",
+          "Patient education: \"Advised on proper body mechanics and techniques to avoid strain on the back\"",
+          "Additional Notes: \"The patient is cooperative and motivated to follow medical advice\"",
+          "Additional Notes: \"Discussed the potential need for further evaluation if symptoms do not improve as expected\"",
+          "Next Steps: \"Monitor response to treatment and make necessary adjustments based on symptoms and physical exam findings at the next visit\""
         ],
         "additions": []
       }
@@ -315,32 +329,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: 'Vitals are within normal limits'",
+      "addition_text": "Objective: \"Vitals are within normal limits\" summary statement",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Your vitals are looking good today. Blood pressure is 130/85 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. ... Yes, those are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: 'The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain'",
+      "addition_text": "Assessment: \"The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might be dealing with lower back pain possibly due to a lumbar issue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain."
+      "matched_claim_text": "The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'Vitals are within normal limits'",
+      "addition_text": "\"Vitals are within normal limits\" summary statement",
       "supported_by_transcript": "supported",
-      "transcript_evidence": "Your vitals are looking good today. ... Yes, those are within normal ranges.",
+      "transcript_evidence": "Your vitals are looking good today. Blood pressure is 130/85 mmHg, heart rate is 78 bpm, respiratory rate is 16 breaths per minute, and your temperature is 98.6°F. ... Yes, those are within normal ranges.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "'The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain'",
+      "addition_text": "\"The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] Based on your symptoms and physical exam, it seems like you might be dealing with lower back pain possibly due to a lumbar issue.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain."
+      "matched_claim_text": "The patient's symptoms and physical exam findings suggest possible lumbar-related lower back pain.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

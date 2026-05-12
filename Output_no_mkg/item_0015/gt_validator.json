@@ -264,76 +264,85 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "B",
-    "overall_summary": "The generated note is mostly clinically aligned and usable, accurately capturing the primary diagnosis and a comprehensive plan. However, it has several moderate omissions, particularly in the Subjective section, where details regarding symptom frequency, impact on daily activities and sleep, and specific environmental factors are missing. The Plan also omits specific medication quantity, the exact blood work panel, and patient understanding/agreement. There are no unsupported or unknown additions.",
+    "overall_grade": "C",
+    "overall_summary": "The generated SOAP note provides a usable summary of the patient's visit but contains noticeable gaps due to multiple moderate omissions across the Subjective, Objective, and Plan sections. While the core clinical picture and treatment plan are present, important details regarding symptom severity and frequency, social history, physical exam findings, specific diagnostic tests, and patient education/agreement are missing, making the note meaningfully incomplete and requiring careful review.",
     "omissions": [
-      "Patient works part-time in retail",
-      "Patient presents to the urgent care center",
-      "Nausea and vomiting episodes occur 4-5 times per day",
-      "Symptoms significantly impacted daily activities, making it difficult to go to work and perform household tasks",
-      "Poor sleep due to nausea, averaging only 4-5 hours per night",
-      "Patient consumes alcohol occasionally, with the last instance being several weeks ago",
-      "Patient's recreational activities include watching TV and reading",
-      "Patient lives in an impoverished urban neighborhood with moderate pollution levels",
-      "No rebound tenderness or guarding on abdominal examination",
-      "Ondansetron dosage form: oral",
-      "Ondansetron quantity: 6 tablets",
-      "Blood work for biochemistry (comprehensive metabolic panel)",
-      "Advise patient to avoid trigger foods",
-      "Patient understands and agrees with the recommended medical treatment plan, is eager to find relief from symptoms, and willing to make suggested lifestyle changes despite challenges"
+      "Patient works part-time in retail.",
+      "Nausea and vomiting described as \"moderate to severe\".",
+      "Nausea and vomiting episodes occur 4-5 times per day.",
+      "Symptoms impacted daily activities, making it difficult to go to work and perform household tasks.",
+      "Poor sleep averaging only 4-5 hours per night.",
+      "Minimal exercise, with occasional walking.",
+      "Denial of tobacco or drug use.",
+      "Occasional alcohol consumption, last instance several weeks ago.",
+      "Recreational activities include watching TV and reading.",
+      "Living in an impoverished urban neighborhood with moderate pollution levels.",
+      "No rebound tenderness or guarding on abdominal exam.",
+      "Diagnosis of nausea with vomiting described as \"unspecified\".",
+      "Ondansetron medication route \"oral\".",
+      "Ondansetron quantity: 6 tablets.",
+      "Purpose of oral rehydration solution: to prevent dehydration.",
+      "Specific blood work ordered: biochemistry (comprehensive metabolic panel).",
+      "Recommendation to avoid trigger foods.",
+      "Follow-up purpose: to reassess symptoms.",
+      "Patient understands and agrees with the plan, is eager for relief, and willing to make lifestyle changes despite challenges."
     ],
     "additions": [
-      "Ondansetron prescribed for nausea control",
-      "Instruct patient to return immediately if feeling worse or unable to keep fluids down"
+      "Instruction to return immediately if feeling worse or unable to keep fluids down."
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section is missing several moderate details, including the frequency of nausea and vomiting episodes (4-5 times per day), the significant impact on daily activities (work, household tasks), poor sleep due to nausea (4-5 hours per night), and specific environmental details (impoverished neighborhood with moderate pollution levels). Minor omissions include patient's occupation, presentation context, last alcohol consumption, and recreational activities. These omissions reduce the completeness of the HPI and social history.",
+        "grade": "C",
+        "summary": "The Subjective section omits several clinically important details, including the 'moderate to severe' nature of nausea/vomiting, its frequency (4-5 times/day), the significant impact on daily activities and sleep, specific social history (denial of tobacco/drugs, occasional alcohol use), and the full context of living conditions (impoverished, moderate pollution). These are multiple moderate omissions that create noticeable gaps in the patient's history.",
         "omissions": [
-          "Patient works part-time in retail",
-          "Patient presents to the urgent care center",
-          "Nausea and vomiting episodes occur 4-5 times per day",
-          "Symptoms significantly impacted daily activities, making it difficult to go to work and perform household tasks",
-          "Poor sleep due to nausea, averaging only 4-5 hours per night",
-          "Patient consumes alcohol occasionally, with the last instance being several weeks ago",
-          "Patient's recreational activities include watching TV and reading",
-          "Patient lives in an impoverished urban neighborhood with moderate pollution levels"
+          "Patient works part-time in retail.",
+          "Nausea and vomiting described as \"moderate to severe\".",
+          "Nausea and vomiting episodes occur 4-5 times per day.",
+          "Symptoms impacted daily activities, making it difficult to go to work and perform household tasks.",
+          "Poor sleep averaging only 4-5 hours per night.",
+          "Minimal exercise, with occasional walking.",
+          "Denial of tobacco or drug use.",
+          "Occasional alcohol consumption, last instance several weeks ago.",
+          "Recreational activities include watching TV and reading.",
+          "Living in an impoverished urban neighborhood with moderate pollution levels."
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "A",
-        "summary": "The Objective section is largely complete, with only one minor omission: the absence of documentation stating \"No rebound tenderness or guarding on abdominal examination.\" This negative finding is clinically relevant but its omission does not significantly impact the usability or accuracy of the section.",
+        "grade": "B",
+        "summary": "The Objective section is mostly complete but omits the important negative finding of 'no rebound tenderness or guarding' on abdominal examination. This is a moderate omission that impacts the completeness of the physical exam documentation.",
         "omissions": [
-          "No rebound tenderness or guarding on abdominal examination"
+          "No rebound tenderness or guarding on abdominal exam."
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is complete and accurate, with no omissions or additions.",
-        "omissions": [],
+        "summary": "The Assessment section correctly identifies the primary diagnosis of nausea with vomiting. The omission of 'unspecified' is minor and does not impact clinical utility.",
+        "omissions": [
+          "Diagnosis of nausea with vomiting described as \"unspecified\"."
+        ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "B",
-        "summary": "The Plan section has several omissions, including the specific dosage form (\"oral\") and quantity (\"6 tablets\") for Ondansetron, the specific type of blood work (\"biochemistry (comprehensive metabolic panel)\"), and the advice to \"avoid trigger foods.\" It also omits the patient's understanding and agreement with the plan. However, the core treatment, hydration, general lifestyle advice, and follow-up are present. The additions are supported by the transcript and do not negatively impact the grade.",
+        "grade": "C",
+        "summary": "The Plan section outlines the main treatment and recommendations but has several moderate omissions. These include the specific type of blood work (comprehensive metabolic panel), the recommendation to avoid trigger foods, and the patient's understanding, agreement, and willingness to adhere to the plan. While an addition was made, it was supported by the transcript and did not reduce the grade. The remaining omissions create noticeable gaps in the comprehensiveness of the plan.",
         "omissions": [
-          "Ondansetron dosage form: oral",
-          "Ondansetron quantity: 6 tablets",
-          "Blood work for biochemistry (comprehensive metabolic panel)",
-          "Advise patient to avoid trigger foods",
-          "Patient understands and agrees with the recommended medical treatment plan, is eager to find relief from symptoms, and willing to make suggested lifestyle changes despite challenges"
+          "Ondansetron medication route \"oral\".",
+          "Ondansetron quantity: 6 tablets.",
+          "Purpose of oral rehydration solution: to prevent dehydration.",
+          "Specific blood work ordered: biochemistry (comprehensive metabolic panel).",
+          "Recommendation to avoid trigger foods.",
+          "Follow-up purpose: to reassess symptoms.",
+          "Patient understands and agrees with the plan, is eager for relief, and willing to make lifestyle changes despite challenges."
         ],
         "additions": [
-          "Ondansetron prescribed for nausea control",
-          "Instruct patient to return immediately if feeling worse or unable to keep fluids down"
+          "Instruction to return immediately if feeling worse or unable to keep fluids down."
         ]
       }
     ],
@@ -342,18 +351,13 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Ondansetron prescribed for nausea control",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "[Doctor]: I'm going to prescribe you Ondansetron 4 mg that you can take every 8 hours as needed. It should help control the nausea.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Prescribe Ondansetron 4 mg every 8 hours as needed for nausea control."
-    },
-    {
-      "addition_text": "Instruct patient to return immediately if feeling worse or unable to keep fluids down",
+      "addition_text": "Instruction to return immediately if feeling worse or unable to keep fluids down.",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you feel worse or can't keep any fluids down, come back immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to return immediately if feeling worse or unable to keep fluids down."
+      "matched_claim_text": "Instruct patient to return immediately if feeling worse or unable to keep fluids down.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

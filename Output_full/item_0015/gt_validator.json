@@ -253,8 +253,8 @@
   },
   "expert_judge": {
     "model": "clinical_documentation_reviewer",
-    "overall_grade": "C",
-    "overall_summary": "The generated note provides a clinically usable summary of the patient's presentation, assessment, and plan. However, it suffers from numerous omissions, particularly in the Subjective and Plan sections. Key details regarding the history of present illness, the structured review of systems, specific medication instructions (quantity), detailed lab orders, and some patient education points are missing. While no unsupported or unknown additions were found, the cumulative effect of these omissions makes the note less comprehensive and requires careful review for completeness.",
+    "overall_grade": "B",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and usable, accurately capturing the chief complaint, primary diagnosis, and core treatment plan. However, it has several omissions, particularly in the Subjective section, where important details regarding symptom severity, frequency, impact on daily activities, and a structured review of systems are missing. The Objective and Plan sections also have moderate omissions, including key negative physical exam findings, medication quantity, specific lab details, and patient education points. No unsupported or unknown additions were identified, which is a strong positive.",
     "omissions": [
       "Chief Complaint section header",
       "HPI: 'moderate to severe' (for nausea/vomiting)",
@@ -300,7 +300,7 @@
       {
         "section": "Subjective",
         "grade": "C",
-        "summary": "The section captures the chief complaint and main HPI elements but omits many specific details regarding the severity of symptoms, frequency of vomiting, specific impact on daily activities, sleep duration, occupation, lifestyle specifics, and environmental context. The structured Review of Systems, including specific denials, is also omitted, making the section less comprehensive.",
+        "summary": "The Subjective section has noticeable gaps, omitting important details such as the 'moderate to severe' nature of nausea/vomiting, its frequency ('4-5 times per day'), specific impact on work and household tasks, and sleep duration. The entire structured Review of Systems, including several key negative findings, is also missing, making this section meaningfully incomplete.",
         "omissions": [
           "Chief Complaint section header",
           "HPI: 'moderate to severe' (for nausea/vomiting)",
@@ -325,7 +325,7 @@
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The section accurately reports vital signs and key physical exam findings. However, it omits the general appearance description and the important detail regarding the absence of rebound tenderness or guarding on abdominal examination.",
+        "summary": "The Objective section is mostly aligned but omits the general appearance ('Appears slightly pale but alert and cooperative') and a crucial negative finding from the abdominal exam ('No rebound tenderness or guarding'). While the core findings are present, these omissions reduce the completeness of the physical examination documentation.",
         "omissions": [
           "Physical Examination section header",
           "General appearance: 'Appears slightly pale but alert and cooperative.'",
@@ -336,7 +336,7 @@
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "This section correctly identifies the primary diagnosis of nausea with vomiting. The only omissions are minor formatting and the 'unspecified' descriptor for the diagnosis. All additions in this section were supported by the transcript and thus do not negatively impact the grade.",
+        "summary": "The Assessment section is excellent, capturing the primary diagnosis accurately. The only omissions are minor formatting ('Primary diagnosis' header) and a specific ICD-10 descriptor ('unspecified'). The addition of 'dehydration possible due to persistent vomiting' is supported by the transcript and enhances clinical usefulness.",
         "omissions": [
           "'Primary diagnosis' header",
           "'unspecified' (for nausea with vomiting)"
@@ -347,8 +347,8 @@
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan outlines the core medical treatment, further testing, and patient education. However, it omits crucial details such as the medication route ('oral'), the exact quantity of tablets, the specific biochemistry panel for blood work, and the advice to avoid trigger foods. The patient understanding statement is also omitted. All additions in this section were supported by the transcript and thus do not negatively impact the grade.",
+        "grade": "B",
+        "summary": "The Plan section outlines the core treatment but has several moderate omissions. These include specific medication details (route 'oral', 'quantity: 6 tablets'), the exact type of blood work ('for biochemistry (comprehensive metabolic panel)'), a key patient education point ('Avoid trigger foods, which may exacerbate nausea.'), and the important patient understanding and agreement statement. While the main plan is present, these details are important for comprehensive care and patient engagement.",
         "omissions": [
           "Medical Treatment section header",
           "Medication detail: 'oral' (route)",
@@ -377,56 +377,72 @@
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and my examination, it looks like you have nausea with vomiting. I'm also recommending an oral rehydration solution to keep you hydrated. Increase your fluid intake as much as possible.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment of nausea with vomiting; dehydration possible due to persistent vomiting."
+      "matched_claim_text": "Assessment of nausea with vomiting; dehydration possible due to persistent vomiting.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Nausea and vomiting — phenotype_phenotype — Vomiting\nNausea and vomiting — phenotype_phenotype — Nausea"
     },
     {
       "addition_text": "Plan: Medication detail: 'for nausea control'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It should help control the nausea.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Patient education: 'Increase fluid intake as much as possible'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Increase your fluid intake as much as possible.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increase fluid intake as much as possible."
+      "matched_claim_text": "Increase fluid intake as much as possible.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Plan: Instruction for worsening symptoms: 'Instruct patient to return immediately if worsening or unable to keep any fluids down'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you feel worse or can't keep any fluids down, come back immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to return immediately if worsening or unable to keep any fluids down."
+      "matched_claim_text": "Instruct patient to return immediately if worsening or unable to keep any fluids down.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "'dehydration possible due to persistent vomiting'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Based on your symptoms and my examination, it looks like you have nausea with vomiting. I'm also recommending an oral rehydration solution to keep you hydrated. Increase your fluid intake as much as possible.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Assessment of nausea with vomiting; dehydration possible due to persistent vomiting."
+      "matched_claim_text": "Assessment of nausea with vomiting; dehydration possible due to persistent vomiting.",
+      "supported_by_primekg": "supported",
+      "primekg_evidence": "Nausea and vomiting — phenotype_phenotype — Vomiting\nNausea and vomiting — phenotype_phenotype — Nausea"
     },
     {
       "addition_text": "Medication detail: 'for nausea control'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "It should help control the nausea.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Patient education: 'Increase fluid intake as much as possible'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Increase your fluid intake as much as possible.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Increase fluid intake as much as possible."
+      "matched_claim_text": "Increase fluid intake as much as possible.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "Instruction for worsening symptoms: 'Instruct patient to return immediately if worsening or unable to keep any fluids down'",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: If you feel worse or can't keep any fluids down, come back immediately.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Instruct patient to return immediately if worsening or unable to keep any fluids down."
+      "matched_claim_text": "Instruct patient to return immediately if worsening or unable to keep any fluids down.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

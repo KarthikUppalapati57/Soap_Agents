@@ -240,64 +240,56 @@
     "plan_alignment_score": 0.7058823529411765
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "B",
-    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the core HPI, vital signs, key physical exam findings, and the complete treatment plan. While there are no unsupported or unknown additions, the note has several minor omissions, primarily related to section headers, specific negative ROS findings, and descriptive phrases for imaging and NSAIDs. A moderate omission is the absence of negative Lachman's and McMurray's tests in the Objective section, which are clinically relevant details.",
+    "overall_summary": "The generated SOAP note is mostly clinically aligned and clearly usable. It accurately captures the chief complaint, HPI, vital signs, and the core assessment and plan. However, it has several minor omissions across all sections and a moderate omission in the Objective section regarding specific negative physical exam findings. There are no unsupported or unknown additions that would introduce misleading clinical content.",
     "omissions": [
-      "Chief Complaint (CC) section header",
-      "History of Present Illness (HPI) section header",
-      "Review of Systems (ROS) section header",
-      "General ROS: Negative for fever or weight loss",
-      "Cardiovascular ROS: Negative for chest pain or palpitations",
-      "Constitutional ROS: \"otherwise stable\"",
-      "Physical Examination sub-sections (Inspection, Palpation, Range of Motion, Stability Tests)",
-      "Inspection detail: no visible deformity",
-      "Stability Tests: Negative Lachman's and McMurray's tests",
-      "Pain in the left knee (as a separate diagnosis/problem in Assessment)",
-      "\"Treatment\" section header",
-      "\"Follow-up Recommendations\" section header",
-      "\"Referrals\" section header",
-      "X-ray detail: \"to rule out structural abnormalities\"",
-      "MRI detail: \"to evaluate any potential soft tissue damage\"",
-      "NSAIDs detail: \"as needed\""
+      "Negative for fever or weight loss (General ROS)",
+      "Negative for chest pain or palpitations (Cardiovascular ROS)",
+      "\"otherwise stable\" in Constitutional ROS",
+      "\"no visible deformity\" (from Objective Inspection)",
+      "\"over the medial and lateral joint lines\" (from Objective Palpation)",
+      "\"Negative Lachman's and McMurray's tests\" (from Objective Stability Tests)",
+      "\"Pain in the left knee\" as a separate problem in Assessment",
+      "\"pre-existing\" (qualifier for mild osteoarthritis in Assessment)",
+      "\"to rule out structural abnormalities\" (reason for X-ray in Plan)",
+      "\"to evaluate any potential soft tissue damage\" (reason for MRI in Plan)"
     ],
     "additions": [
-      "Assessment detail: \"pending confirmation from further diagnostic imaging (X-ray, potentially MRI)\"",
-      "Plan detail for lifestyle modifications: \"such as avoiding activities that exacerbate the pain and using a cane or knee brace for support if necessary\""
+      "\"pending confirmation from further diagnostic imaging (X-ray, potentially MRI)\" (in Assessment)",
+      "Specific examples for lifestyle modifications: \"such as avoiding activities that exacerbate the pain and using a cane or knee brace for support if necessary.\" (in Plan)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section effectively captures the chief complaint and history of present illness, including the impact on daily activities and sleep. However, it omits explicit section headers for CC, HPI, and ROS, as well as specific negative findings from the Review of Systems (fever, weight loss, chest pain, palpitations, and 'otherwise stable'). These are considered several minor omissions.",
+        "grade": "A",
+        "summary": "The Subjective section is well-captured, accurately reflecting the patient's chief complaint and history of present illness. The only issues are minor omissions of specific negative findings from the Review of Systems (fever/weight loss, chest pain/palpitations, and \"otherwise stable\" in constitutional ROS). These do not significantly impact the clinical utility of the section.",
         "omissions": [
-          "Chief Complaint (CC) section header",
-          "History of Present Illness (HPI) section header",
-          "Review of Systems (ROS) section header",
-          "General ROS: Negative for fever or weight loss",
-          "Cardiovascular ROS: Negative for chest pain or palpitations",
-          "Constitutional ROS: \"otherwise stable\""
+          "Negative for fever or weight loss (General ROS)",
+          "Negative for chest pain or palpitations (Cardiovascular ROS)",
+          "\"otherwise stable\" in Constitutional ROS"
         ],
         "additions": []
       },
       {
         "section": "Objective",
         "grade": "B",
-        "summary": "The Objective section accurately presents vital signs and key physical examination findings such as swelling, tenderness, reduced range of motion, and discomfort with stress tests. However, it omits the specific sub-sections for the physical examination and, more significantly, the negative findings for Lachman's and McMurray's tests, which is a moderate clinical omission. The detail 'no visible deformity' was also omitted.",
+        "summary": "The Objective section accurately reports vital signs and general physical exam findings. However, it omits some specific details from the Ground Truth, including the absence of visible deformity, the precise location of tenderness (\"over the medial and lateral joint lines\"), and critically, the negative findings for Lachman's and McMurray's tests. The omission of these negative stability tests is a moderate issue, as they are important for ruling out specific knee injuries.",
         "omissions": [
-          "Physical Examination sub-sections (Inspection, Palpation, Range of Motion, Stability Tests)",
-          "Inspection detail: no visible deformity",
-          "Stability Tests: Negative Lachman's and McMurray's tests"
+          "\"no visible deformity\" (from Inspection)",
+          "\"over the medial and lateral joint lines\" (from Palpation)",
+          "\"Negative Lachman's and McMurray's tests\" (from Stability Tests)"
         ],
         "additions": []
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section is accurate and complete. It correctly identifies the possible exacerbation of mild osteoarthritis. The addition regarding 'pending confirmation from further diagnostic imaging (X-ray, potentially MRI)' is fully supported by the transcript and enhances clarity. The only omission, 'Pain in the left knee' as a separate diagnosis, is minor as the primary issue is well-captured.",
+        "summary": "The Assessment section accurately identifies the possible exacerbation of mild osteoarthritis. It has minor omissions of \"Pain in the left knee\" as a separate problem and the qualifier \"pre-existing\" for osteoarthritis. The addition regarding pending confirmation from diagnostic imaging is supported by the transcript and does not impact the grade.",
         "omissions": [
-          "Pain in the left knee (as a separate diagnosis/problem)"
+          "\"Pain in the left knee\" as a separate problem",
+          "\"pre-existing\" (qualifier for mild osteoarthritis)"
         ],
         "additions": [
           "\"pending confirmation from further diagnostic imaging (X-ray, potentially MRI)\""
@@ -306,17 +298,13 @@
       {
         "section": "Plan",
         "grade": "A",
-        "summary": "The Plan section is comprehensive, including all major components of treatment, follow-up, and referrals. All additions, such as the detailed lifestyle modifications, are supported by the transcript. Minor omissions include the absence of specific section headers ('Treatment', 'Follow-up Recommendations', 'Referrals') and some descriptive phrases for the X-ray ('to rule out structural abnormalities'), MRI ('to evaluate any potential soft tissue damage'), and NSAIDs ('as needed'). These omissions do not detract from the clinical actionability of the plan.",
+        "summary": "The Plan section effectively outlines the treatment, follow-up, and referral recommendations. It has minor omissions regarding the specific reasons for ordering the X-ray (\"to rule out structural abnormalities\") and considering the MRI (\"to evaluate any potential soft tissue damage\"). The additional examples for lifestyle modifications are supported by the transcript and do not affect the grade.",
         "omissions": [
-          "\"Treatment\" section header",
-          "\"Follow-up Recommendations\" section header",
-          "\"Referrals\" section header",
-          "X-ray detail: \"to rule out structural abnormalities\"",
-          "MRI detail: \"to evaluate any potential soft tissue damage\"",
-          "NSAIDs detail: \"as needed\""
+          "\"to rule out structural abnormalities\" (reason for X-ray)",
+          "\"to evaluate any potential soft tissue damage\" (reason for MRI)"
         ],
         "additions": [
-          "Lifestyle modifications details: \"such as avoiding activities that exacerbate the pain and using a cane or knee brace for support if necessary\""
+          "Specific examples for lifestyle modifications: \"such as avoiding activities that exacerbate the pain and using a cane or knee brace for support if necessary.\""
         ]
       }
     ],
@@ -325,32 +313,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Assessment detail: \"pending confirmation from further diagnostic imaging (X-ray, potentially MRI)\"",
+      "addition_text": "\"pending confirmation from further diagnostic imaging (X-ray, potentially MRI)\" (in Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Hmm, well, we’ll need to confirm it, but it’s a possibility given your symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The diagnosis is pending confirmation from further diagnostic imaging."
+      "matched_claim_text": "The diagnosis is pending confirmation from further diagnostic imaging.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Plan detail for lifestyle modifications: \"such as avoiding activities that exacerbate the pain and using a cane or knee brace for support if necessary\"",
+      "addition_text": "Specific examples for lifestyle modifications: \"such as avoiding activities that exacerbate the pain and using a cane or knee brace for support if necessary.\" (in Plan)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: and consider using a cane or a knee brace for support if necessary.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle modifications include using a cane or knee brace for support if necessary."
+      "matched_claim_text": "Lifestyle modifications include using a cane or knee brace for support if necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"pending confirmation from further diagnostic imaging (X-ray, potentially MRI)\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: Hmm, well, we’ll need to confirm it, but it’s a possibility given your symptoms.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "The diagnosis is pending confirmation from further diagnostic imaging."
+      "matched_claim_text": "The diagnosis is pending confirmation from further diagnostic imaging.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Lifestyle modifications details: \"such as avoiding activities that exacerbate the pain and using a cane or knee brace for support if necessary\"",
+      "addition_text": "Specific examples for lifestyle modifications: \"such as avoiding activities that exacerbate the pain and using a cane or knee brace for support if necessary.\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[Doctor]: and consider using a cane or a knee brace for support if necessary.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Lifestyle modifications include using a cane or knee brace for support if necessary."
+      "matched_claim_text": "Lifestyle modifications include using a cane or knee brace for support if necessary.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }

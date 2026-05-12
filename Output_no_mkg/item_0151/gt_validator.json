@@ -252,95 +252,100 @@
     "plan_alignment_score": 0.6528497409326425
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer-expert",
+    "model": "clinical_documentation_reviewer",
     "overall_grade": "C",
-    "overall_summary": "The generated SOAP note provides a basic framework of the patient's visit but is significantly incomplete due to numerous omissions across all sections. While there are no unsupported or unknown additions, the note lacks crucial clinical details regarding the patient's history of present illness, specific physical exam findings, the full diagnostic context in the Assessment, and important specifics in the Plan, including medication details, comprehensive lab order components, and essential patient education and safety instructions. These consistent gaps make the note meaningfully incomplete and necessitate careful review and supplementation for full clinical utility.",
+    "overall_summary": "The generated note is broadly usable and captures the patient's chief complaint, vital signs, and the core treatment plan. However, it receives a C due to several omissions that reduce its completeness and clinical utility. Key diagnostic details, such as the patient's stage 3 CKD, are omitted from the Assessment, and the detailed physical exam findings are largely absent from the Objective section. Additionally, several minor details and patient education points are missing from the Plan. There are no unsupported or unknown additions that would further lower the grade.",
     "omissions": [
-      "Patient's follow-up reason: hypertensive chronic kidney disease (CKD) with stage 3 CKD.",
-      "Impact of symptoms on daily activities, energy levels, and physical activity.",
-      "Denial of palpitations.",
-      "Review of Systems for GI (no changes in appetite or bowel habits).",
-      "Review of Systems for Neuro (no recent falls or fainting episodes).",
-      "Review of Systems for Psych (denies depression or anxiety).",
-      "Detailed physical exam findings for General Appearance, HEENT, Cardiovascular, Abdomen, Extremities, and Respiratory.",
-      "Specific diagnosis of \"hypertensive chronic kidney disease, stage 3\" in Assessment.",
-      "Lisinopril prescription details: \"oral\", \"for blood pressure control\", \"30 tablets with 2 refills\".",
-      "Specific components of biochemistry panel (serum creatinine, BUN, eGFR).",
-      "Purpose of urinalysis: \"to check for proteinuria\".",
-      "Purpose of renal ultrasound: \"to assess kidney size and structure\".",
-      "Specific name of cardiologist: \"Dr. John Smith\".",
-      "Lifestyle advice: \"advise avoiding overexertion\".",
-      "Patient education on importance of blood pressure control and medication adherence.",
-      "General encouragement to maintain a healthy lifestyle.",
-      "Specific examples of new symptoms to report: \"swelling, severe dizziness\".",
-      "Documentation of patient's good understanding and compliance.",
-      "Instruction for patient to follow up with results from renal ultrasound and blood work."
+      "Patient's visit is a follow-up for hypertensive CKD with stage 3 CKD",
+      "Symptoms (fatigue, nocturia) affecting daily activities, reducing energy levels and limiting physical activity",
+      "Denies palpitations",
+      "Previously used amlodipine but had to discontinue it due to swelling (from Subjective HPI)",
+      "ROS: No changes in appetite or bowel habits",
+      "ROS: No recent falls or fainting episodes",
+      "ROS: Denies depression or anxiety",
+      "Physical Exam: General Appearance: Alert, oriented, and in no acute distress",
+      "Physical Exam: HEENT: No abnormalities noted",
+      "Physical Exam: Cardiovascular: Regular rate and rhythm, no murmurs, rubs, or gallops",
+      "Physical Exam: Abdomen: Non-tender, no masses, no organomegaly",
+      "Physical Exam: Extremities: No edema, pulses 2+ bilaterally",
+      "Physical Exam: Respiratory: Clear to auscultation bilaterally, no wheezes, rales, or rhonchi",
+      "Assessment: Patient presents with hypertensive chronic kidney disease, stage 3",
+      "Assessment: Medication history indicates a trial of amlodipine, which was discontinued due to adverse effects",
+      "Plan: Lisinopril prescription details: 30 tablets with 2 refills",
+      "Plan: Specific components of biochemistry panel (serum creatinine, BUN, eGFR)",
+      "Plan: Urinalysis purpose: to check for proteinuria",
+      "Plan: Renal ultrasound purpose: to assess kidney size and structure",
+      "Plan: Specific cardiologist name: Dr. John Smith",
+      "Plan: Lifestyle advice to avoid overexertion with brisk walking",
+      "Plan: Patient education on the importance of blood pressure control and medication adherence",
+      "Plan: Encouragement to maintain a healthy lifestyle",
+      "Plan: Specific examples of new symptoms to report (swelling, severe dizziness)",
+      "Plan: Patient demonstrated good understanding and compliance with the treatment plan"
     ],
     "additions": [
-      "Clarification of nocturia: \"(waking up frequently at night to use the bathroom)\".",
-      "Mention of discontinued amlodipine due to leg swelling in the Objective section."
+      "Subjective: Explanation of nocturia: \"waking up frequently at night to use the bathroom\"",
+      "Objective: Mention of discontinued use of amlodipine due to leg swelling (information misplaced from HPI/Assessment)"
     ],
     "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
         "grade": "B",
-        "summary": "The Subjective section is mostly aligned but omits several important details. Key omissions include the patient's specific follow-up reason (hypertensive CKD with stage 3 CKD), the impact of symptoms on daily activities, and the history of previous amlodipine use and discontinuation. Minor ROS denials were also omitted. The single addition was supported by the transcript and did not lower the grade.",
+        "summary": "The Subjective section captures the chief complaint and main HPI symptoms. However, it omits the context of the visit being a follow-up for hypertensive CKD with stage 3, the impact of symptoms on daily activities, and the patient's prior amlodipine use (though this information is present in the Objective section). Several minor ROS details are also omitted. All additions are supported by the transcript.",
         "omissions": [
-          "Patient's follow-up reason: hypertensive chronic kidney disease (CKD) with stage 3 CKD.",
-          "Impact of symptoms on daily activities, energy levels, and physical activity.",
-          "Denial of palpitations.",
-          "Previous use of amlodipine and discontinuation due to swelling.",
-          "Review of Systems for GI: No changes in appetite or bowel habits.",
-          "Review of Systems for Neuro: No recent falls or fainting episodes.",
-          "Review of Systems for Psych: Denies depression or anxiety."
+          "Patient's visit is a follow-up for hypertensive CKD with stage 3 CKD",
+          "Symptoms (fatigue, nocturia) affecting daily activities, reducing energy levels and limiting physical activity",
+          "Denies palpitations",
+          "Previously used amlodipine but had to discontinue it due to swelling",
+          "ROS: No changes in appetite or bowel habits",
+          "ROS: No recent falls or fainting episodes",
+          "ROS: Denies depression or anxiety"
         ],
         "additions": [
-          "Clarification of nocturia: \"(waking up frequently at night to use the bathroom)\"."
+          "Explanation of nocturia: \"waking up frequently at night to use the bathroom\""
         ]
       },
       {
         "section": "Objective",
         "grade": "C",
-        "summary": "The Objective section has noticeable gaps due to the omission of almost all detailed physical exam findings. While vital signs are present, the lack of specific observations for General Appearance, HEENT, Cardiovascular, Abdomen, Extremities, and Respiratory systems makes this section meaningfully incomplete. The addition of amlodipine discontinuation, though misplaced from HPI, was supported by the transcript and did not impact the grade.",
+        "summary": "While vital signs are accurately reported, the detailed physical exam findings (General Appearance, HEENT, Cardiovascular, Abdomen, Extremities, Respiratory) are largely omitted, replaced by a generic statement. This significantly reduces the completeness of the physical examination documentation. The addition of amlodipine discontinuation information is supported by the transcript.",
         "omissions": [
-          "Detailed physical exam findings for General Appearance: Alert, oriented, and in no acute distress.",
-          "Detailed physical exam findings for HEENT: No abnormalities noted.",
-          "Detailed physical exam findings for Cardiovascular: Regular rate and rhythm, no murmurs, rubs, or gallops.",
-          "Detailed physical exam findings for Abdomen: Non-tender, no masses, no organomegaly.",
-          "Detailed physical exam findings for Extremities: No edema, pulses 2+ bilaterally.",
-          "Detailed physical exam findings for Respiratory: Clear to auscultation bilaterally, no wheezes, rales, or rhonchi."
+          "Physical Exam: General Appearance: Alert, oriented, and in no acute distress",
+          "Physical Exam: HEENT: No abnormalities noted",
+          "Physical Exam: Cardiovascular: Regular rate and rhythm, no murmurs, rubs, or gallops",
+          "Physical Exam: Abdomen: Non-tender, no masses, no organomegaly",
+          "Physical Exam: Extremities: No edema, pulses 2+ bilaterally",
+          "Physical Exam: Respiratory: Clear to auscultation bilaterally, no wheezes, rales, or rhonchi"
         ],
         "additions": [
-          "Mention of discontinued use of amlodipine due to leg swelling."
+          "Mention of discontinued use of amlodipine due to leg swelling"
         ]
       },
       {
         "section": "Assessment",
         "grade": "C",
-        "summary": "The Assessment section is incomplete, omitting the specific diagnosis of \"hypertensive chronic kidney disease, stage 3\" and the important context of the patient's prior trial and discontinuation of amlodipine due to adverse effects. These omissions represent moderate issues that reduce the precision and completeness of the clinical assessment.",
+        "summary": "The Assessment correctly identifies the primary issues but omits the specific stage of chronic kidney disease (stage 3) and the explicit mention of the amlodipine trial and discontinuation as part of the medication history, which is important context for the plan. There are no unsupported or unknown additions.",
         "omissions": [
-          "Specific diagnosis of \"hypertensive chronic kidney disease, stage 3\".",
-          "Medication history indicates a trial of amlodipine, which was discontinued due to adverse effects."
+          "Patient presents with hypertensive chronic kidney disease, stage 3",
+          "Medication history indicates a trial of amlodipine, which was discontinued due to adverse effects"
         ],
         "additions": []
       },
       {
         "section": "Plan",
-        "grade": "C",
-        "summary": "The Plan section contains numerous omissions, making it significantly less detailed and useful. Missing elements include specific prescription details for Lisinopril (e.g., refills), the full components of the biochemistry panel, the purpose of specific orders (urinalysis, renal ultrasound), the specific name of the cardiologist, and crucial patient education points such as avoiding overexertion, the importance of medication adherence, specific symptoms to report (swelling, severe dizziness), and documentation of patient understanding. These multiple minor to moderate omissions reduce the clinical utility and safety of the plan.",
+        "grade": "B",
+        "summary": "The Plan section outlines all major components of the treatment plan, including medication, diagnostics, referrals, and lifestyle advice. However, it omits numerous minor details such as specific prescription quantities, detailed components of blood work, the purpose of imaging/urinalysis, the specific cardiologist's name, and several patient education points. There are no unsupported or unknown additions.",
         "omissions": [
-          "Lisinopril prescription details: \"oral\", \"for blood pressure control\", \"30 tablets with 2 refills\".",
-          "Specific components of biochemistry panel (serum creatinine, BUN, eGFR).",
-          "Purpose of urinalysis: \"to check for proteinuria\".",
-          "Purpose of renal ultrasound: \"to assess kidney size and structure\".",
-          "Specific name of cardiologist: \"Dr. John Smith\".",
-          "Lifestyle advice: \"advise avoiding overexertion\".",
-          "Patient education on importance of blood pressure control and medication adherence.",
-          "General encouragement to maintain a healthy lifestyle.",
-          "Specific examples of new symptoms to report: \"swelling, severe dizziness\".",
-          "Documentation of patient's good understanding and compliance.",
-          "Instruction for patient to follow up in 3 months with the results from the renal ultrasound and blood work."
+          "Lisinopril prescription details: 30 tablets with 2 refills",
+          "Specific components of biochemistry panel (serum creatinine, BUN, eGFR)",
+          "Urinalysis purpose: to check for proteinuria",
+          "Renal ultrasound purpose: to assess kidney size and structure",
+          "Specific cardiologist name: Dr. John Smith",
+          "Lifestyle advice to avoid overexertion with brisk walking",
+          "Patient education on the importance of blood pressure control and medication adherence",
+          "Encouragement to maintain a healthy lifestyle",
+          "Specific examples of new symptoms to report (swelling, severe dizziness)",
+          "Patient demonstrated good understanding and compliance with the treatment plan"
         ],
         "additions": []
       }
@@ -350,25 +355,40 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Clarification of nocturia: \"(waking up frequently at night to use the bathroom)\".",
+      "addition_text": "Subjective: Explanation of nocturia: \"waking up frequently at night to use the bathroom\"",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I've been waking up a lot at night to use the bathroom.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Mention of discontinued amlodipine due to leg swelling in the Objective section.",
+      "addition_text": "Objective: Mention of discontinued use of amlodipine due to leg swelling (information misplaced from HPI/Assessment)",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You mentioned previously using amlodipine but had to stop due to swelling, correct? [patient] Yes, that's right. I had to discontinue it because my legs were swelling.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient previously used amlodipine but discontinued it due to leg swelling."
+      "matched_claim_text": "Patient previously used amlodipine but discontinued it due to leg swelling.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Mention of discontinued use of amlodipine due to leg swelling.",
+      "addition_text": "Explanation of nocturia: \"waking up frequently at night to use the bathroom\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "I've been waking up a lot at night to use the bathroom.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "Mention of discontinued use of amlodipine due to leg swelling",
       "supported_by_transcript": "supported",
       "transcript_evidence": "[doctor] You mentioned previously using amlodipine but had to stop due to swelling, correct? [patient] Yes, that's right. I had to discontinue it because my legs were swelling.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Patient previously used amlodipine but discontinued it due to leg swelling."
+      "matched_claim_text": "Patient previously used amlodipine but discontinued it due to leg swelling.",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     }
   ]
 }

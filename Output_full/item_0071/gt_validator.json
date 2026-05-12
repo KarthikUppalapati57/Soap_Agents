@@ -239,24 +239,27 @@
     "plan_alignment_score": 0.7159090909090909
   },
   "expert_judge": {
-    "model": "clinical-documentation-reviewer",
-    "overall_grade": "D",
-    "overall_summary": "The generated SOAP note presents significant issues that materially reduce its clinical usefulness and introduce unsupported content. Key problems include multiple major omissions in the Plan section, specifically the entire Patient Education and Next Steps, which are critical for comprehensive patient care and follow-up. Additionally, the Objective section contains an unsupported clinical finding (\"equal extremities\") not present in the transcript, which is a high-severity alignment issue. While some sections are well-captured, the cumulative impact of these issues makes the note meaningfully incomplete and potentially misleading.",
+    "model": "clinical_documentation_reviewer",
+    "overall_grade": "C",
+    "overall_summary": "The generated note provides a concise summary but omits significant clinical details and structural elements present in the ground truth. Key omissions include the patient's reason for visit, the detailed Review of Systems, and the severity and impact of symptoms in the Subjective section. In the Plan section, the entire Patient Education and Next Steps sections are missing. While core diagnoses and treatment plans are present, these omissions reduce the overall completeness and clinical utility of the documentation. All additions were supported by the transcript and did not negatively impact the grade.",
     "omissions": [
       "Chief Complaint section header",
-      "History of Present Illness section header",
-      "Reason for visit: routine follow-up of his diabetes management",
-      "Severity of symptoms: moderate",
-      "Impact of symptoms: significantly impact his ability to manage daily activities, often feeling constantly tired",
+      "History of Present Illness (HPI) section header",
       "Review of Systems (ROS) section header",
-      "ROS Constitutional: feeling unrefreshed despite sleeping 7-8 hours per night",
-      "ROS Gastrointestinal: No nausea or changes in bowel habits",
-      "ROS Cardiovascular: No chest pain, palpitations, or dyspnea",
-      "ROS Musculoskeletal: No joint pain or swelling",
-      "ROS Skin: No rashes or lesions",
+      "Patient's reason for visit: routine follow-up of his diabetes management",
+      "Moderate severity of symptoms",
+      "Symptoms significantly impact ability to manage daily activities, often feeling constantly tired",
+      "ROS - Constitutional: feeling unrefreshed despite sleeping 7-8 hours per night",
+      "ROS - Endocrine: persistent fatigue",
+      "ROS - Neurological: blurred vision",
+      "ROS - Gastrointestinal: No nausea or changes in bowel habits",
+      "ROS - Genitourinary: frequent urination",
+      "ROS - Cardiovascular: No chest pain, palpitations, or dyspnea",
+      "ROS - Musculoskeletal: No joint pain or swelling",
+      "ROS - Skin: No rashes or lesions",
       "Vitals section header",
-      "Height: 5'9\"",
-      "Weight: 230 lbs",
+      "Patient's height (5'9\")",
+      "Patient's weight (230 lbs)",
       "Physical Examination section header",
       "Extremities: No edema",
       "Neurological: Normal sensation and reflexes",
@@ -271,50 +274,49 @@
       "\"(biochemistry)\" for Liver function tests",
       "\"(biochemistry)\" for Thyroid function tests",
       "Lifestyle Recommendations section header",
-      "Patient Education section",
-      "Patient Education: Discussed importance of diet and exercise",
-      "Patient Education: Emphasized need for regular monitoring of blood glucose levels",
-      "Patient Education: Provided resources for smoking cessation",
-      "Patient Education: Scheduled a follow-up to assess progress",
-      "Next Steps section",
-      "Next Steps: Await test results and adjust treatment plan accordingly",
-      "Next Steps: Continue monitoring and provide support for lifestyle changes"
+      "Patient Education section header",
+      "Patient Education: Discussed the importance of diet and exercise in the management of diabetes and overall health",
+      "Patient Education: Emphasized the need for regular monitoring of blood glucose levels",
+      "Patient Education: Provided resources for smoking cessation and scheduled a follow-up to assess progress",
+      "Next Steps section header",
+      "Next Steps: Await the test results for the ordered blood work and adjust the treatment plan accordingly",
+      "Next Steps: Continue monitoring and provide support for the implementation of lifestyle changes"
     ],
     "additions": [
-      "Objective: \"equal extremities\" in physical exam",
-      "Assessment: \"based on symptoms and exam\"",
-      "Plan: \"for diabetes management\" for Metformin",
-      "Plan: \"if the patient smokes (patient does not smoke)\" in smoking cessation recommendation",
-      "Plan: \"Emphasize adherence to medication schedule and lifestyle changes\""
+      "\"equal extremities\" in Objective section",
+      "\"based on symptoms and exam\" in Assessment section",
+      "\"for diabetes management\" for Metformin",
+      "\"if the patient smokes (patient does not smoke)\" in smoking cessation program recommendation",
+      "\"and lifestyle changes\" in emphasizing adherence to medication schedule"
     ],
-    "hallucinations_or_unjustified_inferences": [
-      "Objective: \"equal extremities\" in physical exam",
-      "\"equal extremities\" in physical exam"
-    ],
+    "hallucinations_or_unjustified_inferences": [],
     "section_grades": [
       {
         "section": "Subjective",
-        "grade": "B",
-        "summary": "The Subjective section captures the patient's chief complaints and duration of symptoms. However, it omits important details from the History of Present Illness, such as the reason for the visit, the severity of symptoms, and their impact on daily activities. Additionally, several negative findings from the Review of Systems are omitted, reducing the overall completeness of the section.",
+        "grade": "C",
+        "summary": "The Subjective section omits the patient's reason for visit (routine diabetes follow-up), the moderate severity and significant impact of symptoms on daily activities, and the comprehensive, structured Review of Systems. While the main symptoms are captured, these omissions make the section meaningfully incomplete.",
         "omissions": [
           "Chief Complaint section header",
-          "History of Present Illness section header",
-          "Reason for visit: routine follow-up of his diabetes management",
-          "Severity of symptoms: moderate",
-          "Impact of symptoms: significantly impact his ability to manage daily activities, often feeling constantly tired",
+          "History of Present Illness (HPI) section header",
           "Review of Systems (ROS) section header",
-          "ROS Constitutional: feeling unrefreshed despite sleeping 7-8 hours per night",
-          "ROS Gastrointestinal: No nausea or changes in bowel habits",
-          "ROS Cardiovascular: No chest pain, palpitations, or dyspnea",
-          "ROS Musculoskeletal: No joint pain or swelling",
-          "ROS Skin: No rashes or lesions"
+          "Reason for visit: routine follow-up of his diabetes management",
+          "Moderate severity of symptoms",
+          "Symptoms significantly impact ability to manage daily activities, often feeling constantly tired",
+          "ROS - Constitutional: feeling unrefreshed despite sleeping 7-8 hours per night",
+          "ROS - Endocrine: persistent fatigue",
+          "ROS - Neurological: blurred vision",
+          "ROS - Gastrointestinal: No nausea or changes in bowel habits",
+          "ROS - Genitourinary: frequent urination",
+          "ROS - Cardiovascular: No chest pain, palpitations, or dyspnea",
+          "ROS - Musculoskeletal: No joint pain or swelling",
+          "ROS - Skin: No rashes or lesions"
         ],
         "additions": []
       },
       {
         "section": "Objective",
-        "grade": "C",
-        "summary": "The Objective section includes most vital signs and a good overview of the physical examination. However, it omits the patient's height and weight, as well as specific negative findings regarding extremities (no edema) and neurological examination (normal sensation and reflexes). A significant concern is the unsupported addition of \"equal extremities\" in the physical exam, which is not directly supported by the transcript.",
+        "grade": "A",
+        "summary": "The Objective section is largely complete, accurately capturing vital signs and physical examination findings. Minor omissions include the patient's height, weight, and specific details regarding the absence of edema and normal sensation/reflexes. All additions were supported by the transcript.",
         "omissions": [
           "Vitals section header",
           "Height: 5'9\"",
@@ -324,13 +326,13 @@
           "Neurological: Normal sensation and reflexes"
         ],
         "additions": [
-          "\"equal extremities\" in physical exam"
+          "\"equal extremities\" (beyond peripheral pulses)"
         ]
       },
       {
         "section": "Assessment",
         "grade": "A",
-        "summary": "The Assessment section accurately lists all diagnoses from the Ground Truth. The only omission is the specificity of \"without complications\" for Type 2 Diabetes Mellitus, which is a minor detail. There are no unsupported or unknown additions.",
+        "summary": "The Assessment section accurately lists the patient's diagnoses. The only omission is the detail \"without complications\" for Type 2 Diabetes Mellitus, which is a minor detail. All additions were supported by the transcript.",
         "omissions": [
           "\"without complications\" for Type 2 Diabetes Mellitus"
         ],
@@ -340,8 +342,8 @@
       },
       {
         "section": "Plan",
-        "grade": "D",
-        "summary": "The Plan section captures the core medication regimen, follow-up schedule, specialist referral, blood work orders, and lifestyle recommendations. However, it suffers from multiple major omissions, including the entire Patient Education and Next Steps sections. These omissions represent significant gaps in documenting patient understanding, adherence instructions, and the overall ongoing management strategy, materially reducing the clinical usefulness and completeness of the plan.",
+        "grade": "C",
+        "summary": "The Plan section captures the core medications, follow-up schedule, specialist referral, blood work, and lifestyle recommendations. However, it significantly omits the entire Patient Education section, which details crucial patient counseling on diet, exercise, monitoring, and resources. It also omits the \"Next Steps\" section, which outlines awaiting test results and adjusting the plan. These are major omissions that reduce the completeness and guidance of the plan. All additions were supported by the transcript.",
         "omissions": [
           "Medications section header",
           "\"oral\" route for Metformin",
@@ -353,19 +355,18 @@
           "\"(biochemistry)\" for Liver function tests",
           "\"(biochemistry)\" for Thyroid function tests",
           "Lifestyle Recommendations section header",
-          "Patient Education section",
-          "Patient Education: Discussed importance of diet and exercise",
-          "Patient Education: Emphasized need for regular monitoring of blood glucose levels",
-          "Patient Education: Provided resources for smoking cessation",
-          "Patient Education: Scheduled a follow-up to assess progress",
-          "Next Steps section",
-          "Next Steps: Await test results and adjust treatment plan accordingly",
-          "Next Steps: Continue monitoring and provide support for lifestyle changes"
+          "Patient Education section header",
+          "Patient Education: Discussed the importance of diet and exercise in the management of diabetes and overall health",
+          "Patient Education: Emphasized the need for regular monitoring of blood glucose levels",
+          "Patient Education: Provided resources for smoking cessation and scheduled a follow-up to assess progress",
+          "Next Steps section header",
+          "Next Steps: Await the test results for the ordered blood work and adjust the treatment plan accordingly",
+          "Next Steps: Continue monitoring and provide support for the implementation of lifestyle changes"
         ],
         "additions": [
           "\"for diabetes management\" for Metformin",
-          "\"if the patient smokes (patient does not smoke)\" in smoking cessation recommendation",
-          "\"Emphasize adherence to medication schedule and lifestyle changes\""
+          "\"if the patient smokes (patient does not smoke)\" in smoking cessation program recommendation",
+          "\"and lifestyle changes\" in emphasizing adherence to medication schedule"
         ]
       }
     ],
@@ -374,74 +375,67 @@
   "expert_judge_error": null,
   "addition_evidence": [
     {
-      "addition_text": "Objective: \"equal extremities\" in physical exam",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
+      "addition_text": "\"equal extremities\" in Objective section",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "peripheral pulses are present and equal",
       "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "Assessment: \"based on symptoms and exam\"",
+      "addition_text": "\"based on symptoms and exam\" in Assessment section",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Based on your symptoms and exam, you have Type 2 Diabetes Mellitus, obesity, hyperlipidemia, and hypothyroidism.",
       "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "Plan: \"for diabetes management\" for Metformin",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I’m recommending starting Metformin 1000 mg once daily for your diabetes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start Metformin 1000 mg once daily for diabetes management."
-    },
-    {
-      "addition_text": "Plan: \"if the patient smokes (patient does not smoke)\" in smoking cessation recommendation",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "I also recommend enrolling in a smoking cessation program if you smoke. It’s really important for your overall health. Luckily, I don’t smoke.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage enrollment in a smoking cessation program if the patient smokes (patient does not smoke)."
-    },
-    {
-      "addition_text": "Plan: \"Emphasize adherence to medication schedule and lifestyle changes\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Please adhere to your medication schedule and lifestyle changes.",
-      "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize adherence to medication schedule and lifestyle changes."
-    },
-    {
-      "addition_text": "\"equal extremities\" in physical exam",
-      "supported_by_transcript": "unsupported",
-      "transcript_evidence": null,
-      "evidence_source": "gemini",
-      "matched_claim_text": null
-    },
-    {
-      "addition_text": "\"based on symptoms and exam\"",
-      "supported_by_transcript": "supported",
-      "transcript_evidence": "Based on your symptoms and exam, you have Type 2 Diabetes Mellitus, obesity, hyperlipidemia, and hypothyroidism.",
-      "evidence_source": "gemini",
-      "matched_claim_text": null
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
       "addition_text": "\"for diabetes management\" for Metformin",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I’m recommending starting Metformin 1000 mg once daily for your diabetes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Start Metformin 1000 mg once daily for diabetes management."
+      "matched_claim_text": "Start Metformin 1000 mg once daily for diabetes management.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"if the patient smokes (patient does not smoke)\" in smoking cessation recommendation",
+      "addition_text": "\"if the patient smokes (patient does not smoke)\" in smoking cessation program recommendation",
       "supported_by_transcript": "supported",
       "transcript_evidence": "I also recommend enrolling in a smoking cessation program if you smoke. It’s really important for your overall health. Luckily, I don’t smoke.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Encourage enrollment in a smoking cessation program if the patient smokes (patient does not smoke)."
+      "matched_claim_text": "Encourage enrollment in a smoking cessation program if the patient smokes (patient does not smoke).",
+      "supported_by_primekg": "unknown",
+      "primekg_evidence": null
     },
     {
-      "addition_text": "\"Emphasize adherence to medication schedule and lifestyle changes\"",
+      "addition_text": "\"and lifestyle changes\" in emphasizing adherence to medication schedule",
       "supported_by_transcript": "supported",
       "transcript_evidence": "Please adhere to your medication schedule and lifestyle changes.",
       "evidence_source": "agent3_claims",
-      "matched_claim_text": "Emphasize adherence to medication schedule and lifestyle changes."
+      "matched_claim_text": "Emphasize adherence to medication schedule and lifestyle changes.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"equal extremities\" (beyond peripheral pulses)",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Your extremities show no edema, and peripheral pulses are present and equal. Neurologically, your sensation and reflexes are normal.",
+      "evidence_source": "agent3_claims",
+      "matched_claim_text": "Peripheral pulses are present and equal, and neurologically, sensation and reflexes are normal.",
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
+    },
+    {
+      "addition_text": "\"based on symptoms and exam\"",
+      "supported_by_transcript": "supported",
+      "transcript_evidence": "Based on your symptoms and exam, you have Type 2 Diabetes Mellitus, obesity, hyperlipidemia, and hypothyroidism.",
+      "evidence_source": "gemini",
+      "matched_claim_text": null,
+      "supported_by_primekg": "unsupported",
+      "primekg_evidence": null
     }
   ]
 }
